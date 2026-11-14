@@ -13,12 +13,12 @@
  "endereco_maps": "Av. Itapark, 772 - Vila Bocaina, Mauá - SP, 09350-000",
  "google_nota": "5,0",
  "google_total": "31",
- "verificado": "2026-11-06",
+ "verificado": "2026-11-13",
  "whatsapp": "5511942776730",
  "fone_link": "+5511942776730",
  "instagram": "re.viverfotografia",
  "seguidores": "2,4 mil",
- "mensagem": "Olá, Denise! Vi o seu site e queria saber mais sobre os ensaios.",
+ "mensagem": "Olá! Vi o portfólio da Denise e queria saber mais sobre os ensaios.",
  "cores": {
   "fundo": "#fcfaf7",
   "papel": "#ffffff",
@@ -74,11 +74,11 @@
   "preco_pix": "R$ 399",
   "parcelado": "2x de R$ 199",
   "nota_preco": "pagamento único, sem mensalidade",
-  "valido_ate": "2026-11-13",
-  "msg_garantir": "Olá! Sou a Denise, da Reviver Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
-  "msg_negociar": "Olá! Sou a Denise, da Reviver Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "valido_ate": "2026-11-21",
+  "msg_garantir": "Olá! Sou a Denise, da Reviver Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Denise, da Reviver Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "4z8d",
-  "msg_duvida": "Olá! Sou a Denise, da Reviver Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+  "msg_duvida": "Olá! Sou a Denise, da Reviver Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
   "fontes": {
@@ -666,25 +666,184 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
+  "olho": "Estúdio de fotografia · Vila Bocaina, Mauá",
+  "titulo": "Fotografias para reviver cada momento.",
+  "linha": "Natal, famílias, bebês, crianças, gestantes e casais, no estúdio da Denise, em Mauá.",
   "local": "Mauá",
-  "h1": "Natal, famílias e bebês em Mauá.",
-  "frase": "Fotografias para reviver cada momento.",
-  "capa": "natal:7",
+  "tira": [
+   "natal:0",
+   "bebes:0",
+   "familia:0",
+   "gestante:0",
+   "natal:1",
+   "bebes:1",
+   "familia:1"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Carol Coutinho",
+    "tag": "Leve e divertido",
+    "texto": "A Denise sempre nos deixa super à vontade, transformando o ensaio em algo leve e divertido. Tem um olhar único e capta cada detalhe com perfeição."
+   },
+   {
+    "nome": "Lorenzo Calado",
+    "tag": "Família",
+    "texto": "Uma profissional exemplar, extrovertida, que deixa o cliente descontraído para fotografar os melhores momentos com carinho, amor e dedicação."
+   },
+   {
+    "nome": "Mell Duarte",
+    "tag": "Experiência",
+    "texto": "Denise é uma profissional de excelência, dedicada, sempre buscando proporcionar a melhor experiência para nós, clientes. Sem dúvida nenhuma recomendo."
+   },
+   {
+    "nome": "Amanda Caroba Balbino",
+    "tag": "Atenção",
+    "texto": "O trabalho da Denise é perfeito, as fotos são maravilhosas e ela é um amor, super atenciosa. Com toda certeza, recomendo!"
+   }
+  ],
+  "contato": {
+   "titulo": "Vem viver essa magia com a gente.",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Vila Bocaina, em Mauá, e atende de segunda a sexta.",
+   "endereco": [
+    "Av. Itapark, 772",
+    "Vila Bocaina · Mauá, SP"
+   ],
+   "telefone": "(11) 94277-6730"
+  },
+  "_ficha": {
+   "direcao": [
+    "Lote 3 de fotógrafos. Dona: Denise Domingos. Estúdio na Vila Bocaina, em Mauá; tom claro, Lora e Nunito Sans, verde.",
+    "A página de Natal se chama só \"Natal\": as fotos da sala de Natal são do Natal passado (postadas no começo de 2026); o Natal 2026 só aparece em vídeo (\"Nosso 1º cenário já está finalizado\", \"segundo cenário… agenda de novembro e dezembro oficialmente disponível\").",
+    "Na v4 entrou a página Gestante e casal (gestantes e casais em alta, do Google e da grade)."
+   ],
+   "fora": "as capas de vídeo do Natal 2026, as fotos repetidas e as em 9:16.",
+   "textos": [
+    "Dela: \"Às vezes eu não sei lidar com tanta fofura\", \"Vem viver essa magia com a gente\", \"Nosso segundo cenário de Natal finalizado, agenda de novembro e dezembro oficialmente disponível\".",
+    "Avaliações (lidas inteiras em 13/11): falam da Denise em geral; Carol Coutinho no Natal, Mell Duarte nos bebês, Lorenzo Calado na família.",
+    "Não são dela: os pacotes e valores (exemplos) e o \"quando fazer\" de gestante."
+   ],
+   "conferir": [
+    "As fotos do Natal são do cenário do ano passado: o de 2026 só está nos vídeos."
+   ]
+  },
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py). Fotos dos ORIGINAIS (drive/ = a grade dela salva no Drive; posts/ = carrosséis do embed público; google/ = Perfil da Empresa), escolhidas uma a uma na folha de contato. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "versao": 4,
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "A Denise, atrás da câmera.",
+   "p": [
+    "A Denise Domingos fotografa famílias, bebês, crianças, gestantes e casais na Reviver Fotografia, na Vila Bocaina, em Mauá.",
+    "No Natal, o estúdio vira uma sala de Natal inteira, com o sofá verde, a árvore e as luzinhas."
+   ],
+   "citacao": "Às vezes eu não sei lidar com tanta fofura.",
+   "citacao_quem": "Reviver Fotografia, no Instagram",
+   "fotos": [
+    {
+     "arq": "drive/528261113_18271271941302458_3266566066689734803_n.jpg",
+     "alt": "A Denise com a câmera na mão"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 31 avaliações no Google"
+    ],
+    [
+     "2,4 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
   "ensaios": [
    {
     "id": "natal",
-    "nome": "Natal 2026",
+    "nome": "Natal",
     "chamada": "Ensaio de Natal",
-    "fotos": [
-     "natal:1,5",
-     "pn:0",
-     "natal:4,2,9",
-     "familia:2,1"
+    "pedido": "o ensaio de Natal",
+    "frase": "Vem viver essa magia com a gente.",
+    "texto": "A sala de Natal no estúdio, com o sofá verde, a árvore e as luzinhas, para a família toda.",
+    "quando": "Os cenários de Natal 2026 já estão prontos, e a agenda de novembro e dezembro está aberta.",
+    "depo": {
+     "nome": "Carol Coutinho",
+     "texto": "A Denise é uma fotógrafa maravilhosa! Sempre nos deixa super à vontade, transformando o ensaio em algo leve e divertido. Tem um olhar único, capta cada detalhe com perfeição e faz de tudo para que as fotos fiquem do jeitinho que a gente sonha."
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Vem viver essa magia com a gente.",
-    "sub": "O cenário de Natal 2026 já está pronto: a sala de sofá verde, com a árvore e as luzinhas.",
-    "texto": "Crianças, casais e a família inteira na sala de Natal da Reviver, num ensaio leve e divertido.",
+    "fotos": [
+     {
+      "arq": "drive/623451159_18071877473416829_6008114205859969272_n.webp",
+      "alt": "Família de vermelho no tapete de Natal"
+     },
+     {
+      "arq": "drive/617541609_17902159668357723_4474616631741710506_n.webp",
+      "alt": "Família deitada no tapete, junto à árvore"
+     },
+     {
+      "arq": "drive/622392564_17948303883006273_4442169170918835672_n.webp",
+      "alt": "Irmão beijando a bebê, junto à árvore"
+     },
+     {
+      "arq": "drive/626453883_18213181186314787_7081427741374342610_n.webp",
+      "alt": "Família de vermelho sentada no tapete"
+     },
+     {
+      "arq": "drive/626433950_18105281029841051_3666195570719821977_n.webp",
+      "alt": "Mãe com os filhos junto à árvore"
+     },
+     {
+      "arq": "drive/624653657_17978391419973559_8372005637452695023_n.webp",
+      "alt": "Mãe e filhos deitados no tapete de Natal"
+     },
+     {
+      "arq": "drive/625034356_18124217434558462_2347747398923388528_n.webp",
+      "alt": "Família deitada no tapete, junto à árvore"
+     },
+     {
+      "arq": "drive/617419093_17923660287220893_9087974756178455303_n.webp",
+      "alt": "Família com a filha no tapete de Natal"
+     },
+     {
+      "arq": "drive/625164992_18080505050463954_5461690026930000781_n.webp",
+      "alt": "Família de vermelho no sofá verde"
+     },
+     {
+      "arq": "drive/628087569_18337942432246274_4892109829807250228_n.webp",
+      "alt": "Pais com os filhos no tapete de Natal"
+     },
+     {
+      "arq": "drive/625110172_18056585402682544_1866491669560339101_n.webp",
+      "alt": "Irmãos sentados no tapete de Natal"
+     },
+     {
+      "arq": "drive/622975888_18146521651456468_1563005105855464771_n.webp",
+      "alt": "Família sentada no tapete, junto à árvore"
+     },
+     {
+      "arq": "drive/627865996_18106620454705367_2495699760501473555_n.webp",
+      "alt": "Pais com o filho no tapete de Natal"
+     },
+     {
+      "arq": "drive/640837013_18569461075053162_5088150183000463938_n.webp",
+      "alt": "Pais abraçando o filho no tapete"
+     },
+     {
+      "arq": "drive/637274810_18538249252066274_7346220868385605985_n.webp",
+      "alt": "Família deitada no tapete, de vermelho e preto"
+     },
+     {
+      "arq": "drive/621922794_18017450363804429_5939721814338571078_n.webp",
+      "alt": "Casal com o bebê no colo, de costas, junto à árvore"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Mini sessão",
@@ -714,63 +873,89 @@
        "Galeria online"
       ]
      }
-    ],
-    "quando": "A agenda de Natal está aberta, e os horários perto do Natal são os primeiros a acabar.",
-    "depo": "Carol Coutinho"
-   },
-   {
-    "id": "familia",
-    "nome": "Família",
-    "chamada": "Ensaio de família",
-    "fotos": [
-     "natal:6",
-     "familia:0,3,4,6,5,7"
-    ],
-    "titulo": "A família toda no estúdio.",
-    "sub": "Pais, filhos, irmãos e casais, com carinho e leveza.",
-    "texto": "Um ensaio descontraído, para guardar o jeito de cada família.",
-    "pacotes": [
-     {
-      "nome": "Essencial",
-      "preco": "R$ 320",
-      "itens": [
-       "40 minutos de ensaio",
-       "12 fotos editadas",
-       "Galeria online"
-      ]
-     },
-     {
-      "nome": "Completo",
-      "preco": "R$ 470",
-      "itens": [
-       "1 hora de ensaio",
-       "25 fotos editadas",
-       "Até 6 pessoas"
-      ],
-      "destaque": true
-     },
-     {
-      "nome": "Premium",
-      "preco": "R$ 670",
-      "itens": [
-       "1h30 de ensaio",
-       "40 fotos editadas",
-       "Quadro 30x40"
-      ]
-     }
-    ],
-    "depo": "Lorenzo Calado"
+    ]
    },
    {
     "id": "bebes",
-    "nome": "Bebês",
-    "chamada": "Ensaio de bebê",
-    "fotos": [
-     "bebes:1,2,0,7,8"
+    "nome": "Bebês e crianças",
+    "curto": "Bebês",
+    "chamada": "Ensaio de bebês e crianças",
+    "pedido": "o ensaio do bebê",
+    "frase": "Às vezes eu não sei lidar com tanta fofura.",
+    "texto": "Os meses do bebê, o primeiro aninho e as crianças, com cenários que mudam a cada fase.",
+    "depo": {
+     "nome": "Mell Duarte",
+     "texto": "Denise é uma profissional de excelência, dedicada, sempre buscando proporcionar a melhor experiência para nós, clientes, e uma pessoa excepcional. Sem dúvida nenhuma recomendo o trabalho dela."
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Às vezes eu não sei lidar com tanta fofura.",
-    "sub": "Os meses do bebê e o primeiro aninho, com cenários que mudam a cada fase.",
-    "texto": "Balões, bolo e muita fofura no primeiro aninho: um cenário novo para cada fase do bebê.",
+    "fotos": [
+     {
+      "arq": "drive/628994549_18363465943164756_8077287658528992706_n.webp",
+      "alt": "Bebê rindo de suéter branco"
+     },
+     {
+      "arq": "drive/624671984_18068692634442313_1540852203507629960_n.webp",
+      "alt": "Menina de vermelho com as mãos no rosto"
+     },
+     {
+      "arq": "drive/619222064_17919053592249966_8554559276464444009_n.webp",
+      "alt": "Bebê de laço verde sorrindo"
+     },
+     {
+      "arq": "drive/622387788_17947701342094039_3765977448456187695_n.webp",
+      "alt": "Menina sorrindo com a mão no rosto, junto à árvore"
+     },
+     {
+      "arq": "drive/641720606_18570764950029539_3403704406357413477_n.webp",
+      "alt": "Menino de vermelho rindo na cadeirinha"
+     },
+     {
+      "arq": "drive/623670017_18087802442121265_1294963223236686667_n.webp",
+      "alt": "Menina de vestido verde junto à árvore"
+     },
+     {
+      "arq": "drive/626788063_18036753800550034_309479955360545169_n.webp",
+      "alt": "Menino olhando para cima, junto à árvore"
+     },
+     {
+      "arq": "drive/625000061_17969163914853005_4744865490883379612_n.webp",
+      "alt": "Menina de macacão caramelo junto à árvore"
+     },
+     {
+      "arq": "posts/DdwEi59oOfF/DdwEi59oOfF_00.jpg",
+      "alt": "Bebê na cadeirinha, entre os balões lilás"
+     },
+     {
+      "arq": "google/g00.jpg",
+      "alt": "Bebê no cenário 365 sorrisos"
+     },
+     {
+      "arq": "google/g04.jpg",
+      "alt": "Bebê de 6 meses na caminha de madeira"
+     },
+     {
+      "arq": "drive/625893177_18116606515612920_2969678329308963135_n.webp",
+      "alt": "Menina com a bola de Natal nas mãos"
+     },
+     {
+      "arq": "drive/623310592_18052753427697546_5405246962145155927_n.webp",
+      "alt": "Menino sorrindo de perto"
+     },
+     {
+      "arq": "posts/DdwE5W_Tle1/DdwE5W_Tle1_00.jpg",
+      "alt": "Bebê sorrindo na cadeirinha, entre os balões"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Mês avulso",
@@ -800,9 +985,203 @@
        "Smash the cake de 1 ano incluso"
       ]
      }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "chamada": "Ensaio de família",
+    "pedido": "o ensaio de família",
+    "frase": "A família toda no estúdio.",
+    "texto": "Pais, filhos, irmãos e avós, com carinho e leveza.",
+    "depo": {
+     "nome": "Lorenzo Calado",
+     "texto": "Entrega um trabalho excelente, uma profissional exemplar, extrovertida, que deixa o cliente descontraído para fotografar os melhores momentos com carinho, amor e dedicação. Nós amamos o ensaio como um todo."
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "quando": "O acompanhamento começa no primeiro mês: cada mês que passa não volta. Comece agora e feche o ano com o smash the cake.",
-    "depo": "Mell Duarte"
+    "fotos": [
+     {
+      "arq": "drive/621752954_18010478303821947_5229100656718224700_n.webp",
+      "alt": "Pais com as filhas de vermelho e preto"
+     },
+     {
+      "arq": "drive/621545995_17943940056101277_4489859396641316205_n.webp",
+      "alt": "Pai com o filho nos ombros e a mãe rindo"
+     },
+     {
+      "arq": "drive/625047976_18206677012321144_7472683421224803304_n.webp",
+      "alt": "Irmãos de rostos colados"
+     },
+     {
+      "arq": "drive/621099302_17926421385054647_3306675004985451246_n.webp",
+      "alt": "Pais brincando com o filho"
+     },
+     {
+      "arq": "drive/624817113_18033591014716783_8304557686619452022_n.webp",
+      "alt": "Pais erguendo o filho na janela"
+     },
+     {
+      "arq": "drive/624830701_18072946154618721_2888174176302613827_n.webp",
+      "alt": "Mãe e filha deitadas no tapete"
+     },
+     {
+      "arq": "drive/637770613_18563501518005086_1673307515916872119_n.webp",
+      "alt": "Mãe e filha de rostos juntos"
+     },
+     {
+      "arq": "drive/624544315_18093364951990439_1393441067482020979_n.webp",
+      "alt": "Pais com as filhas na janela"
+     },
+     {
+      "arq": "posts/DdwE0JOIwJX/DdwE0JOIwJX_00.jpg",
+      "alt": "Mãe com as filhas entre os balões lilás"
+     },
+     {
+      "arq": "drive/632747775_18405346837134220_4594203513069401907_n.webp",
+      "alt": "Pai e mãe brincando com o filho de cabeça para baixo"
+     },
+     {
+      "arq": "drive/624068637_18047042708705194_3108326017604678487_n.webp",
+      "alt": "Irmãos abraçados junto à árvore"
+     },
+     {
+      "arq": "drive/625032878_18041317850725212_2261143892496927179_n.webp",
+      "alt": "Pais com o filho no sofá"
+     },
+     {
+      "arq": "drive/626274272_18053206964443473_4207224975855669010_n.webp",
+      "alt": "Mãe e filha sorrindo no tapete"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 320",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 470",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Até 6 pessoas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 670",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante e casal",
+    "curto": "Gestante e casal",
+    "chamada": "Ensaio gestante e de casal",
+    "pedido": "o ensaio gestante ou de casal",
+    "frase": "A dois, ou à espera do bebê.",
+    "texto": "O ensaio gestante, sozinha ou com o parceiro, e o ensaio de casal, no estúdio.",
+    "quando": "O gestante costuma ser feito entre a 28ª e a 34ª semana, quando a barriga já aparece bem.",
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "posts/DdpJx7OoPT2/DdpJx7OoPT2_00.jpg",
+      "alt": "Gestante de vestido de renda vermelho"
+     },
+     {
+      "arq": "google/g01.jpg",
+      "alt": "Gestante com o tecido caramelo"
+     },
+     {
+      "arq": "google/g02.jpg",
+      "alt": "Casal no ensaio gestante, no fundo escuro"
+     },
+     {
+      "arq": "google/g03.jpg",
+      "alt": "Casal no ensaio gestante, ela de verde"
+     },
+     {
+      "arq": "drive/619305731_17916558555259386_5308290502033759523_n.webp",
+      "alt": "Casal de branco junto à guirlanda"
+     },
+     {
+      "arq": "drive/627242785_18104215924885063_138040318965319480_n.webp",
+      "alt": "Casal abraçado, rindo"
+     },
+     {
+      "arq": "drive/624856807_18192384829343287_3799723910022149284_n.webp",
+      "alt": "Casal sentado no tapete"
+     },
+     {
+      "arq": "drive/625695570_18083540215952725_2439921662062704950_n.webp",
+      "alt": "Casal deitado no tapete"
+     },
+     {
+      "arq": "drive/626412449_18092979617066544_8235055558779904471_n.webp",
+      "alt": "Casal com o cachorrinho no tapete"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 350",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "1 look"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 500",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "2 looks"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 750",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
    }
   ]
  }

@@ -4,42 +4,37 @@
 |---|---|
 | Onde | Av. Itapark, 772 - Vila Bocaina, Mauá - SP, 09350-000 |
 | Instagram | [@re.viverfotografia](https://www.instagram.com/re.viverfotografia/) · 2,4 mil seguidores |
-| Google | nota 5,0 · 31 avaliações · conferido em 06/11/2026 |
+| Google | nota 5,0 · 31 avaliações · conferido em 13/11/2026 |
 | WhatsApp | (11) 94277-6730 · celular do Perfil da Empresa no Google (+55 11 94277-6730) |
-| Horário | Segunda a sexta 8h às 17h; Sábado e domingo Fechado |
 | Site | não tem: só o Instagram (lote 3, 06/11/2026) |
-| Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
-| Situação | pronta · 06/11/2026 · `/demo/reviver-fotografia` e `/demo/reviver-fotografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 13/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
-| Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
+| Entregável | **portfólio online, versão 4**: `index.html` (a vitrine) e uma página por ensaio (`natal`, `bebes`, `familia`, `gestante`). Sai de `ferramentas/demo/gerar-portfolio.py demos/reviver-fotografia [<pasta dos originais>]`; textos, fotos e pacotes no `demo.json` (`portfolio`) |
+| Situação | no ar · portfólio v4 em 13/11/2026 · `/demo/reviver-fotografia` |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o portfólio fica 100% dela, sem mensalidade); promoção de uma semana, até 21/11/2026 (`renderiza.valido_ate` no `demo.json` e `demos.vale_ate` no painel) |
 
-## Direção da demo
-- Lote 3 de fotógrafos (nº 12, 76 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de set a nov 2026 e das avaliações.
-- Dona: Denise Domingos (nome no Google). Foto dela: com a câmera, da página salva.
-- Personalidade: o nome Reviver e o Natal em família na sala de sofá verde, com árvore e luzinhas. Na demo: abertura em polaroides, Lora, "fotografia" em Italianno, verde-sofá e ❦ entre as especialidades.
-- Sem logo em boa resolução: monograma RF e o nome com "fotografia" cursiva, feitos para a demo.
+## Direção
+- Lote 3 de fotógrafos. Dona: Denise Domingos. Estúdio na Vila Bocaina, em Mauá; tom claro, Lora e Nunito Sans, verde.
+- A página de Natal se chama só "Natal": as fotos da sala de Natal são do Natal passado (postadas no começo de 2026); o Natal 2026 só aparece em vídeo ("Nosso 1º cenário já está finalizado", "segundo cenário… agenda de novembro e dezembro oficialmente disponível").
+- Na v4 entrou a página Gestante e casal (gestantes e casais em alta, do Google e da grade).
 
-## O que tem na demo
-- Site: abertura (Natal, bebês e infantil), portfólio em 3 abas (Natal, 10; Família, 8; Bebês e gestante, 9), a Denise, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.
-- Página de Natal "Vem viver essa magia com a gente": o 1º cenário de 2026, fotos de Natais anteriores, a agenda de exemplo (6 dias de segunda a sexta, de 17/11 a 03/12, das 9h às 15h30, dentro do horário do Google) e outros ensaios do ano.
-- Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria).
+## O que tem
+- **Vitrine**: "Fotografias para reviver cada momento.", a tira de 7 fotos, a lista de ensaios com o "a partir de", o filtro por ensaio, 4 avaliações do Google, quem fotografa e o contato.
+- **Páginas**: Natal (16 fotos, depoimento de Carol Coutinho); Bebês e crianças (14 fotos, depoimento de Mell Duarte); Família (13 fotos, depoimento de Lorenzo Calado); Gestante e casal (9 fotos, sem depoimento).
+- Nenhum texto fala em "site". Pacotes e valores são de exemplo, com o selo na página.
 
-## Fotos
-- Os posts de set/out 2026 (1 ano nos balões lilás e gestante), as fotos da página salva no Drive (até 1440 px) e 4 fotos do Google.
-- Ficaram de fora: as capas de vídeo (9:16), inclusive a do cenário de Natal 2026, e as fotos com moldura de outra foto.
+## Fotos (escolhidas uma a uma na folha de contato grande)
+- 52 fotos: 43 da grade do Instagram dela salva no Drive do Kaue (pasta na lixeira do Drive), 4 dos carrosséis lidos pelo embed público (DdpJx7OoPT2, DdwE0JOIwJX, DdwE5W_Tle1, DdwEi59oOfF) e 5 do Perfil no Google.
+- Tratadas a partir do original, sem ampliar e sem recorte (a página mostra a foto inteira): 1400 px na galeria, 1920 px na abertura, JPEG progressivo, qualidade 82.
+- Ficaram de fora: as capas de vídeo do Natal 2026, as fotos repetidas e as em 9:16.
 
-## Textos e fontes
-- Legendas: "Nosso 1º cenário já está finalizado... Vem viver essa magia com a gente" (03/11), "Às vezes eu não sei lidar com tanta fofura" (26/09), "A alegria que fiquei em registrar esse momento não está escrito" (23/09).
-- Avaliações do Google: as 5 visíveis sem login; 4 em cada página.
+## Textos
+- Dela: "Às vezes eu não sei lidar com tanta fofura", "Vem viver essa magia com a gente", "Nosso segundo cenário de Natal finalizado, agenda de novembro e dezembro oficialmente disponível".
+- Avaliações (lidas inteiras em 13/11): falam da Denise em geral; Carol Coutinho no Natal, Mell Duarte nos bebês, Lorenzo Calado na família.
+- Não são dela: os pacotes e valores (exemplos) e o "quando fazer" de gestante.
 
-## Conferir antes de mandar
-- As fotos de Natal são de anos anteriores; o cenário 2026 só aparece num reel.
-- Fotos de crianças, bebês e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
+## Conferir com ela
+- As fotos do Natal são do cenário do ano passado: o de 2026 só está nos vídeos.
+- Fotos de bebês, crianças e gestantes: todas publicadas por ela como portfólio. Vale confirmar se podem ficar todas.
 
-## Portfólio que vende, versão 3 (09/11/2026)
-- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `natal:7`.
-- `natal`: Natal 2026 (fotos natal:1,5, pn:0, natal:4,2,9, familia:2,1); a partir de R$ 290; depoimento: Carol Coutinho
-- `familia`: Família (fotos natal:6, familia:0,3,4,6,5,7); a partir de R$ 320; depoimento: Lorenzo Calado
-- `bebes`: Bebês (fotos bebes:1,2,0,7,8); a partir de R$ 200; depoimento: Mell Duarte
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/reviver-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/reviver-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.
+## Gerar de novo
+- `python3 ferramentas/demo/gerar-portfolio.py demos/reviver-fotografia [<pasta dos originais>]`. Sem os originais, o gerador reaproveita as fotos já tratadas (dá para mudar texto e preço); para trocar foto, baixar de novo (Drive pelo id; posts pelo `ig-post.py`).
+- Conferir: `node ferramentas/demo/conferir-portfolio.cjs <pasta> reviver-fotografia` e `node ferramentas/demo/validar.mjs <página> <pasta>`.
