@@ -13,12 +13,12 @@
  "endereco_maps": "R. Jacina, 87 - Jardim Penha, São Paulo - SP, 03758-030",
  "google_nota": "4,9",
  "google_total": "108",
- "verificado": "2026-11-06",
+ "verificado": "2026-11-14",
  "whatsapp": "5511940039145",
  "fone_link": "+5511940039145",
  "instagram": "tatas.photo.art",
  "seguidores": "7,7 mil",
- "mensagem": "Olá, Tata! Vi o seu site e queria saber mais sobre os ensaios.",
+ "mensagem": "Olá! Vi o portfólio da Tata e queria saber mais sobre os ensaios.",
  "cores": {
   "fundo": "#fdf8f6",
   "papel": "#ffffff",
@@ -74,11 +74,11 @@
   "preco_pix": "R$ 399",
   "parcelado": "2x de R$ 199",
   "nota_preco": "pagamento único, sem mensalidade",
-  "valido_ate": "2026-11-13",
-  "msg_garantir": "Olá! Sou a Taise, do Tata's Photo Art. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
-  "msg_negociar": "Olá! Sou a Taise, do Tata's Photo Art. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "valido_ate": "2026-11-21",
+  "msg_garantir": "Olá! Sou a Taise, do Tata's Photo Art. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Taise, do Tata's Photo Art. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "2vuy",
-  "msg_duvida": "Olá! Sou a Taise, do Tata's Photo Art. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+  "msg_duvida": "Olá! Sou a Taise, do Tata's Photo Art. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
   "fontes": {
@@ -650,71 +650,205 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
+  "olho": "Estúdio de fotografia · Jardim Penha, São Paulo",
+  "titulo": "Amor em cada clique.",
+  "linha": "Mês a mês, newborn, aniversários, famílias e Natal, com um cenário novo a cada ensaio, no Jardim Penha, Zona Leste de São Paulo.",
   "local": "Jardim Penha",
-  "h1": "Mês a mês, aniversários e Natal no Jardim Penha.",
-  "frase": "Momentos especiais que viram lembranças para sempre.",
-  "tom": "claro",
-  "capa": "mensal:9",
-  "ensaios": [
+  "tira": [
+   "mesames:0",
+   "natal:0",
+   "aniversarios:0",
+   "mesames:1",
+   "natal:1",
+   "aniversarios:1",
+   "mesames:2"
+  ],
+  "avaliacoes": [
    {
-    "id": "natal",
-    "nome": "Natal 2026",
-    "chamada": "Ensaio de Natal",
-    "fotos": [
-     "natal:3",
-     "pn:0",
-     "natal:1,2",
-     "pn:2"
-    ],
-    "titulo": "O melhor presente é estar presente.",
-    "sub": "A época mais mágica do ano começou no estúdio da Tata.",
-    "texto": "É tempo de celebrar o amor, reunir a família e eternizar momentos que viram lembranças para sempre.",
-    "pacotes": [
-     {
-      "nome": "Mini sessão",
-      "preco": "R$ 280",
-      "itens": [
-       "20 minutos",
-       "1 cenário",
-       "8 fotos editadas"
-      ]
-     },
-     {
-      "nome": "Sessão de Natal",
-      "preco": "R$ 440",
-      "itens": [
-       "40 minutos",
-       "Família toda",
-       "20 fotos editadas"
-      ],
-      "destaque": true
-     },
-     {
-      "nome": "Natal completo",
-      "preco": "R$ 640",
-      "itens": [
-       "1 hora, com os avós",
-       "30 fotos editadas",
-       "Galeria online"
-      ]
-     }
-    ],
-    "quando": "A agenda de Natal está aberta, e os horários perto do Natal são os primeiros a acabar."
+    "nome": "Maynara Lima",
+    "tag": "Do newborn aos 2 anos",
+    "texto": "Frequentamos o estúdio desde o newborn da minha neném e acabo de receber o ensaio dela de 2 aninhos! A tia Tata tem um carinho especial, uma atenção sem igual e muito cuidado com as nossas crianças. Além de criar cenários lindos e ter ideias super criativas."
    },
+   {
+    "nome": "Luiza dos Anjos",
+    "tag": "Acompanhamento",
+    "texto": "Fizemos os acompanhamentos e nos apaixonamos pela tia Tata: super profissional, acolhedora, estrutura maravilhosa, cuidadosa. Indico de olhos fechados! Somos clientes e fãs!"
+   },
+   {
+    "nome": "lilian CAMPOS FERREIRA GUIMARAES",
+    "tag": "Mensais",
+    "texto": "Uma profissional incrível, atenciosa, com um espaço aconchegante e extremamente limpo e organizado. Minha bebê fez todos os ensaios mensais lá e sempre fomos muito bem recebidos."
+   },
+   {
+    "nome": "Rafaela Argolo Mendonça Barros",
+    "tag": "Gestante",
+    "texto": "Realizamos ensaio gestante com a Taise e ficamos simplesmente impactados com cada detalhe. O ambiente é super acolhedor e agradável. As fotos ficaram perfeitas!"
+   }
+  ],
+  "contato": {
+   "titulo": "Escolha o cenário e reserve a data.",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Jardim Penha, na Zona Leste de São Paulo.",
+   "endereco": [
+    "R. Jacina, 87",
+    "Jardim Penha · São Paulo, SP"
+   ],
+   "telefone": "(11) 94003-9145"
+  },
+  "_ficha": {
+   "direcao": [
+    "Lote de fotógrafos. Dona: Taise, a tia Tata. Estúdio no Jardim Penha, Zona Leste de São Paulo. Título: a assinatura da marca dela (\"Amor em cada click\", no logo).",
+    "O mês a mês abre a vitrine (é o forte dela: um cenário por mês). O Natal tem só 4 fotos públicas em tamanho bom (os posts de Natal deste ano são vídeos), então virou \"Natal e família\"."
+   ],
+   "fora": "o logo, a arte do Dia das Crianças, a arte de 21 de novembro, a plaquinha com o nome grande do bebê e as capas de vídeo dos posts de Natal.",
+   "textos": [
+    "Dela: \"Amor em cada click\", \"O Natal passa, as fases mudam, mas as memórias ficam para sempre!\", \"Cada fase passa tão rapidinho que merece ser registrada…\", \"Se quiserem ver a gente, só agendando um horário!\".",
+    "Avaliações (lidas inteiras; nota 4,9): Luiza dos Anjos no mês a mês, Maynara Lima em aniversários, Thayna no Natal.",
+    "Não são dela: os pacotes e valores (exemplos)."
+   ],
+   "conferir": [
+    "Não há foto pública da Tata: o \"quem fotografa\" mostra o cenário de Toy Story.",
+    "Se ela quer um ensaio de Natal 2026 com fotos novas (o cenário deste ano só aparece em vídeo)."
+   ]
+  },
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py). Fotos dos ORIGINAIS (drive/ = a grade dela salva no Drive; posts/ = carrosséis do embed público; google/ = Perfil da Empresa), escolhidas uma a uma na folha de contato. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "versao": 4,
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "A tia Tata e os cenários dela.",
+   "p": [
+    "A Taise, a tia Tata, fotografa bebês mês a mês, newborn, gestantes, aniversários e famílias no estúdio do Jardim Penha, na Zona Leste de São Paulo.",
+    "Cada ensaio ganha um cenário: Mini Chef, Oficina, Toy Story, Stitch, Monstros S.A., fundo do mar, Halloween e Natal."
+   ],
+   "citacao": "O Natal passa, as fases mudam, mas as memórias ficam para sempre!",
+   "citacao_quem": "Tata's Photo Art, no Instagram",
+   "fotos": [
+    {
+     "arq": "drive/564716195_18380051563176019_7510553601103246406_n.jpg",
+     "alt": "O cenário de Toy Story, um dos da Tata"
+    }
+   ],
+   "numeros": [
+    [
+     "108",
+     "avaliações no Google"
+    ],
+    [
+     "7,7 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "ensaios": [
    {
     "id": "mesames",
     "nome": "Mês a mês",
-    "chamada": "Ensaio mês a mês",
-    "fotos": [
-     "mensal:4,2",
-     "newborn:1",
-     "mensal:0,6,9,1,5",
-     "newborn:0"
+    "chamada": "Acompanhamento mensal",
+    "pedido": "o acompanhamento mensal",
+    "frase": "Um cenário novo a cada mês.",
+    "texto": "Mini Chef, Oficina, Toy Story, Stitch, Monstros S.A., fundo do mar, Minnie e o que a família imaginar, do newborn ao primeiro ano.",
+    "citacao": "Cada fase passa tão rapidinho que merece ser registrada e eternizada com todo carinho!",
+    "citacao_quem": "Tata's Photo Art, no Instagram",
+    "depo": {
+     "nome": "Luiza dos Anjos",
+     "texto": "Fez 1 ano e meio desde o nascimento da minha segunda bebê, fizemos os acompanhamentos e nos apaixonamos pela tia Tata: super profissional, acolhedora, estrutura maravilhosa, cuidadosa. Indico de olhos fechados!"
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "Um cenário novo a cada mês.",
-    "sub": "Mini Chef, Oficina, Toy Story, Stitch, fundo do mar e o que a família imaginar.",
-    "texto": "O tempo passa, as crianças crescem e o que fica são as memórias: um tema diferente a cada mês do primeiro ano.",
+    "fotos": [
+     {
+      "arq": "drive/580865305_18385631710176019_2905979489170453566_n.jpg",
+      "alt": "Bebê no cenário do fundo do mar"
+     },
+     {
+      "arq": "drive/565530381_18380629780176019_1160016168690517859_n.jpg",
+      "alt": "Bebê de touca do Stitch, rindo"
+     },
+     {
+      "arq": "drive/581322342_18385627990176019_1833552093284591206_n.jpg",
+      "alt": "Bebê no cenário Oficina, sentado no pneu"
+     },
+     {
+      "arq": "drive/564270878_18380603665176019_4860610171245623207_n.jpg",
+      "alt": "Recém-nascida no aro de flores"
+     },
+     {
+      "arq": "drive/564176661_18380605030176019_1404440807243555746_n.jpg",
+      "alt": "Bebê de camisa de basquete, com a bola"
+     },
+     {
+      "arq": "drive/565557351_18380603461176019_3532891799560732886_n.jpg",
+      "alt": "Bebê de capacete no cenário de obra"
+     },
+     {
+      "arq": "drive/564716195_18380051563176019_7510553601103246406_n.jpg",
+      "alt": "Bebê no cenário Toy Story"
+     },
+     {
+      "arq": "drive/566961849_18380628988176019_6641103736466195799_n.jpg",
+      "alt": "Bebê no cenário Monstros S.A."
+     },
+     {
+      "arq": "drive/565669669_18380241148176019_1135432454099038760_n.jpg",
+      "alt": "Bebê no cenário da Minnie"
+     },
+     {
+      "arq": "drive/582354270_18385629424176019_4700283913751843496_n.jpg",
+      "alt": "Recém-nascida sorrindo no pelego rosa"
+     },
+     {
+      "arq": "drive/564893749_18380240932176019_1972278752022397044_n.jpg",
+      "alt": "Bebê de chapéu de chef no cenário Mini Chef"
+     },
+     {
+      "arq": "drive/563914780_18380604388176019_1905266641276533422_n.jpg",
+      "alt": "Bebê de laço e óculos no berço rosa"
+     },
+     {
+      "arq": "drive/564760913_18380240257176019_7117015275026633157_n.jpg",
+      "alt": "Bebê sorrindo no cenário de outono"
+     },
+     {
+      "arq": "drive/583566030_18385630909176019_3382950278865637529_n.jpg",
+      "alt": "Bebê de pijama do Stitch"
+     },
+     {
+      "arq": "drive/583503959_18385630321176019_8728010342022640066_n.jpg",
+      "alt": "Bebê rindo no cenário de praia"
+     },
+     {
+      "arq": "drive/581413952_18385629205176019_2604600577619379696_n.jpg",
+      "alt": "Bebê de rosa no cenário Monstros S.A."
+     },
+     {
+      "arq": "drive/566223583_18380629777176019_6072612277091213003_n.jpg",
+      "alt": "Bebê de touca do Stitch, na caminha"
+     },
+     {
+      "arq": "drive/583552630_18386040586176019_7070736276508312949_n.jpg",
+      "alt": "Bebê de rosa no balanço de bailarina"
+     },
+     {
+      "arq": "drive/583949177_18385631248176019_8801664385455405568_n.jpg",
+      "alt": "Recém-nascido de ursinho no tronco"
+     },
+     {
+      "arq": "drive/564806270_18380239642176019_4743944325392492546_n.jpg",
+      "alt": "Bebê de rosa na poltrona"
+     },
+     {
+      "arq": "drive/564574117_18380604586176019_1669362755877762057_n.jpg",
+      "alt": "Bebê de amarelo no cenário da Bela e a Fera"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Mês avulso",
@@ -744,20 +878,65 @@
        "Smash the cake de 1 ano incluso"
       ]
      }
-    ],
-    "quando": "O acompanhamento começa no primeiro mês: cada mês que passa não volta. Comece agora e feche o ano com o smash the cake.",
-    "depo": "Luiza dos Anjos"
+    ]
    },
    {
     "id": "aniversarios",
-    "nome": "Aniversários",
+    "nome": "Aniversários e datas",
+    "curto": "Aniversários",
     "chamada": "Ensaio de aniversário",
-    "fotos": [
-     "newborn:2,3,4,6,7,5"
+    "pedido": "o ensaio de aniversário",
+    "frase": "Aniversários com o tema que a família escolher.",
+    "texto": "Branca de Neve, Safari, Rapunzel, Halloween e o Dia das Crianças, com o cenário montado pela Tata.",
+    "depo": {
+     "nome": "Maynara Lima",
+     "texto": "A tia Tata é demais! Frequentamos o estúdio desde o newborn da minha neném e acabo de receber o ensaio dela de 2 aninhos. Ela tem um carinho especial, uma atenção sem igual e muito cuidado com as nossas crianças."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "Aniversários com o tema que a família escolher.",
-    "sub": "Branca de Neve, Safari, Rapunzel e até o Halloween.",
-    "texto": "Do primeiro aninho às datas especiais, com o carinho da tia Tata.",
+    "fotos": [
+     {
+      "arq": "drive/582209915_18385627300176019_9163287292020378415_n.jpg",
+      "alt": "Aniversário de 1 ano da Branca de Neve"
+     },
+     {
+      "arq": "drive/581537032_18385622530176019_2102789537615792267_n.jpg",
+      "alt": "Aniversário de 1 ano no tema Safari"
+     },
+     {
+      "arq": "drive/582050071_18385629793176019_8536088587400986556_n.jpg",
+      "alt": "Bebê de Rapunzel no cenário florido"
+     },
+     {
+      "arq": "drive/566301956_18380627815176019_452849222533770584_n.jpg",
+      "alt": "Bebê de bruxinha no cenário de Halloween"
+     },
+     {
+      "arq": "drive/583457613_18385627630176019_8059538033813638965_n.jpg",
+      "alt": "Menino de 1 ano entre os balões azuis e as estrelas"
+     },
+     {
+      "arq": "drive/563455248_18379793041176019_1519591990281220978_n.jpg",
+      "alt": "Menino desenhando no cenário das tintas"
+     },
+     {
+      "arq": "drive/566408389_18380628271176019_6945488018467154492_n.jpg",
+      "alt": "Bebê de gatinho no cenário de Halloween"
+     },
+     {
+      "arq": "drive/563521449_18379792948176019_5019736325826593249_n.jpg",
+      "alt": "Menina no escorregador, no cenário das tintas"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -789,8 +968,88 @@
        "Quadro 30x40"
       ]
      }
+    ]
+   },
+   {
+    "id": "natal",
+    "nome": "Natal e família",
+    "curto": "Natal",
+    "chamada": "Ensaio de Natal",
+    "pedido": "o ensaio de Natal",
+    "frase": "O Natal em família, no estúdio da Tata.",
+    "texto": "As árvores nevadas, o balanço, a escadinha e o cavalinho, com a família toda junto.",
+    "citacao": "O Natal passa, as fases mudam, mas as memórias ficam para sempre!",
+    "citacao_quem": "Tata's Photo Art, no Instagram",
+    "quando": "Na época de Natal, só agendando um horário. Datas pelo WhatsApp.",
+    "depo": {
+     "nome": "THAYNA CRISTINA GUERREIRO DE OLIVEIRA",
+     "texto": "Experiência maravilhosa! Super atenciosa do início ao fim, fomos muito bem recepcionados, me senti em casa. Lugar aconchegante, que transmite alegria, paz e amor."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
     ],
-    "depo": "Maynara Lima"
+    "fotos": [
+     {
+      "arq": "drive/583489705_18386040364176019_2219547252181779559_n.jpg",
+      "alt": "Família de vermelho no cenário de Natal"
+     },
+     {
+      "arq": "drive/583356971_18386039722176019_2165104313773451274_n.jpg",
+      "alt": "Menina de vestido verde na escadinha de Natal"
+     },
+     {
+      "arq": "drive/583444217_18386039971176019_3445947128208522388_n.jpg",
+      "alt": "Família sentada com a bebê no cavalinho de Natal"
+     },
+     {
+      "arq": "drive/582666986_18386030041176019_2895721255789362460_n.jpg",
+      "alt": "Pais e filha junto à árvore de Natal"
+     },
+     {
+      "arq": "google/g00.jpg",
+      "alt": "Família de três gerações com os números de 2026"
+     },
+     {
+      "arq": "google/g01.jpg",
+      "alt": "Mãe com o bebê no cenário da Copa"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Mini sessão",
+      "preco": "R$ 280",
+      "itens": [
+       "20 minutos",
+       "1 cenário",
+       "8 fotos editadas"
+      ]
+     },
+     {
+      "nome": "Sessão de Natal",
+      "preco": "R$ 440",
+      "itens": [
+       "40 minutos",
+       "Família toda",
+       "20 fotos editadas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Natal completo",
+      "preco": "R$ 640",
+      "itens": [
+       "1 hora, com os avós",
+       "30 fotos editadas",
+       "Galeria online"
+      ]
+     }
+    ]
    }
   ]
  }
