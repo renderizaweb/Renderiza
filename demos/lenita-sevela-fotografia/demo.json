@@ -13,12 +13,12 @@
  "endereco_maps": "Av. Pres. Joao Goulart, 03 - Umuarama, Osasco - SP, 06036-048",
  "google_nota": "5,0",
  "google_total": "32",
- "verificado": "2026-11-06",
+ "verificado": "2026-11-13",
  "whatsapp": "5511985249061",
  "fone_link": "+5511985249061",
  "instagram": "lenitasevelafotografia",
  "seguidores": "3,2 mil",
- "mensagem": "Olá, Lenita! Vi o seu site e queria saber mais sobre os ensaios.",
+ "mensagem": "Olá! Vi o portfólio da Lenita e queria saber mais sobre os ensaios.",
  "cores": {
   "fundo": "#fbfcfa",
   "papel": "#ffffff",
@@ -74,11 +74,11 @@
   "preco_pix": "R$ 399",
   "parcelado": "2x de R$ 199",
   "nota_preco": "pagamento único, sem mensalidade",
-  "valido_ate": "2026-11-13",
-  "msg_garantir": "Olá! Sou a Lenita, da Lenita Sevela Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
-  "msg_negociar": "Olá! Sou a Lenita, da Lenita Sevela Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "valido_ate": "2026-11-21",
+  "msg_garantir": "Olá! Sou a Lenita, da Lenita Sevela Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Lenita, da Lenita Sevela Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "s2r3",
-  "msg_duvida": "Olá! Sou a Lenita, da Lenita Sevela Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+  "msg_duvida": "Olá! Sou a Lenita, da Lenita Sevela Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
   "fontes": {
@@ -667,23 +667,182 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
+  "olho": "Estúdio de fotografia · Umuarama, Osasco",
+  "titulo": "Cada fase é preciosa demais de registrar.",
+  "linha": "Mês a mês, smash the cake, gestantes, newborn e famílias, com produções lúdicas no estúdio.",
   "local": "Osasco",
-  "h1": "Mês a mês, gestante, newborn e famílias em Osasco.",
-  "frase": "Cada fase é preciosa demais de registrar.",
-  "tom": "claro",
-  "capa": "mensal:2",
+  "tira": [
+   "mesames:0",
+   "gestante:0",
+   "smash:0",
+   "familia:0",
+   "mesames:1",
+   "gestante:1",
+   "smash:1"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Danilla Miranda",
+    "tag": "Mês a mês",
+    "texto": "A Lenita faz parte da nossa história. Registrou mês a mês o primeiro ano da minha filha mais velha e agora acompanha os primeiros meses da nossa bebê."
+   },
+   {
+    "nome": "Lygia Martini",
+    "tag": "Newborn",
+    "texto": "O ambiente estava tranquilo, e a profissional tem todo um jeito de lidar com o bebê, com música de ninar e delicadeza. Super recomendo!"
+   },
+   {
+    "nome": "Suely Silva",
+    "tag": "Gestante",
+    "texto": "Fiz meu ensaio de gestante com ela e posso falar com toda certeza: o trabalho dela é maravilhoso. Eu amei cada foto! Obrigada por tanto cuidado em cada detalhe!"
+   },
+   {
+    "nome": "Guilherme Benicio",
+    "tag": "Família",
+    "texto": "Excelente profissional, ambiente muito aconchegante! Foi extremamente atenciosa conosco e com nosso filho, e as fotos ficaram perfeitas."
+   }
+  ],
+  "contato": {
+   "titulo": "Reserve a sua data.",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Umuarama, em Osasco, e atende de segunda a sábado.",
+   "endereco": [
+    "Av. Pres. João Goulart, 03",
+    "Umuarama · Osasco, SP"
+   ],
+   "telefone": "(11) 98524-9061"
+  },
+  "_ficha": {
+   "direcao": [
+    "Lote 3 de fotógrafos. Dona: Lenita Sevela. Produções lúdicas no estúdio do Umuarama, em Osasco; tom claro, Playfair Display e Nunito, verde.",
+    "Na v4 entrou a página de Smash (fundo do mar e Monstros S.A., em alta) e o newborn ganhou o carrossel de nov/2026; o gestante tem só 4 fotos, então segue junto com o newborn, com o pacote dos dois.",
+    "Sem página de Natal: o Natal 2026 (Loja de Presentes) tem só 3 fotos."
+   ],
+   "fora": "a silhueta, o nu, a foto da Lenita no evento com a pelúcia, o ensaio de 27 anos, o Natal de anos anteriores, as fotos repetidas e as capas de vídeo.",
+   "textos": [
+    "Dela: \"cada fase é preciosa demais de registrar\", \"Quem aí também é apaixonado por produções lúdicas?\", \"Hoje o estúdio virou oceano…\", \"Um pacotinho de amor em forma de menininha…\".",
+    "Avaliações (lidas inteiras em 13/11): Danilla Miranda no mês a mês, Lygia Martini (música de ninar) no gestante e newborn, Guilherme Benicio na família; o Smash sem depoimento.",
+    "Não são dela: os pacotes e valores (exemplos) e o \"quando fazer\"."
+   ],
+   "conferir": [
+    "As famílias com os balões \"2026\" são de um cenário de Ano Novo: confirmar se ela repete."
+   ]
+  },
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py). Fotos dos ORIGINAIS (drive/ = a grade dela salva no Drive; posts/ = carrosséis do embed público; google/ = Perfil da Empresa), escolhidas uma a uma na folha de contato. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "versao": 4,
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "A Lenita e as produções lúdicas.",
+   "p": [
+    "A Lenita Sevela fotografa bebês mês a mês, smash the cake, gestantes, newborn e famílias no estúdio do Umuarama, em Osasco.",
+    "Cada ensaio ganha um cenário montado para o tema: Shrek, Moana, Monstros S.A., Toy Story, fundo do mar."
+   ],
+   "citacao": "Quem aí também é apaixonado por produções lúdicas?",
+   "citacao_quem": "Lenita Sevela, no Instagram",
+   "fotos": [
+    {
+     "arq": "drive/612609470_18518187283066520_6923239334969327342_n.jpg",
+     "alt": "A Lenita com a câmera"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 32 avaliações no Google"
+    ],
+    [
+     "3,2 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
   "ensaios": [
    {
     "id": "mesames",
     "nome": "Mês a mês",
-    "chamada": "Ensaio mês a mês",
-    "fotos": [
-     "mensal:5,2,0,6,1,8,3,7,4"
+    "chamada": "Acompanhamento mês a mês",
+    "pedido": "o acompanhamento mês a mês",
+    "frase": "Um cenário novo a cada mês.",
+    "texto": "Moana, Toy Story, Shrek, circo, astronauta: um cenário montado para cada mês, com a plaquinha da idade.",
+    "citacao": "O tempo tá voando por aqui e cada fase é preciosa demais de registrar!",
+    "citacao_quem": "Lenita Sevela, no Instagram",
+    "quando": "O acompanhamento começa nos primeiros meses e fecha o ano com o smash the cake.",
+    "depo": {
+     "nome": "Danilla Miranda",
+     "texto": "A Lenita faz parte da nossa história. Ela registrou mês a mês o primeiro ano da minha filha mais velha, eternizou um dos momentos mais emocionantes da minha vida no meu ensaio de gestante, e agora tem acompanhado com tanto carinho os primeiros meses da nossa bebê."
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Quem aí também é apaixonado por produções lúdicas?",
-    "sub": "Shrek, Moana, circo, astronauta, Toy Story: um cenário montado a cada ensaio.",
-    "texto": "O tempo voa, e cada fase é preciosa demais de registrar: um cenário novo a cada mês, até o primeiro aninho.",
+    "fotos": [
+     {
+      "arq": "posts/DdttI_OESgu/DdttI_OESgu_01.jpg",
+      "alt": "Bebê de Jessie no tema Toy Story"
+     },
+     {
+      "arq": "posts/Dd9XfohkeZp/Dd9XfohkeZp_03.jpg",
+      "alt": "Bebê sorrindo no tema Moana"
+     },
+     {
+      "arq": "posts/DfHjay6FU3U/DfHjay6FU3U_02.jpg",
+      "alt": "Bebê de Fiona no cenário do Shrek"
+     },
+     {
+      "arq": "drive/468977287_18447023776066520_220908112777681210_n.jpg",
+      "alt": "Bebê de 5 meses no tema circo"
+     },
+     {
+      "arq": "drive/469041097_18446821534066520_3485196371598679611_n.jpg",
+      "alt": "Bebê de cartola no cenário das pipas"
+     },
+     {
+      "arq": "drive/470880556_18449926165066520_4418128929769091022_n.jpg",
+      "alt": "Bebê na banheira, no cenário do espaço"
+     },
+     {
+      "arq": "posts/Dd9XfohkeZp/Dd9XfohkeZp_01.jpg",
+      "alt": "Bebê sentada no tema Moana"
+     },
+     {
+      "arq": "posts/DdttI_OESgu/DdttI_OESgu_00.jpg",
+      "alt": "Bebê rindo de laço vermelho, no tema Toy Story"
+     },
+     {
+      "arq": "posts/DfHjay6FU3U/DfHjay6FU3U_00.jpg",
+      "alt": "Bebê no cenário do Shrek"
+     },
+     {
+      "arq": "drive/471084472_18449922559066520_7915150491400732918_n.jpg",
+      "alt": "Bebê no cenário de castelo e magia"
+     },
+     {
+      "arq": "posts/Dd9XfohkeZp/Dd9XfohkeZp_02.jpg",
+      "alt": "Bebê rindo com a boneca da Moana"
+     },
+     {
+      "arq": "posts/DdttI_OESgu/DdttI_OESgu_04.jpg",
+      "alt": "Bebê de chapéu de vaqueira, no tema Toy Story"
+     },
+     {
+      "arq": "posts/DfHjay6FU3U/DfHjay6FU3U_04.jpg",
+      "alt": "Bebê de coroa no pufe, no cenário do Shrek"
+     },
+     {
+      "arq": "posts/DdttI_OESgu/DdttI_OESgu_05.jpg",
+      "alt": "Bebê na caminha, no tema Toy Story"
+     },
+     {
+      "arq": "posts/Dd9XfohkeZp/Dd9XfohkeZp_04.jpg",
+      "alt": "Bebê no cenário da praia, no tema Moana"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Mês avulso",
@@ -713,22 +872,213 @@
        "Smash the cake de 1 ano incluso"
       ]
      }
+    ]
+   },
+   {
+    "id": "smash",
+    "nome": "Smash e aniversário",
+    "curto": "Smash",
+    "chamada": "Smash the cake e aniversário",
+    "pedido": "o smash the cake",
+    "frase": "Um tema para cada aniversário.",
+    "texto": "Fundo do mar, Monstros S.A., 1 aninho: o cenário do tema, o bolo e o banho de espuma depois.",
+    "citacao": "Hoje o estúdio virou oceano para o ensaio de aniversário do pequeno Bryan!",
+    "citacao_quem": "Lenita Sevela, no Instagram",
+    "quando": "O smash costuma ser feito perto do aniversário. Vale reservar com antecedência, para dar tempo de montar o tema.",
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "quando": "O acompanhamento começa no primeiro mês: cada mês que passa não volta. Comece agora e feche o ano com o smash the cake.",
-    "depo": "Danilla Miranda"
+    "fotos": [
+     {
+      "arq": "posts/DeRouQ3EWUq/DeRouQ3EWUq_06.jpg",
+      "alt": "Bebê com o bolo no tema fundo do mar"
+     },
+     {
+      "arq": "posts/DezQM-UkYWU/DezQM-UkYWU_06.jpg",
+      "alt": "Menina de 2 anos abraçando o Mike Wazowski"
+     },
+     {
+      "arq": "google/g01.jpg",
+      "alt": "Menina de 1 ano na poltrona de vime, diante do bolo"
+     },
+     {
+      "arq": "posts/DeRouQ3EWUq/DeRouQ3EWUq_08.jpg",
+      "alt": "Bebê no banho de espuma, no fundo do mar"
+     },
+     {
+      "arq": "posts/DezQM-UkYWU/DezQM-UkYWU_01.jpg",
+      "alt": "Menina no cenário de Monstros S.A., com o balão do 2"
+     },
+     {
+      "arq": "drive/469109558_18446824534066520_8372492729073007595_n.jpg",
+      "alt": "Bebê no aniversário de 1 aninho"
+     },
+     {
+      "arq": "posts/DezQM-UkYWU/DezQM-UkYWU_07.jpg",
+      "alt": "Mãe e filha no cenário de Monstros S.A."
+     },
+     {
+      "arq": "posts/DeRouQ3EWUq/DeRouQ3EWUq_01.jpg",
+      "alt": "Bebê sentado no fundo do mar, com o 1 aninho"
+     },
+     {
+      "arq": "drive/469182459_18446826760066520_7757092311690272409_n.jpg",
+      "alt": "Menino de 3 anos com o balão do número"
+     },
+     {
+      "arq": "posts/DezQM-UkYWU/DezQM-UkYWU_09.jpg",
+      "alt": "Pais com a filha no cenário de Monstros S.A."
+     },
+     {
+      "arq": "drive/471142587_18449934343066520_1158403690798549067_n.jpg",
+      "alt": "Menina de 1 ano rindo no cenário rosa"
+     },
+     {
+      "arq": "posts/DeRouQ3EWUq/DeRouQ3EWUq_07.jpg",
+      "alt": "Bebê na banheira, no fundo do mar"
+     },
+     {
+      "arq": "posts/DezQM-UkYWU/DezQM-UkYWU_00.jpg",
+      "alt": "Menina no cavalinho, no cenário de Monstros S.A."
+     },
+     {
+      "arq": "drive/471321400_18449924398066520_2915724611931306696_n.jpg",
+      "alt": "Bebê com o bolo azul do 1 ano"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 350",
+      "itens": [
+       "Cenário do tema",
+       "Bolo para o smash",
+       "15 fotos editadas"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 500",
+      "itens": [
+       "Cenário do tema",
+       "Bolo e banho depois do smash",
+       "25 fotos editadas",
+       "Fotos com os pais"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 700",
+      "itens": [
+       "Cenário do tema",
+       "Bolo e banho",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
    },
    {
     "id": "gestante",
     "nome": "Gestante e newborn",
+    "curto": "Gestante e newborn",
     "chamada": "Ensaio gestante e newborn",
-    "fotos": [
-     "gestante:0,2,1,3,6",
-     "mensal:11",
-     "gestante:5"
+    "pedido": "o ensaio gestante e newborn",
+    "frase": "Da barriga aos primeiros dias.",
+    "texto": "A gestação no estúdio e, depois, o newborn com delicadeza e música de ninar. Os pais entram nas fotos.",
+    "citacao": "Um pacotinho de amor em forma de menininha. Cada detalhe desse rostinho é a definição exata de milagre.",
+    "citacao_quem": "Lenita Sevela, no Instagram",
+    "quando": "O gestante costuma ser feito entre a 28ª e a 34ª semana; o newborn, nos primeiros dias de vida. Quem fecha os dois já reserva as duas datas.",
+    "depo": {
+     "nome": "Lygia Martini",
+     "texto": "Estava apreensiva, pois foi ensaio newborn e nunca sabemos como o bebezinho vai ficar durante o ensaio, mas o ambiente estava tranquilo, e a profissional tem todo um jeito de lidar com o bebê, com música de ninar e delicadeza. Super recomendo!"
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Vestidos, flores e o casal junto.",
-    "sub": "A gestação no estúdio e, depois, o newborn com delicadeza e música de ninar.",
-    "texto": "Do ensaio gestante aos primeiros dias do bebê: a Lenita acompanha a família desde a barriga.",
+    "fotos": [
+     {
+      "arq": "drive/469034588_18446845903066520_4614201310022285456_n.jpg",
+      "alt": "Gestante de vermelho entre as rosas"
+     },
+     {
+      "arq": "posts/Dfp00XlGQBy/Dfp00XlGQBy_04.jpg",
+      "alt": "Recém-nascida enrolada na manta verde"
+     },
+     {
+      "arq": "drive/469119791_18446844793066520_2141532339828059225_n.jpg",
+      "alt": "Gestante com o tecido caramelo"
+     },
+     {
+      "arq": "posts/Dfp00XlGQBy/Dfp00XlGQBy_07.jpg",
+      "alt": "Pais com a recém-nascida no colo"
+     },
+     {
+      "arq": "posts/Dfp00XlGQBy/Dfp00XlGQBy_00.jpg",
+      "alt": "Recém-nascida no ninho de pelúcia"
+     },
+     {
+      "arq": "drive/469092506_18446845663066520_597778527510596865_n.jpg",
+      "alt": "Casal no ensaio gestante, no fundo escuro"
+     },
+     {
+      "arq": "posts/Dfp00XlGQBy/Dfp00XlGQBy_01.jpg",
+      "alt": "Recém-nascida na manta rosa"
+     },
+     {
+      "arq": "posts/Dfp00XlGQBy/Dfp00XlGQBy_03.jpg",
+      "alt": "Recém-nascida no coração branco"
+     },
+     {
+      "arq": "drive/471166445_18449929402066520_1804695138059223484_n.jpg",
+      "alt": "Casal no ensaio gestante, ela na poltrona"
+     },
+     {
+      "arq": "posts/Dfp00XlGQBy/Dfp00XlGQBy_02.jpg",
+      "alt": "Recém-nascida no cesto de madeira"
+     },
+     {
+      "arq": "google/g00.jpg",
+      "alt": "Recém-nascida na lua, de vestido de tule"
+     },
+     {
+      "arq": "drive/468856027_18447015946066520_7209130850231730159_n.jpg",
+      "alt": "Recém-nascido de boina com o ursinho"
+     },
+     {
+      "arq": "posts/Dfp00XlGQBy/Dfp00XlGQBy_08.jpg",
+      "alt": "Pais sorrindo com a recém-nascida"
+     },
+     {
+      "arq": "drive/468997465_18446824399066520_2799745463979958837_n.jpg",
+      "alt": "Recém-nascida no cestinho de coração"
+     },
+     {
+      "arq": "drive/469071215_18446829967066520_7387640048390388349_n.jpg",
+      "alt": "Recém-nascido na caminha de madeira"
+     },
+     {
+      "arq": "drive/469226027_18447019915066520_8373414061108116153_n.jpg",
+      "alt": "Pai e filha com o recém-nascido"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Gestante",
@@ -758,22 +1108,76 @@
        "Cenários e acessórios"
       ]
      }
-    ],
-    "quando": "O gestante fica melhor entre a 28ª e a 34ª semana; o newborn, nos primeiros 15 dias de vida. Quem fecha os dois já reserva as duas datas.",
-    "depo": "Lygia Martini"
+    ]
    },
    {
     "id": "familia",
     "nome": "Família",
     "chamada": "Ensaio de família",
-    "fotos": [
-     "familia:0,3",
-     "pn:0",
-     "familia:1,6,7,4"
+    "pedido": "o ensaio de família",
+    "frase": "Famílias que voltam todo ano.",
+    "texto": "Pais, filhos, avós e irmãos no estúdio: no Ano Novo, no Dia das Mães ou quando quiserem.",
+    "depo": {
+     "nome": "Guilherme Benicio",
+     "texto": "Excelente profissional, ambiente muito aconchegante! Foi extremamente atenciosa conosco e com nosso filho, as fotos ficaram perfeitas. Recomendo 100%, com certeza voltaremos pra mais fotos!"
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Famílias que voltam todo ano.",
-    "sub": "A família toda no estúdio, ano após ano.",
-    "texto": "Tem família que volta todo ano para fotografar com a Lenita, até no Natal.",
+    "fotos": [
+     {
+      "arq": "drive/469042394_18446836312066520_8691198923115104254_n.jpg",
+      "alt": "Família no cenário prateado do Ano Novo"
+     },
+     {
+      "arq": "google/g04.jpg",
+      "alt": "Pais com a filha entre as luzes"
+     },
+     {
+      "arq": "google/g06.jpg",
+      "alt": "Pais com a filha no cenário prateado"
+     },
+     {
+      "arq": "google/g05.jpg",
+      "alt": "Mãe, tias e a bebê no fundo claro"
+     },
+     {
+      "arq": "google/g03.jpg",
+      "alt": "Quatro gerações de mulheres e a menina, de branco"
+     },
+     {
+      "arq": "drive/469144823_18446817685066520_5701981845334665374_n.jpg",
+      "alt": "Mãe e filho no cenário prateado"
+     },
+     {
+      "arq": "drive/469391110_18446817799066520_6394313877336095381_n.jpg",
+      "alt": "Mãe e filho com os balões do 2026"
+     },
+     {
+      "arq": "drive/471102730_18449941438066520_6048207987545339370_n.jpg",
+      "alt": "Mãe e filho, em preto e branco"
+     },
+     {
+      "arq": "drive/470822320_18449943511066520_1165743090361682553_n.jpg",
+      "alt": "Mãe e filha no fundo preto"
+     },
+     {
+      "arq": "drive/469309345_18446820346066520_5203259538926407917_n.jpg",
+      "alt": "Menino entre os balões prateados"
+     },
+     {
+      "arq": "drive/469388387_18446836099066520_4265499370237661410_n.jpg",
+      "alt": "Menina entre os balões do 2026"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -803,8 +1207,7 @@
        "Quadro 30x40"
       ]
      }
-    ],
-    "depo": "Luana Noli"
+    ]
    }
   ]
  }

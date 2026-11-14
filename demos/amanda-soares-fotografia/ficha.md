@@ -9,7 +9,7 @@
 | Site | não tem: só o Instagram (lote 3, 06/11/2026) |
 | Entregável | **portfólio online, versão 4**: `index.html` (a vitrine) e uma página por ensaio (`smash`, `mesames`, `infantil`, `familia`). Sai de `ferramentas/demo/gerar-portfolio.py demos/amanda-soares-fotografia [<pasta dos originais>]`; textos, fotos e pacotes no `demo.json` (`portfolio`) |
 | Situação | no ar · portfólio v4 em 13/11/2026 · `/demo/amanda-soares-fotografia` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o portfólio fica 100% dela, sem mensalidade); promoção de uma semana, até 20/11/2026 (`renderiza.valido_ate` no `demo.json` e `demos.vale_ate` no painel) |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o portfólio fica 100% dela, sem mensalidade); promoção de uma semana, até 21/11/2026 (`renderiza.valido_ate` no `demo.json` e `demos.vale_ate` no painel) |
 
 ## Direção
 - Lote 3 de fotógrafos (nº 6). Dona: Amanda. Estúdio na Vila Nogueira, em Diadema, com cenário temático em cada ensaio; tom claro, DM Serif Text e Outfit, vermelho.
