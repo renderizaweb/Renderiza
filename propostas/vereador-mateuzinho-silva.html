@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposta · Gabinete Aberto · Vereador Mateuzinho Silva</title>
+<meta name="description" content="Proposta da Renderiza para o site do mandato e o portal Gabinete Aberto: funcionalidades, segurança, prazo, investimento e manutenção.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1b0f30">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Proposta · Gabinete Aberto">
+<meta property="og:description" content="O site do mandato e o portal do gabinete, separados e integrados. Para o vereador Mateuzinho Silva.">
+<meta property="og:image" content="https://www.renderizaweb.com.br/demo/vereador-mateuzinho-silva/capa.jpg">
+<meta property="og:url" content="https://www.renderizaweb.com.br/proposta/vereador-mateuzinho-silva">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Proposta comercial (14/11/2026). Fonte: o documento "Site e Portal do Mandato · Gabinete Aberto" (Claude Docs) e
+     demos/vereador-mateuzinho-silva/proposta.md. Vai ao ar em /proposta/vereador-mateuzinho-silva (scripts/montar-site.mjs),
+     fora de /demo: não sai do ar quando a demo vence. O contador conta as visitas no lead da demo, com data-sub="proposta". -->
+<script src="/exemplos/visitas.js" data-pagina="demo" data-demo="vereador-mateuzinho-silva" data-sub="proposta" defer></script>
+<style>
+:root{--noite:#1b0f30;--roxo:#4b2a80;--roxo-2:#341a5e;--roxo-3:#8a69cc;--lilas:#f1ebf8;--lima:#bfe85a;--lima-2:#9cc63d;--lima-3:#587812;
+  --fundo:#fbfaf7;--cartao:#fff;--tinta:#1d1727;--tinta-2:#4d4559;--suave:#766e82;--linha:#e8e2ee;
+  --titulo:"Bricolage Grotesque","Plus Jakarta Sans",system-ui,sans-serif;--raio:22px;--sombra:0 1px 2px rgba(29,23,39,.05),0 18px 40px -24px rgba(29,23,39,.28)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%}
+body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--fundo);color:var(--tinta);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--lima);outline-offset:3px;border-radius:6px}
+.cx{width:min(1080px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--titulo);letter-spacing:-.03em;line-height:1.05}
+h2{font-size:clamp(30px,7.4vw,46px);font-weight:800;margin-top:10px}
+h2 em,h1 em{font-style:normal;color:var(--roxo)}
+h3{font-size:21px;font-weight:700;letter-spacing:-.02em}
+.kicker{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--roxo)}
+.kicker::before{content:"";width:22px;height:3px;border-radius:3px;background:var(--lima)}
+.sub{color:var(--tinta-2);font-size:16.5px;max-width:640px;margin-top:12px}
+section{padding:60px 0}
+.bt{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border-radius:15px;font-weight:700;font-size:15.5px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.bt svg{width:19px;height:19px;flex:none}
+.bt-lima{background:var(--lima);color:var(--noite)}
+.bt-roxo{background:var(--roxo);color:#fff}
+.bt-vidro{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.26)}
+.bt-linha{background:var(--cartao);color:var(--roxo);border:1.5px solid var(--linha)}
+.selo{display:inline-flex;align-items:center;height:26px;padding:0 11px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.02em;white-space:nowrap}
+.s-nova{background:#eef7d6;color:var(--lima-3)}
+.s-f1{background:var(--roxo);color:#fff}
+.s-f2{background:var(--lilas);color:var(--roxo)}
+.s-f3{background:#fdf3d8;color:#8a5a00}
+
+/* topo */
+.topo{position:sticky;top:0;z-index:30;background:rgba(27,15,48,.94);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:#fff}
+.topo .cx{display:flex;align-items:center;gap:14px;height:60px}
+.topo b{font-family:var(--titulo);font-size:18px;font-weight:800;letter-spacing:-.02em}
+.topo small{display:block;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+.topo .bt{margin-left:auto;min-height:40px;padding:0 16px;font-size:14px;border-radius:12px}
+
+/* capa */
+.capa{background:radial-gradient(70% 60% at 100% 0,#4a2a86 0,rgba(74,42,134,0) 70%),var(--noite);color:#fff;padding:36px 0 44px}
+.capa .cx{display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+.capa .kicker{color:#dccff0}
+.capa h1{font-size:clamp(38px,10.5vw,64px);font-weight:800;margin-top:14px}
+.capa h1 em{color:var(--lima);display:block}
+.capa .sub{color:#e6ddf3}
+.resumo{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:22px}
+.resumo div{padding:14px 12px;border-radius:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14)}
+.resumo b{display:block;white-space:nowrap;font-family:var(--titulo);font-size:clamp(19px,5.2vw,32px);font-weight:800;letter-spacing:-.03em;color:var(--lima);line-height:1}
+.resumo span{display:block;font-size:12.5px;color:#dccff0;margin-top:6px;line-height:1.3}
+.acoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.acoes .bt{flex:1 1 220px}
+.valida{margin-top:14px;font-size:13px;color:#bfb1d6}
+.capa-foto{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:4/4.4;background:#2a1548;max-width:440px;width:100%;justify-self:center}
+.capa-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.capa-foto figcaption{position:absolute;left:12px;right:12px;bottom:12px;padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.95);color:var(--tinta-2);font-size:13.5px}
+.capa-foto figcaption b{display:block;color:var(--tinta);font-size:14.5px}
+
+/* índice */
+.indice{position:sticky;top:60px;z-index:20;background:rgba(251,250,247,.95);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--linha)}
+.indice nav{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:10px 20px;width:min(1080px,100%);margin-inline:auto}
+.indice nav::-webkit-scrollbar{display:none}
+.indice a{flex:none;text-decoration:none;font-size:14px;font-weight:700;color:var(--tinta-2);padding:8px 14px;border-radius:999px;border:1.5px solid var(--linha);background:#fff}
+
+/* como funciona */
+.fluxo{display:grid;grid-template-columns:minmax(0,1fr);gap:0;margin-top:26px}
+.no{background:var(--cartao);border:1px solid var(--linha);border-radius:var(--raio);padding:18px 20px;box-shadow:var(--sombra)}
+.no b{display:block;font-family:var(--titulo);font-size:20px;font-weight:800;letter-spacing:-.02em}
+.no small{display:block;font-size:13px;color:var(--suave);margin-top:2px}
+.no ul{list-style:none;margin-top:10px;display:grid;gap:4px}
+.no li{font-size:15px;color:var(--tinta-2);padding-left:18px;position:relative}
+.no li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--lima-2)}
+.no.forte{background:var(--lilas);border:2px solid var(--roxo-3)}
+.seta{display:flex;align-items:center;gap:12px;padding:6px 0 6px 28px;font-size:13.5px;color:var(--suave);font-weight:600}
+.seta i{position:relative;display:block;width:2px;height:34px;background:#bdb3ca;flex:none}
+.seta i::after{content:"";position:absolute;left:-5px;bottom:-2px;border:6px solid transparent;border-top:8px solid #bdb3ca;border-bottom:0}
+.seta.cima i::after{bottom:auto;top:-2px;border-top:0;border-bottom:8px solid #bdb3ca}
+.seta.dupla{gap:22px}
+.seta span.cima i::after{bottom:auto;top:-2px;border-top:0;border-bottom:8px solid #bdb3ca}
+.seta.dupla span{display:flex;align-items:center;gap:10px}
+.par{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.par .seta{padding-left:18px}
+
+/* cartões em grade */
+.grade{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-top:24px}
+.item{background:var(--cartao);border:1px solid var(--linha);border-radius:18px;padding:16px 18px;min-width:0}
+.item .l1{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.item b{font-size:16px;font-weight:800;letter-spacing:-.01em}
+.item p{font-size:14.5px;color:var(--tinta-2);margin-top:6px}
+.fase-t{display:flex;align-items:center;gap:10px;margin-top:30px}
+.fase-t h3{font-size:19px}
+.lista{list-style:none;display:grid;gap:8px;margin-top:16px}
+.lista li{position:relative;padding-left:26px;color:var(--tinta-2);font-size:15.5px}
+.lista li::before{content:"";position:absolute;left:4px;top:8px;width:9px;height:9px;border-radius:3px;background:var(--lima-2)}
+.nota{margin-top:18px;padding:16px 18px;border-radius:18px;background:var(--lilas);color:var(--tinta-2);font-size:15px}
+.nota b{color:var(--tinta)}
+
+/* segurança */
+.seg{background:var(--noite);color:#fff}
+.seg h2{color:#fff}.seg h2 em{color:var(--lima)}.seg .kicker{color:#dccff0}.seg .sub{color:#d8cce9}
+.seg .item{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#fff}
+.seg .item .ic{width:46px;height:46px;border-radius:14px;background:var(--lima);color:var(--noite);display:grid;place-items:center;margin-bottom:12px}
+.seg .item .ic svg{width:24px;height:24px}
+.seg .item ul{list-style:none;margin-top:8px;display:grid;gap:6px}
+.seg .item li{font-size:14.5px;color:#dccff0;padding-left:16px;position:relative}
+.seg .item li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--lima)}
+
+/* prazo */
+.marcos{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin-top:26px}
+.marco{position:relative;background:var(--cartao);border:1px solid var(--linha);border-radius:var(--raio);padding:18px 20px}
+.marco.forte{background:var(--lilas);border:2px solid var(--roxo-3)}
+.marco .t{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.marco h3{font-size:22px}
+.marco .sem{font-size:13px;font-weight:700;color:var(--suave)}
+.marco ul{list-style:none;margin-top:12px;display:grid;gap:5px}
+.marco li{font-size:15px;color:var(--tinta-2);padding-left:18px;position:relative}
+.marco li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--roxo-3)}
+.marco .pg{display:flex;align-items:center;gap:8px;margin-top:14px;padding-top:12px;border-top:1px dashed var(--linha);font-size:13.5px;font-weight:700;color:var(--roxo)}
+.marco .pg i{width:12px;height:12px;transform:rotate(45deg);background:var(--roxo);border-radius:2px;flex:none}
+
+/* investimento */
+.preco{margin-top:24px;border-radius:26px;background:var(--noite);color:#fff;padding:26px 22px;display:grid;gap:18px}
+.preco .de{font-size:15px;color:#bfb1d6}
+.preco .de s{color:#dccff0}
+.preco .por{font-family:var(--titulo);font-size:clamp(54px,15vw,84px);font-weight:800;letter-spacing:-.045em;line-height:1;color:var(--lima)}
+.preco .como{font-size:15px;color:#e6ddf3}
+.preco .como b{color:#fff}
+.horas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.horas div{padding:14px;border-radius:16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14)}
+.horas b{display:block;font-family:var(--titulo);font-size:26px;font-weight:800;letter-spacing:-.03em}
+.horas span{display:block;font-size:12.5px;color:#cdbfe0;margin-top:2px}
+.horas .eco b{color:var(--lima)}
+details{margin-top:16px;background:var(--cartao);border:1px solid var(--linha);border-radius:18px;overflow:hidden}
+summary{cursor:pointer;list-style:none;padding:16px 18px;font-weight:800;display:flex;justify-content:space-between;align-items:center;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;color:var(--roxo);line-height:1}
+details[open] summary::after{content:"–"}
+.tabela{width:100%;border-collapse:collapse;font-size:14.5px}
+.tabela th,.tabela td{text-align:left;padding:11px 18px;border-top:1px solid var(--linha);vertical-align:top}
+.tabela th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--suave)}
+.tabela td:last-child,.tabela th:last-child{text-align:right;white-space:nowrap}
+.tabela td:nth-child(2),.tabela th:nth-child(2){text-align:center;white-space:nowrap}
+.tabela tr.total td{font-weight:800;color:var(--tinta)}
+.pagamento{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-top:16px}
+.pagamento div{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:18px;background:var(--cartao);border:1px solid var(--linha)}
+.pagamento i{flex:none;width:34px;height:34px;border-radius:50%;background:var(--roxo);color:#fff;font-style:normal;font-weight:800;display:grid;place-items:center}
+.pagamento b{display:block;font-size:17px}
+.pagamento span{font-size:14px;color:var(--suave)}
+
+/* planos */
+.planos{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin-top:24px}
+.plano{position:relative;background:var(--cartao);border:1px solid var(--linha);border-radius:24px;padding:22px 20px;display:flex;flex-direction:column;gap:10px}
+.plano.forte{border:2px solid var(--roxo);box-shadow:0 24px 50px -30px rgba(75,42,128,.6)}
+.plano .tag{position:absolute;top:-13px;left:20px;background:var(--lima);color:var(--noite);font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.plano h3{font-size:24px}
+.plano .v{font-family:var(--titulo);font-size:40px;font-weight:800;letter-spacing:-.04em;color:var(--roxo);line-height:1}
+.plano .v small{font-family:"Plus Jakarta Sans",sans-serif;font-size:14px;font-weight:600;color:var(--suave);letter-spacing:0}
+.plano ul{list-style:none;display:grid;gap:7px}
+.plano li{font-size:14.5px;color:var(--tinta-2);padding-left:24px;position:relative}
+.plano li::before{content:"";position:absolute;left:2px;top:4px;width:12px;height:7px;border-left:2.5px solid var(--lima-3);border-bottom:2.5px solid var(--lima-3);transform:rotate(-45deg)}
+.dois{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-top:20px}
+.regras{counter-reset:r;list-style:none;display:grid;gap:10px;padding:6px 18px 18px}
+.regras li{counter-increment:r;position:relative;padding-left:38px;font-size:15px;color:var(--tinta-2)}
+.regras li::before{content:counter(r);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:var(--lilas);color:var(--roxo);font-size:13px;font-weight:800;display:grid;place-items:center}
+
+/* fim */
+.fim{background:radial-gradient(70% 70% at 0 100%,#4a2a86 0,rgba(74,42,134,0) 70%),var(--noite);color:#fff}
+.fim h2{color:#fff}.fim h2 em{color:var(--lima)}.fim .kicker{color:#dccff0}
+.fim .lista li{color:#e6ddf3}
+.passos{counter-reset:p;list-style:none;display:grid;gap:10px;margin-top:22px}
+.passos li{counter-increment:p;display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);font-weight:600}
+.passos li::before{content:counter(p);flex:none;width:32px;height:32px;border-radius:50%;background:var(--lima);color:var(--noite);font-weight:800;display:grid;place-items:center}
+.video{margin-top:22px;border-radius:24px;overflow:hidden;background:#000;max-width:360px;aspect-ratio:9/16}
+.video video{width:100%;height:100%;object-fit:cover}
+footer{padding:26px 0 34px;font-size:13px;color:var(--suave)}
+footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+@media (min-width:760px){
+  section{padding:84px 0}
+  .capa{padding:64px 0 72px}
+  .capa .cx{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:52px;align-items:center}
+  .grade{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .seg .grade{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .marcos{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .planos{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch}
+  .dois{grid-template-columns:1fr 1fr}
+  .pagamento{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .preco{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;padding:34px}
+  .fim .cx{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:48px;align-items:start}
+  .video{justify-self:end}
+  /* o fluxo em três colunas: morador e equipe em cima; site, ligações e portal no meio; a Câmara embaixo */
+  .fluxo{grid-template-columns:minmax(0,1fr) 210px minmax(0,1fr);grid-template-areas:"morador . equipe" "s1 . s2" "site meio portal" ". . s3" ". . camara";align-items:stretch}
+  .f-morador{grid-area:morador}.f-equipe{grid-area:equipe}.f-site{grid-area:site}.f-portal{grid-area:portal}.f-camara{grid-area:camara}
+  .f-s1{grid-area:s1}.f-s2{grid-area:s2}.f-s3{grid-area:s3}.f-meio{grid-area:meio}
+  .seta.cima.f-s2 i::after{bottom:-2px;top:auto;border-top:8px solid #bdb3ca;border-bottom:0}
+  .f-meio{flex-direction:column;justify-content:center;align-items:stretch;gap:26px;padding:0 14px}
+  .f-meio span{flex-direction:column;align-items:stretch;gap:6px;text-align:center}
+  .f-meio i{width:100%;height:2px}
+  .f-meio span:first-child i::after{left:auto;right:-2px;top:-5px;bottom:auto;border:6px solid transparent;border-left:8px solid #bdb3ca;border-right:0}
+  .f-meio span:last-child i::after{left:-2px;top:-5px;bottom:auto;border:6px solid transparent;border-right:8px solid #bdb3ca;border-left:0}
+  .f-baixo,.f-baixo>div{display:contents}
+  .f-baixo .seta{padding-left:28px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="topo"><div class="cx"><div><b>Gabinete Aberto</b><small>Proposta · Renderiza</small></div><a class="bt bt-lima" href="#proximos-passos">Como seguir</a></div></header>
+
+<main>
+<section class="capa" id="inicio" aria-label="Início">
+  <div class="cx">
+    <div>
+      <span class="kicker">Proposta · 14 de novembro de 2026</span>
+      <h1>Site e Portal do Mandato <em>Gabinete Aberto</em></h1>
+      <p class="sub">Para o vereador Mateuzinho Silva, de Itapevi: o site do mandato e o portal do gabinete, separados e integrados.</p>
+      <div class="resumo">
+        <div><b>60 h</b><span>de trabalho</span></div>
+        <div><b>5 sem.</b><span>até tudo pronto</span></div>
+        <div><b>R$ 3.300</b><span>condição de indicação</span></div>
+      </div>
+      <div class="acoes">
+        <a class="bt bt-lima" href="/demo/vereador-mateuzinho-silva" data-rz-alvo="proposta-previa">Ver a prévia do site</a>
+        <a class="bt bt-vidro" href="#video" data-rz-alvo="proposta-video">Assistir ao vídeo da ideia</a>
+      </div>
+      <p class="valida">Proposta válida até 29/11/2026.</p>
+    </div>
+    <figure class="capa-foto"><img src="/demo/vereador-mateuzinho-silva/capa.jpg" alt="Mateuzinho Silva com moradoras no gabinete, em frente ao mapa de Itapevi"><figcaption><b>Gabinete de portas abertas</b>O que acontece toda terça, agora também no site e no portal</figcaption></figure>
+  </div>
+</section>
+
+<div class="indice"><nav aria-label="Partes da proposta">
+  <a href="#como-funciona">Como funciona</a><a href="#site">Site</a><a href="#portal">Portal</a><a href="#seguranca">Segurança</a><a href="#prazo">Prazo</a><a href="#investimento">Investimento</a><a href="#manutencao">Manutenção</a><a href="#proximos-passos">Próximos passos</a>
+</nav></div>
+
+<section id="como-funciona" aria-label="Como funciona">
+  <div class="cx">
+    <span class="kicker">Como funciona</span>
+    <h2>Duas partes, <em>uma só operação.</em></h2>
+    <p class="sub">O site é aberto a todos; o portal, só a equipe acessa. O que o morador registra no site chega ao portal, e o que a equipe atualiza no portal aparece no site.</p>
+    <div class="fluxo">
+      <div class="no f-morador"><b>Morador</b><small>qualquer pessoa da cidade</small></div>
+      <div class="seta f-s1"><i></i>faz o pedido e acompanha</div>
+      <div class="no f-site"><b>Site do mandato</b><small>aberto a todos, sem login</small><ul><li>Pedido do bairro</li><li>Acompanhe o seu pedido</li><li>Rua por rua</li><li>Notícias, projetos e números</li></ul></div>
+      <div class="seta dupla f-meio"><span><i></i>o pedido chega</span><span class="cima"><i></i>situação, notícias e números</span></div>
+      <div class="no forte f-portal"><b>Portal Gabinete Aberto</b><small>só a equipe, cada um com a sua senha</small><ul><li>Pedidos e ficha do pedido</li><li>Terça no gabinete e munícipes</li><li>Indicações, IA e lembretes</li><li>Site, indicadores e acessos</li></ul></div>
+      <div class="par f-baixo">
+        <div><div class="seta cima f-s2"><i></i>entra e atualiza</div><div class="no f-equipe"><b>Equipe do gabinete</b><small>vereador, chefe e assessores</small></div></div>
+        <div><div class="seta cima f-s3"><i></i>indicações e situação</div><div class="no f-camara"><b>Sistema da Câmara</b><small>público, da Câmara de Itapevi</small><ul><li>Indicações do mandato, com número, situação e protocolo</li></ul></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="site" aria-label="Site do mandato" style="padding-top:0">
+  <div class="cx">
+    <span class="kicker">Parte 1</span>
+    <h2>Site <em>do mandato.</em></h2>
+    <p class="sub">A vitrine pública: qualquer pessoa abre, no celular ou no computador, sem login. A base é a prévia que já está no ar; as partes novas estão marcadas.</p>
+    <div class="grade">
+      <div class="item"><div class="l1"><b>Início</b></div><p>A foto, a frase do mandato ("Um olhar para a população") e os botões principais.</p></div>
+      <div class="item"><div class="l1"><b>O mandato em números</b></div><p>Indicações, requerimentos, projetos e moções, atualizados a partir do sistema da Câmara.</p></div>
+      <div class="item"><div class="l1"><b>Nas ruas</b></div><p>Pedidos atendidos e visitas, com foto, data e número da indicação.</p></div>
+      <div class="item"><div class="l1"><b>Rua por rua</b></div><p>Busca por rua ou bairro: cada pedido com o número da indicação, a situação e o protocolo na Prefeitura.</p></div>
+      <div class="item"><div class="l1"><b>Pedido do bairro</b></div><p>Formulário com tipo, bairro, rua, descrição, foto e aceite da LGPD. O pedido chega ao portal e o morador recebe um número na hora.</p></div>
+      <div class="item"><div class="l1"><b>Acompanhe o seu pedido</b><span class="selo s-nova">nova</span></div><p>A página do pedido, pelo número ou pelo link: cada etapa, do recebimento à resposta.</p></div>
+      <div class="item"><div class="l1"><b>Notícias e acontecimentos</b><span class="selo s-nova">nova</span></div><p>O que o gabinete publica pelo portal: visitas, sessões, entregas nos bairros.</p></div>
+      <div class="item"><div class="l1"><b>Projetos e linha do tempo</b></div><p>Os projetos de lei aprovados e em andamento, e os marcos do mandato.</p></div>
+      <div class="item"><div class="l1"><b>Pelos bairros e Quem é</b></div><p>A galeria das visitas, a apresentação do vereador e os valores do mandato.</p></div>
+      <div class="item"><div class="l1"><b>Gabinete</b></div><p>O gabinete de portas abertas: dia, local, mapa e redes.</p></div>
+      <div class="item"><div class="l1"><b>Privacidade</b><span class="selo s-nova">nova</span></div><p>Como são usados os dados de quem faz um pedido.</p></div>
+    </div>
+    <div class="nota"><b>Também entram:</b> o domínio próprio, registrado no nome do vereador (o endereço é escolhido junto); a versão para celular; a prévia com foto quando o link é compartilhado no WhatsApp; os ajustes de conteúdo com os textos e as fotos que o gabinete enviar.</div>
+  </div>
+</section>
+
+<section id="portal" aria-label="Portal do gabinete" style="padding-top:0">
+  <div class="cx">
+    <span class="kicker">Parte 2</span>
+    <h2>Portal <em>do gabinete.</em></h2>
+    <p class="sub">A área restrita da equipe: cada pessoa entra com a sua senha e vê o que o seu perfil permite. Funciona no navegador do computador e do celular e pode ser instalado na tela inicial como um aplicativo, sem loja.</p>
+
+    <div class="fase-t"><span class="selo s-f1">Fase 1</span><h3>O essencial para receber pedidos</h3></div>
+    <div class="grade">
+      <div class="item"><b>Entrar</b><p>Login individual e recuperação de senha por e-mail.</p></div>
+      <div class="item"><b>Pedidos</b><p>Todos os pedidos num só lugar (site, WhatsApp, terça no gabinete, visitas), em quadro ou em lista, com filtro por bairro, tema e situação.</p></div>
+      <div class="item"><b>Ficha do pedido</b><p>Dados, fotos, histórico, responsável e comentários internos. Mudar a situação atualiza a página do morador. Um botão abre o WhatsApp do gabinete com a mensagem pronta para avisar o morador.</p></div>
+      <div class="item"><b>Equipe e acessos</b><p>Quem é da equipe e o que cada perfil vê e edita: vereador, chefe de gabinete, assessoria de bairros, atendimento.</p></div>
+    </div>
+
+    <div class="fase-t"><span class="selo s-f2">Fase 2</span><h3>O dia a dia do gabinete</h3></div>
+    <div class="grade">
+      <div class="item"><b>Início</b><p>O dia do gabinete: pedidos novos, atendimentos da terça, lembretes e números.</p></div>
+      <div class="item"><b>Terça no gabinete</b><p>A ficha de atendimento no celular ou no tablet, a fila do dia e o resumo. O atendimento pode virar pedido.</p></div>
+      <div class="item"><b>Munícipes</b><p>O cadastro de quem foi atendido, com o histórico e o aceite da LGPD.</p></div>
+      <div class="item"><b>Indicações</b><p>As indicações do mandato, vindas do sistema da Câmara e ligadas aos pedidos.</p></div>
+      <div class="item"><b>Site</b><p>Publicar notícias, trocar fotos, editar projetos e linha do tempo e escolher o que aparece no "Rua por rua".</p></div>
+      <div class="item"><b>Indicadores</b><p>Pedidos por bairro e tema, tempo de resposta, pedidos resolvidos e atendimentos por semana, com o relatório do mês em PDF.</p></div>
+    </div>
+
+    <div class="fase-t"><span class="selo s-f3">Fase 3</span><h3>Inteligência</h3></div>
+    <div class="grade">
+      <div class="item"><b>Redigir com IA</b><p>O rascunho da indicação no padrão do gabinete, feito a partir do pedido. A equipe revisa antes de protocolar.</p></div>
+      <div class="item"><b>Lembretes</b><p>Avisa quando uma indicação está há tempo demais sem resposta e precisa ser cobrada.</p></div>
+    </div>
+
+    <ul class="lista">
+      <li>O pedido feito no site cai direto na tela Pedidos.</li>
+      <li>O que a equipe muda no portal aparece no site: a situação do pedido, as notícias, as fotos e os números.</li>
+      <li>A equipe recebe um e-mail quando chega um pedido novo.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="seg" id="seguranca" aria-label="Segurança e privacidade">
+  <div class="cx">
+    <span class="kicker">Segurança e privacidade</span>
+    <h2>Os dados são do gabinete <em>e ficam protegidos.</em></h2>
+    <p class="sub">Os dados dos moradores servem só para atender os pedidos.</p>
+    <div class="grade">
+      <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><h3>Acesso</h3><ul><li>Login e senha próprios; o perfil define o que cada um vê e edita.</li><li>Verificação em duas etapas para o vereador e o chefe de gabinete.</li><li>Quem sai da equipe perde o acesso na hora.</li></ul></div>
+      <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></span><h3>Proteção</h3><ul><li>Conexão criptografada (HTTPS) em todo o site e o portal.</li><li>Banco de dados em servidor no Brasil (São Paulo), com os dados criptografados.</li><li>Cada tela só lê o que o perfil de quem está logado permite.</li><li>Formulário público protegido contra robôs e envios em massa.</li></ul></div>
+      <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg></span><h3>Cópias e registro</h3><ul><li>Cópia de segurança automática todos os dias, guardada por 7 dias, e uma semanal à parte.</li><li>Registro de quem criou, alterou ou excluiu cada pedido, e quando.</li></ul></div>
+      <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/></svg></span><h3>LGPD</h3><ul><li>Aceite separado no formulário, com a finalidade escrita.</li><li>O site nunca mostra nome, telefone ou endereço de quem pediu.</li><li>O morador pode pedir para ver, corrigir ou apagar os seus dados.</li><li>Política de privacidade publicada; a Renderiza assina termo de confidencialidade.</li></ul></div>
+      <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></span><h3>Mandato separado de campanha</h3><ul><li>O cadastro de munícipes serve ao atendimento do mandato.</li><li>Não vira lista de campanha sem um consentimento próprio para isso (LGPD e Lei 9.504/1997).</li></ul></div>
+      <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg></span><h3>Os dados são do gabinete</h3><ul><li>Domínio e contas de hospedagem e de banco no nome do vereador, com a Renderiza como administradora.</li><li>Exportação completa a qualquer momento.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="prazo" aria-label="Prazo">
+  <div class="cx">
+    <span class="kicker">Prazo</span>
+    <h2>No ar em 2 semanas, <em>tudo pronto em 5.</em></h2>
+    <p class="sub">Três fases. Cada fase é entregue para o gabinete testar antes da seguinte, e cada entrega libera uma parcela do pagamento.</p>
+    <div class="marcos">
+      <div class="marco forte"><div class="t"><h3>Fase 1</h3><span class="sem">semanas 1 e 2</span></div><ul><li>Site no ar, no domínio</li><li>Pedido do bairro e acompanhamento</li><li>Portal: pedidos e equipe</li></ul><div class="pg"><i></i>Entrega 1 · 30%</div></div>
+      <div class="marco"><div class="t"><h3>Fase 2</h3><span class="sem">semanas 3 e 4</span></div><ul><li>Terça no gabinete</li><li>Munícipes</li><li>Indicações da Câmara</li><li>Site pelo portal</li><li>Indicadores e relatório</li></ul></div>
+      <div class="marco"><div class="t"><h3>Fase 3</h3><span class="sem">semana 5</span></div><ul><li>IA para redigir indicações</li><li>Lembretes de cobrança</li><li>Testes e treinamento da equipe</li></ul><div class="pg"><i></i>Entrega final · 30%</div></div>
+    </div>
+    <div class="nota">Os prazos contam a partir do aceite, do pagamento da entrada e do envio do material: textos, fotos, acesso ao domínio, número do WhatsApp do gabinete e lista da equipe.</div>
+  </div>
+</section>
+
+<section id="fora" aria-label="Fora desta proposta" style="padding-top:0">
+  <div class="cx">
+    <span class="kicker">Fora desta proposta</span>
+    <h2 style="font-size:clamp(26px,6vw,36px)">O que fica <em>para depois.</em></h2>
+    <p class="sub">Estes itens podem entrar depois, como melhoria ou com orçamento próprio:</p>
+    <ul class="lista">
+      <li>Envio e resposta automáticos pelo WhatsApp (pedem a API oficial, que cobra por mensagem).</li>
+      <li>Aplicativo nas lojas (Google Play e App Store): o portal se instala pelo navegador.</li>
+      <li>Produção de conteúdo: textos novos, fotos, vídeos, redes sociais e anúncios.</li>
+      <li>Integração com os sistemas da Prefeitura (a resposta da Prefeitura é registrada pela equipe).</li>
+      <li>Importação de planilhas antigas do gabinete, orçada depois de ver o material.</li>
+      <li>Site e material de campanha eleitoral, que têm regras próprias.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="investimento" aria-label="Investimento" style="padding-top:20px">
+  <div class="cx">
+    <span class="kicker">Investimento</span>
+    <h2>60 horas, <em>com a condição de indicação.</em></h2>
+    <div class="preco">
+      <div>
+        <p class="de">Valor de tabela: <s>R$ 4.500</s> (R$ 75 a hora)</p>
+        <p class="por">R$ 3.300</p>
+        <p class="como"><b>Indicação do Dr. Marcos:</b> a hora sai por R$ 55.</p>
+      </div>
+      <div class="horas">
+        <div><b>60 h</b><span>de trabalho</span></div>
+        <div><b>R$ 55</b><span>por hora</span></div>
+        <div><b>3</b><span>fases com entrega</span></div>
+        <div class="eco"><b>R$ 1.200</b><span>a menos que a tabela</span></div>
+      </div>
+    </div>
+    <details open>
+      <summary>As horas por item</summary>
+      <table class="tabela">
+        <thead><tr><th>Item</th><th>Fase</th><th>Horas</th></tr></thead>
+        <tbody>
+          <tr><td>Levantamento com o gabinete e roteiro das telas</td><td>1</td><td>4</td></tr>
+          <tr><td>Site: conteúdo final, domínio, publicação e ajustes da prévia</td><td>1</td><td>8</td></tr>
+          <tr><td>Pedido do bairro e página de acompanhamento</td><td>1</td><td>6</td></tr>
+          <tr><td>Portal: entrar, equipe e acessos</td><td>1</td><td>6</td></tr>
+          <tr><td>Pedidos e ficha do pedido</td><td>1</td><td>8</td></tr>
+          <tr><td>Terça no gabinete</td><td>2</td><td>4</td></tr>
+          <tr><td>Munícipes</td><td>2</td><td>4</td></tr>
+          <tr><td>Site pelo portal: notícias, fotos, projetos e "Rua por rua"</td><td>2</td><td>6</td></tr>
+          <tr><td>Indicações a partir do sistema da Câmara</td><td>2</td><td>5</td></tr>
+          <tr><td>Início, indicadores e relatório do mês</td><td>2</td><td>3</td></tr>
+          <tr><td>IA para redigir indicações e lembretes de cobrança</td><td>3</td><td>4</td></tr>
+          <tr><td>Testes finais, segurança e treinamento da equipe</td><td>3</td><td>2</td></tr>
+          <tr class="total"><td>Total</td><td></td><td>60</td></tr>
+        </tbody>
+      </table>
+    </details>
+    <h3 style="margin-top:26px">Pagamento, por Pix ou transferência</h3>
+    <div class="pagamento">
+      <div><i>1</i><p><b>R$ 1.320</b><span>40% na aprovação</span></p></div>
+      <div><i>2</i><p><b>R$ 990</b><span>30% na entrega da Fase 1</span></p></div>
+      <div><i>3</i><p><b>R$ 990</b><span>30% na entrega final</span></p></div>
+    </div>
+    <div class="nota"><b>Valor fechado para o que está nesta proposta:</b> se o trabalho passar de 60 horas, a diferença fica por conta da Renderiza. O que for pedido fora deste escopo segue o valor de R$ 55 a hora, sempre com a estimativa aprovada antes. A hospedagem durante o desenvolvimento está incluída; o registro do domínio (cerca de R$ 40 por ano no Registro.br) é pago direto pelo vereador, porque o domínio fica no nome dele.</div>
+  </div>
+</section>
+
+<section id="manutencao" aria-label="Manutenção e melhorias" style="padding-top:20px">
+  <div class="cx">
+    <span class="kicker">Depois da entrega</span>
+    <h2>Manutenção <em>e melhorias.</em></h2>
+    <p class="sub">Um plano mensal mantém o site e o portal no ar, seguros e atualizados. Recomendamos o plano Gabinete.</p>
+    <div class="planos">
+      <div class="plano"><h3>Essencial</h3><p class="v">R$ 350 <small>por mês</small></p><ul><li>Hospedagem e banco de dados</li><li>Cópias e atualizações de segurança</li><li>Monitoramento e correção de defeitos</li><li>Até 1 hora de ajustes no mês</li><li>Resposta em até 2 dias úteis</li></ul></div>
+      <div class="plano forte"><span class="tag">Recomendado</span><h3>Gabinete</h3><p class="v">R$ 590 <small>por mês</small></p><ul><li>Tudo do Essencial</li><li>Até 4 horas de melhorias e telas novas no mês</li><li>Ajuste quando a Câmara mudar o sistema dela</li><li>Relatório mensal de uso</li><li>Resposta em até 1 dia útil</li></ul></div>
+      <div class="plano"><h3>Mandato</h3><p class="v">R$ 990 <small>por mês</small></p><ul><li>Tudo do Gabinete</li><li>Até 10 horas no mês</li><li>Reunião mensal de 30 minutos com a equipe</li><li>Urgências atendidas no mesmo dia útil</li></ul></div>
+    </div>
+    <div class="dois">
+      <div class="item"><b>Manutenção</b><p>Manter tudo funcionando: hospedagem, segurança, cópias, correção de defeitos e o ajuste quando um serviço de fora muda.</p></div>
+      <div class="item"><b>Melhoria</b><p>O que muda ou acrescenta: uma tela nova, um campo novo, um relatório novo, uma mudança de visual.</p></div>
+    </div>
+    <details>
+      <summary>As regras dos planos</summary>
+      <ol class="regras">
+        <li>O plano começa no mês seguinte à entrega final.</li>
+        <li>Defeito no que foi entregue é corrigido sem gastar horas, em qualquer plano. Há garantia de 90 dias depois da entrega, mesmo sem plano.</li>
+        <li>As horas incluídas não acumulam para o mês seguinte. O que passar delas é cobrado a R$ 55 a hora, só com aprovação antes.</li>
+        <li>Cada melhoria recebe uma estimativa de horas antes de começar e entra numa fila combinada com o gabinete.</li>
+        <li>O atendimento é por WhatsApp e e-mail, em dias úteis, das 9h às 18h. Site ou portal fora do ar é tratado em até 4 horas úteis, em qualquer plano.</li>
+        <li>A IA está incluída até 200 rascunhos de indicação por mês. O WhatsApp oficial, se um dia for contratado, é cobrado à parte, pelo uso.</li>
+        <li>Vigência mínima de 3 meses. Depois, é mês a mês, com aviso de 30 dias para cancelar. O valor é reajustado uma vez por ano pelo IPCA.</li>
+        <li>Dá para trocar de plano a qualquer momento, valendo no mês seguinte.</li>
+        <li>Sem plano, o site e o portal continuam nas contas do vereador. A hospedagem e o banco passam a ser pagos direto por ele (hoje, cerca de R$ 150 a R$ 250 por mês), e os ajustes saem por hora avulsa.</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<section class="fim" id="proximos-passos" aria-label="Próximos passos">
+  <div class="cx">
+    <div>
+      <span class="kicker">Próximos passos</span>
+      <h2>Para começar, <em>quatro passos.</em></h2>
+      <ol class="passos">
+        <li>Aprovação desta proposta e escolha do plano de manutenção</li>
+        <li>Assinatura do contrato, em nome do vereador (pessoa física), e pagamento da entrada</li>
+        <li>Reunião de levantamento de 1 hora no gabinete</li>
+        <li>Início da Fase 1</li>
+      </ol>
+      <div class="acoes">
+        <a class="bt bt-lima" href="https://wa.me/5511988697165?text=Ol%C3%A1%2C%20Kaue!%20Li%20a%20proposta%20do%20Gabinete%20Aberto%20e%20quero%20seguir." data-rz-alvo="proposta-aceitar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Quero seguir</a>
+        <a class="bt bt-vidro" href="https://wa.me/5511988697165?text=Ol%C3%A1%2C%20Kaue!%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20proposta%20do%20Gabinete%20Aberto." data-rz-alvo="proposta-duvida">Tirar uma dúvida</a>
+      </div>
+      <p class="valida">Proposta válida até 29/11/2026 · Kaue · Renderiza · WhatsApp (11) 98869-7165</p>
+    </div>
+    <div id="video">
+      <span class="kicker">A ideia em 71 segundos</span>
+      <div class="video"><video controls preload="none" playsinline poster="/demo/vereador-mateuzinho-silva/capa.jpg" src="/gravacao/vereador-mateuzinho-silva-proposta.mp4"></video></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="cx"><span>Proposta da Renderiza para o vereador Mateuzinho Silva · 14/11/2026</span><a href="https://www.renderizaweb.com.br">renderizaweb.com.br</a></div></footer>
+</body>
+</html>

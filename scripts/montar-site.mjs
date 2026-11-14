@@ -149,6 +149,10 @@ export function arquivosPublicados() {
   if (existsSync(flyers)) for (const f of readdirSync(flyers)) if (f.endsWith(".png")) lista.push([join("flyer", f), join(flyers, f)]);
   const gravacoes = join(RAIZ, "gravacoes");
   if (existsSync(gravacoes)) for (const f of readdirSync(gravacoes)) if (f.endsWith(".mp4")) lista.push([join("gravacao", f), join(gravacoes, f)]);
+  // Propostas comerciais para um lead (propostas/<lead>.html → /proposta/<lead>): fora de /demo, então não saem do ar
+  // quando a demo vence. Cada uma traz o próprio contador (data-sub="proposta") e o noindex.
+  const propostas = join(RAIZ, "propostas");
+  if (existsSync(propostas)) for (const f of readdirSync(propostas)) if (f.endsWith(".html")) lista.push([join("proposta", f), join(propostas, f)]);
   const vistos = new Set();
   for (const [destino] of lista) {
     if (vistos.has(destino)) throw new Error(`Dois arquivos querem ser publicados em ${destino}.`);
