@@ -336,3 +336,44 @@ reescrita: rola a página, clica nas abas, na tela cheia, na faixa e na pílula 
 - **Ler a avaliação inteira antes de pôr numa página:** na versão 3, o depoimento da página de família falava de gestação.
 - **Peso no repositório:** com as fotos em tamanho de portfólio, a pasta da Olivares tem 26 MB de HTML (antes, 3 MB).
   No ar a página continua leve (as fotos saem da página no build). Decidir antes de aplicar aos outros 19.
+
+**Versão 4, fase 2 (14/11/2026): aprovada pelo Kaue na Olivares e aplicada aos 20 leads.** Todos os portfólios de
+fotógrafa estão no modelo v4, publicados, com a promoção até 21/11 (`renderiza.valido_ate` e `demos.vale_ate`):
+Olivares, Mandaluz, Lus, Silvia Olarindo, Amanda Soares, Lenita Sevela, Mayara Teixeira, Pamela Demezio, Reviver,
+Studio Flaternize, Thays Adrianny, Vanessa Luciana, Drika Freitas, Roberta Ale, Camila, Carlota Joaquina, Tata's Photo
+Art, Ray Barbosa (tema escuro), Mariana Lima e Thayuane Rosa. **Fotógrafa nova já nasce neste formato.**
+
+**Como fazer um portfólio v4 (o passo a passo que funcionou):**
+1. **Originais**, cada fonte numa pasta própria fora do git (Python sempre com `-I`): a grade salva no Drive (baixar
+   cada arquivo pelo id), os carrosséis pelo embed público (`ferramentas/ig-post.py`) e as fotos do Perfil no Google
+   (`ferramentas/fotos-google.mjs`). Fotos brutas nunca vão para o git.
+2. **Folha de contato grande** (320 px, 6 colunas) de TUDO, sem as 9:16 (capa de vídeo) e as menores que 600 px, sem
+   repetidas (a mesma foto em dois tamanhos fica a maior). Ler as avaliações inteiras e as legendas.
+3. **Escolher foto por foto** e escrever o `demo.json` (`portfolio`, versão 4; o formato está no topo do
+   `gerar-portfolio.py`): a ordem das fotos é a ordem da página, `capa` diz quantas abrem a página e `vitrine` quais
+   entram no filtro da vitrine. A primeira foto do primeiro ensaio é a abertura da vitrine: **em pé**, senão no celular
+   ela fica enorme e cortada pelo quadro (Tata's).
+4. `python3 ferramentas/demo/gerar-portfolio.py demos/<pasta> <pasta dos originais>`.
+5. `node ferramentas/demo/conferir-portfolio.cjs <saída> <pasta>` (390, 1280 e 1440; cliques, foto cortada ou ampliada,
+   texto estourando, "site") e **olhar** as páginas inteiras e a primeira tela de cada uma.
+6. **Conferir a folha das escolhidas** (cada foto com o alt dela, na ordem): foi assim que apareceram índices trocados
+   (fotos de mês a mês na página de Natal da Mayara, um print de WhatsApp na da Thays, legendas trocadas na Flaternize).
+7. Ficha (`ficha.md`), commit, merge da `origin/main`, push do branch e da `main`, e o prazo no painel.
+
+**Regras novas (somam às de cima):**
+- **Pastas do Drive na lixeira:** o conector ignora o `pageToken`; para pastas com mais de 100 arquivos, listar com
+  `orderBy` `modifiedTime asc` e `desc` e juntar. A grade salva também tem `.webp` (não só `.jpg`).
+- **Post sem `contextJSON` no embed:** a capa sai do `srcset` da `EmbeddedMediaImage` (Silvia, Amanda).
+- **Fora sempre:** nu, nu implícito, lingerie, sutiã ou body transparente (mesmo em gestante; Ray e Thayuane), artes
+  com texto, prints, mosaicos e colagens com borda branca (Camila), fotos com @ grande, capas de vídeo, detalhes que
+  não se entendem (boca, pés) e fotos de outras contas.
+- **Natal:** a página abre com o cenário de 2026 (os posts de novembro) e pode seguir com Natais anteriores. Com
+  menos de 5 fotos de Natal, vira "Natal e família" (Tata's).
+- **Sem foto pública da fotógrafa**, o "quem fotografa" mostra o estúdio ou um cenário dela (Carlota, Tata's) e a
+  ficha pede para confirmar.
+- **"Quando fazer" só com o que ela publicou** (26 a 32 semanas da Ray, 13 a 25 dias da Roberta, vagas do Natal da
+  Thay); sem isso, a página não tem esse bloco.
+- **Ensaio a domicílio** (Roberta): `onde` no ensaio ou no `portfolio` e `contato.rota: false` (sem "Como chegar").
+- **Tema escuro** sai sozinho quando o fundo do estúdio é escuro (Ray).
+- **Peso:** os 20 portfólios somam cerca de 440 MB de HTML no repositório (as fotos ficam dentro do HTML; no ar saem
+  para `/demo/<pasta>/f/`). Se o repositório pesar, a saída é guardar só as fotos tratadas fora do HTML.
