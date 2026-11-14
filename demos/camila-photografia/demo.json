@@ -13,12 +13,12 @@
  "endereco_maps": "R. Brás Machado Lima, 30 - Jardim Piqueroby, São Paulo - SP, 03463-020",
  "google_nota": "5,0",
  "google_total": "109",
- "verificado": "2026-11-06",
+ "verificado": "2026-11-14",
  "whatsapp": "5511977045992",
  "fone_link": "+5511977045992",
  "instagram": "camilaphotografia",
  "seguidores": "6,6 mil",
- "mensagem": "Olá, Camila! Vi o seu site e queria saber mais sobre os ensaios.",
+ "mensagem": "Olá! Vi o portfólio da Camila e queria saber mais sobre os ensaios.",
  "cores": {
   "fundo": "#f8f8f6",
   "papel": "#ffffff",
@@ -74,11 +74,11 @@
   "preco_pix": "R$ 399",
   "parcelado": "2x de R$ 199",
   "nota_preco": "pagamento único, sem mensalidade",
-  "valido_ate": "2026-11-13",
-  "msg_garantir": "Olá! Sou a Camila, da Camila Photografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
-  "msg_negociar": "Olá! Sou a Camila, da Camila Photografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "valido_ate": "2026-11-21",
+  "msg_garantir": "Olá! Sou a Camila, da Camila Photografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Camila, da Camila Photografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "3wq6",
-  "msg_duvida": "Olá! Sou a Camila, da Camila Photografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+  "msg_duvida": "Olá! Sou a Camila, da Camila Photografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
   "fontes": {
@@ -720,28 +720,369 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
-  "local": "Zona Leste de SP",
-  "h1": "Retratos corporativos e ensaios infantis na Zona Leste de São Paulo.",
-  "frase": "Acompanhar as famílias e registrar cada nova fase.",
-  "capa": "natal:3",
+  "olho": "Estúdio de fotografia · Jardim Piqueroby, São Paulo",
+  "titulo": "Acompanhar as famílias e registrar cada nova fase.",
+  "linha": "Natal, famílias, crianças, aniversários e retratos profissionais, no estúdio do Jardim Piqueroby, na Zona Leste de São Paulo.",
+  "local": "Jardim Piqueroby",
+  "tira": [
+   "natal:0",
+   "corporativo:0",
+   "natal:1",
+   "infantil:0",
+   "natal:2",
+   "corporativo:1",
+   "natal:3"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Adri e Artur FS",
+    "tag": "Cenários",
+    "texto": "As fotos ficaram incríveis, uma mais linda que a outra! Os cenários são maravilhosos, muito bem pensados e produzidos, com um cuidado especial em cada detalhe. O atendimento é superatencioso desde a chegada."
+   },
+   {
+    "nome": "Tatiane Marinho Quintiliano",
+    "tag": "Corporativo",
+    "texto": "Já é o terceiro ensaio corporativo que faço com a Camila e sempre fico muito feliz e realizada com o resultado. Ela direciona com muito carinho e posicionamento."
+   },
+   {
+    "nome": "gabriela silva",
+    "tag": "40 anos",
+    "texto": "Uma experiência deliciosa, cheia de leveza e registros maravilhosos para celebrar meus 40 anos! Agradeço a Camila pelo trabalho impecável."
+   },
+   {
+    "nome": "Mariangela Languidi",
+    "tag": "Retorno rápido",
+    "texto": "Amei o trabalho da Camila! Rápido retorno, fotos maravilhosas e com muita ética! Recomendo 100%!"
+   }
+  ],
+  "contato": {
+   "titulo": "Escolha o ensaio e reserve a data.",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Jardim Piqueroby, na Zona Leste de São Paulo, e atende todos os dias.",
+   "endereco": [
+    "R. Brás Machado Lima, 30",
+    "Jardim Piqueroby · São Paulo, SP"
+   ],
+   "telefone": "(11) 97704-5992"
+  },
+  "_ficha": {
+   "direcao": [
+    "Lote de fotógrafos. Dona: Camila. Estúdio no Jardim Piqueroby, Zona Leste de São Paulo. Título com as palavras dela (\"acompanhar as famílias, registrar... cada nova fase\").",
+    "A página de Natal é o cenário de 2026, a cozinha de Natal: as fotos são dos carrosséis de novembro (2160 px), de 7 famílias diferentes. Corporativo junta os retratos femininos e masculinos."
+   ],
+   "fora": "as colagens e as fotos com borda branca dos carrosséis (ela monta muitas assim), o mosaico da festa da Patrulha Canina, a arte \"Aniversário da fotógrafa\", as fotos em preto e branco de bastidor e as repetidas.",
+   "textos": [
+    "Dela: \"A cozinha já está pronta para receber vocês!\", \"um ensaio cheio de brincadeiras\", \"As reservas já estão acontecendo\", \"O melhor presente é poder viver esses momentos ao lado de quem a gente ama\", \"É muito bom acompanhar o crescimento de uma família e registrar cada nova fase dessa história\", \"É uma alegria ver o tempo passar…\", o vídeo making of (legenda de 2º Natal).",
+    "Avaliações (lidas inteiras): Adri e Artur FS no Natal (fala dos cenários), Tatiane no corporativo, Mariangela no infantil; gabriela silva (40 anos) só na vitrine.",
+    "Não são dela: os pacotes e valores (exemplos)."
+   ],
+   "conferir": [
+    "A foto de \"quem fotografa\" é a da v3 (com a câmera de filme, da grade dela): confirmar que é a Camila.",
+    "Se as fotos de Natal podem ficar todas (são de clientes, publicadas por ela neste mês)."
+   ]
+  },
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py). Fotos dos ORIGINAIS (drive/ = a grade dela salva no Drive; posts/ = carrosséis do embed público; google/ = Perfil da Empresa), escolhidas uma a uma na folha de contato. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "versao": 4,
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "A Camila, atrás da câmera.",
+   "p": [
+    "A Camila fotografa famílias, crianças, aniversários e retratos profissionais no estúdio do Jardim Piqueroby, na Zona Leste de São Paulo.",
+    "Tem famílias que voltam todo Natal, e clientes que já fizeram três ensaios corporativos com ela."
+   ],
+   "citacao": "É muito bom acompanhar o crescimento de uma família e registrar cada nova fase dessa história.",
+   "citacao_quem": "Camila, no Instagram",
+   "fotos": [
+    {
+     "arq": "google/g00.jpg",
+     "alt": "A Camila com a câmera"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 109 avaliações no Google"
+    ],
+    [
+     "6,6 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
   "ensaios": [
+   {
+    "id": "natal",
+    "nome": "Natal",
+    "chamada": "Ensaio de Natal",
+    "pedido": "o ensaio de Natal",
+    "frase": "A cozinha já está pronta para receber vocês!",
+    "texto": "A cozinha de Natal, com a árvore, o fogão, as canecas e o telefone vermelho: um ensaio cheio de brincadeiras, com a família toda.",
+    "citacao": "O melhor presente é poder viver esses momentos ao lado de quem a gente ama.",
+    "citacao_quem": "Camila, no Instagram",
+    "quando": "As reservas de Natal já estão acontecendo. Datas pelo WhatsApp.",
+    "depo": {
+     "nome": "Adri e Artur FS",
+     "texto": "Os cenários são maravilhosos, muito bem pensados e produzidos, com um cuidado especial em cada detalhe. O atendimento é superatencioso desde a chegada."
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "posts/DfPXS3lDfkn/DfPXS3lDfkn_07.jpg",
+      "alt": "Menina sorrindo com a caneca de Natal"
+     },
+     {
+      "arq": "posts/DfOHvgSDVTl/DfOHvgSDVTl_01.jpg",
+      "alt": "Família junto à árvore, na cozinha de Natal"
+     },
+     {
+      "arq": "posts/DfaIGlSlin_/DfaIGlSlin__09.jpg",
+      "alt": "Menina rindo ao telefone vermelho"
+     },
+     {
+      "arq": "posts/Dfj883SoNGe/Dfj883SoNGe_07.jpg",
+      "alt": "Menino de jardineira com a cesta de ovos"
+     },
+     {
+      "arq": "posts/DffCrYnIBSj/DffCrYnIBSj_06.jpg",
+      "alt": "Casal com a câmera, junto à árvore"
+     },
+     {
+      "arq": "posts/DfPXS3lDfkn/DfPXS3lDfkn_05.jpg",
+      "alt": "Mãe e filha abraçadas, rindo"
+     },
+     {
+      "arq": "posts/DfOHvgSDVTl/DfOHvgSDVTl_07.jpg",
+      "alt": "Irmã de chapéu de chef com o bebê"
+     },
+     {
+      "arq": "posts/DfSnXcVnyzm/DfSnXcVnyzm_15.jpg",
+      "alt": "Família na cozinha de Natal"
+     },
+     {
+      "arq": "posts/DfaIGlSlin_/DfaIGlSlin__03.jpg",
+      "alt": "Menina de vermelho com a caneca, junto à árvore"
+     },
+     {
+      "arq": "posts/Dfj883SoNGe/Dfj883SoNGe_16.jpg",
+      "alt": "Menino sentado no urso de pelúcia"
+     },
+     {
+      "arq": "posts/DfiF14qoGaV/DfiF14qoGaV_16.jpg",
+      "alt": "Mãe e filha junto à árvore"
+     },
+     {
+      "arq": "posts/DfOHvgSDVTl/DfOHvgSDVTl_13.jpg",
+      "alt": "Família junto ao fogão, com a árvore"
+     },
+     {
+      "arq": "posts/DfPXS3lDfkn/DfPXS3lDfkn_17.jpg",
+      "alt": "Menina na cozinha, junto à árvore"
+     },
+     {
+      "arq": "posts/DfaIGlSlin_/DfaIGlSlin__11.jpg",
+      "alt": "Família de vermelho junto à árvore"
+     },
+     {
+      "arq": "posts/DfSnXcVnyzm/DfSnXcVnyzm_04.jpg",
+      "alt": "Menino abrindo a massa com o rolo"
+     },
+     {
+      "arq": "posts/DffCrYnIBSj/DffCrYnIBSj_16.jpg",
+      "alt": "Casal cozinhando, com um beijo no rosto"
+     },
+     {
+      "arq": "posts/Dfj883SoNGe/Dfj883SoNGe_03.jpg",
+      "alt": "Menino pendurando a bola na árvore"
+     },
+     {
+      "arq": "posts/DfPXS3lDfkn/DfPXS3lDfkn_06.jpg",
+      "alt": "Pai e filha na mesa da cozinha"
+     },
+     {
+      "arq": "posts/DfOHvgSDVTl/DfOHvgSDVTl_14.jpg",
+      "alt": "Irmã segurando o bebê, junto ao urso"
+     },
+     {
+      "arq": "posts/DfaIGlSlin_/DfaIGlSlin__16.jpg",
+      "alt": "Mãe e filha ao telefone vermelho"
+     },
+     {
+      "arq": "posts/DfSnXcVnyzm/DfSnXcVnyzm_07.jpg",
+      "alt": "Mãe de avental, rindo na cozinha"
+     },
+     {
+      "arq": "posts/Dfj883SoNGe/Dfj883SoNGe_02.jpg",
+      "alt": "Família com o menino na cozinha de Natal"
+     },
+     {
+      "arq": "posts/DfPXS3lDfkn/DfPXS3lDfkn_10.jpg",
+      "alt": "Menina comemorando na cozinha"
+     },
+     {
+      "arq": "posts/DfSnXcVnyzm/DfSnXcVnyzm_19.jpg",
+      "alt": "Casal abraçado junto ao fogão"
+     },
+     {
+      "arq": "posts/DfiF14qoGaV/DfiF14qoGaV_19.jpg",
+      "alt": "Mãe e filha soprando a farinha"
+     },
+     {
+      "arq": "posts/DfOHvgSDVTl/DfOHvgSDVTl_12.jpg",
+      "alt": "Bebê de perto, na almofada vermelha"
+     },
+     {
+      "arq": "posts/Dfj883SoNGe/Dfj883SoNGe_19.jpg",
+      "alt": "Menino com a caneca, junto à árvore"
+     },
+     {
+      "arq": "posts/DfOHvgSDVTl/DfOHvgSDVTl_04.jpg",
+      "alt": "A cozinha de Natal, pronta para os ensaios"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 350",
+      "itens": [
+       "30 minutos de ensaio",
+       "15 fotos editadas",
+       "Cenário da cozinha de Natal"
+      ]
+     },
+     {
+      "nome": "Família",
+      "preco": "R$ 500",
+      "itens": [
+       "1 hora de ensaio",
+       "30 fotos editadas",
+       "Família toda no cenário"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 700",
+      "itens": [
+       "1 hora de ensaio",
+       "50 fotos editadas",
+       "Vídeo making of"
+      ]
+     }
+    ]
+   },
    {
     "id": "corporativo",
     "nome": "Corporativo",
-    "chamada": "Retrato corporativo",
-    "fotos": [
-     "corporativo:0,1",
-     "masculino:0",
-     "corporativo:9,5",
-     "masculino:3",
-     "corporativo:4",
-     "masculino:6",
-     "corporativo:2"
+    "chamada": "Ensaio corporativo",
+    "pedido": "o ensaio corporativo",
+    "frase": "Retratos profissionais, com direção em cada pose.",
+    "texto": "Retratos de estúdio para mulheres e homens, no fundo cinza, claro ou escuro, de pé ou sentados.",
+    "depo": {
+     "nome": "Tatiane Marinho Quintiliano",
+     "texto": "Já é o terceiro ensaio corporativo que faço com a Camila e sempre fico muito feliz e realizada com o resultado. Ela direciona com muito carinho e posicionamento, o que torna a experiência ainda melhor."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "Retratos profissionais, com direção em cada pose.",
-    "sub": "Para o LinkedIn, o site, as redes e o crachá, com luz de estúdio.",
-    "texto": "A Camila guia cada pose e cada expressão, para o retrato que a sua carreira precisa.",
+    "fotos": [
+     {
+      "arq": "drive/488183201_18286746577247141_1235833680267115434_n.jpg",
+      "alt": "Retrato de blazer vermelho"
+     },
+     {
+      "arq": "drive/491380950_18288537379247141_5026570050849425970_n.jpg",
+      "alt": "Retrato de terno cinza, junto à cortina"
+     },
+     {
+      "arq": "drive/487848353_18286745035247141_1172585480741984369_n.jpg",
+      "alt": "Retrato de terninho branco com a agenda"
+     },
+     {
+      "arq": "drive/488837661_18287440087247141_5185917517925403572_n.jpg",
+      "alt": "Retrato de camisa branca, sentada"
+     },
+     {
+      "arq": "drive/482885651_18283878442247141_2072486784883968339_n.jpg",
+      "alt": "Retrato junto à janela, de blazer preto"
+     },
+     {
+      "arq": "drive/491441805_18288394570247141_9128611262128127737_n.jpg",
+      "alt": "Retrato de camisa azul, com a mão no queixo"
+     },
+     {
+      "arq": "drive/489961921_18287545054247141_294583812309186252_n.jpg",
+      "alt": "Retrato na poltrona de couro"
+     },
+     {
+      "arq": "drive/488079606_18286920793247141_4777089300469136267_n.jpg",
+      "alt": "Retrato sentada, de blusa preta"
+     },
+     {
+      "arq": "drive/491441793_18288436615247141_4361739725082549272_n.jpg",
+      "alt": "Retrato de blusa preta no fundo escuro"
+     },
+     {
+      "arq": "drive/489870817_18287550931247141_8799262027291412293_n.jpg",
+      "alt": "Retrato com o notebook"
+     },
+     {
+      "arq": "drive/483006525_18284000086247141_5568382230284401256_n.jpg",
+      "alt": "Retrato junto à estante de livros"
+     },
+     {
+      "arq": "drive/491449461_18288536158247141_50607850123366696_n.jpg",
+      "alt": "Retrato de óculos, com as mãos juntas"
+     },
+     {
+      "arq": "drive/488203442_18286746043247141_2741081233888616164_n.jpg",
+      "alt": "Retrato de blazer branco"
+     },
+     {
+      "arq": "drive/489310202_18287440468247141_3447117313329373493_n.jpg",
+      "alt": "Retrato com o tablet"
+     },
+     {
+      "arq": "drive/491452995_18288435922247141_5347106474896043138_n.jpg",
+      "alt": "Retrato de blazer cinza, em pé"
+     },
+     {
+      "arq": "drive/487808640_18286747909247141_8112779690536481072_n.jpg",
+      "alt": "Retrato de camisa laranja"
+     },
+     {
+      "arq": "drive/488265204_18286853071247141_8288415037634353157_n.jpg",
+      "alt": "Retrato sorrindo, de blusa preta"
+     },
+     {
+      "arq": "drive/490390822_18287652019247141_8369029893263010435_n.jpg",
+      "alt": "Retrato sentada na cadeira branca"
+     },
+     {
+      "arq": "drive/491439600_18288329278247141_6167734325716267665_n.jpg",
+      "alt": "Retrato de camisa azul entre as luzes"
+     },
+     {
+      "arq": "drive/488088085_18286746919247141_7600279065842513291_n.jpg",
+      "alt": "Retrato de camisa vermelha"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -773,20 +1114,71 @@
        "Fotos para as redes"
       ]
      }
-    ],
-    "depo": "Tatiane Marinho Quintiliano"
+    ]
    },
    {
     "id": "infantil",
-    "nome": "Infantil",
+    "nome": "Infantil e aniversários",
+    "curto": "Infantil",
     "chamada": "Ensaio infantil",
-    "fotos": [
-     "natal:4,3,6,5,7,1",
-     "pn:0"
+    "pedido": "o ensaio infantil",
+    "frase": "Ensaios cheios de sorrisos.",
+    "texto": "Aniversários de 1 ano, festas e cada nova fase das crianças.",
+    "citacao": "É uma alegria ver o tempo passar e continuar sendo escolhida para eternizar momentos tão especiais.",
+    "citacao_quem": "Camila, no Instagram",
+    "depo": {
+     "nome": "Mariangela Languidi",
+     "texto": "Amei o trabalho da Camila! Rápido retorno, fotos maravilhosas e com muita ética! Recomendo 100%!"
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "Ensaios cheios de sorrisos.",
-    "sub": "Crianças à vontade, com luz de estúdio e muita brincadeira.",
-    "texto": "Aniversários, Natal e cada nova fase: a Camila acompanha as famílias e registra o crescimento das crianças.",
+    "fotos": [
+     {
+      "arq": "drive/484878926_18285120943247141_3232326013220636881_n.jpg",
+      "alt": "Bebê de vestido lilás comemorando"
+     },
+     {
+      "arq": "drive/484583739_18284897659247141_1785525154465348532_n.jpg",
+      "alt": "Menina de laço rindo"
+     },
+     {
+      "arq": "drive/486587610_18285790666247141_5328758892577363660_n.jpg",
+      "alt": "Menino sorrindo no aniversário"
+     },
+     {
+      "arq": "drive/485077377_18285100057247141_1654134047508625636_n.jpg",
+      "alt": "Bebê rindo no colo"
+     },
+     {
+      "arq": "drive/485604260_18285791611247141_1274626056035165963_n.jpg",
+      "alt": "Menino no escorregador"
+     },
+     {
+      "arq": "drive/484963155_18284894152247141_5371655086746535351_n.jpg",
+      "alt": "Bebê de laço sorrindo no colo"
+     },
+     {
+      "arq": "drive/484548556_18285154684247141_4853727469234047910_n.jpg",
+      "alt": "Bebê de vestido branco rindo"
+     },
+     {
+      "arq": "drive/484020150_18284858992247141_2420414874421209913_n.jpg",
+      "alt": "Menina de laço sorrindo, no aniversário"
+     },
+     {
+      "arq": "drive/486747064_18285919552247141_2292174999392500933_n.jpg",
+      "alt": "Menino sorrindo, de camiseta verde"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -818,8 +1210,7 @@
        "Quadro 30x40"
       ]
      }
-    ],
-    "depo": "Mariangela Languidi"
+    ]
    }
   ]
  }

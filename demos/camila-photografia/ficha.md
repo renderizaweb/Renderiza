@@ -4,41 +4,37 @@
 |---|---|
 | Onde | R. Brás Machado Lima, 30 - Jardim Piqueroby, São Paulo - SP, 03463-020 |
 | Instagram | [@camilaphotografia](https://www.instagram.com/camilaphotografia/) · 6,6 mil seguidores |
-| Google | nota 5,0 · 109 avaliações · conferido em 06/11/2026 |
+| Google | nota 5,0 · 109 avaliações · conferido em 14/11/2026 |
 | WhatsApp | (11) 97704-5992 · celular do Perfil da Empresa no Google (+55 11 97704-5992), o mesmo da legenda de 04/11 ("11 97704-5992") |
-| Horário | Segunda a sexta 9h às 17h; Sábado e domingo 9h às 16h |
 | Site | não tem: só o Instagram (lote 3, 06/11/2026) |
-| Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
-| Situação | pronta · 06/11/2026 · `/demo/camila-photografia` e `/demo/camila-photografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 13/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
-| Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
+| Entregável | **portfólio online, versão 4**: `index.html` (a vitrine) e uma página por ensaio (`natal`, `corporativo`, `infantil`). Sai de `ferramentas/demo/gerar-portfolio.py demos/camila-photografia [<pasta dos originais>]`; textos, fotos e pacotes no `demo.json` (`portfolio`) |
+| Situação | no ar · portfólio v4 em 14/11/2026 · `/demo/camila-photografia` |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o portfólio fica 100% dela, sem mensalidade); promoção de uma semana, até 21/11/2026 (`renderiza.valido_ate` no `demo.json` e `demos.vale_ate` no painel) |
 
-## Direção da demo
-- Lote 3 de fotógrafos (nº 9, 76 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de nov 2026 e das avaliações.
-- Dona: Camila. Foto dela: com a câmera de filme (a mesma loira do post "Aniversário da fotógrafa").
-- Personalidade: retratos com luz de estúdio e famílias que voltam todo ano (a cozinha de Natal). Na demo: abertura em filme (ela posa com uma câmera de filme), Spectral, "photografia" em Allura, vinho e grafite.
-- Sem logo em boa resolução: monograma CP e o nome com "photografia" cursiva, feitos para a demo.
+## Direção
+- Lote de fotógrafos. Dona: Camila. Estúdio no Jardim Piqueroby, Zona Leste de São Paulo. Título com as palavras dela ("acompanhar as famílias, registrar... cada nova fase").
+- A página de Natal é o cenário de 2026, a cozinha de Natal: as fotos são dos carrosséis de novembro (2160 px), de 7 famílias diferentes. Corporativo junta os retratos femininos e masculinos.
 
-## O que tem na demo
-- Site: abertura (Natal 2026, corporativo e infantil), portfólio em 3 abas (Natal e infantil, 8; Corporativo, 12; Retratos masculinos, 8), a Camila, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.
-- Página de Natal "A cozinha já está pronta": o ensaio, as 3 fotos da cozinha de Natal 2026, a agenda de exemplo (sábados e domingos, de 14/11 a 29/11, das 9h às 15h, dentro do horário do Google) e outros ensaios do ano.
-- Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria).
+## O que tem
+- **Vitrine**: "Acompanhar as famílias e registrar cada nova fase.", a tira de 7 fotos, a lista de ensaios com o "a partir de", o filtro por ensaio, 4 avaliações do Google, quem fotografa e o contato.
+- **Páginas**: Natal (28 fotos, depoimento de Adri e Artur FS); Corporativo (20 fotos, depoimento de Tatiane Marinho Quintiliano); Infantil e aniversários (9 fotos, depoimento de Mariangela Languidi).
+- Nenhum texto fala em "site". Pacotes e valores são de exemplo, com o selo na página.
 
-## Fotos
-- Os posts de Natal de 02 e 03/11/2026 (2700 px), as fotos da página salva no Drive (1440 px) e a foto dela do Google.
-- Ficaram de fora: as capas de vídeo (9:16), a colagem de aniversário, a arte "Aniversário da fotógrafa" e as fotos de bastidores do Google.
+## Fotos (escolhidas uma a uma na folha de contato grande)
+- 57 fotos: 29 da grade do Instagram dela salva no Drive do Kaue (pasta na lixeira do Drive), 28 dos carrosséis lidos pelo embed público (DfOHvgSDVTl, DfPXS3lDfkn, DfSnXcVnyzm, DfaIGlSlin_, DffCrYnIBSj, DfiF14qoGaV, Dfj883SoNGe) e 0 do Perfil no Google.
+- Tratadas a partir do original, sem ampliar e sem recorte (a página mostra a foto inteira): 1400 px na galeria, 1920 px na abertura, JPEG progressivo, qualidade 82.
+- Ficaram de fora: as colagens e as fotos com borda branca dos carrosséis (ela monta muitas assim), o mosaico da festa da Patrulha Canina, a arte "Aniversário da fotógrafa", as fotos em preto e branco de bastidor e as repetidas.
 
-## Textos e fontes
-- Legendas: "A cozinha já está pronta para receber vocês!... Um ensaio cheio de brincadeiras..." (04/11), "Pelo segundo ano, essa família escolhe meu olhar..." (03/11), "Do ensaio gestante ao Natal do ano passado..." (02/11), "poder acompanhar as famílias..." (02/11).
-- Avaliações do Google: as 4 de 5 estrelas visíveis sem login, nas duas páginas.
+## Textos
+- Dela: "A cozinha já está pronta para receber vocês!", "um ensaio cheio de brincadeiras", "As reservas já estão acontecendo", "O melhor presente é poder viver esses momentos ao lado de quem a gente ama", "É muito bom acompanhar o crescimento de uma família e registrar cada nova fase dessa história", "É uma alegria ver o tempo passar…", o vídeo making of (legenda de 2º Natal).
+- Avaliações (lidas inteiras): Adri e Artur FS no Natal (fala dos cenários), Tatiane no corporativo, Mariangela no infantil; gabriela silva (40 anos) só na vitrine.
+- Não são dela: os pacotes e valores (exemplos).
 
-## Conferir antes de mandar
-- **No Google, uma avaliação acusa "retenção de fotos pagas"** (não entrou na demo; vale saber antes do contato).
-- Fotos de crianças e retratos de clientes: todos publicados por ela como portfólio. Vale ela confirmar se pode usar todos no site.
+## Conferir com ela
+- A foto de "quem fotografa" é a da v3 (com a câmera de filme, da grade dela): confirmar que é a Camila.
+- Se as fotos de Natal podem ficar todas (são de clientes, publicadas por ela neste mês).
+- Fotos de bebês, crianças e gestantes: todas publicadas por ela como portfólio. Vale confirmar se podem ficar todas.
 
-## Portfólio que vende, versão 3 (09/11/2026)
-- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `natal:3`.
-- `corporativo`: Corporativo (fotos corporativo:0,1, masculino:0, corporativo:9,5, masculino:3, corporativo:4, masculino:6, corporativo:2); a partir de R$ 250; depoimento: Tatiane Marinho Quintiliano
-- `infantil`: Infantil (fotos natal:4,3,6,5,7,1, pn:0); a partir de R$ 300; depoimento: Mariangela Languidi
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/camila-photografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/camila-photografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.
+## Gerar de novo
+- `python3 ferramentas/demo/gerar-portfolio.py demos/camila-photografia [<pasta dos originais>]`. Sem os originais, o gerador reaproveita as fotos já tratadas (dá para mudar texto e preço); para trocar foto, baixar de novo (Drive pelo id; posts pelo `ig-post.py`).
+- Conferir: `node ferramentas/demo/conferir-portfolio.cjs <pasta> camila-photografia` e `node ferramentas/demo/validar.mjs <página> <pasta>`.
