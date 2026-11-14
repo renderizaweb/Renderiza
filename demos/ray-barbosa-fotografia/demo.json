@@ -13,12 +13,12 @@
  "endereco_maps": "Av. Paulo Faccini, 351 - Macedo, Guarulhos - SP, 07130-000",
  "google_nota": "5,0",
  "google_total": "42",
- "verificado": "2026-11-06",
+ "verificado": "2026-11-14",
  "whatsapp": "5511986052915",
  "fone_link": "+5511986052915",
  "instagram": "raybarbosafoto",
  "seguidores": "10,6 mil",
- "mensagem": "Olá, Ray! Vi o seu site e queria saber mais sobre os ensaios.",
+ "mensagem": "Olá! Vi o portfólio da Ray e queria saber mais sobre os ensaios.",
  "cores": {
   "fundo": "#131112",
   "papel": "#1b1819",
@@ -74,11 +74,11 @@
   "preco_pix": "R$ 399",
   "parcelado": "2x de R$ 199",
   "nota_preco": "pagamento único, sem mensalidade",
-  "valido_ate": "2026-11-13",
-  "msg_garantir": "Olá! Sou a Ray, da Ray Barbosa Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
-  "msg_negociar": "Olá! Sou a Ray, da Ray Barbosa Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "valido_ate": "2026-11-21",
+  "msg_garantir": "Olá! Sou a Ray, da Ray Barbosa Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Ray, da Ray Barbosa Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "bqu8",
-  "msg_duvida": "Olá! Sou a Ray, da Ray Barbosa Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+  "msg_duvida": "Olá! Sou a Ray, da Ray Barbosa Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
   "fontes": {
@@ -675,22 +675,308 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
-  "local": "Guarulhos",
-  "h1": "Gestantes, ensaios femininos e infantis em Guarulhos.",
-  "frase": "A arte de desenhar com a luz.",
-  "capa": "gestante:1",
+  "olho": "Estúdio de fotografia · Macedo, Guarulhos",
+  "titulo": "A arte de desenhar com a luz.",
+  "linha": "Gestantes, Natal, ensaios femininos de aniversário e crianças, com luz de estúdio, no Macedo, em Guarulhos.",
+  "local": "Macedo",
+  "tira": [
+   "gestante:0",
+   "natal:0",
+   "feminino:0",
+   "gestante:1",
+   "natal:1",
+   "infantil:0",
+   "feminino:1"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Julia Brandão",
+    "tag": "Gestante",
+    "texto": "Atendimento impecável desde antes da contratação até o pós, quando recebi as fotos digitais e impressas! Eu nunca tinha feito um ensaio fotográfico, e do fundo do coração não poderia ter sido uma experiência melhor."
+   },
+   {
+    "nome": "Ludymila Madalena",
+    "tag": "Gestante",
+    "texto": "Sinceramente, ultrapassou nossas expectativas! Sonhávamos em registrar este momento tão especial para nossa família. Ray, você é uma excelente profissional: este é seu dom."
+   },
+   {
+    "nome": "Eliana Cardoso Ramos",
+    "tag": "Feminino",
+    "texto": "Eu amei tudo! A Ray me direcionou do início ao fim e minhas fotos ficaram perfeitas, transmitiu exatamente o que eu queria passar ao meu público."
+   },
+   {
+    "nome": "Kravmagaponterasa",
+    "tag": "Crianças e família",
+    "texto": "É nítido o capricho e cuidado que a Ray tem ao entregar os ensaios. Fotos de ótima qualidade, bom atendimento, muito criativa e bem-humorada, grande diferencial para ensaios com crianças e familiares."
+   }
+  ],
+  "contato": {
+   "titulo": "Escolha o ensaio e reserve a data.",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Macedo, em Guarulhos, e atende de segunda a sábado.",
+   "endereco": [
+    "Av. Paulo Faccini, 351",
+    "Macedo · Guarulhos, SP"
+   ],
+   "telefone": "(11) 98605-2915"
+  },
+  "_ficha": {
+   "direcao": [
+    "Lote de fotógrafos. Dona: Ray Barbosa. Estúdio no Macedo, em Guarulhos; tema escuro, como os retratos dela. Título e \"quem fotografa\" com as palavras da arte \"sobre mim\" dela.",
+    "Natal abre a lista (as fotos de Natal 2026 de novembro, 1600 px); gestante é o forte dela e abre a tira."
+   ],
+   "fora": "os ensaios com nu implícito, lingerie, body transparente ou de tela, as artes com texto (sobre mim, recomeço, look do papai, 26 a 32 semanas, Especial Princesas, Barbie e Halloween), as fotos com o @ grande na borda e o casal sem camisa.",
+   "textos": [
+    "Dela: \"A arte de desenhar com a luz\", o \"sobre mim\" (2013, 2016, 2020), \"Por aqui o clima já é de Natal\", \"O Natal fica ainda mais especial…\", \"Um dos capítulos mais especiais da sua história merece ser registrado\", \"26 a 32 semanas\", \"Seu aniversário merece um momento só seu!\", \"Você merece se sentir linda e poderosa\".",
+    "Avaliações (lidas inteiras): Kravmagaponterasa no Natal, Ludymila na gestante, Eliana no feminino, Rafael Xenofonte no infantil.",
+    "Não são dela: os pacotes e valores (exemplos)."
+   ],
+   "conferir": [
+    "As fotos têm a marca \"Ray Barbosa\" pequena, como ela publica.",
+    "Se ela quer mostrar os ensaios gestantes mais sensuais (ficaram de fora)."
+   ]
+  },
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py). Fotos dos ORIGINAIS (drive/ = a grade dela salva no Drive; posts/ = carrosséis do embed público; google/ = Perfil da Empresa), escolhidas uma a uma na folha de contato. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "versao": 4,
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "Eu sou a Ray.",
+   "p": [
+    "A Ray se formou em fotografia em 2013, vive só da fotografia desde 2016 e abriu o primeiro estúdio em 2020, no Macedo, em Guarulhos.",
+    "Apaixonada por criar com a luz artificial, fotografa gestantes, famílias, crianças e ensaios femininos de aniversário."
+   ],
+   "citacao": "Quero compartilhar com vocês minha paixão pela arte de desenhar com a luz.",
+   "citacao_quem": "Ray Barbosa",
+   "fotos": [
+    {
+     "arq": "drive/797009388_18470493823115240_1067512749828370758_n.jpg",
+     "alt": "A Ray com a câmera"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 42 avaliações no Google"
+    ],
+    [
+     "10,6 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
   "ensaios": [
+   {
+    "id": "natal",
+    "nome": "Natal",
+    "chamada": "Ensaio de Natal",
+    "pedido": "o ensaio de Natal",
+    "frase": "Por aqui o clima já é de Natal.",
+    "texto": "A árvore, as fitas douradas, os presentes e o telefone antigo, com a luz de estúdio da Ray, para as crianças e a família toda.",
+    "citacao": "O Natal fica ainda mais especial quando estamos pertinho de quem amamos.",
+    "citacao_quem": "Ray Barbosa, no Instagram",
+    "quando": "Os ensaios de Natal 2026 já estão acontecendo no estúdio. Datas pelo WhatsApp.",
+    "depo": {
+     "nome": "Kravmagaponterasa",
+     "texto": "Excelente profissional! É nítido o capricho e cuidado que a Ray tem ao entregar os ensaios. Muito criativa e bem-humorada, grande diferencial para ensaios com crianças e familiares."
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "posts/DfXdURLEbFS/DfXdURLEbFS_02.jpg",
+      "alt": "Menina de vestido verde ao telefone antigo"
+     },
+     {
+      "arq": "posts/DfXdURLEbFS/DfXdURLEbFS_00.jpg",
+      "alt": "Mãe e filha abraçadas, junto à árvore"
+     },
+     {
+      "arq": "posts/DfnRYTEmKGF/DfnRYTEmKGF_00.jpg",
+      "alt": "Irmãos abraçados, junto à árvore"
+     },
+     {
+      "arq": "posts/DfPn-LSxVXn/DfPn-LSxVXn_00.jpg",
+      "alt": "Família abrindo a caixa de Natal"
+     },
+     {
+      "arq": "posts/DfriS1Elk8O/DfriS1Elk8O_00.jpg",
+      "alt": "Menina com o globo de neve"
+     },
+     {
+      "arq": "posts/DfXdURLEbFS/DfXdURLEbFS_04.jpg",
+      "alt": "Menina abraçando o pirulito gigante"
+     },
+     {
+      "arq": "posts/DfnRYTEmKGF/DfnRYTEmKGF_03.jpg",
+      "alt": "Irmãos se abraçando, rindo"
+     },
+     {
+      "arq": "posts/DfriS1Elk8O/DfriS1Elk8O_03.jpg",
+      "alt": "Menina abrindo a caixa de Natal, junto à árvore"
+     },
+     {
+      "arq": "posts/DfXdURLEbFS/DfXdURLEbFS_01.jpg",
+      "alt": "Mãe e filha de verde no cenário de Natal"
+     },
+     {
+      "arq": "posts/DfnRYTEmKGF/DfnRYTEmKGF_01.jpg",
+      "alt": "Menina enfeitando a árvore"
+     },
+     {
+      "arq": "posts/DfnRYTEmKGF/DfnRYTEmKGF_02.jpg",
+      "alt": "Menino com o presente dourado"
+     },
+     {
+      "arq": "posts/DfriS1Elk8O/DfriS1Elk8O_01.jpg",
+      "alt": "Menina junto à árvore"
+     },
+     {
+      "arq": "posts/DfXdURLEbFS/DfXdURLEbFS_03.jpg",
+      "alt": "Menina com a caixa de Natal"
+     },
+     {
+      "arq": "posts/DfriS1Elk8O/DfriS1Elk8O_02.jpg",
+      "alt": "Menina sorrindo, apoiada na poltrona"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 350",
+      "itens": [
+       "30 minutos de ensaio",
+       "15 fotos editadas",
+       "Cenário de Natal"
+      ]
+     },
+     {
+      "nome": "Família",
+      "preco": "R$ 550",
+      "itens": [
+       "1 hora de ensaio",
+       "30 fotos editadas",
+       "Família toda"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 750",
+      "itens": [
+       "1 hora de ensaio",
+       "40 fotos editadas",
+       "Fotos impressas"
+      ]
+     }
+    ]
+   },
    {
     "id": "gestante",
     "nome": "Gestante",
     "chamada": "Ensaio gestante",
-    "fotos": [
-     "gestante:5,0,2,1,6,8,4,7,9"
+    "pedido": "o ensaio gestante",
+    "frase": "A gestação, desenhada com a luz.",
+    "texto": "Vestidos, fundo claro ou escuro e luz de estúdio, sozinha ou com o pai do bebê.",
+    "citacao": "Um dos capítulos mais especiais da sua história merece ser registrado.",
+    "citacao_quem": "Ray Barbosa, no Instagram",
+    "quando": "O período recomendado para o ensaio é entre 26 e 32 semanas: agende com antecedência.",
+    "depo": {
+     "nome": "Ludymila Madalena",
+     "texto": "Sinceramente, ultrapassou nossas expectativas! Sonhávamos em registrar este momento tão especial para nossa família, e agora teremos uma lembrança linda para mostrar. Ray, você é uma excelente profissional: este é seu dom."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "A gestação, desenhada com a luz.",
-    "sub": "Vestidos, fundo escuro e luz de estúdio.",
-    "texto": "Vivendo da fotografia desde 2016, a Ray guia cada pose para a gestante se ver linda.",
+    "fotos": [
+     {
+      "arq": "drive/488223811_1211323554327047_165389914262270109_n.jpg",
+      "alt": "Gestante de vermelho no fundo vermelho"
+     },
+     {
+      "arq": "drive/650636189_17995557932867382_5893459165445122248_n.webp",
+      "alt": "Gestante de tule azul"
+     },
+     {
+      "arq": "drive/488205920_1212400890885980_3760221364214295497_n.jpg",
+      "alt": "Gestante de renda no fundo preto"
+     },
+     {
+      "arq": "drive/625996873_18335014996245612_8275762865070759681_n.webp",
+      "alt": "Casal no ensaio gestante, ela de vermelho"
+     },
+     {
+      "arq": "google/g04.jpg",
+      "alt": "Gestante de vermelho e coroa, no fundo escuro"
+     },
+     {
+      "arq": "drive/488580738_1211642597628476_213293415301461120_n.jpg",
+      "alt": "Gestante de branco diante do círculo de luz"
+     },
+     {
+      "arq": "drive/625880004_18098532802726523_8087981426794269807_n.jpg",
+      "alt": "Gestante de vestido brilhante, em preto e branco"
+     },
+     {
+      "arq": "google/g05.jpg",
+      "alt": "Casal no ensaio gestante, ela de branco"
+     },
+     {
+      "arq": "drive/655602214_18061857005346856_2380247415224269399_n.webp",
+      "alt": "Gestante de azul royal"
+     },
+     {
+      "arq": "posts/DfkLQQxEY7i/DfkLQQxEY7i_00.jpg",
+      "alt": "Casal em silhueta, no fundo branco"
+     },
+     {
+      "arq": "drive/656068889_18370294858160827_1548176387829816657_n.webp",
+      "alt": "Gestante de tule azul, de perfil"
+     },
+     {
+      "arq": "posts/DfkLQQxEY7i/DfkLQQxEY7i_01.jpg",
+      "alt": "Casal no fundo amarelo"
+     },
+     {
+      "arq": "drive/645969465_17980306673988690_2104112456141267036_n.jpg",
+      "alt": "Gestante de blazer branco"
+     },
+     {
+      "arq": "google/g06.jpg",
+      "alt": "Gestante de vestido sereia vermelho"
+     },
+     {
+      "arq": "drive/629332045_18344253100230441_4193501333581813705_n.webp",
+      "alt": "Gestante de paetê prateado"
+     },
+     {
+      "arq": "posts/DfkLQQxEY7i/DfkLQQxEY7i_03.jpg",
+      "alt": "Casal de branco no ensaio gestante"
+     },
+     {
+      "arq": "google/g00.jpg",
+      "alt": "Gestante entre o papel branco"
+     },
+     {
+      "arq": "drive/488372901_1211323567660379_3190450714297550010_n.jpg",
+      "alt": "Gestante de cetim, em preto e branco"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -723,20 +1009,94 @@
        "Álbum impresso 20x20"
       ]
      }
-    ],
-    "quando": "O período recomendado para o ensaio é entre 26 e 32 semanas: agende com antecedência.",
-    "depo": "Ludymila Madalena"
+    ]
    },
    {
     "id": "feminino",
     "nome": "Feminino",
     "chamada": "Ensaio feminino",
-    "fotos": [
-     "feminino:3,0,6,4,2,1,5,7"
+    "pedido": "o ensaio feminino",
+    "frase": "Seu aniversário merece um momento só seu!",
+    "texto": "Bolo, coroa, vestido e luz de estúdio, para se reconectar consigo mesma, se sentir linda e guardar a beleza de uma nova fase.",
+    "citacao": "Você merece se sentir linda e poderosa.",
+    "citacao_quem": "Ray Barbosa, no Instagram",
+    "depo": {
+     "nome": "Eliana Cardoso Ramos",
+     "texto": "Eu amei tudo! Profissionais excelentes! A Ray me direcionou do início ao fim e minhas fotos ficaram perfeitas, transmitiu exatamente o que eu queria passar ao meu público."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "Seu aniversário merece um momento só seu.",
-    "sub": "Ensaios femininos com bolo, coroa, vestido e luz de estúdio.",
-    "texto": "Fotografias apaixonantes, sem perder a identidade de cada mulher.",
+    "fotos": [
+     {
+      "arq": "posts/DfHyTXBkbqQ/DfHyTXBkbqQ_00.jpg",
+      "alt": "Aniversariante de vermelho com o bolo"
+     },
+     {
+      "arq": "drive/358684677_18290849587115240_4589487191386836269_n.jpg",
+      "alt": "Aniversariante de rosa com o bolo"
+     },
+     {
+      "arq": "drive/487479525_1211642370961832_3618088437269128095_n.jpg",
+      "alt": "Retrato de vestido bordô no fundo vermelho"
+     },
+     {
+      "arq": "drive/487566178_1211323954327007_3605706120537661807_n.jpg",
+      "alt": "Retrato de coroa dourada"
+     },
+     {
+      "arq": "posts/DfHyTXBkbqQ/DfHyTXBkbqQ_02.jpg",
+      "alt": "Aniversariante de vestido vermelho, com o bolo"
+     },
+     {
+      "arq": "drive/627497488_18120288772504853_4783573045952028955_n.webp",
+      "alt": "Retrato de batom vermelho no fundo escuro"
+     },
+     {
+      "arq": "posts/DfHyTXBkbqQ/DfHyTXBkbqQ_05.jpg",
+      "alt": "Retrato de vestido preto diante do círculo de luz"
+     },
+     {
+      "arq": "drive/641210925_17977860491988419_1372800924037684721_n.webp",
+      "alt": "Retrato com a caixinha de joias"
+     },
+     {
+      "arq": "posts/DfHyTXBkbqQ/DfHyTXBkbqQ_03.jpg",
+      "alt": "Retrato de perto, no fundo cinza"
+     },
+     {
+      "arq": "drive/488186574_1211323877660348_1800877190343039803_n.jpg",
+      "alt": "Retrato de perto, em preto e branco"
+     },
+     {
+      "arq": "posts/DfHyTXBkbqQ/DfHyTXBkbqQ_04.jpg",
+      "alt": "Retrato sentada no pedestal branco"
+     },
+     {
+      "arq": "posts/DfHyTXBkbqQ/DfHyTXBkbqQ_01.jpg",
+      "alt": "Aniversariante com a cereja do bolo"
+     },
+     {
+      "arq": "google/g02.jpg",
+      "alt": "Retrato de jaleco e preto"
+     },
+     {
+      "arq": "drive/488588791_1211323614327041_6390155732266183049_n.jpg",
+      "alt": "Duas mulheres de preto, em preto e branco"
+     },
+     {
+      "arq": "drive/652571565_18084413831598654_3382711760167757011_n.webp",
+      "alt": "Retrato em movimento, em preto e branco"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -768,19 +1128,68 @@
        "Maquiagem"
       ]
      }
-    ],
-    "depo": "Eliana Cardoso Ramos"
+    ]
    },
    {
     "id": "infantil",
     "nome": "Infantil",
     "chamada": "Ensaio infantil",
-    "fotos": [
-     "infantil:1,2,3,6,4,7,5,8"
+    "pedido": "o ensaio infantil",
+    "frase": "Especial Barbie, Princesas e Halloween.",
+    "texto": "Retratos de estúdio para meninas e meninos, com cenário temático e a mesma luz desenhada dos retratos da Ray.",
+    "depo": {
+     "nome": "Rafael Xenofonte",
+     "texto": "Excelente espaço fotográfico. O ambiente é muito bem estruturado, limpo e organizado. A iluminação é impecável e o atendimento é extremamente profissional."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "Ensaios temáticos, como o Especial Princesas.",
-    "sub": "Retratos de estúdio para meninas e meninos, com cenário e luz desenhada.",
-    "texto": "Entre sorrisos e olhares, a mesma luz dos retratos da Ray, do fundo vermelho aos balões.",
+    "fotos": [
+     {
+      "arq": "drive/488220520_1211323667660369_34415735578126666_n.jpg",
+      "alt": "Menina de cabelo cacheado no fundo vermelho"
+     },
+     {
+      "arq": "drive/488223424_1211323940993675_9194328684310785704_n.jpg",
+      "alt": "Menina de cabelo cacheado no fundo de flores"
+     },
+     {
+      "arq": "drive/650271884_17992547105921595_6341359838742708320_n.jpg",
+      "alt": "Menina de pink no fundo vermelho"
+     },
+     {
+      "arq": "drive/487813020_1212277390898330_1168785517139330516_n.jpg",
+      "alt": "Menina com a bola de cristal entre os balões"
+     },
+     {
+      "arq": "drive/358663416_18290764759115240_5540948056994072943_n.jpg",
+      "alt": "Menina de pink no cenário rosa"
+     },
+     {
+      "arq": "drive/654657575_18116502073712784_396512865914466188_n.webp",
+      "alt": "Menino de mãos juntas, no fundo cinza"
+     },
+     {
+      "arq": "drive/488163815_1212292644230138_7417000227897714057_n.jpg",
+      "alt": "Menina de óculos de coração no cenário de balões"
+     },
+     {
+      "arq": "drive/360108710_18291784480115240_9082747398420172015_n.jpg",
+      "alt": "Menina de óculos de coração no cenário rosa"
+     },
+     {
+      "arq": "drive/623902427_18101801884862346_727384174677398300_n.jpg",
+      "alt": "Menina fazendo careta no cenário rosa"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -812,8 +1221,7 @@
        "Quadro 30x40"
       ]
      }
-    ],
-    "depo": "Rafael Xenofonte"
+    ]
    }
   ]
  }
