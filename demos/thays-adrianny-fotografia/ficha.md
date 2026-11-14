@@ -4,43 +4,37 @@
 |---|---|
 | Onde | R. Mendonça Arrais, 33 - Jardim Iguatemi, São Paulo - SP, 08380-020 |
 | Instagram | [@thaysadriannyfotografia](https://www.instagram.com/thaysadriannyfotografia/) · 4,6 mil seguidores |
-| Google | nota 5,0 · 53 avaliações · conferido em 06/11/2026 |
+| Google | nota 5,0 · 53 avaliações · conferido em 13/11/2026 |
 | WhatsApp | (11) 99179-2312 · o Google não mostra o número; o link de WhatsApp do Perfil (wa.me/message/2O6MWDXDLXHDJ1) abre a conta "Thays Adrianny Fotografia", com o +55 11 99179-2312 |
-| Horário | Segunda a sexta 8h às 20h; Sábado 8h às 14h; Domingo Fechado |
 | Site | só o link de WhatsApp (lote 3, 06/11/2026) |
-| Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
-| Situação | pronta · 06/11/2026 · `/demo/thays-adrianny-fotografia` e `/demo/thays-adrianny-fotografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 13/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
-| Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
+| Entregável | **portfólio online, versão 4**: `index.html` (a vitrine) e uma página por ensaio (`natal`, `infantil`, `familia`, `gestante`). Sai de `ferramentas/demo/gerar-portfolio.py demos/thays-adrianny-fotografia [<pasta dos originais>]`; textos, fotos e pacotes no `demo.json` (`portfolio`) |
+| Situação | no ar · portfólio v4 em 13/11/2026 · `/demo/thays-adrianny-fotografia` |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o portfólio fica 100% dela, sem mensalidade); promoção de uma semana, até 21/11/2026 (`renderiza.valido_ate` no `demo.json` e `demos.vale_ate` no painel) |
 
-## Direção da demo
-- Lote 3 de fotógrafos (nº 14, 75 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de out/nov 2026 e das avaliações.
-- Dona: Thays Adrianny. O retrato em dupla exposição com a câmera entra no "quem fotografa" sem dizer que é ela (conferir).
-- Personalidade: cenários temáticos (Toy Story, Homem-Aranha, Minnie, Barbie, circo) e o Natal da lareira com ursinhos e neve. Na demo: abertura em bolhas, Rosarivo, "fotografia" em Yellowtail, vermelho e rosa, ★ entre as especialidades.
-- Sem logo em boa resolução: monograma TA e o nome com "fotografia" cursiva, feitos para a demo.
+## Direção
+- Lote 3 de fotógrafos. Dona: Thays Adrianny. Estúdio no Jardim Iguatemi, Zona Leste de São Paulo; tom claro, Rosarivo e Quicksand, vermelho.
+- A página de Natal se chama só "Natal": as fotos do cenário da lareira são de antes (a grade salva); o Natal 2026 aparece só em vídeo. Entrou a página Gestante (o post "A espera mais linda", de novembro, em 3072 px).
 
-## O que tem na demo
-- Site: abertura (Natal, aniversários e gestante), portfólio em 3 abas (Natal, 7; Infantil e aniversários, 10; Bebês, gestante e família, 7), a Thays, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.
-- Página de Natal "O Natal chegou ao nosso estúdio!": a temporada (agenda aberta em 02/11), o cenário da lareira, a agenda de exemplo (6 dias de segunda a sábado, de 14/11 a 05/12, das 9h às 13h, dentro do horário do Google) e outros ensaios do ano.
-- Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria).
+## O que tem
+- **Vitrine**: "Essa fase passa, mas as lembranças ficam para sempre.", a tira de 7 fotos, a lista de ensaios com o "a partir de", o filtro por ensaio, 4 avaliações do Google, quem fotografa e o contato.
+- **Páginas**: Natal (14 fotos, depoimento de Renato Andrade); Infantil e aniversários (15 fotos, depoimento de Ester Costa); Bebês e família (14 fotos, depoimento de Gabi Costa); Gestante (6 fotos, sem depoimento).
+- Nenhum texto fala em "site". Pacotes e valores são de exemplo, com o selo na página.
 
-## Fotos
-- Os posts de nov 2026 (gestante, Toy Story, Homem-Aranha), as fotos da página salva no Drive (até 1440 px) e 5 fotos do Google.
-- Ficaram de fora: as capas de vídeo (9:16), as artes ("Dia do Cliente", "Feliz Natal", colagens), a gestante com pintura no corpo e os ensaios femininos.
+## Fotos (escolhidas uma a uma na folha de contato grande)
+- 49 fotos: 23 da grade do Instagram dela salva no Drive do Kaue (pasta na lixeira do Drive), 21 dos carrosséis lidos pelo embed público (DfAFK7YoNQ6, DfSb3cZoGh_, DfU02RpoCoG, DfXzCWrIJrH, DfncZAsoFZq, Dfpdj_SIMSv) e 5 do Perfil no Google.
+- Tratadas a partir do original, sem ampliar e sem recorte (a página mostra a foto inteira): 1400 px na galeria, 1920 px na abertura, JPEG progressivo, qualidade 82.
+- Ficaram de fora: o mosaico do ensaio feminino, a arte do Dia do Cliente, os prints de mensagens de clientes, o feminino com nu e glitter, o cartão de Natal com texto, a foto pequena do Homem-Aranha e as fotos repetidas.
 
-## Textos e fontes
-- Legendas: "O natal chegou ao nosso estúdio! Cada detalhe foi preparado com muito carinho..." (02/11), "02/11 será o dia da abertura oficial da nossa agenda de Natal" (01/11), "Porque essa fase passa, mas as lembranças ficam para sempre" (03/11), "até os super heróis precisam de carinho" (05/11), "Happy Birthday Kids... Bexigas, Balão de idade, Velinhas" (27/10).
-- Avaliações do Google: as 5 visíveis sem login; 4 em cada página.
+## Textos
+- Dela: "Essa fase passa, mas as lembranças ficam para sempre", "A espera mais linda merece ser eternizada…", "Bexigas, balão de idade, velinhas" (incluso nos pacotes dela de aniversário), "Porque até os super heróis precisam de carinho", "Vocês entram com o amor, os abraços e os sorrisos. Eu cuido de todo o resto!".
+- Avaliações (lidas inteiras em 13/11): Renato Andrade no Natal, Ester Costa (Homem-Aranha) no infantil, Gabi Costa (bebês) em bebês e família; Gestante sem depoimento.
+- Não são dela: os pacotes e valores (exemplos) e o "quando fazer" de gestante.
 
-## Conferir antes de mandar
-- **WhatsApp: o Google não mostra o número**; o da demo vem do link de WhatsApp do Perfil dela (+55 11 99179-2312). Conferir antes de mandar.
-- As fotos de Natal são do cenário da lareira, sem data (o post de 2026 é vídeo).
-- Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
+## Conferir com ela
+- A foto de "quem fotografa" é uma dupla exposição com a câmera (da grade dela): confirmar que é a Thays.
+- Ela não mostra o número no Google: o WhatsApp é o do Perfil (wa.me/message), como na v3.
+- Fotos de bebês, crianças e gestantes: todas publicadas por ela como portfólio. Vale confirmar se podem ficar todas.
 
-## Portfólio que vende, versão 3 (09/11/2026)
-- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `natal:1`.
-- `natal`: Natal 2026 (fotos natal:0, pn:0, natal:2,6,4,5, pn:2); a partir de R$ 280; depoimento: Renato Andrade
-- `infantil`: Infantil e aniversários (fotos infantil:0,6,3,2,8,4,9,1,7); a partir de R$ 300; depoimento: Ester Costa
-- `familia`: Bebês e família (fotos familia:4,3,5,2,6); a partir de R$ 320; depoimento: Gabi Costa
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/thays-adrianny-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/thays-adrianny-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.
+## Gerar de novo
+- `python3 ferramentas/demo/gerar-portfolio.py demos/thays-adrianny-fotografia [<pasta dos originais>]`. Sem os originais, o gerador reaproveita as fotos já tratadas (dá para mudar texto e preço); para trocar foto, baixar de novo (Drive pelo id; posts pelo `ig-post.py`).
+- Conferir: `node ferramentas/demo/conferir-portfolio.cjs <pasta> thays-adrianny-fotografia` e `node ferramentas/demo/validar.mjs <página> <pasta>`.

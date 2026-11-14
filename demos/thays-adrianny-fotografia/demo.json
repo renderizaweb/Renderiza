@@ -13,12 +13,12 @@
  "endereco_maps": "R. Mendonça Arrais, 33 - Jardim Iguatemi, São Paulo - SP, 08380-020",
  "google_nota": "5,0",
  "google_total": "53",
- "verificado": "2026-11-06",
+ "verificado": "2026-11-13",
  "whatsapp": "5511991792312",
  "fone_link": "+5511991792312",
  "instagram": "thaysadriannyfotografia",
  "seguidores": "4,6 mil",
- "mensagem": "Olá, Thays! Vi o seu site e queria saber mais sobre os ensaios.",
+ "mensagem": "Olá! Vi o portfólio da Thays e queria saber mais sobre os ensaios.",
  "cores": {
   "fundo": "#fffafa",
   "papel": "#ffffff",
@@ -74,11 +74,11 @@
   "preco_pix": "R$ 399",
   "parcelado": "2x de R$ 199",
   "nota_preco": "pagamento único, sem mensalidade",
-  "valido_ate": "2026-11-13",
-  "msg_garantir": "Olá! Sou a Thays, da Thays Adrianny Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
-  "msg_negociar": "Olá! Sou a Thays, da Thays Adrianny Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "valido_ate": "2026-11-21",
+  "msg_garantir": "Olá! Sou a Thays, da Thays Adrianny Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Thays, da Thays Adrianny Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "27qw",
-  "msg_duvida": "Olá! Sou a Thays, da Thays Adrianny Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+  "msg_duvida": "Olá! Sou a Thays, da Thays Adrianny Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
   "fontes": {
@@ -649,26 +649,178 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
-  "local": "Zona Leste de SP",
-  "h1": "Natal, aniversários e bebês na Zona Leste de São Paulo.",
-  "frase": "Essa fase passa, mas as lembranças ficam para sempre.",
-  "tom": "claro",
-  "capa": "natal:1",
+  "olho": "Estúdio de fotografia · Jardim Iguatemi, São Paulo",
+  "titulo": "Essa fase passa, mas as lembranças ficam para sempre.",
+  "linha": "Natal, bebês, aniversários, gestantes e famílias, com cenários temáticos, na Zona Leste de São Paulo.",
+  "local": "Zona Leste",
+  "tira": [
+   "natal:0",
+   "familia:0",
+   "infantil:0",
+   "gestante:0",
+   "natal:1",
+   "infantil:1",
+   "familia:1"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Camila Boneli Alves",
+    "tag": "Crianças",
+    "texto": "A Thays é extremamente paciente e carinhosa com as crianças, tornando o ensaio leve e divertido. As fotos ficaram lindas, com uma qualidade impecável."
+   },
+   {
+    "nome": "Ester Costa",
+    "tag": "Homem-Aranha",
+    "texto": "Ela teve muita paciência com meu filho de 3 anos e deixou ele à vontade. O cenário estava lindo, e meu filho amou o ensaio do Homem-Aranha!"
+   },
+   {
+    "nome": "Gabi Costa",
+    "tag": "Bebê",
+    "texto": "Foi incrível, indico de olhos fechados! Ótima profissional, atenciosa com os bebês, e a entrega das fotos é super rápida!"
+   },
+   {
+    "nome": "Renato Andrade",
+    "tag": "Paciência",
+    "texto": "A Thays é um amor de pessoa: teve muita paciência com minha filha, que na hora das fotos estava chorando, e as fotos ficaram lindas."
+   }
+  ],
+  "contato": {
+   "titulo": "Escolha o cenário e reserve a data.",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Jardim Iguatemi, na Zona Leste de São Paulo, e atende de segunda a sábado.",
+   "endereco": [
+    "R. Mendonça Arrais, 33",
+    "Jardim Iguatemi · São Paulo, SP"
+   ],
+   "telefone": "(11) 99179-2312"
+  },
+  "_ficha": {
+   "direcao": [
+    "Lote 3 de fotógrafos. Dona: Thays Adrianny. Estúdio no Jardim Iguatemi, Zona Leste de São Paulo; tom claro, Rosarivo e Quicksand, vermelho.",
+    "A página de Natal se chama só \"Natal\": as fotos do cenário da lareira são de antes (a grade salva); o Natal 2026 aparece só em vídeo. Entrou a página Gestante (o post \"A espera mais linda\", de novembro, em 3072 px)."
+   ],
+   "fora": "o mosaico do ensaio feminino, a arte do Dia do Cliente, os prints de mensagens de clientes, o feminino com nu e glitter, o cartão de Natal com texto, a foto pequena do Homem-Aranha e as fotos repetidas.",
+   "textos": [
+    "Dela: \"Essa fase passa, mas as lembranças ficam para sempre\", \"A espera mais linda merece ser eternizada…\", \"Bexigas, balão de idade, velinhas\" (incluso nos pacotes dela de aniversário), \"Porque até os super heróis precisam de carinho\", \"Vocês entram com o amor, os abraços e os sorrisos. Eu cuido de todo o resto!\".",
+    "Avaliações (lidas inteiras em 13/11): Renato Andrade no Natal, Ester Costa (Homem-Aranha) no infantil, Gabi Costa (bebês) em bebês e família; Gestante sem depoimento.",
+    "Não são dela: os pacotes e valores (exemplos) e o \"quando fazer\" de gestante."
+   ],
+   "conferir": [
+    "A foto de \"quem fotografa\" é uma dupla exposição com a câmera (da grade dela): confirmar que é a Thays.",
+    "Ela não mostra o número no Google: o WhatsApp é o do Perfil (wa.me/message), como na v3."
+   ]
+  },
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py). Fotos dos ORIGINAIS (drive/ = a grade dela salva no Drive; posts/ = carrosséis do embed público; google/ = Perfil da Empresa), escolhidas uma a uma na folha de contato. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "versao": 4,
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "A Thays e os cenários dela.",
+   "p": [
+    "A Thays Adrianny fotografa bebês, aniversários, gestantes e famílias no estúdio do Jardim Iguatemi, na Zona Leste de São Paulo.",
+    "Cada ensaio tem um cenário: Toy Story, Homem-Aranha, Baby Shark, Minnie, Barbie, circo e o Natal da lareira."
+   ],
+   "citacao": "Vocês entram com o amor, os abraços e os sorrisos. Eu cuido de todo o resto!",
+   "citacao_quem": "Thays Adrianny, no Instagram",
+   "fotos": [
+    {
+     "arq": "drive/751001229_18095991146460970_5326002672364822010_n.jpg",
+     "alt": "A Thays com a câmera"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 53 avaliações no Google"
+    ],
+    [
+     "4,6 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
   "ensaios": [
    {
     "id": "natal",
-    "nome": "Natal 2026",
+    "nome": "Natal",
     "chamada": "Ensaio de Natal",
-    "fotos": [
-     "natal:0",
-     "pn:0",
-     "natal:2,6,4,5",
-     "pn:2"
+    "pedido": "o ensaio de Natal",
+    "frase": "O Natal chegou ao nosso estúdio!",
+    "texto": "O cenário da lareira, com os ursinhos, a árvore e a neve caindo, para os bebês e as crianças maiores.",
+    "citacao": "A primeira dica é a mais importante: escolher quem vai transformar esse momento em memória!",
+    "citacao_quem": "Thays Adrianny, no Instagram",
+    "quando": "A agenda de Natal já está aberta. Datas pelo WhatsApp.",
+    "depo": {
+     "nome": "Renato Andrade",
+     "texto": "Adorei o atendimento! A Thays é um amor de pessoa: teve muita paciência com minha filha, que na hora das fotos estava chorando, e as fotos ficaram lindas."
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "O Natal chegou ao nosso estúdio!",
-    "sub": "A lareira, os ursinhos e a neve: cada detalhe preparado com muito carinho.",
-    "texto": "A temporada de Natal começou: um cenário para lembranças inesquecíveis, das crianças maiores aos bebês.",
+    "fotos": [
+     {
+      "arq": "drive/469118203_18034426910460970_3085205406858740088_n.jpg",
+      "alt": "Menina de vestido de Natal sorrindo, junto à lareira"
+     },
+     {
+      "arq": "drive/469316907_18034427648460970_4061224911242473567_n.jpg",
+      "alt": "Bebê de gorro de Papai Noel"
+     },
+     {
+      "arq": "drive/409182069_741389251345593_8749804931584141702_n.jpg",
+      "alt": "Menina de saia vermelha junto à lareira"
+     },
+     {
+      "arq": "drive/409179426_741382334679618_7411529173590255096_n.jpg",
+      "alt": "Bebê de laço vermelho junto à lareira"
+     },
+     {
+      "arq": "drive/409805988_17996062448460970_7697539387500608870_n.jpg",
+      "alt": "Bebê mostrando a língua, junto à lareira"
+     },
+     {
+      "arq": "drive/469256044_18034427726460970_1678101546875910690_n.jpg",
+      "alt": "Bebê de duende junto à lareira"
+     },
+     {
+      "arq": "drive/481951672_1037186641765851_5413026285460064761_n.jpg",
+      "alt": "Bebê de vestido vermelho no cenário de Natal"
+     },
+     {
+      "arq": "drive/409185590_741376888013496_4187329593253406333_n.jpg",
+      "alt": "Bebê sentado na manta vermelha, junto à lareira"
+     },
+     {
+      "arq": "drive/662306320_18159751609436745_4831009643392544800_n.jpg",
+      "alt": "Bebê engatinhando na manta vermelha"
+     },
+     {
+      "arq": "drive/469104912_18034428062460970_6022924779963842691_n.jpg",
+      "alt": "Menina deitada na manta, junto à lareira"
+     },
+     {
+      "arq": "drive/410718316_741389918012193_71539310681594375_n.jpg",
+      "alt": "Bebê de gorro na cadeirinha, junto à lareira"
+     },
+     {
+      "arq": "drive/469361634_18034427621460970_2131425719744491712_n.jpg",
+      "alt": "Bebê no trenó, junto à lareira"
+     },
+     {
+      "arq": "drive/469073942_18034426793460970_1191819293514038982_n.jpg",
+      "alt": "Bebê sentada na manta vermelha"
+     },
+     {
+      "arq": "drive/655599472_18157029898447240_1206458362336219181_n.jpg",
+      "alt": "Bebê deitada na manta vermelha, vista de cima"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Mini sessão",
@@ -698,20 +850,95 @@
        "Galeria online"
       ]
      }
-    ],
-    "quando": "A agenda de Natal abriu em 2 de novembro: os horários perto do Natal são os primeiros a acabar.",
-    "depo": "Renato Andrade"
+    ]
    },
    {
     "id": "infantil",
     "nome": "Infantil e aniversários",
-    "chamada": "Ensaio de aniversário",
-    "fotos": [
-     "infantil:0,6,3,2,8,4,9,1,7"
+    "curto": "Infantil",
+    "chamada": "Ensaio infantil e de aniversário",
+    "pedido": "o ensaio de aniversário",
+    "frase": "Bexigas, balão de idade e velinhas.",
+    "texto": "Um ensaio completo de aniversário, no tema que a criança escolher: circo, Barbie, Minnie, Homem-Aranha.",
+    "citacao": "Um ensaio completo para o seu bem mais precioso arrasar e deixar essa fase tão importante registrada para sempre.",
+    "citacao_quem": "Thays Adrianny, no Instagram",
+    "depo": {
+     "nome": "Ester Costa",
+     "texto": "Experiência maravilhosa! Ela teve muita paciência com meu filho de 3 anos e deixou ele à vontade. O cenário estava lindo e as fotos ficaram perfeitas. Meu filho amou o ensaio do Homem-Aranha!"
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Bexigas, balão de idade e velinhas.",
-    "sub": "Ensaios de aniversário com o tema escolhido: circo, Barbie, Minnie e PJ Masks.",
-    "texto": "Um ensaio completo de aniversário, com o cenário montado no tema que a criança escolher.",
+    "fotos": [
+     {
+      "arq": "posts/DfAFK7YoNQ6/DfAFK7YoNQ6_01.jpg",
+      "alt": "Menina de óculos escuros sorrindo"
+     },
+     {
+      "arq": "posts/DfncZAsoFZq/DfncZAsoFZq_03.jpg",
+      "alt": "Menino de Homem-Aranha sorrindo"
+     },
+     {
+      "arq": "drive/469213170_18034434596460970_8775955668542968681_n.jpg",
+      "alt": "Menino de suspensório no tema circo"
+     },
+     {
+      "arq": "posts/DfAFK7YoNQ6/DfAFK7YoNQ6_06.jpg",
+      "alt": "Menina de rosa com o celular"
+     },
+     {
+      "arq": "posts/DfAFK7YoNQ6/DfAFK7YoNQ6_04.jpg",
+      "alt": "Menina com o balão do 6"
+     },
+     {
+      "arq": "drive/469073794_18034434521460970_5718503460270949404_n.jpg",
+      "alt": "Menina na casinha da Barbie"
+     },
+     {
+      "arq": "drive/469126937_18034434215460970_3365974181300477087_n.jpg",
+      "alt": "Bebê de Minnie no aniversário de 1 ano"
+     },
+     {
+      "arq": "posts/DfXzCWrIJrH/DfXzCWrIJrH_03.jpg",
+      "alt": "Menino de Homem-Aranha entre os heróis"
+     },
+     {
+      "arq": "drive/465312196_18030939368460970_2904742965992840253_n.jpg",
+      "alt": "Menino de PJ Masks pulando"
+     },
+     {
+      "arq": "drive/464207414_18029879291460970_1744386174610336643_n.jpg",
+      "alt": "Bebê no smash de 1 ano com os Bolofofos"
+     },
+     {
+      "arq": "drive/466796634_18032271350460970_3947283323248063654_n.jpg",
+      "alt": "Bebê de coroa de flores no cubo"
+     },
+     {
+      "arq": "posts/DfAFK7YoNQ6/DfAFK7YoNQ6_05.jpg",
+      "alt": "Menina com as estrelinhas"
+     },
+     {
+      "arq": "drive/469182477_18034434686460970_9142021112020145186_n.jpg",
+      "alt": "Menina com o balão personalizado, no fundo rosa"
+     },
+     {
+      "arq": "posts/DfncZAsoFZq/DfncZAsoFZq_02.jpg",
+      "alt": "Menino de máscara do Homem-Aranha no cenário da cidade"
+     },
+     {
+      "arq": "drive/464293920_18029916050460970_8356098975191698397_n.jpg",
+      "alt": "Menino de óculos escuros entre os balões prata"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -743,19 +970,91 @@
        "Quadro 30x40"
       ]
      }
-    ],
-    "depo": "Ester Costa"
+    ]
    },
    {
     "id": "familia",
     "nome": "Bebês e família",
-    "chamada": "Ensaio de família",
-    "fotos": [
-     "familia:4,3,5,2,6"
+    "curto": "Bebês",
+    "chamada": "Ensaio de bebês e família",
+    "pedido": "o ensaio do bebê",
+    "frase": "Até os super-heróis precisam de carinho.",
+    "texto": "Cada mês um tema, como o pequeno xerife de Toy Story aos 2 meses ou o Baby Shark aos 4, e a família junto no cenário.",
+    "citacao": "Porque até os super-heróis precisam de carinho.",
+    "citacao_quem": "Thays Adrianny, no Instagram",
+    "depo": {
+     "nome": "Gabi Costa",
+     "texto": "Foi incrível, indico de olhos fechados! Ótima profissional, atenciosa com os bebês, e a entrega das fotos é super rápida! Vale a pena, voltarei para fazer mais com toda certeza."
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Até os super-heróis precisam de carinho.",
-    "sub": "Bebês, irmãos e a família toda no cenário.",
-    "texto": "Cada mês um tema, como o pequeno xerife de Toy Story aos 2 meses, e a família reunida com muito carinho.",
+    "fotos": [
+     {
+      "arq": "posts/DfU02RpoCoG/DfU02RpoCoG_01.jpg",
+      "alt": "Bebê de 2 meses de Woody, no tema Toy Story"
+     },
+     {
+      "arq": "posts/DfXzCWrIJrH/DfXzCWrIJrH_00.jpg",
+      "alt": "Mãe beijando o Homem-Aranha"
+     },
+     {
+      "arq": "posts/Dfpdj_SIMSv/Dfpdj_SIMSv_01.jpg",
+      "alt": "Bebê sorrindo no tema Baby Shark"
+     },
+     {
+      "arq": "posts/DfU02RpoCoG/DfU02RpoCoG_02.jpg",
+      "alt": "Bebê de chapéu de caubói"
+     },
+     {
+      "arq": "posts/Dfpdj_SIMSv/Dfpdj_SIMSv_06.jpg",
+      "alt": "Bebê rindo no tema Baby Shark"
+     },
+     {
+      "arq": "google/g06.jpg",
+      "alt": "Recém-nascida sorrindo no tema das abelhinhas"
+     },
+     {
+      "arq": "posts/DfXzCWrIJrH/DfXzCWrIJrH_02.jpg",
+      "alt": "Mãe abraçando o filho de Homem-Aranha"
+     },
+     {
+      "arq": "google/g04.jpg",
+      "alt": "Pais com a bebê no cenário da Rapunzel"
+     },
+     {
+      "arq": "google/g03.jpg",
+      "alt": "Pais beijando a bebê"
+     },
+     {
+      "arq": "google/g05.jpg",
+      "alt": "Pais com a recém-nascida no tema das abelhinhas"
+     },
+     {
+      "arq": "posts/DfU02RpoCoG/DfU02RpoCoG_03.jpg",
+      "alt": "Bebê no cestinho de crochê"
+     },
+     {
+      "arq": "posts/Dfpdj_SIMSv/Dfpdj_SIMSv_04.jpg",
+      "alt": "Bebê de capuz no tema Baby Shark"
+     },
+     {
+      "arq": "posts/Dfpdj_SIMSv/Dfpdj_SIMSv_07.jpg",
+      "alt": "Bebê sorrindo no carrinho, no tema Baby Shark"
+     },
+     {
+      "arq": "posts/DfU02RpoCoG/DfU02RpoCoG_00.jpg",
+      "alt": "Bebê no cenário Toy Story"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -785,8 +1084,84 @@
        "Quadro 30x40"
       ]
      }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "chamada": "Ensaio gestante",
+    "pedido": "o ensaio gestante",
+    "frase": "A espera mais linda.",
+    "texto": "No estúdio de fundo claro, sozinha ou com o parceiro e os filhos.",
+    "citacao": "A espera mais linda merece ser eternizada em cada detalhe!",
+    "citacao_quem": "Thays Adrianny, no Instagram",
+    "quando": "Costuma ser feito entre a 28ª e a 34ª semana, quando a barriga já aparece bem. Vale reservar antes.",
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
     ],
-    "depo": "Gabi Costa"
+    "fotos": [
+     {
+      "arq": "posts/DfSb3cZoGh_/DfSb3cZoGh__01.jpg",
+      "alt": "Gestante sentada na cadeira, de jeans"
+     },
+     {
+      "arq": "posts/DfSb3cZoGh_/DfSb3cZoGh__03.jpg",
+      "alt": "Casal no ensaio gestante, no fundo claro"
+     },
+     {
+      "arq": "posts/DfSb3cZoGh_/DfSb3cZoGh__00.jpg",
+      "alt": "Gestante sentada, de casaco preto"
+     },
+     {
+      "arq": "posts/DfSb3cZoGh_/DfSb3cZoGh__02.jpg",
+      "alt": "Gestante de casaco preto, sentada na cadeira"
+     },
+     {
+      "arq": "google/g02.jpg",
+      "alt": "Gestante com os filhos no tapete"
+     },
+     {
+      "arq": "drive/463653208_18029235431460970_3470968933194064277_n.jpg",
+      "alt": "Gestante de óculos escuros, de pé"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 350",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "1 look"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 500",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "2 looks",
+       "Parceiro e filhos juntos"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 750",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
    }
   ]
  }
