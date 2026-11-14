@@ -405,8 +405,9 @@ button.rz-linha:hover,a.rz-linha:hover{background:var(--rz-superficie-2)}
 /* no celular, o nome pode ir em duas linhas antes de cortar (com a etiqueta ou o botão na ponta, cortava cedo demais) */
 @media (max-width:719px){
   .rz-linha-texto b{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow-wrap:anywhere}
-  .rz-linha-texto b.rz-titulo-valor{display:flex;align-items:flex-start}
-  .rz-titulo-valor>span:first-child{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow-wrap:anywhere}
+  /* o valor desce para a linha de baixo quando não cabe ao lado; o nome quebra entre palavras, nunca no meio de uma */
+  .rz-linha-texto b.rz-titulo-valor{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:var(--rz-1)}
+  .rz-titulo-valor>span:first-child{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow-wrap:break-word}
 }
 .rz-linha-fim{display:flex;align-items:center;gap:var(--rz-2);flex:none;color:var(--rz-tinta-3)}
 .rz-cor{flex:none;width:12px;height:12px;border-radius:50%;background:var(--cor,var(--rz-linha-forte));box-shadow:0 0 0 3px color-mix(in srgb,var(--cor,var(--rz-linha-forte)) 18%,transparent)}
