@@ -36,7 +36,7 @@ assistente, quem edita as fotos), até 5 pessoas no plano.
 | Item | Valor |
 |---|---|
 | Plano | **R$ 49 por mês** com 2 módulos à escolha e até 5 pessoas, cada uma com a sua senha |
-| Cada módulo a mais | **R$ 14,99 por mês** (o **Meu site** é um módulo como os outros) |
+| Cada módulo a mais | **R$ 14,99 por mês**. O **Meu site** vem em todo plano: não conta entre os 2 nem entra na mensalidade (14/11/2026, `07`) |
 | Fidelidade | nenhuma: cancela quando quiser e leva os dados numa planilha |
 | Montagem do painel para quem faz o site com a Renderiza | **grátis** |
 | Teste | **7 dias grátis** para quem se cadastra sozinho, contados do início, com os módulos que a pessoa escolher (menos os marcados como "só pago") |

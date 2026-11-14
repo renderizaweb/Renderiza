@@ -1,5 +1,6 @@
 // A casca do painel (09, "As peças que se repetem"; 10): menu lateral no computador e barra de baixo no celular
-// (só navegação, até 5 destinos), o "+" das ações rápidas, a busca (Ctrl+K), a conta e quem está logado.
+// (só navegação, até 5 destinos), "O que você quer fazer agora?" (as ações rápidas: a barra no computador, o "+" no
+// celular, Ctrl+K), a conta e quem está logado.
 // Mostra só os módulos ligados na conta; os ligados sem acesso aparecem trancados. Conta em teste ganha um aviso
 // discreto no topo; teste vencido ou conta desligada: a casca mostra o aviso para fechar o plano no lugar do
 // conteúdo (o banco já não entrega nada). Estilo em src/ui/estilo.css (seção 11).
@@ -153,9 +154,8 @@ export function montarCasca(raiz, { rota, sessao, banco, navegar, ambiente }) {
         <header class="rz-topo">
           <a class="rz-topo-conta" href="/">${sinalDaConta(conta)}<span class="rz-topo-nome"><b>${escapar(conta.nome)}</b><small>Painel do ${escapar(n.palavras.conta)}</small></span></a>
           ${etiqueta}
-          ${bloqueada ? "" : `<button class="rz-busca" type="button" data-buscar aria-label="Buscar (Ctrl+K)">${icone("buscar", { tamanho: 18 })}<span>Buscar cliente, data ou pedido</span><kbd>Ctrl K</kbd></button>
-          ${fazAlgo ? `<button class="rz-botao rz-botao--primario rz-topo-novo" type="button" data-novo>${icone("adicionar", { tamanho: 18 })}Novo</button>
-          <button class="rz-topo-mais" type="button" data-novo aria-label="Ações rápidas">${icone("adicionar", { tamanho: 22 })}</button>` : ""}`}
+          ${bloqueada || !fazAlgo ? "" : `<button class="rz-busca" type="button" data-novo aria-label="O que você quer fazer agora? (Ctrl+K)">${icone("adicionar", { tamanho: 18 })}<span>O que você quer fazer agora?</span><kbd>Ctrl K</kbd></button>
+          <button class="rz-topo-mais" type="button" data-novo aria-label="O que você quer fazer agora?">${icone("adicionar", { tamanho: 22 })}</button>`}
           <button class="rz-topo-quem" type="button" data-mais aria-label="Menu da conta">${avatar(pessoa, usuario.email)}</button>
         </header>
         ${avisoDoTeste(conta)}
@@ -206,7 +206,7 @@ function ligar(raiz, { conta, itens, sessao, banco, navegar }) {
   const abrirNovo = () => {
     const acoes = acoesRapidas(conta, pode);
     const folha = abrirFolha({
-      titulo: "O que você quer fazer?",
+      titulo: "O que você quer fazer agora?",
       corpo: acoes.length
         ? `<ul class="rz-lista-acoes">${acoes.map(a => `<li><button type="button" data-acao="${a.id}">${icone(a.icone)}<span>${escapar(a.rotulo)}</span>${icone("seta", { tamanho: 18 })}</button></li>`).join("")}</ul>`
         : `<p class="rz-texto-2">Você só vê os módulos desta conta: quem dá o acesso para editar é o dono.</p>`,
@@ -260,19 +260,18 @@ function ligar(raiz, { conta, itens, sessao, banco, navegar }) {
   });
   raiz.querySelectorAll("[data-novo]").forEach(b => b.addEventListener("click", abrirNovo));
   raiz.querySelectorAll("[data-mais]").forEach(b => b.addEventListener("click", abrirMais));
-  raiz.querySelectorAll("[data-buscar]").forEach(b => b.addEventListener("click", () => import("../ui/paleta.js").then(m => m.abrirPaleta({ sessao, banco, navegar }))));
 
-  // Atalhos no computador (09): Ctrl+K ou "/" busca; N abre o "+". Ligados uma vez só.
+  // Atalhos no computador (09): Ctrl+K, "/" ou N abrem "O que você quer fazer agora?". Ligados uma vez só.
   if (!teclasLigadas) {
     teclasLigadas = true;
     document.addEventListener("keydown", e => {
       const escrevendo = e.target.closest && e.target.closest("input, textarea, select, [contenteditable], dialog");
       if ((e.key === "k" || e.key === "K") && (e.ctrlKey || e.metaKey)) {
         e.preventDefault();
-        document.querySelector("[data-buscar]")?.click();
-      } else if (!escrevendo && !e.ctrlKey && !e.metaKey && !e.altKey) {
-        if (e.key === "/") { e.preventDefault(); document.querySelector("[data-buscar]")?.click(); }
-        if (e.key === "n" || e.key === "N") { e.preventDefault(); document.querySelector(".rz-topo-novo")?.click(); }
+        document.querySelector(".rz-topo [data-novo]")?.click();
+      } else if (!escrevendo && !e.ctrlKey && !e.metaKey && !e.altKey && (e.key === "/" || e.key === "n" || e.key === "N")) {
+        const botao = document.querySelector(".rz-topo [data-novo]");
+        if (botao) { e.preventDefault(); botao.click(); }
       }
     });
   }

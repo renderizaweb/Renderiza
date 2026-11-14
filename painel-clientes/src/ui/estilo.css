@@ -259,12 +259,11 @@ kbd{display:inline-flex;align-items:center;min-height:22px;padding:0 6px;border:
 .rz-topo-conta{display:flex;align-items:center;gap:var(--rz-2);min-width:0;margin-right:auto;color:var(--rz-tinta);text-decoration:none}
 .rz-topo-conta b{font-weight:600;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rz-conta-sinal{flex:none;width:32px;height:32px;display:grid;place-items:center;border-radius:10px;background:var(--rz-grafite);color:var(--rz-gelo);font-size:var(--rz-t-xs);font-weight:700;letter-spacing:.02em}
-.rz-busca{display:inline-flex;align-items:center;justify-content:center;gap:var(--rz-2);width:var(--rz-alvo);height:var(--rz-alvo);padding:0;border:0;border-radius:var(--rz-raio);
+.rz-busca{display:none;align-items:center;justify-content:center;gap:var(--rz-2);width:var(--rz-alvo);height:var(--rz-alvo);padding:0;border:0;border-radius:var(--rz-raio);
   background:transparent;color:var(--rz-tinta-2);cursor:pointer}
 .rz-busca span,.rz-busca kbd{display:none}
 .rz-busca:hover{background:rgba(30,37,40,.06);color:var(--rz-tinta)}
 .rz-busca:focus-visible,.rz-topo-quem:focus-visible{outline:none;box-shadow:var(--rz-foco)}
-.rz-topo-novo{display:none}
 .rz-topo-quem{width:var(--rz-alvo);height:var(--rz-alvo);display:grid;place-items:center;padding:0;border:0;border-radius:50%;background:transparent;cursor:pointer}
 .rz-avatar{flex:none;width:32px;height:32px;display:inline-grid;place-items:center;border-radius:50%;background:var(--cor,var(--rz-grafite-2));color:#fff;font-size:var(--rz-t-xs);font-weight:700;letter-spacing:.02em}
 .rz-faixa-teste{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px var(--rz-2);padding:6px var(--rz-4);background:var(--rz-destaque-fundo);color:var(--rz-destaque-escuro);font-size:var(--rz-t-sm);font-weight:500;text-align:center}
@@ -306,11 +305,10 @@ kbd{display:inline-flex;align-items:center;min-height:22px;padding:0 6px;border:
   .rz-quem-sair:hover{--tinta:#fff;--cor:rgba(255,255,255,.08)}
   .rz-topo{padding:var(--rz-3) var(--rz-8);gap:var(--rz-3)}
   .rz-topo-conta,.rz-topo-quem{display:none}
-  .rz-busca{width:min(380px,36vw);height:42px;justify-content:flex-start;padding:0 var(--rz-3);margin-right:auto;border:1px solid var(--rz-linha);background:var(--rz-superficie);color:var(--rz-tinta-3);font-size:var(--rz-t-sm)}
+  .rz-busca{display:inline-flex;width:min(380px,36vw);height:42px;justify-content:flex-start;padding:0 var(--rz-3);margin-right:auto;border:1px solid var(--rz-linha);background:var(--rz-superficie);color:var(--rz-tinta-3);font-size:var(--rz-t-sm)}
   .rz-busca span{display:inline;flex:1;text-align:left}
   .rz-busca kbd{display:inline-flex}
   .rz-busca:hover{background:var(--rz-superficie);border-color:var(--rz-linha-forte)}
-  .rz-topo-novo{display:inline-flex}
   .rz-principal{padding:var(--rz-6) var(--rz-8) var(--rz-12)}
   .rz-barra,.rz-fab{display:none}
 }
@@ -376,7 +374,7 @@ kbd{display:inline-flex;align-items:center;min-height:22px;padding:0 6px;border:
 
 /* ---------- 13. Peças comuns dos módulos (Missão 2; 09) ----------
    Cabeça do módulo, cartões e linhas de lista, estados (vazio, esqueleto, erro), chips, abas, opções em cartão,
-   interruptor, seleção, "Para quem?", paleta e WhatsApp. */
+   interruptor, seleção, "Para quem?" e WhatsApp. */
 .rz-cabeca{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:var(--rz-3) var(--rz-4);margin-bottom:var(--rz-6)}
 .rz-cabeca-titulos{display:flex;flex-direction:column;gap:var(--rz-1);min-width:0}
 .rz-cabeca-acoes{display:flex;flex-wrap:wrap;gap:var(--rz-2)}
@@ -405,8 +403,9 @@ button.rz-linha:hover,a.rz-linha:hover{background:var(--rz-superficie-2)}
 /* no celular, o nome pode ir em duas linhas antes de cortar (com a etiqueta ou o botão na ponta, cortava cedo demais) */
 @media (max-width:719px){
   .rz-linha-texto b{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow-wrap:anywhere}
-  .rz-linha-texto b.rz-titulo-valor{display:flex;align-items:flex-start}
-  .rz-titulo-valor>span:first-child{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow-wrap:anywhere}
+  /* o valor desce para a linha de baixo quando não cabe ao lado; o nome quebra entre palavras, nunca no meio de uma */
+  .rz-linha-texto b.rz-titulo-valor{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:var(--rz-1)}
+  .rz-titulo-valor>span:first-child{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow-wrap:break-word}
 }
 .rz-linha-fim{display:flex;align-items:center;gap:var(--rz-2);flex:none;color:var(--rz-tinta-3)}
 .rz-cor{flex:none;width:12px;height:12px;border-radius:50%;background:var(--cor,var(--rz-linha-forte));box-shadow:0 0 0 3px color-mix(in srgb,var(--cor,var(--rz-linha-forte)) 18%,transparent)}
@@ -471,18 +470,13 @@ textarea.rz-entrada{min-height:112px;padding:var(--rz-3) var(--rz-4);line-height
 .rz-segmentos input{position:absolute;opacity:0;pointer-events:none}
 .rz-segmentos label:has(input:checked){background:var(--rz-superficie);color:var(--rz-tinta);box-shadow:var(--rz-sombra-1)}
 .rz-segmentos label:has(input:focus-visible){box-shadow:var(--rz-foco)}
-/* "Para quem?", contatos, WhatsApp e paleta */
+/* "Para quem?", contatos e WhatsApp */
 .rz-lista-clientes button{min-height:56px}
 .rz-para-quem-novo{margin-top:var(--rz-3);justify-content:flex-start}
 .rz-contatos{display:flex;flex-direction:column;gap:var(--rz-3)}
 .rz-contatos li{display:flex;align-items:center;gap:var(--rz-3);color:var(--rz-tinta)}
 .rz-contatos .rz-icone{color:var(--rz-tinta-3)}
 .rz-whatsapp{display:flex;flex-wrap:wrap;gap:var(--rz-2)}
-.rz-paleta-busca{position:relative}
-.rz-paleta-busca .rz-icone{position:absolute;left:var(--rz-4);top:50%;transform:translateY(-50%);color:var(--rz-tinta-3);pointer-events:none}
-.rz-paleta-busca .rz-entrada{padding-left:var(--rz-12)}
-.rz-janela--paleta .rz-janela-cabeca{padding-bottom:0}
-@media (min-width:720px){.rz-janela--paleta{inset:12vh 0 auto 0;margin:0 auto;width:min(560px,calc(100vw - 32px))}}
 /* Etiquetas de situação a mais */
 .rz-etiqueta--perigo{background:var(--rz-perigo-fundo);color:var(--rz-perigo)}
 .rz-etiqueta--info{background:var(--rz-info-fundo);color:var(--rz-info)}
@@ -614,6 +608,9 @@ button.rz-opcao:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-barra-ferramentas{display:flex;flex-wrap:wrap;align-items:center;gap:var(--rz-3);margin-bottom:var(--rz-4)}
 .rz-barra-ferramentas .rz-campo-busca{flex:1 1 220px;min-width:0}
 .rz-barra-ferramentas .rz-chips{flex:1 1 100%}
+/* os filtros em lista (período, cliente…): lado a lado, e um embaixo do outro no celular */
+.rz-filtros{display:flex;flex-wrap:wrap;gap:var(--rz-2);flex:1 1 100%}
+.rz-filtros .rz-filtro{flex:1 1 180px;width:auto;min-width:0}
 .rz-linha .rz-linha-acao{flex:none}
 .rz-linha-quando{font-size:var(--rz-t-xs);color:var(--rz-tinta-3);white-space:nowrap}
 .rz-linha-fim{flex-direction:column;align-items:flex-end;gap:4px}

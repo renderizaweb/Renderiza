@@ -70,3 +70,21 @@ test("chips, o grupo que abre primeiro e a ordem da lista", () => {
   assert.deepEqual(filtrarContratos(contratos, { grupo: "aceito", agora }).map(c => c.id), ["4", "3", "5"], "a festa mais perto primeiro; as que passaram no fim");
   assert.deepEqual(filtrarContratos(contratos, { grupo: "aceito", busca: "julia", agora }).map(c => c.id), ["3"], "busca sem acento");
 });
+
+test("contratos: filtros de período e cliente, e o aceite que chegou entre duas leituras", async () => {
+  const { periodosDosContratos, noPeriodoDoContrato, recortarContratos, clientesDosContratos, aceitosDesde } = await import("../src/modulos/contratos/logica.js");
+  const agora = Date.parse("2026-11-14T12:00:00-03:00");
+  const c = (id, cliente, inicio, situacao = "enviado") => ({ id, cliente_id: cliente, situacao, criado_em: "2026-10-01T12:00:00Z", clientes: { nome: cliente === "c1" ? "Bia" : "Ana" }, reservas: inicio ? { inicio } : null });
+  const contratos = [c("a", "c1", "2026-11-20T15:00:00Z"), c("b", "c2", "2026-12-24T15:00:00Z", "aceito"), c("x", "c2", null, "orcamento")];
+  const reservas = [{ id: "r", cliente_id: "c1", inicio: "2026-11-28T12:00:00Z", clientes: { nome: "Bia" } }];
+  assert.equal(noPeriodoDoContrato("2026-11-20T15:00:00Z", "prox30", agora), true);
+  assert.equal(noPeriodoDoContrato("2026-12-24T15:00:00Z", "prox30", agora), false);
+  assert.equal(noPeriodoDoContrato("2026-10-01T12:00:00Z", "ult30", agora), false);
+  assert.deepEqual(periodosDosContratos(contratos, agora).map(o => o.valor), ["", "prox30", "ult30", "mes:2026-10", "mes:2026-11", "mes:2026-12"]);
+  const r = recortarContratos({ contratos, reservas }, { periodo: "mes:2026-11", cliente: "" }, agora);
+  assert.deepEqual([r.contratos.map(x => x.id), r.reservas.map(x => x.id)], [["a"], ["r"]]);
+  assert.deepEqual(recortarContratos({ contratos, reservas }, { cliente: "c2" }, agora).contratos.map(x => x.id), ["b", "x"], "sem reserva: conta a data do contrato");
+  assert.deepEqual(clientesDosContratos(contratos, reservas).map(x => x.nome), ["Ana", "Bia"]);
+  assert.deepEqual(aceitosDesde(contratos, contratos.map(x => (x.id === "a" ? { ...x, situacao: "aceito" } : x))).map(x => x.id), ["a"]);
+  assert.deepEqual(aceitosDesde([], [{ id: "n", situacao: "aceito" }]), [], "contrato que nem estava na lista: não avisa");
+});

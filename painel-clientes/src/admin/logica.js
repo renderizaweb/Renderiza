@@ -6,6 +6,8 @@ import { dataNumerica, dia, somarDias, moeda, haQuanto, instanteNoFuso } from ".
 
 /** O plano (02): R$ 49 com 2 módulos; cada módulo a mais pelo preço dele (modulos.preco). */
 export const PLANO = { valor: 49, modulosInclusos: 2 };
+/** Os que vêm em todo plano, sem contar entre os 2 nem entrar na mensalidade (Meu site: decidido em 14/11/2026, 07). */
+export const INCLUIDOS = ["meu-site"];
 
 export const SITUACOES = {
   teste: { nome: "Em teste", tom: "destaque" },
@@ -74,7 +76,7 @@ export const codigoValido = c => /^[a-z0-9][a-z0-9-]{1,38}[a-z0-9]$/.test(String
 
 /** O valor sugerido da mensalidade: o plano com 2 módulos e cada um a mais pelo preço dele (os mais caros entram no plano). */
 export function mensalidadeSugerida(modulosLigados, catalogo) {
-  const precos = modulosLigados.map(id => Number((catalogo.find(m => m.id === id) || {}).preco || 0)).sort((a, b) => b - a);
+  const precos = modulosLigados.filter(id => !INCLUIDOS.includes(id)).map(id => Number((catalogo.find(m => m.id === id) || {}).preco || 0)).sort((a, b) => b - a);
   const extra = precos.slice(PLANO.modulosInclusos).reduce((t, p) => t + p, 0);
   return Math.round((PLANO.valor + extra) * 100) / 100;
 }

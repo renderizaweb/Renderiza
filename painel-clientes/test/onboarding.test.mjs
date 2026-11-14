@@ -33,7 +33,7 @@ test("eventos: a conta, a ordem do menu e os tipos de festa com cor", () => {
   const estado = { ...estadoInicial(), nicho: "eventos", site: "tenho", nome: " Villa Teste ", whatsapp: "(11) 98888-7777", modulos: ["agenda", "contratos"] };
   estado.escolhas = adicionarEscolha(escolhasIniciais("eventos").map((x, i) => ({ ...x, marcada: i === 0 })), "Bodas", "eventos");
   const p = planoDoCadastro(estado);
-  assert.deepEqual(p.conta, { nome: "Villa Teste", nicho: "eventos", whatsapp: "11988887777", modulos: ["agenda", "contratos"], meu_nome: null });
+  assert.deepEqual(p.conta, { nome: "Villa Teste", nicho: "eventos", whatsapp: "11988887777", modulos: ["agenda", "contratos", "meu-site"], meu_nome: null }, "o Meu site vem em todo plano");
   assert.deepEqual(p.ajustes, { ordem_menu: ["agenda", "contratos"], onboarding: { site: "tenho" } });
   assert.equal(p.tabela, "tipos_reserva");
   assert.deepEqual(p.linhas.map(l => [l.nome, l.ordem]), [["Casamento", 0], ["Bodas", 1]]);
@@ -45,7 +45,7 @@ test("fotografia: os ensaios viram serviços com a duração, sem valor", () => 
   estado.escolhas = escolhasIniciais("fotografia").map((x, i) => ({ ...x, marcada: i < 2 }));
   estado.escolhas[0].duracao = 120;
   const p = planoDoCadastro(estado);
-  assert.deepEqual(p.conta.modulos, MODULOS_SUGERIDOS, "sem módulo marcado: os sugeridos");
+  assert.deepEqual(p.conta.modulos, [...MODULOS_SUGERIDOS, "meu-site"], "sem módulo marcado: os sugeridos (e o Meu site)");
   assert.equal(p.conta.whatsapp, null);
   assert.equal(p.tabela, "servicos");
   assert.deepEqual(p.linhas.map(l => [l.nome, l.duracao_min]), [["Ensaio gestante", 120], ["Newborn", 180]]);

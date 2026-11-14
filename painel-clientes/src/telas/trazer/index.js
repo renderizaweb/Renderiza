@@ -141,7 +141,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
       const semIa = r && ["sem_ia", "teto", "limite"].includes(r.motivo);
       return mudar(item, {
         estado: "erro", tentar: !semIa, semIa, caminho: item.pedido ? item.caminho : null,
-        mensagem: semIa ? "A leitura com IA não está disponível agora. Mande para a Renderiza montar." : "Não consegui ler este arquivo. Tente de novo.",
+        mensagem: semIa ? "A leitura com IA não está disponível agora. Envie para a Renderiza montar." : "Não consegui ler este arquivo. Tente de novo.",
       });
     }
     const lido = r.resultado;
@@ -304,7 +304,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
         <li>${icone("clientes", { tamanho: 16 })}<span><b>Clientes:</b> a planilha, os contatos do celular (.vcf) ou prints das conversas.</span></li>
         <li>${icone("contrato", { tamanho: 16 })}<span><b>Contrato:</b> o modelo em Word ou PDF; vira modelo com os campos preenchidos sozinhos.</span></li>
       </ul>`}
-      ${!suporte ? `<p class="rz-texto-3 rz-trazer-renderiza${temSemIa ? " rz-trazer-renderiza--destaque" : ""}">${icone("conversa", { tamanho: 16 })}<span>Prefere que a gente faça? <button class="rz-link" type="button" data-pedir>Mandar para a Renderiza montar</button></span></p>` : ""}
+      ${!suporte ? `<p class="rz-texto-3 rz-trazer-renderiza${temSemIa ? " rz-trazer-renderiza--destaque" : ""}">${icone("conversa", { tamanho: 16 })}<span>Prefere que a gente faça? <button class="rz-link" type="button" data-pedir>Enviar para a Renderiza montar</button></span></p>` : ""}
       <p class="rz-texto-3 rz-trazer-privacidade">${icone("cadeado", { tamanho: 14 })}<span>Os arquivos só passam pela IA para ler e saem do painel logo depois. Só entra o que você conferir.</span></p>`;
     ligarArquivos();
   }
@@ -403,7 +403,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
     corpo.innerHTML = `
       <div class="rz-trazer-cabeca">
         <h1 class="rz-titulo-1" tabindex="-1">A Renderiza monta para você</h1>
-        <p class="rz-texto-2">Mande os arquivos por aqui: a gente coloca no seu painel e te avisa no WhatsApp quando estiver pronto.</p>
+        <p class="rz-texto-2">Envie os arquivos por aqui: a equipe da Renderiza coloca tudo no seu painel e te avisa no WhatsApp quando estiver pronto.</p>
       </div>
       <div class="rz-cartao rz-cartao-corpo rz-pilha">
         ${comArquivo.length
@@ -413,7 +413,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
           <textarea id="trazer-recado" class="rz-entrada" rows="3" maxlength="500" placeholder="Ex.: a agenda de papel vai até março; o PDF tem os preços novos."></textarea></div>
         <div role="alert" class="rz-alerta rz-alerta--erro" hidden data-erro-pedido></div>
         <div class="rz-trazer-pedido-botoes">
-          <button class="rz-botao rz-botao--primario" type="button" data-mandar>Mandar para a Renderiza</button>
+          <button class="rz-botao rz-botao--primario" type="button" data-mandar>Enviar para a Renderiza</button>
           <button class="rz-botao rz-botao--fantasma" type="button" data-cancelar-pedido>Voltar</button>
         </div>
       </div>`;
@@ -429,7 +429,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
       const erro = corpo.querySelector("[data-erro-pedido]");
       erro.hidden = true;
       if (!escolhidos.length) { erro.textContent = "Escolha pelo menos um arquivo."; erro.hidden = false; return; }
-      ocupado(botao, true, "Mandando…");
+      ocupado(botao, true, "Enviando…");
       const pasta = codigoDaPasta("pedido");
       try {
         // os .zip vão abertos (a Renderiza lê arquivo por arquivo)
@@ -440,7 +440,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
         }
         lista = lista.slice(0, 200);
         for (let i = 0; i < lista.length; i++) {
-          botao.textContent = `Mandando ${i + 1} de ${lista.length}…`;
+          botao.textContent = `Enviando ${i + 1} de ${lista.length}…`;
           let f = lista[i];
           if (tipoDoArquivo(f.name, f.type) === "imagem") f = (await prepararImagem(f)) || f;
           await banco.enviarComProgresso("importacoes", `${conta.conta_id}/${pasta}/${nomeParaCaminho(f.name, i + 1)}`, f, f.type || mimeDo(f.name));
@@ -450,10 +450,10 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
         corpo.innerHTML = `
           <div class="rz-trazer-feito rz-cartao rz-cartao-corpo">
             <span class="rz-trazer-feito-icone" aria-hidden="true">${icone("ok", { tamanho: 28 })}</span>
-            <h1 class="rz-titulo-2" tabindex="-1">Mandado para a Renderiza</h1>
-            <p class="rz-texto-2">A gente monta e te avisa no WhatsApp. Se quiser adiantar, mande uma mensagem.</p>
+            <h1 class="rz-titulo-2" tabindex="-1">Arquivos enviados para a equipe da Renderiza</h1>
+            <p class="rz-texto-2">${lista.length === 1 ? "O arquivo chegou" : `Os ${lista.length} arquivos chegaram`} para a gente. A equipe coloca tudo no seu painel e te avisa no WhatsApp quando estiver pronto. Quer adiantar? Mande uma mensagem.</p>
             <div class="rz-trazer-feito-botoes">
-              <a class="rz-botao" href="${escapar(linkDaRenderiza(`Oi! Mandei ${lista.length} ${lista.length === 1 ? "arquivo" : "arquivos"} pelo painel para vocês montarem (${conta.nome}).`))}" target="_blank" rel="noopener">${icone("whatsapp", { tamanho: 18 })}Avisar no WhatsApp</a>
+              <a class="rz-botao" href="${escapar(linkDaRenderiza(`Oi! Enviei ${lista.length} ${lista.length === 1 ? "arquivo" : "arquivos"} pelo painel para vocês montarem (${conta.nome}).`))}" target="_blank" rel="noopener">${icone("whatsapp", { tamanho: 18 })}Avisar no WhatsApp</a>
               <a class="rz-botao rz-botao--primario" href="${voltar.href}">${deMontar ? "Voltar para a conversa" : "Voltar ao painel"}</a>
             </div>
           </div>`;
@@ -461,7 +461,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
         lembrar({ pedido: true });
       } catch (er) {
         ocupado(botao, false);
-        erro.textContent = er.message || "Não deu para mandar. Tente de novo.";
+        erro.textContent = er.message || "Não deu para enviar. Tente de novo.";
         erro.hidden = false;
       }
     });

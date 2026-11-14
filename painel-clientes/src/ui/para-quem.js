@@ -20,6 +20,9 @@ export function termoDeBusca(texto) {
   return { nome, digitos: digitos.length >= 3 ? normalizarWhatsapp(digitos) || digitos : "" };
 }
 
+/** Quantos clientes o "Para quem?" mostra de cada vez ("Ver mais" traz os próximos). */
+export const POR_VEZ = 10;
+
 /** Os clientes da conta que batem com o texto (vazio: os mexidos por último). Sem os arquivados. */
 export async function buscarClientes(banco, conta, texto, limite = 8) {
   const { nome, digitos } = termoDeBusca(texto);
@@ -88,6 +91,7 @@ export function abrirParaQuem({ banco, conta, titulo = "Para quem?", permitirNov
   return new Promise(resolver => {
     let escolhido = null;
     let resultados = [];
+    let mostrar = POR_VEZ, temMais = false;
     const folha = abrirFolha({
       titulo,
       corpo: `<div class="rz-campo">
@@ -104,29 +108,38 @@ export function abrirParaQuem({ banco, conta, titulo = "Para quem?", permitirNov
     const desenhar = termo => {
       const novo = permitirNovo ? `<button class="rz-botao rz-botao--bloco rz-para-quem-novo" type="button" data-novo-cliente>${icone("adicionar")}${termo ? `Novo cliente: <b>${escapar(termo)}</b>` : "Novo cliente"}</button>` : "";
       lugar.innerHTML = (resultados.length
-        ? `<p class="rz-texto-3">${termo ? "Encontrados" : "Mexidos por último"}</p><ul class="rz-lista-acoes rz-lista-clientes">${resultados.map(linhaDoCliente).join("")}</ul>`
+        ? `<p class="rz-texto-3">${termo ? "Encontrados" : "Mexidos por último"}</p><ul class="rz-lista-acoes rz-lista-clientes">${resultados.map(linhaDoCliente).join("")}</ul>
+          ${temMais ? `<button class="rz-botao rz-botao--fantasma rz-botao--bloco" type="button" data-ver-mais>Ver mais clientes</button>` : ""}`
         : termo ? `<p class="rz-texto-2">Nenhum cliente com “${escapar(termo)}”.</p>` : "") + novo;
     };
     const procurar = async () => {
       const minha = ++vez;
       const termo = busca.value.trim();
       try {
-        const r = await buscarClientes(banco, conta, termo);
+        const r = await buscarClientes(banco, conta, termo, mostrar + 1); // um a mais: diz se há "Ver mais"
         if (minha !== vez) return;
-        resultados = r;
+        temMais = r.length > mostrar;
+        resultados = r.slice(0, mostrar);
         desenhar(termo);
       } catch (e) {
         if (minha === vez) lugar.innerHTML = `<p class="rz-erro-campo">${icone("alerta", { tamanho: 16 })}<span>${escapar(e.message)}</span></p>`;
       }
     };
     let espera = null;
-    busca.addEventListener("input", () => { clearTimeout(espera); espera = setTimeout(procurar, 200); });
+    busca.addEventListener("input", () => { mostrar = POR_VEZ; clearTimeout(espera); espera = setTimeout(procurar, 200); });
     busca.addEventListener("keydown", e => {
       if (e.key === "Enter") { e.preventDefault(); lugar.querySelector("[data-cliente], [data-novo-cliente]")?.click(); }
     });
     procurar();
 
     lugar.addEventListener("click", e => {
+      const mais = e.target.closest("[data-ver-mais]");
+      if (mais) {
+        mostrar += POR_VEZ;
+        mais.disabled = true;
+        mais.textContent = "Carregando…";
+        return procurar();
+      }
       const b = e.target.closest("[data-cliente]");
       if (b) {
         escolhido = resultados.find(c => c.id === b.dataset.cliente) || null;
