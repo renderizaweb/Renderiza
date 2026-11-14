@@ -73,3 +73,28 @@ test("CORS só devolve a origem pedida quando é do site; IP só no formato cert
   assert.equal(ipDe({ "x-forwarded-for": "<script>" }), "");
   assert.equal(emailDoCodigo("123456").assunto, "123456 é o seu código para assinar o contrato");
 });
+
+test("comprovante: busca uma vez no banco e manda para quem assinou, com cópia para a Renderiza", async () => {
+  const d = deps();
+  const dados = { ok: true, protocolo: "ABC123DEF456", titulo: "Contrato · <b>Teste</b>", pagina: "https://www.renderizaweb.com.br/contrato/x", contratada: "Fulano, CPF 000",
+    nome: "Maria <script>", email: "maria@exemplo.com.br", email_confirmado: true, cpf: "***.444.777-**", plano: "sem-plano", em: "2026-11-16T13:00:00Z", ip: "200.1.2.3", impressao: "a".repeat(64) };
+  const pedidos = [];
+  d.comprovante = async q => { pedidos.push(q); return dados; };
+  const r = await atender({ metodo: "POST", corpo: { acao: "comprovante", termo: TERMO, protocolo: "abc123def456" } }, d);
+  assert.equal(r.status, 200);
+  assert.deepEqual(pedidos, [{ termo: TERMO, protocolo: "ABC123DEF456" }]);
+  const e = d.enviados[0];
+  assert.equal(e.para, "maria@exemplo.com.br"); assert.equal(e.copia, "contato@renderizaweb.com.br");
+  assert.equal(e.assunto, "Contrato assinado · protocolo ABC123DEF456");
+  assert.ok(e.html.includes("Maria &lt;script&gt;") && !e.html.includes("<script>") && e.html.includes("&lt;b&gt;Teste"));
+  assert.ok(e.texto.includes("16/11/2026, 10:00:00") && e.texto.includes("Sem plano da Renderiza") && e.texto.includes("***.444.777-**") && e.texto.includes("Fulano, CPF 000"));
+  assert.equal(d.registros.length, 0);
+});
+
+test("comprovante: protocolo fora do formato ou já enviado não manda nada", async () => {
+  const d = deps();
+  d.comprovante = async () => ({ ok: false, erro: "fora" });
+  assert.equal((await atender({ metodo: "POST", corpo: { acao: "comprovante", termo: TERMO, protocolo: "XYZ" } }, d)).corpo.erro, "formato");
+  const r = await atender({ metodo: "POST", corpo: { acao: "comprovante", termo: TERMO, protocolo: "ABC123DEF456" } }, d);
+  assert.equal(r.status, 409); assert.equal(d.enviados.length, 0);
+});
