@@ -169,7 +169,7 @@ const medir = () => {
         const r = await e.p.evaluate(() => ({ wa: [...document.querySelectorAll('main a[href*="wa.me"]:not([data-whatsapp]), .barra a')].map(a => decodeURIComponent(a.href)), pac: document.querySelectorAll('.pac').length, selo: [...document.querySelectorAll('.selo')].filter(s => s.offsetParent).length,
           locais: [...document.querySelectorAll('a[data-local]')].map(a => a.getAttribute('href')) }));
         if (r.pac < 2) return 'sem pacotes'; if (!r.selo) return 'pacotes sem o selo "valores de exemplo"';
-        if (!r.wa.length || !r.wa.every(x => /Vi o portfólio .* e quero o ensaio/.test(x))) return 'mensagem do ensaio: ' + (r.wa.find(x => !/quero o ensaio/.test(x)) || '').slice(0, 140);
+        if (!r.wa.length || !r.wa.every(x => /Vi o portfólio .* e quero (o|a) .+\. Quais datas/.test(x))) return 'mensagem do ensaio: ' + (r.wa.find(x => !/ e quero (o|a) /.test(x)) || '').slice(0, 140);
         if (!r.wa.some(x => /, pacote /.test(x))) return 'o botão do pacote não leva o pacote na mensagem';
         if (r.locais.some(l => !fs.existsSync(path.join(D, l.split('#')[0])))) return 'link para página que não existe: ' + r.locais.find(l => !fs.existsSync(path.join(D, l.split('#')[0])));
         if (tipo === 'cel') {

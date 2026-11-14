@@ -13,12 +13,12 @@
  "endereco_maps": "R. Antônio de Barros, 290 - Tatuapé, São Paulo - SP, 03089-000",
  "google_nota": "5,0",
  "google_total": "90",
- "verificado": "2026-11-06",
+ "verificado": "2026-11-13",
  "whatsapp": "5511994548938",
  "fone_link": "+5511994548938",
  "instagram": "mayarateixeirafotografia",
  "seguidores": "14,7 mil",
- "mensagem": "Olá, May! Vi o seu site e queria saber mais sobre os ensaios.",
+ "mensagem": "Olá! Vi o portfólio da May e queria saber mais sobre os ensaios.",
  "cores": {
   "fundo": "#fbfbfd",
   "papel": "#ffffff",
@@ -74,11 +74,11 @@
   "preco_pix": "R$ 399",
   "parcelado": "2x de R$ 199",
   "nota_preco": "pagamento único, sem mensalidade",
-  "valido_ate": "2026-11-13",
-  "msg_garantir": "Olá! Sou a Mayara, da Mayara Teixeira Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
-  "msg_negociar": "Olá! Sou a Mayara, da Mayara Teixeira Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "valido_ate": "2026-11-21",
+  "msg_garantir": "Olá! Sou a Mayara, da Mayara Teixeira Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Mayara, da Mayara Teixeira Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "2f4m",
-  "msg_duvida": "Olá! Sou a Mayara, da Mayara Teixeira Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+  "msg_duvida": "Olá! Sou a Mayara, da Mayara Teixeira Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
   "fontes": {
@@ -595,30 +595,183 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
+  "olho": "Estúdio de fotografia · Tatuapé, São Paulo",
+  "titulo": "Um cenário para cada fase.",
+  "linha": "Bebês mês a mês, smash the cake, aniversários e o Natal 2026, com a plaquinha do nome e da idade.",
   "local": "Tatuapé",
-  "h1": "Mês a mês e smash the cake no Tatuapé.",
-  "frase": "Um cenário para cada fase.",
-  "tom": "claro",
-  "capa": "mensal:2",
+  "tira": [
+   "mesames:0",
+   "natal:0",
+   "smash:0",
+   "mesames:1",
+   "natal:1",
+   "smash:1",
+   "mesames:2"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Sarah Kerlin",
+    "tag": "Cada fase",
+    "texto": "Mayara, obrigada por eternizar cada fase da nossa princesa com tanto cuidado e sensibilidade. Foi um privilégio ter você fazendo parte da nossa história."
+   },
+   {
+    "nome": "Eduarda Oliveira Nail Designer",
+    "tag": "Bebê",
+    "texto": "A recepção foi maravilhosa. Mayara, ótima profissional: atenciosa, simpática, educada e super carinhosa e detalhista com a minha bebê."
+   },
+   {
+    "nome": "Lais Borelli",
+    "tag": "1 ano",
+    "texto": "Ela foi muito paciente com a minha família: fotografar 3 crianças ao mesmo tempo é um grande desafio. As fotos da Lis, no ensaio de 1 ano, ficaram maravilhosas."
+   },
+   {
+    "nome": "Ana Kelly Barros",
+    "tag": "Bebê",
+    "texto": "Experiência incrível, amei tudo! Espaço muito acolhedor e a qualidade impecável! Super indico e voltarei mais vezes com certeza!"
+   }
+  ],
+  "contato": {
+   "titulo": "Escolha o tema e reserve a data.",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Tatuapé, Zona Leste de São Paulo, e atende de terça a sábado.",
+   "endereco": [
+    "R. Antônio de Barros, 290",
+    "Tatuapé · São Paulo, SP"
+   ],
+   "telefone": "(11) 99454-8938"
+  },
+  "_ficha": {
+   "direcao": [
+    "Lote 3 de fotógrafos. Dona: Mayara Teixeira, a May. Cenário temático e plaquinha com o nome e a idade em cada ensaio; tom claro, Libre Baskerville e Nunito, azul.",
+    "Na v4 entrou a página de Natal: o cenário \"Receita de Natal 2026\" (12 fotos em 3888 px, de 12/11). As fotos têm a marca d'água dela."
+   ],
+   "fora": "as coberturas de festa em buffet (muita gente e fundo cheio), os gestantes (nus ou cortados), as fotos repetidas e a foto antiga de Natal do Google.",
+   "textos": [
+    "Dela: as legendas são só o nome do ensaio (\"Ensaio Receita de Natal 2026\", \"Ensaio Acompanhamento… 10 meses #looneytunes\"); a frase do topo e as das páginas descrevem os cenários das fotos.",
+    "Avaliações (lidas inteiras em 13/11): Sarah Kerlin (cada fase) no mês a mês, Lais Borelli (1 ano) no smash; o Natal sem depoimento.",
+    "Não são dela: os pacotes e valores (exemplos) e o \"quando fazer\"."
+   ],
+   "conferir": [
+    "As fotos têm a marca d'água dela: no portfólio dela, daria para usar sem."
+   ]
+  },
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py). Fotos dos ORIGINAIS (drive/ = a grade dela salva no Drive; posts/ = carrosséis do embed público; google/ = Perfil da Empresa), escolhidas uma a uma na folha de contato. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "versao": 4,
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "A May, atrás da câmera.",
+   "p": [
+    "A Mayara Teixeira, a May, fotografa bebês mês a mês, smash the cake, aniversários e famílias no estúdio do Tatuapé, na Zona Leste de São Paulo.",
+    "Cada ensaio tem um cenário temático e a plaquinha com o nome e a idade do bebê."
+   ],
+   "citacao": "Obrigada por eternizar cada fase da nossa princesa com tanto cuidado e sensibilidade.",
+   "citacao_quem": "Sarah Kerlin, no Google",
+   "fotos": [
+    {
+     "arq": "drive/652768839_18577463239009123_8786684744456549615_n.jpg",
+     "alt": "A May com a câmera diante do rosto"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 90 avaliações no Google"
+    ],
+    [
+     "14,7 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
   "ensaios": [
    {
     "id": "mesames",
     "nome": "Mês a mês",
-    "chamada": "Ensaio mês a mês",
-    "fotos": [
-     "mensal:1,0",
-     "bebes:6",
-     "mensal:4",
-     "pn:0",
-     "bebes:3",
-     "mensal:5",
-     "bebes:1",
-     "mensal:2"
+    "chamada": "Acompanhamento mês a mês",
+    "pedido": "o acompanhamento mês a mês",
+    "frase": "Um cenário diferente a cada mês.",
+    "texto": "Super-herói, chef, praia, Flintstones, Chaves, Looney Tunes: cada mês ganha um cenário, com a plaquinha do nome e da idade.",
+    "quando": "O acompanhamento começa nos primeiros meses e fecha o ano com o smash the cake.",
+    "depo": {
+     "nome": "Sarah Kerlin",
+     "texto": "Mayara, obrigada por eternizar cada fase da nossa princesa com tanto cuidado e sensibilidade. Tenho certeza de que, no futuro, olhar essas fotos vai nos fazer reviver cada emoção desse período tão especial."
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Doze meses, um cenário diferente a cada mês.",
-    "sub": "Com a plaquinha do nome e da idade, do primeiro mês ao primeiro aninho.",
-    "texto": "O bebê cresce e cada mês ganha um cenário temático: super-herói, chef, praia, Flintstones, Ursinho Pooh.",
+    "fotos": [
+     {
+      "arq": "posts/DfnucRFla9d/DfnucRFla9d_05.jpg",
+      "alt": "Bebê de 6 meses rindo no cenário de chef"
+     },
+     {
+      "arq": "posts/DfnuM7QlbSn/DfnuM7QlbSn_03.jpg",
+      "alt": "Bebê de 10 meses apontando para cima, no tema Looney Tunes"
+     },
+     {
+      "arq": "drive/617915797_18557846149009123_4427006114817858843_n.jpg",
+      "alt": "Bebê de 7 meses de chef, entre os legumes"
+     },
+     {
+      "arq": "drive/619600051_18557844490009123_6950522228381091916_n.jpg",
+      "alt": "Bebê sorrindo de roupa dos Flintstones"
+     },
+     {
+      "arq": "drive/619273609_18558338923009123_5192993429053587609_n.jpg",
+      "alt": "Bebê de óculos escuros na praia"
+     },
+     {
+      "arq": "drive/617603454_18557847169009123_6238030337382867811_n.jpg",
+      "alt": "Bebê de 9 meses no cenário de super-heróis"
+     },
+     {
+      "arq": "drive/619069668_18557844088009123_7211449034319705296_n.jpg",
+      "alt": "Bebê de 9 meses no cenário do Chaves"
+     },
+     {
+      "arq": "google/g01.jpg",
+      "alt": "Bebê de 2 meses no cenário do Pooh"
+     },
+     {
+      "arq": "drive/620470954_18558338563009123_9221456633430618787_n.jpg",
+      "alt": "Vicente de 9 meses na praia"
+     },
+     {
+      "arq": "drive/630160975_18563876563009123_4526242358740325484_n.jpg",
+      "alt": "Bebê no cenário do Chaves, com a plaquinha"
+     },
+     {
+      "arq": "drive/625006164_18560868802009123_6731208891811633292_n.jpg",
+      "alt": "Bebê de 10 meses de terninho"
+     },
+     {
+      "arq": "drive/623808466_18559390732009123_1594571657148393934_n.jpg",
+      "alt": "Bebê de 7 meses rindo no cenário do Chaves"
+     },
+     {
+      "arq": "drive/619581077_18557847628009123_5904223347002297037_n.jpg",
+      "alt": "Bebê sorrindo deitada"
+     },
+     {
+      "arq": "posts/DfXR3DvlT0j/DfXR3DvlT0j_01.jpg",
+      "alt": "Recém-nascido de 2 meses de boné colorido"
+     },
+     {
+      "arq": "drive/631788781_18563538589009123_251207918526246091_n.jpg",
+      "alt": "Bebê rindo no cenário da praia"
+     },
+     {
+      "arq": "drive/624810428_18560867938009123_5665139075762039432_n.jpg",
+      "alt": "Bebê de 10 meses no cenário dos Flintstones"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Mês avulso",
@@ -648,21 +801,82 @@
        "Smash the cake de 1 ano incluso"
       ]
      }
-    ],
-    "quando": "O acompanhamento começa no primeiro mês: cada mês que passa não volta. Comece agora e feche o ano com o smash the cake.",
-    "depo": "Daiane Ribeiro"
+    ]
    },
    {
     "id": "smash",
-    "nome": "Smash e 1 ano",
-    "chamada": "Smash the cake",
-    "fotos": [
-     "smash:0,1,2,5",
-     "bebes:0"
+    "nome": "Smash e aniversário",
+    "curto": "Smash",
+    "chamada": "Smash the cake e aniversário",
+    "pedido": "o smash the cake",
+    "frase": "O tema que a família escolher.",
+    "texto": "Cinderela, Rei Leão, Monstros S.A., Minnie, Barbie: o primeiro aniversário vira cenário, com bolo e muita bagunça boa.",
+    "quando": "Costuma ser feito perto do aniversário. Vale reservar com antecedência, para dar tempo de montar o tema.",
+    "depo": {
+     "nome": "Lais Borelli",
+     "texto": "Adoramos o ensaio com a Mayara! Ela foi muito paciente com a minha família: fotografar 3 crianças ao mesmo tempo é um grande desafio. Mas especialmente as fotos da Lis, no ensaio de 1 ano, ficaram maravilhosas."
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Smash the cake no tema escolhido.",
-    "sub": "Cinderela, Rei Leão, Monstros S.A., Minnie e Looney Tunes.",
-    "texto": "O primeiro aniversário vira cenário: o tema que a família escolher, com bolo e muita bagunça boa.",
+    "fotos": [
+     {
+      "arq": "drive/618949265_18557846887009123_5007008916879884134_n.jpg",
+      "alt": "Bebê de Cinderela no aniversário de 1 ano"
+     },
+     {
+      "arq": "drive/618472285_18557845081009123_8492785035775564053_n.jpg",
+      "alt": "Bebê no cenário Monstros S.A., com 1 ano"
+     },
+     {
+      "arq": "drive/615959738_18557292103009123_2702315751872824553_n.jpg",
+      "alt": "Bebê de 1 ano no cenário do Rei Leão"
+     },
+     {
+      "arq": "drive/625045128_18560871613009123_7153365981320946195_n.jpg",
+      "alt": "Bebê de 1 ano no cenário da selva"
+     },
+     {
+      "arq": "drive/623798333_18559779358009123_4621413334208564991_n.jpg",
+      "alt": "Bebê de 1 ano no cavalinho, no tema Looney Tunes"
+     },
+     {
+      "arq": "drive/618638809_18557846341009123_8830857273302173091_n.jpg",
+      "alt": "Menina de 2 anos no cenário do Stitch"
+     },
+     {
+      "arq": "drive/625841836_18562156753009123_237526472559821552_n.jpg",
+      "alt": "Bebê de 11 meses no cenário da Barbie"
+     },
+     {
+      "arq": "drive/621835392_18558569806009123_4305001468547986547_n.jpg",
+      "alt": "Bebê de 1 ano no tema Minnie"
+     },
+     {
+      "arq": "drive/619086232_18557845909009123_5829580570423008734_n.jpg",
+      "alt": "Bebê de 10 meses no cenário do Stitch"
+     },
+     {
+      "arq": "drive/632085714_18565155367009123_3217218307061794392_n.jpg",
+      "alt": "Bebê de 11 meses no cenário do Rei Leão"
+     },
+     {
+      "arq": "drive/631788781_18563538589009123_251207918526246091_n.jpg",
+      "alt": "Bebê de 11 meses no cenário do Palmeiras"
+     },
+     {
+      "arq": "drive/622347296_18559073524009123_5151452620001164298_n.jpg",
+      "alt": "Menino no cenário dos carros"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -693,9 +907,108 @@
        "Álbum impresso 20x20"
       ]
      }
+    ]
+   },
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "curto": "Natal",
+    "chamada": "Receita de Natal 2026",
+    "pedido": "o ensaio de Natal",
+    "frase": "Receita de Natal 2026.",
+    "texto": "Um cenário de cozinha de Natal: biscoitos, rolo de massa, avental e a família toda junto na bancada.",
+    "quando": "O cenário Receita de Natal 2026 já está no estúdio. Datas pelo WhatsApp.",
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "quando": "O smash é perto do primeiro aniversário: reserve com uns dois meses de antecedência, para dar tempo de montar o tema.",
-    "depo": "Eduarda Oliveira Nail Designer"
+    "fotos": [
+     {
+      "arq": "posts/DfqGxNGFRtb/DfqGxNGFRtb_01.jpg",
+      "alt": "Família comendo os biscoitos na cozinha de Natal"
+     },
+     {
+      "arq": "posts/DfqG3c2lXfa/DfqG3c2lXfa_00.jpg",
+      "alt": "Menina sorrindo com a bandeja de biscoitos"
+     },
+     {
+      "arq": "posts/DfnucRFla9d/DfnucRFla9d_01.jpg",
+      "alt": "Menina com a colher de pau na cozinha de Natal"
+     },
+     {
+      "arq": "posts/DfqGxNGFRtb/DfqGxNGFRtb_04.jpg",
+      "alt": "Família sorrindo atrás da bancada"
+     },
+     {
+      "arq": "posts/DfnucRFla9d/DfnucRFla9d_04.jpg",
+      "alt": "Menina com os cortadores de biscoito"
+     },
+     {
+      "arq": "posts/DfqG3c2lXfa/DfqG3c2lXfa_06.jpg",
+      "alt": "Menina sorrindo na bancada de Natal"
+     },
+     {
+      "arq": "posts/DfqG3c2lXfa/DfqG3c2lXfa_03.jpg",
+      "alt": "Família preparando os biscoitos"
+     },
+     {
+      "arq": "posts/DfnucRFla9d/DfnucRFla9d_03.jpg",
+      "alt": "Menina abrindo a massa"
+     },
+     {
+      "arq": "posts/DfqG3c2lXfa/DfqG3c2lXfa_01.jpg",
+      "alt": "Menina provando o biscoito"
+     },
+     {
+      "arq": "posts/DfqGxNGFRtb/DfqGxNGFRtb_03.jpg",
+      "alt": "Família com a menina na cozinha de Natal"
+     },
+     {
+      "arq": "posts/DfqG3c2lXfa/DfqG3c2lXfa_04.jpg",
+      "alt": "Família rindo na cozinha de Natal"
+     },
+     {
+      "arq": "posts/DfnucRFla9d/DfnucRFla9d_02.jpg",
+      "alt": "Menina mexendo a massa"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 250",
+      "itens": [
+       "30 minutos de ensaio",
+       "8 fotos editadas",
+       "Cenário Receita de Natal"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 400",
+      "itens": [
+       "45 minutos de ensaio",
+       "15 fotos editadas",
+       "A família toda junto"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 600",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
    }
   ]
  }

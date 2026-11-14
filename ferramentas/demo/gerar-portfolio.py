@@ -29,7 +29,7 @@
 #     citacao?, citacao_quem?, quando?, depo? {nome, texto}, capa (quantas fotos na abertura), vitrine [índices no
 #     filtro da vitrine], fotos [{arq, alt, box?}], pacotes [{nome, preco, itens, destaque?}]}]}
 #   Pacotes e valores são EXEMPLOS: a página mostra o selo (some no vídeo, ?video=1).
-import base64, hashlib, html, io, json, os, re, sys
+import base64, hashlib, html, io, json, math, os, re, sys
 from urllib.parse import quote
 import importlib.util
 
@@ -158,13 +158,13 @@ h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
 .lista li{border-bottom:1px solid var(--linha);counter-increment:n}
 .ens{display:grid;grid-template-columns:56px 76px minmax(0,1.1fr) minmax(0,1.3fr) auto 28px;gap:0 clamp(14px,2.4vw,36px);align-items:center;padding:18px 8px;text-decoration:none;transition:background .35s,padding .45s var(--suave)}
 .ens::before{content:counter(n,decimal-leading-zero);font-size:.74rem;letter-spacing:.2em;color:var(--tinta-2)}
-.ens .mini{width:76px;height:96px;object-fit:cover;background:var(--areia)}
+.ens .mini{width:76px;height:96px;object-fit:cover;background:var(--areia)}.ens .mini--deitada{height:57px}
 .ens b{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,3.2vw,2.7rem);line-height:1.05}
 .ens .frase{color:var(--tinta-2)}
 .ens .preco{text-align:right;white-space:nowrap;font-family:var(--serif);font-size:1.5rem;line-height:1.1}.ens .preco small{display:block;font-family:var(--sans);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--tinta-2);margin-bottom:4px}
 .ens>svg{width:22px;height:22px;transition:transform .45s var(--suave)}
 .ens:hover{background:var(--papel);padding-left:20px}.ens:hover>svg{transform:translateX(6px)}
-@media(max-width:860px){.ens{grid-template-columns:64px minmax(0,1fr) auto;gap:2px 14px;padding:14px 0}.ens::before{display:none}.ens .mini{width:64px;height:80px;grid-row:1/3}.ens b{font-size:1.65rem;align-self:end}.ens .frase{grid-column:2;grid-row:2;font-size:.9rem;line-height:1.35;align-self:start}.ens .preco{grid-column:3;grid-row:1/3;font-size:1.2rem}.ens .preco small{font-size:.6rem;letter-spacing:.12em}.ens>svg{display:none}.ens:hover{padding-left:0;background:none}}
+@media(max-width:860px){.ens{grid-template-columns:64px minmax(0,1fr) auto;gap:2px 14px;padding:14px 0}.ens::before{display:none}.ens .mini{width:64px;height:80px;grid-row:1/3}.ens .mini--deitada{height:48px}.ens b{font-size:1.65rem;align-self:end}.ens .frase{grid-column:2;grid-row:2;font-size:.9rem;line-height:1.35;align-self:start}.ens .preco{grid-column:3;grid-row:1/3;font-size:1.2rem}.ens .preco small{font-size:.6rem;letter-spacing:.12em}.ens>svg{display:none}.ens:hover{padding-left:0;background:none}}
 
 /* galeria: linhas justificadas, cada foto inteira na proporção dela (o JS fecha as linhas; sem JS, o flex resolve) */
 .galeria{--h:380px;display:flex;flex-wrap:wrap;gap:10px}
@@ -261,7 +261,7 @@ h2{font-size:clamp(2.1rem,4vw,3.3rem)}p{margin:0 0 1em}
 .pac .botao{width:100%}.pac:not(.pac--destaque) .botao{background:transparent;color:var(--tinta);border-color:color-mix(in srgb,var(--tinta) 38%,transparent)}.pac:not(.pac--destaque) .botao:hover{background:var(--tinta);color:var(--fundo)}
 .pac--destaque .botao{background:#f4f1ec;border-color:#f4f1ec;color:var(--cafe)}.pac--destaque .botao:hover{background:#fff}
 .outros{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:14px}
-.outro{display:block;text-decoration:none}.outro span.q{display:block;aspect-ratio:4/5;overflow:hidden;background:var(--areia)}
+.outro{display:block;text-decoration:none}.outro span.q{display:block;aspect-ratio:var(--qa,.8);overflow:hidden;background:var(--areia)}
 .outro img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--suave)}.outro:hover img{transform:scale(1.04)}
 .outro b{display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:var(--serif);font-weight:400;font-size:1.45rem;padding-top:12px}.outro b svg{width:18px;height:18px;opacity:.5;transition:transform .35s var(--suave)}.outro:hover b svg{transform:translateX(4px)}
 .outro small{color:var(--tinta-2);font-size:.82rem}
@@ -458,7 +458,8 @@ def gerar(pasta, originais=None):
         if len(e['fotos']) < 6: sys.exit(f'{e["id"]}: menos de 6 fotos')
         e['_n'] = e.get('capa', 2)
         e['_fotos'] = [F.foto(x, ABERTURA if i < e['_n'] else GALERIA) for i, x in enumerate(e['fotos'])]
-        e['_mini'] = F.foto(e['fotos'][0], MINI)
+        e['_pe'] = next((x for x in e['fotos'][:8] if F.foto(x)['a'] <= 1.0), None)   # a primeira em pé (ou quadrada), para os quadros em pé
+        e['_mini'] = F.foto(e['_pe'] or e['fotos'][0], MINI)
         e['_de'] = min(e['pacotes'], key=lambda p: int(re.sub(r'\D', '', p['preco']) or 0))['preco']
         e['_curto'] = e.get('curto', e['nome'])
     por_id = {e['id']: e for e in ensaios}
@@ -651,7 +652,7 @@ def gerar(pasta, originais=None):
         e, f = ref(t)
         tira.append(f'<a class="tira-item" {link(e["id"])} style="--a:{f["a"]:.4f}"><span class="tira-foto">{img(f, prioridade=i < 2)}</span>'
                     f'<span class="rot">{esc(e["_curto"])}{ICONE("seta")}</span></a>')
-    lista = ''.join(f'<li class="reveal"><a class="ens" {link(e["id"])}>{img(e["_mini"], classe="mini")}<b>{esc(e["nome"])}</b><span class="frase">{esc(e["frase"])}</span>'
+    lista = ''.join(f'<li class="reveal"><a class="ens" {link(e["id"])}>{img(e["_mini"], classe="mini" if e["_mini"]["a"] <= 1.05 else "mini mini--deitada")}<b>{esc(e["nome"])}</b><span class="frase">{esc(e["frase"])}</span>'
                     f'<span class="preco"><small>a partir de</small>{esc(e["_de"])}</span>{ICONE("seta")}</a></li>' for e in ensaios)
     abas = ''.join(f'<button type="button" role="tab" id="aba-{e["id"]}" aria-controls="painel-{e["id"]}" aria-selected="{"true" if i == 0 else "false"}"{"" if i == 0 else " tabindex=" + chr(34) + "-1" + chr(34)}>{esc(e["_curto"])}</button>'
                    for i, e in enumerate(ensaios))
@@ -730,7 +731,12 @@ def gerar(pasta, originais=None):
         <ul>{"".join(f"<li>{esc(x)}</li>" for x in p["itens"])}</ul>
         <a class="botao" href="{esc(pedido(e, p["nome"]))}" target="_blank" rel="noopener noreferrer" aria-label="{esc("Quero o pacote " + p["nome"] + ": pedir pelo WhatsApp")}">{ICONE("whats")}Quero este</a></article>''' for i, p in enumerate(e['pacotes']))
         resto = [o for o in ensaios if o is not e]
-        outros = ''.join(f'<a class="outro reveal" style="--i:{i}" {link(o["id"])}><span class="q">{img(F.foto(o["fotos"][0], 900))}</span><b>{esc(o["nome"])}{ICONE("seta")}</b><small>a partir de {esc(o["_de"])}</small></a>'
+        # quadros dos outros ensaios: em pé (4:5) quando todos têm foto em pé; senão deitados (3:2), com a foto deitada de cada um
+        em_pe = all(o['_pe'] for o in resto); alvo = .8 if em_pe else 1.5
+        def capa_de(o):
+            if em_pe: return o['_pe']
+            return min(o['fotos'][:8], key=lambda x: abs(math.log(F.foto(x)['a'] / alvo)))
+        outros = ''.join(f'<a class="outro reveal" style="--i:{i}" {link(o["id"])}><span class="q">{img(F.foto(capa_de(o), 900))}</span><b>{esc(o["nome"])}{ICONE("seta")}</b><small>a partir de {esc(o["_de"])}</small></a>'
                          for i, o in enumerate(resto))
         quero = f'<a class="botao" href="{esc(pedido(e))}" target="_blank" rel="noopener noreferrer">{ICONE("whats")}Quero o meu ensaio</a>'
         corpo = f'''<div data-grupo="{esc(e["nome"])}">
@@ -777,7 +783,7 @@ def gerar(pasta, originais=None):
 <section class="secao secao--areia" id="outros" aria-labelledby="outros-t">
   <div class="container">
     <div class="cab reveal"><div><p class="olho">Portfólio</p><h2 id="outros-t">Outros ensaios.</h2></div></div>
-    <div class="outros" style="--n:{max(len(resto), 3)}">{outros}</div>
+    <div class="outros" style="--n:{max(len(resto), 3)};--qa:{alvo}">{outros}</div>
   </div>
 </section>
 {contato("Vamos marcar o seu?", "A mensagem já vai com o ensaio escolhido. É só mandar.", quero)}'''
