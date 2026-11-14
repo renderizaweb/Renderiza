@@ -4,43 +4,37 @@
 |---|---|
 | Onde | R. Nicolina La Pena Turriano - Jardim Alamo, Guarulhos - SP |
 | Instagram | [@marianalima_fotografia](https://www.instagram.com/marianalima_fotografia/) · 8,6 mil seguidores |
-| Google | nota 4,9 · 27 avaliações · conferido em 05/11/2026 |
+| Google | nota 4,9 · 27 avaliações · conferido em 14/11/2026 |
 | WhatsApp | (11) 99689-5508 · celular do Perfil da Empresa no Google (+55 11 99689-5508); a bio diz "Contato via wpp, link abaixo" |
-| Horário | não confirmado |
 | Site | não tem: o Google aponta o Instagram (lote 2, 05/11/2026) |
-| Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
-| Situação | pronta · 05/11/2026 · `/demo/mariana-lima-fotografia` e `/demo/mariana-lima-fotografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199 (condição de lançamento), válida até 12/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
-| Horários de exemplo | 15 livres de 30 (`horarios` no `demo.json`) |
+| Entregável | **portfólio online, versão 4**: `index.html` (a vitrine) e uma página por ensaio (`natal`, `mesames`, `gestante`, `familia`). Sai de `ferramentas/demo/gerar-portfolio.py demos/mariana-lima-fotografia [<pasta dos originais>]`; textos, fotos e pacotes no `demo.json` (`portfolio`) |
+| Situação | no ar · portfólio v4 em 14/11/2026 · `/demo/mariana-lima-fotografia` |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o portfólio fica 100% dela, sem mensalidade); promoção de uma semana, até 21/11/2026 (`renderiza.valido_ate` no `demo.json` e `demos.vale_ate` no painel) |
 
-## Direção da demo
-- Lote 2 de fotógrafos (nº 11, 85 pontos), escolhida no Drive de 05/11/2026. Bio: "NEWBORN | GESTANTE | ACOMPANHAMENTO MENSAL | INFANTIL | FAMÍLIA · Rua Nicolina La Pena Turri, 210 - Guarulhos".
-- Dona: Mari (Mariana Lima); as avaliações citam também a Isa ("a Mari e a Isa"). Foto dela: a do perfil do Instagram, com a câmera no rosto.
-- Cores: o lilás dos cenários dela (#7d4a80 no destaque) num fundo claro; Alegreya, Quicksand e "fotografia" em Dancing Script; abertura em bolhas, que combina com estúdio infantil. Sem logo em boa resolução: monograma ML e o nome com "fotografia" cursiva, feitos para a demo.
+## Direção
+- Lote de fotógrafos. Dona: Mari (Mariana Lima), com a Isa (nas avaliações). Estúdio no Jardim Álamo, em Guarulhos. Título das palavras dela ("Mais do que fotografias, nosso ensaio de Natal é sobre criar memórias").
+- Natal abre com o cenário de 2026 (parede verde, piano e árvore vermelha), com fotos de até 4096 px de um carrossel de novembro.
 
-## O que tem na demo
-- Site: abertura (Natal 2026, newborn e acompanhamento), portfólio em 3 abas (Gestante e newborn, 11; Acompanhamento e smash, 8; Família e Natal, 8), a Mari, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.
-- Página de Natal 2026 "O Natal merece ser lembrado para sempre": o ensaio, o cenário (3 fotos do Natal 2026), a agenda de exemplo (6 dias de 14/11 a 05/12, das 9h às 17h) e outros ensaios do ano.
+## O que tem
+- **Vitrine**: "Mais do que fotografias: memórias.", a tira de 7 fotos, a lista de ensaios com o "a partir de", o filtro por ensaio, 4 avaliações do Google, quem fotografa e o contato.
+- **Páginas**: Natal (14 fotos, depoimento de Patricia Moutinho); Mês a mês e aniversários (22 fotos, depoimento de Andréia Sousa); Gestante e newborn (11 fotos, depoimento de Rayanne Araujo); Família (12 fotos, depoimento de Alex Sandro).
+- Nenhum texto fala em "site". Pacotes e valores são de exemplo, com o selo na página.
 
-## Fotos
-- A página do Instagram salva no Drive (1280 px), as capas dos 5 posts de Natal de 18/10 a 01/11 (até 1600 px; o embed não traz as outras fotos dos carrosséis) e 7 fotos do Google, além da foto do perfil.
-- Ficaram de fora: a capa do vídeo com texto ("Pov: você achou um lugar..."), o ensaio gestante de lingerie e as fotos repetidas do mesmo ensaio.
+## Fotos (escolhidas uma a uma na folha de contato grande)
+- 59 fotos: 37 da grade do Instagram dela salva no Drive do Kaue (pasta na lixeira do Drive), 13 dos carrosséis lidos pelo embed público (De2RaxvJz5P, Dep1UR5JJnr, Dep1esLJTtR, DfDi2OkpNh3, DfN84_DpRYM, DfmfxUYJX4_, Dfnf7BqFti5) e 9 do Perfil no Google.
+- Tratadas a partir do original, sem ampliar e sem recorte (a página mostra a foto inteira): 1400 px na galeria, 1920 px na abertura, JPEG progressivo, qualidade 82.
+- Ficaram de fora: a gestante de lingerie preta e a de camisa aberta, as duas sereias bebês juntas, as fotos repetidas do mesmo cenário (docinhos, rock, Peppa, Dia dos Pais) e as mais pequenas.
 
-## Textos e fontes
-- Bio e legendas: "É com muita alegria que anunciamos o lançamento do nosso Ensaio de Natal 2026!... Preparamos cada detalhe com muito carinho..." (18/10), "O Natal merece ser lembrado para sempre!... A agenda dos ensaios de Natal está aberta!" (28/10) e os temas dos ensaios (fundo do mar, rock, Toy Story, cangaço, Minnie e Mickey, Peppa).
-- Avaliações do Google: as 5 visíveis sem login; 4 de 5 estrelas na demo.
+## Textos
+- Dela: "Ensaio de Natal 2026", "Preparamos cada detalhe com muito carinho…", "O Natal merece ser lembrado para sempre!", "A agenda dos ensaios de Natal está aberta!", "Mais do que fotografias…", "Imagine daqui a alguns anos olhar para essas fotos…", "Por isso, registre!".
+- Avaliações (lidas inteiras; nota 4,9): Patricia no Natal, Andréia no mês a mês, Rayanne em gestante e newborn, Alex Sandro na família.
+- Não são dela: os pacotes e valores (exemplos).
 
-## Conferir antes de mandar
-- As avaliações falam da Mari e da Isa: a demo cita a Isa só nas avaliações e no "sobre"; perguntar o papel dela.
-- Endereço: a bio diz "Rua Nicolina La Pena Turri, 210"; o Google, R. Nicolina La Pena Turriano, Jardim Álamo. Posts antigos marcam Arujá (#estudioemaruja).
-- Horários: a agenda é exemplo (dito na página); o Google não mostra horário.
-- Fotos de bebês e crianças: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
+## Conferir com ela
+- A foto de "quem fotografa" (com a câmera, da grade dela) é a mesma do perfil da v3: confirmar que é a Mari.
+- A foto da família no sofá verde junto à lareira pode ser de um Natal anterior.
+- Fotos de bebês, crianças e gestantes: todas publicadas por ela como portfólio. Vale confirmar se podem ficar todas.
 
-## Portfólio que vende, versão 3 (09/11/2026)
-- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `newborn:0`.
-- `natal`: Natal 2026 (fotos pn:0,1, familia:0, pn:2, familia:6,4); a partir de R$ 300; depoimento: Daniela Martins
-- `gestante`: Gestante (fotos newborn:4,3,2,1,5); a partir de R$ 400; depoimento: Rayanne Araujo
-- `newborn`: Newborn (fotos newborn:0,7,6,9,8); a partir de R$ 500; depoimento: Alex Sandro
-- `mesames`: Mês a mês (fotos mensal:2,5,1,3,7,0,6, newborn:10, mensal:4); a partir de R$ 200; depoimento: Patricia Moutinho
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/mariana-lima-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/mariana-lima-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.
+## Gerar de novo
+- `python3 ferramentas/demo/gerar-portfolio.py demos/mariana-lima-fotografia [<pasta dos originais>]`. Sem os originais, o gerador reaproveita as fotos já tratadas (dá para mudar texto e preço); para trocar foto, baixar de novo (Drive pelo id; posts pelo `ig-post.py`).
+- Conferir: `node ferramentas/demo/conferir-portfolio.cjs <pasta> mariana-lima-fotografia` e `node ferramentas/demo/validar.mjs <página> <pasta>`.

@@ -13,12 +13,12 @@
  "endereco_maps": "R. Nicolina La Pena Turriano - Jardim Alamo, Guarulhos - SP",
  "google_nota": "4,9",
  "google_total": "27",
- "verificado": "2026-11-05",
+ "verificado": "2026-11-14",
  "whatsapp": "5511996895508",
  "fone_link": "+5511996895508",
  "instagram": "marianalima_fotografia",
  "seguidores": "8,6 mil",
- "mensagem": "Olá, Mari! Vi o seu site e queria saber mais sobre os ensaios.",
+ "mensagem": "Olá! Vi o portfólio da Mari e queria saber mais sobre os ensaios.",
  "cores": {
   "fundo": "#fbf8f6",
   "papel": "#ffffff",
@@ -79,9 +79,9 @@
   "preco_pix": "R$ 399",
   "parcelado": "2x de R$ 199",
   "nota_preco": "condição de lançamento",
-  "valido_ate": "2026-11-12",
-  "msg_garantir": "Olá! Sou a Mari, do Estúdio Mariana Lima. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
-  "msg_negociar": "Olá! Sou a Mari, do Estúdio Mariana Lima. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor."
+  "valido_ate": "2026-11-21",
+  "msg_garantir": "Olá! Sou a Mari, do Estúdio Mariana Lima. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Mari, do Estúdio Mariana Lima. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor."
  },
  "estilo": {
   "fontes": {
@@ -653,26 +653,178 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
-  "local": "Guarulhos",
-  "h1": "Newborn, gestante, mês a mês e Natal em Guarulhos.",
-  "frase": "Cada mês, um cenário. Cada fase, uma lembrança.",
-  "tom": "claro",
-  "capa": "newborn:0",
+  "olho": "Estúdio de fotografia · Jardim Álamo, Guarulhos",
+  "titulo": "Mais do que fotografias: memórias.",
+  "linha": "Natal, acompanhamento mensal, aniversários, gestante, newborn e família, com cenários temáticos, no Jardim Álamo, em Guarulhos.",
+  "local": "Jardim Álamo",
+  "tira": [
+   "natal:0",
+   "mesames:0",
+   "gestante:0",
+   "familia:0",
+   "natal:1",
+   "mesames:1",
+   "natal:2"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Patricia Moutinho",
+    "tag": "Newborn e mensais",
+    "texto": "Conheci o trabalho da Mari no newborn da minha filha. Fiz os ensaios mensais e agora de Dia das Mães. Além de uma excelente profissional, é uma pessoa muito carinhosa, cuidadosa e simpática. Ela e a Isa arrasam."
+   },
+   {
+    "nome": "Andréia Sousa",
+    "tag": "Temas",
+    "texto": "Fiz o ensaio newborn e o acompanhamento mensal da minha filha. Ela e a Isa são uns amores, estúdio sempre organizado, limpo, além de muito bonito. Ela arrasa nas decorações dos temas."
+   },
+   {
+    "nome": "Rayanne Araujo",
+    "tag": "Gestante",
+    "texto": "Trabalho maravilhoso, sem palavras! Fui fazer ensaio gestante e saí fazendo acompanhamento mensal! Tenho a Mari e a Isa no meu coração."
+   },
+   {
+    "nome": "Alex Sandro",
+    "tag": "Recém-nascido",
+    "texto": "Ambiente familiar muito organizado! O profissionalismo está de parabéns: muita educação com os clientes e paciência com os recém-nascidos."
+   }
+  ],
+  "contato": {
+   "titulo": "Escolha o ensaio e reserve a data.",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Jardim Álamo, em Guarulhos.",
+   "endereco": [
+    "Rua Nicolina La Pena Turriano, 210",
+    "Jardim Álamo · Guarulhos, SP"
+   ],
+   "telefone": "(11) 99689-5508"
+  },
+  "_ficha": {
+   "direcao": [
+    "Lote de fotógrafos. Dona: Mari (Mariana Lima), com a Isa (nas avaliações). Estúdio no Jardim Álamo, em Guarulhos. Título das palavras dela (\"Mais do que fotografias, nosso ensaio de Natal é sobre criar memórias\").",
+    "Natal abre com o cenário de 2026 (parede verde, piano e árvore vermelha), com fotos de até 4096 px de um carrossel de novembro."
+   ],
+   "fora": "a gestante de lingerie preta e a de camisa aberta, as duas sereias bebês juntas, as fotos repetidas do mesmo cenário (docinhos, rock, Peppa, Dia dos Pais) e as mais pequenas.",
+   "textos": [
+    "Dela: \"Ensaio de Natal 2026\", \"Preparamos cada detalhe com muito carinho…\", \"O Natal merece ser lembrado para sempre!\", \"A agenda dos ensaios de Natal está aberta!\", \"Mais do que fotografias…\", \"Imagine daqui a alguns anos olhar para essas fotos…\", \"Por isso, registre!\".",
+    "Avaliações (lidas inteiras; nota 4,9): Patricia no Natal, Andréia no mês a mês, Rayanne em gestante e newborn, Alex Sandro na família.",
+    "Não são dela: os pacotes e valores (exemplos)."
+   ],
+   "conferir": [
+    "A foto de \"quem fotografa\" (com a câmera, da grade dela) é a mesma do perfil da v3: confirmar que é a Mari.",
+    "A foto da família no sofá verde junto à lareira pode ser de um Natal anterior."
+   ]
+  },
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py). Fotos dos ORIGINAIS (drive/ = a grade dela salva no Drive; posts/ = carrosséis do embed público; google/ = Perfil da Empresa), escolhidas uma a uma na folha de contato. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "versao": 4,
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "A Mari, atrás da câmera.",
+   "p": [
+    "A Mari (Mariana Lima) fotografa newborn, gestante, acompanhamento mensal, aniversários e família no estúdio dela, no Jardim Álamo, em Guarulhos, junto com a Isa.",
+    "Cada ensaio ganha um cenário: fundo do mar, sereia, rock, Toy Story, cangaço, docinhos, Minnie e Mickey, e o Natal do piano."
+   ],
+   "citacao": "Imagine daqui a alguns anos olhar para essas fotos e reviver cada detalhe desse momento… É isso que quero proporcionar a vocês!",
+   "citacao_quem": "Mari, no Instagram",
+   "fotos": [
+    {
+     "arq": "drive/187803370_241528854410213_8675759588633581384_n.jpg",
+     "alt": "A Mari com a câmera"
+    }
+   ],
+   "numeros": [
+    [
+     "27",
+     "avaliações no Google"
+    ],
+    [
+     "8,6 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
   "ensaios": [
    {
     "id": "natal",
-    "nome": "Natal 2026",
+    "nome": "Natal",
     "chamada": "Ensaio de Natal",
-    "fotos": [
-     "pn:0,1",
-     "familia:0",
-     "pn:2",
-     "familia:6,4"
+    "pedido": "o ensaio de Natal",
+    "frase": "O Natal merece ser lembrado para sempre!",
+    "texto": "A parede verde, a árvore vermelha, o piano e o sofá: o Ensaio de Natal 2026, preparado em cada detalhe.",
+    "citacao": "Preparamos cada detalhe com muito carinho para criar memórias mágicas, registrar sorrisos e eternizar momentos especiais ao lado de quem você mais ama.",
+    "citacao_quem": "Mari, no Instagram",
+    "quando": "A agenda dos ensaios de Natal está aberta. Datas pelo WhatsApp.",
+    "depo": {
+     "nome": "Patricia Moutinho",
+     "texto": "Desde o primeiro contato minha família foi muito bem recebida, e o material recebido foi de muita qualidade. O espaço é bem aconchegante, de fácil acesso. Tudo muito lindinho, limpo e confortável."
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "O Natal merece ser lembrado para sempre.",
-    "sub": "A parede verde, a árvore vermelha, o piano e o sofá.",
-    "texto": "O Ensaio de Natal 2026 foi preparado com muito carinho, em cada detalhe.",
+    "fotos": [
+     {
+      "arq": "posts/Dfnf7BqFti5/Dfnf7BqFti5_01.jpg",
+      "alt": "Menina de vestido vermelho tocando o piano"
+     },
+     {
+      "arq": "posts/Dfnf7BqFti5/Dfnf7BqFti5_00.jpg",
+      "alt": "Família de vermelho junto à árvore"
+     },
+     {
+      "arq": "posts/De2RaxvJz5P/De2RaxvJz5P_00.jpg",
+      "alt": "Bebê de xadrez tocando o piano"
+     },
+     {
+      "arq": "posts/Dep1esLJTtR/Dep1esLJTtR_00.jpg",
+      "alt": "Família no sofá verde, no cenário de Natal"
+     },
+     {
+      "arq": "posts/Dfnf7BqFti5/Dfnf7BqFti5_03.jpg",
+      "alt": "Menina de vestido vermelho, sorrindo"
+     },
+     {
+      "arq": "posts/DfN84_DpRYM/DfN84_DpRYM_00.jpg",
+      "alt": "Os irmãos no pianinho, diante da parede verde"
+     },
+     {
+      "arq": "posts/Dfnf7BqFti5/Dfnf7BqFti5_04.jpg",
+      "alt": "Família sentada no tapete, junto ao sofá"
+     },
+     {
+      "arq": "posts/Dep1UR5JJnr/Dep1UR5JJnr_00.jpg",
+      "alt": "Menina de vestido vermelho no piano"
+     },
+     {
+      "arq": "posts/DfDi2OkpNh3/DfDi2OkpNh3_00.jpg",
+      "alt": "Família deitada no tapete"
+     },
+     {
+      "arq": "posts/Dfnf7BqFti5/Dfnf7BqFti5_06.jpg",
+      "alt": "Família no sofá, junto à árvore"
+     },
+     {
+      "arq": "posts/DfmfxUYJX4_/DfmfxUYJX4__00.jpg",
+      "alt": "Família erguendo a filha, junto à árvore"
+     },
+     {
+      "arq": "posts/Dfnf7BqFti5/Dfnf7BqFti5_02.jpg",
+      "alt": "Menina sentada na poltrona, junto ao piano"
+     },
+     {
+      "arq": "posts/Dfnf7BqFti5/Dfnf7BqFti5_05.jpg",
+      "alt": "Família junto à árvore e aos quadros de Natal"
+     },
+     {
+      "arq": "google/g07.jpg",
+      "alt": "Família no sofá verde, junto à lareira"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Mini sessão",
@@ -702,114 +854,121 @@
        "Galeria online"
       ]
      }
-    ],
-    "quando": "A agenda dos ensaios de Natal está aberta: os horários perto do Natal são os primeiros a acabar.",
-    "depo": "Daniela Martins"
-   },
-   {
-    "id": "gestante",
-    "nome": "Gestante",
-    "chamada": "Ensaio gestante",
-    "fotos": [
-     "newborn:4,3,2,1,5"
-    ],
-    "titulo": "A espera, no fundo escuro ou no cenário claro.",
-    "sub": "Com a cadeira de vime e as palhas.",
-    "texto": "Um ensaio para a barriga e para a família que está chegando, com a Mari e a Isa.",
-    "pacotes": [
-     {
-      "nome": "Essencial",
-      "preco": "R$ 400",
-      "itens": [
-       "1 hora de ensaio",
-       "15 fotos editadas",
-       "1 look",
-       "Galeria online"
-      ]
-     },
-     {
-      "nome": "Completo",
-      "preco": "R$ 600",
-      "itens": [
-       "1h30 de ensaio",
-       "30 fotos editadas",
-       "2 looks",
-       "Parceiro e filhos juntos"
-      ],
-      "destaque": true
-     },
-     {
-      "nome": "Premium",
-      "preco": "R$ 900",
-      "itens": [
-       "2 horas de ensaio",
-       "Todas as fotos editadas",
-       "3 looks",
-       "Álbum impresso 20x20"
-      ]
-     }
-    ],
-    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
-    "depo": "Rayanne Araujo"
-   },
-   {
-    "id": "newborn",
-    "nome": "Newborn",
-    "chamada": "Ensaio newborn",
-    "fotos": [
-     "newborn:0,7,6,9,8"
-    ],
-    "titulo": "Com o tempo e a paciência que o bebê pede.",
-    "sub": "O recém-nascido no estúdio.",
-    "texto": "O newborn é feito com calma: pausa para mamar, colo e soninho, no tempo do bebê.",
-    "pacotes": [
-     {
-      "nome": "Essencial",
-      "preco": "R$ 500",
-      "itens": [
-       "Até 3 horas, no tempo do bebê",
-       "15 fotos editadas",
-       "Cenários e acessórios",
-       "Galeria online"
-      ]
-     },
-     {
-      "nome": "Completo",
-      "preco": "R$ 700",
-      "itens": [
-       "25 fotos editadas",
-       "2 cenários",
-       "Fotos com os pais e os irmãos",
-       "Galeria online"
-      ],
-      "destaque": true
-     },
-     {
-      "nome": "Premium",
-      "preco": "R$ 1.000",
-      "itens": [
-       "40 fotos editadas",
-       "Todos os cenários",
-       "Fotos com a família",
-       "Álbum impresso 20x20"
-      ]
-     }
-    ],
-    "quando": "Melhor época: nos primeiros 15 dias de vida. Por isso a reserva é feita ainda na gestação, pela data prevista do parto.",
-    "depo": "Alex Sandro"
+    ]
    },
    {
     "id": "mesames",
-    "nome": "Mês a mês",
+    "nome": "Mês a mês e aniversários",
+    "curto": "Mês a mês",
     "chamada": "Acompanhamento mensal",
-    "fotos": [
-     "mensal:2,5,1,3,7,0,6",
-     "newborn:10",
-     "mensal:4"
+    "pedido": "o acompanhamento mensal",
+    "frase": "Cada mês, um cenário.",
+    "texto": "Fundo do mar, sereia, rock, cangaço, Toy Story, docinhos, Minnie e Mickey, até o smash do primeiro aninho e as festas dos maiores.",
+    "depo": {
+     "nome": "Andréia Sousa",
+     "texto": "Fiz o ensaio newborn e acompanhamento mensal da minha filha. Ela e a Isa são uns amores, estúdio sempre organizado, limpo, além de muito bonito. Ela arrasa nas decorações dos temas, e os valores são justos."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "Cada mês, um cenário.",
-    "sub": "Fundo do mar, sereia, cangaço, Toy Story, Minnie e Mickey, até o smash do primeiro aninho.",
-    "texto": "O acompanhamento mensal registra o primeiro ano do bebê, com um cenário temático a cada mês.",
+    "fotos": [
+     {
+      "arq": "drive/619805037_18035900549747948_7334631565833071163_n.jpg",
+      "alt": "Bebê de sereia entre os balões lilás"
+     },
+     {
+      "arq": "drive/621969593_18072670877109838_8714003268511080521_n.jpg",
+      "alt": "Bebê de cowboy no cenário do Toy Story"
+     },
+     {
+      "arq": "drive/621205034_18053148068428419_6631516112015777056_n.jpg",
+      "alt": "Bebê no cenário do rock, 1 aninho"
+     },
+     {
+      "arq": "drive/624775812_18301463878274320_5008604718496481084_n.jpg",
+      "alt": "Menina no cenário da Minnie e do Mickey, 2 aninhos"
+     },
+     {
+      "arq": "drive/621250412_18110666245650677_2491908822936508133_n.jpg",
+      "alt": "Bebê sentada no aro de madeira"
+     },
+     {
+      "arq": "drive/624944260_18125154325556432_5060809767132671691_n.jpg",
+      "alt": "Bebê no cenário do fundo do mar"
+     },
+     {
+      "arq": "drive/620495264_18053268812431530_9149997626737738036_n.jpg",
+      "alt": "Bebê de chapéu de couro no cenário de faroeste"
+     },
+     {
+      "arq": "drive/622932363_18092458831976121_8679159371494558084_n.jpg",
+      "alt": "Menina de 3 anos rindo, no cenário da Peppa"
+     },
+     {
+      "arq": "drive/624752150_18107300065783815_275658871111947485_n.jpg",
+      "alt": "Bebê de rosquinha no cenário de docinhos"
+     },
+     {
+      "arq": "drive/622266543_18105146989775833_793030074894821671_n.jpg",
+      "alt": "Bebê de sereia gargalhando"
+     },
+     {
+      "arq": "drive/621701840_18054301913397726_6128346986826773254_n.jpg",
+      "alt": "Bebê no cenário de faroeste, com cactos e bonecos"
+     },
+     {
+      "arq": "google/g00.jpg",
+      "alt": "Smash de 1 ano no cenário das borboletas"
+     },
+     {
+      "arq": "drive/622549338_18066577742551803_3216095825212080347_n.jpg",
+      "alt": "Bebê de 1 aninho no cenário de docinhos"
+     },
+     {
+      "arq": "google/g03.jpg",
+      "alt": "Smash de 1 ano no cenário dos ursinhos"
+     },
+     {
+      "arq": "drive/628906610_18451922773099445_6118472784621629702_n.jpg",
+      "alt": "Bebê de cowboy entre os bonecos do Toy Story"
+     },
+     {
+      "arq": "drive/627998347_18103158832835463_5493820691368948498_n.jpg",
+      "alt": "Bebê no cenário do cangaço"
+     },
+     {
+      "arq": "drive/622897071_18152811694437909_5384781701878566216_n.jpg",
+      "alt": "Bebê com o jacaré de pelúcia"
+     },
+     {
+      "arq": "drive/622312726_18114882592547638_2112115532741715089_n.jpg",
+      "alt": "Bebê na cabaninha, 10 meses"
+     },
+     {
+      "arq": "drive/621537426_18071675846627873_1294255317066609826_n.jpg",
+      "alt": "Bebê de jaqueta com o microfone"
+     },
+     {
+      "arq": "google/g01.jpg",
+      "alt": "Bebê no cenário do crossfit"
+     },
+     {
+      "arq": "drive/623264994_18071920388132341_1109235205047889236_n.jpg",
+      "alt": "Bebê de perto, entre os balões"
+     },
+     {
+      "arq": "drive/625995735_18336287674211344_6538950354457665879_n.jpg",
+      "alt": "Bebê de sereia rindo"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Mês avulso",
@@ -839,9 +998,212 @@
        "Smash the cake de 1 ano incluso"
       ]
      }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante e newborn",
+    "curto": "Gestante",
+    "chamada": "Gestante e newborn",
+    "pedido": "o ensaio gestante ou newborn",
+    "frase": "A espera e os primeiros dias.",
+    "texto": "A barriga, no fundo escuro ou no cenário claro com a cadeira de vime; e o recém-nascido no estúdio, com calma e paciência.",
+    "depo": {
+     "nome": "Rayanne Araujo",
+     "texto": "Trabalho maravilhoso, sem palavras! Fui fazer ensaio gestante e saí fazendo acompanhamento mensal! Eu recomendo muito, tenho a Mari e a Isa no meu coração."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "quando": "O acompanhamento começa no primeiro mês: cada mês que passa não volta. Comece agora e feche o ano com o smash the cake.",
-    "depo": "Patricia Moutinho"
+    "fotos": [
+     {
+      "arq": "drive/622356185_18102427024870804_6039843709779184901_n.jpg",
+      "alt": "Gestante de vestido caramelo sentada no cubo"
+     },
+     {
+      "arq": "google/g02.jpg",
+      "alt": "Mãe com a recém-nascida no colo"
+     },
+     {
+      "arq": "drive/621491740_18044375153706824_3847198495815301617_n.jpg",
+      "alt": "Recém-nascido dormindo no sofazinho"
+     },
+     {
+      "arq": "drive/626257521_18172341103387173_1537299211870579301_n.jpg",
+      "alt": "Gestante sorrindo na cadeira de vime"
+     },
+     {
+      "arq": "drive/622453369_18087276850882142_8121123013556081018_n.jpg",
+      "alt": "Recém-nascido dormindo no fundo azul"
+     },
+     {
+      "arq": "drive/619513224_18080467061243144_6774370981926829113_n.jpg",
+      "alt": "Gestante de preto no fundo escuro"
+     },
+     {
+      "arq": "drive/622050331_18125161735555030_7651461991894543133_n.jpg",
+      "alt": "Recém-nascido de touca com o ursinho"
+     },
+     {
+      "arq": "drive/624654140_18111704863629232_6315196825339613154_n.jpg",
+      "alt": "Gestante de caramelo na cadeira de vime"
+     },
+     {
+      "arq": "google/g04.jpg",
+      "alt": "Recém-nascido de óculos"
+     },
+     {
+      "arq": "google/g05.jpg",
+      "alt": "Gestante de branco no fundo claro"
+     },
+     {
+      "arq": "google/g08.jpg",
+      "alt": "Bebê no barquinho, 2 meses"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Gestante",
+      "preco": "R$ 400",
+      "itens": [
+       "1 hora de ensaio",
+       "20 fotos editadas",
+       "2 figurinos"
+      ]
+     },
+     {
+      "nome": "Newborn",
+      "preco": "R$ 500",
+      "itens": [
+       "Até 3 horas, no tempo do bebê",
+       "20 fotos editadas",
+       "Acessórios do estúdio"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Gestante e newborn",
+      "preco": "R$ 850",
+      "itens": [
+       "Os dois ensaios",
+       "45 fotos editadas",
+       "Álbum 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "chamada": "Ensaio de família",
+    "pedido": "o ensaio de família",
+    "frase": "Pais, mães e os pequenos.",
+    "texto": "Dia dos Pais, Dia das Mães, o rock do primeiro aninho e a família toda junta.",
+    "citacao": "Por isso, registre!",
+    "citacao_quem": "Mari, no Instagram",
+    "depo": {
+     "nome": "Alex Sandro",
+     "texto": "Ambiente familiar muito organizado! O profissionalismo está de parabéns: muita educação com os clientes e paciência com os recém-nascidos."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "drive/629093344_18338423749240727_1543740161590824609_n.jpg",
+      "alt": "Pai e filha no ensaio de Dia dos Pais"
+     },
+     {
+      "arq": "drive/623255614_18106326958705457_7233654030715750868_n.jpg",
+      "alt": "Pai beijando a filha"
+     },
+     {
+      "arq": "drive/623469593_18067569245562560_2119557114227912055_n.jpg",
+      "alt": "Família no cenário do rock, rindo"
+     },
+     {
+      "arq": "drive/620162606_18093992632943571_3555060032060441525_n.jpg",
+      "alt": "Pai e filho de jeans, no ensaio de Dia dos Pais"
+     },
+     {
+      "arq": "drive/624581698_18097386352932553_8547297828036074092_n.jpg",
+      "alt": "Pai e filho no carrinho vermelho"
+     },
+     {
+      "arq": "google/g06.jpg",
+      "alt": "Mãe e bebê de dinossauro, no aniversário"
+     },
+     {
+      "arq": "drive/629509362_18397379587179463_3320689212374749372_n.jpg",
+      "alt": "Pais erguendo o bebê, no cenário do rock"
+     },
+     {
+      "arq": "drive/624905219_18070943873409128_6336113074225963468_n.jpg",
+      "alt": "Pai e filha no carrinho vermelho"
+     },
+     {
+      "arq": "drive/621537426_18071675846627873_1294255317066609826_n.jpg",
+      "alt": "Pai e filho no ensaio de Dia dos Pais"
+     },
+     {
+      "arq": "drive/639707113_18559679449060330_1096204733212332338_n.jpg",
+      "alt": "Pai com o presente e o filho"
+     },
+     {
+      "arq": "drive/631066623_18390485266146016_3641462415159565399_n.jpg",
+      "alt": "Pais com o bebê no cenário do rock"
+     },
+     {
+      "arq": "drive/620188481_18098289881482899_8031654972545499660_n.jpg",
+      "alt": "Pai e filho fazendo força"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 320",
+      "itens": [
+       "40 minutos de ensaio",
+       "15 fotos editadas",
+       "1 cenário"
+      ]
+     },
+     {
+      "nome": "Família",
+      "preco": "R$ 470",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Até 6 pessoas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 670",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "2 cenários"
+      ]
+     }
+    ]
    }
   ]
  }
