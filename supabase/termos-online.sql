@@ -9,15 +9,16 @@
 -- Ninguém de fora lê nada. A página chama situacao_termo_online e aceitar_termo_online (chave pública); o código e o
 -- comprovante por e-mail saem pela função de borda termo-codigo (supabase/functions/termo-codigo), a única que chama
 -- registrar_codigo_termo e comprovante_termo (chave de serviço). Só o dono do termo lê os registros.
--- O registro de cada termo (o texto inteiro e os dados completos da contratada) vai direto no banco, fora do
--- repositório: ver demos/vereador-mateuzinho-silva/proposta.md.
+-- O registro de cada termo (a impressão e os dados completos da contratada) vai direto no banco, fora do
+-- repositório: ver demos/vereador-mateuzinho-silva/proposta.md. (*) O texto inteiro chega com a primeira assinatura:
+-- a página manda o texto que a pessoa leu, e o banco só o guarda se o SHA-256 dele for a impressão registrada.
 
 create table if not exists public.termos_online (
   id            text primary key check (id ~ '^[a-z0-9-]{3,80}$'),   -- ex.: vereador-mateuzinho-silva-v1
   dono          uuid not null references auth.users (id) on delete cascade,
   lead_id       text references public.leads (id) on delete set null,
   titulo        text not null,
-  texto         text not null,                                        -- o texto como a página calcula a impressão
+  texto         text not null default '',                             -- o texto como a página calcula a impressão (*)
   impressao     text not null check (impressao ~ '^[0-9a-f]{64}$'),   -- SHA-256 do texto
   aberto        boolean not null default true,                        -- false: não aceita mais assinatura
   exige_codigo  boolean not null default false,                       -- true: só assina com o código do e-mail
@@ -129,7 +130,7 @@ grant execute on function public.registrar_codigo_termo(text, text, text, text) 
 -- "campo"), código errado ("codigo"), vencido ou não pedido ("codigo_vencido"), errado 5 vezes ("codigo_bloqueado"),
 -- mais de 5 assinaturas por hora do mesmo IP ("limite"). Deixa um passo na Atividade do lead
 -- (clicou · contrato-assinado), para o dono ver no painel.
-create or replace function public.aceitar_termo_online(p_termo text, p_impressao text, p_dados jsonb)
+create or replace function public.aceitar_termo_online(p_termo text, p_impressao text, p_dados jsonb, p_texto text default null)
 returns jsonb language plpgsql security definer set search_path = '' as $$
 declare
   t public.termos_online;
@@ -182,6 +183,9 @@ begin
     update public.termos_codigos set usado_em = now() where id = c.id;
     v_confirmado := true;
   end if;
+  if t.texto = '' and p_texto is not null and encode(extensions.digest(p_texto, 'sha256'), 'hex') = t.impressao then
+    update public.termos_online set texto = p_texto where id = t.id;
+  end if;
   insert into public.termos_aceites (termo_id, dono, nome, cpf, email, email_confirmado, whatsapp, endereco, plano, declaracoes, impressao, ip, aparelho)
   values (t.id, t.dono, v_nome, v_cpf, v_email, v_confirmado, v_zap, v_end, v_plano,
           jsonb_build_object('li', true, 'responsavel', true, 'privacidade', true), p_impressao, v_ip, v_ua)
@@ -194,8 +198,8 @@ begin
   end if;
   return jsonb_build_object('ok', true, 'protocolo', upper(left(replace(v_id::text, '-', ''), 12)), 'em', v_em, 'ip', v_ip, 'email_confirmado', v_confirmado);
 end $$;
-revoke all on function public.aceitar_termo_online(text, text, jsonb) from public;
-grant execute on function public.aceitar_termo_online(text, text, jsonb) to anon, authenticated;
+revoke all on function public.aceitar_termo_online(text, text, jsonb, text) from public;
+grant execute on function public.aceitar_termo_online(text, text, jsonb, text) to anon, authenticated;
 
 -- Só a função de borda termo-codigo (chave de serviço), logo depois da assinatura: devolve os dados do comprovante de
 -- uma assinatura feita há menos de 30 minutos, uma vez só (marca comprovante_em). O protocolo são os 12 primeiros

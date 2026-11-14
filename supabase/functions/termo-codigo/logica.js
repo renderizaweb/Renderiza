@@ -67,7 +67,7 @@ export function emailDoComprovante(d) {
     + `A impressão digital confere com o texto publicado no endereço acima. Guarde este e-mail.\nDúvidas: responda a este e-mail ou chame no WhatsApp (11) 98869-7165.\n\nRenderiza · renderizaweb.com.br`;
   const html = `<div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1e2528;max-width:560px">`
     + `<p style="font-size:18px;font-weight:700">Contrato assinado</p><p>Este é o comprovante da assinatura eletrônica.</p>`
-    + `<table style="border-collapse:collapse;width:100%;font-size:14px">${linhas.map(([k, v]) => `<tr><td style="padding:6px 8px;border-top:1px solid #e8e2ee;color:#5b6670;vertical-align:top;white-space:nowrap">${esc(k)}</td><td style="padding:6px 8px;border-top:1px solid #e8e2ee;word-break:break-all">${esc(v)}</td></tr>`).join("")}</table>`
+    + `<table style="border-collapse:collapse;width:100%;font-size:14px">${linhas.map(([k, v]) => `<tr><td style="padding:6px 8px;border-top:1px solid #e8e2ee;color:#5b6670;vertical-align:top;white-space:nowrap">${esc(k)}</td><td style="padding:6px 8px;border-top:1px solid #e8e2ee;overflow-wrap:anywhere">${esc(v)}</td></tr>`).join("")}</table>`
     + `<p>A impressão digital confere com o texto publicado no endereço acima. Guarde este e-mail.</p>`
     + `<p style="color:#5b6670">Dúvidas: responda a este e-mail ou chame no WhatsApp (11) 98869-7165.<br>Renderiza · renderizaweb.com.br</p></div>`;
   return { assunto: `Contrato assinado · protocolo ${d.protocolo}`, texto, html };

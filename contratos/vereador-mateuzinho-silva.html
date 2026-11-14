@@ -543,7 +543,7 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       if (dados.codigo.length !== 6) return mostraErro(MSG.codigo, $("#codigo"));
     }
     ocupado = true; botao.disabled = true; botao.textContent = "Assinando…";
-    rpc("aceitar_termo_online", { p_termo: TERMO, p_impressao: impressao, p_dados: dados }).then(function(res){
+    rpc("aceitar_termo_online", { p_termo: TERMO, p_impressao: impressao, p_dados: dados, p_texto: texto }).then(function(res){
       ocupado = false; botao.disabled = false; rotulo(); if (!pedeCodigo()) botao.textContent = "Assinar o contrato";
       if (!res || !res.ok) {
         var c = res && res.erro;
