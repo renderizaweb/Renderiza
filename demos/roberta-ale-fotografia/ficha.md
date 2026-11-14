@@ -4,43 +4,37 @@
 |---|---|
 | Onde | Av. Maria Luiza Americano, 1766 - Sl 5 - Jardim Nossa Sra. do Carmo, São Paulo - SP, 08275-001 |
 | Instagram | [@robertaale_fotografia](https://www.instagram.com/robertaale_fotografia/) · 6,3 mil seguidores |
-| Google | nota 4,9 · 30 avaliações · conferido em 06/11/2026 |
+| Google | nota 4,9 · 30 avaliações · conferido em 14/11/2026 |
 | WhatsApp | (11) 96779-8569 · celular do Perfil da Empresa no Google (+55 11 96779-8569), o mesmo das legendas ("Agendamento no WhatsApp 11 96779-8569") |
-| Horário | Segunda a sábado 9h às 17h; Domingo Fechado |
 | Site | não tem (lote 3, 06/11/2026) |
-| Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
-| Situação | pronta · 06/11/2026 · `/demo/roberta-ale-fotografia` e `/demo/roberta-ale-fotografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 13/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
-| Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
+| Entregável | **portfólio online, versão 4**: `index.html` (a vitrine) e uma página por ensaio (`newborn`, `familia`, `gestante`). Sai de `ferramentas/demo/gerar-portfolio.py demos/roberta-ale-fotografia [<pasta dos originais>]`; textos, fotos e pacotes no `demo.json` (`portfolio`) |
+| Situação | no ar · portfólio v4 em 14/11/2026 · `/demo/roberta-ale-fotografia` |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o portfólio fica 100% dela, sem mensalidade); promoção de uma semana, até 21/11/2026 (`renderiza.valido_ate` no `demo.json` e `demos.vale_ate` no painel) |
 
-## Direção da demo
-- Lote 3 de fotógrafos (nº 24, reserva 4, 70 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; as legendas são curtas ("ENSAIO NEWBORN - Maite - 13 dias · Newborn à domicílio"), então os textos vêm das fotos e das avaliações (com o nome de quem escreveu).
-- Donos: a Roberta e o marido, Edson (avaliações). Foto: a da fotógrafa com a câmera (página salva).
-- Personalidade: newborn a domicílio, o casal que leva o estúdio até a casa da família; mantas lilás e azuis. Na demo: abertura em arcos, Cormorant Garamond, "fotografia" em Allura, lavanda e azul-bebê, ♡ entre as especialidades.
-- Sem logo em boa resolução: monograma RA e o nome com "fotografia" cursiva, feitos para a demo.
+## Direção
+- Lote de fotógrafos. Dona: Roberta Ale, que fotografa com o marido, o Edson (nas avaliações). Newborn a domicílio na Zona Leste de São Paulo e região; o endereço do Google é só de referência (sem "Como chegar").
+- Entrou a página Gestante e smash (3 gestantes e 3 smash da grade dela), além do newborn e da família.
 
-## O que tem na demo
-- Site: abertura (newborn, família e gestante), portfólio em 3 abas (Newborn, 12; Família com o bebê, 11; Gestante e 1 ano, 7), a Roberta e o Edson, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato (com "Atendimento": o ensaio é na casa da família).
-- Página de Natal "O primeiro Natal do bebê": ela não divulgou Natal; os textos falam do newborn em casa no clima de Natal, sem prometer cenário; agenda de exemplo.
-- Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria).
+## O que tem
+- **Vitrine**: "O estúdio vai até a sua casa.", a tira de 7 fotos, a lista de ensaios com o "a partir de", o filtro por ensaio, 4 avaliações do Google, quem fotografa e o contato.
+- **Páginas**: Newborn a domicílio (24 fotos, depoimento de Bianca Merizio); Família com o bebê (19 fotos, depoimento de Sara Melo); Gestante e smash (6 fotos, depoimento de Amanda Custódio Ferrari).
+- Nenhum texto fala em "site". Pacotes e valores são de exemplo, com o selo na página.
 
-## Fotos
-- As fotos da página salva no Drive (1440 px) e 2 fotos do Google. Os posts de nov 2026 são capas de vídeo, então não entraram.
-- Ficaram de fora: as capas de vídeo (9:16) e os closes de detalhe muito fechados.
+## Fotos (escolhidas uma a uma na folha de contato grande)
+- 49 fotos: 43 da grade do Instagram dela salva no Drive do Kaue (pasta na lixeira do Drive), 4 dos carrosséis lidos pelo embed público (DfN-DVsCUMl, DfNAQ9Mj6s5, DfPlDPkCTZ2) e 2 do Perfil no Google.
+- Tratadas a partir do original, sem ampliar e sem recorte (a página mostra a foto inteira): 1400 px na galeria, 1920 px na abertura, JPEG progressivo, qualidade 82.
+- Ficaram de fora: a pulseira com o nome do bebê, as fotos repetidas da mesma bebê (manta lilás, óculos) e as de 1080 px quando havia a mesma pose maior.
 
-## Textos e fontes
-- Legendas: "ENSAIO NEWBORN - Maite - 13 dias · Newborn à domicílio · Agendamento no WhatsApp 11 96779-8569" (01 a 03/11). As citações vêm das avaliações do Google, com o nome de quem escreveu.
-- Avaliações do Google: as 4 de 5 estrelas visíveis sem login, nas duas páginas.
+## Textos
+- Dela: "Newborn à domicílio" e as idades dos bebês nas legendas (13, 18 e 25 dias).
+- Avaliações (lidas inteiras; nota 4,9): Bianca Merizio no newborn, Sara Melo na família, Amanda Custódio Ferrari em gestante; a citação de "quem fotografa" é da Amanda.
+- Não são dela: os pacotes e valores (exemplos) e o "vale reservar ainda na gestação".
 
-## Conferir antes de mandar
-- **Ela não divulgou campanha de Natal**: a página de Natal é sugestão (vale perguntar).
-- É um casal (a Roberta e o Edson); a demo cumprimenta a Roberta.
-- Atende a domicílio: o endereço do Google é só referência (dito no contato).
-- Fotos de recém-nascidos e famílias: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
+## Conferir com ela
+- Se ela tem estúdio na sala da Av. Maria Luiza Americano (as gestantes e os smash parecem de estúdio) ou se tudo é a domicílio.
+- A foto de "quem fotografa" (com a câmera, da grade dela) é a mesma da v3: confirmar que é a Roberta.
+- Fotos de bebês, crianças e gestantes: todas publicadas por ela como portfólio. Vale confirmar se podem ficar todas.
 
-## Portfólio que vende, versão 3 (09/11/2026)
-- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `familia:7`.
-- `newborn`: Newborn a domicílio (fotos newborn:0,3,5, pn:0, newborn:10,7, gestante:6, newborn:9,11); a partir de R$ 550; depoimento: Amanda Custódio Ferrari
-- `familia`: Família com o bebê (fotos familia:0,2,4,1,3,8,6,9); a partir de R$ 450; depoimento: Sara Melo
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/roberta-ale-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/roberta-ale-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.
+## Gerar de novo
+- `python3 ferramentas/demo/gerar-portfolio.py demos/roberta-ale-fotografia [<pasta dos originais>]`. Sem os originais, o gerador reaproveita as fotos já tratadas (dá para mudar texto e preço); para trocar foto, baixar de novo (Drive pelo id; posts pelo `ig-post.py`).
+- Conferir: `node ferramentas/demo/conferir-portfolio.cjs <pasta> roberta-ale-fotografia` e `node ferramentas/demo/validar.mjs <página> <pasta>`.

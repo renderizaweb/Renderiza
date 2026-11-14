@@ -13,12 +13,12 @@
  "endereco_maps": "Av. Maria Luiza Americano, 1766 - Sl 5 - Jardim Nossa Sra. do Carmo, São Paulo - SP, 08275-001",
  "google_nota": "4,9",
  "google_total": "30",
- "verificado": "2026-11-06",
+ "verificado": "2026-11-14",
  "whatsapp": "5511967798569",
  "fone_link": "+5511967798569",
  "instagram": "robertaale_fotografia",
  "seguidores": "6,3 mil",
- "mensagem": "Olá, Roberta! Vi o seu site e queria saber mais sobre o ensaio newborn.",
+ "mensagem": "Olá! Vi o portfólio da Roberta e queria saber mais sobre os ensaios.",
  "cores": {
   "fundo": "#fbfafd",
   "papel": "#ffffff",
@@ -74,11 +74,11 @@
   "preco_pix": "R$ 399",
   "parcelado": "2x de R$ 199",
   "nota_preco": "pagamento único, sem mensalidade",
-  "valido_ate": "2026-11-13",
-  "msg_garantir": "Olá! Sou a Roberta, da Roberta Ale Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
-  "msg_negociar": "Olá! Sou a Roberta, da Roberta Ale Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "valido_ate": "2026-11-21",
+  "msg_garantir": "Olá! Sou a Roberta, da Roberta Ale Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Roberta, da Roberta Ale Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "3pzu",
-  "msg_duvida": "Olá! Sou a Roberta, da Roberta Ale Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+  "msg_duvida": "Olá! Sou a Roberta, da Roberta Ale Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
   "fontes": {
@@ -688,27 +688,219 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
-  "local": "Zona Leste de SP",
-  "h1": "Newborn a domicílio na Zona Leste de São Paulo.",
-  "frase": "O estúdio vai até a sua casa.",
-  "tom": "claro",
-  "capa": "familia:7",
+  "olho": "Newborn a domicílio · Zona Leste de São Paulo",
+  "titulo": "O estúdio vai até a sua casa.",
+  "linha": "Newborn a domicílio, família e gestante, com a Roberta e o Edson, na Zona Leste de São Paulo e região.",
+  "local": "Zona Leste",
+  "onde": "O ensaio é na casa da família, na Zona Leste de São Paulo e região. Datas pelo WhatsApp.",
+  "tira": [
+   "newborn:0",
+   "familia:0",
+   "newborn:1",
+   "gestante:0",
+   "familia:1",
+   "newborn:2",
+   "familia:2"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Amanda Custódio Ferrari",
+    "tag": "Gestante e newborn",
+    "texto": "Super maravilhosa comigo no ensaio gestante e perfeita com meu baby no ensaio newborn: sabe acalmar o bebê, super cuidadosa. Tem a maior paciência do mundo com nossos bebês."
+   },
+   {
+    "nome": "Bianca Merizio",
+    "tag": "Roberta e Edson",
+    "texto": "Simplesmente perfeito. Não há palavras que descrevam o amor e carinho com que somos tratados pela Roberta e pelo Edson. Foi um dia muito especial. Fotos lindas, e minha bebê foi tratada como princesa."
+   },
+   {
+    "nome": "Sara Melo",
+    "tag": "Atendimento",
+    "texto": "Eu amei o atendimento, é incrível! A Roberta tem uma paciência divina, tratou meu Bernardo com amor e carinho. O esposo dela também fez companhia para o meu esposo o tempo todo do ensaio."
+   },
+   {
+    "nome": "Ayaka Matsui",
+    "tag": "Newborn",
+    "texto": "Excelente profissional, equipe maravilhosa, todos muito atenciosos e pacientes, tanto no ensaio gestante quanto no newborn. Sabem valorizar cada pequeno detalhe."
+   }
+  ],
+  "contato": {
+   "titulo": "Escolha o ensaio e reserve a data.",
+   "p": "Datas e orçamentos pelo WhatsApp. O ensaio é na sua casa, na Zona Leste de São Paulo e região; o endereço abaixo é o de referência no Google.",
+   "endereco": [
+    "Av. Maria Luiza Americano, 1766, sala 5",
+    "Jardim Nossa Senhora do Carmo · São Paulo, SP"
+   ],
+   "telefone": "(11) 96779-8569",
+   "rota": false
+  },
+  "_ficha": {
+   "direcao": [
+    "Lote de fotógrafos. Dona: Roberta Ale, que fotografa com o marido, o Edson (nas avaliações). Newborn a domicílio na Zona Leste de São Paulo e região; o endereço do Google é só de referência (sem \"Como chegar\").",
+    "Entrou a página Gestante e smash (3 gestantes e 3 smash da grade dela), além do newborn e da família."
+   ],
+   "fora": "a pulseira com o nome do bebê, as fotos repetidas da mesma bebê (manta lilás, óculos) e as de 1080 px quando havia a mesma pose maior.",
+   "textos": [
+    "Dela: \"Newborn à domicílio\" e as idades dos bebês nas legendas (13, 18 e 25 dias).",
+    "Avaliações (lidas inteiras; nota 4,9): Bianca Merizio no newborn, Sara Melo na família, Amanda Custódio Ferrari em gestante; a citação de \"quem fotografa\" é da Amanda.",
+    "Não são dela: os pacotes e valores (exemplos) e o \"vale reservar ainda na gestação\"."
+   ],
+   "conferir": [
+    "Se ela tem estúdio na sala da Av. Maria Luiza Americano (as gestantes e os smash parecem de estúdio) ou se tudo é a domicílio.",
+    "A foto de \"quem fotografa\" (com a câmera, da grade dela) é a mesma da v3: confirmar que é a Roberta."
+   ]
+  },
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py). Fotos dos ORIGINAIS (drive/ = a grade dela salva no Drive; posts/ = carrosséis do embed público; google/ = Perfil da Empresa), escolhidas uma a uma na folha de contato. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "versao": 4,
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "A Roberta e o Edson, na sua casa.",
+   "p": [
+    "A Roberta Ale fotografa newborn a domicílio com o marido, o Edson: os dois levam mantas, cestinhos e acessórios até a casa da família, na Zona Leste de São Paulo e região.",
+    "Também fotografa gestantes, famílias e smash the cake."
+   ],
+   "citacao": "Tem a maior paciência do mundo com nossos bebês.",
+   "citacao_quem": "Amanda Custódio Ferrari, no Google",
+   "fotos": [
+    {
+     "arq": "drive/448607078_1022371696178714_5132660388772629100_n.jpg",
+     "alt": "A Roberta com a câmera"
+    }
+   ],
+   "numeros": [
+    [
+     "30",
+     "avaliações no Google"
+    ],
+    [
+     "6,3 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
   "ensaios": [
    {
     "id": "newborn",
     "nome": "Newborn a domicílio",
-    "chamada": "Newborn a domicílio",
-    "fotos": [
-     "newborn:0,3,5",
-     "pn:0",
-     "newborn:10,7",
-     "gestante:6",
-     "newborn:9,11"
+    "curto": "Newborn",
+    "chamada": "Ensaio newborn a domicílio",
+    "pedido": "o ensaio newborn",
+    "frase": "Os primeiros dias, sem sair de casa.",
+    "texto": "A Roberta e o Edson levam mantas, cestinhos e acessórios até a casa da família.",
+    "quando": "Nos ensaios dela, os bebês têm de 13 a 25 dias de vida. Vale reservar ainda na gestação.",
+    "depo": {
+     "nome": "Bianca Merizio",
+     "texto": "Simplesmente perfeito. Não há palavras que descrevam o amor e carinho com que somos tratados pela Roberta e pelo Edson. Foi um dia muito especial. Fotos lindas, e minha bebê foi tratada como princesa."
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "Os primeiros dias, sem sair de casa.",
-    "sub": "A Roberta e o Edson levam o estúdio até a família.",
-    "texto": "Mantas, cestinhos e acessórios vão até você: o bebê fica no conforto de casa, e a mãe também.",
+    "fotos": [
+     {
+      "arq": "drive/486652121_1119944123481722_51246999430685558_n.jpg",
+      "alt": "Recém-nascida sorrindo, enrolada na manta lilás"
+     },
+     {
+      "arq": "drive/487045057_1120635316745936_4056462179396904223_n.jpg",
+      "alt": "Gêmeas recém-nascidas nos baldinhos"
+     },
+     {
+      "arq": "drive/487077799_1120051303471004_1426998580983723_n.jpg",
+      "alt": "Recém-nascido de óculos e touquinha"
+     },
+     {
+      "arq": "drive/487298118_1119871833488951_898430283403623599_n.jpg",
+      "alt": "Recém-nascido no baldinho de madeira, com o violãozinho"
+     },
+     {
+      "arq": "drive/486864100_1120635543412580_977885500725673493_n.jpg",
+      "alt": "Recém-nascida de tiara de flores lilás"
+     },
+     {
+      "arq": "drive/488258786_1125511469591654_6137119356968577731_n.jpg",
+      "alt": "Recém-nascido sorrindo na manta verde"
+     },
+     {
+      "arq": "drive/487199850_1120635240079277_1266385842346750325_n.jpg",
+      "alt": "Recém-nascida de óculos no cesto rosa"
+     },
+     {
+      "arq": "drive/487086222_1120050906804377_2737133105544344697_n.jpg",
+      "alt": "Recém-nascido com as asinhas"
+     },
+     {
+      "arq": "drive/487534769_1122469069895894_1033411713218492538_n.jpg",
+      "alt": "Recém-nascido com a bola de futebol"
+     },
+     {
+      "arq": "drive/487077426_1120635446745923_2463394864300991644_n.jpg",
+      "alt": "Recém-nascida de tiara vermelha nas mãos da mãe"
+     },
+     {
+      "arq": "drive/487550860_1122468929895908_4532701919403125278_n.jpg",
+      "alt": "Recém-nascido de fones de ouvido no baldinho"
+     },
+     {
+      "arq": "drive/487504901_1119614430181358_693389915818829663_n.jpg",
+      "alt": "Recém-nascido de óculos na manta azul"
+     },
+     {
+      "arq": "drive/486803930_1120635170079284_538971322552186232_n.jpg",
+      "alt": "Recém-nascida sorrindo enquanto dorme"
+     },
+     {
+      "arq": "posts/DfNAQ9Mj6s5/DfNAQ9Mj6s5_00.jpg",
+      "alt": "Recém-nascida no baldinho, no chão de madeira"
+     },
+     {
+      "arq": "drive/487510066_1119964476813020_7885655500605279704_n.jpg",
+      "alt": "Recém-nascida de coroa de flores rosa"
+     },
+     {
+      "arq": "drive/487314864_1120051350137666_2860644176153323535_n.jpg",
+      "alt": "Recém-nascido nas mãos dos pais, na manta azul-clara"
+     },
+     {
+      "arq": "posts/DfN-DVsCUMl/DfN-DVsCUMl_00.jpg",
+      "alt": "Recém-nascida de touquinha rosa"
+     },
+     {
+      "arq": "drive/488250050_1125511459591655_6525385747230468151_n.jpg",
+      "alt": "Recém-nascida de tiara de pérolas"
+     },
+     {
+      "arq": "drive/488221440_1122468983229236_7333140239513681694_n.jpg",
+      "alt": "Recém-nascido de fones de ouvido"
+     },
+     {
+      "arq": "drive/488253027_1125511262925008_211251406293828773_n.jpg",
+      "alt": "Recém-nascido nas mãos dos pais, na manta azul"
+     },
+     {
+      "arq": "posts/DfN-DVsCUMl/DfN-DVsCUMl_01.jpg",
+      "alt": "Recém-nascida com o coraçãozinho"
+     },
+     {
+      "arq": "drive/487470077_1122468849895916_8386437352097968020_n.jpg",
+      "alt": "Recém-nascida na caminha de vime"
+     },
+     {
+      "arq": "drive/487545874_1120051263471008_229484881644439066_n.jpg",
+      "alt": "Recém-nascido de perto, com a pulseirinha"
+     },
+     {
+      "arq": "google/g00.jpg",
+      "alt": "Recém-nascida no cesto com flores"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -741,20 +933,109 @@
        "Álbum impresso 20x20"
       ]
      }
-    ],
-    "quando": "O newborn é feito de 13 a 25 dias de vida, na casa da família: reserve ainda na gestação, pela data prevista do parto.",
-    "depo": "Amanda Custódio Ferrari"
+    ]
    },
    {
     "id": "familia",
     "nome": "Família com o bebê",
-    "chamada": "Ensaio de família",
-    "fotos": [
-     "familia:0,2,4,1,3,8,6,9"
+    "curto": "Família",
+    "chamada": "A família no newborn",
+    "pedido": "o ensaio newborn com a família",
+    "frase": "O colo dos pais, o carinho dos irmãos.",
+    "texto": "Os pais, os irmãos e até as avós entram nas fotos, no mesmo ensaio, em casa.",
+    "depo": {
+     "nome": "Sara Melo",
+     "texto": "Eu amei o atendimento, é incrível! A Roberta tem uma paciência divina, tratou meu Bernardo com amor e carinho. O esposo dela também fez companhia para o meu esposo o tempo todo do ensaio. São dois profissionais que amam o que fazem."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "O colo dos pais, o carinho dos irmãos.",
-    "sub": "A família toda junto com o bebê, no mesmo ensaio, em casa.",
-    "texto": "No newborn a domicílio, a família entra nas fotos: os pais, os irmãos e até as avós.",
+    "fotos": [
+     {
+      "arq": "drive/486643038_1119964466813021_8377980188815400804_n.jpg",
+      "alt": "Pais com a recém-nascida, rosto com rosto"
+     },
+     {
+      "arq": "drive/469144073_18049531691300086_7336811840625062529_n.jpg",
+      "alt": "Irmão abraçando a recém-nascida"
+     },
+     {
+      "arq": "drive/487688324_1122468873229247_1880327644877859159_n.jpg",
+      "alt": "Família com o recém-nascido no colo"
+     },
+     {
+      "arq": "drive/487312369_1119614463514688_5442881877206450967_n.jpg",
+      "alt": "Pais com a recém-nascida, testa com testa"
+     },
+     {
+      "arq": "drive/487366269_1120635306745937_8667620515424704660_n.jpg",
+      "alt": "Pais com as gêmeas"
+     },
+     {
+      "arq": "drive/487823801_1120635273412607_2634189734251982990_n.jpg",
+      "alt": "Pais abraçando o recém-nascido"
+     },
+     {
+      "arq": "drive/486752060_1120635540079247_1415475415412645881_n.jpg",
+      "alt": "Mãe e irmãos com a recém-nascida"
+     },
+     {
+      "arq": "drive/487566175_1122468909895910_1520793168347617543_n.jpg",
+      "alt": "Mãe encostando o rosto na recém-nascida"
+     },
+     {
+      "arq": "drive/487361384_1120051243471010_4994481936929630733_n.jpg",
+      "alt": "Pai beijando o recém-nascido"
+     },
+     {
+      "arq": "drive/487772351_1119613803514754_4710169040267657637_n.jpg",
+      "alt": "Família com a recém-nascida de vermelho"
+     },
+     {
+      "arq": "drive/487314650_1120051223471012_771984687478654721_n.jpg",
+      "alt": "Mãe beijando o recém-nascido"
+     },
+     {
+      "arq": "drive/488883470_1125511289591672_6497702652623669022_n.jpg",
+      "alt": "Mãe e filha com o recém-nascido"
+     },
+     {
+      "arq": "drive/486400358_1119964463479688_2265536398681885360_n.jpg",
+      "alt": "Pais de pé com a recém-nascida"
+     },
+     {
+      "arq": "drive/487807462_1120635163412618_1611861355752970808_n.jpg",
+      "alt": "Mãe com a recém-nascida no rosto"
+     },
+     {
+      "arq": "drive/488338096_1125511299591671_2575046530742642225_n.jpg",
+      "alt": "Mãe e avó com o recém-nascido"
+     },
+     {
+      "arq": "drive/487543642_1122469106562557_7776373831407748532_n.jpg",
+      "alt": "Pais com o recém-nascido na manta cinza"
+     },
+     {
+      "arq": "posts/DfPlDPkCTZ2/DfPlDPkCTZ2_00.jpg",
+      "alt": "Mãe abraçando a recém-nascida"
+     },
+     {
+      "arq": "drive/487463531_1122468896562578_5045196732328430332_n.jpg",
+      "alt": "Pai segurando a recém-nascida"
+     },
+     {
+      "arq": "drive/487738990_1122468763229258_6348358066478419270_n.jpg",
+      "alt": "Beijo no recém-nascido, na manta verde"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -784,8 +1065,86 @@
        "Quadro 30x40"
       ]
      }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante e smash",
+    "curto": "Gestante",
+    "chamada": "Gestante e smash the cake",
+    "pedido": "o ensaio gestante ou o smash the cake",
+    "frase": "Antes e depois do newborn.",
+    "texto": "A barriga, antes do parto, e o primeiro aninho, com o bolo e os balões.",
+    "depo": {
+     "nome": "Amanda Custódio Ferrari",
+     "texto": "Uma excelentíssima profissional, super maravilhosa comigo no ensaio gestante e perfeita com meu baby no ensaio newborn. As fotos uma perfeição, uma mais linda que a outra."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
     ],
-    "depo": "Sara Melo"
+    "fotos": [
+     {
+      "arq": "drive/487600319_1122468813229253_1740567059940171553_n.jpg",
+      "alt": "Gestante de azul com os sapatinhos"
+     },
+     {
+      "arq": "drive/487669895_1120051246804343_5121517604890047740_n.jpg",
+      "alt": "Bebê no smash the cake verde"
+     },
+     {
+      "arq": "google/g01.jpg",
+      "alt": "Gestante de chapéu branco e jeans"
+     },
+     {
+      "arq": "drive/486649708_1120635440079257_1733692131138617798_n.jpg",
+      "alt": "Bebê de 1 ano entre os balões lilás"
+     },
+     {
+      "arq": "drive/487411821_1122469063229228_1581083620873316208_n.jpg",
+      "alt": "Gestante de jaqueta jeans"
+     },
+     {
+      "arq": "drive/487821094_1122468806562587_819388878114866079_n.jpg",
+      "alt": "Bebê no smash the cake, entre os balões"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Gestante",
+      "preco": "R$ 350",
+      "itens": [
+       "40 minutos de ensaio",
+       "15 fotos editadas",
+       "1 figurino"
+      ]
+     },
+     {
+      "nome": "Gestante completo",
+      "preco": "R$ 500",
+      "itens": [
+       "1 hora de ensaio",
+       "30 fotos editadas",
+       "2 figurinos",
+       "Com o pai do bebê"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Smash the cake",
+      "preco": "R$ 450",
+      "itens": [
+       "1 hora de ensaio",
+       "Cenário com balões",
+       "25 fotos editadas"
+      ]
+     }
+    ]
    }
   ]
  }
