@@ -167,7 +167,9 @@ parecia amadora e prometia o que não dá para entregar. A versão 2 é uma **pe
   ao contrato. As duas contam visita no card do lead (`data-sub` "proposta" e "contrato").
 - **Condições combinadas com o Kaue:**
   - R$ 3.300 (60 h a R$ 55; tabela R$ 75, ou R$ 4.500);
-  - nada a pagar nos primeiros 15 dias; 40% (R$ 1.320) no 15º dia, com a prévia (Fase 1) já enviada;
+  - entrega única e completa em até 5 semanas: a proposta mostra a ordem prevista do trabalho e as horas de cada
+    funcionalidade, sem prometer entregas por fase (pedido do Kaue em 14/11);
+  - nada a pagar nos primeiros 15 dias; 40% (R$ 1.320) no 15º dia, com a prévia (o andamento até ali) já enviada;
   - 60% (R$ 1.980) até o dia útil seguinte à validação da entrega final; o vereador valida em até 1 dia útil, e o
     silêncio vale como validação;
   - entrega final em até 25 dias úteis (cerca de 5 semanas);

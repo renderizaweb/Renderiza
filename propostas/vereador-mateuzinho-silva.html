@@ -49,6 +49,7 @@ section{padding:60px 0}
 .s-f1{background:var(--roxo);color:#fff}
 .s-f2{background:var(--lilas);color:var(--roxo)}
 .s-f3{background:#fdf3d8;color:#8a5a00}
+.s-h{background:var(--lilas);color:var(--roxo)}
 
 /* topo */
 .topo{position:sticky;top:0;z-index:30;background:rgba(27,15,48,.94);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:#fff}
@@ -159,7 +160,6 @@ details[open] summary::after{content:"–"}
 .tabela th,.tabela td{text-align:left;padding:11px 18px;border-top:1px solid var(--linha);vertical-align:top}
 .tabela th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--suave)}
 .tabela td:last-child,.tabela th:last-child{text-align:right;white-space:nowrap}
-.tabela td:nth-child(2),.tabela th:nth-child(2){text-align:center;white-space:nowrap}
 .tabela tr.total td{font-weight:800;color:var(--tinta)}
 .pagamento{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-top:16px}
 .pagamento div{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:18px;background:var(--cartao);border:1px solid var(--linha)}
@@ -301,12 +301,12 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     <h2>Portal <em>do gabinete.</em></h2>
     <p class="sub">A área da equipe: cada pessoa entra com a sua senha e vê o que o seu perfil permite. Funciona no computador e no celular, e pode ser instalado na tela inicial como um aplicativo.</p>
     <div class="grade">
-      <div class="item"><div class="l1"><b>Pedidos</b><span class="selo s-f1">Fase 1</span></div><p>Os pedidos do site, do WhatsApp, da terça e das visitas num só lugar, cada um com responsável, histórico e situação. Mudar a situação atualiza a página do morador.</p></div>
-      <div class="item"><div class="l1"><b>Equipe e acessos</b><span class="selo s-f1">Fase 1</span></div><p>Cada pessoa com o seu login e o seu perfil: vereador, chefe de gabinete, assessoria e atendimento.</p></div>
-      <div class="item"><div class="l1"><b>Terça e munícipes</b><span class="selo s-f2">Fase 2</span></div><p>A ficha de atendimento da terça no celular, a fila do dia e o histórico de cada pessoa atendida.</p></div>
-      <div class="item"><div class="l1"><b>Site pelo portal</b><span class="selo s-f2">Fase 2</span></div><p>A equipe publica notícias, troca fotos e escolhe o que aparece no "Rua por rua".</p></div>
-      <div class="item"><div class="l1"><b>Câmara e indicadores</b><span class="selo s-f2">Fase 2</span></div><p>As indicações vindas do sistema da Câmara e os números do mandato, com o relatório do mês.</p></div>
-      <div class="item"><div class="l1"><b>IA e lembretes</b><span class="selo s-f3">Fase 3</span></div><p>O rascunho da indicação no padrão do gabinete e o aviso do que precisa ser cobrado.</p></div>
+      <div class="item"><div class="l1"><b>Pedidos</b><span class="selo s-h">8 h</span></div><p>Os pedidos do site, do WhatsApp, da terça e das visitas num só lugar, cada um com responsável, histórico e situação. Mudar a situação atualiza a página do morador.</p></div>
+      <div class="item"><div class="l1"><b>Equipe e acessos</b><span class="selo s-h">6 h</span></div><p>Cada pessoa com o seu login e o seu perfil: vereador, chefe de gabinete, assessoria e atendimento.</p></div>
+      <div class="item"><div class="l1"><b>Terça e munícipes</b><span class="selo s-h">8 h</span></div><p>A ficha de atendimento da terça no celular, a fila do dia e o histórico de cada pessoa atendida.</p></div>
+      <div class="item"><div class="l1"><b>Site pelo portal</b><span class="selo s-h">6 h</span></div><p>A equipe publica notícias, troca fotos e escolhe o que aparece no "Rua por rua".</p></div>
+      <div class="item"><div class="l1"><b>Câmara e indicadores</b><span class="selo s-h">8 h</span></div><p>As indicações vindas do sistema da Câmara e os números do mandato, com o relatório do mês.</p></div>
+      <div class="item"><div class="l1"><b>IA e lembretes</b><span class="selo s-h">4 h</span></div><p>O rascunho da indicação no padrão do gabinete e o aviso do que precisa ser cobrado.</p></div>
     </div>
   </div>
 </section>
@@ -330,14 +330,14 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 <section id="prazo" aria-label="Prazo">
   <div class="cx">
     <span class="kicker">Prazo</span>
-    <h2>No ar em 2 semanas, <em>tudo pronto em 5.</em></h2>
-    <p class="sub">Três fases. No 15º dia, o gabinete já vê e testa a prévia; em até 5 semanas, está tudo pronto. O pagamento só começa depois da prévia.</p>
+    <h2>Tudo pronto <em>em até 5 semanas.</em></h2>
+    <p class="sub">A entrega é uma só: o site e o portal completos, em até 5 semanas da assinatura. No 15º dia, o gabinete recebe uma prévia para ver como está ficando, e o pagamento só começa aí. Abaixo, a ordem prevista do trabalho.</p>
     <div class="marcos">
-      <div class="marco forte"><div class="t"><h3>Fase 1</h3><span class="sem">semanas 1 e 2</span></div><ul><li>Site no ar, no domínio</li><li>Pedido do bairro e acompanhamento</li><li>Portal: pedidos e equipe</li></ul><div class="pg"><i></i>Prévia no 15º dia · 40%</div></div>
-      <div class="marco"><div class="t"><h3>Fase 2</h3><span class="sem">semanas 3 e 4</span></div><ul><li>Terça no gabinete</li><li>Munícipes</li><li>Indicações da Câmara</li><li>Site pelo portal</li><li>Indicadores e relatório</li></ul></div>
-      <div class="marco"><div class="t"><h3>Fase 3</h3><span class="sem">semana 5</span></div><ul><li>IA para redigir indicações</li><li>Lembretes de cobrança</li><li>Testes e treinamento da equipe</li></ul><div class="pg"><i></i>Entrega final · 60%</div></div>
+      <div class="marco forte"><div class="t"><h3>Base e pedidos</h3><span class="sem">semanas 1 e 2</span></div><ul><li>Levantamento com o gabinete</li><li>Site: conteúdo final e domínio</li><li>Pedido do bairro e acompanhamento</li><li>Portal: entrar, equipe e pedidos</li></ul><div class="pg"><i></i>Prévia no 15º dia · 40%</div></div>
+      <div class="marco"><div class="t"><h3>Gabinete e Câmara</h3><span class="sem">semanas 3 e 4</span></div><ul><li>Terça no gabinete</li><li>Munícipes</li><li>Indicações da Câmara</li><li>Site pelo portal</li><li>Indicadores e relatório</li></ul></div>
+      <div class="marco"><div class="t"><h3>IA, testes e entrega</h3><span class="sem">semana 5</span></div><ul><li>IA para redigir indicações</li><li>Lembretes de cobrança</li><li>Testes e treinamento da equipe</li></ul><div class="pg"><i></i>Entrega completa · 60%</div></div>
     </div>
-    <div class="nota">Os prazos contam da assinatura. O material (textos, fotos, acesso ao domínio, número do WhatsApp do gabinete e lista da equipe) chega nos primeiros 5 dias úteis.</div>
+    <div class="nota">A ordem pode mudar conforme o trabalho anda; o compromisso é a entrega completa no prazo. Os prazos contam da assinatura. O material (textos, fotos, acesso ao domínio, número do WhatsApp do gabinete e lista da equipe) chega nos primeiros 5 dias úteis.</div>
   </div>
 </section>
 
@@ -370,28 +370,28 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <div class="horas">
         <div><b>60 h</b><span>de trabalho</span></div>
         <div><b>R$&nbsp;55</b><span>por hora</span></div>
-        <div><b>3</b><span>fases com entrega</span></div>
+        <div><b>5</b><span>semanas até a entrega completa</span></div>
         <div class="eco"><b>R$&nbsp;1.200</b><span>a menos que a tabela</span></div>
       </div>
     </div>
     <details open>
-      <summary>As horas por item</summary>
+      <summary>O que será feito e as horas de cada parte</summary>
       <table class="tabela">
-        <thead><tr><th>Item</th><th>Fase</th><th>Horas</th></tr></thead>
+        <thead><tr><th>Funcionalidade</th><th>Horas</th></tr></thead>
         <tbody>
-          <tr><td>Levantamento com o gabinete e roteiro das telas</td><td>1</td><td>4</td></tr>
-          <tr><td>Site: conteúdo final, domínio, publicação e ajustes da prévia</td><td>1</td><td>8</td></tr>
-          <tr><td>Pedido do bairro e página de acompanhamento</td><td>1</td><td>6</td></tr>
-          <tr><td>Portal: entrar, equipe e acessos</td><td>1</td><td>6</td></tr>
-          <tr><td>Pedidos e ficha do pedido</td><td>1</td><td>8</td></tr>
-          <tr><td>Terça no gabinete</td><td>2</td><td>4</td></tr>
-          <tr><td>Munícipes</td><td>2</td><td>4</td></tr>
-          <tr><td>Site pelo portal: notícias, fotos, projetos e "Rua por rua"</td><td>2</td><td>6</td></tr>
-          <tr><td>Indicações a partir do sistema da Câmara</td><td>2</td><td>5</td></tr>
-          <tr><td>Início, indicadores e relatório do mês</td><td>2</td><td>3</td></tr>
-          <tr><td>IA para redigir indicações e lembretes de cobrança</td><td>3</td><td>4</td></tr>
-          <tr><td>Testes finais, segurança e treinamento da equipe</td><td>3</td><td>2</td></tr>
-          <tr class="total"><td>Total</td><td></td><td>60</td></tr>
+          <tr><td>Levantamento com o gabinete e roteiro das telas</td><td>4</td></tr>
+          <tr><td>Site: conteúdo final, domínio, publicação e ajustes da prévia</td><td>8</td></tr>
+          <tr><td>Pedido do bairro e página de acompanhamento</td><td>6</td></tr>
+          <tr><td>Portal: entrar, equipe e acessos</td><td>6</td></tr>
+          <tr><td>Pedidos e ficha do pedido</td><td>8</td></tr>
+          <tr><td>Terça no gabinete</td><td>4</td></tr>
+          <tr><td>Munícipes</td><td>4</td></tr>
+          <tr><td>Site pelo portal: notícias, fotos, projetos e "Rua por rua"</td><td>6</td></tr>
+          <tr><td>Indicações a partir do sistema da Câmara</td><td>5</td></tr>
+          <tr><td>Início, indicadores e relatório do mês</td><td>3</td></tr>
+          <tr><td>IA para redigir indicações e lembretes de cobrança</td><td>4</td></tr>
+          <tr><td>Testes finais, segurança e treinamento da equipe</td><td>2</td></tr>
+          <tr class="total"><td>Total</td><td>60</td></tr>
         </tbody>
       </table>
     </details>
@@ -448,7 +448,7 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         <li>Assinatura do contrato online, com a escolha do plano de manutenção</li>
         <li>Reunião de levantamento de 1 hora no gabinete</li>
         <li>Prévia no 15º dia e o primeiro pagamento (R$&nbsp;1.320)</li>
-        <li>Entrega final em até 5 semanas</li>
+        <li>Entrega completa em até 5 semanas</li>
       </ol>
       <div class="acoes">
         <a class="bt bt-lima" href="/contrato/vereador-mateuzinho-silva" data-rz-alvo="proposta-seguir-fim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Quero seguir: assinar o contrato</a>
