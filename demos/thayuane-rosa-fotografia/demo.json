@@ -13,12 +13,12 @@
  "endereco_maps": "R. Mutu-Poranga, 115 - Jardim Piratininga, São Paulo - SP, 03716-140",
  "google_nota": "5,0",
  "google_total": "34",
- "verificado": "2026-11-06",
+ "verificado": "2026-11-14",
  "whatsapp": "5511970758127",
  "fone_link": "+5511970758127",
  "instagram": "thayuanerosafotografia",
  "seguidores": "1,6 mil",
- "mensagem": "Olá, Thay! Vi o seu site e queria saber mais sobre os ensaios.",
+ "mensagem": "Olá! Vi o portfólio da Thay e queria saber mais sobre os ensaios.",
  "cores": {
   "fundo": "#fbf7f4",
   "papel": "#ffffff",
@@ -74,11 +74,11 @@
   "preco_pix": "R$ 399",
   "parcelado": "2x de R$ 199",
   "nota_preco": "pagamento único, sem mensalidade",
-  "valido_ate": "2026-11-13",
-  "msg_garantir": "Olá! Sou a Thay, da Thayuane Rosa Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
-  "msg_negociar": "Olá! Sou a Thay, da Thayuane Rosa Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "valido_ate": "2026-11-21",
+  "msg_garantir": "Olá! Sou a Thay, da Thayuane Rosa Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Thay, da Thayuane Rosa Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "u8wk",
-  "msg_duvida": "Olá! Sou a Thay, da Thayuane Rosa Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+  "msg_duvida": "Olá! Sou a Thay, da Thayuane Rosa Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
   "fontes": {
@@ -685,24 +685,198 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
-  "local": "Zona Leste de SP",
-  "h1": "Gestantes, newborn, famílias e o Natal na Zona Leste de São Paulo.",
-  "frase": "Fotografar nunca foi só sobre fazer fotos.",
-  "capa": "gestante:2",
+  "olho": "Estúdio de fotografia · Jardim Piratininga, São Paulo",
+  "titulo": "Fotografar nunca foi só sobre fazer fotos.",
+  "linha": "Natal, gestantes, newborn, crianças, famílias e mulheres, no estúdio do Jardim Piratininga, na Zona Leste de São Paulo.",
+  "local": "Jardim Piratininga",
+  "tira": [
+   "natal:0",
+   "gestante:0",
+   "newborn:0",
+   "familia:0",
+   "natal:1",
+   "gestante:1",
+   "natal:2"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Isabela Ferraz",
+    "tag": "Gestante",
+    "texto": "Sem palavras para o trabalho da Thay! Ela foi atenciosa desde o primeiro contato, o ambiente é acolhedor e o trabalho, impecável. E o prazo para a entrega das fotos é incrível, ainda mais para ansiosas como eu!"
+   },
+   {
+    "nome": "Rebecca Requena",
+    "tag": "65 anos",
+    "texto": "Atendimento incrível desde o primeiro contato! No dia da sessão fez até mais do que havíamos combinado. Foi o ensaio da minha mãe de 65 anos e ela amou a experiência: as fotos ficaram perfeitas."
+   },
+   {
+    "nome": "kleytyaneN",
+    "tag": "Gestante",
+    "texto": "Uma experiência incrível e perfeita, amei cada detalhe e nos sentimos muito bem em fazer as fotos do ensaio gestante. Amei a maquiagem também: o cuidado que ela teve foi maravilhoso."
+   },
+   {
+    "nome": "Claudia Monteiro de Oliveira",
+    "tag": "Crianças",
+    "texto": "Foi uma experiência incrível: realizamos o sonho de fazer as fotos e o vídeo da nossa princesa com a Thayuane Rosa. Super indico, é uma profissional que atende todas as nossas expectativas."
+   }
+  ],
+  "contato": {
+   "titulo": "Escolha o ensaio e reserve a data.",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica no Jardim Piratininga, na Zona Leste de São Paulo, e atende de segunda a sábado.",
+   "endereco": [
+    "R. Mutu-Poranga, 115",
+    "Jardim Piratininga · São Paulo, SP"
+   ],
+   "telefone": "(11) 97075-8127"
+  },
+  "_ficha": {
+   "direcao": [
+    "Lote de fotógrafos. Dona: Thayuane Rosa, a Thay. Estúdio no Jardim Piratininga, Zona Leste de São Paulo. Título com o slogan dela.",
+    "Natal abre com o especial de 2026 \"Entre nós, um Natal\" (o carrossel de novembro, em 2250 px) e segue com Natais anteriores da grade."
+   ],
+   "fora": "os ensaios com nu, lingerie ou sutiã, os detalhes de boca e de pés, a foto caseira de Natal, o casal de motociclistas e os beijos de casal.",
+   "textos": [
+    "Dela: \"Fotografar nunca foi só sobre fazer fotos\", \"Prazer, eu sou a Thay\", \"Por trás da câmera, existe uma mulher…\", \"Entre Nós, um Natal\", \"A verdadeira magia do Natal mora no compartilhar com quem amamos\", \"60% das vagas já foram preenchidas\", \"Por trás de uma foto existe um momento inteiro acontecendo\".",
+    "Avaliações (lidas inteiras): Isabela Ferraz em gestante, Rebecca Requena (a mãe de 65 anos) na família; Natal e newborn sem depoimento.",
+    "Não são dela: os pacotes e valores (exemplos)."
+   ],
+   "conferir": [
+    "A foto de \"quem fotografa\" (ruiva, da grade dela) é a mesma da v3: confirmar que é a Thay.",
+    "O \"60% das vagas\" é de um post de novembro: pode ter mudado."
+   ]
+  },
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py). Fotos dos ORIGINAIS (drive/ = a grade dela salva no Drive; posts/ = carrosséis do embed público; google/ = Perfil da Empresa), escolhidas uma a uma na folha de contato. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "versao": 4,
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "Prazer, eu sou a Thay.",
+   "p": [
+    "A Thayuane Rosa, a Thay, fotografa gestantes, newborn, bebês, crianças, famílias e mulheres no estúdio do Jardim Piratininga, na Zona Leste de São Paulo.",
+    "Também faz smash the cake, festas e casamentos."
+   ],
+   "citacao": "Por trás da câmera, existe uma mulher que ama ouvir histórias, reparar nos detalhes e encontrar beleza naquilo que, às vezes, passa despercebido na correria dos dias.",
+   "citacao_quem": "Thay, no Instagram",
+   "fotos": [
+    {
+     "arq": "drive/783616904_18281843488294244_536150711998745473_n.jpg",
+     "alt": "A Thay"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 34 avaliações no Google"
+    ],
+    [
+     "1,6 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
   "ensaios": [
    {
     "id": "natal",
-    "nome": "Natal 2026",
+    "nome": "Natal",
     "chamada": "Ensaio de Natal",
-    "fotos": [
-     "pn:0",
-     "natal:1,2,3,4",
-     "familia:4"
+    "pedido": "o ensaio de Natal",
+    "frase": "Entre nós, um Natal.",
+    "texto": "O cenário de 2026, com a cortina de veludo, o laço branco, o urso e a árvore, pensado para a família ser a protagonista.",
+    "citacao": "A verdadeira magia do Natal mora no compartilhar com quem amamos.",
+    "citacao_quem": "Thay, no Instagram",
+    "quando": "A agenda de Natal está aberta, e 60% das vagas já foram preenchidas. Datas pelo WhatsApp.",
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "Entre nós, o Natal.",
-    "sub": "De 9 de novembro a 12 de dezembro: amor, aconchego e muita sofisticação.",
-    "texto": "Mais do que fotos bonitas, um Natal para reunir quem vocês amam: os filhos crescem, as famílias mudam e o tempo passa.",
+    "fotos": [
+     {
+      "arq": "posts/DfiUCTIoHoC/DfiUCTIoHoC_04.jpg",
+      "alt": "Família sorrindo junto ao laço branco"
+     },
+     {
+      "arq": "posts/DfiUCTIoHoC/DfiUCTIoHoC_01.jpg",
+      "alt": "Menina sentada junto ao urso branco"
+     },
+     {
+      "arq": "posts/DfiUCTIoHoC/DfiUCTIoHoC_12.jpg",
+      "alt": "Pai e filha abraçados, no cenário de Natal"
+     },
+     {
+      "arq": "posts/DfiUCTIoHoC/DfiUCTIoHoC_03.jpg",
+      "alt": "A família no cenário de Natal, com o urso"
+     },
+     {
+      "arq": "posts/DfiUCTIoHoC/DfiUCTIoHoC_05.jpg",
+      "alt": "Pais beijando a filha"
+     },
+     {
+      "arq": "posts/DfiUCTIoHoC/DfiUCTIoHoC_00.jpg",
+      "alt": "Menina sorrindo junto à árvore"
+     },
+     {
+      "arq": "posts/DfiUCTIoHoC/DfiUCTIoHoC_08.jpg",
+      "alt": "Mãe e filha abraçadas, rindo"
+     },
+     {
+      "arq": "posts/DfiUCTIoHoC/DfiUCTIoHoC_10.jpg",
+      "alt": "Pai e filha fazendo força"
+     },
+     {
+      "arq": "posts/DfiUCTIoHoC/DfiUCTIoHoC_02.jpg",
+      "alt": "Menina deitada no urso"
+     },
+     {
+      "arq": "posts/DfiUCTIoHoC/DfiUCTIoHoC_14.jpg",
+      "alt": "Mãe e filha se beijando"
+     },
+     {
+      "arq": "posts/DfiUCTIoHoC/DfiUCTIoHoC_13.jpg",
+      "alt": "Pai e filha, nariz com nariz"
+     },
+     {
+      "arq": "posts/DfiUCTIoHoC/DfiUCTIoHoC_06.jpg",
+      "alt": "Mãe e filha no sofá branco"
+     },
+     {
+      "arq": "posts/DfiUCTIoHoC/DfiUCTIoHoC_11.jpg",
+      "alt": "Pai e filha no sofá"
+     },
+     {
+      "arq": "posts/DfiUCTIoHoC/DfiUCTIoHoC_09.jpg",
+      "alt": "A família no sofá, junto ao urso"
+     },
+     {
+      "arq": "drive/618517061_17991665636874420_5001325304169892760_n.jpg",
+      "alt": "Pais de gorro de Papai Noel com o bebê"
+     },
+     {
+      "arq": "drive/623902361_18149045824444125_1052802437522669561_n.jpg",
+      "alt": "Bebê de tiara de rena"
+     },
+     {
+      "arq": "drive/625298413_18109875286670338_3993426566660944541_n.jpg",
+      "alt": "Menina de tiara de rena sorrindo"
+     },
+     {
+      "arq": "drive/653963695_18137424298504667_5655180142667490280_n.jpg",
+      "alt": "Menino de gorro de Papai Noel rindo"
+     },
+     {
+      "arq": "drive/622577752_18087613489885249_4954717722559397432_n.jpg",
+      "alt": "Mãe e filha de gorro vermelho se beijando"
+     },
+     {
+      "arq": "drive/625029344_18054606512407486_366603158690669734_n.jpg",
+      "alt": "Menina de gorro deitada junto à árvore"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Mini sessão",
@@ -732,19 +906,64 @@
        "Galeria online"
       ]
      }
-    ],
-    "quando": "O especial vai de 9 de novembro a 12 de dezembro: os horários perto do Natal são os primeiros a acabar."
+    ]
    },
    {
     "id": "gestante",
     "nome": "Gestante",
     "chamada": "Ensaio gestante",
-    "fotos": [
-     "gestante:1,0,2,3,6,4,5"
+    "pedido": "o ensaio gestante",
+    "frase": "A espera, ao ar livre ou no estúdio.",
+    "texto": "Na estrada, entre as flores ou no bambuzal, com o casal junto; ou no estúdio, no fundo claro.",
+    "depo": {
+     "nome": "Isabela Ferraz",
+     "texto": "Sem palavras para o trabalho da Thay! Ela foi atenciosa desde o primeiro contato, o ambiente é acolhedor e o trabalho, impecável. Com certeza vou fazer todo o acompanhamento da gestação com ela e, futuramente, do meu bebê."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "A espera, ao ar livre ou no estúdio.",
-    "sub": "Na estrada, entre as flores ou no bambuzal, com o casal junto.",
-    "texto": "Por trás da câmera, existe uma mulher que ama ouvir histórias: a Thay acompanha a família desde a barriga.",
+    "fotos": [
+     {
+      "arq": "drive/622129548_18093605995769517_6615089427277435837_n.jpg",
+      "alt": "Gestante de branco entre as árvores"
+     },
+     {
+      "arq": "drive/621828456_18054678809679508_8221837462904263509_n.jpg",
+      "alt": "Gestante de vestido pink no bosque"
+     },
+     {
+      "arq": "drive/652133568_18076574711419478_2653339206517450222_n.jpg",
+      "alt": "Casal no ensaio gestante, ele beijando a barriga"
+     },
+     {
+      "arq": "drive/623395653_17987658806927588_5558001118100205258_n.jpg",
+      "alt": "Gestante com o tecido de arco-íris no jardim"
+     },
+     {
+      "arq": "drive/638873803_18377304061092651_7802043096721084570_n.jpg",
+      "alt": "Casal de mãos dadas na estrada"
+     },
+     {
+      "arq": "drive/654349650_18091484069145700_2045887274773536787_n.jpg",
+      "alt": "Gestante na estrada, de boné"
+     },
+     {
+      "arq": "drive/621980318_18093429272302404_9071612881905973320_n.jpg",
+      "alt": "Casal de costas um para o outro, no estúdio"
+     },
+     {
+      "arq": "google/g06.jpg",
+      "alt": "Os sapatinhos nas mãos do casal"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -777,20 +996,72 @@
        "Álbum impresso 20x20"
       ]
      }
-    ],
-    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
-    "depo": "Isabela Ferraz"
+    ]
    },
    {
     "id": "newborn",
     "nome": "Newborn",
     "chamada": "Ensaio newborn",
-    "fotos": [
-     "newborn:0,1,2,4,6,5,3"
+    "pedido": "o ensaio newborn",
+    "frase": "Os primeiros dias, com delicadeza.",
+    "texto": "O recém-nascido no estúdio, com mantas, cestos e tiaras, no tempo do bebê.",
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "Os primeiros dias, com delicadeza.",
-    "sub": "E muito cuidado.",
-    "texto": "O newborn é feito com calma, no tempo do bebê, para guardar os primeiros dias.",
+    "fotos": [
+     {
+      "arq": "drive/621802465_18054766223393330_6254482331695573586_n.jpg",
+      "alt": "Recém-nascida dormindo com o ursinho"
+     },
+     {
+      "arq": "google/g01.jpg",
+      "alt": "Recém-nascido no cesto de vime"
+     },
+     {
+      "arq": "drive/628417499_18343508011213772_8336939486134036149_n.jpg",
+      "alt": "Recém-nascida sorrindo na manta rosa"
+     },
+     {
+      "arq": "drive/619583493_18094210457504239_5474253424791567260_n.jpg",
+      "alt": "Bebê de faixinha dourada na manta amarela"
+     },
+     {
+      "arq": "drive/623798371_18065273435254178_5339518115784327835_n.jpg",
+      "alt": "Recém-nascida de tiara de flores"
+     },
+     {
+      "arq": "drive/654564652_18112186591740614_4565046470192277147_n.jpg",
+      "alt": "Recém-nascida com o carneirinho de tricô"
+     },
+     {
+      "arq": "drive/621188573_18053623961690621_6590999228758411690_n.jpg",
+      "alt": "Recém-nascido no caixote de madeira"
+     },
+     {
+      "arq": "drive/622192010_18120072697571585_6318614239186042839_n.jpg",
+      "alt": "Recém-nascido dormindo na manta cinza"
+     },
+     {
+      "arq": "drive/625673101_18311536975248679_2904585259456560607_n.jpg",
+      "alt": "Recém-nascido dormindo de lado"
+     },
+     {
+      "arq": "drive/623302371_18034825649562585_3926741025675725167_n.jpg",
+      "alt": "Recém-nascido de touca azul no caixote"
+     },
+     {
+      "arq": "drive/640395423_18563493937002242_4566380441156736734_n.jpg",
+      "alt": "Mãe e recém-nascido deitados juntos"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -823,19 +1094,99 @@
        "Álbum impresso 20x20"
       ]
      }
-    ],
-    "quando": "Melhor época: nos primeiros 15 dias de vida. Por isso a reserva é feita ainda na gestação, pela data prevista do parto."
+    ]
    },
    {
     "id": "familia",
     "nome": "Infantil e família",
-    "chamada": "Ensaio de família",
-    "fotos": [
-     "familia:1,5,0,6,2,7,3,8"
+    "curto": "Família",
+    "chamada": "Ensaio infantil e de família",
+    "pedido": "o ensaio de família",
+    "frase": "É sobre guardar fases.",
+    "texto": "Crianças, smash the cake ao ar livre, mães e filhos, avós e netas, e os aniversários de 65 e 70 anos.",
+    "citacao": "Por trás de uma foto existe um momento inteiro acontecendo.",
+    "citacao_quem": "Thay, no Instagram",
+    "depo": {
+     "nome": "Rebecca Requena",
+     "texto": "Atendimento incrível desde o primeiro contato, super simpática! No dia da sessão fez até mais do que havíamos combinado. Foi o ensaio da minha mãe de 65 anos e ela amou a experiência: as fotos ficaram perfeitas, tudo foi perfeito, do começo ao fim."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "É sobre guardar fases.",
-    "sub": "Crianças, smash the cake ao ar livre, mães e bebês.",
-    "texto": "É sobre guardar fases e reencontrar sentimentos: o sorriso de agora, o colo de agora.",
+    "fotos": [
+     {
+      "arq": "drive/652742490_18109877347696888_3969942216801038048_n.jpg",
+      "alt": "Mãe erguendo o filho no fundo branco"
+     },
+     {
+      "arq": "drive/622413127_18071106779147067_2607186249413867837_n.jpg",
+      "alt": "Menino sorrindo abraçado à barriga da mãe"
+     },
+     {
+      "arq": "drive/655271436_18120723601610621_1985854377054015980_n.jpg",
+      "alt": "Menina de saia vermelha no gramado"
+     },
+     {
+      "arq": "drive/651268249_18057849893427377_6148708678149821991_n.jpg",
+      "alt": "Menino de jardineira mostrando a língua"
+     },
+     {
+      "arq": "drive/653570707_18100945660898595_5925450806697253390_n.jpg",
+      "alt": "Bebê no smash the cake lilás, no gramado"
+     },
+     {
+      "arq": "google/g04.jpg",
+      "alt": "Aniversário de 65 anos, com os balões dourados"
+     },
+     {
+      "arq": "drive/622686869_18111525973728658_7311941604015102670_n.jpg",
+      "alt": "Mãe e filho deitados, rosto com rosto"
+     },
+     {
+      "arq": "drive/654015704_18094816691106126_1763789529349367471_n.jpg",
+      "alt": "Bebê com a laranja no banho de frutas"
+     },
+     {
+      "arq": "drive/624904829_18129584395516121_8704375975764572927_n.jpg",
+      "alt": "Avó e neta, testa com testa"
+     },
+     {
+      "arq": "drive/640371713_18020251895813083_3919405939925066043_n.jpg",
+      "alt": "Bebê no banho de morangos"
+     },
+     {
+      "arq": "google/g02.jpg",
+      "alt": "Retrato de vestido verde, girando"
+     },
+     {
+      "arq": "drive/656410876_18192323353361260_7337994428578737071_n.jpg",
+      "alt": "Bebê comendo a fruta"
+     },
+     {
+      "arq": "drive/655086231_18095477303474005_2871100891472127905_n.jpg",
+      "alt": "Família no aniversário da Branca de Neve"
+     },
+     {
+      "arq": "google/g03.jpg",
+      "alt": "Retrato de camisa branca, sorrindo"
+     },
+     {
+      "arq": "drive/654029673_18086421269590614_402485644678742_n.jpg",
+      "alt": "Aniversário de 70 anos, com o bolo"
+     },
+     {
+      "arq": "drive/621521478_18067143689540924_4674482239811848176_n.jpg",
+      "alt": "Pai e filho no lago, ao pôr do sol"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -865,8 +1216,7 @@
        "Quadro 30x40"
       ]
      }
-    ],
-    "depo": "Rebecca Requena"
+    ]
    }
   ]
  }
