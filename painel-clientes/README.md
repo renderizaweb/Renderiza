@@ -20,6 +20,7 @@ estático + `api/`). Tudo roda com o Node do ambiente.
 | `node scripts/migrar.mjs producao --projeto <ref>` | testa no local e aplica na produção o que já passou pelo STG |
 | `node supabase/testes/no-stg.mjs` | roda os testes do banco no STG, numa transação desfeita no fim (nada fica gravado) |
 | `node supabase/semente/semente.mjs local` · `stg` | a semente de teste (Villa Alecrim e Estúdio Ciranda, dos exemplos) num banco local à parte ou no STG; nunca na produção |
+| `node supabase/semente/conta-completa.mjs conferir` · `criar --projeto <ref>` · `apagar --projeto <ref>` | a conta completa de teste **na produção** (exceção pedida em 14/11/2026, `07`): login `teste.completo`, dono da Villa Alecrim e do Estúdio Ciranda cheios de movimento; `apagar` tira tudo |
 | `node scripts/auth.mjs` | o login (Auth) do STG e da produção comparado com o repositório (só lê) |
 | `node scripts/auth.mjs stg` · `producao --projeto <ref>` | aplica o login (endereços, senha, e-mails) e confere lendo de volta; STG primeiro |
 | `node scripts/auth.mjs previa` | grava os e-mails do login com dados fictícios, para abrir no navegador |

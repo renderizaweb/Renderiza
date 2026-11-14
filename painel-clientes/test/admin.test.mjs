@@ -45,7 +45,10 @@ test("a mensalidade sugerida: R$ 49 com 2 módulos, e cada um a mais pelo preço
   assert.equal(mensalidadeSugerida(["agenda", "clientes"], catalogo), 49);
   assert.equal(mensalidadeSugerida(["agenda"], catalogo), 49);
   assert.equal(mensalidadeSugerida(["agenda", "clientes", "financeiro"], catalogo), 63.99);
-  assert.equal(mensalidadeSugerida(["agenda", "clientes", "financeiro", "meu-site"], catalogo), 78.98, "os mais caros entram no plano");
+  const comPreco = [...catalogo, { id: "contratos", preco: "19.90" }];
+  assert.equal(mensalidadeSugerida(["agenda", "clientes", "financeiro", "contratos"], comPreco), 78.98, "os mais caros entram no plano");
+  assert.equal(mensalidadeSugerida(["agenda", "clientes", "financeiro", "meu-site"], catalogo), 63.99, "o Meu site vem em todo plano: não conta");
+  assert.equal(mensalidadeSugerida(["agenda", "meu-site"], catalogo), 49);
 });
 
 test("os pagamentos do mês: ativas pagam; quem falta vem primeiro; desligada só aparece se pagou", () => {

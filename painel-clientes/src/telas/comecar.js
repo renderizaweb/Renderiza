@@ -18,8 +18,10 @@ import { linkDaRenderiza } from "./renderiza.js";
 
 export const VERSAO = 2; // muda quando os passos mudam: o progresso guardado de outra versão é descartado
 export const TOTAL_DE_PASSOS = 5;
-/** Os cartões do passo 4, na ordem do 09 ("Datas e agenda · Pedidos que chegam · Contratos · Pagamentos · Meu site"). */
-export const ORDEM_DOS_MODULOS = ["agenda", "atendimento", "contratos", "financeiro", "meu-site", "agenda-online", "clientes"];
+/** Os cartões do passo 4, na ordem do 09 ("Datas e agenda · Pedidos que chegam · Contratos · Pagamentos"). O Meu site não
+ * é escolha: vem em todo plano (MODULOS_INCLUIDOS; decidido em 14/11/2026, 07). */
+export const ORDEM_DOS_MODULOS = ["agenda", "atendimento", "contratos", "financeiro", "agenda-online", "clientes"];
+export const MODULOS_INCLUIDOS = ["meu-site"];
 /** Já vêm marcados (os dois primeiros do 09): quem pula o passo 4 começa com eles. */
 export const MODULOS_SUGERIDOS = ["agenda", "atendimento"];
 /** Os módulos que dependem de um site (o cliente pede a data pelo site; o site é editado pelo painel). */
@@ -95,7 +97,7 @@ export function planoDoCadastro(estado) {
       nome: estado.nome.trim(),
       nicho: n.id,
       whatsapp: normalizarWhatsapp(estado.whatsapp),
-      modulos,
+      modulos: [...modulos, ...MODULOS_INCLUIDOS.filter(m => !modulos.includes(m))],
       meu_nome: String(estado.meuNome || "").trim() || null,
     },
     ajustes: { ordem_menu: modulos, onboarding: { site: OPCOES_DE_SITE.some(o => o.id === estado.site) ? estado.site : null } },
@@ -259,6 +261,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
             <span class="rz-opcao-texto"><b>${escapar(n.modulos[id].nome)}${estado.site === "tenho" && MODULOS_DO_SITE.includes(id) ? ` <span class="rz-etiqueta rz-etiqueta--destaque">combina com o seu site</span>` : ""}</b><small>${escapar(n.modulos[id].curto)}</small></span>
             <span class="rz-opcao-marca">${icone("ok", { tamanho: 14 })}</span></label>`).join("")}
         </div>
+        <p class="rz-texto-3">O Meu site (mudar os textos e as fotos do seu site pelo painel) já vem em todos os planos.</p>
         <p class="rz-erro-campo" data-erro-modulos hidden></p>
         <button class="rz-botao rz-botao--primario rz-botao--grande rz-botao--bloco" type="submit">Continuar</button>
         <button class="rz-botao rz-botao--fantasma rz-botao--bloco" type="button" data-pular>Pular</button>
