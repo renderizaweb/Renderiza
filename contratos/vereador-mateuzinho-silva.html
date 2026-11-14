@@ -100,6 +100,7 @@ section{padding:52px 0}
 .plano input:checked~.bola{border-color:var(--roxo);background:var(--roxo);box-shadow:inset 0 0 0 4px #fff}
 .plano input:focus-visible~.bola{outline:3px solid var(--lima);outline-offset:2px}
 .plano:has(input:checked){border-color:var(--roxo);background:#faf7fd}
+.campo label.plano{display:flex;margin-bottom:0;font-size:inherit;font-weight:inherit;color:var(--tinta)}
 .plano b{display:block;font-size:15.5px}
 .plano span{display:block;font-size:13.5px;color:var(--suave)}
 .marcar{display:flex;gap:12px;align-items:flex-start;margin-top:14px;font-size:14px;color:var(--tinta-2);cursor:pointer}
@@ -124,6 +125,7 @@ section{padding:52px 0}
 .comprovante dl{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;margin-top:14px;font-size:14.5px}
 .comprovante dt{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--suave)}
 .comprovante dd{word-break:break-word}
+.comprovante .mail{margin-top:8px;font-size:14px;font-weight:700;color:var(--ok)}
 footer{padding:26px 0 34px;font-size:13px;color:var(--suave)}
 footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 @media (min-width:760px){
@@ -131,7 +133,7 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   .resumo{grid-template-columns:repeat(2,minmax(0,1fr))}
   .contrato{padding:38px 44px}
   .duas{grid-template-columns:1fr 1fr}
-  .planos{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .planos{grid-template-columns:repeat(2,minmax(0,1fr))}
   .form{padding:32px}
   .comprovante dl{grid-template-columns:1fr 1fr}
 }
@@ -161,12 +163,12 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     <span class="kicker">Resumo</span>
     <h2>O contrato <em>em seis pontos.</em></h2>
     <div class="resumo">
-      <div class="res forte"><h3><i>1</i>O que você recebe</h3><ul><li>O <b>site do mandato</b>, com o pedido do bairro e o acompanhamento de cada pedido.</li><li>O <b>portal Gabinete Aberto</b>: pedidos, equipe com acesso por pessoa, terça no gabinete, munícipes, Câmara, indicadores e IA.</li><li>Tudo em 3 fases, em até 5 semanas.</li></ul></div>
-      <div class="res"><h3><i>2</i>Quanto e como você paga</h3><ul><li><b>R$&nbsp;3.300</b>: 60 horas a R$&nbsp;55 (condição de indicação; a tabela é R$&nbsp;75, ou R$&nbsp;4.500).</li><li><b>Nada a pagar nos primeiros 15 dias.</b> No 15º dia, com a prévia do trabalho em mãos, R$&nbsp;1.320 (40%).</li><li>Na entrega final, você valida em até 1 dia útil e paga o saldo de R$&nbsp;1.980 (60%).</li><li>Valor fechado: se passar de 60 horas, a diferença é da Renderiza.</li></ul></div>
-      <div class="res"><h3><i>3</i>Depois da entrega</h3><ul><li>Um plano mensal mantém tudo no ar e seguro, com hospedagem e banco incluídos: <b>Essencial R$&nbsp;500</b> (o mínimo), Gabinete R$&nbsp;790 ou Completo R$&nbsp;1.290.</li><li>Mínimo de 3 meses; depois, cancela com 30 dias de aviso.</li></ul></div>
-      <div class="res"><h3><i>4</i>As suas garantias</h3><ul><li>90 dias de garantia contra defeitos (erros de funcionamento), mesmo sem plano.</li><li>Nos 7 primeiros dias, você pode desistir sem custo.</li><li>Desconto de 5% no saldo se a entrega final atrasar por culpa da Renderiza.</li><li>O domínio, o código e os dados são seus; se o contrato acabar, você recebe tudo.</li></ul></div>
-      <div class="res"><h3><i>5</i>Os seus compromissos</h3><ul><li>Enviar o material (textos, fotos, acessos) nos primeiros 5 dias úteis e validar a entrega final em até 1 dia útil.</li><li>Pagar em dia, com recursos próprios.</li><li>Usar os dados dos moradores só para atender os pedidos do mandato.</li></ul></div>
-      <div class="res"><h3><i>6</i>Segurança e lei eleitoral</h3><ul><li>Banco exclusivo do mandato, no Brasil, com acesso por pessoa e verificação em duas etapas.</li><li>Nada de campanha no sistema do mandato; em 2028, o que for de campanha tem contrato e hospedagem próprios.</li></ul></div>
+      <div class="res forte"><h3><i>1</i>O que você recebe</h3><ul><li>O <b>site do mandato</b>, com o pedido do bairro e o acompanhamento de cada pedido.</li><li>O <b>portal Gabinete Aberto</b>: pedidos, equipe com acesso por pessoa, terça no gabinete, munícipes, Câmara, indicadores e IA.</li><li>Tudo entregue de uma vez, completo, em até 5 semanas.</li></ul></div>
+      <div class="res"><h3><i>2</i>Quanto e como você paga</h3><ul><li><b>R$&nbsp;3.300</b>: 60 horas a R$&nbsp;55 (condição de indicação; a tabela é R$&nbsp;75, ou R$&nbsp;4.500).</li><li><b>Nada a pagar nos primeiros 15 dias.</b> No 15º dia, com a prévia do trabalho em mãos, R$&nbsp;1.320 (40%).</li><li>Na entrega, você valida em até 1 dia útil e paga o saldo de R$&nbsp;1.980 (60%).</li><li>Valor fechado: se passar de 60 horas, a diferença é da Renderiza.</li></ul></div>
+      <div class="res"><h3><i>3</i>Depois da entrega</h3><ul><li>Com a Renderiza cuidando de tudo, com hospedagem e banco incluídos: <b>Essencial R$&nbsp;300</b>, Gabinete R$&nbsp;590 ou Completo R$&nbsp;990 por mês.</li><li>Ou <b>sem plano</b>: você contrata e administra a estrutura por conta própria (o banco de dados de referência custa US$&nbsp;25 por mês).</li><li>Sem prazo mínimo: cancela com 30 dias de aviso.</li></ul></div>
+      <div class="res"><h3><i>4</i>As suas garantias</h3><ul><li>90 dias de garantia contra defeitos (erros de funcionamento), com ou sem plano.</li><li>Nos 7 primeiros dias, você pode desistir sem custo.</li><li>Desconto de 5% no saldo se a entrega atrasar por culpa da Renderiza.</li><li>Os dados são sempre seus; o código passa a ser seu com o pagamento.</li></ul></div>
+      <div class="res"><h3><i>5</i>Os seus compromissos</h3><ul><li>Enviar o material (textos, fotos, acessos) nos primeiros 5 dias úteis e validar a entrega em até 1 dia útil.</li><li>Pagar em dia.</li><li>Definir quem da equipe acessa o portal e responder pelo uso que ela faz.</li><li>Usar os dados dos moradores só para atender os pedidos do mandato.</li></ul></div>
+      <div class="res"><h3><i>6</i>Segurança e lei eleitoral</h3><ul><li>Banco exclusivo do mandato, no Brasil, com acesso por pessoa, verificação em duas etapas e cópias diárias.</li><li>Nada de campanha no sistema do mandato; em 2028, o que for de campanha tem contrato e hospedagem próprios.</li></ul></div>
     </div>
     <p class="nota">O resumo ajuda a ler; o que vale é o contrato completo, logo abaixo.</p>
   </div>
@@ -176,37 +178,37 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   <div class="cx">
     <span class="kicker">Contrato completo</span>
     <h2>Contrato de prestação de serviços</h2>
-    <nav class="indice so-tela" aria-label="Cláusulas"><a href="#c1">Partes</a><a href="#c3">Prazos</a><a href="#c5">Preço</a><a href="#c10">Manutenção</a><a href="#c13">Dados</a><a href="#c14">Lei eleitoral</a><a href="#c15">Segurança</a><a href="#c18">Saída</a><a href="#anexo1">Escopo</a><a href="#anexo2">Medidas de segurança</a></nav>
+    <nav class="indice so-tela" aria-label="Cláusulas"><a href="#c1">Partes</a><a href="#c3">Prazo</a><a href="#c5">Preço</a><a href="#c10">Hospedagem</a><a href="#c11">Manutenção</a><a href="#c13">Dados</a><a href="#c14">Lei eleitoral</a><a href="#c15">Responsabilidade</a><a href="#c18">Saída</a><a href="#anexo1">Escopo</a><a href="#anexo2">Medidas de segurança</a></nav>
     <div class="contrato" id="contrato">
       <h3 id="c1">1. As partes</h3>
-      <p><b>CONTRATADA:</b> Kaue de Almeida Cunha, inscrito no CPF sob o nº ***.406.148-**, com endereço em São Paulo/SP, que atua com o nome Renderiza (renderizaweb.com.br), e-mail contato@renderizaweb.com.br e WhatsApp (11) 98869-7165, aqui chamado de <b>Renderiza</b>. O CPF aparece em parte para proteger o dado nesta página; o número completo e o endereço vão na cópia do contrato enviada ao Contratante.</p>
+      <p><b>CONTRATADA:</b> Kaue de Almeida Cunha, inscrito no CPF sob o nº ***.406.148-**, com endereço em São Paulo/SP, que atua com o nome Renderiza (renderizaweb.com.br), e-mail contato@renderizaweb.com.br e WhatsApp (11) 98869-7165, aqui chamado de <b>Renderiza</b>. O CPF aparece em parte para proteger o dado nesta página; o número completo e o endereço vão no comprovante da assinatura, enviado por e-mail ao Contratante.</p>
       <p><b>CONTRATANTE:</b> a pessoa que assina este contrato ao final, identificada pelo nome, CPF, endereço, e-mail e WhatsApp informados na assinatura, que declara ser Mateus Andrade da Silva Santos, vereador do Município de Itapevi/SP, conhecido como Mateuzinho Silva, e contrata em nome próprio, como pessoa física, aqui chamado de <b>Contratante</b>.</p>
 
       <h3 id="c2">2. O objeto</h3>
-      <p>A Renderiza vai criar o site do mandato e o portal Gabinete Aberto, separados e integrados, como descrito no Anexo I (Escopo), que faz parte deste contrato. A proposta de 14/11/2026 serve de referência; se houver diferença, vale este contrato.</p>
+      <p>A Renderiza vai criar o site do mandato e o portal Gabinete Aberto, separados e integrados, para uso do Contratante e da equipe que ele autorizar, como descrito no Anexo I (Escopo), que faz parte deste contrato. A proposta de 14/11/2026 serve de referência; se houver diferença, vale este contrato.</p>
 
-      <h3 id="c3">3. Fases e prazos</h3>
+      <h3 id="c3">3. Prazo</h3>
       <ol>
-        <li>O trabalho tem três fases: <b>Fase 1</b> (site no ar, pedido do bairro e acompanhamento, portal com pedidos e equipe), <b>Fase 2</b> (terça no gabinete, munícipes, indicações da Câmara, site pelo portal, indicadores) e <b>Fase 3</b> (IA para redigir indicações, lembretes, testes e treinamento).</li>
-        <li>Os prazos contam da assinatura: a <b>prévia</b>, com a Fase 1 pronta para ver e testar, é enviada até o 15º dia corrido; a <b>entrega final</b>, com as três fases, em até 25 dias úteis (cerca de 5 semanas).</li>
-        <li>O Contratante envia o material nos primeiros 5 dias úteis: textos, fotos, acesso ao domínio, número do WhatsApp do gabinete e lista da equipe. Atraso do Contratante em enviar material, dar acesso ou responder estende os prazos pelo mesmo tempo.</li>
-        <li>Se a entrega final atrasar mais de 10 dias úteis por motivo da Renderiza, o Contratante tem 5% de desconto no saldo (cláusula 5).</li>
-        <li>A Renderiza manda ao Contratante um resumo curto do andamento ao fim de cada semana de trabalho.</li>
+        <li>A Renderiza entrega o site e o portal completos, de uma vez, em até 25 dias úteis (cerca de 5 semanas) contados da assinatura. Pode entregar antes.</li>
+        <li>Até o 15º dia corrido depois da assinatura, a Renderiza envia uma <b>prévia</b>: um link para ver como o trabalho está ficando. A prévia não é uma entrega parcial.</li>
+        <li>O Contratante envia o material nos primeiros 5 dias úteis: textos, fotos, acesso ao domínio, número do WhatsApp do gabinete e lista da equipe. Atraso do Contratante em enviar material, dar acesso ou responder estende o prazo pelo mesmo tempo. Se o material atrasar mais de 15 dias, a Renderiza pode entregar com textos e fotos provisórios, que o gabinete troca depois pelo portal.</li>
+        <li>Se a entrega atrasar mais de 10 dias úteis por motivo da Renderiza, o Contratante tem 5% de desconto no saldo (cláusula 5).</li>
+        <li>A Renderiza manda ao Contratante um resumo curto do andamento ao fim de cada semana.</li>
       </ol>
 
       <h3 id="c4">4. Prévia, entrega e validação</h3>
       <ol>
-        <li><b>Prévia:</b> até o 15º dia, a Renderiza envia o link da prévia, com a Fase 1 para ver e testar. O Contratante comenta em até 2 dias úteis; os ajustes dentro do Anexo I entram na entrega final, sem custo.</li>
-        <li><b>Entrega final:</b> a Renderiza entrega o site e o portal completos, no ar, com a lista do que foi feito. O Contratante tem até 1 dia útil para validar.</li>
-        <li>Validar é conferir se o que está no Anexo I foi entregue e funciona. Se faltar um item do Anexo I ou um defeito impedir o uso de uma função, o Contratante aponta nesse prazo; a Renderiza corrige, entrega de novo e o prazo de 1 dia útil recomeça. Defeitos que não impedem o uso não seguram a validação: são corrigidos pela garantia (cláusula 9).</li>
-        <li>Sem resposta em 1 dia útil, a entrega final é considerada validada.</li>
+        <li>Sobre a prévia, o Contratante pode comentar em até 2 dias úteis. Os ajustes dentro do Anexo I entram na entrega, sem custo.</li>
+        <li>Na entrega, a Renderiza coloca o site e o portal no ar e envia a lista do que foi feito. O Contratante tem até 1 dia útil para validar.</li>
+        <li>Validar é conferir se o que está no Anexo I foi entregue e funciona. Se faltar um item do Anexo I ou um defeito impedir o uso de uma função, o Contratante aponta nesse prazo; a Renderiza corrige em até 5 dias úteis e entrega de novo, e o prazo de 1 dia útil recomeça. Defeitos que não impedem o uso não seguram a validação: são corrigidos pela garantia (cláusula 9).</li>
+        <li>Sem resposta em 1 dia útil, a entrega é considerada validada.</li>
       </ol>
 
       <h3 id="c5">5. Preço e pagamento</h3>
       <ol>
         <li>O preço é de <b>R$&nbsp;3.300,00</b> (três mil e trezentos reais): 60 horas a R$&nbsp;55,00, valor com a condição de indicação. O valor de tabela é R$&nbsp;75,00 a hora (R$&nbsp;4.500,00).</li>
         <li>O preço é fechado para o Anexo I: se o trabalho passar de 60 horas, a diferença fica por conta da Renderiza.</li>
-        <li>Nada é pago nos primeiros 15 dias. O pagamento é feito por Pix ou transferência, para a conta indicada pela Renderiza, em duas parcelas: <b>R$&nbsp;1.320,00</b> (40%) no 15º dia corrido depois da assinatura, com a prévia já enviada; e o saldo de <b>R$&nbsp;1.980,00</b> (60%) até o dia útil seguinte à validação da entrega final (cláusula 4). Se a prévia atrasar, a primeira parcela vence 2 dias úteis depois do envio dela. A Renderiza dá recibo de cada pagamento.</li>
+        <li>Nada é pago nos primeiros 15 dias. O pagamento é feito por Pix ou transferência, para a conta indicada pela Renderiza, em duas parcelas: <b>R$&nbsp;1.320,00</b> (40%) no 15º dia corrido depois da assinatura, com a prévia já enviada; e o saldo de <b>R$&nbsp;1.980,00</b> (60%) até o dia útil seguinte à validação da entrega (cláusula 4). Se a prévia atrasar, a primeira parcela vence 2 dias úteis depois do envio dela. A Renderiza dá recibo de cada pagamento.</li>
         <li>Atraso no pagamento gera multa de 2%, juros de 1% ao mês, proporcionais aos dias, e correção pelo IPCA. Com mais de 15 dias de atraso, a Renderiza pode parar o trabalho ou o suporte até o pagamento, e os prazos param junto.</li>
         <li>A hospedagem durante o desenvolvimento está incluída no preço. O registro do domínio (cerca de R$&nbsp;40,00 por ano no Registro.br) é pago diretamente pelo Contratante, porque o domínio fica no nome dele.</li>
       </ol>
@@ -217,83 +219,96 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <h3 id="c7">7. Compromissos do Contratante</h3>
       <ol>
         <li>Enviar o material e os acessos, e indicar uma pessoa da equipe para falar com a Renderiza.</li>
+        <li>Definir quem da equipe usa o portal e com qual perfil, pedir a retirada do acesso de quem sair e responder pelo uso que ele e os assessores autorizados fazem do sistema e das senhas.</li>
         <li>Responder pelo conteúdo que publicar ou mandar publicar (textos, fotos, vídeos), inclusive pela autorização de uso da imagem das pessoas que aparecem nas fotos.</li>
-        <li>Cuidar das senhas da equipe, pedir a retirada do acesso de quem sair e não compartilhar logins.</li>
         <li>Usar os dados dos moradores só para atender os pedidos e prestar contas do mandato, como na cláusula 13.</li>
-        <li>Pagar este contrato com recursos próprios, sem verba de gabinete nem outro recurso público. Este contrato não envolve a Câmara Municipal de Itapevi.</li>
+        <li>Pagar este contrato, do qual é o responsável financeiro. O contrato é pessoal: não envolve a Câmara Municipal de Itapevi nem cria obrigação para ela.</li>
       </ol>
 
       <h3 id="c8">8. Compromissos da Renderiza</h3>
       <ol>
         <li>Fazer o trabalho com cuidado técnico e boa-fé, no prazo e no escopo.</li>
-        <li>Adotar e manter as medidas de segurança do Anexo II.</li>
+        <li>Adotar e manter as medidas de segurança do Anexo II enquanto o sistema estiver na estrutura dela.</li>
         <li>Guardar sigilo do que conhecer do gabinete (cláusula 16).</li>
         <li>Avisar o Contratante de riscos que perceber: técnicos, de segurança ou de privacidade.</li>
+        <li>Responder pelos defeitos do que entregou e pelas próprias obrigações de segurança e de tratamento de dados.</li>
       </ol>
 
       <h3 id="c9">9. Garantia</h3>
-      <p>Por 90 dias depois da entrega final, a Renderiza corrige sem custo os defeitos do que entregou, com ou sem plano de manutenção. Defeito é erro de funcionamento: o que não funciona como descrito no Anexo I. A garantia cobre só defeitos. Melhorias, mudanças de visual ou de texto, funções novas e pedidos diferentes do Anexo I não entram nela: são feitos pelas horas do plano de manutenção (cláusula 11) ou como trabalho novo (cláusula 6).</p>
+      <p>Por 90 dias depois da entrega, a Renderiza corrige sem custo os defeitos do que entregou, com qualquer plano ou sem plano. A garantia cobre só defeitos (cláusula 11). Melhorias, mudanças de visual ou de texto, funções novas e pedidos diferentes do Anexo I não entram nela: são feitos pelas horas do plano de manutenção (cláusula 11) ou como trabalho novo (cláusula 6). Esta garantia não reduz as que a lei dá ao Contratante.</p>
 
-      <h3 id="c10">10. Hospedagem, domínio e contas</h3>
+      <h3 id="c10">10. Hospedagem e operação, com ou sem plano da Renderiza</h3>
       <ol>
-        <li>O domínio fica registrado no nome do Contratante, com acesso da Renderiza para configurar.</li>
-        <li>O site e o portal rodam na estrutura que a Renderiza contrata (hoje, Vercel para o site e Supabase para o banco), num projeto exclusivo do mandato, com o banco de dados em São Paulo. Os custos dessa estrutura estão incluídos no plano de manutenção.</li>
-        <li>Se um dia a hospedagem precisar mudar, por exemplo em período eleitoral (cláusula 14), a Renderiza ajuda na mudança; o trabalho entra como melhoria.</li>
+        <li>O domínio fica registrado no nome do Contratante, na conta dele no Registro.br, com acesso da Renderiza para configurar.</li>
+        <li><b>Com plano de manutenção</b> (cláusula 11), o site e o portal rodam na estrutura que a Renderiza contrata (hoje, Vercel para o site e Supabase para o banco), num projeto exclusivo do mandato, com o banco de dados em São Paulo. Os custos dessa estrutura estão incluídos no plano.</li>
+        <li><b>Sem plano da Renderiza</b>, o Contratante mantém o site e o portal em contas próprias. Nesse caso, ele:
+          <ul>
+            <li>contrata e paga diretamente, com os próprios meios de pagamento, os serviços necessários: o banco de dados (hoje Supabase; o plano Pro, de referência, custa US$&nbsp;25 por mês, sujeito a mudança de preço, câmbio, impostos e uso extra), a hospedagem do site, o envio de e-mails e a IA;</li>
+            <li>cuida da continuidade das assinaturas, dos limites de uso, dos custos extras e da administração das contas;</li>
+            <li>cuida, por conta própria ou com um técnico contratado por ele, das cópias de segurança, do monitoramento, das atualizações de segurança e da recuperação em caso de incidente;</li>
+            <li>dá acesso à Renderiza durante a garantia, para ela corrigir os defeitos (cláusula 9).</li>
+          </ul>
+        </li>
+        <li>Escolhendo a opção sem plano na assinatura, a entrega já é feita nas contas do Contratante, sem custo extra. Depois da garantia, a Renderiza não tem obrigação de manutenção; manutenção, ajustes, ajuda técnica e mudança de estrutura podem ser contratados à parte, por hora (cláusula 6). Isso não tira da Renderiza a responsabilidade pelos defeitos do que ela entregou.</li>
+        <li>O Contratante pode trocar de opção depois: a mudança de estrutura é cobrada por hora, com a estimativa aprovada antes.</li>
       </ol>
 
       <h3 id="c11">11. Plano de manutenção</h3>
       <ol>
-        <li>O plano começa no mês seguinte à entrega final. O Contratante escolhe o plano na assinatura e pode trocar a qualquer momento, valendo no mês seguinte.</li>
+        <li>O plano começa no mês seguinte à entrega. O Contratante escolhe na assinatura um plano ou a opção sem plano, e pode trocar a qualquer momento, valendo no mês seguinte.</li>
         <li>O plano <b>Essencial é o mínimo</b> para manter o site e o portal na estrutura da Renderiza.</li>
       </ol>
       <div class="tabela-rolagem"><table>
         <thead><tr><th>Plano</th><th>Por mês</th><th>Inclui</th></tr></thead>
         <tbody>
-          <tr><td><b>Essencial</b></td><td>R$&nbsp;500,00</td><td>Hospedagem e banco de dados, cópias de segurança, atualizações de segurança, monitoramento, correção de defeitos e até 1 hora de ajustes no mês. Resposta em até 2 dias úteis.</td></tr>
-          <tr><td><b>Gabinete</b></td><td>R$&nbsp;790,00</td><td>Tudo do Essencial, mais até 4 horas de melhorias no mês, o ajuste quando a Câmara mudar o sistema dela e o relatório mensal de uso. Resposta em até 1 dia útil.</td></tr>
-          <tr><td><b>Completo</b></td><td>R$&nbsp;1.290,00</td><td>Tudo do Gabinete, mais até 10 horas no mês e uma reunião mensal de 30 minutos. Urgências no mesmo dia útil.</td></tr>
+          <tr><td><b>Essencial</b></td><td>R$&nbsp;300,00</td><td>Estrutura (hospedagem, banco de dados exclusivo e envio de e-mails), cópias de segurança, atualizações de segurança, monitoramento, correção de defeitos e suporte para dúvidas e incidentes. Resposta em até 2 dias úteis. Melhorias e o ajuste quando a Câmara mudar o sistema dela são cobrados por hora.</td></tr>
+          <tr><td><b>Gabinete</b></td><td>R$&nbsp;590,00</td><td>Tudo do Essencial, mais até 4 horas de melhorias no mês, o ajuste quando a Câmara mudar o sistema dela e o relatório mensal de uso. Resposta em até 1 dia útil.</td></tr>
+          <tr><td><b>Completo</b></td><td>R$&nbsp;990,00</td><td>Tudo do Gabinete, mais até 10 horas no mês e uma reunião mensal de 30 minutos. Urgências no mesmo dia útil.</td></tr>
         </tbody>
       </table></div>
       <ol start="3">
-        <li>Manutenção é manter tudo funcionando: hospedagem, segurança, cópias e correção de defeitos. Melhoria é o que muda ou acrescenta (tela, campo, relatório, visual).</li>
-        <li>As horas incluídas não acumulam. O que passar é cobrado a R$&nbsp;55,00 a hora, só com aprovação antes. No Essencial, o ajuste quando a Câmara mudar o sistema dela sai por hora.</li>
-        <li>Atendimento por WhatsApp e e-mail, em dias úteis, das 9h às 18h. Site ou portal fora do ar é tratado em até 4 horas úteis, em qualquer plano.</li>
+        <li>Neste contrato: <b>defeito</b> é erro de funcionamento no que foi entregue, comparado ao Anexo I; <b>garantia</b> é a correção de defeitos sem custo (cláusula 9); <b>manutenção</b> é o trabalho recorrente para manter o sistema no ar, seguro e atualizado; <b>suporte</b> é tirar dúvidas e tratar incidentes; <b>melhoria</b> é criar ou mudar tela, campo, relatório, visual ou comportamento; <b>falha externa</b> é problema num serviço de terceiro (como Vercel, Supabase, Registro.br ou o sistema da Câmara) sem culpa da Renderiza.</li>
+        <li>Os planos não incluem melhorias além das horas do mês. As horas não acumulam; o que passar é cobrado a R$&nbsp;55,00 a hora, só com aprovação antes.</li>
+        <li>Atendimento por WhatsApp e e-mail, em dias úteis, das 9h às 18h. Site ou portal fora do ar por problema na estrutura da Renderiza é tratado em até 4 horas úteis; numa falha externa, a Renderiza acompanha o fornecedor e mantém o Contratante informado. Nenhuma estrutura garante o sistema no ar 100% do tempo.</li>
         <li>A IA está incluída até 200 rascunhos de indicação por mês. Serviços de terceiros que cobram por uso e não estão no Anexo I (como o WhatsApp oficial) são cobrados à parte, só se contratados.</li>
-        <li>A mensalidade é paga por Pix até o dia 10 de cada mês. O valor é reajustado uma vez por ano pelo IPCA.</li>
-        <li>Vigência mínima de 3 meses; depois, mês a mês, com aviso de 30 dias para cancelar.</li>
-        <li>Com mais de 30 dias de atraso na mensalidade, a Renderiza avisa por escrito; sem pagamento em mais 15 dias, pode suspender o suporte e, passados mais 30 dias, encerrar o plano como na cláusula 18, entregando o código e os dados.</li>
+        <li>A mensalidade é paga por Pix até o dia 10 de cada mês e é reajustada uma vez por ano pelo IPCA. Se um fornecedor essencial do sistema (hospedagem, banco de dados, IA ou outro) aumentar o preço de forma extraordinária, a Renderiza pode propor um valor novo, com aviso de 30 dias e o comprovante do aumento. As partes renegociam de boa-fé; sem acordo, o Contratante pode cancelar sem multa ou passar para a opção sem plano (cláusula 10). Nenhum aumento é retroativo.</li>
+        <li>O plano é mês a mês, sem prazo mínimo: o Contratante cancela quando quiser, com aviso de 30 dias.</li>
+        <li>Com 15 dias de atraso na mensalidade, a Renderiza avisa por escrito; com 30 dias, pode suspender o suporte; com 60 dias, pode encerrar o plano como na cláusula 18.</li>
       </ol>
 
       <h3 id="c12">12. Propriedade</h3>
       <ol>
-        <li>Pago o preço inteiro, o Contratante passa a ser dono do código feito especialmente para ele, da identidade visual e do conteúdo do site e do portal.</li>
+        <li>Pago o preço inteiro, ficam cedidos ao Contratante os direitos patrimoniais sobre o código feito especialmente para ele, a identidade visual e o conteúdo do site e do portal.</li>
         <li>Ferramentas, bibliotecas e componentes genéricos que a Renderiza já tinha ou usa em outros projetos continuam dela, e o Contratante pode usá-los no site e no portal sem custo e sem prazo. Bibliotecas de código aberto seguem as próprias licenças.</li>
+        <li>Os dados guardados no site e no portal (de moradores, da equipe e do gabinete) são sempre do Contratante, em qualquer situação.</li>
         <li>A Renderiza só cita o projeto no portfólio com autorização do Contratante, e nunca com dados pessoais.</li>
       </ol>
 
       <h3 id="c13">13. Dados pessoais (LGPD)</h3>
       <ol>
-        <li>Nos dados dos moradores e da equipe guardados no portal, o Contratante é o controlador e a Renderiza é a operadora (Lei 13.709/2018). A Renderiza trata esses dados só para executar este contrato e conforme as instruções do Contratante.</li>
-        <li>A Renderiza usa fornecedores para hospedar e operar o sistema: Vercel (site), Supabase (banco, em São Paulo), Cloudflare (proteção do formulário), Brevo (e-mails) e um provedor de inteligência artificial (rascunhos). Alguns ficam fora do Brasil e oferecem as garantias exigidas pela LGPD para a transferência internacional. A IA não recebe nome, telefone, e-mail nem endereço de morador.</li>
+        <li>Nos dados dos moradores e da equipe guardados no portal, o Contratante é o controlador: decide o que coletar, para que usar e quem da equipe acessa. A Renderiza é a operadora (Lei 13.709/2018): trata esses dados só para executar este contrato e conforme as instruções do Contratante, e responde, nos termos da lei, quando descumprir a lei ou essas instruções.</li>
+        <li>A Renderiza usa fornecedores para hospedar e operar o sistema: Vercel (site), Supabase (banco, em São Paulo), Cloudflare (proteção do formulário), Brevo (e-mails) e um provedor de inteligência artificial (rascunhos). Alguns ficam fora do Brasil; a Renderiza só usa fornecedores com compromissos contratuais de proteção de dados e informa a lista atualizada quando o Contratante pedir. A IA não recebe nome, telefone, e-mail nem endereço de morador.</li>
         <li>Se houver um incidente de segurança com dados pessoais, a Renderiza avisa o Contratante em até 2 dias úteis depois de saber, com o que aconteceu e o que foi feito, e ajuda nas comunicações que a lei exigir.</li>
         <li>A Renderiza ajuda o Contratante a atender os pedidos dos titulares (ver, corrigir, apagar dados).</li>
-        <li>No fim do contrato, a Renderiza entrega os dados ao Contratante e os apaga da estrutura dela em até 30 dias, salvo o que a lei mandar guardar.</li>
+        <li>No fim do contrato ou do plano, a Renderiza entrega os dados ao Contratante e os apaga da estrutura dela em até 30 dias, inclusive das cópias de segurança, salvo o que a lei mandar guardar.</li>
+        <li>Na opção sem plano, os dados ficam na estrutura do Contratante, e a guarda, as cópias e a segurança dessa estrutura passam a ser dele.</li>
         <li>Os dados do próprio Contratante informados na assinatura (nome, CPF, endereço, e-mail, WhatsApp) são usados só para este contrato e guardados enquanto houver obrigação legal.</li>
       </ol>
 
-      <h3 id="c14">14. Uso político e eleitoral</h3>
+      <h3 id="c14">14. Uso parlamentar e eleitoral</h3>
       <ol>
-        <li>O site e o portal servem ao mandato: atender a população e prestar contas. O Contratante responde pelo que publica, inclusive perante a Lei 9.504/1997 e as normas do Tribunal Superior Eleitoral.</li>
+        <li>O site e o portal servem ao mandato: atender a população, acompanhar pedidos e prestar contas. O Contratante e os assessores autorizados respondem pelo uso que fazem do sistema e pelo que publicam, inclusive perante a Lei 9.504/1997 e as normas do Tribunal Superior Eleitoral. As decisões políticas e administrativas do gabinete são do Contratante.</li>
         <li>O cadastro de munícipes não é usado para campanha eleitoral, nem cedido a ninguém, sem um consentimento próprio de cada pessoa para isso.</li>
         <li>Qualquer uso em campanha (site de candidato, coleta de apoio, envio de mensagens) depende de contrato próprio e das exigências da lei eleitoral, como hospedagem em provedor estabelecido no Brasil e comunicação do endereço à Justiça Eleitoral (Lei 9.504/1997, art. 57-B).</li>
+        <li>Os rascunhos feitos pela IA são sugestões: a equipe revisa e decide o texto final antes de protocolar.</li>
         <li>A Renderiza pode recusar ou pausar uma publicação ou função que viole claramente a lei eleitoral ou a LGPD, avisando o Contratante e explicando o motivo.</li>
       </ol>
 
       <h3 id="c15">15. Segurança e limite de responsabilidade</h3>
       <ol>
-        <li>A Renderiza mantém as medidas do Anexo II e as atualiza quando surgirem riscos novos. Nenhum sistema é imune a ataques: o compromisso é adotar e manter essas medidas e agir rápido em caso de incidente.</li>
-        <li>A Renderiza não responde por: queda ou falha de serviços de terceiros (Vercel, Supabase, Registro.br, o sistema da Câmara e outros); mudanças no sistema da Câmara; ataques que vençam as medidas do Anexo II sem culpa dela; uso indevido de senhas da equipe do Contratante; conteúdo publicado pelo Contratante.</li>
-        <li>A responsabilidade da Renderiza por danos fica limitada ao valor pago pelo Contratante nos 12 meses anteriores ao fato. Nenhuma das partes responde por lucros cessantes ou danos indiretos. Esses limites não valem em caso de dolo ou culpa grave.</li>
+        <li>A Renderiza mantém as medidas do Anexo II e as atualiza quando surgirem riscos novos. Nenhum sistema é imune a ataques: o compromisso é adotar e manter essas medidas e agir rápido em caso de incidente. A Renderiza responde pelas falhas de segurança ou de implementação que forem dela.</li>
+        <li>A Renderiza não responde por: falhas externas (cláusula 11); mudanças no sistema da Câmara; uso indevido do sistema ou das senhas pela equipe do Contratante; conteúdo publicado pelo Contratante; e, na opção sem plano, pela operação da estrutura que o Contratante administra, salvo defeito do que a Renderiza entregou.</li>
+        <li>No que a lei permitir, a responsabilidade da Renderiza por danos fica limitada ao valor pago pelo Contratante nos 12 meses anteriores ao fato, e nenhuma das partes responde por lucros cessantes ou danos indiretos. Esses limites não valem em caso de dolo ou culpa grave.</li>
       </ol>
 
       <h3 id="c16">16. Sigilo</h3>
@@ -302,19 +317,19 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <h3 id="c17">17. Desistência e rescisão</h3>
       <ol>
         <li>Nos 7 primeiros dias depois da assinatura, o Contratante pode desistir sem nenhum custo (Código de Defesa do Consumidor, art. 49).</li>
-        <li>Depois disso, se o Contratante desistir antes da entrega final, paga as horas já trabalhadas, a R$&nbsp;55,00, com o relatório das horas, sem passar do preço. O que tiver pago além disso volta em até 10 dias, e a Renderiza entrega o que estiver pronto.</li>
+        <li>Depois disso, se o Contratante desistir antes da entrega, paga as horas já trabalhadas, a R$&nbsp;55,00, com o relatório das horas, sem passar do preço. O que tiver pago além disso volta em até 10 dias. Pago esse valor, o que estiver pronto passa a ser dele, como na cláusula 12, e é entregue como na cláusula 18.</li>
         <li>A Renderiza só pode encerrar o contrato por falta de pagamento por mais de 30 dias ou por descumprimento grave, com aviso de 10 dias. Nesse caso, devolve o que tiver recebido além das horas já trabalhadas.</li>
         <li>Qualquer das partes pode encerrar o contrato por descumprimento grave da outra, se não for corrigido em 10 dias depois do aviso.</li>
       </ol>
 
       <h3 id="c18">18. Saída</h3>
-      <p>Quando o contrato ou o plano terminar, por qualquer motivo, a Renderiza entrega em até 15 dias o código, a cópia completa dos dados e as instruções para colocar tudo no ar em outro lugar. Se o plano estiver em dia, mantém o site e o portal no ar por até 30 dias para a mudança. Depois, apaga os dados da estrutura dela (cláusula 13).</p>
+      <p>Quando o contrato ou o plano terminar, por qualquer motivo, a Renderiza entrega em até 15 dias a cópia completa dos dados e, do código, o que estiver pago (cláusula 12), com as instruções para colocar tudo no ar em outro lugar. Os dados são entregues sempre, mesmo com pagamento pendente; a cobrança segue pelos meios normais. Se o plano estiver em dia, a Renderiza mantém o site e o portal no ar por até 30 dias para a mudança. Fazer a mudança para as contas do Contratante, se ele quiser essa ajuda, é cobrado por hora. Depois, a Renderiza apaga os dados da estrutura dela (cláusula 13).</p>
 
       <h3 id="c19">19. Avisos</h3>
       <p>Os avisos deste contrato valem quando enviados pelo e-mail ou pelo WhatsApp informados na assinatura (do Contratante) e no início deste contrato (da Renderiza).</p>
 
       <h3 id="c20">20. Assinatura eletrônica</h3>
-      <p>Este contrato é assinado eletronicamente. A Renderiza concorda com este texto ao publicá-lo, e o contrato se forma com o aceite do Contratante, que confirma o e-mail com um código de 6 números enviado a ele na hora da assinatura. Ficam registrados o nome, o CPF, o endereço, o e-mail confirmado e o WhatsApp informados, a data e a hora, o endereço IP, o aparelho e a impressão digital (SHA-256) deste texto. As partes reconhecem a validade dessa forma de assinatura (Medida Provisória 2.200-2/2001, art. 10, § 2º). A Renderiza envia ao Contratante, pelo e-mail confirmado, a cópia do contrato com os dados da assinatura.</p>
+      <p>Este contrato é assinado eletronicamente. A Renderiza concorda com este texto ao publicá-lo, e o contrato se forma com o aceite do Contratante, que confirma o e-mail com um código de 6 números enviado a ele na hora da assinatura. Ficam registrados o nome, o CPF, o endereço, o e-mail confirmado e o WhatsApp informados, a data e a hora, o endereço IP, o aparelho e a impressão digital (SHA-256) deste texto. Logo depois, a Renderiza envia o comprovante com esses dados ao e-mail confirmado do Contratante, com cópia para o e-mail da Renderiza, o que confirma a assinatura pelas duas partes. As partes reconhecem a validade dessa forma de assinatura (Medida Provisória 2.200-2/2001, art. 10, § 2º).</p>
 
       <h3 id="c21">21. Foro</h3>
       <p>Fica escolhido o foro da Comarca de Itapevi/SP para resolver qualquer questão deste contrato.</p>
@@ -328,31 +343,35 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         <li>Notícias e acontecimentos, publicados pelo portal; página de privacidade.</li>
         <li>Domínio próprio, versão para celular e prévia com foto quando o link é compartilhado.</li>
       </ul>
-      <h4>Portal Gabinete Aberto (só a equipe)</h4>
+      <h4>Portal Gabinete Aberto (só a equipe autorizada)</h4>
       <ul>
-        <li>Fase 1: entrar (login individual e recuperação de senha); pedidos (todos num só lugar, em quadro ou lista, com filtros); ficha do pedido (dados, fotos, histórico, responsável, comentários internos e botão que abre o WhatsApp do gabinete com a mensagem pronta); equipe e acessos (perfis); e-mail para a equipe quando chega pedido novo.</li>
-        <li>Fase 2: início (o dia do gabinete); terça no gabinete (ficha de atendimento, fila e resumo); munícipes (cadastro com histórico e aceite); indicações (a partir do sistema da Câmara, ligadas aos pedidos); site (notícias, fotos, projetos, linha do tempo e o que aparece no rua por rua); indicadores e relatório do mês em PDF.</li>
-        <li>Fase 3: rascunho de indicação com IA, revisado pela equipe; lembretes de cobrança; testes finais e treinamento da equipe.</li>
+        <li>Entrar: login individual, verificação em duas etapas e recuperação de senha; equipe e acessos, com perfis.</li>
+        <li>Pedidos: todos num só lugar, em quadro ou lista, com filtros; ficha do pedido (dados, fotos, histórico, responsável, comentários internos e botão que abre o WhatsApp do gabinete com a mensagem pronta); e-mail para a equipe quando chega pedido novo.</li>
+        <li>Início (o dia do gabinete); terça no gabinete (ficha de atendimento, fila e resumo); munícipes (cadastro com histórico e aceite).</li>
+        <li>Indicações (a partir do sistema da Câmara, ligadas aos pedidos); site pelo portal (notícias, fotos, projetos, linha do tempo e o que aparece no rua por rua); indicadores e relatório do mês em PDF.</li>
+        <li>Rascunho de indicação com IA, sempre revisado pela equipe; lembretes de cobrança.</li>
+        <li>Testes finais e treinamento da equipe.</li>
         <li>O portal funciona no navegador e pode ser instalado na tela inicial do celular.</li>
       </ul>
       <h4>Ligação com a Câmara</h4>
-      <p>As indicações e os números vêm das páginas públicas do sistema da Câmara Municipal de Itapevi, lidas automaticamente uma vez por dia. A Câmara não oferece uma ligação oficial para isso; se o sistema dela mudar ou ficar fora do ar, a leitura para até o ajuste (cláusula 11). Se a Câmara passar a oferecer uma ligação oficial, a Renderiza pode trocar a leitura por ela, como melhoria.</p>
+      <p>As indicações e os números vêm das páginas públicas do sistema da Câmara Municipal de Itapevi, lidas automaticamente uma vez por dia. A Câmara não oferece uma ligação oficial para isso, e essa leitura não depende de acordo com ela; se o sistema dela mudar ou ficar fora do ar, a leitura para até o ajuste (cláusula 11). Se a Câmara passar a oferecer uma ligação oficial, a Renderiza pode trocar a leitura por ela, como melhoria.</p>
       <h4>Fora do escopo</h4>
       <ul>
         <li>Envio e resposta automáticos pelo WhatsApp; aplicativo nas lojas; produção de conteúdo (textos, fotos, vídeos, redes, anúncios); integração com sistemas da Prefeitura; importação de planilhas antigas; site e material de campanha eleitoral.</li>
       </ul>
 
       <h3 id="anexo2">Anexo II · Medidas de segurança</h3>
+      <p>Valem enquanto o sistema estiver na estrutura da Renderiza. Na opção sem plano, as medidas de estrutura (cópias, monitoramento e atualizações) passam ao Contratante; as que fazem parte do próprio sistema (login, perfis, registros e proteção do formulário) continuam no código entregue.</p>
       <ul>
         <li>Conexão criptografada (HTTPS) em todo o site e o portal.</li>
         <li>Banco de dados em projeto exclusivo do mandato, em servidor no Brasil (São Paulo), com os dados criptografados.</li>
         <li>Login individual, verificação em duas etapas para toda a equipe, perfis de acesso e regras no próprio banco: cada pessoa só vê o que o perfil permite.</li>
         <li>Registro de quem criou, alterou ou excluiu cada informação, e quando; registros de acesso guardados por 6 meses.</li>
-        <li>Cópia de segurança automática todos os dias, guardada por 7 dias, e uma cópia semanal guardada à parte.</li>
+        <li>Cópia de segurança automática todos os dias, guardada por 7 dias, e uma cópia semanal guardada à parte por 4 semanas.</li>
         <li>Formulário público protegido contra robôs e com limite de envios; a página de um pedido só abre pelo link ou pelo número com confirmação, para ninguém ver o pedido dos outros.</li>
         <li>O site público nunca mostra nome, telefone ou endereço de quem pediu.</li>
-        <li>Atualizações de segurança, monitoramento de disponibilidade e revisão de segurança antes de cada entrega.</li>
-        <li>Conta do domínio com verificação em duas etapas e bloqueio de transferência.</li>
+        <li>Atualizações de segurança, monitoramento de disponibilidade e revisão de segurança antes da entrega.</li>
+        <li>Domínio na conta do Contratante no Registro.br, com verificação em duas etapas.</li>
         <li>Acesso da Renderiza aos sistemas só com verificação em duas etapas e só pelo tempo necessário.</li>
       </ul>
     </div>
@@ -373,15 +392,16 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         </div>
         <div class="campo"><label for="email">E-mail</label><input id="email" type="email" autocomplete="email" placeholder="voce@exemplo.com.br"></div>
         <div class="campo"><label for="endereco">Endereço completo</label><input id="endereco" autocomplete="street-address" placeholder="Rua, número, bairro, cidade, CEP"></div>
-        <div class="campo"><span>Plano de manutenção (começa depois da entrega final)</span>
+        <div class="campo"><span>Plano de manutenção (começa depois da entrega)</span>
           <div class="planos" role="radiogroup" aria-label="Plano de manutenção">
-            <label class="plano"><input type="radio" name="plano" value="essencial"><i class="bola"></i><div><b>Essencial · R$&nbsp;500</b><span>O mínimo: no ar, seguro, 1 hora de ajustes</span></div></label>
-            <label class="plano"><input type="radio" name="plano" value="gabinete"><i class="bola"></i><div><b>Gabinete · R$&nbsp;790</b><span>Recomendado: 4 horas de melhorias, ajuste da Câmara</span></div></label>
-            <label class="plano"><input type="radio" name="plano" value="completo"><i class="bola"></i><div><b>Completo · R$&nbsp;1.290</b><span>10 horas, reunião mensal, urgência no dia</span></div></label>
+            <label class="plano"><input type="radio" name="plano" value="essencial"><i class="bola"></i><div><b>Essencial · R$&nbsp;300</b><span>O mínimo na estrutura da Renderiza: no ar, seguro, defeitos e dúvidas</span></div></label>
+            <label class="plano"><input type="radio" name="plano" value="gabinete"><i class="bola"></i><div><b>Gabinete · R$&nbsp;590</b><span>Recomendado: 4 horas de melhorias, ajuste da Câmara</span></div></label>
+            <label class="plano"><input type="radio" name="plano" value="completo"><i class="bola"></i><div><b>Completo · R$&nbsp;990</b><span>10 horas, reunião mensal, urgência no dia</span></div></label>
+            <label class="plano"><input type="radio" name="plano" value="sem-plano"><i class="bola"></i><div><b>Sem plano</b><span>Você contrata e administra a estrutura (cláusula 10)</span></div></label>
           </div>
         </div>
         <label class="marcar"><input type="checkbox" id="li"><span>Li o contrato completo, com os anexos, e concordo com ele.</span></label>
-        <label class="marcar"><input type="checkbox" id="recursos"><span>Declaro que contrato em nome próprio e que pago com recursos próprios, sem verba de gabinete nem outro recurso público.</span></label>
+        <label class="marcar"><input type="checkbox" id="responsavel"><span>Declaro que contrato em nome próprio, como pessoa física, e que sou o responsável pelos pagamentos deste contrato.</span></label>
         <label class="marcar"><input type="checkbox" id="privacidade"><span>Sei que os meus dados acima, o e-mail confirmado pelo código, a data, a hora, o IP e o aparelho ficam registrados como prova da assinatura e são usados só para este contrato.</span></label>
         <div class="codigo" id="caixaCodigo" hidden>
           <p id="avisoCodigo">Mandamos um código de 6 números para o seu e-mail. Ele vale por 15 minutos.</p>
@@ -397,6 +417,7 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         <div class="comprovante">
           <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg>Contrato assinado</h3>
           <p style="margin-top:8px">Obrigado! O trabalho começa no próximo dia útil. Agora não há nada a pagar: a prévia chega até o 15º dia, junto com os dados da primeira parcela.</p>
+          <p class="mail" id="cMail">Enviando o comprovante para o seu e-mail…</p>
           <dl>
             <div><dt>Protocolo</dt><dd id="cProt"></dd></div>
             <div><dt>Data e hora</dt><dd id="cData"></dd></div>
@@ -466,7 +487,7 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     }, function(e){ if (e && e.message === "404") fechado("A assinatura deste contrato abre em breve. Ficou alguma dúvida? Fale com o Kaue no WhatsApp."); });
   }).catch(function(){});
   function pedeCodigo(){ return !situacao || situacao.exige_codigo !== false; }
-  var NOMES = { essencial: "Essencial · R$ 500 por mês", gabinete: "Gabinete · R$ 790 por mês", completo: "Completo · R$ 1.290 por mês" };
+  var NOMES = { essencial: "Essencial · R$ 300 por mês", gabinete: "Gabinete · R$ 590 por mês", completo: "Completo · R$ 990 por mês", "sem-plano": "Sem plano da Renderiza (estrutura própria)" };
   var CAMPOS = { nome: "#nome", cpf: "#cpf", email: "#email", whatsapp: "#zap", endereco: "#endereco", codigo: "#codigo" };
   var MSG = { nome: "Confira o nome completo.", cpf: "Confira o CPF.", email: "Confira o e-mail.", whatsapp: "Confira o WhatsApp, com DDD.", endereco: "Confira o endereço completo.", plano: "Escolha o plano de manutenção.",
     declaracoes: "Marque as três confirmações para assinar.", codigo: "Digite os 6 números do código que chegou no seu e-mail." };
@@ -502,7 +523,7 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   $("#reenviar").addEventListener("click", function(){ limpa(); if (codigoPara && conectado()) enviarCodigo(codigoPara); });
   function coletar(){
     return { nome: $("#nome").value.trim().replace(/\s+/g, " "), cpf: so($("#cpf").value), email: $("#email").value.trim().toLowerCase(), whatsapp: so($("#zap").value), endereco: $("#endereco").value.trim(),
-      plano: (form.querySelector("input[name=plano]:checked") || {}).value || "", declaracoes: { li: $("#li").checked, recursos: $("#recursos").checked, privacidade: $("#privacidade").checked } };
+      plano: (form.querySelector("input[name=plano]:checked") || {}).value || "", declaracoes: { li: $("#li").checked, responsavel: $("#responsavel").checked, privacidade: $("#privacidade").checked } };
   }
   form.addEventListener("submit", function(e){
     e.preventDefault(); limpa();
@@ -514,7 +535,7 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     if (dados.whatsapp.length < 10 || dados.whatsapp.length > 13) return mostraErro(MSG.whatsapp, $("#zap"));
     if (dados.endereco.length < 10) return mostraErro(MSG.endereco, $("#endereco"));
     if (!dados.plano) return mostraErro(MSG.plano);
-    if (!dados.declaracoes.li || !dados.declaracoes.recursos || !dados.declaracoes.privacidade) return mostraErro(MSG.declaracoes);
+    if (!dados.declaracoes.li || !dados.declaracoes.responsavel || !dados.declaracoes.privacidade) return mostraErro(MSG.declaracoes);
     if (!impressao || !conectado()) return mostraErro("Não deu para conectar agora. Tente de novo em instantes ou fale com o Kaue no WhatsApp.");
     if (pedeCodigo()) {
       if (codigoPara !== dados.email) return enviarCodigo(dados.email);
@@ -542,6 +563,13 @@ footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       var msg = "Olá, Kaue! Assinei o contrato do Gabinete Aberto. Protocolo " + res.protocolo + ", plano " + NOMES[dados.plano] + ".";
       $("#avisar").href = "https://wa.me/5511988697165?text=" + encodeURIComponent(msg);
       form.style.display = "none"; $("#feito").classList.add("ver"); $("#feito").scrollIntoView({ block: "center" });
+      // o comprovante por e-mail (para quem assinou, com cópia para a Renderiza): é a confirmação da Renderiza (cláusula 20)
+      fetch(config.supabaseUrl.replace(/\/$/, "") + "/functions/v1/termo-codigo", {
+        method: "POST", headers: { "Content-Type": "application/json", apikey: config.supabaseAnonKey, Authorization: "Bearer " + config.supabaseAnonKey },
+        body: JSON.stringify({ acao: "comprovante", termo: TERMO, protocolo: res.protocolo })
+      }).then(function(r){ return r.json().catch(function(){ return {}; }); }).then(function(c){
+        $("#cMail").textContent = c && c.ok ? "Comprovante enviado para " + dados.email + "." : "O comprovante por e-mail não saiu agora. Salve em PDF e avise o Kaue: ele manda a cópia.";
+      }).catch(function(){ $("#cMail").textContent = "O comprovante por e-mail não saiu agora. Salve em PDF e avise o Kaue: ele manda a cópia."; });
     }).catch(function(){ ocupado = false; botao.disabled = false; rotulo(); mostraErro("Não deu para enviar agora. Confira a internet e tente de novo."); });
   });
   $("#imprimir").addEventListener("click", function(){ window.print(); });

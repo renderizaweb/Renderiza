@@ -6,9 +6,11 @@
 --   termos_online   cada versão de um termo: o texto inteiro, a impressão, se aceita assinatura e se pede código
 --   termos_codigos  os códigos de confirmação mandados por e-mail (só o hash; valem 15 minutos, 5 tentativas)
 --   termos_aceites  cada assinatura: nome, CPF, e-mail (confirmado ou não), WhatsApp, endereço, plano, IP, aparelho
--- Ninguém de fora lê nada. A página chama situacao_termo_online e aceitar_termo_online (chave pública); o código é
--- criado e mandado pela função de borda termo-codigo (supabase/functions/termo-codigo), que é a única que chama
--- registrar_codigo_termo (chave de serviço). Só o dono do termo lê os registros.
+-- Ninguém de fora lê nada. A página chama situacao_termo_online e aceitar_termo_online (chave pública); o código e o
+-- comprovante por e-mail saem pela função de borda termo-codigo (supabase/functions/termo-codigo), a única que chama
+-- registrar_codigo_termo e comprovante_termo (chave de serviço). Só o dono do termo lê os registros.
+-- O registro de cada termo (o texto inteiro e os dados completos da contratada) vai direto no banco, fora do
+-- repositório: ver demos/vereador-mateuzinho-silva/proposta.md.
 
 create table if not exists public.termos_online (
   id            text primary key check (id ~ '^[a-z0-9-]{3,80}$'),   -- ex.: vereador-mateuzinho-silva-v1
@@ -19,6 +21,8 @@ create table if not exists public.termos_online (
   impressao     text not null check (impressao ~ '^[0-9a-f]{64}$'),   -- SHA-256 do texto
   aberto        boolean not null default true,                        -- false: não aceita mais assinatura
   exige_codigo  boolean not null default false,                       -- true: só assina com o código do e-mail
+  contratada    text not null default '',                             -- dados completos da contratada, para o comprovante
+  pagina        text not null default '',                             -- endereço da página do termo
   criado_em     timestamptz not null default now()
 );
 
@@ -46,11 +50,12 @@ create table if not exists public.termos_aceites (
   email_confirmado  boolean not null default false,                   -- assinou com o código mandado ao e-mail
   whatsapp          text not null,
   endereco          text not null,
-  plano             text not null check (plano in ('essencial', 'gabinete', 'completo')),
+  plano             text not null check (plano in ('essencial', 'gabinete', 'completo', 'sem-plano')),
   declaracoes       jsonb not null default '{}'::jsonb,
   impressao         text not null,
   ip                text not null default '',
   aparelho          text not null default '',
+  comprovante_em    timestamptz,                                      -- quando o comprovante saiu por e-mail
   criado_em         timestamptz not null default now()
 );
 create index if not exists termos_aceites_termo_idx on public.termos_aceites (termo_id, criado_em desc);
@@ -158,8 +163,8 @@ begin
   if length(v_email) > 120 or v_email !~ '^[^@[:space:]]+@[^@[:space:]]+\.[^@[:space:]]+$' then return jsonb_build_object('ok', false, 'erro', 'dados', 'campo', 'email'); end if;
   if length(v_zap) not between 10 and 13 then return jsonb_build_object('ok', false, 'erro', 'dados', 'campo', 'whatsapp'); end if;
   if length(v_end) not between 10 and 300 then return jsonb_build_object('ok', false, 'erro', 'dados', 'campo', 'endereco'); end if;
-  if v_plano not in ('essencial', 'gabinete', 'completo') then return jsonb_build_object('ok', false, 'erro', 'dados', 'campo', 'plano'); end if;
-  if coalesce((v_decl ->> 'li')::boolean, false) is not true or coalesce((v_decl ->> 'recursos')::boolean, false) is not true
+  if v_plano not in ('essencial', 'gabinete', 'completo', 'sem-plano') then return jsonb_build_object('ok', false, 'erro', 'dados', 'campo', 'plano'); end if;
+  if coalesce((v_decl ->> 'li')::boolean, false) is not true or coalesce((v_decl ->> 'responsavel')::boolean, false) is not true
      or coalesce((v_decl ->> 'privacidade')::boolean, false) is not true then
     return jsonb_build_object('ok', false, 'erro', 'dados', 'campo', 'declaracoes');
   end if;
@@ -179,7 +184,7 @@ begin
   end if;
   insert into public.termos_aceites (termo_id, dono, nome, cpf, email, email_confirmado, whatsapp, endereco, plano, declaracoes, impressao, ip, aparelho)
   values (t.id, t.dono, v_nome, v_cpf, v_email, v_confirmado, v_zap, v_end, v_plano,
-          jsonb_build_object('li', true, 'recursos', true, 'privacidade', true), p_impressao, v_ip, v_ua)
+          jsonb_build_object('li', true, 'responsavel', true, 'privacidade', true), p_impressao, v_ip, v_ua)
   returning id, criado_em into v_id, v_em;
   if t.lead_id is not null then
     select public.renderiza_pasta_da_demo(l.link_demo) into v_pasta from public.leads l where l.id = t.lead_id;
@@ -191,3 +196,26 @@ begin
 end $$;
 revoke all on function public.aceitar_termo_online(text, text, jsonb) from public;
 grant execute on function public.aceitar_termo_online(text, text, jsonb) to anon, authenticated;
+
+-- Só a função de borda termo-codigo (chave de serviço), logo depois da assinatura: devolve os dados do comprovante de
+-- uma assinatura feita há menos de 30 minutos, uma vez só (marca comprovante_em). O protocolo são os 12 primeiros
+-- caracteres do id; o CPF volta mascarado.
+create or replace function public.comprovante_termo(p_termo text, p_protocolo text)
+returns jsonb language plpgsql security definer set search_path = '' as $$
+declare a public.termos_aceites; t public.termos_online;
+begin
+  if p_protocolo is null or p_protocolo !~ '^[0-9A-F]{12}$' then return jsonb_build_object('ok', false, 'erro', 'formato'); end if;
+  select * into a from public.termos_aceites k
+   where k.termo_id = p_termo and upper(left(replace(k.id::text, '-', ''), 12)) = p_protocolo
+     and k.criado_em > now() - interval '30 minutes' and k.comprovante_em is null
+   for update;
+  if a.id is null then return jsonb_build_object('ok', false, 'erro', 'fora'); end if;
+  select * into t from public.termos_online where id = a.termo_id;
+  update public.termos_aceites set comprovante_em = now() where id = a.id;
+  return jsonb_build_object('ok', true, 'protocolo', p_protocolo, 'titulo', t.titulo, 'pagina', t.pagina, 'contratada', t.contratada,
+    'nome', a.nome, 'email', a.email, 'email_confirmado', a.email_confirmado,
+    'cpf', '***.' || substr(a.cpf, 4, 3) || '.' || substr(a.cpf, 7, 3) || '-**', 'plano', a.plano,
+    'em', a.criado_em, 'ip', a.ip, 'impressao', a.impressao);
+end $$;
+revoke all on function public.comprovante_termo(text, text) from public, anon, authenticated;
+grant execute on function public.comprovante_termo(text, text) to service_role;

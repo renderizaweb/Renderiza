@@ -175,11 +175,19 @@ parecia amadora e prometia o que não dá para entregar. A versão 2 é uma **pe
   - entrega final em até 25 dias úteis (cerca de 5 semanas);
   - garantia de 90 dias só para defeitos (erros de funcionamento), não para melhorias;
   - desistência sem custo nos 7 primeiros dias (Código de Defesa do Consumidor, art. 49: contrato fechado pela internet);
-  - planos: Essencial R$ 500 (o mínimo), Gabinete R$ 790 (recomendado) e Completo R$ 1.290. A hospedagem, o banco e os
-    e-mails ficam por conta da Renderiza.
+  - planos: Essencial R$ 300 (o mínimo), Gabinete R$ 590 (recomendado) e Completo R$ 990, sem prazo mínimo (aviso de
+    30 dias). A hospedagem, o banco e os e-mails ficam por conta da Renderiza;
+  - ou **sem plano**: o gabinete contrata e administra a própria estrutura (Supabase Pro de referência, US$ 25 por mês),
+    a entrega já vai para as contas dele e a Renderiza atende por hora;
+  - sem a declaração de "recursos próprios": ele declara que contrata como pessoa física e é o responsável pelos
+    pagamentos. Se ele quiser reembolso pela verba da Câmara, conferir antes a regra de lá (costuma exigir nota fiscal).
 - **Dados da Renderiza no contrato:** Kaue de Almeida Cunha. Na página, o CPF aparece mascarado (***.406.148-**) e o
-  endereço só como "São Paulo/SP", porque a página é aberta a quem tiver o link. O número completo e o endereço vão na
-  cópia enviada ao vereador.
+  endereço só como "São Paulo/SP", porque a página é aberta a quem tiver o link. O número completo e o endereço vão no
+  comprovante por e-mail (coluna `contratada` do termo, gravada direto no banco, fora do repositório).
+- **Custos por cliente (14/11/2026, estimativa):** Supabase Pro US$ 25 (cerca de R$ 145; a organização da Renderiza no
+  Supabase está no plano grátis, que não faz cópia diária e pausa projetos parados, então o projeto do gabinete precisa
+  do Pro), Vercel cerca de R$ 20 de rateio (o plano grátis não permite uso comercial), IA cerca de R$ 20. Estrutura:
+  cerca de R$ 185 por mês. Com cerca de 1,5 h de trabalho, o Essencial custa cerca de R$ 267.
 - **"Mandato":** é o período do cargo (2025 a 2028). "Site do mandato" é o site oficial do vereador no cargo, diferente
   de um site de campanha, que tem regras próprias.
 
@@ -202,21 +210,26 @@ parecia amadora e prometia o que não dá para entregar. A versão 2 é uma **pe
   - o IP e o aparelho, lidos dos cabeçalhos dentro do banco;
   - a data e a impressão;
   - um passo "Assinou o contrato online" na Atividade do lead.
-- **Para apagar um teste:** apagar a linha de `termos_aceites` e o passo `contrato-assinado` em `visitas` do lead.
+- **Comprovante:** logo depois da assinatura, a página pede à função `termo-codigo` (acao "comprovante") o e-mail com o
+  protocolo, os dados, a impressão e os dados completos da Renderiza, para quem assinou, com cópia para
+  contato@renderizaweb.com.br. Sai uma vez só (`comprovante_em`).
+- **Para apagar um teste:** apagar as linhas de `termos_aceites` e `termos_codigos` e o passo `contrato-assinado` em
+  `visitas` do lead.
 
 ### Compromissos de segurança do contrato (Anexo II): conferir na implantação
 
 1. HTTPS em tudo.
-2. Projeto do Supabase exclusivo do mandato, em São Paulo.
+2. Projeto do Supabase exclusivo do mandato, em São Paulo, no plano Pro (cópia diária; o grátis não serve).
 3. Login individual, com verificação em duas etapas para toda a equipe.
 4. Perfis de acesso com RLS em todas as tabelas.
 5. Registro de quem criou, alterou ou excluiu cada coisa; registros de acesso guardados por 6 meses.
-6. Cópia diária guardada por 7 dias, mais uma semanal guardada à parte.
+6. Cópia diária guardada por 7 dias, mais uma semanal guardada à parte por 4 semanas (some tudo em até 30 dias depois
+   do fim, como promete a cláusula 13).
 7. Formulário público com proteção contra robôs (Turnstile) e limite de envios.
 8. Página do pedido só pelo link ou pelo número com confirmação.
 9. O site público nunca mostra nome, telefone ou endereço de quem pediu.
 10. Atualizações de segurança, monitoramento e revisão de segurança antes de cada entrega.
-11. Domínio com duas etapas e bloqueio de transferência.
+11. Domínio na conta do vereador no Registro.br, com duas etapas.
 12. Acesso da Renderiza só com duas etapas e só pelo tempo necessário.
 13. A IA nunca recebe nome, telefone, e-mail ou endereço de morador.
 14. Avisar o vereador de incidente em até 2 dias úteis.

@@ -26,7 +26,12 @@ const deps = {
     if (error) throw error;
     return data;
   },
-  async enviar({ para, assunto, html, texto }) {
+  async comprovante({ termo, protocolo }) {
+    const { data, error } = await admin.rpc("comprovante_termo", { p_termo: termo, p_protocolo: protocolo });
+    if (error) throw error;
+    return data;
+  },
+  async enviar({ para, copia, assunto, html, texto }) {
     const r = await fetch("https://api.brevo.com/v3/smtp/email", {
       method: "POST",
       headers: { "api-key": BREVO, "Content-Type": "application/json", Accept: "application/json" },
@@ -34,10 +39,11 @@ const deps = {
         sender: { name: "Renderiza", email: "nao-responda@renderizaweb.com.br" },
         replyTo: { email: "contato@renderizaweb.com.br" },
         to: [{ email: para }],
+        ...(copia ? { cc: [{ email: copia }] } : {}),
         subject: assunto,
         htmlContent: html,
         textContent: texto,
-        tags: ["termo-codigo"],
+        tags: [copia ? "termo-comprovante" : "termo-codigo"],
       }),
     });
     if (!r.ok) throw new Error(`Brevo ${r.status}`);

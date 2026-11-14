@@ -87,7 +87,7 @@ const CLIQUES = { aviso_painel: "Foi ver o painel do estúdio (agenda online)", 
   mapa: "Abriu o mapa", avaliacoes: "Foi ver as avaliações no Google", avaliar: "Foi deixar uma avaliação no Google", telefone: "Tocou para ligar", email: "Tocou no e-mail",
   // proposta e contrato do vereador (/proposta e /contrato/vereador-mateuzinho-silva)
   "proposta-seguir-topo": "Clicou em \"Quero seguir\" na proposta", "proposta-seguir-capa": "Clicou em \"Quero seguir\" na proposta",
-  "proposta-seguir-investimento": "Clicou em \"Quero seguir\" na proposta", "proposta-seguir-planos": "Clicou em \"Quero seguir com um plano\" na proposta",
+  "proposta-seguir-investimento": "Clicou em \"Quero seguir\" na proposta", "proposta-seguir-planos": "Clicou em \"Quero seguir\" nos planos da proposta",
   "proposta-seguir-fim": "Clicou em \"Quero seguir: assinar o contrato\" na proposta", "proposta-duvida": "Clicou em \"Tirar uma dúvida\" (WhatsApp da Renderiza)",
   "contrato-ir-topo": "Foi para a assinatura do contrato", "contrato-ir-capa": "Foi para a assinatura do contrato", "contrato-duvida": "Clicou em \"Tirar uma dúvida\" no contrato (WhatsApp da Renderiza)",
   "contrato-assinar": "Tocou em Continuar/Assinar no contrato", "contrato-reenviar": "Pediu outro código para assinar o contrato",
