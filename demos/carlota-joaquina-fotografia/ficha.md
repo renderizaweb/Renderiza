@@ -4,44 +4,37 @@
 |---|---|
 | Onde | R. Paraíba, 198 - Chácara do Solar I (Fazendinha), Santana de Parnaíba - SP, 06530-035 |
 | Instagram | [@carlotajoaquinafotografias](https://www.instagram.com/carlotajoaquinafotografias/) · 5,2 mil seguidores |
-| Google | nota 4,7 · 18 avaliações · conferido em 06/11/2026 |
+| Google | nota 4,7 · 18 avaliações · conferido em 14/11/2026 |
 | WhatsApp | (11) 99762-8059 · celular do Perfil da Empresa no Google (+55 11 99762-8059) |
-| Horário | Segunda a quinta 12h às 14h; Sexta a domingo Fechado |
 | Site | não tem (lote 3, 06/11/2026) |
-| Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
-| Situação | pronta · 06/11/2026 · `/demo/carlota-joaquina-fotografia` e `/demo/carlota-joaquina-fotografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 13/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
-| Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
+| Entregável | **portfólio online, versão 4**: `index.html` (a vitrine) e uma página por ensaio (`natal`, `maes`, `infantil`, `familia`). Sai de `ferramentas/demo/gerar-portfolio.py demos/carlota-joaquina-fotografia [<pasta dos originais>]`; textos, fotos e pacotes no `demo.json` (`portfolio`) |
+| Situação | no ar · portfólio v4 em 14/11/2026 · `/demo/carlota-joaquina-fotografia` |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o portfólio fica 100% dela, sem mensalidade); promoção de uma semana, até 21/11/2026 (`renderiza.valido_ate` no `demo.json` e `demos.vale_ate` no painel) |
 
-## Direção da demo
-- Lote 3 de fotógrafos (nº 23, reserva 3, 72 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de out 2026 e das avaliações.
-- Donas: uma dupla, a Joyce e a Carla ("as meninas" nas avaliações). A demo fala das duas; a saudação da Renderiza vai para as duas. Sem foto delas: o "quem fotografa" usa o cenário do estúdio (Google).
-- Personalidade: cenários que mudam a cada data (Dia das Mães entre tulipas rosa e verde, aniversários temáticos, a Oficina do Papai Noel) e o jeito de falar com as mães ("Mamãe, já garantiu?", "Corre pra falar com a tia!"). Na demo: abertura em faixa, Literata, "fotografia" em Birthstone, rosa e verde-menta, ✿ entre as especialidades.
-- Sem logo em boa resolução: monograma CJ e o nome com "fotografia" cursiva, feitos para a demo.
+## Direção
+- Lote de fotógrafos. Donas: Joyce e Carla ("as meninas", nas avaliações). Estúdio na Fazendinha, em Santana de Parnaíba. Título com as palavras de uma avaliação ("acompanhar o crescimento das crianças").
+- A página de Natal abre com o cenário de 2026: a Oficina do Papai Noel e a Fábrica de Natal (neve, trenó e urso polar), dos posts de novembro.
 
-## O que tem na demo
-- Site: abertura (Natal 2026, mães e filhos e infantil), portfólio em 3 abas (Natal e aniversários, 10; Mães e filhos, 12; Família, 8), as meninas, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.
-- Página de Natal "A magia do Natal chegou no estúdio!": a Oficina do Papai Noel 2026 (fotos do feed), a agenda de exemplo (6 dias em novembro; o Google não mostra horário) e outros ensaios do ano.
-- Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria).
+## O que tem
+- **Vitrine**: "Para acompanhar o crescimento das crianças.", a tira de 7 fotos, a lista de ensaios com o "a partir de", o filtro por ensaio, 4 avaliações do Google, quem fotografa e o contato.
+- **Páginas**: Natal (22 fotos, depoimento de Natalia Fernandes da Silva); Mães e filhos (16 fotos, depoimento de Michele Oliveira); Infantil e temas (12 fotos, depoimento de Educador Adão Gomes); Família (12 fotos, depoimento de Rafael Xavier).
+- Nenhum texto fala em "site". Pacotes e valores são de exemplo, com o selo na página.
 
-## Fotos
-- Os posts de Natal de 30 e 31/10/2026 (Oficina do Papai Noel), as fotos da página salva no Drive (1440 px) e 2 fotos do Google.
-- Ficaram de fora: as capas de vídeo (9:16), as artes ("O Diabetes agora faz parte de um capítulo da nossa história") e os closes de detalhe.
+## Fotos (escolhidas uma a uma na folha de contato grande)
+- 62 fotos: 40 da grade do Instagram dela salva no Drive do Kaue (pasta na lixeira do Drive), 22 dos carrosséis lidos pelo embed público (DfKKuswHAPj, DfKLWOtnBgU, DfZkhbEls_4, Dfj9f2_Fimb, DfpvQ7rmVjv) e 0 do Perfil no Google.
+- Tratadas a partir do original, sem ampliar e sem recorte (a página mostra a foto inteira): 1400 px na galeria, 1920 px na abertura, JPEG progressivo, qualidade 82.
+- Ficaram de fora: os detalhes de mãos, o recém-nascido cortado de perto, o mosaico, as fotos repetidas e a maioria das deitadas com a marca "Carlota Joaquina" no canto (ficaram só as de aniversário que não têm outra igual).
 
-## Textos e fontes
-- Legendas: "A MAGIA DO NATAL CHEGOU NO ESTÚDIO! Nossa AGENDA ABERTA para o Ensaio de Natal 2026... esse cenário da Oficina do Papai Noel foi feito com muito carinho... São poucas vagas em Novembro, porque quero atender cada família com calma" (31/10), "O Papai Noel já deixou a casinha dele prontinha... árvore gigante, ursão, presentinhos" (30/10).
-- Avaliações do Google: as 4 de 5 estrelas visíveis sem login, nas duas páginas.
+## Textos
+- Dela: "A magia do Natal chegou no estúdio!", "Ensaio de Natal 2026", poucas vagas em novembro, "Oficina do Papai Noel", "Fábrica de Natal", "Quero atender cada família com calma…", "Porque um dia ele vai crescer, mas essa foto vai continuar contando essa história".
+- Avaliações (lidas inteiras; nota 4,7): Natalia no Natal, Michele em mães e filhos, Adão Gomes no infantil, Rafael Xavier na família.
+- Não são dela: os pacotes e valores (exemplos).
 
-## Conferir antes de mandar
-- É uma dupla (Joyce e Carla): falar com as duas.
-- Nota 4,7 no Google; uma avaliação antiga reclama de não atenderem o telefone.
-- Um post recente fala de diabetes tipo 1 na família (assunto pessoal; a demo não toca nisso).
-- Fotos de bebês, crianças e mães: todas publicadas por elas como portfólio. Vale elas confirmarem se podem usar todas no site.
+## Conferir com ela
+- Não há foto da Joyce e da Carla em público: o "quem fotografa" mostra o estúdio (foto do Google).
+- Algumas fotos de aniversário têm a marca do estúdio no canto (é a assinatura delas).
+- Fotos de bebês, crianças e gestantes: todas publicadas por ela como portfólio. Vale confirmar se podem ficar todas.
 
-## Portfólio que vende, versão 3 (09/11/2026)
-- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `natal:0`.
-- `infantil`: Infantil e temas (fotos natal:4,5,0,2,6,7,1,3, pn:0); a partir de R$ 300; depoimento: Educador Adão Gomes
-- `maes`: Mães e filhos (fotos maes:4,2,10,5,0,8,6,9,7); a partir de R$ 280; depoimento: Michele Oliveira
-- `familia`: Família (fotos familia:3,2,4,0,5,1,6,7); a partir de R$ 320; depoimento: Rafael Xavier
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/carlota-joaquina-fotografia <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/carlota-joaquina-fotografia/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.
+## Gerar de novo
+- `python3 ferramentas/demo/gerar-portfolio.py demos/carlota-joaquina-fotografia [<pasta dos originais>]`. Sem os originais, o gerador reaproveita as fotos já tratadas (dá para mudar texto e preço); para trocar foto, baixar de novo (Drive pelo id; posts pelo `ig-post.py`).
+- Conferir: `node ferramentas/demo/conferir-portfolio.cjs <pasta> carlota-joaquina-fotografia` e `node ferramentas/demo/validar.mjs <página> <pasta>`.

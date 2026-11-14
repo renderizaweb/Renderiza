@@ -13,12 +13,12 @@
  "endereco_maps": "R. Paraíba, 198 - Chácara do Solar I (Fazendinha), Santana de Parnaíba - SP, 06530-035",
  "google_nota": "4,7",
  "google_total": "18",
- "verificado": "2026-11-06",
+ "verificado": "2026-11-14",
  "whatsapp": "5511997628059",
  "fone_link": "+5511997628059",
  "instagram": "carlotajoaquinafotografias",
  "seguidores": "5,2 mil",
- "mensagem": "Olá, meninas! Vi o site do estúdio e queria saber mais sobre os ensaios.",
+ "mensagem": "Olá! Vi o portfólio das meninas e queria saber mais sobre os ensaios.",
  "cores": {
   "fundo": "#fdfafb",
   "papel": "#ffffff",
@@ -74,11 +74,11 @@
   "preco_pix": "R$ 399",
   "parcelado": "2x de R$ 199",
   "nota_preco": "pagamento único, sem mensalidade",
-  "valido_ate": "2026-11-13",
-  "msg_garantir": "Olá! Sou a Joyce (ou a Carla), da Carlota Joaquina Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
-  "msg_negociar": "Olá! Sou a Joyce (ou a Carla), da Carlota Joaquina Fotografia. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "valido_ate": "2026-11-21",
+  "msg_garantir": "Olá! Sou a Joyce (ou a Carla), da Carlota Joaquina Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Joyce (ou a Carla), da Carlota Joaquina Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "6pzm",
-  "msg_duvida": "Olá! Sou a Joyce (ou a Carla), da Carlota Joaquina Fotografia. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida.",
+  "msg_duvida": "Olá! Sou a Joyce (ou a Carla), da Carlota Joaquina Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida.",
   "para": "vocês"
  },
  "estilo": {
@@ -687,24 +687,434 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
-  "local": "Santana de Parnaíba",
-  "h1": "Ensaios infantis, mães e filhos e famílias em Santana de Parnaíba.",
-  "frase": "Para acompanhar o crescimento das crianças. E a Oficina do Papai Noel já abriu a agenda de Natal.",
-  "tom": "claro",
-  "capa": "natal:0",
+  "olho": "Estúdio de fotografia · Fazendinha, Santana de Parnaíba",
+  "titulo": "Para acompanhar o crescimento das crianças.",
+  "linha": "Natal, bebês, aniversários, mães e filhos e famílias, com a Joyce e a Carla, na Fazendinha, em Santana de Parnaíba.",
+  "local": "Fazendinha",
+  "tira": [
+   "natal:0",
+   "maes:0",
+   "infantil:0",
+   "natal:1",
+   "familia:0",
+   "maes:1",
+   "natal:2"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Educador Adão Gomes",
+    "tag": "Crescimento",
+    "texto": "Um lugar perfeito para acompanhar o crescimento das crianças por meio de imagens. Joyce e Carla são maravilhosas."
+   },
+   {
+    "nome": "Rafael Xavier",
+    "tag": "Atendimento",
+    "texto": "Excelente atendimento e cuidado com as minhas filhas, recomendo muito. Me surpreendeu o quanto tratou bem da minha família. Com certeza vamos voltar!"
+   },
+   {
+    "nome": "Michele Oliveira",
+    "tag": "Bebê",
+    "texto": "Experiência maravilhosa com elas, muito atenciosas, e cuidado com minha bebê. Fotos ficaram lindas. Obrigada, meninas."
+   },
+   {
+    "nome": "Natalia Fernandes da Silva",
+    "tag": "Qualidade",
+    "texto": "Trabalho excepcional, de ótima qualidade. As meninas são incríveis e muito atenciosas."
+   }
+  ],
+  "contato": {
+   "titulo": "Escolha o ensaio e reserve a data.",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Fazendinha (Chácara do Solar I), em Santana de Parnaíba, e atende de segunda a sexta.",
+   "endereco": [
+    "R. Paraíba, 198",
+    "Chácara do Solar I (Fazendinha) · Santana de Parnaíba, SP"
+   ],
+   "telefone": "(11) 99762-8059"
+  },
+  "_ficha": {
+   "direcao": [
+    "Lote de fotógrafos. Donas: Joyce e Carla (\"as meninas\", nas avaliações). Estúdio na Fazendinha, em Santana de Parnaíba. Título com as palavras de uma avaliação (\"acompanhar o crescimento das crianças\").",
+    "A página de Natal abre com o cenário de 2026: a Oficina do Papai Noel e a Fábrica de Natal (neve, trenó e urso polar), dos posts de novembro."
+   ],
+   "fora": "os detalhes de mãos, o recém-nascido cortado de perto, o mosaico, as fotos repetidas e a maioria das deitadas com a marca \"Carlota Joaquina\" no canto (ficaram só as de aniversário que não têm outra igual).",
+   "textos": [
+    "Dela: \"A magia do Natal chegou no estúdio!\", \"Ensaio de Natal 2026\", poucas vagas em novembro, \"Oficina do Papai Noel\", \"Fábrica de Natal\", \"Quero atender cada família com calma…\", \"Porque um dia ele vai crescer, mas essa foto vai continuar contando essa história\".",
+    "Avaliações (lidas inteiras; nota 4,7): Natalia no Natal, Michele em mães e filhos, Adão Gomes no infantil, Rafael Xavier na família.",
+    "Não são dela: os pacotes e valores (exemplos)."
+   ],
+   "conferir": [
+    "Não há foto da Joyce e da Carla em público: o \"quem fotografa\" mostra o estúdio (foto do Google).",
+    "Algumas fotos de aniversário têm a marca do estúdio no canto (é a assinatura delas)."
+   ]
+  },
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py). Fotos dos ORIGINAIS (drive/ = a grade dela salva no Drive; posts/ = carrosséis do embed público; google/ = Perfil da Empresa), escolhidas uma a uma na folha de contato. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "versao": 4,
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "As meninas do estúdio.",
+   "p": [
+    "A Carlota Joaquina Fotografia, na Fazendinha, em Santana de Parnaíba, é da Joyce e da Carla, \"as meninas\", como dizem as famílias.",
+    "Os cenários mudam a cada data: tulipas no Dia das Mães, aniversários temáticos e, agora, a Oficina do Papai Noel e a Fábrica de Natal."
+   ],
+   "citacao": "Quero atender cada família com calma e todo o carinho que esse momento merece.",
+   "citacao_quem": "Carlota Joaquina, no Instagram",
+   "fotos": [
+    {
+     "arq": "google/g01.jpg",
+     "alt": "O estúdio, na Fazendinha"
+    }
+   ],
+   "numeros": [
+    [
+     "18",
+     "avaliações no Google"
+    ],
+    [
+     "5,2 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
   "ensaios": [
+   {
+    "id": "natal",
+    "nome": "Natal",
+    "chamada": "Ensaio de Natal",
+    "pedido": "o ensaio de Natal",
+    "frase": "A magia do Natal chegou no estúdio!",
+    "texto": "A Oficina do Papai Noel, com a cartinha, os brinquedos e o relógio, e a Fábrica de Natal, com o trenó, a neve e o urso polar.",
+    "citacao": "Porque um dia ele vai crescer, mas essa foto vai continuar contando essa história.",
+    "citacao_quem": "Carlota Joaquina, no Instagram",
+    "quando": "A agenda do Ensaio de Natal 2026 está aberta, com poucas vagas em novembro. Datas pelo WhatsApp.",
+    "depo": {
+     "nome": "Natalia Fernandes da Silva",
+     "texto": "Trabalho excepcional, de ótima qualidade. As meninas são incríveis e muito atenciosas."
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "posts/DfKLWOtnBgU/DfKLWOtnBgU_00.jpg",
+      "alt": "Menina de vestido xadrez na Oficina do Papai Noel"
+     },
+     {
+      "arq": "posts/DfZkhbEls_4/DfZkhbEls_4_03.jpg",
+      "alt": "Menina surpresa na mesa da Oficina"
+     },
+     {
+      "arq": "posts/Dfj9f2_Fimb/Dfj9f2_Fimb_06.jpg",
+      "alt": "Bebê de capuz de pelúcia, sorrindo"
+     },
+     {
+      "arq": "posts/DfKLWOtnBgU/DfKLWOtnBgU_05.jpg",
+      "alt": "Irmãs junto à árvore de Natal"
+     },
+     {
+      "arq": "posts/DfZkhbEls_4/DfZkhbEls_4_07.jpg",
+      "alt": "Mãe e filha abraçadas, junto à árvore"
+     },
+     {
+      "arq": "posts/Dfj9f2_Fimb/Dfj9f2_Fimb_00.jpg",
+      "alt": "Bebê no trenó, na neve"
+     },
+     {
+      "arq": "posts/DfKLWOtnBgU/DfKLWOtnBgU_02.jpg",
+      "alt": "Menina lendo na poltrona, junto à árvore"
+     },
+     {
+      "arq": "posts/DfpvQ7rmVjv/DfpvQ7rmVjv_01.jpg",
+      "alt": "Bebê de gorro de boneco de neve"
+     },
+     {
+      "arq": "posts/DfZkhbEls_4/DfZkhbEls_4_00.jpg",
+      "alt": "Mãe e filhas junto à árvore"
+     },
+     {
+      "arq": "posts/DfpvQ7rmVjv/DfpvQ7rmVjv_03.jpg",
+      "alt": "Menina de vermelho rindo no cavalinho"
+     },
+     {
+      "arq": "posts/DfKLWOtnBgU/DfKLWOtnBgU_06.jpg",
+      "alt": "Menina escrevendo a cartinha para o Papai Noel"
+     },
+     {
+      "arq": "posts/DfpvQ7rmVjv/DfpvQ7rmVjv_02.jpg",
+      "alt": "Irmãs de mãos dadas na neve"
+     },
+     {
+      "arq": "posts/DfZkhbEls_4/DfZkhbEls_4_16.jpg",
+      "alt": "Mãe e filhas na mesa da Oficina"
+     },
+     {
+      "arq": "posts/DfZkhbEls_4/DfZkhbEls_4_11.jpg",
+      "alt": "Menina lendo no tapete, junto à árvore"
+     },
+     {
+      "arq": "posts/DfKLWOtnBgU/DfKLWOtnBgU_07.jpg",
+      "alt": "Bebê de pijama listrado entre o Papai e a Mamãe Noel"
+     },
+     {
+      "arq": "posts/DfpvQ7rmVjv/DfpvQ7rmVjv_05.jpg",
+      "alt": "Menina acenando no cavalinho, na neve"
+     },
+     {
+      "arq": "posts/DfZkhbEls_4/DfZkhbEls_4_13.jpg",
+      "alt": "Mãe e filhas deitadas, abraçadas"
+     },
+     {
+      "arq": "posts/DfKLWOtnBgU/DfKLWOtnBgU_03.jpg",
+      "alt": "Menina de laço vermelho na cadeira"
+     },
+     {
+      "arq": "posts/DfpvQ7rmVjv/DfpvQ7rmVjv_07.jpg",
+      "alt": "Irmãs sentadas na neve"
+     },
+     {
+      "arq": "posts/DfZkhbEls_4/DfZkhbEls_4_17.jpg",
+      "alt": "Menina na escada da Oficina"
+     },
+     {
+      "arq": "posts/DfKKuswHAPj/DfKKuswHAPj_00.jpg",
+      "alt": "Crianças na Oficina do Papai Noel"
+     },
+     {
+      "arq": "posts/DfKKuswHAPj/DfKKuswHAPj_04.jpg",
+      "alt": "Menina escrevendo na mesa da Oficina"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 300",
+      "itens": [
+       "30 minutos de ensaio",
+       "15 fotos editadas",
+       "1 cenário"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 450",
+      "itens": [
+       "1 hora de ensaio",
+       "30 fotos editadas",
+       "Oficina e Fábrica de Natal"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Família",
+      "preco": "R$ 630",
+      "itens": [
+       "1 hora de ensaio",
+       "40 fotos editadas",
+       "Irmãos e pais juntos"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "maes",
+    "nome": "Mães e filhos",
+    "curto": "Mães",
+    "chamada": "Ensaio mãe e filho",
+    "pedido": "o ensaio de mãe e filho",
+    "frase": "Mães e filhos entre as tulipas.",
+    "texto": "O colo, o abraço e o beijo, entre as tulipas ou as flores brancas, em cor ou em preto e branco.",
+    "depo": {
+     "nome": "Michele Oliveira",
+     "texto": "Experiência maravilhosa com elas, muito atenciosas, e cuidado com minha bebê. Fotos ficaram lindas. Obrigada, meninas."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "drive/468847915_18284832625240590_9126464338987701283_n.jpg",
+      "alt": "Mãe com a bebê de tiara entre as tulipas"
+     },
+     {
+      "arq": "drive/468847225_18284830393240590_9015420654650056556_n.jpg",
+      "alt": "Mãe erguendo o bebê no balanço de flores"
+     },
+     {
+      "arq": "drive/468849414_18284832571240590_7929552658640917929_n.jpg",
+      "alt": "Mãe e filha de rosa entre as tulipas"
+     },
+     {
+      "arq": "drive/469043897_18284832766240590_6871852378937914982_n.jpg",
+      "alt": "Filho beijando a mãe entre as tulipas"
+     },
+     {
+      "arq": "drive/469167147_18284832820240590_7218315847122885322_n.jpg",
+      "alt": "Mãe erguendo a filha"
+     },
+     {
+      "arq": "drive/468856220_18284832793240590_942273899824185242_n.jpg",
+      "alt": "Mãe com o bebê entre as tulipas"
+     },
+     {
+      "arq": "drive/469249895_18284830756240590_1497393931761132170_n.jpg",
+      "alt": "Mãe e filho sorrindo entre as tulipas"
+     },
+     {
+      "arq": "drive/469105633_18284832610240590_7391469122709199364_n.jpg",
+      "alt": "Mãe de rosa com o bebê no colo"
+     },
+     {
+      "arq": "drive/469084248_18284832919240590_4807413210556653737_n.jpg",
+      "alt": "Mãe com os filhos entre as tulipas"
+     },
+     {
+      "arq": "drive/469168248_18284830528240590_5649051976465481987_n.jpg",
+      "alt": "Mãe beijando o filho, em preto e branco"
+     },
+     {
+      "arq": "drive/469198149_18284832619240590_6051513927868249910_n.jpg",
+      "alt": "Mãe com a bebê de lilás"
+     },
+     {
+      "arq": "drive/468925842_18284832895240590_1408194948364192664_n.jpg",
+      "alt": "Mãe com o filho de boina entre as tulipas"
+     },
+     {
+      "arq": "drive/469235038_18284832742240590_6919315227961554168_n.jpg",
+      "alt": "Mãe com o bebê na poltrona rosa"
+     },
+     {
+      "arq": "drive/469273219_18284830672240590_418594304008093965_n.jpg",
+      "alt": "Mãe e filha entre as tulipas"
+     },
+     {
+      "arq": "drive/469032945_18284830801240590_6595875622930625093_n.jpg",
+      "alt": "Mãe e filho abraçados, em preto e branco"
+     },
+     {
+      "arq": "drive/469050624_18284830594240590_6455628460528721490_n.jpg",
+      "alt": "Mãe com o bebê na poltrona rosa, rindo"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 280",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 430",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Até 6 pessoas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 630",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
+   },
    {
     "id": "infantil",
     "nome": "Infantil e temas",
+    "curto": "Infantil",
     "chamada": "Ensaio infantil",
-    "fotos": [
-     "natal:4,5,0,2,6,7,1,3",
-     "pn:0"
+    "pedido": "o ensaio infantil",
+    "frase": "Um cenário para cada data.",
+    "texto": "Branca de Neve, Chapolin, caipira, Turma da Mônica, Patrulha Canina e Minnie: o tema que a criança escolher.",
+    "depo": {
+     "nome": "Educador Adão Gomes",
+     "texto": "Um lugar perfeito para acompanhar o crescimento das crianças por meio de imagens. Joyce e Carla são maravilhosas."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "Um cenário para cada data.",
-    "sub": "Branca de Neve, Chapolin, caipira, Turma da Mônica e a Oficina do Papai Noel.",
-    "texto": "A criança escolhe o personagem e o estúdio vira o cenário: aniversários, datas comemorativas e o Natal, com a Joyce e a Carla.",
+    "fotos": [
+     {
+      "arq": "drive/469049789_18284833756240590_2707457837426985512_n.jpg",
+      "alt": "Bebê de Branca de Neve com a maçã"
+     },
+     {
+      "arq": "drive/469084226_18284834587240590_1984966787296501827_n.jpg",
+      "alt": "Bebê de Chapolin"
+     },
+     {
+      "arq": "drive/469071213_18284837614240590_8570608855544191460_n.jpg",
+      "alt": "Menino de caipira no cenário do burrinho"
+     },
+     {
+      "arq": "drive/469254469_18284837509240590_1213585173250152252_n.jpg",
+      "alt": "Menina de vestido vermelho sorrindo"
+     },
+     {
+      "arq": "drive/469274017_18284833480240590_6013981368599946258_n.jpg",
+      "alt": "Bebê no cenário da Turma da Mônica"
+     },
+     {
+      "arq": "drive/469101014_18284837581240590_2023036468462720856_n.jpg",
+      "alt": "Bebê de 1 ano na Patrulha Canina"
+     },
+     {
+      "arq": "drive/469050490_18284837533240590_3483466313163627448_n.jpg",
+      "alt": "Menina de 1 ano de vestido rosa"
+     },
+     {
+      "arq": "drive/469105606_18284837491240590_7334486672147643045_n.jpg",
+      "alt": "Menina no cenário da Minnie"
+     },
+     {
+      "arq": "drive/469006321_18284837497240590_7080193997178728026_n.jpg",
+      "alt": "Menino de 2 anos entre os balões azuis"
+     },
+     {
+      "arq": "drive/468946722_18284837308240590_177133691098889069_n.jpg",
+      "alt": "Bebê de 1 ano no tema Carros"
+     },
+     {
+      "arq": "drive/469273211_18284833471240590_4684896139014539323_n.jpg",
+      "alt": "Menina de 2 anos entre a girafa e o leão"
+     },
+     {
+      "arq": "drive/469351658_18284838667240590_7115598341575152279_n.jpg",
+      "alt": "Bebê de amarelo no arco-íris de frutas"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -736,61 +1146,80 @@
        "Quadro 30x40"
       ]
      }
-    ],
-    "depo": "Educador Adão Gomes"
-   },
-   {
-    "id": "maes",
-    "nome": "Mães e filhos",
-    "chamada": "Ensaio mães e filhos",
-    "fotos": [
-     "maes:4,2,10,5,0,8,6,9,7"
-    ],
-    "titulo": "Mães e filhos entre as tulipas.",
-    "sub": "O colo, o abraço e o beijo, entre as tulipas ou as flores brancas.",
-    "texto": "Um ensaio para mães e filhos de todas as idades, com o cenário montado com carinho para o Dia das Mães.",
-    "pacotes": [
-     {
-      "nome": "Essencial",
-      "preco": "R$ 280",
-      "itens": [
-       "40 minutos de ensaio",
-       "12 fotos editadas",
-       "Galeria online"
-      ]
-     },
-     {
-      "nome": "Completo",
-      "preco": "R$ 430",
-      "itens": [
-       "1 hora de ensaio",
-       "25 fotos editadas",
-       "Até 6 pessoas"
-      ],
-      "destaque": true
-     },
-     {
-      "nome": "Premium",
-      "preco": "R$ 630",
-      "itens": [
-       "1h30 de ensaio",
-       "40 fotos editadas",
-       "Quadro 30x40"
-      ]
-     }
-    ],
-    "depo": "Michele Oliveira"
+    ]
    },
    {
     "id": "familia",
     "nome": "Família",
     "chamada": "Ensaio de família",
-    "fotos": [
-     "familia:3,2,4,0,5,1,6,7"
+    "pedido": "o ensaio de família",
+    "frase": "Pais, irmãos e o bebê no colo.",
+    "texto": "A família toda no estúdio, em cor ou em preto e branco.",
+    "depo": {
+     "nome": "Rafael Xavier",
+     "texto": "Empresa de um excelente atendimento e cuidado com as minhas filhas, recomendo muito. Obrigado por tanto carinho e entrega: me surpreendeu o quanto tratou bem da minha família."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "Pais, irmãos e o bebê no colo.",
-    "sub": "A família toda no estúdio, em cor ou em preto e branco.",
-    "texto": "Para acompanhar o crescimento das crianças, ano após ano.",
+    "fotos": [
+     {
+      "arq": "drive/469034268_18284838520240590_218890108579121426_n.jpg",
+      "alt": "Pai com os filhos no sofá"
+     },
+     {
+      "arq": "drive/469049608_18284832781240590_1342671625992296957_n.jpg",
+      "alt": "Mãe com os três filhos entre as flores"
+     },
+     {
+      "arq": "drive/469050480_18284839129240590_4031787736740550770_n.jpg",
+      "alt": "Pai com o filho nos ombros"
+     },
+     {
+      "arq": "drive/468944957_18284832880240590_2060521136532052831_n.jpg",
+      "alt": "Mãe com os filhos na poltrona rosa"
+     },
+     {
+      "arq": "drive/469091413_18284838631240590_6970242053271290018_n.jpg",
+      "alt": "Pai e filha em preto e branco"
+     },
+     {
+      "arq": "drive/469223156_18284838844240590_7574342708588810129_n.jpg",
+      "alt": "Pai com os dois filhos, brincando"
+     },
+     {
+      "arq": "drive/469293253_18284830789240590_8588842564550692698_n.jpg",
+      "alt": "Casal abraçado no sofá"
+     },
+     {
+      "arq": "drive/469168989_18284838502240590_432028476430365039_n.jpg",
+      "alt": "Pai com o bebê no colo, em preto e branco"
+     },
+     {
+      "arq": "drive/469099615_18284832598240590_7181441341261015546_n.jpg",
+      "alt": "Mãe com os filhos na poltrona rosa, de lado"
+     },
+     {
+      "arq": "drive/469204823_18284838859240590_7246598072253307755_n.jpg",
+      "alt": "Pai com a filha nos ombros, em preto e branco"
+     },
+     {
+      "arq": "drive/469256049_18284832931240590_2857115364158102265_n.jpg",
+      "alt": "Mãe, filha e bebê, em preto e branco"
+     },
+     {
+      "arq": "drive/469280573_18284832427240590_5974211294460161067_n.jpg",
+      "alt": "Mãe e filha no balanço de flores"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -820,8 +1249,7 @@
        "Quadro 30x40"
       ]
      }
-    ],
-    "depo": "Rafael Xavier"
+    ]
    }
   ]
  }
