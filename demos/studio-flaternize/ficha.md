@@ -4,43 +4,36 @@
 |---|---|
 | Onde | Av. José Gallucci, 186 - Sala 8 - Jundiapeba, Mogi das Cruzes - SP, 08750-600 |
 | Instagram | [@studioflaternize](https://www.instagram.com/studioflaternize/) · 3,0 mil seguidores |
-| Google | nota 5,0 · 29 avaliações · conferido em 06/11/2026 |
+| Google | nota 5,0 · 29 avaliações · conferido em 13/11/2026 |
 | WhatsApp | (11) 97780-2176 · celular do Perfil da Empresa no Google (+55 11 97780-2176) |
-| Horário | Segunda a domingo 10h às 17h |
 | Site | não tem: só o Instagram (lote 3, 06/11/2026) |
-| Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
-| Situação | pronta · 06/11/2026 · `/demo/studio-flaternize` e `/demo/studio-flaternize/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 13/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
-| Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
+| Entregável | **portfólio online, versão 4**: `index.html` (a vitrine) e uma página por ensaio (`natal`, `infantil`, `gestante`, `familia`, `retratos`). Sai de `ferramentas/demo/gerar-portfolio.py demos/studio-flaternize [<pasta dos originais>]`; textos, fotos e pacotes no `demo.json` (`portfolio`) |
+| Situação | no ar · portfólio v4 em 13/11/2026 · `/demo/studio-flaternize` |
+| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o portfólio fica 100% dela, sem mensalidade); promoção de uma semana, até 21/11/2026 (`renderiza.valido_ate` no `demo.json` e `demos.vale_ate` no painel) |
 
-## Direção da demo
-- Lote 3 de fotógrafos (nº 7, 79 pontos), escolhida no Drive de 06/11/2026. A página salva no Drive veio sem o HTML (só as fotos): sem bio; os textos vêm dos posts de out 2026 e das avaliações.
-- Dona: Flávia (citada nas avaliações). O retrato com a câmera da página salva entra no "quem fotografa" sem dizer que é ela (conferir).
-- Personalidade: "Nunca vou oferecer apenas um ensaio simples de fotos... oferecemos EXPERIÊNCIA" e o Natal branco e dourado com o trenzinho de madeira. Na demo: abertura em faixa, Playfair Display, "studio" em Great Vibes, verde-pinheiro e dourado, ✦ entre as especialidades.
-- Sem logo em boa resolução: monograma SF e o nome com "studio" cursiva, feitos para a demo.
+## Direção
+- Lote 3 de fotógrafos. Dona: Flávia. Studio em Jundiapeba, Mogi das Cruzes; tom claro, Playfair Display e Manrope, verde-escuro.
+- Natal 2026 "Eterna Magia" com os dois cenários (Sala de Natal e Celeiro de Natal) dos posts de novembro, em alta. Entraram as páginas Família e Feminino e corporativo (as avaliações citam o ensaio corporativo).
 
-## O que tem na demo
-- Site: abertura (Natal, gestante e infantil), portfólio em 3 abas (Natal, 12; Infantil e bebês, 9; Gestante e feminino, 8), a Flávia, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.
-- Página de Natal "Eterna magia": o Especial de Natal 2026 (cenários Sala e Celeiro), fotos de Natais anteriores, a agenda de exemplo (sábados e domingos, de 14/11 a 29/11, das 10h às 15h30, dentro do horário do Google) e outros ensaios do ano.
-- Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria).
+## O que tem
+- **Vitrine**: "Mais que um ensaio: uma experiência.", a tira de 7 fotos, a lista de ensaios com o "a partir de", o filtro por ensaio, 4 avaliações do Google, quem fotografa e o contato.
+- **Páginas**: Natal 2026 (16 fotos, depoimento de Jonathas Santos); Infantil e bebês (14 fotos, depoimento de Thaina Vieira); Gestante (8 fotos, depoimento de Lígia Pinheiro Martins); Família (13 fotos, depoimento de Janny); Feminino e corporativo (8 fotos, sem depoimento).
+- Nenhum texto fala em "site". Pacotes e valores são de exemplo, com o selo na página.
 
-## Fotos
-- As fotos da página salva no Drive (até 1440 px) e 3 fotos do Google. Os posts de out 2026 com os cenários Sala e Celeiro são artes com texto, então não entraram.
-- Ficaram de fora: as capas de vídeo (9:16), as artes ("Eterna Magia", colagem de aniversário), a silhueta e os ensaios de aniversário adulto.
+## Fotos (escolhidas uma a uma na folha de contato grande)
+- 59 fotos: 38 da grade do Instagram dela salva no Drive do Kaue (pasta na lixeira do Drive), 16 dos carrosséis lidos pelo embed público (DfYaQW4AHdK, Dfe84DgnN4v, Dfmn9GanOtb) e 5 do Perfil no Google.
+- Tratadas a partir do original, sem ampliar e sem recorte (a página mostra a foto inteira): 1400 px na galeria, 1920 px na abertura, JPEG progressivo, qualidade 82.
+- Ficaram de fora: o mosaico do aniversário de 3 anos, as fotos repetidas, a foto de costas da bebê e as capas de vídeo.
 
-## Textos e fontes
-- Legendas: "ESPECIAL DE NATAL 2026 - ETERNA MAGIA... Nunca vou oferecer apenas um ensaio simples de fotos. Aqui no nosso Studio oferecemos EXPERIÊNCIA, vocês saem querendo mais" (22/10), "Cenário Celeiro" (23/10), "temos poucas vagas" (24/10).
-- Avaliações do Google: 4 das 5 visíveis (a de "Janny" ficou de fora: o nome dela no Google é um e-mail).
+## Textos
+- Dela: "Eterna Magia", "A época mais linda do ano sempre vai ser o Natal", "Jade e João na nossa Sala de Natal", "Celeiro de Natal" e a frase do studio "Aqui no nosso Studio oferecemos experiência, vocês saem querendo mais" (da v3).
+- Avaliações (lidas inteiras em 13/11): Jonathas Santos no Natal, Thaina Vieira no infantil, Lígia Pinheiro Martins (do positivo aos 2 anos) no gestante e Janny na família; Retratos sem depoimento.
+- Não são dela: os pacotes e valores (exemplos), inclusive os de Família e Retratos, e o "quando fazer" de gestante.
 
-## Conferir antes de mandar
-- O retrato com a câmera pode ser da Flávia (não está confirmado).
-- As fotos de Natal são de anos anteriores; as de 2026 só aparecem nas artes.
-- Fotos de crianças, bebês e gestantes: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
+## Conferir com ela
+- A foto de "quem fotografa" é um retrato com a câmera no studio (da v3): confirmar se é a Flávia.
+- Fotos de bebês, crianças e gestantes: todas publicadas por ela como portfólio. Vale confirmar se podem ficar todas.
 
-## Portfólio que vende, versão 3 (09/11/2026)
-- Curado foto a foto (docs/nichos/fotografos.md, seção 10, "Regras do portfólio"). Capa da vitrine: `natal:0`.
-- `natal`: Natal 2026 (fotos natal:1,3,8,9,0,7,11,10,6); a partir de R$ 320; depoimento: Jonathas Santos
-- `gestante`: Gestante (fotos gestante:1,0,3,2,4,5); a partir de R$ 420; depoimento: Lígia Pinheiro Martins
-- `infantil`: Infantil e bebês (fotos infantil:2,0,4,5,6,1,3); a partir de R$ 300; depoimento: Thaina Vieira
-- Pacotes e valores **de exemplo** (com o selo "você coloca os seus"). Tudo no `demo.json` (`portfolio`).
-- Gerar de novo: `python3 ferramentas/demo/gerar-portfolio.py demos/studio-flaternize <site.html> <natal.html>`, com o site e o Natal antigos tirados do git (`git show f255db1:demos/studio-flaternize/index.html` e `.../natal.html`); conferir com `ferramentas/demo/conferir-portfolio.cjs`.
+## Gerar de novo
+- `python3 ferramentas/demo/gerar-portfolio.py demos/studio-flaternize [<pasta dos originais>]`. Sem os originais, o gerador reaproveita as fotos já tratadas (dá para mudar texto e preço); para trocar foto, baixar de novo (Drive pelo id; posts pelo `ig-post.py`).
+- Conferir: `node ferramentas/demo/conferir-portfolio.cjs <pasta> studio-flaternize` e `node ferramentas/demo/validar.mjs <página> <pasta>`.

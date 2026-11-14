@@ -13,12 +13,12 @@
  "endereco_maps": "Av. José Gallucci, 186 - Sala 8 - Jundiapeba, Mogi das Cruzes - SP, 08750-600",
  "google_nota": "5,0",
  "google_total": "29",
- "verificado": "2026-11-06",
+ "verificado": "2026-11-13",
  "whatsapp": "5511977802176",
  "fone_link": "+5511977802176",
  "instagram": "studioflaternize",
  "seguidores": "3,0 mil",
- "mensagem": "Olá, Flávia! Vi o seu site e queria saber mais sobre os ensaios.",
+ "mensagem": "Olá! Vi o portfólio da Flávia e queria saber mais sobre os ensaios.",
  "cores": {
   "fundo": "#fbfaf7",
   "papel": "#ffffff",
@@ -74,11 +74,11 @@
   "preco_pix": "R$ 399",
   "parcelado": "2x de R$ 199",
   "nota_preco": "pagamento único, sem mensalidade",
-  "valido_ate": "2026-11-13",
-  "msg_garantir": "Olá! Sou a Flávia, do Studio Flaternize. Vi o site e a página de Natal que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
-  "msg_negociar": "Olá! Sou a Flávia, do Studio Flaternize. Vi o site e a página de Natal que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "valido_ate": "2026-11-21",
+  "msg_garantir": "Olá! Sou a Flávia, do Studio Flaternize. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Flávia, do Studio Flaternize. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "codigo": "hdfv",
-  "msg_duvida": "Olá! Sou a Flávia, do Studio Flaternize. Vi o site que a Renderiza montou para mim e queria tirar uma dúvida."
+  "msg_duvida": "Olá! Sou a Flávia, do Studio Flaternize. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida."
  },
  "estilo": {
   "fontes": {
@@ -678,22 +678,186 @@
   ]
  },
  "portfolio": {
-  "_sobre": "Portfólio que vende (gerar-portfolio.py), versão 3: curado foto a foto. Pacotes e valores são EXEMPLOS (a demo marca \"valores de exemplo\"). Títulos e textos das legendas, da bio e das avaliações dela; o depoimento de cada página fala daquele ensaio.",
+  "olho": "Studio de fotografia · Jundiapeba, Mogi das Cruzes",
+  "titulo": "Mais que um ensaio: uma experiência.",
+  "linha": "O Natal 2026 Eterna Magia, crianças, gestantes, famílias e retratos, com cenários montados pela Flávia.",
   "local": "Mogi das Cruzes",
-  "h1": "Natal, gestantes e crianças em Mogi das Cruzes.",
-  "frase": "Mais que um ensaio: uma experiência.",
-  "capa": "natal:0",
+  "tira": [
+   "natal:0",
+   "infantil:0",
+   "gestante:0",
+   "familia:0",
+   "natal:1",
+   "retratos:0",
+   "infantil:1"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Janny",
+    "tag": "Vários ensaios",
+    "texto": "Já fiz vários ensaios no Studio Flaternize e fico encantada a cada ensaio. A Flávia te deixa super à vontade, arrasa nos cenários e o resultado é maravilhoso."
+   },
+   {
+    "nome": "Lígia Pinheiro Martins",
+    "tag": "Do positivo aos 2 anos",
+    "texto": "Já fiz ensaio corporativo e a Flávia me ajudou demais. Fiz também o acompanhamento da minha filha, desde o positivo até agora, com 2 anos."
+   },
+   {
+    "nome": "Jonathas Santos",
+    "tag": "Experiência",
+    "texto": "Um ótimo ambiente. A Flávia é uma excelente profissional, com uma ótima comunicação e um cuidado enorme com a nossa experiência, e as fotos ficaram incríveis."
+   },
+   {
+    "nome": "Thaina Vieira",
+    "tag": "Crianças",
+    "texto": "Excelente profissional, os melhores ensaios que já fiz: muito paciente, simpática e cuidadosa com as crianças."
+   }
+  ],
+  "contato": {
+   "titulo": "Vem viver a experiência.",
+   "p": "Datas e orçamentos pelo WhatsApp. O studio fica em Jundiapeba, Mogi das Cruzes, e atende todos os dias.",
+   "endereco": [
+    "Av. José Gallucci, 186, sala 8",
+    "Jundiapeba · Mogi das Cruzes, SP"
+   ],
+   "telefone": "(11) 97780-2176"
+  },
+  "_ficha": {
+   "direcao": [
+    "Lote 3 de fotógrafos. Dona: Flávia. Studio em Jundiapeba, Mogi das Cruzes; tom claro, Playfair Display e Manrope, verde-escuro.",
+    "Natal 2026 \"Eterna Magia\" com os dois cenários (Sala de Natal e Celeiro de Natal) dos posts de novembro, em alta. Entraram as páginas Família e Feminino e corporativo (as avaliações citam o ensaio corporativo)."
+   ],
+   "fora": "o mosaico do aniversário de 3 anos, as fotos repetidas, a foto de costas da bebê e as capas de vídeo.",
+   "textos": [
+    "Dela: \"Eterna Magia\", \"A época mais linda do ano sempre vai ser o Natal\", \"Jade e João na nossa Sala de Natal\", \"Celeiro de Natal\" e a frase do studio \"Aqui no nosso Studio oferecemos experiência, vocês saem querendo mais\" (da v3).",
+    "Avaliações (lidas inteiras em 13/11): Jonathas Santos no Natal, Thaina Vieira no infantil, Lígia Pinheiro Martins (do positivo aos 2 anos) no gestante e Janny na família; Retratos sem depoimento.",
+    "Não são dela: os pacotes e valores (exemplos), inclusive os de Família e Retratos, e o \"quando fazer\" de gestante."
+   ],
+   "conferir": [
+    "A foto de \"quem fotografa\" é um retrato com a câmera no studio (da v3): confirmar se é a Flávia."
+   ]
+  },
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py). Fotos dos ORIGINAIS (drive/ = a grade dela salva no Drive; posts/ = carrosséis do embed público; google/ = Perfil da Empresa), escolhidas uma a uma na folha de contato. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "versao": 4,
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "A Flávia e o Studio Flaternize.",
+   "p": [
+    "A Flávia fotografa crianças, bebês, gestantes, famílias e retratos femininos e corporativos no Studio Flaternize, em Jundiapeba, Mogi das Cruzes.",
+    "Cada ensaio é pensado como uma experiência, com cenários montados por ela, como os do Natal."
+   ],
+   "citacao": "Aqui no nosso Studio oferecemos experiência: vocês saem querendo mais.",
+   "citacao_quem": "Studio Flaternize, no Instagram",
+   "fotos": [
+    {
+     "arq": "drive/863142088_18128939758804494_5877897350241258296_n.jpg",
+     "alt": "Retrato com a câmera, no Studio Flaternize"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 29 avaliações no Google"
+    ],
+    [
+     "3,0 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
   "ensaios": [
    {
     "id": "natal",
     "nome": "Natal 2026",
-    "chamada": "Ensaio de Natal",
-    "fotos": [
-     "natal:1,3,8,9,0,7,11,10,6"
+    "curto": "Natal",
+    "chamada": "Especial de Natal 2026",
+    "pedido": "o ensaio de Natal",
+    "frase": "Eterna Magia.",
+    "texto": "Dois cenários no studio: a Sala de Natal, com a poltrona de couro e a árvore vermelha, e o Celeiro de Natal, com neve e lenha.",
+    "citacao": "A época mais linda do ano sempre vai ser o Natal.",
+    "citacao_quem": "Studio Flaternize, no Instagram",
+    "quando": "O Especial de Natal 2026 já está no studio, com poucas vagas. Datas pelo WhatsApp.",
+    "depo": {
+     "nome": "Jonathas Santos",
+     "texto": "Um ótimo ambiente. A Flávia é uma excelente profissional, com uma ótima comunicação e um cuidado enorme com a nossa experiência. Fui muito bem atendido presencialmente e as fotos ficaram incríveis. Voltarei em breve!"
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Eterna magia.",
-    "sub": "O Especial de Natal 2026: a Sala e o Celeiro, em branco e dourado.",
-    "texto": "Nunca vou oferecer apenas um ensaio simples de fotos: aqui vocês vivem uma experiência e saem querendo mais.",
+    "fotos": [
+     {
+      "arq": "posts/DfYaQW4AHdK/DfYaQW4AHdK_04.jpg",
+      "alt": "Família na poltrona da Sala de Natal"
+     },
+     {
+      "arq": "posts/Dfe84DgnN4v/Dfe84DgnN4v_03.jpg",
+      "alt": "Irmãs com o marshmallow no Celeiro de Natal"
+     },
+     {
+      "arq": "posts/DfYaQW4AHdK/DfYaQW4AHdK_13.jpg",
+      "alt": "Irmãs de suéter no Celeiro de Natal"
+     },
+     {
+      "arq": "posts/Dfmn9GanOtb/Dfmn9GanOtb_03.jpg",
+      "alt": "Bebê de laço verde segurando o sininho"
+     },
+     {
+      "arq": "posts/DfYaQW4AHdK/DfYaQW4AHdK_02.jpg",
+      "alt": "Família na Sala de Natal"
+     },
+     {
+      "arq": "posts/Dfmn9GanOtb/Dfmn9GanOtb_07.jpg",
+      "alt": "Irmãos sentados junto à árvore vermelha"
+     },
+     {
+      "arq": "posts/Dfe84DgnN4v/Dfe84DgnN4v_01.jpg",
+      "alt": "As canecas de Feliz Natal"
+     },
+     {
+      "arq": "posts/DfYaQW4AHdK/DfYaQW4AHdK_10.jpg",
+      "alt": "Mãe e filha rindo na poltrona"
+     },
+     {
+      "arq": "posts/Dfe84DgnN4v/Dfe84DgnN4v_05.jpg",
+      "alt": "Família no Celeiro de Natal"
+     },
+     {
+      "arq": "posts/Dfmn9GanOtb/Dfmn9GanOtb_04.jpg",
+      "alt": "Bebê rindo junto à árvore"
+     },
+     {
+      "arq": "posts/DfYaQW4AHdK/DfYaQW4AHdK_12.jpg",
+      "alt": "Mãe de vermelho na poltrona da Sala de Natal"
+     },
+     {
+      "arq": "posts/Dfe84DgnN4v/Dfe84DgnN4v_07.jpg",
+      "alt": "Menina com o marshmallow"
+     },
+     {
+      "arq": "posts/DfYaQW4AHdK/DfYaQW4AHdK_14.jpg",
+      "alt": "Pai erguendo a bebê"
+     },
+     {
+      "arq": "posts/Dfmn9GanOtb/Dfmn9GanOtb_09.jpg",
+      "alt": "Menino sorrindo de perto, junto à árvore"
+     },
+     {
+      "arq": "posts/Dfe84DgnN4v/Dfe84DgnN4v_06.jpg",
+      "alt": "Família brincando com a neve no Celeiro"
+     },
+     {
+      "arq": "posts/DfYaQW4AHdK/DfYaQW4AHdK_06.jpg",
+      "alt": "Mãe e filhos na poltrona de couro"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Mini sessão",
@@ -723,20 +887,179 @@
        "Galeria online"
       ]
      }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Infantil e bebês",
+    "curto": "Infantil",
+    "chamada": "Ensaio infantil e de bebês",
+    "pedido": "o ensaio infantil",
+    "frase": "Do Homem-Aranha ao primeiro aninho.",
+    "texto": "Bebês e crianças à vontade, no tema que elas quiserem: frutas, super-heróis, aniversário.",
+    "depo": {
+     "nome": "Thaina Vieira",
+     "texto": "Excelente profissional, os melhores ensaios que já fiz: muito paciente, simpática e cuidadosa com as crianças."
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "quando": "O Especial de Natal 2026 tem pouquíssimas vagas: reserve o seu horário.",
-    "depo": "Jonathas Santos"
+    "fotos": [
+     {
+      "arq": "drive/621218125_18039078875729583_6273850629461060175_n.webp",
+      "alt": "Bebê com o limão, no ensaio das frutas"
+     },
+     {
+      "arq": "drive/619881649_18105405274696048_3395450950290617290_n.webp",
+      "alt": "Menino de Homem-Aranha sorrindo, sentado no chão"
+     },
+     {
+      "arq": "drive/618912623_17993750696875899_7253095350205150877_n.webp",
+      "alt": "Bebê de laço rindo, de braços abertos"
+     },
+     {
+      "arq": "drive/653982933_18095505035058248_9220561475066477396_n.webp",
+      "alt": "Bebê mordendo a fruta"
+     },
+     {
+      "arq": "drive/654011262_18076111256140852_981629879849440872_n.webp",
+      "alt": "Bebê de verde na poltrona de vime"
+     },
+     {
+      "arq": "drive/670276415_18582066451063781_2485442044824456778_n.webp",
+      "alt": "Bebê sorrindo no carrinho de madeira"
+     },
+     {
+      "arq": "drive/652800264_18081116570605247_472530266297488406_n.webp",
+      "alt": "Bebê na poltrona de vime, no fundo cinza"
+     },
+     {
+      "arq": "drive/623422416_18012575363659015_1460608884622531206_n.webp",
+      "alt": "Bebê sorrindo no fundo cinza"
+     },
+     {
+      "arq": "drive/625353338_18111647944647486_1841963482198598052_n.webp",
+      "alt": "Bebê sentada entre as frutas"
+     },
+     {
+      "arq": "drive/621167001_18083481065332196_327767520638626470_n.webp",
+      "alt": "Bebê deitada de laço rosa"
+     },
+     {
+      "arq": "drive/622500307_18064355990270961_6412974160157856960_n.webp",
+      "alt": "Bebê de laço rosa sorrindo"
+     },
+     {
+      "arq": "drive/657746024_18073550678210650_7484677846285405735_n.webp",
+      "alt": "Smash the cake da Minnie"
+     },
+     {
+      "arq": "drive/654631392_18097758124813957_4578779579305118531_n.webp",
+      "alt": "Menina sorrindo junto à árvore"
+     },
+     {
+      "arq": "drive/629238215_18324828589223249_5060960538453152834_n.webp",
+      "alt": "Bebê de verde com o sininho"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 300",
+      "itens": [
+       "40 minutos de ensaio",
+       "Cenário temático",
+       "12 fotos editadas"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 450",
+      "itens": [
+       "1 hora de ensaio",
+       "Cenário no tema escolhido",
+       "25 fotos editadas",
+       "Fotos com a família"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 630",
+      "itens": [
+       "1h30 de ensaio",
+       "2 cenários",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
    },
    {
     "id": "gestante",
     "nome": "Gestante",
     "chamada": "Ensaio gestante",
-    "fotos": [
-     "gestante:1,0,3,2,4,5"
+    "pedido": "o ensaio gestante",
+    "frase": "O acompanhamento começa no positivo.",
+    "texto": "No studio, com tecidos e vestidos, sozinha ou com o parceiro.",
+    "quando": "Costuma ser feito entre a 28ª e a 34ª semana, quando a barriga já aparece bem. Vale reservar antes.",
+    "depo": {
+     "nome": "Lígia Pinheiro Martins",
+     "texto": "Eu amo esse lugar! A Flávia nos deixa super à vontade e garante que o trabalho saia incrível. Fiz também o acompanhamento da minha filha, desde o positivo até agora, com 2 anos."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "titulo": "O acompanhamento começa no positivo.",
-    "sub": "Gestantes no estúdio, com tecidos, vestidos e o parceiro junto.",
-    "texto": "Do positivo ao bebê no colo: a Flávia acompanha a família em cada fase, com ajuda em cada pose.",
+    "fotos": [
+     {
+      "arq": "google/g01.jpg",
+      "alt": "Gestante com o tecido colorido"
+     },
+     {
+      "arq": "google/g02.jpg",
+      "alt": "Gestante de perfil, com o tecido colorido"
+     },
+     {
+      "arq": "google/g00.jpg",
+      "alt": "Gestante de branco na poltrona de vime"
+     },
+     {
+      "arq": "drive/621513847_18031662302582119_5629234547596632876_n.webp",
+      "alt": "Gestante de preto, de perfil junto à porta"
+     },
+     {
+      "arq": "drive/624096698_18081482165231293_6013069048267845172_n.webp",
+      "alt": "Casal no ensaio gestante"
+     },
+     {
+      "arq": "drive/650731268_18103403749902279_1471096178155025662_n.webp",
+      "alt": "Gestante sentada no cubo branco"
+     },
+     {
+      "arq": "drive/652553277_18139606807501740_9185953139628375761_n.webp",
+      "alt": "Detalhe dos sapatinhos sobre a barriga"
+     },
+     {
+      "arq": "drive/652812086_18097460149796827_3326321253101524296_n.webp",
+      "alt": "A barriga com o terço"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
@@ -769,53 +1092,198 @@
        "Álbum impresso 20x20"
       ]
      }
-    ],
-    "quando": "Melhor época: entre a 28ª e a 34ª semana, quando a barriga já aparece e você ainda está confortável. Reserve com antecedência.",
-    "depo": "Lígia Pinheiro Martins"
+    ]
    },
    {
-    "id": "infantil",
-    "nome": "Infantil e bebês",
-    "chamada": "Ensaio infantil",
-    "fotos": [
-     "infantil:2,0,4,5,6,1,3"
+    "id": "familia",
+    "nome": "Família",
+    "chamada": "Ensaio de família",
+    "pedido": "o ensaio de família",
+    "frase": "A família toda na experiência.",
+    "texto": "Pais, filhos e irmãos no studio, no cenário que a família escolher.",
+    "depo": {
+     "nome": "Janny",
+     "texto": "Já fiz vários ensaios no Studio Flaternize e fico encantada a cada ensaio realizado. A Flávia é super profissional, te deixa super à vontade, arrasa nos cenários e o mais incrível: o resultado das suas fotos é maravilhoso."
+    },
+    "capa": 2,
+    "vitrine": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
     ],
-    "titulo": "Do Homem-Aranha ao primeiro aninho.",
-    "sub": "Bebês e crianças à vontade, com paciência e cuidado.",
-    "texto": "Ensaios do bebê ao longo do primeiro ano e das crianças maiores, no tema que elas quiserem.",
+    "fotos": [
+     {
+      "arq": "drive/656174372_18060662216391700_1297633402962775866_n.webp",
+      "alt": "Pais com a bebê de verde"
+     },
+     {
+      "arq": "drive/622869880_18088071158012412_3272323840250449880_n.webp",
+      "alt": "Família junto à árvore de Natal"
+     },
+     {
+      "arq": "drive/651511224_18099943328105408_2581477938395617101_n.webp",
+      "alt": "Pais com o filho na cama"
+     },
+     {
+      "arq": "drive/650899620_18118447237619463_9187965684667569038_n.webp",
+      "alt": "Mãe erguendo o filho, rindo"
+     },
+     {
+      "arq": "drive/619477047_18028704047786430_143525598355426893_n.webp",
+      "alt": "Mãe e filho de Homem-Aranha"
+     },
+     {
+      "arq": "drive/618977663_17968089287852450_8803621115104407225_n.webp",
+      "alt": "Mãe e filha junto à árvore"
+     },
+     {
+      "arq": "drive/625055749_18084729544924460_765431615616013041_n.webp",
+      "alt": "Mãe beijando a filha junto à árvore de Natal"
+     },
+     {
+      "arq": "drive/656278244_18120443605617210_4787786611389772998_n.webp",
+      "alt": "Mãe brincando com o filho de Homem-Aranha"
+     },
+     {
+      "arq": "drive/650403561_18057904226690287_2147848427453932745_n.webp",
+      "alt": "Irmãs na poltrona de vime de Natal"
+     },
+     {
+      "arq": "google/g04.jpg",
+      "alt": "Mãe com os filhos no cenário de Páscoa"
+     },
+     {
+      "arq": "google/g03.jpg",
+      "alt": "Irmão com o bebê de orelhinhas de coelho"
+     },
+     {
+      "arq": "drive/657553910_18314585410258417_6095710827145793996_n.webp",
+      "alt": "Irmãs brincando com o sininho"
+     },
+     {
+      "arq": "drive/651050330_18077978900386738_7178473498181259389_n.webp",
+      "alt": "Mãe e filho de rostos colados"
+     }
+    ],
     "pacotes": [
      {
       "nome": "Essencial",
-      "preco": "R$ 300",
+      "preco": "R$ 320",
       "itens": [
        "40 minutos de ensaio",
-       "Cenário temático",
-       "12 fotos editadas"
+       "12 fotos editadas",
+       "Galeria online"
       ]
      },
      {
       "nome": "Completo",
-      "preco": "R$ 450",
+      "preco": "R$ 480",
       "itens": [
        "1 hora de ensaio",
-       "Cenário no tema escolhido",
        "25 fotos editadas",
-       "Fotos com a família"
+       "Até 6 pessoas"
       ],
       "destaque": true
      },
      {
       "nome": "Premium",
-      "preco": "R$ 630",
+      "preco": "R$ 680",
       "itens": [
        "1h30 de ensaio",
-       "2 cenários",
        "40 fotos editadas",
        "Quadro 30x40"
       ]
      }
+    ]
+   },
+   {
+    "id": "retratos",
+    "nome": "Feminino e corporativo",
+    "curto": "Retratos",
+    "chamada": "Ensaio feminino e corporativo",
+    "pedido": "o ensaio feminino ou corporativo",
+    "frase": "Você em foco.",
+    "texto": "Retratos no studio, de fundo claro ou cinza: para você, para o aniversário ou para o trabalho.",
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
     ],
-    "depo": "Thaina Vieira"
+    "fotos": [
+     {
+      "arq": "drive/636920309_18536053582070132_5223605494444859307_n.webp",
+      "alt": "Retrato sorrindo de blusa preta"
+     },
+     {
+      "arq": "drive/628009954_18356899459203356_8669359927726795891_n.webp",
+      "alt": "Retrato no fundo cinza"
+     },
+     {
+      "arq": "drive/626297583_18424072705139136_63589526878182541_n.webp",
+      "alt": "Retrato sentada na banqueta"
+     },
+     {
+      "arq": "drive/626780796_18201348112336009_5062566446659344623_n.webp",
+      "alt": "Retrato de corpo inteiro no fundo cinza"
+     },
+     {
+      "arq": "drive/624085519_18120590494569258_2695277065513142149_n.webp",
+      "alt": "Retrato na banqueta, de jeans"
+     },
+     {
+      "arq": "drive/629397235_18323742148218957_8061866138768231367_n.webp",
+      "alt": "Retrato sentada no banco alto"
+     },
+     {
+      "arq": "drive/651745078_18073153754630639_1118497225627121564_n.webp",
+      "alt": "Ensaio de 27 anos com os balões"
+     },
+     {
+      "arq": "drive/653262553_18100536076741591_7586369042880262528_n.webp",
+      "alt": "Ensaio de 27 anos sentada entre os balões"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 280",
+      "itens": [
+       "30 minutos de ensaio",
+       "10 fotos editadas",
+       "1 look"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 420",
+      "itens": [
+       "1 hora de ensaio",
+       "20 fotos editadas",
+       "2 looks"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 600",
+      "itens": [
+       "1h30 de ensaio",
+       "30 fotos editadas",
+       "3 looks"
+      ]
+     }
+    ]
    }
   ]
  }
