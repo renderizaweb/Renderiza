@@ -9,6 +9,11 @@ Indicação do Dr. Marcos (MS Odontologia). Pesquisa do nicho em `docs/nichos/ve
   (`vale_ate` 17/11/2026). O contador conta as visitas, as partes vistas, os cliques (Instagram, mapa e os botões
   `pedido-*`, inclusive "pedido-enviado" quando ele testa o formulário) e os outros aparelhos (repassou).
 - **Preço:** nenhum na demo.
+- **Proposta comercial (14/11/2026):** ele topou. A página para mandar a ele é `/proposta/vereador-mateuzinho-silva`
+  (`propostas/vereador-mateuzinho-silva.html`, fora de /demo: não sai do ar quando a demo vence; o contador conta as
+  visitas no lead, como "proposta"). O texto de trabalho está no documento "Site e Portal do Mandato · Gabinete Aberto"
+  (Claude Docs). Valores: 60 h, R$ 75/h de tabela (R$ 4.500), R$ 55/h por indicação (R$ 3.300); manutenção
+  Essencial R$ 350, Gabinete R$ 590, Mandato R$ 990.
 - **Proposta e vídeo (11/11/2026):** `proposta.md` traz as duas ofertas (site, ou site com o Portal do Mandato,
   sob medida e fora do Painel Renderiza), os cuidados e o vídeo do conceito "Gabinete Aberto" (versão 2: institucional, que ele pode postar)
   (`gravacoes/vereador-mateuzinho-silva-proposta.mp4`), com a fonte de cada número do vídeo.
