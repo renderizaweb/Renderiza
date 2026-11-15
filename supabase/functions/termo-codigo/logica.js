@@ -14,7 +14,7 @@ const ORIGENS = [
 const TERMO = /^[a-z0-9-]{3,80}$/;
 const PROTOCOLO = /^[0-9A-F]{12}$/;
 export const COPIA = "contato@renderizaweb.com.br";
-const PLANOS = { essencial: "Essencial · R$ 300 por mês", gabinete: "Gabinete · R$ 590 por mês", completo: "Completo · R$ 990 por mês", "sem-plano": "Sem plano da Renderiza (estrutura própria)" };
+const PLANOS = { essencial: "Essencial · R$ 499 por mês", gabinete: "Gabinete · R$ 799 por mês", completo: "Completo · R$ 1.299 por mês", "sem-plano": "Sem plano da Renderiza (estrutura própria)" };
 const esc = t => String(t == null ? "" : t).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const EMAIL = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
