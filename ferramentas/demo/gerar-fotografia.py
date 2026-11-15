@@ -924,7 +924,7 @@ def agenda_html(cfg, so=None):
     """O quadro do pedido: ensaio ou campanha -> dia e horário -> nome e WhatsApp -> pedido enviado. "so" prende o
     quadro numa campanha (a página dela). O JS (JS_AGENDA) preenche as opções, o calendário e os horários."""
     a = cfg['agenda']; q = quem(cfg)
-    passos = ([] if so else ['Ensaio']) + ['Dia e horário', 'Seus dados']
+    passos = ([] if so else ['Ensaio']) + ['Dia e hora', 'Seus dados']
     trilha = ''.join(f'<li{" class=" + chr(34) + "atual" + chr(34) if i == 0 else ""}>{esc(x)}</li>' for i, x in enumerate(passos))
     pronto = a.get('pronto', f'{q["A"]} confirma pelo WhatsApp.')
     exemplo = f'<p class="ag-exemplo"><svg aria-hidden="true"><use href="#cal"/></svg>{esc(a["exemplo"])}</p>' if a.get('exemplo') else ''
@@ -1011,6 +1011,7 @@ button.ag-d:hover,button.ag-d.escolhido{background:var(--acento);border-color:va
 .ag-pronto-acoes{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 24px;margin-top:22px!important}
 .ag-exemplo{display:flex;gap:8px;align-items:flex-start;margin:22px 0 0;padding-top:16px;border-top:1px dashed var(--linha);font-size:.8rem;line-height:1.45;color:var(--tinta-2)}
 .ag-exemplo svg{width:15px;height:15px;flex:none;margin-top:2px}
+body:has(.ag [data-etapa=dados]:not([hidden])) .flutuante{display:none}
 .natal .ag{color:var(--tinta)}.natal .ag p{color:var(--tinta-2)}
 .vagas{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 12px;margin:26px 0 24px}
 .vagas b{font-family:var(--serif);font-size:3rem;font-weight:500;line-height:1}.vagas span{font-size:1rem}
@@ -1137,6 +1138,7 @@ JS_AGENDA = r'''
       zap.value = d.length > 6 ? "(" + d.slice(0, 2) + ") " + d.slice(2, d.length - 4) + "-" + d.slice(-4) : d.length > 2 ? "(" + d.slice(0, 2) + ") " + d.slice(2) : d;
     });
     const erro = (campo, tem) => { const cx = campo.closest(".ag-campo"); cx.classList.toggle("erro", tem); $(".ag-erro", cx).hidden = !tem; return tem; };
+    [nome, zap].forEach(campo => campo.addEventListener("input", () => erro(campo, false)));
     form.addEventListener("submit", ev => {
       ev.preventDefault();
       const e1 = erro(nome, nome.value.trim().length < 2), e2 = erro(zap, !/^\d{10,11}$/.test(digitos()));
