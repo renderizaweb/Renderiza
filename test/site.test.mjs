@@ -490,7 +490,9 @@ test("demos com mais de uma página (fotógrafas): os links entre elas são abso
       if (!existsSync(new URL(`${pasta}/natal.html`, raiz)) || !existsSync(arq)) continue;
       const html = readFileSync(arq, "utf8");
       assert.doesNotMatch(html, /href="(index|natal)\.html/, `${pasta}/${f}: link relativo entre as páginas da demo`);
-      assert.match(html, new RegExp(`href="/demo/${pasta}/natal`), `${pasta}/${f}: sem o link absoluto para a página de Natal`);
+      // o site leva à página de Natal; a de Natal leva de volta ao site (sem a faixa da Renderiza, ela não aponta para si mesma)
+      if (f === "index.html") assert.match(html, new RegExp(`href="/demo/${pasta}/natal`), `${pasta}/${f}: sem o link absoluto para a página de Natal`);
+      else assert.match(html, new RegExp(`href="/demo/${pasta}["#/]`), `${pasta}/${f}: sem o link absoluto de volta para o site`);
       // no ar, o build põe <script data-pagina="demo"> (contador): o script da página só pode mexer nos links
       assert.doesNotMatch(html, /\$\$\("\[data-pagina\]"\)/, `${pasta}/${f}: [data-pagina] pega também o script do contador`);
     }

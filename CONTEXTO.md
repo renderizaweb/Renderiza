@@ -203,6 +203,16 @@ cliente, ajustes, repositório, hospedagem, domínio, entrega). Abaixo, o que é
   financeiro e atendimento. Ficaram de fora, porque a fotografia ainda não tem: a agenda online, os cliques do site e a cor dos
   botões. O site de fotógrafa ainda não sai com as marcações do Meu site (`data-site-*`): quem fechar com o Meu site precisa
   delas no site entregue.
+- **Rafaela Damaceno: fechou o site e o painel; a demo virou a proposta final** (14/11/2026): refeita com a marca dela (logo,
+  paleta e marca d'água do Drive dela), as fotos do cenário de Natal 2026, letras e cores mais leves, sem a faixa nem a oferta
+  da Renderiza e com a **agenda de verdade** (ensaio ou campanha de Natal com vagas, dia, horário livre, nome e WhatsApp, pedido
+  pelo WhatsApp), que só mostra o que a Agenda do painel entrega. Sai do mesmo `gerar-fotografia.py`, por opções no `demo.json`
+  (sem `renderiza`, `marca_img.topo`, `fotos_saida`, `marca_dagua`, `agenda`, `horario`; o topo do gerador explica); sem essas
+  opções, as outras demos de fotógrafa saem idênticas. As fotos tratadas levam `data-k`: outra sessão gera de novo sem os
+  originais. Fase 2, só depois que ela validar: as marcações do Meu site nos geradores de fotografia, a agenda online de
+  fotografia no painel, a conta dela e o site no ar. O que entrou, de onde veio e o que conferir com ela:
+  `demos/rafaela-damaceno-fotografia/ficha.md`. Lição de ambiente: a sessão precisa abrir no ambiente com rede livre e as
+  variáveis `PAINEL_*`; no Default, o Drive, o Instagram, o Google e o próprio site ficam bloqueados.
 - **Bia Maida: versão 2 da demo, com foco em eventos** (12/11/2026, pedido do Kaue): a Bia gostou da demo e pediu o foco em
   eventos no lugar do estúdio, fotos novas (32, pelo WhatsApp) e a demo refeita. O site virou uma página feita à mão, com a
   mesma identidade e mais movimento: `ferramentas/demo/gerar-fotografia-eventos.py` + `ferramentas/demo/modelos/bia-maida-eventos.html`
