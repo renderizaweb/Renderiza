@@ -17,10 +17,11 @@ function chave(nova, antiga) {
   return Deno.env.get(antiga);
 }
 const admin = createClient(Deno.env.get("SUPABASE_URL"), chave("SUPABASE_SECRET_KEYS", "SUPABASE_SERVICE_ROLE_KEY"), { auth: { persistSession: false, autoRefreshToken: false } });
-const BREVO = Deno.env.get("BREVO_API_KEY") || "";
+// a chave é lida a cada pedido: posta ou trocada em Secrets, vale na hora
+const brevo = () => Deno.env.get("BREVO_API_KEY") || "";
 
 const deps = {
-  temChave: Boolean(BREVO),
+  get temChave() { return Boolean(brevo()); },
   async registrar({ termo, email, hash, ip }) {
     const { data, error } = await admin.rpc("registrar_codigo_termo", { p_termo: termo, p_email: email, p_hash: hash, p_ip: ip });
     if (error) throw error;
@@ -34,7 +35,7 @@ const deps = {
   async enviar({ para, copia, assunto, html, texto }) {
     const r = await fetch("https://api.brevo.com/v3/smtp/email", {
       method: "POST",
-      headers: { "api-key": BREVO, "Content-Type": "application/json", Accept: "application/json" },
+      headers: { "api-key": brevo(), "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({
         sender: { name: "Renderiza", email: "nao-responda@renderizaweb.com.br" },
         replyTo: { email: "contato@renderizaweb.com.br" },
