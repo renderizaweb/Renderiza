@@ -184,10 +184,13 @@ parecia amadora e prometia o que não dá para entregar. A versão 2 é uma **pe
 - **Dados da Renderiza no contrato:** Kaue de Almeida Cunha. Na página, o CPF aparece mascarado (***.406.148-**) e o
   endereço só como "São Paulo/SP", porque a página é aberta a quem tiver o link. O número completo e o endereço vão no
   comprovante por e-mail (coluna `contratada` do termo, gravada direto no banco, fora do repositório).
-- **Custos por cliente (14/11/2026, estimativa):** Supabase Pro US$ 25 (cerca de R$ 145; a organização da Renderiza no
-  Supabase está no plano grátis, que não faz cópia diária e pausa projetos parados, então o projeto do gabinete precisa
-  do Pro), Vercel cerca de R$ 20 de rateio (o plano grátis não permite uso comercial), IA cerca de R$ 20. Estrutura:
-  cerca de R$ 185 por mês. Com cerca de 1,5 h de trabalho, o Essencial custa cerca de R$ 267.
+- **Custos por cliente (estimativa):**
+  - **Supabase:** a organização da Renderiza está no plano grátis. Sem a promessa de cópia diária (15/11), o projeto
+    do gabinete cabe no grátis: 500 MB de banco, 1 GB de arquivos (comprimir as fotos), até 2 projetos grátis, e o
+    projeto pausa só depois de 7 dias sem uso (a leitura diária da Câmara mantém ativo). Se crescer, Pro US$ 25.
+  - **Vercel:** cerca de R$ 20 de rateio; o plano grátis não permite uso comercial.
+  - **IA:** cerca de R$ 20.
+  - **Essencial:** cerca de R$ 40 a 185 de estrutura mais 1,5 h de trabalho.
 - **"Mandato":** é o período do cargo (2025 a 2028). "Site do mandato" é o site oficial do vereador no cargo, diferente
   de um site de campanha, que tem regras próprias.
 
@@ -219,12 +222,13 @@ parecia amadora e prometia o que não dá para entregar. A versão 2 é uma **pe
 ### Compromissos de segurança do contrato (Anexo II): conferir na implantação
 
 1. HTTPS em tudo.
-2. Projeto do Supabase exclusivo do mandato, em São Paulo, no plano Pro (cópia diária; o grátis não serve).
+2. Projeto do Supabase exclusivo do mandato, em São Paulo. Pode ser no plano grátis: o contrato não promete cópia
+   diária (decisão do Kaue em 15/11), só a semanal.
 3. Login individual, com verificação em duas etapas para toda a equipe.
 4. Perfis de acesso com RLS em todas as tabelas.
 5. Registro de quem criou, alterou ou excluiu cada coisa; registros de acesso guardados por 6 meses.
-6. Cópia diária guardada por 7 dias, mais uma semanal guardada à parte por 4 semanas (some tudo em até 30 dias depois
-   do fim, como promete a cláusula 13).
+6. Cópia semanal feita pela Renderiza (ex.: pg_dump agendado), guardada à parte por 4 semanas (some tudo em até 30
+   dias depois do fim, como promete a cláusula 13). Nada de cópia diária.
 7. Formulário público com proteção contra robôs (Turnstile) e limite de envios.
 8. Página do pedido só pelo link ou pelo número com confirmação.
 9. O site público nunca mostra nome, telefone ou endereço de quem pediu.
