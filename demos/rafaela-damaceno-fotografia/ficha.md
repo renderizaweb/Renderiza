@@ -1,4 +1,4 @@
-# Rafaela Damaceno Fotografia
+# Rafaela Damaceno Estúdio Fotográfico
 
 | | |
 |---|---|
@@ -7,32 +7,41 @@
 | Google | nota 5,0 · 26 avaliações · conferido em 06/11/2026 |
 | WhatsApp | (11) 99479-4869 · celular do Perfil da Empresa no Google (+55 11 99479-4869), o mesmo do post "Respondendo coletivamente..." ("WhatsApp: (11) 99479-4869") |
 | Horário | Segunda Fechado; Terça a sexta 8h às 18h; Sábado 8h às 16h; Domingo Fechado |
-| Site | fora do ar: o Google aponta www.rafaeladamacenofotografia.com.br, domínio que não existe mais (NXDOMAIN) (lote 3, 06/11/2026) |
+| Site | o domínio antigo (rafaeladamacenofotografia.com.br) expirou (NXDOMAIN); a página dela no Alboom (rafaeladamacenofotografia.alboompro.com) segue no ar e serviu de referência de letra e cor |
 | Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
-| Situação | pronta · 06/11/2026 · `/demo/rafaela-damaceno-fotografia` e `/demo/rafaela-damaceno-fotografia/natal` |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até 12/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |
-| Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
+| Situação | cliente fechada (site e painel) · proposta final em 15/11/2026 · `/demo/rafaela-damaceno-fotografia` e `/demo/rafaela-damaceno-fotografia/natal` · esperando ela validar para a Fase 2 (o site no ar, ligado ao Painel Renderiza) |
+| Oferta na demo | sem oferta na página (cliente fechada: a demo é a proposta final) |
+| Agenda | a de verdade (`agenda` no `demo.json`): ensaio ou campanha, dia, horário livre, nome e WhatsApp; o pedido sai pelo WhatsApp |
 
 ## Direção da demo
-- Lote 3 de fotógrafos (nº 1, 86 pontos), escolhida no Drive de 06/11/2026. Bio: "📸 Onde as memórias florescem · 🤎 Gestante | Bebês | Família | Aniversários · ✨ Newborn · Orçamentos pelo WhatsApp".
-- Dona: Rafaela Damaceno ("Para quem não me conhece, prazer sou a Rafaela Damaceno! Sonhadora..."; "Mãe da Micaelly e do Henry"). Foto dela: a do perfil do Instagram, com a câmera.
-- Personalidade: livro de histórias. Ela escreve "Era uma vez... um ensaio Smash the Cake", fez o projeto "Cartas ao Noel" e chama o Natal 2026 de "mais um capítulo da história da sua família". Na demo: IM Fell English (letra de livro antigo), capitular no "quem fotografa", os ensaios como capítulos, ❀ entre as especialidades ("onde as memórias florescem"), o marrom 🤎 que ela usa e papel creme.
-- Sem logo em boa resolução: monograma RD e o nome com "fotografia" cursiva (Sacramento), feitos para a demo; abertura em arcos.
+- Fechou com a Renderiza (site e painel). A demo foi refeita em 15/11/2026 e é a proposta final: ela espera exatamente o que vê aqui. Depois que ela validar, o site vai ao ar ligado ao Painel Renderiza (Fase 2).
+- Marca real (do Drive dela): o logo "Rafaela Damaceno · Estúdio Fotográfico" no topo e no rodapé, o selo da flor como ícone e a paleta do logo (terracota #a7674b, nude #c3a68f, verde #aaa98a, off white #e5e0dd). Saíram o monograma RD e a palavra cursiva feitos para a demo.
+- Letras e cores mais leves, como na página dela no Alboom (lá: Alegreya e Alice, texto cinza, fundo off white): Cormorant Garamond em pesos finos (300/400) nos títulos, Jost 300 no texto, marrom acinzentado suave no lugar do marrom escuro, fundo off white sem a textura de papel. O layout não foi copiado.
+- Personalidade mantida: "Onde as memórias florescem", os ensaios como capítulos, a capitular no "quem fotografa" e a flor entre as especialidades.
+- Sem a camada da Renderiza: saíram a faixa, a pílula, a oferta (R$ 399) e o window.RZ (sem `renderiza` no `demo.json`). O contador de visitas continua (o build põe): conferido que conta a abertura, o clique no WhatsApp, a rolagem até o fim e o pedido da agenda. A pasta não está em `site/ofertas.mjs`.
+- Preço dos ensaios: ela não mandou tabela (o Drive só tem logo e fotos). Fica "orçamento pelo WhatsApp", como na bio dela. Nenhum valor na página.
 
 ## O que tem na demo
-- Site: abertura (aniversários, bebês e gestante), portfólio em 3 abas (Infantil, 10; Gestante e bebês, 7; Família, 6), a Rafaela, os ensaios, 4 avaliações do Google, o bloco do Natal e o contato.
-- Página de Natal "Mais um capítulo da história da sua família": o ensaio (o texto do post de 05/11), o cenário (o Natal em família e os cenários de Páscoa e de estrelas), a agenda de exemplo (6 dias de terça a sábado, de 14/11 a 05/12, das 9h às 14h30, dentro do horário do Google e depois de 09/11) e outros ensaios do ano.
-- Sem o aviso da Renderiza: o modal foi tirado em 06/11 (nas primeiras visitas, as pessoas saíam da página quando ele abria).
+- Site: abertura (newborn, aniversários e gestante), portfólio em 3 abas (Infantil, 10; Gestante e bebês, 7; Família, 6), a Rafaela (o retrato e a foto no estúdio, do Drive), os ensaios, 4 avaliações do Google, o bloco do Natal, a agenda e o contato.
+- Página de Natal: o cenário de 2026 nas fotos dela (a capa, 3 no "ensaio" e 8 de detalhes), a agenda presa na campanha de Natal e as avaliações.
+- Agenda de verdade, como a Agenda do painel entrega: a pessoa escolhe o ensaio ou a campanha de Natal (com os horários livres), o dia, um horário livre, deixa nome e WhatsApp e vê "Pedido enviado. A Rafaela confirma pelo WhatsApp."; o WhatsApp dela abre com a mensagem pronta. As datas contam a partir do dia em que a página é aberta (horário de Brasília) e nada aparece como reservado de mentira.
+- Dias e horários da agenda são EXEMPLO, a confirmar com ela (a página avisa numa linha, `agenda.exemplo`): ensaios de hora em hora dentro do horário do Google (terça a sexta, início das 8h às 17h; sábado, das 8h às 15h; 60 minutos, a duração padrão do painel); campanha de Natal às quintas e aos sábados, de 19/11 a 19/12, às 9h, 10h30, 13h e 14h30 (40 horários). Tudo em `agenda` no `demo.json`; o gerador recusa horário fora do horário do estúdio.
+- Na Fase 2 os dias e horários vêm do que ela cadastrar no painel, e o pedido também cai lá (Atendimento e pré-reserva na Agenda, que segura o horário por 48 horas). A página não promete sinal nem pagamento online.
 
 ## Fotos
-- Os posts de out 2026 (smash da Branca de Neve de 15/10, Natália 3 anos de 20/10 e Micaelly 6 anos de 25/10, 1440 px), a página do Instagram salva no Drive (só as fotos do feed, 1440 px), 2 fotos do Google e a foto do perfil do Instagram.
-- Ficaram de fora: todas as capas de vídeo (os quadros 9:16 da página, inclusive o cenário de Natal 2026 e o de 2024, que só existem em reels), as artes com texto (Cartas ao Noel, Feliz Natal, Promo, Quem sou eu), as fotos pessoais (com o marido) e as de festa de 15 anos.
+- Do Drive dela (14/11/2026, 62 arquivos): 15 fotos do cenário de Natal 2026 (12 usadas; ficaram de fora a Natal-3 e a Natal-4, quase iguais à Natal-6, e a Natal-7, quase igual à Natal-8), 3 fotos dela (o retrato e a do estúdio com a câmera entraram; a do estúdio aberto, AMD07250, não) e 44 PNG da marca (principal, vertical, circular, ícones, selos e slogan, em até 7 cores). Sem tabela de preços.
+- Portfólio: os 18 originais do feed dela (1440 px), da página do Instagram salva no lote 3. Cinco fotos (o smash da Branca de Neve, a menina de 3 anos, a de 6 anos e as 2 do Google) vieram da versão anterior da página, já tratadas (825 a 1000 px), porque o Instagram e o Google estavam bloqueados na sessão; não foram ampliadas.
+- Marca d'água dela (o logo principal em branco; em terracota onde o fundo é claro), embaixo no centro, em todas as fotos do trabalho dela. As 2 fotos em que ela aparece não levam marca.
+- Fotos em JPEG progressivo, 1400 px na galeria e 1920 px na capa (lado maior), qualidade 82, dentro do HTML; os originais ficaram fora do git. Sem os originais, o gerador reaproveita as fotos já tratadas das páginas (chave `data-k`): dá para mudar texto e gerar de novo. Para trocar ou acrescentar foto, baixar os originais de novo (o Drive dela e a pasta do lote 3) e acertar os caminhos em `arquivo`.
 
 ## Textos e fontes
-- Bio e legendas: "Onde as memórias florescem", "Fotografando hoje as memórias que serão tesouros amanhã" (27/10), "O Natal tem uma magia..." e "Vamos criar juntos mais um capítulo da história da sua família?" (05/11), "Era uma vez..." (15/10), gestante, newborn, acompanhamento e Colo de Mãe.
-- Avaliações do Google: as 5 visíveis sem login; 4 de 5 estrelas em cada página.
+- "Quem fotografa": o texto "Sobre" da página dela no Alboom, nas palavras dela ("Rafaela Damaceno fotografa para cultivar..."). A citação é a frase dela no Instagram (27/10).
+- Endereço: Av. Liberdade, 125, 1º andar, sala 2 (da página dela no Alboom; o Google mostra só "Av. Liberdade - Centro").
+- Bio, legendas (ensaios e Natal) e avaliações do Google: as mesmas da versão de 06/11 (Google conferido em 06/11: nota 5,0 com 26 avaliações; não deu para conferir de novo nesta sessão).
 
 ## Conferir antes de mandar
-- As fotos de Natal são de anos anteriores (o piquenique de 2024 é da família dela, com o marido e os filhos; os irmãos na manta xadrez são os filhos dela). O cenário de 2026 só aparece num reel, então não entrou.
-- O site antigo (rafaeladamacenofotografia.com.br) está fora do ar e o Google ainda aponta para ele.
+- Com ela: os dias e horários da agenda e da campanha de Natal (são exemplo), a duração dos ensaios, quais ensaios entram na agenda, o endereço (número e sala) e se a marca d'água é mesmo o logo principal em branco.
 - Fotos de crianças, bebês e gestantes: todas publicadas por ela como portfólio. Vale ela confirmar se pode usar todas no site.
+- Domínio: o antigo expirou. Decidir onde o site vai ficar (Fase 2).
+- A demo precisa ficar no ar até ela validar: conferir o prazo no card do lead, no Painel de prospecção.
+- Fase 2: abrir a sessão num ambiente com as variáveis PAINEL_* e rede livre. A sessão desta fase abriu no ambiente Default (sem as variáveis e com a rede limitada).
