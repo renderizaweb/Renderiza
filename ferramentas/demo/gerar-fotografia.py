@@ -41,7 +41,8 @@
 #   agenda {...}: a agenda de verdade no lugar dos horários de exemplo (ver agenda_dados): a pessoa escolhe o ensaio
 #     ou a campanha (com vagas), o dia, um horário livre, deixa nome e WhatsApp e o pedido vai pelo WhatsApp. É o que
 #     a Agenda do painel entrega (horariosLivres e resumoDaCampanha em painel-clientes/src/modulos/agenda/logica.js).
-#   sobre.foto2: uma segunda foto, menor, sobre o canto da primeira.
+#   sobre.foto2: uma segunda foto, menor, sobre o canto da primeira. jornada.fonte vazio: sem a nota de fonte.
+#   natal.link_site: o rótulo do link de volta ao site na página de Natal (padrão: "O site da Ana").
 # No vídeo (gravar.mjs), a página aberta com ?video=1 esconde a camada da Renderiza (o vídeo não mostra preço).
 import base64, datetime, hashlib, html, io, json, os, re, sys, urllib.parse
 from PIL import Image, ImageOps
@@ -924,13 +925,14 @@ def agenda_html(cfg, so=None):
     """O quadro do pedido: ensaio ou campanha -> dia e horário -> nome e WhatsApp -> pedido enviado. "so" prende o
     quadro numa campanha (a página dela). O JS (JS_AGENDA) preenche as opções, o calendário e os horários."""
     a = cfg['agenda']; q = quem(cfg)
-    passos = ([] if so else ['Ensaio']) + ['Dia e hora', 'Seus dados']
-    trilha = ''.join(f'<li{" class=" + chr(34) + "atual" + chr(34) if i == 0 else ""}>{esc(x)}</li>' for i, x in enumerate(passos))
+    passos = ([] if so else [('ensaio', 'Ensaio')]) + [('dia', 'Dia e hora'), ('dados', 'Seus dados')]
+    trilha = ''.join(f'<li{" class=" + chr(34) + "atual" + chr(34) if i == 0 else ""}><button type="button" data-ag-ir="{e}" disabled>{i + 1}. {esc(x)}</button></li>'
+                     for i, (e, x) in enumerate(passos))
     pronto = a.get('pronto', f'{q["A"]} confirma pelo WhatsApp.')
     exemplo = f'<p class="ag-exemplo"><svg aria-hidden="true"><use href="#cal"/></svg>{esc(a["exemplo"])}</p>' if a.get('exemplo') else ''
     return f'''<div class="ag reveal" data-agenda{" data-so=" + chr(34) + esc(so) + chr(34) if so else ""}>
   <ol class="ag-trilha" aria-label="Passos do pedido">{trilha}</ol>
-  <p class="ag-resumo" data-ag-resumo hidden><span></span><button type="button" class="ag-voltar" data-ag-voltar><svg aria-hidden="true"><use href="#seta"/></svg>Voltar</button></p>
+  <div class="ag-resumo" data-ag-resumo hidden><button type="button" class="ag-voltar" data-ag-voltar><svg aria-hidden="true"><use href="#seta"/></svg>Voltar</button><span></span></div>
   <div class="ag-etapa" data-etapa="ensaio"{" hidden" if so else ""}>
     <h3 class="ag-titulo">Qual é o ensaio?</h3>
     <div class="ag-opcoes" data-ag-opcoes></div>
@@ -960,7 +962,7 @@ def agenda_html(cfg, so=None):
     <h3 class="ag-titulo">Pedido enviado.</h3>
     <p class="ag-pronto-resumo" data-ag-pronto-resumo></p>
     <p>{esc(pronto)}</p>
-    <p class="ag-pronto-acoes"><a class="botao" data-ag-abrir href="#" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#whats"/></svg>Abrir o WhatsApp</a><button type="button" class="link" data-ag-outro>Fazer outro pedido</button></p>
+    <p class="ag-pronto-acoes"><a class="botao" data-ag-abrir href="#" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#whats"/></svg>Abrir o WhatsApp</a><button type="button" class="botao botao--linha" data-ag-outro>Fazer outro pedido</button></p>
   </div>
   <noscript><p>Para pedir um horário, chame {esc(q["a"])} no WhatsApp: {esc(cfg["site"]["contato"]["telefone"])}.</p></noscript>
   {exemplo}
@@ -971,12 +973,14 @@ CSS_AGENDA = r'''
 /* agenda: o quadro do pedido (ensaio ou campanha, dia e horário, nome e WhatsApp) */
 .ag{max-width:760px;margin:0 auto;background:var(--papel);border:1px solid var(--linha);border-radius:18px;padding:clamp(20px,4vw,38px)}
 .ag-trilha{list-style:none;margin:0 0 22px;padding:0;display:flex;gap:8px;counter-reset:ag;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-2)}
-.ag-trilha li{counter-increment:ag;flex:1;padding-top:10px;border-top:2px solid var(--linha);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ag-trilha li::before{content:counter(ag) ". "}
+.ag-trilha li{flex:1;min-width:0;border-top:2px solid var(--linha)}
+.ag-trilha button{display:block;width:100%;min-height:40px;padding:10px 0 4px;text-align:left;font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ag-trilha button:disabled{cursor:default}.ag-trilha button:not(:disabled){color:var(--acento-escuro);text-decoration:underline;text-underline-offset:4px;text-decoration-color:color-mix(in srgb,var(--acento) 45%,transparent)}
 .ag-trilha li.feito{border-top-color:var(--rosa)}.ag-trilha li.atual{border-top-color:var(--acento);color:var(--acento-escuro);font-weight:500}
-.ag-resumo{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 20px;padding:12px 16px;border-radius:12px;background:var(--areia);font-size:.95rem;line-height:1.4}
-.ag-voltar{display:inline-flex;align-items:center;gap:6px;flex:none;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acento-escuro);padding:8px 0}
-.ag-voltar svg{width:15px;height:15px;transform:rotate(180deg)}
+.ag-resumo{position:sticky;top:var(--ag-topo,78px);z-index:4;display:flex;align-items:center;gap:14px;margin:0 0 20px;padding:10px 14px 10px 10px;border-radius:14px;background:var(--areia);box-shadow:0 0 0 6px var(--papel);font-size:.95rem;line-height:1.35}
+.ag-resumo span{min-width:0}
+.ag-voltar{display:inline-flex;align-items:center;gap:8px;flex:none;min-height:44px;padding:8px 16px 8px 12px;border:1px solid color-mix(in srgb,var(--acento) 55%,transparent);border-radius:999px;background:var(--papel);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--acento-escuro);font-weight:500}
+.ag-voltar:hover{border-color:var(--acento)}.ag-voltar svg{width:16px;height:16px;transform:rotate(180deg)}
 .ag-titulo{font-size:1.55rem;margin:0 0 16px}.ag-titulo span{color:var(--acento)}
 .ag-opcoes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .ag-opcao{display:grid;gap:2px;text-align:left;padding:16px 18px;border:1px solid var(--linha);border-radius:14px;background:var(--papel);transition:border-color .2s,background .2s}
@@ -1008,14 +1012,15 @@ button.ag-d:hover,button.ag-d.escolhido{background:var(--acento);border-color:va
 .ag-nota{margin:14px 0 0;font-size:.88rem;color:var(--tinta-2);text-align:center}
 .ag-pronto{text-align:center}.ag-pronto:focus{outline:none}.ag-ok{width:54px;height:54px;color:var(--acento);margin:0 auto 12px}
 .ag-pronto p{color:var(--tinta-2);margin:0 auto 10px;max-width:460px}.ag-pronto-resumo{color:var(--tinta)!important;font-family:var(--serif);font-size:1.3rem;line-height:1.3}
-.ag-pronto-acoes{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 24px;margin-top:22px!important}
+.ag-pronto-acoes{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;margin-top:22px!important}
+@media(max-width:560px){.ag-pronto-acoes .botao{width:100%}}
 .ag-exemplo{display:flex;gap:8px;align-items:flex-start;margin:22px 0 0;padding-top:16px;border-top:1px dashed var(--linha);font-size:.8rem;line-height:1.45;color:var(--tinta-2)}
 .ag-exemplo svg{width:15px;height:15px;flex:none;margin-top:2px}
 body:has(.ag [data-etapa=dados]:not([hidden])) .flutuante{display:none}
 .natal .ag{color:var(--tinta)}.natal .ag p{color:var(--tinta-2)}
 .vagas{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 12px;margin:26px 0 24px}
 .vagas b{font-family:var(--serif);font-size:3rem;font-weight:500;line-height:1}.vagas span{font-size:1rem}
-@media(max-width:560px){.ag-opcoes{grid-template-columns:1fr}.ag-trilha{font-size:.64rem;letter-spacing:.08em}.ag-resumo{flex-direction:column;align-items:flex-start;gap:2px}.ag-titulo{font-size:1.4rem}}
+@media(max-width:560px){.ag-opcoes{grid-template-columns:1fr}.ag-trilha{font-size:.64rem;letter-spacing:.08em}.ag-resumo{gap:10px;font-size:.88rem}.ag-titulo{font-size:1.4rem}}
 '''
 
 JS_AGENDA = r'''
@@ -1065,7 +1070,10 @@ JS_AGENDA = r'''
     const mostrar = etapa => {
       $$(".ag-etapa", raiz).forEach(e => { e.hidden = e.dataset.etapa !== etapa; });
       const i = etapas.indexOf(etapa);
-      trilha.forEach((li, k) => { li.classList.toggle("atual", k === i); li.classList.toggle("feito", i < 0 || k < i); });
+      trilha.forEach((li, k) => {
+        li.classList.toggle("atual", k === i); li.classList.toggle("feito", i < 0 || k < i);
+        const b = $("button", li); if (b) { b.disabled = !(i > 0 && k < i); if (k === i) b.setAttribute("aria-current", "step"); else b.removeAttribute("aria-current"); }
+      });
       const partes = [];
       if (est.escolha && etapa !== "ensaio" && !so) partes.push(est.escolha.nome);
       if (est.dia && est.hora && etapa === "dados") partes.push(dataLonga(est.dia) + ", às " + horaTexto(est.hora));
@@ -1074,6 +1082,39 @@ JS_AGENDA = r'''
       est.etapa = etapa;
     };
     const c = () => est.escolha && est.escolha.tipo === "campanha" ? campanha(est.escolha.id) : null;
+    const topo = () => { const t = $(".site-header"); return t ? t.offsetHeight : 0; };
+    const marcarTopo = () => raiz.style.setProperty("--ag-topo", topo() + 8 + "px");
+    marcarTopo(); addEventListener("resize", marcarTopo, { passive: true });
+    const trazerAoTopo = () => {
+      const y = raiz.getBoundingClientRect().top, h = topo();
+      if (y < h + 4 || y > innerHeight * 0.45) scrollTo({ top: scrollY + y - h - 12 });
+    };
+
+    // Os passos ficam no histórico do navegador: o "voltar" do celular volta um passo, sem sair da página.
+    let fundo = 0; // quantos passos desta agenda estão empilhados no histórico
+    const foto = () => ({ etapa: est.etapa, escolha: est.escolha, dia: est.dia, hora: est.hora, n: fundo });
+    const guardar = () => { try { history.replaceState(Object.assign({}, history.state, { ag: foto() }), ""); } catch (e) { /* sem histórico */ } };
+    const ir = (etapa, rolarHoras) => { if (etapa === "dia") abrirDias(rolarHoras); else mostrar(etapa); };
+    const avancar = etapa => {
+      guardar(); // o passo de agora fica no histórico com o que foi escolhido nele (o dia, o horário)
+      ir(etapa, true); fundo += 1;
+      try { history.pushState(Object.assign({}, history.state, { ag: foto() }), ""); } catch (e) { /* sem histórico */ }
+      trazerAoTopo();
+    };
+    const voltarPara = etapa => {
+      const atual = est.etapa === "pronto" ? etapas.length : etapas.indexOf(est.etapa);
+      const k = atual - etapas.indexOf(etapa);
+      const nossa = history.state && history.state.ag && history.state.ag.n === fundo;
+      if (k > 0 && k <= fundo && nossa) { history.go(-k); return; } // o popstate refaz a tela
+      ir(etapa, false); fundo = Math.max(0, fundo - Math.max(k, 0)); guardar(); trazerAoTopo();
+    };
+    addEventListener("popstate", ev => {
+      const f = ev.state && ev.state.ag;
+      if (f) { if (!so) est.escolha = f.escolha; est.dia = f.dia; est.hora = f.hora; fundo = f.n; ir(f.etapa, false); }
+      else if (est.etapa !== etapas[0]) { if (!so) est.escolha = null; est.dia = est.hora = ""; fundo = 0; ir(etapas[0], false); }
+      else return;
+      trazerAoTopo();
+    });
 
     // 1. ensaio ou campanha
     const opcoes = $("[data-ag-opcoes]", raiz);
@@ -1083,7 +1124,7 @@ JS_AGENDA = r'''
         const nome = document.createElement("b"); nome.textContent = x.nome; b.append(nome);
         if (x.sub) { const s = document.createElement("span"); s.textContent = x.sub; b.append(s); }
         if (extra) { const e = document.createElement("em"); e.textContent = extra; b.append(e); }
-        b.addEventListener("click", () => { est.escolha = { tipo, id: x.id, nome: x.nome }; est.dia = est.hora = ""; abrirDias(); });
+        b.addEventListener("click", () => { est.escolha = { tipo, id: x.id, nome: x.nome }; est.dia = est.hora = ""; avancar("dia"); });
         return b;
       };
       A.campanhas.forEach(x => { const n = vagas(x), b = botao("campanha", x, n ? plural(n) : "Agenda cheia"); b.disabled = !n; opcoes.append(b); });
@@ -1107,28 +1148,29 @@ JS_AGENDA = r'''
       const meses = [...new Set(est.dias.map(d => d.slice(0, 7)))];
       $$("[data-ag-mes]", raiz).forEach(b => { b.disabled = !meses.some(x => Number(b.dataset.agMes) < 0 ? x < est.mes : x > est.mes); });
     };
-    const escolherDia = iso => {
+    const escolherDia = (iso, rolar = true) => {
       est.dia = iso; est.hora = ""; desenharMes();
       $("[data-ag-dia-nome]", raiz).textContent = "· " + dataLonga(iso);
       lista.replaceChildren(...livres(iso, c()).map(h => {
         const b = document.createElement("button"); b.type = "button"; b.className = "ag-hora"; b.textContent = horaTexto(h);
-        b.addEventListener("click", () => { est.hora = h; mostrar("dados"); const n = $("input[name=nome]", form); if (n) n.focus({ preventScroll: true }); });
+        b.addEventListener("click", () => { est.hora = h; avancar("dados"); const n = $("input[name=nome]", form); if (n) n.focus({ preventScroll: true }); });
         return b;
       }));
       horas.hidden = false;
-      horas.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      if (rolar) horas.scrollIntoView({ block: "nearest" });
     };
-    const abrirDias = () => {
+    const abrirDias = (rolar = false) => {
       est.dias = diasCom(c()); horas.hidden = true;
       vazio.hidden = est.dias.length > 0; $(".ag-cal", raiz).hidden = !est.dias.length;
-      if (est.dias.length) { est.mes = (est.dia || est.dias[0]).slice(0, 7); desenharMes(); if (est.dia && est.dias.includes(est.dia)) escolherDia(est.dia); }
+      if (est.dias.length) { est.mes = (est.dia || est.dias[0]).slice(0, 7); desenharMes(); if (est.dia && est.dias.includes(est.dia)) escolherDia(est.dia, rolar); }
       mostrar("dia");
     };
     $$("[data-ag-mes]", raiz).forEach(b => b.addEventListener("click", () => {
       const [a, m] = est.mes.split("-").map(Number), d = new Date(Date.UTC(a, m - 1 + Number(b.dataset.agMes), 1));
       est.mes = d.toISOString().slice(0, 7); desenharMes();
     }));
-    $("[data-ag-voltar]", raiz).addEventListener("click", () => { const i = etapas.indexOf(est.etapa); if (i > 0) (etapas[i - 1] === "dia" ? abrirDias() : mostrar(etapas[i - 1])); });
+    $("[data-ag-voltar]", raiz).addEventListener("click", () => { const i = etapas.indexOf(est.etapa); if (i > 0) voltarPara(etapas[i - 1]); });
+    $$("[data-ag-ir]", raiz).forEach(b => b.addEventListener("click", () => voltarPara(b.dataset.agIr)));
 
     // 3. nome e WhatsApp: o pedido vai pelo WhatsApp, com a mensagem pronta
     const zap = $("input[name=whatsapp]", form), nome = $("input[name=nome]", form);
@@ -1151,11 +1193,15 @@ JS_AGENDA = r'''
       // No vídeo (?video=1) nada abre o WhatsApp; aberto ou não, o contador de visitas fica sabendo do pedido.
       if (!document.documentElement.classList.contains("modo-video")) { try { window.open(link, "_blank", "noopener"); } catch (e) { /* o botão "Abrir o WhatsApp" fica na tela */ } }
       try { if (window.rzVisita) window.rzVisita("clicou_whatsapp", { onde: "demo", parte: "Agenda" }, "demo"); } catch (e) { /* o contador nunca atrapalha */ }
-      mostrar("pronto"); $(".ag-pronto", raiz).focus({ preventScroll: true });
+      avancar("pronto"); $(".ag-pronto", raiz).focus({ preventScroll: true });
     });
-    $("[data-ag-outro]", raiz).addEventListener("click", () => { est.dia = est.hora = ""; if (so) abrirDias(); else { est.escolha = null; mostrar("ensaio"); } });
+    $("[data-ag-outro]", raiz).addEventListener("click", () => {
+      const nossa = history.state && history.state.ag && history.state.ag.n === fundo;
+      if (fundo > 0 && nossa) { history.go(-fundo); return; } // volta ao começo pelo histórico (o popstate refaz a tela)
+      if (!so) est.escolha = null; est.dia = est.hora = ""; fundo = 0; ir(etapas[0], false); guardar(); trazerAoTopo();
+    });
 
-    if (so) abrirDias(); else mostrar("ensaio");
+    ir(etapas[0], false); guardar();
   });
 })();
 '''
@@ -1452,7 +1498,7 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
   <div class="container">
     <div class="cabeca reveal"><p class="eyebrow">{esc(j["eyebrow"])}</p><h2 id="ensaios-titulo">{j["h2"]}</h2><p>{esc(j["p"])}</p></div>
     <ol class="jornada reveal">{passos}</ol>
-    <p class="fonte">{esc(j["fonte"])}</p>
+    {f'<p class="fonte">{esc(j["fonte"])}</p>' if j.get("fonte") else ''}
   </div>
 </section>''')
 
@@ -1528,7 +1574,8 @@ def pagina_natal(cfg, F, google, horas, dias, total, livres):
     retrato = (cfg.get('estilo') or {}).get('natal_capa') == 'retrato'
     capa = F.uri(h['foto'], 0, 0, fmt='jpeg', q=76, tam=(960, 1200) if retrato else (1500, 1000))
     q = quem(cfg)
-    nav = [('#ensaio', 'O ensaio', ''), ('#horarios', 'Horários', ''), ('#natal-2025', n['galeria']['nome'], ''), ('#depoimentos', 'Depoimentos', ''), ('index.html', 'O site ' + q['da'], 'site')]
+    site = n.get('link_site') or 'O site ' + q['da']  # o rótulo do link de volta ao site (ex.: "Início", no site de quem fechou)
+    nav = [('#ensaio', 'O ensaio', ''), ('#horarios', 'Horários', ''), ('#natal-2025', n['galeria']['nome'], ''), ('#depoimentos', 'Depoimentos', ''), ('index.html', site, 'site')]
     if not n['avaliacoes']: nav = [x for x in nav if x[0] != '#depoimentos']
     out = [head(cfg, F, n['titulo'], n['descricao'], n['comentario']), '<body class="pagina-natal">', SIMBOLOS, faixa_rz(cfg, 'natal'),
            cabecalho(cfg, F, 'natal', nav, 'href="#horarios"><svg aria-hidden="true"><use href="#cal"/></svg>Escolher horário'),
@@ -1607,7 +1654,7 @@ def pagina_natal(cfg, F, google, horas, dias, total, livres):
   </div>
 </section>''')
     out.append('</main>')
-    out.append(rodape(cfg, F, [('index.html', 'O site ' + q['da'], 'site'), ('index.html#portfolio', 'Portfólio', 'site'), ('#horarios', 'Horários de Natal', '')]))
+    out.append(rodape(cfg, F, [('index.html', site, 'site'), ('index.html#portfolio', 'Portfólio', 'site'), ('#horarios', 'Horários de Natal', '')]))
     out.append(lightbox())
     out.append(pilula_rz(cfg, 'natal'))
     out.append(aviso_rz(cfg, 'natal'))
