@@ -18,8 +18,14 @@
 // - com "painel": { "agenda": true }, entra a agenda online em /agenda/ (ferramentas/demo/agenda-online/), com um
 //   link na seção "Consulte a sua data": os dias livres e a pré-reserva vêm do painel; sem ele, vira WhatsApp.
 //
+// - com "paginas": ["natal"] no site.json, as outras páginas da demo vão junto (natal.html, servida em /natal): os links
+//   entre elas (/demo/<pasta>/natal) viram /natal e /, cada uma ganha o endereço oficial e a prévia dela, o script do
+//   Meu site (com "painel") e uma linha no sitemap. Sem "paginas", o site sai como sempre, só com o index.html;
+// - ícone da demo em PNG (fotógrafas): vira favicon.png.
+//
 // site.json: { dominio, nome, corTema, favicon: { texto, cor }, previaCentro: [x, y] (0 a 1; onde centrar o
 //             recorte da prévia, padrão [0.5, 0.1]), dadosEstruturados: [ {...schema.org} ],
+//             paginas: ["natal"] (opcional: as outras páginas da demo),
 //             painel: { codigo, agenda, meuSite } (opcional: o código do site no Painel Renderiza; agenda: true liga a
 //             agenda online; meuSite: false deixa sem o script do Meu site; "api" = a base da API pública, só para teste) }
 import fs from 'node:fs';
@@ -44,6 +50,12 @@ const hoje = new Date().toISOString().slice(0, 10);
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 const slug = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 48) || 'foto';
 
+const extras = conf.paginas || [];
+for (const p of extras) {
+  if (!/^[a-z0-9][a-z0-9-]{0,38}$/.test(p) || p === 'index') throw new Error(`site.json: página "${p}" inválida em "paginas"`);
+  if (!fs.existsSync(path.join(dirDemo, p + '.html'))) throw new Error(`site.json: a página ${p}.html não existe na demo`);
+}
+const pastaDaDemo = path.basename(dirDemo);
 let html = fs.readFileSync(path.join(dirDemo, 'index.html'), 'utf8');
 fs.rmSync(saida, { recursive: true, force: true });
 fs.mkdirSync(path.join(saida, 'img'), { recursive: true });
@@ -52,7 +64,7 @@ fs.mkdirSync(path.join(saida, 'img'), { recursive: true });
 // A prévia sai da primeira foto de verdade (30 KB ou mais): a primeira <img> pode ser um ícone ou o logo.
 const arquivos = new Map();
 let primeira = null, primeiraGrande = null;
-html = html.replace(/<img\b[^>]*>/g, tag => {
+const fotosEmArquivos = pagina => pagina.replace(/<img\b[^>]*>/g, tag => {
   const m = tag.match(/src="data:image\/(jpeg|jpg|png|webp|gif|avif);base64,([A-Za-z0-9+/=]+)"/);
   if (!m) return tag;
   const dados = Buffer.from(m[2], 'base64');
@@ -68,6 +80,7 @@ html = html.replace(/<img\b[^>]*>/g, tag => {
   if (dados.length >= 30 * 1024) primeiraGrande ??= nome;
   return tag.replace(/src="data:[^"]+"/, `src="/${nome}"`);
 });
+html = fotosEmArquivos(html);
 if (/data:image\//.test(html)) console.warn('Atenção: sobrou imagem embutida fora de <img> (CSS ou atributo).');
 
 // 2. Prévia para WhatsApp e redes: 1200×630 em JPG, recortada da primeira foto da página (a da capa).
@@ -88,56 +101,81 @@ async function previaPeloNavegador(origem, destino) {
     await pag.screenshot({ path: destino, type: 'jpeg', quality: 82 });
   } finally { await nav.close(); }
 }
+async function recortarPrevia(foto, destino) {
 try {
   execFileSync('python3', ['-c', `
 import sys
 from PIL import Image, ImageOps
 im = Image.open(sys.argv[1]).convert('RGB')
 im = ImageOps.fit(im, (1200, 630), Image.LANCZOS, centering=(float(sys.argv[3]), float(sys.argv[4])))
-im.save(sys.argv[2], 'JPEG', quality=82, optimize=True)`, path.join(saida, primeira), path.join(saida, 'og.jpg'), ...centro.map(String)], { stdio: ['ignore', 'ignore', 'ignore'] });
-  og = 'og.jpg';
+im.save(sys.argv[2], 'JPEG', quality=82, optimize=True)`, path.join(saida, foto), path.join(saida, destino), ...centro.map(String)], { stdio: ['ignore', 'ignore', 'ignore'] });
+  return destino;
 } catch {
-  try { await previaPeloNavegador(path.join(saida, primeira), path.join(saida, 'og.jpg')); og = 'og.jpg'; }
-  catch { console.warn('Sem Python/Pillow nem Playwright: a prévia usa a foto da capa como está.'); }
+  try { await previaPeloNavegador(path.join(saida, foto), path.join(saida, destino)); return destino; }
+  catch { console.warn('Sem Python/Pillow nem Playwright: a prévia usa a foto da capa como está.'); return foto; }
 }
+}
+og = await recortarPrevia(primeira, 'og.jpg');
 
 // 3. Ícone da aba. O da demo (SVG embutido, dos geradores) vira o favicon.svg quando o site.json não traz "favicon";
 // com "favicon", vale o do site.json. Nos dois casos sai o embutido: a página fica com um ícone só.
-let iconeDaDemo = null;
-html = html.replace(/[ \t]*<link\b[^>]*\brel="(?:shortcut )?icon"[^>]*>\n?/g, tag => {
+let iconeDaDemo = null, iconePng = null;
+const tirarIcone = pagina => pagina.replace(/[ \t]*<link\b[^>]*\brel="(?:shortcut )?icon"[^>]*>\n?/g, tag => {
+  const png = tag.match(/\shref="data:image\/png;base64,([A-Za-z0-9+/=]+)"/);
+  if (png) { iconePng ??= Buffer.from(png[1], 'base64'); return ''; }
   const href = (tag.match(/\shref="data:image\/svg\+xml(;base64)?,([^"]+)"/) || []);
   if (!href[2]) return tag;
   iconeDaDemo ??= href[1] ? Buffer.from(href[2], 'base64').toString('utf8') : decodeURIComponent(href[2]);
   return '';
 });
+html = tirarIcone(html);
+const comPng = () => !conf.favicon && iconePng;
 const fav = conf.favicon || { texto: conf.nome.slice(0, 1), cor: conf.corTema || '#222' };
-fs.writeFileSync(path.join(saida, 'favicon.svg'), !conf.favicon && iconeDaDemo ? iconeDaDemo.trim() + '\n' : `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="${esc(fav.cor)}"/><text x="32" y="43" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="${fav.texto.length > 1 ? 28 : 36}" fill="#fff">${esc(fav.texto)}</text></svg>\n`);
+if (comPng()) fs.writeFileSync(path.join(saida, 'favicon.png'), iconePng);
+fs.writeFileSync(path.join(saida, 'favicon.svg'), comPng() ? `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><image href="data:image/png;base64,${iconePng.toString('base64')}" width="64" height="64"/></svg>\n` : !conf.favicon && iconeDaDemo ? iconeDaDemo.trim() + '\n' : `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="${esc(fav.cor)}"/><text x="32" y="43" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="${fav.texto.length > 1 ? 28 : 36}" fill="#fff">${esc(fav.texto)}</text></svg>\n`);
 
 // 3b. O que é só da demo: o pedido para o Google não indexar (os geradores põem noindex; o site real quer o Google).
-html = html.replace(/[ \t]*<meta name="robots" content="[^"]*noindex[^"]*">\n?/gi, '');
+const tirarNoindex = pagina => pagina.replace(/[ \t]*<meta name="robots" content="[^"]*noindex[^"]*">\n?/gi, '');
+html = tirarNoindex(html);
+// 3c. Com mais de uma página: os links da demo entre elas (/demo/<pasta> e /demo/<pasta>/natal) viram / e /natal, e saem
+// as marcas que só a demo usa (data-local e data-pagina, e o script que troca os links quando a demo abre do disco).
+const ligarPaginas = pagina => !extras.length ? pagina : pagina
+  .replace(new RegExp(`href="/demo/${pastaDaDemo}(?:/([a-z0-9-]+))?(#[^"]*)?"`, 'g'), (_, p, ancora = '') => `href="/${p && p !== 'index' ? p : ''}${ancora}"`)
+  .replace(/ data-local="[^"]*"/g, '').replace(/ data-pagina="[^"]*"/g, '')
+  .replace(/<script>if\(location\.protocol==="file:"\)[^<]*<\/script>/g, '');
+html = ligarPaginas(html);
 
 // 4. Cabeça da página: endereço oficial, prévia, ícone e dados da empresa.
-const titulo = (html.match(/<title>([^<]*)<\/title>/) || [])[1] || conf.nome;
-const descricao = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1] || '';
-const dados = (conf.dadosEstruturados || []).map(d => ({ url, image: url + og, ...d }));
+const comCabeca = (pagina, endereco, ogDaPagina, comDados) => {
+const titulo = (pagina.match(/<title>([^<]*)<\/title>/) || [])[1] || conf.nome;
+const descricao = (pagina.match(/<meta name="description" content="([^"]*)"/) || [])[1] || '';
+const dados = comDados ? (conf.dadosEstruturados || []).map(d => ({ url, image: url + ogDaPagina, ...d })) : [];
 const cabeca = [
-  `<link rel="canonical" href="${url}">`,
-  `<link rel="icon" href="/favicon.svg" type="image/svg+xml">`,
+  `<link rel="canonical" href="${endereco}">`,
+  comPng() ? `<link rel="icon" href="/favicon.png" type="image/png">` : `<link rel="icon" href="/favicon.svg" type="image/svg+xml">`,
   `<meta property="og:type" content="website">`,
   `<meta property="og:locale" content="pt_BR">`,
   `<meta property="og:site_name" content="${esc(conf.nome)}">`,
   `<meta property="og:title" content="${titulo}">`,
   `<meta property="og:description" content="${descricao}">`,
-  `<meta property="og:url" content="${url}">`,
-  `<meta property="og:image" content="${url}${og}">`,
+  `<meta property="og:url" content="${endereco}">`,
+  `<meta property="og:image" content="${url}${ogDaPagina}">`,
   `<meta name="twitter:card" content="summary_large_image">`,
   ...(dados.length ? [`<script type="application/ld+json">${JSON.stringify(dados.length === 1 ? dados[0] : dados).replace(/</g, '\\u003c')}</script>`] : []),
 ].map(l => '  ' + l).join('\n');
-if (!html.includes('</title>')) throw new Error('index.html sem <title>');
-html = html.replace(/(<\/title>\n)/, `$1${cabeca}\n`);
+if (!pagina.includes('</title>')) throw new Error('página sem <title>');
+return pagina.replace(/(<\/title>\n)/, `$1${cabeca}\n`);
+};
+html = comCabeca(html, url, og, true);
 
 // 4b. Painel Renderiza: a agenda online em /agenda/ e o script do Meu site no fim do <head> (para pedir a versão
 // publicada o quanto antes). "api" é a base da API pública (só para teste; o padrão é o painel).
+function comMeuSite(pagina) {
+  const { codigo, api } = conf.painel;
+  const js = fs.readFileSync(path.join(raiz, 'ferramentas', 'meu-site', 'meu-site.js'), 'utf8');
+  if (/<\/script/i.test(js)) throw new Error('meu-site.js não pode ter </script');
+  return pagina.replace('</head>', () => `  <script data-codigo="${codigo}"${api ? ` data-api="${esc(api + 'site/')}"` : ''}>\n${js}  </script>\n</head>`);
+}
 if (conf.painel) {
   const { codigo, api, agenda = false, meuSite = true } = conf.painel;
   if (!/^[a-z0-9][a-z0-9-]{1,38}[a-z0-9]$/.test(codigo || '')) throw new Error('site.json: "painel.codigo" inválido (o mesmo formato da tabela sites)');
@@ -150,17 +188,25 @@ if (conf.painel) {
     html = r.html;
     if (!r.ligou) console.warn('Atenção: o site não tem a seção "Consulte a sua data"; a agenda está em /agenda/, sem link na página.');
   }
-  if (meuSite) {
-    const js = fs.readFileSync(path.join(raiz, 'ferramentas', 'meu-site', 'meu-site.js'), 'utf8');
-    if (/<\/script/i.test(js)) throw new Error('meu-site.js não pode ter </script');
-    html = html.replace('</head>', () => `  <script data-codigo="${codigo}"${api ? ` data-api="${esc(api + 'site/')}"` : ''}>\n${js}  </script>\n</head>`);
-  }
+  if (meuSite) html = comMeuSite(html);
 }
 fs.writeFileSync(path.join(saida, 'index.html'), html);
 
+// 4c. As outras páginas ("paginas" no site.json): o mesmo caminho, com o endereço e a prévia de cada uma.
+for (const p of extras) {
+  primeira = primeiraGrande = null;
+  let pagina = ligarPaginas(tirarNoindex(tirarIcone(fotosEmArquivos(fs.readFileSync(path.join(dirDemo, p + '.html'), 'utf8')))));
+  if (/data:image\//.test(pagina)) console.warn(`Atenção: ${p}.html: sobrou imagem embutida fora de <img> (CSS ou atributo).`);
+  const foto = primeiraGrande || primeira;
+  const ogDaPagina = foto ? await recortarPrevia(foto, `og-${p}.jpg`) : og;
+  pagina = comCabeca(pagina, url + p, ogDaPagina, false);
+  if (conf.painel && conf.painel.meuSite !== false) pagina = comMeuSite(pagina);
+  fs.writeFileSync(path.join(saida, p + '.html'), pagina);
+}
+
 // 5. Google, cabeçalhos e instruções.
 fs.writeFileSync(path.join(saida, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${url}sitemap.xml\n`);
-fs.writeFileSync(path.join(saida, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${url}</loc><lastmod>${hoje}</lastmod></url>\n</urlset>\n`);
+fs.writeFileSync(path.join(saida, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[url, ...extras.map(p => url + p)].map(u => `  <url><loc>${u}</loc><lastmod>${hoje}</lastmod></url>\n`).join('')}</urlset>\n`);
 fs.writeFileSync(path.join(saida, '_headers'), `/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: SAMEORIGIN\n/img/*\n  Cache-Control: public, max-age=31536000, immutable\n`);
 fs.writeFileSync(path.join(saida, 'vercel.json'), JSON.stringify({
   cleanUrls: true,
@@ -181,7 +227,7 @@ Não tem build, banco de dados nem dependências. Qualquer hospedagem de site es
 | Arquivo | Para que serve |
 |---|---|
 | \`index.html\` | a página inteira (textos, cores, botões de WhatsApp e Instagram, mapa) |
-| \`img/\` | fotos da página (o nome do arquivo descreve a foto) |
+${extras.map(p => `| \`${p}.html\` | outra página do site, em ${url}${p} |\n`).join('')}| \`img/\` | fotos da página (o nome do arquivo descreve a foto) |
 | \`og.jpg\` | imagem que aparece quando o link é compartilhado no WhatsApp e nas redes |
 | \`favicon.svg\` | ícone da aba do navegador |
 | \`robots.txt\`, \`sitemap.xml\` | orientações para o Google |
