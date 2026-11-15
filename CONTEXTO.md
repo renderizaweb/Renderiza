@@ -203,7 +203,7 @@ cliente, ajustes, repositório, hospedagem, domínio, entrega). Abaixo, o que é
   financeiro e atendimento. Ficaram de fora, porque a fotografia ainda não tem: a agenda online, os cliques do site e a cor dos
   botões. O site de fotógrafa ainda não sai com as marcações do Meu site (`data-site-*`): quem fechar com o Meu site precisa
   delas no site entregue.
-- **Rafaela Damaceno: fechou o site e o painel; a demo virou a proposta final** (15/11/2026): refeita com a marca dela (logo,
+- **Rafaela Damaceno: fechou o site e o painel; a demo virou a proposta final** (14/11/2026): refeita com a marca dela (logo,
   paleta e marca d'água do Drive dela), as fotos do cenário de Natal 2026, letras e cores mais leves, sem a faixa nem a oferta
   da Renderiza e com a **agenda de verdade** (ensaio ou campanha de Natal com vagas, dia, horário livre, nome e WhatsApp, pedido
   pelo WhatsApp), que só mostra o que a Agenda do painel entrega. Sai do mesmo `gerar-fotografia.py`, por opções no `demo.json`

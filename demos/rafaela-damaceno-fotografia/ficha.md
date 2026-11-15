@@ -9,12 +9,12 @@
 | Horário | Segunda Fechado; Terça a sexta 8h às 18h; Sábado 8h às 16h; Domingo Fechado |
 | Site | o domínio antigo (rafaeladamacenofotografia.com.br) expirou (NXDOMAIN); a página dela no Alboom (rafaeladamacenofotografia.alboompro.com) segue no ar e serviu de referência de letra e cor |
 | Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
-| Situação | cliente fechada (site e painel) · proposta final em 15/11/2026 · `/demo/rafaela-damaceno-fotografia` e `/demo/rafaela-damaceno-fotografia/natal` · esperando ela validar para a Fase 2 (o site no ar, ligado ao Painel Renderiza) |
+| Situação | cliente fechada (site e painel) · proposta final em 14/11/2026 · `/demo/rafaela-damaceno-fotografia` e `/demo/rafaela-damaceno-fotografia/natal` · esperando ela validar para a Fase 2 (o site no ar, ligado ao Painel Renderiza) |
 | Oferta na demo | sem oferta na página (cliente fechada: a demo é a proposta final) |
 | Agenda | a de verdade (`agenda` no `demo.json`): ensaio ou campanha, dia, horário livre, nome e WhatsApp; o pedido sai pelo WhatsApp |
 
 ## Direção da demo
-- Fechou com a Renderiza (site e painel). A demo foi refeita em 15/11/2026 e é a proposta final: ela espera exatamente o que vê aqui. Depois que ela validar, o site vai ao ar ligado ao Painel Renderiza (Fase 2).
+- Fechou com a Renderiza (site e painel). A demo foi refeita em 14/11/2026 e é a proposta final: ela espera exatamente o que vê aqui. Depois que ela validar, o site vai ao ar ligado ao Painel Renderiza (Fase 2).
 - Marca real (do Drive dela): o logo "Rafaela Damaceno · Estúdio Fotográfico" no topo e no rodapé, o selo da flor como ícone e a paleta do logo (terracota #a7674b, nude #c3a68f, verde #aaa98a, off white #e5e0dd). Saíram o monograma RD e a palavra cursiva feitos para a demo.
 - Letras e cores mais leves, como na página dela no Alboom (lá: Alegreya e Alice, texto cinza, fundo off white): Cormorant Garamond em pesos finos (300/400) nos títulos, Jost 300 no texto, marrom acinzentado suave no lugar do marrom escuro, fundo off white sem a textura de papel. O layout não foi copiado.
 - Personalidade mantida: "Onde as memórias florescem", os ensaios como capítulos, a capitular no "quem fotografa" e a flor entre as especialidades.

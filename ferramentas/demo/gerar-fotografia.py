@@ -917,7 +917,7 @@ def agenda_vagas(cfg, campanha_id, hoje=None):
 def agenda_js(cfg, horas):
     dados = json.dumps(agenda_dados(cfg, horas), ensure_ascii=False).replace('</', '<\\/')
     return ('<script>\n// A agenda desta página: horários de início por dia da semana, campanhas (dias, horários e vagas) e ensaios.\n'
-            '// No site ligado ao Painel Renderiza, estes dados vêm da agenda online do painel.\nwindow.AGENDA = ' + dados + ';\n</script>')
+            '// No site ligado ao painel, estes dados vêm da agenda online.\nwindow.AGENDA = ' + dados + ';\n</script>')
 
 
 def agenda_html(cfg, so=None):
