@@ -175,8 +175,11 @@ parecia amadora e prometia o que não dá para entregar. A versão 2 é uma **pe
   - entrega final em até 25 dias úteis (cerca de 5 semanas);
   - garantia de 90 dias só para defeitos (erros de funcionamento), não para melhorias;
   - desistência sem custo nos 7 primeiros dias (Código de Defesa do Consumidor, art. 49: contrato fechado pela internet);
-  - planos: Essencial R$ 300 (o mínimo), Gabinete R$ 590 (recomendado) e Completo R$ 990, sem prazo mínimo (aviso de
-    30 dias). A hospedagem, o banco e os e-mails ficam por conta da Renderiza;
+  - planos (decisão do Kaue em 15/11): Essencial R$ 499 (o mínimo, sem horas de desenvolvimento), Gabinete R$ 799 (até
+    7 h no mês, que cobrem também o ajuste da Câmara) e Completo R$ 1.299 (até 18 h no mês). Sem prazo mínimo (aviso de
+    30 dias). A hospedagem, o banco e os e-mails estão no valor;
+  - reajuste: IPCA uma vez por ano; aumento extraordinário de fornecedor ou dólar mais de 20% acima do da assinatura
+    ou do último reajuste só com aviso de 30 dias, comprovante e acordo (sem acordo, ele cancela sem multa);
   - ou **sem plano**: o gabinete contrata e administra a própria estrutura (Supabase Pro de referência, US$ 25 por mês),
     a entrega já vai para as contas dele e a Renderiza atende por hora;
   - sem a declaração de "recursos próprios": ele declara que contrata como pessoa física e é o responsável pelos
