@@ -27,8 +27,23 @@
 #     valido_ate: o aviso "Promoção de 1 semana: até <data>" (sem ele, a data em que a demo é gerada + 7 dias). Depois
 #     dessa data (horário de Brasília), o aviso e a data somem sozinhos e fica só o valor.
 #   ficha {...}: o que vai para a ficha.md.
+# Opções para o site de quem FECHOU (a demo vira a proposta final; sem elas, a página sai igual à de sempre):
+#   sem "renderiza": sai a camada da Renderiza inteira (faixa, pílula, aviso, window.RZ e o CSS/JS dela).
+#   marca_img.topo: o logo real no topo (imagem), no lugar do símbolo com o nome escrito (ver marca-fotografia.py).
+#   fotos_saida {formato "jpeg", galeria 1400, abertura 1920, qualidade 82}: as fotos saem em JPEG progressivo, no
+#     tamanho de portfólio (lado maior), nunca ampliadas. Cada foto leva data-k (a chave dela): sem o original
+#     (outra sessão, sem o scratchpad), o gerador reaproveita os bytes JÁ TRATADOS que estão nas páginas da pasta.
+#     Foto bruta não entra no git; para trocar ou acrescentar foto, o original é obrigatório.
+#   marca_dagua {clara, escura?, largura?, margem?, opacidade?, limiar?, posicao?}: a marca d'água dela em cada foto
+#     tratada (marca-fotografia.py, função marcar). Na foto: "marca": false tira; "marca": "direita" muda o canto.
+#   horario {"0": null, "2": [480, 1080], ...}: o horário (minutos desde 00h, 0 = domingo) quando não há google_json.
+#     Avaliação com "texto" (o trecho já pronto) também dispensa o google_json.
+#   agenda {...}: a agenda de verdade no lugar dos horários de exemplo (ver agenda_dados): a pessoa escolhe o ensaio
+#     ou a campanha (com vagas), o dia, um horário livre, deixa nome e WhatsApp e o pedido vai pelo WhatsApp. É o que
+#     a Agenda do painel entrega (horariosLivres e resumoDaCampanha em painel-clientes/src/modulos/agenda/logica.js).
+#   sobre.foto2: uma segunda foto, menor, sobre o canto da primeira.
 # No vídeo (gravar.mjs), a página aberta com ?video=1 esconde a camada da Renderiza (o vídeo não mostra preço).
-import base64, datetime, html, io, json, os, re, sys, urllib.parse
+import base64, datetime, hashlib, html, io, json, os, re, sys, urllib.parse
 from PIL import Image, ImageOps
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
@@ -37,6 +52,8 @@ import importlib.util
 _spec = importlib.util.spec_from_file_location('gerar_base', os.path.join(AQUI, 'gerar.py'))
 G = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(G)
 esc = lambda t: html.escape(str(t), quote=True)
+_spec_m = importlib.util.spec_from_file_location('marca_fotografia', os.path.join(AQUI, 'marca-fotografia.py'))
+MARCA = importlib.util.module_from_spec(_spec_m); _spec_m.loader.exec_module(MARCA)
 
 MESES = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
 DIAS_SEM = ['segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado', 'domingo']
@@ -62,11 +79,28 @@ def T(modelo, **kw):
 
 
 # ---------- fotos ----------
+class Foto(tuple):
+    """(uri, largura, altura) com a chave da foto (k), que vai no data-k da imagem."""
+    k = ''
+
+
 class Fotos:
     """Cada foto entra uma vez, comprimida (WebP; a do topo em JPEG para a prévia do link), e é reaproveitada
-    pela tela cheia. "tam" = recorte exato (cover, centro "c"); sem "tam", só reduz para caber em (mw, mh)."""
-    def __init__(self):
+    pela tela cheia. "tam" = recorte exato (cover, centro "c"); sem "tam", só reduz para caber em (mw, mh).
+    Com fotos_saida no demo.json (o site de quem fechou): JPEG progressivo no tamanho de portfólio, sem ampliar,
+    com a marca d'água (marca_dagua) e a chave data-k; sem o original, reaproveita a foto já tratada da pasta."""
+    def __init__(self, cfg=None, pasta=None):
         self.cache, self.bytes, self.n, self.avisos = {}, 0, 0, []
+        cfg = cfg or {}
+        self.saida = cfg.get('fotos_saida'); self.marca = cfg.get('marca_dagua'); self.antigas = {}; self.reusadas = 0
+        if self.saida and pasta and os.path.isdir(pasta):
+            for f in sorted(os.listdir(pasta)):
+                if not f.endswith('.html'): continue
+                t = open(os.path.join(pasta, f), encoding='utf-8').read()
+                for m in re.finditer(r'<img[^>]*? src="(data:image/[a-z]+;base64,[^"]+)" width="(\d+)" height="(\d+)"[^>]*? data-k="([0-9a-f]+)"', t):
+                    self.antigas[m.group(4)] = (m.group(1), int(m.group(2)), int(m.group(3)))
+                m = re.search(r'<link rel="icon" type="image/png" href="(data:image/png;base64,[^"]+)"', t)
+                if m: self.antigas['favicon'] = (m.group(1), 64, 64)
 
     def abrir(self, spec):
         im = ImageOps.exif_transpose(Image.open(spec['arquivo'])).convert('RGB')
@@ -76,6 +110,7 @@ class Fotos:
         return im
 
     def uri(self, spec, mw, mh, fmt='webp', q=62, tam=None):
+        if self.saida: return self.portfolio(spec, tam, abertura=(fmt == 'jpeg'))
         chave = (spec['arquivo'], json.dumps(spec.get('box')), json.dumps(spec.get('c')), mw, mh, fmt, q, json.dumps(tam))
         if chave in self.cache: return self.cache[chave]
         im = self.abrir(spec)
@@ -95,20 +130,67 @@ class Fotos:
         self.cache[chave] = r
         return r
 
+    def portfolio(self, spec, tam, abertura=False):
+        """Foto no tamanho de portfólio: recorte na proporção de "tam" (centro "c") ou a foto inteira, reduzida para
+        o lado maior caber em fotos_saida.abertura (as do topo) ou .galeria; nunca ampliada. JPEG progressivo."""
+        o = self.saida; lado = o.get('abertura', 1920) if abertura else o.get('galeria', 1400)
+        md = self.marca or {}
+        posicao = spec.get('marca', md.get('posicao', 'centro')) if md else False
+        nome = os.path.basename(spec['arquivo'])
+        k = hashlib.sha1(json.dumps([nome, spec.get('box'), spec.get('c') if tam else None, list(tam) if tam else None, lado, o.get('qualidade', 82),
+                                     posicao, {x: (os.path.basename(v) if isinstance(v, str) else v) for x, v in md.items()} if posicao else None],
+                                    sort_keys=True).encode()).hexdigest()[:12]
+        if k in self.cache: return self.cache[k]
+        if not os.path.exists(spec['arquivo']):
+            if k not in self.antigas: raise SystemExit(f'falta o original {spec["arquivo"]} (e a foto tratada, chave {k}, não está nas páginas da pasta)')
+            r = Foto(self.antigas[k]); r.k = k; self.reusadas += 1
+            self.cache[k] = r
+            return r
+        im = self.abrir(spec)
+        if tam:
+            W, H = im.size; prop = tam[0] / tam[1]; c = spec.get('c', (0.5, 0.5))
+            w, h = (H * prop, H) if W / H > prop else (W, W / prop)
+            x, y = (W - w) * c[0], (H - h) * c[1]
+            im = im.crop((round(x), round(y), round(x + w), round(y + h)))
+            if max(im.size) < lado * .6: self.avisos.append(f'{nome}: pequena para {lado} px ({im.width}x{im.height}); saiu no tamanho dela')
+        im.thumbnail((lado, lado), Image.LANCZOS)
+        if posicao:
+            im = MARCA.marcar(im, md['clara'], md.get('escura'), md.get('largura', .22), md.get('margem', .035), md.get('opacidade', .82), md.get('limiar', .66), posicao)
+        buf = io.BytesIO(); im.save(buf, 'JPEG', quality=o.get('qualidade', 82), optimize=True, progressive=True)
+        dados = buf.getvalue(); self.bytes += len(dados); self.n += 1
+        r = Foto(('data:image/jpeg;base64,' + base64.b64encode(dados).decode(), im.width, im.height)); r.k = k
+        self.cache[k] = r
+        return r
+
     def png(self, caminho, largura, fmt='webp'):
+        k = None
+        if self.saida:  # sem o arquivo da marca (outra sessão): a imagem que já está nas páginas da pasta
+            k = hashlib.sha1(json.dumps(['png', os.path.basename(caminho), largura, fmt]).encode()).hexdigest()[:12]
+            if not os.path.exists(caminho):
+                velha = k if k in self.antigas else ('favicon' if fmt == 'png' and 'favicon' in self.antigas else None)
+                if not velha: raise SystemExit(f'falta {caminho} (e a imagem, chave {k}, não está nas páginas da pasta)')
+                r = Foto(self.antigas[velha]); r.k = k
+                return r
         im = Image.open(caminho).convert('RGBA')
         if im.width > largura: im = im.resize((largura, round(im.height * largura / im.width)), Image.LANCZOS)
         buf = io.BytesIO()
         if fmt == 'png': im.save(buf, 'PNG', optimize=True); mime = 'image/png'
         else: im.save(buf, 'WEBP', quality=90, method=6); mime = 'image/webp'
         self.bytes += len(buf.getvalue())
-        return 'data:%s;base64,%s' % (mime, base64.b64encode(buf.getvalue()).decode()), im.width, im.height
+        r = Foto(('data:%s;base64,%s' % (mime, base64.b64encode(buf.getvalue()).decode()), im.width, im.height)); r.k = k or ''
+        return r
+
+
+def dk(u):
+    """O atributo data-k da foto (só no modo fotos_saida)."""
+    k = getattr(u, 'k', '')
+    return f' data-k="{k}"' if k else ''
 
 
 def img(uri_wh, alt, classe='', extra=''):
     u, w, h = uri_wh
     c = f' class="{classe}"' if classe else ''
-    return f'<img{c} src="{u}" width="{w}" height="{h}" alt="{esc(alt)}"{extra}>'
+    return f'<img{c} src="{u}" width="{w}" height="{h}" alt="{esc(alt)}"{extra}{dk(uri_wh)}>'
 
 
 # ---------- horários de exemplo (campanha) ----------
@@ -158,9 +240,12 @@ def proximos(dias, n):
 # ---------- avaliações (as do gerar.py: só 5 estrelas, trecho do mesmo tamanho) ----------
 def cliente_js(cfg, google, horas, lista):
     c = dict(cfg); c['avaliacoes'] = lista
+    if not google.get('avaliacoes') and all('texto' in a for a in lista):
+        # sem o google_json (outra sessão): as avaliações já vêm com o trecho pronto ("texto") no demo.json
+        google = dict(google, avaliacoes=[{'t': f'{a["nome"]}\n1 avaliação\n1 mês atrás\n{a["texto"]}', 'nota': '5'} for a in lista])
     js = G.cliente(c, google, horas)
     for a in lista:
-        if 'nome' in a:
+        if 'nome' in a and 'texto' not in a:
             x = next(x for x in G.avaliacoes(google) if x['nome'].strip().lower() == a['nome'].strip().lower())
             t = G.trecho(x['texto'], a.get('trecho'))
             print(f'  avaliação {a["nome"]}: {len(t)} caracteres')
@@ -455,6 +540,8 @@ a.hora:hover,a.hora.escolhido{background:var(--acento);color:#fff}
 #   topo "centro", abertura "arco"|"polaroid"|"faixa"|"bolhas"|"capsulas"|"filme", fotos "suave"|"arco", galeria "quadrado",
 #   abas "sublinhado"|"script", botoes "reto"|"suave", eyebrow "ponto"|"losango", jornada "cartoes",
 #   tema "escuro" (fundo escuro: as cores do demo.json invertem; isto corrige os tons fixos do CSS base),
+#   peso "leve" (títulos e destaques em pesos mais finos), subtitulo "versalete" (a palavra sob o nome em caixa alta
+#   espaçada, sem letra cursiva: para quem tem logo próprio),
 #   agenda "bilhete" (os dias da agenda de Natal como passagens), natal_capa "retrato" (foto do topo da
 #   página de Natal em pé, 4:5), textura "papel", ornamento (o caractere entre as especialidades), css (ajuste fino, texto livre).
 PILHAS = {'serif': 'Georgia,serif', 'sans': 'system-ui,-apple-system,"Segoe UI",sans-serif', 'script': '"Brush Script MT",cursive'}
@@ -585,6 +672,15 @@ html{color-scheme:dark}
 .hora{color:var(--rosa);border-color:color-mix(in srgb,var(--rosa) 70%,transparent)}a.hora:hover,a.hora.escolhido{background:var(--rosa);color:var(--fundo)}
 .legenda-grade i{border-color:var(--rosa)}.agenda-topo .contador b{color:var(--rosa)}
 .g-item,.mosaico figure,.sobre-foto img,.natal-foto img,.n-abertura .foto img,.cenario figure{box-shadow:0 0 0 1px color-mix(in srgb,var(--rosa) 35%,transparent)}''',
+    ('peso', 'leve'): '''
+h1,h2,h3{font-weight:400}h1 em,h2 em,h3 em{font-weight:400}
+.abertura h1{font-weight:300}.n-abertura h1{font-weight:300}
+.frase,.citacao,.rodape-frase,.review-card blockquote,.especialidades{font-weight:300}
+.numeros b,.contador b,.vagas b,.nota-google>b,.dia-nome b{font-weight:400}
+.botao{font-weight:400}.eyebrow,.nav a,.link{font-weight:400}''',
+    ('subtitulo', 'versalete'): '''
+.abertura h1 .script{font-family:var(--sans);font-weight:400;font-size:.19em;letter-spacing:.42em;text-transform:uppercase;line-height:1.4;color:var(--acento);margin:1.5em 0 0 .25em}
+@media(max-width:520px){.abertura h1 .script{font-size:.25em;letter-spacing:.34em}}''',
     ('textura', 'papel'): '''
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .25 0 0 0 0 .2 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}''',
 }
@@ -601,9 +697,9 @@ def css_estilo(e):
     partes = []
     f = e.get('fontes') or {}
     if f: partes.append(':root{' + ''.join(f'--{k}:"{f[k][0]}",{PILHAS[k]};' for k in ('serif', 'sans', 'script') if k in f) + '}')
-    for chave in ('tema', 'titulo', 'topo', 'abertura', 'fotos', 'galeria', 'abas', 'botoes', 'eyebrow', 'jornada', 'agenda', 'natal_capa', 'textura'):
+    for chave in ('tema', 'titulo', 'topo', 'abertura', 'fotos', 'galeria', 'abas', 'botoes', 'eyebrow', 'jornada', 'agenda', 'natal_capa', 'textura', 'peso', 'subtitulo'):
         if e.get(chave): partes.append(ESTILO[(chave, e[chave])])
-    if e.get('script_escala'):
+    if e.get('script_escala') and e.get('subtitulo') != 'versalete':
         x = e['script_escala']
         partes.append(f'.abertura h1 .script{{font-size:calc(.86em*{x})}}.marca-nome i{{font-size:calc(1.45rem*{x})}}'
                       f'@media(max-width:520px){{.marca-nome i{{font-size:calc(1.25rem*{x})}}}}')
@@ -782,9 +878,292 @@ JS = r'''
 '''
 
 
+# ---------- a agenda de verdade (demo.json "agenda") ----------
+# O que a página promete é o que a Agenda do painel entrega (painel-clientes/src/modulos/agenda/logica.js):
+#   horários de início por dia da semana (horarios da conta), campanhas com dias, horários e vagas (resumoDaCampanha),
+#   horário livre = sem reserva que segure (horariosLivres/seguraHorario) e fora das datas fechadas (bloqueios).
+# Na demo não há painel: os dados vão na página (window.AGENDA) e o pedido sai pelo WhatsApp, com a mensagem pronta.
+# No site no ar, os mesmos dados vêm do painel (a agenda online) e o pedido também cai lá, como pré-reserva.
+# demo.json: agenda {duracao (min), janela (dias à frente), semana {"2": ["08:00", ...]} (0 = domingo), fechados [datas],
+#   ensaios [{id, nome, sub}], campanhas [{id, nome, sub, dias [datas], horarios ["09:00"], vagas?}], mensagem
+#   ("... {nome} ... {ensaio} ... {semana} ... {data} ... {hora} ... {whatsapp}"), exemplo (aviso para a dona, opcional),
+#   pronto (o texto de "pedido enviado")}. Todo horário tem que caber no horário do estúdio: o gerador confere.
+def agenda_dados(cfg, horas):
+    a = cfg['agenda']; dur = a.get('duracao', 60)
+    def cabe(ds, h, onde):
+        ini = int(h[:2]) * 60 + int(h[3:])
+        faixas = (horas or {}).get(ds)
+        if horas and not (faixas and any(faixas[k] <= ini and ini + dur <= faixas[k + 1] for k in range(0, len(faixas), 2))):
+            raise SystemExit(f'agenda: {h} ({onde}) fica fora do horário do estúdio')
+    for ds, hs in a['semana'].items():
+        for h in hs: cabe(int(ds), h, f'dia da semana {ds}')
+    for c in a.get('campanhas', []):
+        for d in c['dias']:
+            ds = (datetime.date.fromisoformat(d).weekday() + 1) % 7
+            for h in c['horarios']: cabe(ds, h, f'campanha {c["id"]}, {d}')
+    return {'whatsapp': cfg['whatsapp'], 'quem': quem(cfg)['A'], 'duracao': dur, 'janela': a.get('janela', 60),
+            'semana': a['semana'], 'fechados': a.get('fechados', []), 'ocupados': a.get('ocupados', []),
+            'ensaios': a['ensaios'], 'campanhas': a.get('campanhas', []), 'mensagem': a['mensagem']}
+
+
+def agenda_vagas(cfg, campanha_id, hoje=None):
+    """Quantos horários a campanha ainda tem de hoje em diante (o JS refaz a conta na hora em que a página abre)."""
+    a = cfg['agenda']; c = next(x for x in a.get('campanhas', []) if x['id'] == campanha_id)
+    hoje = hoje or datetime.date.today().isoformat()
+    oc = set(a.get('ocupados', [])); fe = set(a.get('fechados', []))
+    return sum(1 for d in c['dias'] if d >= hoje and d not in fe for h in c['horarios'] if f'{d} {h}' not in oc)
+
+
+def agenda_js(cfg, horas):
+    dados = json.dumps(agenda_dados(cfg, horas), ensure_ascii=False).replace('</', '<\\/')
+    return ('<script>\n// A agenda desta página: horários de início por dia da semana, campanhas (dias, horários e vagas) e ensaios.\n'
+            '// No site ligado ao Painel Renderiza, estes dados vêm da agenda online do painel.\nwindow.AGENDA = ' + dados + ';\n</script>')
+
+
+def agenda_html(cfg, so=None):
+    """O quadro do pedido: ensaio ou campanha -> dia e horário -> nome e WhatsApp -> pedido enviado. "so" prende o
+    quadro numa campanha (a página dela). O JS (JS_AGENDA) preenche as opções, o calendário e os horários."""
+    a = cfg['agenda']; q = quem(cfg)
+    passos = ([] if so else ['Ensaio']) + ['Dia e horário', 'Seus dados']
+    trilha = ''.join(f'<li{" class=" + chr(34) + "atual" + chr(34) if i == 0 else ""}>{esc(x)}</li>' for i, x in enumerate(passos))
+    pronto = a.get('pronto', f'{q["A"]} confirma pelo WhatsApp.')
+    exemplo = f'<p class="ag-exemplo"><svg aria-hidden="true"><use href="#cal"/></svg>{esc(a["exemplo"])}</p>' if a.get('exemplo') else ''
+    return f'''<div class="ag reveal" data-agenda{" data-so=" + chr(34) + esc(so) + chr(34) if so else ""}>
+  <ol class="ag-trilha" aria-label="Passos do pedido">{trilha}</ol>
+  <p class="ag-resumo" data-ag-resumo hidden><span></span><button type="button" class="ag-voltar" data-ag-voltar><svg aria-hidden="true"><use href="#seta"/></svg>Voltar</button></p>
+  <div class="ag-etapa" data-etapa="ensaio"{" hidden" if so else ""}>
+    <h3 class="ag-titulo">Qual é o ensaio?</h3>
+    <div class="ag-opcoes" data-ag-opcoes></div>
+  </div>
+  <div class="ag-etapa" data-etapa="dia"{"" if so else " hidden"}>
+    <h3 class="ag-titulo">Escolha o dia</h3>
+    <div class="ag-cal">
+      <div class="ag-cal-topo"><button type="button" data-ag-mes="-1" aria-label="Mês anterior"><svg aria-hidden="true"><use href="#seta"/></svg></button><b data-ag-mes-nome aria-live="polite"></b><button type="button" data-ag-mes="1" aria-label="Próximo mês"><svg aria-hidden="true"><use href="#seta"/></svg></button></div>
+      <div class="ag-cal-sem" aria-hidden="true"><span>dom</span><span>seg</span><span>ter</span><span>qua</span><span>qui</span><span>sex</span><span>sáb</span></div>
+      <div class="ag-cal-dias" data-ag-dias></div>
+    </div>
+    <div class="ag-horas" data-ag-horas hidden>
+      <h3 class="ag-titulo">Horários livres <span data-ag-dia-nome></span></h3>
+      <div class="ag-horas-lista" data-ag-horas-lista></div>
+    </div>
+    <p class="ag-vazio" data-ag-vazio hidden>Sem horários livres por aqui agora. Chame {esc(q["a"])} no WhatsApp: <a data-whatsapp href="#">{esc(cfg["site"]["contato"]["telefone"])}</a>.</p>
+  </div>
+  <form class="ag-etapa" data-etapa="dados" novalidate hidden>
+    <h3 class="ag-titulo">Seus dados</h3>
+    <div class="ag-campo"><label for="ag-nome{"-" + esc(so) if so else ""}">Seu nome</label><input id="ag-nome{"-" + esc(so) if so else ""}" name="nome" autocomplete="name" maxlength="120" required><p class="ag-erro" hidden>Escreva o seu nome.</p></div>
+    <div class="ag-campo"><label for="ag-zap{"-" + esc(so) if so else ""}">WhatsApp</label><input id="ag-zap{"-" + esc(so) if so else ""}" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000" maxlength="20" required><p class="ag-erro" hidden>Confira o número, com o DDD.</p></div>
+    <button class="botao ag-enviar" type="submit"><svg aria-hidden="true"><use href="#whats"/></svg>Enviar o pedido</button>
+    <p class="ag-nota">O WhatsApp abre com o pedido escrito. {esc(pronto)}</p>
+  </form>
+  <div class="ag-etapa ag-pronto" data-etapa="pronto" hidden tabindex="-1">
+    <svg class="ag-ok" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.2" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="m7.5 12.4 3 3 6-6.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <h3 class="ag-titulo">Pedido enviado.</h3>
+    <p class="ag-pronto-resumo" data-ag-pronto-resumo></p>
+    <p>{esc(pronto)}</p>
+    <p class="ag-pronto-acoes"><a class="botao" data-ag-abrir href="#" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#whats"/></svg>Abrir o WhatsApp</a><button type="button" class="link" data-ag-outro>Fazer outro pedido</button></p>
+  </div>
+  <noscript><p>Para pedir um horário, chame {esc(q["a"])} no WhatsApp: {esc(cfg["site"]["contato"]["telefone"])}.</p></noscript>
+  {exemplo}
+</div>'''
+
+
+CSS_AGENDA = r'''
+/* agenda: o quadro do pedido (ensaio ou campanha, dia e horário, nome e WhatsApp) */
+.ag{max-width:760px;margin:0 auto;background:var(--papel);border:1px solid var(--linha);border-radius:18px;padding:clamp(20px,4vw,38px)}
+.ag-trilha{list-style:none;margin:0 0 22px;padding:0;display:flex;gap:8px;counter-reset:ag;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-2)}
+.ag-trilha li{counter-increment:ag;flex:1;padding-top:10px;border-top:2px solid var(--linha);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ag-trilha li::before{content:counter(ag) ". "}
+.ag-trilha li.feito{border-top-color:var(--rosa)}.ag-trilha li.atual{border-top-color:var(--acento);color:var(--acento-escuro);font-weight:500}
+.ag-resumo{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 20px;padding:12px 16px;border-radius:12px;background:var(--areia);font-size:.95rem;line-height:1.4}
+.ag-voltar{display:inline-flex;align-items:center;gap:6px;flex:none;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acento-escuro);padding:8px 0}
+.ag-voltar svg{width:15px;height:15px;transform:rotate(180deg)}
+.ag-titulo{font-size:1.55rem;margin:0 0 16px}.ag-titulo span{color:var(--acento)}
+.ag-opcoes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.ag-opcao{display:grid;gap:2px;text-align:left;padding:16px 18px;border:1px solid var(--linha);border-radius:14px;background:var(--papel);transition:border-color .2s,background .2s}
+.ag-opcao:hover{border-color:var(--acento)}.ag-opcao b{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.15}
+.ag-opcao span{font-size:.88rem;color:var(--tinta-2);line-height:1.4}
+.ag-opcao.campanha{grid-column:1/-1;background:var(--areia);border-color:color-mix(in srgb,var(--acento) 45%,var(--linha))}
+.ag-opcao em{font-style:normal;justify-self:start;margin-top:8px;padding:3px 11px;border-radius:999px;background:var(--acento);color:#fff;font-size:.74rem;letter-spacing:.04em}
+.ag-opcao[disabled]{opacity:.55;cursor:default}.ag-opcao[disabled] em{background:var(--tinta-2)}
+.ag-cal{max-width:420px;margin:0 auto}
+.ag-cal-topo{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.ag-cal-topo b{font-family:var(--serif);font-weight:500;font-size:1.3rem}
+.ag-cal-topo button{width:42px;height:42px;border-radius:50%;border:1px solid var(--linha);display:grid;place-items:center}
+.ag-cal-topo button svg{width:17px;height:17px}.ag-cal-topo button:first-child svg{transform:rotate(180deg)}.ag-cal-topo button:disabled{opacity:.3;cursor:default}
+.ag-cal-sem,.ag-cal-dias{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;text-align:center}
+.ag-cal-sem{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-2);margin-bottom:6px}
+.ag-d{aspect-ratio:1;display:grid;place-items:center;border-radius:50%;font-size:.98rem;color:var(--tinta-2);opacity:.45}
+button.ag-d{opacity:1;color:var(--acento-escuro);border:1px solid color-mix(in srgb,var(--acento) 55%,transparent);font-weight:500;transition:background .2s,color .2s}
+button.ag-d:hover,button.ag-d.escolhido{background:var(--acento);border-color:var(--acento);color:#fff}
+.ag-horas{margin-top:26px;padding-top:22px;border-top:1px solid var(--linha)}
+.ag-horas-lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:8px}
+.ag-hora{min-height:46px;border:1px solid var(--acento);border-radius:999px;color:var(--acento-escuro);font-weight:500;transition:background .2s,color .2s}
+.ag-hora:hover{background:var(--acento);color:#fff}
+.ag-vazio{margin:22px 0 0;text-align:center;color:var(--tinta-2)}
+.ag-campo{margin:0 0 16px}.ag-campo label{display:block;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-2);margin-bottom:6px}
+.ag-campo input{width:100%;min-height:52px;padding:12px 16px;border:1px solid var(--linha);border-radius:12px;background:var(--fundo);color:var(--tinta);font:inherit;font-size:1.05rem}
+.ag-campo input:focus{outline:2px solid var(--acento);outline-offset:1px;border-color:transparent}.ag-campo.erro input{border-color:#b3402f}
+.ag-erro{margin:6px 0 0;font-size:.86rem;color:#b3402f}
+.ag-enviar{width:100%;margin-top:6px;border-radius:999px}
+.ag-nota{margin:14px 0 0;font-size:.88rem;color:var(--tinta-2);text-align:center}
+.ag-pronto{text-align:center}.ag-pronto:focus{outline:none}.ag-ok{width:54px;height:54px;color:var(--acento);margin:0 auto 12px}
+.ag-pronto p{color:var(--tinta-2);margin:0 auto 10px;max-width:460px}.ag-pronto-resumo{color:var(--tinta)!important;font-family:var(--serif);font-size:1.3rem;line-height:1.3}
+.ag-pronto-acoes{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 24px;margin-top:22px!important}
+.ag-exemplo{display:flex;gap:8px;align-items:flex-start;margin:22px 0 0;padding-top:16px;border-top:1px dashed var(--linha);font-size:.8rem;line-height:1.45;color:var(--tinta-2)}
+.ag-exemplo svg{width:15px;height:15px;flex:none;margin-top:2px}
+.natal .ag{color:var(--tinta)}.natal .ag p{color:var(--tinta-2)}
+.vagas{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 12px;margin:26px 0 24px}
+.vagas b{font-family:var(--serif);font-size:3rem;font-weight:500;line-height:1}.vagas span{font-size:1rem}
+@media(max-width:560px){.ag-opcoes{grid-template-columns:1fr}.ag-trilha{font-size:.64rem;letter-spacing:.08em}.ag-resumo{flex-direction:column;align-items:flex-start;gap:2px}.ag-titulo{font-size:1.4rem}}
+'''
+
+JS_AGENDA = r'''
+(() => {
+  "use strict";
+  // A agenda: a mesma regra da Agenda do painel. Um horário de início está livre se é dos horários do dia (os da
+  // campanha, nos dias dela; senão, os do dia da semana), ainda não passou, a data não está fechada e nenhuma reserva o segura.
+  const A = window.AGENDA; if (!A) return;
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const SEMANA = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
+  const MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+  const agora = () => {
+    const o = {}; new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23" })
+      .formatToParts(new Date()).forEach(x => { o[x.type] = x.value; });
+    return { dia: o.year + "-" + o.month + "-" + o.day, min: Number(o.hour) * 60 + Number(o.minute) };
+  };
+  const somar = (iso, n) => { const d = new Date(iso + "T12:00:00Z"); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };
+  const diaDaSemana = iso => new Date(iso + "T12:00:00Z").getUTCDay();
+  const minutos = h => Number(h.slice(0, 2)) * 60 + Number(h.slice(3));
+  const horaTexto = h => Number(h.slice(0, 2)) + "h" + (h.slice(3) === "00" ? "" : h.slice(3));
+  const dataTexto = iso => iso.slice(8) + "/" + iso.slice(5, 7);
+  const dataLonga = iso => SEMANA[diaDaSemana(iso)] + ", " + Number(iso.slice(8)) + " de " + MESES[Number(iso.slice(5, 7)) - 1];
+  const campanha = id => A.campanhas.find(c => c.id === id) || null;
+  const livres = (iso, c) => {
+    const n = agora();
+    if (iso < n.dia || A.fechados.includes(iso)) return [];
+    if (c ? !c.dias.includes(iso) : iso > somar(n.dia, A.janela)) return [];
+    const hs = c ? c.horarios : (A.semana[diaDaSemana(iso)] || []);
+    return hs.filter(h => (iso > n.dia || minutos(h) > n.min) && !A.ocupados.includes(iso + " " + h));
+  };
+  const diasCom = c => {
+    const n = agora(), out = [];
+    if (c) c.dias.forEach(d => { if (livres(d, c).length) out.push(d); });
+    else for (let i = 0; i <= A.janela; i++) { const d = somar(n.dia, i); if (livres(d, null).length) out.push(d); }
+    return out.sort();
+  };
+  const vagas = c => c.dias.reduce((t, d) => t + livres(d, c).length, 0);
+  const plural = n => n === 1 ? "1 horário livre" : n + " horários livres";
+  // O número de horários livres de uma campanha fora do quadro (ex.: o bloco de Natal do site).
+  $$("[data-ag-vagas]").forEach(e => { const c = campanha(e.dataset.agVagas); if (c) e.textContent = vagas(c); });
+
+  $$("[data-agenda]").forEach(raiz => {
+    const so = raiz.dataset.so ? campanha(raiz.dataset.so) : null;
+    const etapas = so ? ["dia", "dados"] : ["ensaio", "dia", "dados"];
+    const est = { escolha: so ? { tipo: "campanha", id: so.id, nome: so.nome } : null, dia: "", hora: "", mes: "", dias: [] };
+    const trilha = $$(".ag-trilha li", raiz), resumo = $("[data-ag-resumo]", raiz), form = $("form", raiz);
+    const mostrar = etapa => {
+      $$(".ag-etapa", raiz).forEach(e => { e.hidden = e.dataset.etapa !== etapa; });
+      const i = etapas.indexOf(etapa);
+      trilha.forEach((li, k) => { li.classList.toggle("atual", k === i); li.classList.toggle("feito", i < 0 || k < i); });
+      const partes = [];
+      if (est.escolha && etapa !== "ensaio" && !so) partes.push(est.escolha.nome);
+      if (est.dia && est.hora && etapa === "dados") partes.push(dataLonga(est.dia) + ", às " + horaTexto(est.hora));
+      $("span", resumo).textContent = partes.join(" · ");
+      resumo.hidden = etapa === "pronto" || i <= 0;
+      est.etapa = etapa;
+    };
+    const c = () => est.escolha && est.escolha.tipo === "campanha" ? campanha(est.escolha.id) : null;
+
+    // 1. ensaio ou campanha
+    const opcoes = $("[data-ag-opcoes]", raiz);
+    if (opcoes && !so) {
+      const botao = (tipo, x, extra) => {
+        const b = document.createElement("button"); b.type = "button"; b.className = "ag-opcao" + (tipo === "campanha" ? " campanha" : "");
+        const nome = document.createElement("b"); nome.textContent = x.nome; b.append(nome);
+        if (x.sub) { const s = document.createElement("span"); s.textContent = x.sub; b.append(s); }
+        if (extra) { const e = document.createElement("em"); e.textContent = extra; b.append(e); }
+        b.addEventListener("click", () => { est.escolha = { tipo, id: x.id, nome: x.nome }; est.dia = est.hora = ""; abrirDias(); });
+        return b;
+      };
+      A.campanhas.forEach(x => { const n = vagas(x), b = botao("campanha", x, n ? plural(n) : "Agenda cheia"); b.disabled = !n; opcoes.append(b); });
+      A.ensaios.forEach(x => opcoes.append(botao("ensaio", x)));
+    }
+
+    // 2. dia e horário
+    const grade = $("[data-ag-dias]", raiz), mesNome = $("[data-ag-mes-nome]", raiz), horas = $("[data-ag-horas]", raiz), lista = $("[data-ag-horas-lista]", raiz), vazio = $("[data-ag-vazio]", raiz);
+    const desenharMes = () => {
+      const [a, m] = est.mes.split("-").map(Number), primeiro = est.mes + "-01";
+      mesNome.textContent = MESES[m - 1] + " de " + a;
+      const total = new Date(Date.UTC(a, m, 0)).getUTCDate(), cel = [];
+      for (let i = 0; i < diaDaSemana(primeiro); i++) cel.push(document.createElement("span"));
+      for (let d = 1; d <= total; d++) {
+        const iso = est.mes + "-" + String(d).padStart(2, "0"), tem = est.dias.includes(iso);
+        const e = document.createElement(tem ? "button" : "span"); e.className = "ag-d" + (iso === est.dia ? " escolhido" : ""); e.textContent = d;
+        if (tem) { e.type = "button"; e.setAttribute("aria-label", dataLonga(iso)); e.addEventListener("click", () => escolherDia(iso)); }
+        cel.push(e);
+      }
+      grade.replaceChildren(...cel);
+      const meses = [...new Set(est.dias.map(d => d.slice(0, 7)))];
+      $$("[data-ag-mes]", raiz).forEach(b => { b.disabled = !meses.some(x => Number(b.dataset.agMes) < 0 ? x < est.mes : x > est.mes); });
+    };
+    const escolherDia = iso => {
+      est.dia = iso; est.hora = ""; desenharMes();
+      $("[data-ag-dia-nome]", raiz).textContent = "· " + dataLonga(iso);
+      lista.replaceChildren(...livres(iso, c()).map(h => {
+        const b = document.createElement("button"); b.type = "button"; b.className = "ag-hora"; b.textContent = horaTexto(h);
+        b.addEventListener("click", () => { est.hora = h; mostrar("dados"); const n = $("input[name=nome]", form); if (n) n.focus({ preventScroll: true }); });
+        return b;
+      }));
+      horas.hidden = false;
+      horas.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    };
+    const abrirDias = () => {
+      est.dias = diasCom(c()); horas.hidden = true;
+      vazio.hidden = est.dias.length > 0; $(".ag-cal", raiz).hidden = !est.dias.length;
+      if (est.dias.length) { est.mes = (est.dia || est.dias[0]).slice(0, 7); desenharMes(); if (est.dia && est.dias.includes(est.dia)) escolherDia(est.dia); }
+      mostrar("dia");
+    };
+    $$("[data-ag-mes]", raiz).forEach(b => b.addEventListener("click", () => {
+      const [a, m] = est.mes.split("-").map(Number), d = new Date(Date.UTC(a, m - 1 + Number(b.dataset.agMes), 1));
+      est.mes = d.toISOString().slice(0, 7); desenharMes();
+    }));
+    $("[data-ag-voltar]", raiz).addEventListener("click", () => { const i = etapas.indexOf(est.etapa); if (i > 0) (etapas[i - 1] === "dia" ? abrirDias() : mostrar(etapas[i - 1])); });
+
+    // 3. nome e WhatsApp: o pedido vai pelo WhatsApp, com a mensagem pronta
+    const zap = $("input[name=whatsapp]", form), nome = $("input[name=nome]", form);
+    const digitos = () => { let d = zap.value.replace(/\D/g, ""); if (d.length > 11 && d.startsWith("55")) d = d.slice(2); return d; };
+    zap.addEventListener("input", () => {
+      const d = digitos().slice(0, 11);
+      zap.value = d.length > 6 ? "(" + d.slice(0, 2) + ") " + d.slice(2, d.length - 4) + "-" + d.slice(-4) : d.length > 2 ? "(" + d.slice(0, 2) + ") " + d.slice(2) : d;
+    });
+    const erro = (campo, tem) => { const cx = campo.closest(".ag-campo"); cx.classList.toggle("erro", tem); $(".ag-erro", cx).hidden = !tem; return tem; };
+    form.addEventListener("submit", ev => {
+      ev.preventDefault();
+      const e1 = erro(nome, nome.value.trim().length < 2), e2 = erro(zap, !/^\d{10,11}$/.test(digitos()));
+      if (e1 || e2) { (e1 ? nome : zap).focus(); return; }
+      const texto = A.mensagem.replace("{nome}", nome.value.trim()).replace("{ensaio}", est.escolha.nome).replace("{semana}", SEMANA[diaDaSemana(est.dia)])
+        .replace("{data}", dataTexto(est.dia)).replace("{hora}", horaTexto(est.hora)).replace("{whatsapp}", zap.value);
+      const link = "https://wa.me/" + A.whatsapp + "?text=" + encodeURIComponent(texto);
+      $("[data-ag-abrir]", raiz).href = link;
+      $("[data-ag-pronto-resumo]", raiz).textContent = est.escolha.nome + " · " + dataLonga(est.dia) + ", às " + horaTexto(est.hora);
+      // No vídeo (?video=1) nada abre o WhatsApp; aberto ou não, o contador de visitas fica sabendo do pedido.
+      if (!document.documentElement.classList.contains("modo-video")) { try { window.open(link, "_blank", "noopener"); } catch (e) { /* o botão "Abrir o WhatsApp" fica na tela */ } }
+      try { if (window.rzVisita) window.rzVisita("clicou_whatsapp", { onde: "demo", parte: "Agenda" }, "demo"); } catch (e) { /* o contador nunca atrapalha */ }
+      mostrar("pronto"); $(".ag-pronto", raiz).focus({ preventScroll: true });
+    });
+    $("[data-ag-outro]", raiz).addEventListener("click", () => { est.dia = est.hora = ""; if (so) abrirDias(); else { est.escolha = null; mostrar("ensaio"); } });
+
+    if (so) abrirDias(); else mostrar("ensaio");
+  });
+})();
+'''
+
+
+
 def faixa_rz(cfg, pagina):
     """A camada da Renderiza no topo: o que foi montado (com a troca entre as duas páginas), o preço e o prazo.
     Os textos de preço e prazo saem do window.RZ; os daqui são o mesmo valor, para quem abre sem JavaScript."""
+    if not cfg.get('renderiza'): return ''
     r = cfg['renderiza']; d = r['valido_ate'].split('-')
     site_atual = ' aria-current="page"' if pagina == 'site' else ''
     natal_atual = ' aria-current="page"' if pagina == 'natal' else ''
@@ -810,6 +1189,7 @@ def faixa_rz(cfg, pagina):
 
 
 def pilula_rz(cfg, pagina):
+    if not cfg.get('renderiza'): return ''
     r = cfg['renderiza']; d = r['valido_ate'].split('-')
     site_atual = ' aria-current="page"' if pagina == 'site' else ''
     natal_atual = ' aria-current="page"' if pagina == 'natal' else ''
@@ -829,7 +1209,7 @@ def aviso_rz(cfg, pagina):
     no demo.json; sem isso, não entra). Diz até quando a demo fica no ar, o valor (pagamento único, sem mensalidade,
     promoção de uma semana) e o que dá para somar depois (agenda online e painel). Fecha no botão, no X, tocando fora
     ou no Esc; as métricas (viu e fechou o aviso, como e em quanto tempo, e os cliques) vão para o contador de visitas."""
-    r = cfg['renderiza']
+    r = cfg.get('renderiza') or {}
     if not r.get('aviso'): return ''
     d = r['valido_ate'].split('-')
     painel = '/exemplos/fotografia' + (f'?c={r["codigo"]}' if r.get('codigo') else '')
@@ -850,6 +1230,7 @@ def aviso_rz(cfg, pagina):
 
 
 def rz_js(cfg):
+    if not cfg.get('renderiza'): return ''
     r = cfg['renderiza']
     dados = {'whatsapp': r['whatsapp'], 'precoPix': r['preco_pix'], 'parcelado': r['parcelado'], 'notaPreco': r['nota_preco'],
              'validoAte': r['valido_ate'], 'msgGarantir': r['msg_garantir'], 'msgNegociar': r['msg_negociar']}
@@ -863,13 +1244,19 @@ def rz_js(cfg):
 
 
 def cabecalho(cfg, F, pagina, nav, cta):
-    simb = F.png(cfg['marca_img']['simbolo'], 120)
+    q = quem(cfg)
+    if cfg['marca_img'].get('topo'):  # o logo real, inteiro (o nome já está nele)
+        lg = F.png(cfg['marca_img']['topo'], 420)
+        marca = f'<img class="marca-logo" src="{lg[0]}" width="{lg[1]}" height="{lg[2]}" alt="{esc(cfg["marca"])}"{dk(lg)}>'
+    else:
+        simb = F.png(cfg['marca_img']['simbolo'], 120)
+        marca = f'<img src="{simb[0]}" width="48" height="48" alt=""><span class="marca-nome"><b>{esc(q["nome"])}</b><i>{esc(q["script"])}</i></span>'
     inicio = 'index.html' if pagina == 'natal' else '#inicio'
     dp = ' data-pagina="site"' if pagina == 'natal' else ''
     links = ''.join(f'<a href="{esc(h)}"{" data-pagina=" + chr(34) + p + chr(34) if p else ""}>{esc(t)}</a>' for h, t, p in nav)
     return f'''<header class="site-header">
   <div class="container topo-in">
-    <a class="marca" href="{inicio}"{dp} aria-label="{esc(cfg["marca"])}, início"><img src="{simb[0]}" width="48" height="48" alt=""><span class="marca-nome"><b>{esc(quem(cfg)["nome"])}</b><i>{esc(quem(cfg)["script"])}</i></span></a>
+    <a class="marca" href="{inicio}"{dp} aria-label="{esc(cfg["marca"])}, início">{marca}</a>
     <nav class="nav" aria-label="Seções">{links}</nav>
     <a class="botao topo-cta" {cta}</a>
     <button class="menu-botao" type="button" data-menu-button aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu"><span></span></button>
@@ -884,6 +1271,16 @@ def head(cfg, F, titulo, descricao, comentario):
     linha = c.get('linha', '#e6dbcf')
     css = T(CSS, fundo=c['fundo'], papel=c['papel'], areia=c['areia'], linha=linha, tinta=c['tinta'], tinta2=c['tinta2'],
             rosa=c['rosa'], acento=c['acento'], acento_escuro=c['acento_escuro'], cafe=c['cafe'])
+    if not cfg.get('renderiza'):
+        a, b = css.index('/* camada da Renderiza:'), css.index('/* topo do site */')
+        css = (css[:a] + css[b:]).replace('.rz-pilula{left:14px;bottom:20px}', '')
+    if cfg['marca_img'].get('topo'):
+        css += '\n/* o logo real no topo */\n.marca .marca-logo{width:auto;height:54px}@media(max-width:520px){.marca .marca-logo{height:46px}}\n'
+    if cfg.get('agenda'): css += CSS_AGENDA
+    if (cfg.get('site') or {}).get('sobre', {}).get('foto2'):
+        css += ('\n/* sobre: a segunda foto, sobre o canto da primeira */\n.sobre-foto{margin-bottom:9%}'
+                '.sobre-foto .sobre-foto2{position:absolute;right:-7%;bottom:-9%;width:44%;height:auto;aspect-ratio:4/5;border:6px solid var(--areia);box-shadow:0 14px 34px #3a2b231f}'
+                '@media(max-width:900px){.sobre-foto .sobre-foto2{right:-4%}}\n')
     e = cfg.get('estilo') or {}
     if e: css += css_estilo(e)
     fontes = fontes_link(e['fontes']) if e.get('fontes') else FONTES
@@ -910,7 +1307,7 @@ def rodape(cfg, F, links):
     v = cfg['site']['contato']
     return f'''<footer class="rodape">
   <div class="container">
-    <img src="{logo[0]}" width="{logo[1]}" height="{logo[2]}" alt="{esc(cfg["marca"])}" loading="lazy">
+    <img src="{logo[0]}" width="{logo[1]}" height="{logo[2]}" alt="{esc(cfg["marca"])}" loading="lazy"{dk(logo)}>
     <p class="rodape-frase">{esc(cfg["slogan"])}</p>
     <nav aria-label="Links">{nav}<a data-whatsapp href="#">WhatsApp</a><a data-instagram href="#" target="_blank" rel="noopener noreferrer">Instagram</a></nav>
     <small>© <span data-year>2026</span> {esc(cfg["marca"])} · {esc(" · ".join(v["endereco"]))}</small>
@@ -927,7 +1324,7 @@ def galeria_html(F, gal, ativa):
         pos = f.get('pos', '50% 40%')
         alt = f.get('alt') or gal['nome']
         itens.append(f'<button class="g-item g-{forma}" type="button" aria-label="{esc("Abrir em tela cheia: " + alt)}">'
-                     f'<img src="{u[0]}" width="{u[1]}" height="{u[2]}" alt="{esc(alt)}" loading="lazy" style="object-position:{pos}"></button>')
+                     f'<img src="{u[0]}" width="{u[1]}" height="{u[2]}" alt="{esc(alt)}" loading="lazy" style="object-position:{pos}"{dk(u)}></button>')
     classe = 'painel ativo' if ativa else 'painel'
     escondido = '' if ativa else ' aria-hidden="true"'
     return (f'<div class="{classe}" id="painel-{gal["id"]}" role="tabpanel" aria-labelledby="aba-{gal["id"]}"{escondido}>'
@@ -975,9 +1372,11 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
     q = quem(cfg)
     nav = [('#portfolio', 'Portfólio', ''), ('#sobre', q['A'], ''), ('#ensaios', 'Ensaios', ''), ('#depoimentos', 'Depoimentos', ''), ('#natal', 'Natal 2026', ''), ('#contato', 'Contato', '')]
     if not s['avaliacoes']: nav = [x for x in nav if x[0] != '#depoimentos']
+    ag = cfg.get('agenda')
+    cta = 'href="#agendar"><svg aria-hidden="true"><use href="#cal"/></svg>Agendar' if ag else 'data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar no WhatsApp'
     out = [head(cfg, F, s['titulo'], s['descricao'], s['comentario']), '<body class="pagina-site">', SIMBOLOS, faixa_rz(cfg, 'site'),
-           cabecalho(cfg, F, 'site', nav, 'data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar no WhatsApp'),
-           '<main id="inicio">']
+           cabecalho(cfg, F, 'site', nav, cta), '<main id="inicio">']
+    acao = '<a class="botao" href="#agendar"><svg aria-hidden="true"><use href="#cal"/></svg>Agendar um ensaio</a>' if ag else f'<a {wa_botao("Agendar pelo WhatsApp")}</a>'
     nota = G.mostrar_nota(cfg)
     if cfg.get('prova'):  # sem avaliações no Google: um número do perfil (ex.: "+310" ensaios), sem estrelas
         prova = f'<a class="prova" href="#sobre"><b>{esc(cfg["prova"][0])}</b><span>{esc(cfg["prova"][1])}</span></a>'
@@ -998,7 +1397,7 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
       </div>
       <div class="abertura-baixo">
         <p class="abertura-intro">{esc(h["intro"])}</p>
-        <div class="abertura-acoes"><a {wa_botao("Agendar pelo WhatsApp")}</a><a class="link" href="#portfolio">Ver o portfólio <svg aria-hidden="true"><use href="#seta"/></svg></a></div>
+        <div class="abertura-acoes">{acao}<a class="link" href="#portfolio">Ver o portfólio <svg aria-hidden="true"><use href="#seta"/></svg></a></div>
         {prova}
       </div>
     </div>
@@ -1028,11 +1427,12 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
     # sobre
     so = s['sobre']; foto = F.uri(so['foto'], 0, 0, q=70, tam=(760, 950))
     nums = ''.join(f'<li><b>{esc(a)}</b>{esc(b)}</li>' for a, b in so['numeros'])
+    foto2 = img(F.uri(so['foto2'], 0, 0, q=70, tam=(560, 700)), so['foto2']['alt'], 'sobre-foto2', ' loading="lazy"') if so.get('foto2') else ''
     ps1 = ''.join(f'<p>{esc(x)}</p>' for x in so['p'])
     ps2 = ''.join(f'<p>{esc(x)}</p>' for x in so.get('p2', []))
     out.append(f'''<section class="secao secao--areia" id="sobre" aria-labelledby="sobre-titulo">
   <div class="container sobre-grid">
-    <figure class="sobre-foto reveal">{img(foto, so["foto"]["alt"], extra=' loading="lazy"')}</figure>
+    <figure class="sobre-foto reveal">{img(foto, so["foto"]["alt"], extra=' loading="lazy"')}{foto2}</figure>
     <div class="sobre-texto reveal">
       <p class="eyebrow">{esc(so["eyebrow"])}</p><h2 id="sobre-titulo">{so["h2"]}</h2>
       {ps1}
@@ -1058,8 +1458,28 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
 
     # bloco de Natal (leva à página da campanha)
     n = s['natal_bloco']; nf = F.uri(n['foto'], 0, 0, q=66, tam=(1200, 800))
+    if ag:  # a agenda de verdade: os horários livres da campanha (o JS refaz a conta ao abrir) e o caminho para escolher
+        camp = n.get('campanha') or ag['campanhas'][0]['id']
+        out.append(f'''<section class="secao natal" id="natal" aria-labelledby="natal-titulo">
+  <div class="container natal-grid">
+    <div class="reveal">
+      <p class="eyebrow">{esc(n["eyebrow"])}</p><h2 id="natal-titulo">{n["h2"]}</h2>
+      <p style="margin-top:22px">{esc(n["p"])}</p>
+      <p class="vagas"><b data-ag-vagas="{esc(camp)}">{agenda_vagas(cfg, camp)}</b> <span>horários livres</span></p>
+      <a class="botao" href="natal.html#horarios" data-pagina="natal"><svg aria-hidden="true"><use href="#cal"/></svg>Escolher o meu horário</a>
+    </div>
+    <figure class="natal-foto reveal">{img(nf, n["foto"]["alt"], extra=' loading="lazy"')}<figcaption>{esc(n["legenda"])}</figcaption></figure>
+  </div>
+</section>''')
+        g = s['agendar']
+        out.append(f'''<section class="secao" id="agendar" aria-labelledby="agendar-titulo">
+  <div class="container">
+    <div class="cabeca reveal"><p class="eyebrow">{esc(g["eyebrow"])}</p><h2 id="agendar-titulo">{g["h2"]}</h2><p>{esc(g["p"])}</p></div>
+    {agenda_html(cfg)}
+  </div>
+</section>''')
     prox = ''.join(f'<li><a href="{esc(x["link"])}" target="_blank" rel="noopener noreferrer" data-hora="{esc(d["iso"] + " " + x["h"])}">{esc(d["semana"][:3])} {d["dia"]}/{datetime.date.fromisoformat(d["iso"]).month:02d} <small>·</small> {esc(x["h"])}</a></li>' for d, x in proximos(dias, 4))
-    out.append(f'''<section class="secao natal" id="natal" aria-labelledby="natal-titulo">
+    if not ag: out.append(f'''<section class="secao natal" id="natal" aria-labelledby="natal-titulo">
   <div class="container natal-grid">
     <div class="reveal">
       <p class="eyebrow">{esc(n["eyebrow"])}</p><h2 id="natal-titulo">{n["h2"]}</h2>
@@ -1141,7 +1561,17 @@ def pagina_natal(cfg, F, google, horas, dias, total, livres):
 </section>''')
 
     a = n['agenda']
-    out.append(f'''<section class="secao" id="horarios" aria-labelledby="horarios-titulo">
+    if cfg.get('agenda'):  # a agenda de verdade, presa na campanha desta página
+        camp = a.get('campanha') or cfg['agenda']['campanhas'][0]['id']
+        out.append(f'''<section class="secao" id="horarios" aria-labelledby="horarios-titulo">
+  <div class="container">
+    <div class="cabeca reveal"><p class="eyebrow">{esc(a["eyebrow"])}</p><h2 id="horarios-titulo">{a["h2"]}</h2><p>{esc(a["p"])}</p>
+      <p class="vagas" style="justify-content:center;margin:22px 0 0"><b data-ag-vagas="{esc(camp)}" style="color:var(--acento)">{agenda_vagas(cfg, camp)}</b> <span>horários livres</span></p></div>
+    {agenda_html(cfg, camp)}
+    <ol class="passos reveal">{"".join(f"<li><b>{esc(t)}</b>{esc(x)}</li>" for t, x in a["passos"])}</ol>
+  </div>
+</section>''')
+    if not cfg.get('agenda'): out.append(f'''<section class="secao" id="horarios" aria-labelledby="horarios-titulo">
   <div class="container">
     <div class="cabeca reveal"><p class="eyebrow">{esc(a["eyebrow"])}</p><h2 id="horarios-titulo">{a["h2"]}</h2><p>{esc(a["p"])}</p></div>
     <div class="agenda-topo reveal">
@@ -1184,7 +1614,16 @@ def pagina_natal(cfg, F, google, horas, dias, total, livres):
 
 def fechar(cfg, partes, google, horas, lista):
     runtime = open(os.path.join(AQUI, 'runtime.js'), encoding='utf-8').read()
-    partes += [cliente_js(cfg, google, horas, lista), '<script>\n' + runtime + '\n</script>', rz_js(cfg), '<script>\n' + JS + '\n</script>', '</body>', '</html>', '']
+    js = JS
+    if not cfg.get('renderiza'):
+        a, b = js.index('  // ---------- camada da Renderiza'), js.index('  // Links entre o site e a página de Natal')
+        js = js[:a] + js[b:]
+    if cfg.get('agenda'):  # a agenda de verdade troca os horários de exemplo
+        a = js.index('  // ---------- horários: o toque marca o escolhido')
+        js = js[:a] + '})();\n'
+    partes += [cliente_js(cfg, google, horas, lista), '<script>\n' + runtime + '\n</script>', rz_js(cfg), '<script>\n' + js + '\n</script>']
+    if cfg.get('agenda'): partes += [agenda_js(cfg, horas), '<script>\n' + JS_AGENDA + '\n</script>']
+    partes += ['</body>', '</html>', '']
     doc = '\n'.join(partes)
     assert '{{' not in doc, re.findall(r'\{\{[^}]*\}\}', doc)[:5]
     return doc
@@ -1202,8 +1641,10 @@ def ficha(cfg, horas, total, livres, F):
               f'| Site | {f["site"]} |',
               '| Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |',
               f'| Situação | {f["situacao"]} |',
+              f'| Oferta na demo | sem oferta na página (cliente fechada: a demo é a proposta final) |' if not cfg.get('renderiza') else
               f'| Oferta na demo | {cfg["renderiza"]["preco_pix"]} no Pix ou {cfg["renderiza"]["parcelado"]}, pagamento único (o site fica 100% dela, sem mensalidade); promoção de uma semana, até {dmy(cfg["renderiza"]["valido_ate"])} (depois dessa data, o aviso some e fica só o valor){"; com o aviso da Renderiza (modal) depois de " + str((cfg["renderiza"]["aviso"] if isinstance(cfg["renderiza"]["aviso"], dict) else {}).get("segundos", 40)) + " s" if cfg["renderiza"].get("aviso") else ""}: trocar no `demo.json` (`renderiza`) e gerar de novo, ou no `window.RZ` das duas páginas |',
-              f'| Horários de exemplo | {livres} livres de {total} (`horarios` no `demo.json`) |', '']
+              (f'| Agenda | a de verdade (`agenda` no `demo.json`): ensaio ou campanha, dia, horário livre, nome e WhatsApp; o pedido sai pelo WhatsApp |' if cfg.get('agenda') else
+               f'| Horários de exemplo | {livres} livres de {total} (`horarios` no `demo.json`) |'), '']
     for titulo, chave in (('Direção da demo', 'direcao'), ('O que tem na demo', 'demo'), ('Fotos', 'fotos'), ('Textos e fontes', 'textos'), ('Conferir antes de mandar', 'conferir')):
         if f.get(chave): linhas += [f'## {titulo}'] + [f'- {x}' for x in f[chave]] + ['']
     return '\n'.join(linhas)
@@ -1225,13 +1666,13 @@ def links_publicados(doc, pasta):
 
 def gerar(caminho):
     cfg = json.load(open(caminho, encoding='utf-8'))
-    if not cfg['renderiza'].get('valido_ate'):
+    if cfg.get('renderiza') and not cfg['renderiza'].get('valido_ate'):
         cfg['renderiza']['valido_ate'] = (datetime.date.today() + datetime.timedelta(days=7)).isoformat()
     google = G.ler_google(cfg.get('google_json'))
-    horas = G.horario(google)
-    dias, total, livres = horarios(cfg)
+    horas = G.horario(google) or ({int(k): v for k, v in cfg['horario'].items()} if cfg.get('horario') else None)
+    dias, total, livres = horarios(cfg) if cfg.get('horarios') else ([], 0, 0)
     pasta = os.path.join(REPO, 'demos', cfg['pasta']); os.makedirs(pasta, exist_ok=True)
-    F = Fotos()
+    F = Fotos(cfg, pasta)
     saidas = []
     for nome, fn, lista in (('index.html', pagina_site, cfg['site']['avaliacoes']), ('natal.html', pagina_natal, cfg['natal']['avaliacoes'])):
         antes = F.bytes
@@ -1240,7 +1681,10 @@ def gerar(caminho):
         print(f'{arq}: {len(doc) // 1024} KB (imagens novas: {(F.bytes - antes) // 1024} KB)')
         saidas.append(arq)
     for a in F.avisos: print('  AVISO', a)
-    print(f'horários de exemplo: {livres} livres de {total}')
+    if F.saida: print(f'fotos: {F.n} tratadas agora, {F.reusadas} reaproveitadas das páginas (sem o original)')
+    if cfg.get('horarios'): print(f'horários de exemplo: {livres} livres de {total}')
+    if cfg.get('agenda'):
+        for c in cfg['agenda'].get('campanhas', []): print(f'agenda: campanha {c["id"]}: {len(c["dias"])} dias x {len(c["horarios"])} horários; livres de hoje em diante: {agenda_vagas(cfg, c["id"])}')
     gal = cfg['site']['galerias']
     for g in gal:
         p = sum(1 for x in g['fotos'] if x.get('f', 'p') != 'l'); l = len(g['fotos']) - p
