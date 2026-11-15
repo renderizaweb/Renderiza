@@ -59,6 +59,14 @@ export function conferirSite(pasta) {
   const dominio = (html.match(/<link rel="canonical" href="https:\/\/([^/"]+)\/">/) || [])[1];
   const r = conferirHtml(html, { dominio, existe: f => fs.existsSync(path.join(pasta, f)) });
   if (!dominio) r.problemas.push('Sem o endereço oficial (canonical): o site saiu do scripts/virar-site.mjs?');
+  // As outras páginas do site ("paginas" no site.json do virar-site, ex.: natal.html em /natal): o mesmo pente, com o endereço oficial delas.
+  for (const f of fs.readdirSync(pasta).filter(f => f.endsWith('.html') && f !== 'index.html').sort()) {
+    const outra = fs.readFileSync(path.join(pasta, f), 'utf8');
+    const o = conferirHtml(outra, { existe: x => fs.existsSync(path.join(pasta, x)) });
+    r.problemas.push(...o.problemas.map(p => `${f}: ${p}`));
+    r.avisos.push(...o.avisos.map(a => `${f}: ${a}`));
+    if (dominio && !outra.includes(`<link rel="canonical" href="https://${dominio}/${f.replace(/\.html$/, '')}">`)) r.problemas.push(`${f}: sem o endereço oficial (canonical) https://${dominio}/${f.replace(/\.html$/, '')}.`);
+  }
   if (fs.existsSync(path.join(pasta, 'agenda', 'index.html'))) {
     const agenda = conferirHtml(fs.readFileSync(path.join(pasta, 'agenda', 'index.html'), 'utf8'), { existe: f => fs.existsSync(path.join(pasta, f)) });
     r.problemas.push(...agenda.problemas.map(p => 'Agenda: ' + p));
