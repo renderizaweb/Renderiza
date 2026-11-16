@@ -153,6 +153,21 @@ parecia amadora e prometia o que não dá para entregar. A versão 2 é uma **pe
 
 **Depois de fechar:** o vídeo de lançamento para a população, gravado com ele de verdade.
 
+## O vídeo "A proposta em 2 minutos" (16/11/2026)
+
+Explica a proposta comercial e responde as dúvidas de negócio. O Kaue manda no WhatsApp junto com o link da proposta.
+- **Arquivos:** página `instagram/reels-proposta-vereador-explica.html`, texto e voz em
+  `instagram/narracao/reels-proposta-vereador-explica.json`, vídeo em
+  `gravacoes/vereador-mateuzinho-silva-proposta-explicada.mp4` (720p, 1 min 46 s; no ar em
+  /gravacao/vereador-mateuzinho-silva-proposta-explicada.mp4).
+- **Gerar de novo:** `SSL_CERT_FILE=/root/.ccr/ca-bundle.crt node instagram/gerar.mjs reels-proposta-vereador-explica`
+  (usa a foto `rascunhos/vereador-video/gabinete.jpg`) e reduzir para 720p com o ffmpeg.
+- **Roteiro (8 partes):** o que é (site e portal); R$ 3.300, 60 horas, valor fechado; pagamento em R$ 0, 40% com a
+  prévia e 60% na entrega validada; até 5 semanas, entrega única; 90 dias de garantia, 7 dias para desistir, domínio,
+  dados e código dele; banco no Brasil, acesso por pessoa, duas etapas e separado de campanha; planos de R$ 499,
+  R$ 799 e R$ 1.299, sem prazo mínimo, ou sem plano; assinatura online com código por e-mail.
+- **Mudou um número na proposta ou no contrato:** mudar também na página e na narração, e gravar de novo.
+
 ## A decidir com o Kaue
 
 1. O nome ("Gabinete Aberto" ou outro).
