@@ -1,0 +1,27 @@
+{
+ "_sobre": "Vídeo \"A proposta em 2 minutos\" (16/11/2026): explica a proposta comercial do Gabinete Aberto ao vereador Mateuzinho Silva e responde as dúvidas de negócio (o que é, preço, pagamento, prazo, garantias, segurança, planos e como assinar). O Kaue manda no WhatsApp junto com o link da proposta. NÃO é post do Instagram da Renderiza. Sem o nome dele na narração. Os números têm de bater com propostas/ e contratos/vereador-mateuzinho-silva.html. Nada de pedir voto, número de urna ou \"candidato\". Voz sintética.",
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+6%",
+ "inicio": 0.4,
+ "frases": [
+  {"id": "abre", "cena": "abre", "trilha": "abre", "texto": "A proposta do Gabinete Aberto, em *dois minutos.*", "pausa": 0.5},
+  {"id": "oque", "cena": "oque", "trilha": "abre", "texto": "São duas partes que trabalham juntas: o site do mandato, aberto à cidade, e o portal, só da *equipe.*", "pausa": 0.4},
+  {"id": "fluxo", "cena": "oque", "trilha": "google", "texto": "O morador pede pelo site e acompanha. A equipe organiza tudo no portal, com as indicações da Câmara e a ajuda da inteligência artificial para *redigir.*", "pausa": 0.5},
+  {"id": "preco", "cena": "preco", "trilha": "insta", "texto": "O investimento: *R$ 3.300.*", "fala": "O investimento: três mil e trezentos reais.", "pausa": 0.45, "impacto": true},
+  {"id": "tabela", "cena": "preco", "trilha": "insta", "texto": "São 60 horas de trabalho. Pela tabela, seriam R$ 4.500: a indicação baixou o valor da *hora.*", "fala": "São sessenta horas de trabalho. Pela tabela, seriam quatro mil e quinhentos: a indicação baixou o valor da hora.", "pausa": 0.4},
+  {"id": "fechado", "cena": "preco", "trilha": "insta", "texto": "E o valor é fechado: se o trabalho passar disso, a diferença fica com a *Renderiza.*", "pausa": 0.5},
+  {"id": "paga", "cena": "paga", "trilha": "ese", "texto": "E como se paga? Nos primeiros quinze dias, *nada.*", "pausa": 0.45},
+  {"id": "previa", "cena": "paga", "trilha": "site", "texto": "No décimo quinto dia chega a prévia do trabalho, e só então a primeira parte: *40%.*", "fala": "No décimo quinto dia chega a prévia do trabalho, e só então a primeira parte: quarenta por cento.", "pausa": 0.4, "impacto": true},
+  {"id": "saldo", "cena": "paga", "trilha": "site", "texto": "O restante, só na entrega, depois que o gabinete *validar.*", "pausa": 0.5},
+  {"id": "prazo", "cena": "prazo", "trilha": "site", "texto": "A entrega é uma só: tudo pronto em até *cinco semanas.*", "pausa": 1.1},
+  {"id": "garantias", "cena": "garantias", "trilha": "site", "texto": "Nos sete primeiros dias depois da assinatura, dá para desistir sem custo. E, depois da entrega, são noventa dias de garantia contra *defeitos.*", "pausa": 0.4},
+  {"id": "dono", "cena": "garantias", "trilha": "site", "texto": "O domínio fica no nome do vereador. Os dados são sempre do gabinete. E o código passa a ser dele com o *pagamento.*", "pausa": 0.5},
+  {"id": "seguranca", "cena": "seguranca", "trilha": "site", "texto": "Tudo fica num banco exclusivo, no Brasil, com acesso por pessoa e verificação em *duas etapas.*", "pausa": 0.4},
+  {"id": "campanha", "cena": "seguranca", "trilha": "site", "texto": "E o sistema é do mandato: separado de qualquer *campanha.*", "pausa": 0.5},
+  {"id": "depois", "cena": "planos", "trilha": "site", "texto": "Para manter tudo no ar, há um plano mensal a partir de *R$ 499*, com hospedagem e banco de dados incluídos.", "fala": "Para manter tudo no ar, há um plano mensal a partir de quatrocentos e noventa e nove reais, com hospedagem e banco de dados incluídos.", "pausa": 0.4},
+  {"id": "livre", "cena": "planos", "trilha": "site", "texto": "Sem prazo mínimo. E quem preferir pode cuidar da estrutura por *conta própria.*", "pausa": 0.5},
+  {"id": "assinar", "cena": "assinar", "trilha": "site", "texto": "Para seguir, o contrato é assinado online, em poucos minutos, com um código enviado por *e-mail.*", "pausa": 1.5},
+  {"id": "fecho", "cena": "marca", "trilha": "cta", "texto": "Gabinete Aberto. *Um olhar para a população.*", "pausa": 0.4, "impacto": true}
+ ]
+}

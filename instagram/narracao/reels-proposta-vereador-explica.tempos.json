@@ -1,0 +1,1778 @@
+{
+ "duracao": 105.74,
+ "frases": [
+  {
+   "id": "abre",
+   "cena": "abre",
+   "trilha": "abre",
+   "pausa": 0.5,
+   "ini": 0.4,
+   "fim": 3.253,
+   "palavras": [
+    {
+     "p": "A",
+     "ini": 0.4,
+     "fim": 0.469,
+     "tom": false
+    },
+    {
+     "p": "proposta",
+     "ini": 0.481,
+     "fim": 1.0,
+     "tom": false
+    },
+    {
+     "p": "do",
+     "ini": 1.012,
+     "fim": 1.094,
+     "tom": false
+    },
+    {
+     "p": "Gabinete",
+     "ini": 1.106,
+     "fim": 1.59,
+     "tom": false
+    },
+    {
+     "p": "Aberto,",
+     "ini": 1.601,
+     "fim": 2.061,
+     "tom": false
+    },
+    {
+     "p": "em",
+     "ini": 2.238,
+     "fim": 2.356,
+     "tom": false
+    },
+    {
+     "p": "dois",
+     "ini": 2.368,
+     "fim": 2.639,
+     "tom": true
+    },
+    {
+     "p": "minutos.",
+     "ini": 2.651,
+     "fim": 3.193,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "oque",
+   "cena": "oque",
+   "trilha": "abre",
+   "pausa": 0.4,
+   "ini": 3.753,
+   "fim": 10.198,
+   "palavras": [
+    {
+     "p": "São",
+     "ini": 3.753,
+     "fim": 3.999,
+     "tom": false
+    },
+    {
+     "p": "duas",
+     "ini": 4.011,
+     "fim": 4.365,
+     "tom": false
+    },
+    {
+     "p": "partes",
+     "ini": 4.377,
+     "fim": 4.789,
+     "tom": false
+    },
+    {
+     "p": "que",
+     "ini": 4.801,
+     "fim": 4.896,
+     "tom": false
+    },
+    {
+     "p": "trabalham",
+     "ini": 4.907,
+     "fim": 5.32,
+     "tom": false
+    },
+    {
+     "p": "juntas:",
+     "ini": 5.332,
+     "fim": 5.78,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 6.016,
+     "fim": 6.075,
+     "tom": false
+    },
+    {
+     "p": "site",
+     "ini": 6.087,
+     "fim": 6.44,
+     "tom": false
+    },
+    {
+     "p": "do",
+     "ini": 6.452,
+     "fim": 6.523,
+     "tom": false
+    },
+    {
+     "p": "mandato,",
+     "ini": 6.535,
+     "fim": 7.065,
+     "tom": false
+    },
+    {
+     "p": "aberto",
+     "ini": 7.254,
+     "fim": 7.679,
+     "tom": false
+    },
+    {
+     "p": "à",
+     "ini": 7.69,
+     "fim": 7.726,
+     "tom": false
+    },
+    {
+     "p": "cidade,",
+     "ini": 7.738,
+     "fim": 8.233,
+     "tom": false
+    },
+    {
+     "p": "e",
+     "ini": 8.516,
+     "fim": 8.598,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 8.61,
+     "fim": 8.657,
+     "tom": false
+    },
+    {
+     "p": "portal,",
+     "ini": 8.669,
+     "fim": 9.129,
+     "tom": false
+    },
+    {
+     "p": "só",
+     "ini": 9.353,
+     "fim": 9.554,
+     "tom": false
+    },
+    {
+     "p": "da",
+     "ini": 9.565,
+     "fim": 9.671,
+     "tom": false
+    },
+    {
+     "p": "equipe.",
+     "ini": 9.683,
+     "fim": 10.12,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "fluxo",
+   "cena": "oque",
+   "trilha": "google",
+   "pausa": 0.5,
+   "ini": 10.598,
+   "fim": 19.702,
+   "palavras": [
+    {
+     "p": "O",
+     "ini": 10.598,
+     "fim": 10.64,
+     "tom": false
+    },
+    {
+     "p": "morador",
+     "ini": 10.652,
+     "fim": 11.148,
+     "tom": false
+    },
+    {
+     "p": "pede",
+     "ini": 11.159,
+     "fim": 11.407,
+     "tom": false
+    },
+    {
+     "p": "pelo",
+     "ini": 11.419,
+     "fim": 11.619,
+     "tom": false
+    },
+    {
+     "p": "site",
+     "ini": 11.631,
+     "fim": 12.044,
+     "tom": false
+    },
+    {
+     "p": "e",
+     "ini": 12.056,
+     "fim": 12.067,
+     "tom": false
+    },
+    {
+     "p": "acompanha.",
+     "ini": 12.079,
+     "fim": 12.704,
+     "tom": false
+    },
+    {
+     "p": "A",
+     "ini": 13.515,
+     "fim": 13.645,
+     "tom": false
+    },
+    {
+     "p": "equipe",
+     "ini": 13.656,
+     "fim": 14.022,
+     "tom": false
+    },
+    {
+     "p": "organiza",
+     "ini": 14.034,
+     "fim": 14.506,
+     "tom": false
+    },
+    {
+     "p": "tudo",
+     "ini": 14.517,
+     "fim": 14.812,
+     "tom": false
+    },
+    {
+     "p": "no",
+     "ini": 14.824,
+     "fim": 14.918,
+     "tom": false
+    },
+    {
+     "p": "portal,",
+     "ini": 14.93,
+     "fim": 15.39,
+     "tom": false
+    },
+    {
+     "p": "com",
+     "ini": 15.708,
+     "fim": 15.873,
+     "tom": false
+    },
+    {
+     "p": "as",
+     "ini": 15.885,
+     "fim": 15.932,
+     "tom": false
+    },
+    {
+     "p": "indicações",
+     "ini": 15.944,
+     "fim": 16.616,
+     "tom": false
+    },
+    {
+     "p": "da",
+     "ini": 16.628,
+     "fim": 16.746,
+     "tom": false
+    },
+    {
+     "p": "Câmara",
+     "ini": 16.758,
+     "fim": 17.159,
+     "tom": false
+    },
+    {
+     "p": "e",
+     "ini": 17.171,
+     "fim": 17.23,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 17.241,
+     "fim": 17.265,
+     "tom": false
+    },
+    {
+     "p": "ajuda",
+     "ini": 17.277,
+     "fim": 17.607,
+     "tom": false
+    },
+    {
+     "p": "da",
+     "ini": 17.619,
+     "fim": 17.689,
+     "tom": false
+    },
+    {
+     "p": "inteligência",
+     "ini": 17.701,
+     "fim": 18.303,
+     "tom": false
+    },
+    {
+     "p": "artificial",
+     "ini": 18.315,
+     "fim": 18.881,
+     "tom": false
+    },
+    {
+     "p": "para",
+     "ini": 18.892,
+     "fim": 19.069,
+     "tom": false
+    },
+    {
+     "p": "redigir.",
+     "ini": 19.081,
+     "fim": 19.576,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "preco",
+   "cena": "preco",
+   "trilha": "insta",
+   "pausa": 0.45,
+   "impacto": true,
+   "ini": 20.202,
+   "fim": 23.002,
+   "palavras": [
+    {
+     "p": "O",
+     "ini": 20.202,
+     "fim": 20.248,
+     "tom": false
+    },
+    {
+     "p": "investimento:",
+     "ini": 20.259,
+     "fim": 21.615,
+     "tom": false
+    },
+    {
+     "p": "R$",
+     "ini": 21.627,
+     "fim": 21.84,
+     "tom": true
+    },
+    {
+     "p": "3.300.",
+     "ini": 21.851,
+     "fim": 22.936,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "tabela",
+   "cena": "preco",
+   "trilha": "insta",
+   "pausa": 0.4,
+   "ini": 23.452,
+   "fim": 30.548,
+   "palavras": [
+    {
+     "p": "São",
+     "ini": 23.452,
+     "fim": 23.695,
+     "tom": false
+    },
+    {
+     "p": "60",
+     "ini": 23.706,
+     "fim": 24.272,
+     "tom": false
+    },
+    {
+     "p": "horas",
+     "ini": 24.284,
+     "fim": 24.591,
+     "tom": false
+    },
+    {
+     "p": "de",
+     "ini": 24.603,
+     "fim": 24.697,
+     "tom": false
+    },
+    {
+     "p": "trabalho.",
+     "ini": 24.709,
+     "fim": 25.157,
+     "tom": false
+    },
+    {
+     "p": "Pela",
+     "ini": 25.968,
+     "fim": 26.204,
+     "tom": false
+    },
+    {
+     "p": "tabela,",
+     "ini": 26.215,
+     "fim": 26.64,
+     "tom": false
+    },
+    {
+     "p": "seriam",
+     "ini": 26.864,
+     "fim": 27.182,
+     "tom": false
+    },
+    {
+     "p": "R$",
+     "ini": 27.194,
+     "fim": 27.713,
+     "tom": false
+    },
+    {
+     "p": "4.500:",
+     "ini": 27.725,
+     "fim": 27.76,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 27.772,
+     "fim": 28.444,
+     "tom": false
+    },
+    {
+     "p": "indicação",
+     "ini": 28.633,
+     "fim": 28.68,
+     "tom": false
+    },
+    {
+     "p": "baixou",
+     "ini": 28.692,
+     "fim": 29.293,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 29.305,
+     "fim": 29.671,
+     "tom": false
+    },
+    {
+     "p": "valor",
+     "ini": 29.682,
+     "fim": 29.706,
+     "tom": false
+    },
+    {
+     "p": "da",
+     "ini": 29.718,
+     "fim": 30.06,
+     "tom": false
+    },
+    {
+     "p": "hora.",
+     "ini": 30.071,
+     "fim": 30.472,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "fechado",
+   "cena": "preco",
+   "trilha": "insta",
+   "pausa": 0.5,
+   "ini": 30.948,
+   "fim": 35.671,
+   "palavras": [
+    {
+     "p": "E",
+     "ini": 30.948,
+     "fim": 31.04,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 31.051,
+     "fim": 31.087,
+     "tom": false
+    },
+    {
+     "p": "valor",
+     "ini": 31.098,
+     "fim": 31.393,
+     "tom": false
+    },
+    {
+     "p": "é",
+     "ini": 31.405,
+     "fim": 31.44,
+     "tom": false
+    },
+    {
+     "p": "fechado:",
+     "ini": 31.452,
+     "fim": 31.959,
+     "tom": false
+    },
+    {
+     "p": "se",
+     "ini": 32.266,
+     "fim": 32.348,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 32.36,
+     "fim": 32.396,
+     "tom": false
+    },
+    {
+     "p": "trabalho",
+     "ini": 32.407,
+     "fim": 32.808,
+     "tom": false
+    },
+    {
+     "p": "passar",
+     "ini": 32.82,
+     "fim": 33.174,
+     "tom": false
+    },
+    {
+     "p": "disso,",
+     "ini": 33.186,
+     "fim": 33.575,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 33.858,
+     "fim": 33.929,
+     "tom": false
+    },
+    {
+     "p": "diferença",
+     "ini": 33.94,
+     "fim": 34.542,
+     "tom": false
+    },
+    {
+     "p": "fica",
+     "ini": 34.554,
+     "fim": 34.813,
+     "tom": false
+    },
+    {
+     "p": "com",
+     "ini": 34.825,
+     "fim": 34.966,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 34.978,
+     "fim": 35.002,
+     "tom": false
+    },
+    {
+     "p": "Renderiza.",
+     "ini": 35.014,
+     "fim": 35.58,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "paga",
+   "cena": "paga",
+   "trilha": "ese",
+   "pausa": 0.45,
+   "ini": 36.171,
+   "fim": 40.073,
+   "palavras": [
+    {
+     "p": "E",
+     "ini": 36.171,
+     "fim": 36.252,
+     "tom": false
+    },
+    {
+     "p": "como",
+     "ini": 36.264,
+     "fim": 36.594,
+     "tom": false
+    },
+    {
+     "p": "se",
+     "ini": 36.606,
+     "fim": 36.735,
+     "tom": false
+    },
+    {
+     "p": "paga?",
+     "ini": 36.747,
+     "fim": 37.124,
+     "tom": false
+    },
+    {
+     "p": "Nos",
+     "ini": 37.935,
+     "fim": 38.148,
+     "tom": false
+    },
+    {
+     "p": "primeiros",
+     "ini": 38.159,
+     "fim": 38.643,
+     "tom": false
+    },
+    {
+     "p": "quinze",
+     "ini": 38.655,
+     "fim": 38.973,
+     "tom": false
+    },
+    {
+     "p": "dias,",
+     "ini": 38.985,
+     "fim": 39.457,
+     "tom": false
+    },
+    {
+     "p": "nada.",
+     "ini": 39.598,
+     "fim": 39.999,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "previa",
+   "cena": "paga",
+   "trilha": "site",
+   "pausa": 0.4,
+   "impacto": true,
+   "ini": 40.523,
+   "fim": 45.922,
+   "palavras": [
+    {
+     "p": "No",
+     "ini": 40.523,
+     "fim": 40.639,
+     "tom": false
+    },
+    {
+     "p": "décimo",
+     "ini": 40.651,
+     "fim": 41.087,
+     "tom": false
+    },
+    {
+     "p": "quinto",
+     "ini": 41.099,
+     "fim": 41.465,
+     "tom": false
+    },
+    {
+     "p": "dia",
+     "ini": 41.476,
+     "fim": 41.665,
+     "tom": false
+    },
+    {
+     "p": "chega",
+     "ini": 41.677,
+     "fim": 41.936,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 41.948,
+     "fim": 41.983,
+     "tom": false
+    },
+    {
+     "p": "prévia",
+     "ini": 41.995,
+     "fim": 42.302,
+     "tom": false
+    },
+    {
+     "p": "do",
+     "ini": 42.314,
+     "fim": 42.868,
+     "tom": false
+    },
+    {
+     "p": "trabalho,",
+     "ini": 43.21,
+     "fim": 43.257,
+     "tom": false
+    },
+    {
+     "p": "e",
+     "ini": 43.269,
+     "fim": 43.422,
+     "tom": false
+    },
+    {
+     "p": "só",
+     "ini": 43.434,
+     "fim": 43.776,
+     "tom": false
+    },
+    {
+     "p": "então",
+     "ini": 43.788,
+     "fim": 43.835,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 43.847,
+     "fim": 44.2,
+     "tom": false
+    },
+    {
+     "p": "primeira",
+     "ini": 44.212,
+     "fim": 44.625,
+     "tom": false
+    },
+    {
+     "p": "parte:",
+     "ini": 44.861,
+     "fim": 45.297,
+     "tom": false
+    },
+    {
+     "p": "40%.",
+     "ini": 45.309,
+     "fim": 45.828,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "saldo",
+   "cena": "paga",
+   "trilha": "site",
+   "pausa": 0.5,
+   "ini": 46.322,
+   "fim": 49.879,
+   "palavras": [
+    {
+     "p": "O",
+     "ini": 46.322,
+     "fim": 46.387,
+     "tom": false
+    },
+    {
+     "p": "restante,",
+     "ini": 46.399,
+     "fim": 46.965,
+     "tom": false
+    },
+    {
+     "p": "só",
+     "ini": 47.189,
+     "fim": 47.378,
+     "tom": false
+    },
+    {
+     "p": "na",
+     "ini": 47.39,
+     "fim": 47.484,
+     "tom": false
+    },
+    {
+     "p": "entrega,",
+     "ini": 47.496,
+     "fim": 47.956,
+     "tom": false
+    },
+    {
+     "p": "depois",
+     "ini": 48.239,
+     "fim": 48.687,
+     "tom": false
+    },
+    {
+     "p": "que",
+     "ini": 48.699,
+     "fim": 48.769,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 48.781,
+     "fim": 48.816,
+     "tom": false
+    },
+    {
+     "p": "gabinete",
+     "ini": 48.828,
+     "fim": 49.335,
+     "tom": false
+    },
+    {
+     "p": "validar.",
+     "ini": 49.347,
+     "fim": 49.772,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "prazo",
+   "cena": "prazo",
+   "trilha": "site",
+   "pausa": 1.1,
+   "ini": 50.379,
+   "fim": 53.702,
+   "palavras": [
+    {
+     "p": "A",
+     "ini": 50.379,
+     "fim": 50.439,
+     "tom": false
+    },
+    {
+     "p": "entrega",
+     "ini": 50.451,
+     "fim": 50.876,
+     "tom": false
+    },
+    {
+     "p": "é",
+     "ini": 50.888,
+     "fim": 50.923,
+     "tom": false
+    },
+    {
+     "p": "uma",
+     "ini": 50.935,
+     "fim": 51.088,
+     "tom": false
+    },
+    {
+     "p": "só:",
+     "ini": 51.1,
+     "fim": 51.442,
+     "tom": false
+    },
+    {
+     "p": "tudo",
+     "ini": 51.725,
+     "fim": 52.008,
+     "tom": false
+    },
+    {
+     "p": "pronto",
+     "ini": 52.02,
+     "fim": 52.338,
+     "tom": false
+    },
+    {
+     "p": "em",
+     "ini": 52.35,
+     "fim": 52.421,
+     "tom": false
+    },
+    {
+     "p": "até",
+     "ini": 52.432,
+     "fim": 52.645,
+     "tom": false
+    },
+    {
+     "p": "cinco",
+     "ini": 52.656,
+     "fim": 53.022,
+     "tom": true
+    },
+    {
+     "p": "semanas.",
+     "ini": 53.034,
+     "fim": 53.623,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "garantias",
+   "cena": "garantias",
+   "trilha": "site",
+   "pausa": 0.4,
+   "ini": 54.802,
+   "fim": 63.806,
+   "palavras": [
+    {
+     "p": "Nos",
+     "ini": 54.802,
+     "fim": 54.978,
+     "tom": false
+    },
+    {
+     "p": "sete",
+     "ini": 54.989,
+     "fim": 55.272,
+     "tom": false
+    },
+    {
+     "p": "primeiros",
+     "ini": 55.284,
+     "fim": 55.697,
+     "tom": false
+    },
+    {
+     "p": "dias",
+     "ini": 55.709,
+     "fim": 55.956,
+     "tom": false
+    },
+    {
+     "p": "depois",
+     "ini": 55.968,
+     "fim": 56.334,
+     "tom": false
+    },
+    {
+     "p": "da",
+     "ini": 56.346,
+     "fim": 56.416,
+     "tom": false
+    },
+    {
+     "p": "assinatura,",
+     "ini": 56.428,
+     "fim": 57.029,
+     "tom": false
+    },
+    {
+     "p": "dá",
+     "ini": 57.312,
+     "fim": 57.466,
+     "tom": false
+    },
+    {
+     "p": "para",
+     "ini": 57.478,
+     "fim": 57.666,
+     "tom": false
+    },
+    {
+     "p": "desistir",
+     "ini": 57.678,
+     "fim": 58.126,
+     "tom": false
+    },
+    {
+     "p": "sem",
+     "ini": 58.138,
+     "fim": 58.362,
+     "tom": false
+    },
+    {
+     "p": "custo.",
+     "ini": 58.374,
+     "fim": 58.751,
+     "tom": false
+    },
+    {
+     "p": "E,",
+     "ini": 59.562,
+     "fim": 59.786,
+     "tom": false
+    },
+    {
+     "p": "depois",
+     "ini": 60.057,
+     "fim": 60.423,
+     "tom": false
+    },
+    {
+     "p": "da",
+     "ini": 60.435,
+     "fim": 60.517,
+     "tom": false
+    },
+    {
+     "p": "entrega,",
+     "ini": 60.529,
+     "fim": 60.989,
+     "tom": false
+    },
+    {
+     "p": "são",
+     "ini": 61.272,
+     "fim": 61.402,
+     "tom": false
+    },
+    {
+     "p": "noventa",
+     "ini": 61.413,
+     "fim": 61.885,
+     "tom": false
+    },
+    {
+     "p": "dias",
+     "ini": 61.897,
+     "fim": 62.18,
+     "tom": false
+    },
+    {
+     "p": "de",
+     "ini": 62.192,
+     "fim": 62.262,
+     "tom": false
+    },
+    {
+     "p": "garantia",
+     "ini": 62.274,
+     "fim": 62.781,
+     "tom": false
+    },
+    {
+     "p": "contra",
+     "ini": 62.793,
+     "fim": 63.123,
+     "tom": false
+    },
+    {
+     "p": "defeitos.",
+     "ini": 63.135,
+     "fim": 63.737,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "dono",
+   "cena": "garantias",
+   "trilha": "site",
+   "pausa": 0.5,
+   "ini": 64.206,
+   "fim": 71.916,
+   "palavras": [
+    {
+     "p": "O",
+     "ini": 64.206,
+     "fim": 64.273,
+     "tom": false
+    },
+    {
+     "p": "domínio",
+     "ini": 64.285,
+     "fim": 64.698,
+     "tom": false
+    },
+    {
+     "p": "fica",
+     "ini": 64.709,
+     "fim": 64.945,
+     "tom": false
+    },
+    {
+     "p": "no",
+     "ini": 64.957,
+     "fim": 65.04,
+     "tom": false
+    },
+    {
+     "p": "nome",
+     "ini": 65.051,
+     "fim": 65.346,
+     "tom": false
+    },
+    {
+     "p": "do",
+     "ini": 65.358,
+     "fim": 65.464,
+     "tom": false
+    },
+    {
+     "p": "vereador.",
+     "ini": 65.476,
+     "fim": 65.995,
+     "tom": false
+    },
+    {
+     "p": "Os",
+     "ini": 66.806,
+     "fim": 66.982,
+     "tom": false
+    },
+    {
+     "p": "dados",
+     "ini": 66.994,
+     "fim": 67.372,
+     "tom": false
+    },
+    {
+     "p": "são",
+     "ini": 67.383,
+     "fim": 67.56,
+     "tom": false
+    },
+    {
+     "p": "sempre",
+     "ini": 67.572,
+     "fim": 68.008,
+     "tom": false
+    },
+    {
+     "p": "do",
+     "ini": 68.02,
+     "fim": 68.126,
+     "tom": false
+    },
+    {
+     "p": "gabinete.",
+     "ini": 68.138,
+     "fim": 68.751,
+     "tom": false
+    },
+    {
+     "p": "E",
+     "ini": 69.565,
+     "fim": 69.683,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 69.695,
+     "fim": 69.754,
+     "tom": false
+    },
+    {
+     "p": "código",
+     "ini": 69.765,
+     "fim": 70.155,
+     "tom": false
+    },
+    {
+     "p": "passa",
+     "ini": 70.166,
+     "fim": 70.449,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 70.461,
+     "fim": 70.485,
+     "tom": false
+    },
+    {
+     "p": "ser",
+     "ini": 70.497,
+     "fim": 70.709,
+     "tom": false
+    },
+    {
+     "p": "dele",
+     "ini": 70.721,
+     "fim": 71.015,
+     "tom": false
+    },
+    {
+     "p": "com",
+     "ini": 71.027,
+     "fim": 71.181,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 71.192,
+     "fim": 71.228,
+     "tom": false
+    },
+    {
+     "p": "pagamento.",
+     "ini": 71.24,
+     "fim": 71.841,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "seguranca",
+   "cena": "seguranca",
+   "trilha": "site",
+   "pausa": 0.4,
+   "ini": 72.416,
+   "fim": 78.078,
+   "palavras": [
+    {
+     "p": "Tudo",
+     "ini": 72.416,
+     "fim": 72.612,
+     "tom": false
+    },
+    {
+     "p": "fica",
+     "ini": 72.624,
+     "fim": 72.86,
+     "tom": false
+    },
+    {
+     "p": "num",
+     "ini": 72.872,
+     "fim": 73.025,
+     "tom": false
+    },
+    {
+     "p": "banco",
+     "ini": 73.037,
+     "fim": 73.343,
+     "tom": false
+    },
+    {
+     "p": "exclusivo,",
+     "ini": 73.355,
+     "fim": 73.921,
+     "tom": false
+    },
+    {
+     "p": "no",
+     "ini": 74.157,
+     "fim": 74.263,
+     "tom": false
+    },
+    {
+     "p": "Brasil,",
+     "ini": 74.275,
+     "fim": 74.735,
+     "tom": false
+    },
+    {
+     "p": "com",
+     "ini": 75.018,
+     "fim": 75.183,
+     "tom": false
+    },
+    {
+     "p": "acesso",
+     "ini": 75.195,
+     "fim": 75.631,
+     "tom": false
+    },
+    {
+     "p": "por",
+     "ini": 75.643,
+     "fim": 75.773,
+     "tom": false
+    },
+    {
+     "p": "pessoa",
+     "ini": 75.785,
+     "fim": 76.233,
+     "tom": false
+    },
+    {
+     "p": "e",
+     "ini": 76.244,
+     "fim": 76.28,
+     "tom": false
+    },
+    {
+     "p": "verificação",
+     "ini": 76.292,
+     "fim": 76.952,
+     "tom": false
+    },
+    {
+     "p": "em",
+     "ini": 76.964,
+     "fim": 77.082,
+     "tom": false
+    },
+    {
+     "p": "duas",
+     "ini": 77.094,
+     "fim": 77.365,
+     "tom": true
+    },
+    {
+     "p": "etapas.",
+     "ini": 77.377,
+     "fim": 78.002,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "campanha",
+   "cena": "seguranca",
+   "trilha": "site",
+   "pausa": 0.5,
+   "ini": 78.478,
+   "fim": 81.761,
+   "palavras": [
+    {
+     "p": "E",
+     "ini": 78.478,
+     "fim": 78.543,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 78.555,
+     "fim": 78.602,
+     "tom": false
+    },
+    {
+     "p": "sistema",
+     "ini": 78.614,
+     "fim": 79.097,
+     "tom": false
+    },
+    {
+     "p": "é",
+     "ini": 79.109,
+     "fim": 79.156,
+     "tom": false
+    },
+    {
+     "p": "do",
+     "ini": 79.168,
+     "fim": 79.251,
+     "tom": false
+    },
+    {
+     "p": "mandato:",
+     "ini": 79.262,
+     "fim": 79.77,
+     "tom": false
+    },
+    {
+     "p": "separado",
+     "ini": 80.064,
+     "fim": 80.63,
+     "tom": false
+    },
+    {
+     "p": "de",
+     "ini": 80.642,
+     "fim": 80.725,
+     "tom": false
+    },
+    {
+     "p": "qualquer",
+     "ini": 80.737,
+     "fim": 81.138,
+     "tom": false
+    },
+    {
+     "p": "campanha.",
+     "ini": 81.149,
+     "fim": 81.68,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "depois",
+   "cena": "planos",
+   "trilha": "site",
+   "pausa": 0.4,
+   "ini": 82.261,
+   "fim": 89.41,
+   "palavras": [
+    {
+     "p": "Para",
+     "ini": 82.261,
+     "fim": 82.387,
+     "tom": false
+    },
+    {
+     "p": "manter",
+     "ini": 82.399,
+     "fim": 82.788,
+     "tom": false
+    },
+    {
+     "p": "tudo",
+     "ini": 82.8,
+     "fim": 83.071,
+     "tom": false
+    },
+    {
+     "p": "no",
+     "ini": 83.083,
+     "fim": 83.201,
+     "tom": false
+    },
+    {
+     "p": "ar,",
+     "ini": 83.213,
+     "fim": 83.366,
+     "tom": false
+    },
+    {
+     "p": "há",
+     "ini": 83.614,
+     "fim": 83.802,
+     "tom": false
+    },
+    {
+     "p": "um",
+     "ini": 83.814,
+     "fim": 84.097,
+     "tom": false
+    },
+    {
+     "p": "plano",
+     "ini": 84.109,
+     "fim": 84.522,
+     "tom": false
+    },
+    {
+     "p": "mensal",
+     "ini": 84.533,
+     "fim": 84.569,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 84.581,
+     "fim": 84.934,
+     "tom": false
+    },
+    {
+     "p": "partir",
+     "ini": 84.946,
+     "fim": 85.654,
+     "tom": false
+    },
+    {
+     "p": "de",
+     "ini": 85.665,
+     "fim": 85.748,
+     "tom": false
+    },
+    {
+     "p": "R$",
+     "ini": 85.76,
+     "fim": 86.066,
+     "tom": true
+    },
+    {
+     "p": "499,",
+     "ini": 86.078,
+     "fim": 86.102,
+     "tom": true
+    },
+    {
+     "p": "com",
+     "ini": 86.114,
+     "fim": 86.326,
+     "tom": false
+    },
+    {
+     "p": "hospedagem",
+     "ini": 86.338,
+     "fim": 87.116,
+     "tom": false
+    },
+    {
+     "p": "e",
+     "ini": 87.128,
+     "fim": 87.812,
+     "tom": false
+    },
+    {
+     "p": "banco",
+     "ini": 87.823,
+     "fim": 87.859,
+     "tom": false
+    },
+    {
+     "p": "de",
+     "ini": 87.871,
+     "fim": 88.213,
+     "tom": false
+    },
+    {
+     "p": "dados",
+     "ini": 88.224,
+     "fim": 88.342,
+     "tom": false
+    },
+    {
+     "p": "incluídos.",
+     "ini": 88.354,
+     "fim": 89.333,
+     "tom": false
+    }
+   ]
+  },
+  {
+   "id": "livre",
+   "cena": "planos",
+   "trilha": "site",
+   "pausa": 0.5,
+   "ini": 89.81,
+   "fim": 94.57,
+   "palavras": [
+    {
+     "p": "Sem",
+     "ini": 89.81,
+     "fim": 90.051,
+     "tom": false
+    },
+    {
+     "p": "prazo",
+     "ini": 90.062,
+     "fim": 90.381,
+     "tom": false
+    },
+    {
+     "p": "mínimo.",
+     "ini": 90.393,
+     "fim": 90.782,
+     "tom": false
+    },
+    {
+     "p": "E",
+     "ini": 91.593,
+     "fim": 91.699,
+     "tom": false
+    },
+    {
+     "p": "quem",
+     "ini": 91.71,
+     "fim": 91.899,
+     "tom": false
+    },
+    {
+     "p": "preferir",
+     "ini": 91.911,
+     "fim": 92.335,
+     "tom": false
+    },
+    {
+     "p": "pode",
+     "ini": 92.347,
+     "fim": 92.595,
+     "tom": false
+    },
+    {
+     "p": "cuidar",
+     "ini": 92.607,
+     "fim": 92.937,
+     "tom": false
+    },
+    {
+     "p": "da",
+     "ini": 92.949,
+     "fim": 93.031,
+     "tom": false
+    },
+    {
+     "p": "estrutura",
+     "ini": 93.043,
+     "fim": 93.515,
+     "tom": false
+    },
+    {
+     "p": "por",
+     "ini": 93.526,
+     "fim": 93.668,
+     "tom": false
+    },
+    {
+     "p": "conta",
+     "ini": 93.68,
+     "fim": 94.034,
+     "tom": true
+    },
+    {
+     "p": "própria.",
+     "ini": 94.045,
+     "fim": 94.493,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "assinar",
+   "cena": "assinar",
+   "trilha": "site",
+   "pausa": 1.5,
+   "ini": 95.07,
+   "fim": 100.555,
+   "palavras": [
+    {
+     "p": "Para",
+     "ini": 95.07,
+     "fim": 95.23,
+     "tom": false
+    },
+    {
+     "p": "seguir,",
+     "ini": 95.242,
+     "fim": 95.619,
+     "tom": false
+    },
+    {
+     "p": "o",
+     "ini": 95.89,
+     "fim": 95.938,
+     "tom": false
+    },
+    {
+     "p": "contrato",
+     "ini": 95.949,
+     "fim": 96.492,
+     "tom": false
+    },
+    {
+     "p": "é",
+     "ini": 96.504,
+     "fim": 96.574,
+     "tom": false
+    },
+    {
+     "p": "assinado",
+     "ini": 96.586,
+     "fim": 96.952,
+     "tom": false
+    },
+    {
+     "p": "online,",
+     "ini": 96.964,
+     "fim": 97.365,
+     "tom": false
+    },
+    {
+     "p": "em",
+     "ini": 97.577,
+     "fim": 97.73,
+     "tom": false
+    },
+    {
+     "p": "poucos",
+     "ini": 97.742,
+     "fim": 98.084,
+     "tom": false
+    },
+    {
+     "p": "minutos,",
+     "ini": 98.096,
+     "fim": 98.603,
+     "tom": false
+    },
+    {
+     "p": "com",
+     "ini": 98.839,
+     "fim": 98.968,
+     "tom": false
+    },
+    {
+     "p": "um",
+     "ini": 98.98,
+     "fim": 99.051,
+     "tom": false
+    },
+    {
+     "p": "código",
+     "ini": 99.063,
+     "fim": 99.452,
+     "tom": false
+    },
+    {
+     "p": "enviado",
+     "ini": 99.464,
+     "fim": 99.935,
+     "tom": false
+    },
+    {
+     "p": "por",
+     "ini": 99.947,
+     "fim": 100.1,
+     "tom": false
+    },
+    {
+     "p": "e-mail.",
+     "ini": 100.112,
+     "fim": 100.466,
+     "tom": true
+    }
+   ]
+  },
+  {
+   "id": "fecho",
+   "cena": "marca",
+   "trilha": "cta",
+   "pausa": 0.4,
+   "impacto": true,
+   "ini": 102.055,
+   "fim": 105.343,
+   "palavras": [
+    {
+     "p": "Gabinete",
+     "ini": 102.055,
+     "fim": 102.61,
+     "tom": false
+    },
+    {
+     "p": "Aberto.",
+     "ini": 102.622,
+     "fim": 103.07,
+     "tom": false
+    },
+    {
+     "p": "Um",
+     "ini": 103.88,
+     "fim": 103.998,
+     "tom": true
+    },
+    {
+     "p": "olhar",
+     "ini": 104.01,
+     "fim": 104.376,
+     "tom": false
+    },
+    {
+     "p": "para",
+     "ini": 104.388,
+     "fim": 104.529,
+     "tom": false
+    },
+    {
+     "p": "a",
+     "ini": 104.541,
+     "fim": 104.564,
+     "tom": false
+    },
+    {
+     "p": "população.",
+     "ini": 104.576,
+     "fim": 105.26,
+     "tom": true
+    }
+   ]
+  }
+ ]
+}
