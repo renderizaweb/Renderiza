@@ -267,6 +267,8 @@ button.ag-d:hover,button.ag-d.escolhido{background:var(--acento);border-color:va
 .ag-hora{min-height:46px;border:1px solid var(--acento);border-radius:999px;color:var(--acento-escuro);font-weight:500;transition:background .2s,color .2s}
 .ag-hora:hover{background:var(--acento);color:#fff}
 .ag-vazio{margin:22px 0 0;text-align:center;color:var(--tinta-2)}
+.ag-aviso{margin:0 0 16px;padding:12px 16px;border-radius:12px;background:var(--areia);color:var(--acento-escuro);font-size:.95rem;text-align:center}
+.ag-isca{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 .ag-campo{margin:0 0 16px}.ag-campo label{display:block;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-2);margin-bottom:6px}
 .ag-campo input{width:100%;min-height:52px;padding:12px 16px;border:1px solid var(--linha);border-radius:12px;background:var(--fundo);color:var(--tinta);font:inherit;font-size:1.05rem}
 .ag-campo input:focus{outline:2px solid var(--acento);outline-offset:1px;border-color:transparent}.ag-campo.erro input{border-color:#b3402f}
@@ -788,7 +790,12 @@ window.AGENDA = {"whatsapp": "5511994794869", "quem": "A Rafaela", "duracao": 60
   "use strict";
   // A agenda: a mesma regra da Agenda do painel. Um horário de início está livre se é dos horários do dia (os da
   // campanha, nos dias dela; senão, os do dia da semana), ainda não passou, a data não está fechada e nenhuma reserva o segura.
+  // No site ligado ao painel (o virar-site põe window.RZ_AGENDA_PAINEL = { api, codigo }), os ensaios, as campanhas e
+  // os horários livres vêm da agenda online do painel e o pedido vira pré-reserva lá. Se o painel não responder, fica
+  // tudo como na demo: os dados desta página (window.AGENDA) e o pedido pelo WhatsApp.
   const A = window.AGENDA; if (!A) return;
+  const P = window.RZ_AGENDA_PAINEL || null;
+  const BASE = P && P.api && P.codigo ? P.api + "agenda/" + P.codigo : "";
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const SEMANA = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
   const MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
@@ -803,30 +810,89 @@ window.AGENDA = {"whatsapp": "5511994794869", "quem": "A Rafaela", "duracao": 60
   const horaTexto = h => Number(h.slice(0, 2)) + "h" + (h.slice(3) === "00" ? "" : h.slice(3));
   const dataTexto = iso => iso.slice(8) + "/" + iso.slice(5, 7);
   const dataLonga = iso => SEMANA[diaDaSemana(iso)] + ", " + Number(iso.slice(8)) + " de " + MESES[Number(iso.slice(5, 7)) - 1];
-  const campanha = id => A.campanhas.find(c => c.id === id) || null;
-  const livres = (iso, c) => {
+  const igual = (a, b) => String(a || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim() === String(b || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
+
+  // A fonte dos ensaios, das campanhas e dos horários livres: esta página, ou o painel quando ele responde.
+  const F = { painel: false, ensaios: A.ensaios, campanhas: A.campanhas, mapas: {} };
+  const campanha = id => F.campanhas.find(c => c.id === id) || null;
+  const chave = e => e ? e.tipo + ":" + e.id : "geral";
+  const livresFixo = (iso, c) => {
     const n = agora();
     if (iso < n.dia || A.fechados.includes(iso)) return [];
     if (c ? !c.dias.includes(iso) : iso > somar(n.dia, A.janela)) return [];
     const hs = c ? c.horarios : (A.semana[diaDaSemana(iso)] || []);
     return hs.filter(h => (iso > n.dia || minutos(h) > n.min) && !A.ocupados.includes(iso + " " + h));
   };
-  const diasCom = c => {
-    const n = agora(), out = [];
-    if (c) c.dias.forEach(d => { if (livres(d, c).length) out.push(d); });
-    else for (let i = 0; i <= A.janela; i++) { const d = somar(n.dia, i); if (livres(d, null).length) out.push(d); }
-    return out.sort();
+  const mapaFixo = c => {
+    const m = {}, n = agora(), dias = c ? c.dias : Array.from({ length: A.janela + 1 }, (_, i) => somar(n.dia, i));
+    dias.forEach(d => { const hs = livresFixo(d, c); if (hs.length) m[d] = hs; });
+    return m;
   };
-  const vagas = c => c.dias.reduce((t, d) => t + livres(d, c).length, 0);
+  // dia -> horários livres da escolha (ensaio ou campanha); null = o painel ainda não mandou os horários dela
+  const mapaDe = e => F.painel ? (F.mapas[chave(e)] || null) : mapaFixo(e && e.tipo === "campanha" ? campanha(e.id) : null);
+  const vagas = c => {
+    const m = mapaDe({ tipo: "campanha", id: c.id }) || {}, n = Object.values(m).reduce((t, hs) => t + hs.length, 0);
+    return typeof c.restam === "number" ? Math.min(n, c.restam) : n;
+  };
   const plural = n => n === 1 ? "1 horário livre" : n + " horários livres";
-  // O número de horários livres de uma campanha fora do quadro (ex.: o bloco de Natal do site).
-  $$("[data-ag-vagas]").forEach(e => { const c = campanha(e.dataset.agVagas); if (c) e.textContent = vagas(c); });
 
-  $$("[data-agenda]").forEach(raiz => {
-    const so = raiz.dataset.so ? campanha(raiz.dataset.so) : null;
+  // O painel: os horários livres (de hoje até a janela, no máximo 62 dias por pedido), sem esperar mais que uns segundos.
+  const perguntar = (q, ms) => new Promise(ok => {
+    const t = setTimeout(() => ok(null), ms || 5000);
+    fetch(BASE + "?" + q, { headers: { Accept: "application/json" } }).then(r => r.ok ? r.json() : null)
+      .then(j => { clearTimeout(t); ok(j); }, () => { clearTimeout(t); ok(null); });
+  });
+  const mapaDoPainel = r => {
+    const m = {};
+    ((r && r.dias) || []).forEach(d => { const hs = (d.horarios || []).filter(h => h.livre).map(h => h.hora); if (hs.length) m[d.data] = hs; });
+    return m;
+  };
+  const periodo = de => "de=" + de + "&ate=" + somar(de, Math.min(A.janela, 61));
+  const carregar = e => {
+    const k = chave(e); if (F.mapas[k]) return Promise.resolve(F.mapas[k]);
+    if (!e || !e.id) { F.mapas[k] = {}; return Promise.resolve(F.mapas[k]); }
+    const hoje = agora().dia, c = e.tipo === "campanha" ? campanha(e.id) : null;
+    const de = c ? (c.dias.find(d => d >= hoje) || hoje) : hoje;
+    return perguntar((c ? "campanha=" : "servico=") + encodeURIComponent(e.id) + "&" + periodo(de)).then(r => {
+      // sem resposta: para um ensaio, os horários do estúdio (a duração padrão; o pedido confere de novo); para a
+      // campanha, nenhum (a página manda chamar no WhatsApp). Devolve null quando não respondeu.
+      F.mapas[k] = r ? mapaDoPainel(r) : (c ? {} : F.mapas.geral || {});
+      return r ? F.mapas[k] : null;
+    });
+  };
+  const pronto = !BASE ? Promise.resolve(false) : perguntar("horarios=1&" + periodo(agora().dia), 4000).then(r => {
+    if (!r || r.nicho !== "fotografia" || !Array.isArray(r.dias)) return false;
+    const textoDe = (lista, nome) => { const x = lista.find(y => igual(y.nome, nome)); return x ? x.sub : ""; };
+    F.ensaios = (r.ensaios || []).map(x => ({ id: x.id, nome: x.nome, sub: x.descricao || textoDe(A.ensaios, x.nome) }));
+    F.campanhas = (r.campanhas || []).map(x => ({ id: x.id, nome: x.nome, sub: textoDe(A.campanhas, x.nome), dias: x.dias || [], horarios: x.horarios || [], restam: x.restam }));
+    F.mapas = { geral: mapaDoPainel(r) };
+    return Promise.all(F.campanhas.map(c => carregar({ tipo: "campanha", id: c.id }))).then(ms => {
+      if (ms.some(m => !m)) { F.ensaios = A.ensaios; F.campanhas = A.campanhas; F.mapas = {}; return false; }
+      F.painel = true; return true;
+    });
+  });
+  // A campanha do painel que é a desta página (pelo nome; ou a única que houver).
+  const doPainel = fixa => {
+    if (!F.painel) return fixa;
+    const c = fixa && F.campanhas.find(x => igual(x.nome, fixa.nome));
+    return c || (F.campanhas.length === 1 ? F.campanhas[0] : null);
+  };
+
+  pronto.then(() => {
+    // O número de horários livres de uma campanha fora do quadro (ex.: o bloco de Natal do site).
+    $$("[data-ag-vagas]").forEach(e => { const c = doPainel(A.campanhas.find(x => x.id === e.dataset.agVagas)); e.textContent = c ? vagas(c) : 0; });
+    if (F.painel) $$(".ag-exemplo").forEach(e => { e.hidden = true; }); // os horários já são os de verdade
+    $$("[data-agenda]").forEach(montar);
+  });
+  if (BASE) $$("[data-ag-opcoes]").forEach(o => { const p = document.createElement("p"); p.className = "ag-vazio"; p.textContent = "Carregando a agenda…"; o.append(p); });
+
+  function montar(raiz) {
+    const fixa = raiz.dataset.so ? A.campanhas.find(x => x.id === raiz.dataset.so) || null : null;
+    const so = raiz.dataset.so ? (doPainel(fixa) || { id: null, nome: fixa ? fixa.nome : "", dias: [], horarios: [] }) : null;
     const etapas = so ? ["dia", "dados"] : ["ensaio", "dia", "dados"];
-    const est = { escolha: so ? { tipo: "campanha", id: so.id, nome: so.nome } : null, dia: "", hora: "", mes: "", dias: [] };
+    const est = { escolha: so ? { tipo: "campanha", id: so.id, nome: so.nome } : null, dia: "", hora: "", mes: "", dias: [], mapa: {} };
     const trilha = $$(".ag-trilha li", raiz), resumo = $("[data-ag-resumo]", raiz), form = $("form", raiz);
+    const comeco = Date.now();
     const mostrar = etapa => {
       $$(".ag-etapa", raiz).forEach(e => { e.hidden = e.dataset.etapa !== etapa; });
       const i = etapas.indexOf(etapa);
@@ -841,7 +907,6 @@ window.AGENDA = {"whatsapp": "5511994794869", "quem": "A Rafaela", "duracao": 60
       resumo.hidden = etapa === "pronto" || i <= 0;
       est.etapa = etapa;
     };
-    const c = () => est.escolha && est.escolha.tipo === "campanha" ? campanha(est.escolha.id) : null;
     const topo = () => { const t = $(".site-header"); return t ? t.offsetHeight : 0; };
     const marcarTopo = () => raiz.style.setProperty("--ag-topo", topo() + 8 + "px");
     marcarTopo(); addEventListener("resize", marcarTopo, { passive: true });
@@ -849,6 +914,7 @@ window.AGENDA = {"whatsapp": "5511994794869", "quem": "A Rafaela", "duracao": 60
       const y = raiz.getBoundingClientRect().top, h = topo();
       if (y < h + 4 || y > innerHeight * 0.45) scrollTo({ top: scrollY + y - h - 12 });
     };
+    const valida = e => !e || (e.tipo === "campanha" ? !!campanha(e.id) : F.ensaios.some(x => x.id === e.id));
 
     // Os passos ficam no histórico do navegador: o "voltar" do celular volta um passo, sem sair da página.
     let fundo = 0; // quantos passos desta agenda estão empilhados no histórico
@@ -868,10 +934,11 @@ window.AGENDA = {"whatsapp": "5511994794869", "quem": "A Rafaela", "duracao": 60
       if (k > 0 && k <= fundo && nossa) { history.go(-k); return; } // o popstate refaz a tela
       ir(etapa, false); fundo = Math.max(0, fundo - Math.max(k, 0)); guardar(); trazerAoTopo();
     };
+    const doComeco = () => { if (!so) est.escolha = null; est.dia = est.hora = ""; fundo = 0; aviso.hidden = true; ir(etapas[0], false); };
     addEventListener("popstate", ev => {
       const f = ev.state && ev.state.ag;
-      if (f) { if (!so) est.escolha = f.escolha; est.dia = f.dia; est.hora = f.hora; fundo = f.n; ir(f.etapa, false); }
-      else if (est.etapa !== etapas[0]) { if (!so) est.escolha = null; est.dia = est.hora = ""; fundo = 0; ir(etapas[0], false); }
+      if (f && (so || valida(f.escolha))) { if (!so) est.escolha = f.escolha; est.dia = f.dia; est.hora = f.hora; fundo = f.n; ir(f.etapa, false); }
+      else if (est.etapa !== etapas[0]) doComeco();
       else return;
       trazerAoTopo();
     });
@@ -887,12 +954,15 @@ window.AGENDA = {"whatsapp": "5511994794869", "quem": "A Rafaela", "duracao": 60
         b.addEventListener("click", () => { est.escolha = { tipo, id: x.id, nome: x.nome }; est.dia = est.hora = ""; avancar("dia"); });
         return b;
       };
-      A.campanhas.forEach(x => { const n = vagas(x), b = botao("campanha", x, n ? plural(n) : "Agenda cheia"); b.disabled = !n; opcoes.append(b); });
-      A.ensaios.forEach(x => opcoes.append(botao("ensaio", x)));
+      opcoes.replaceChildren();
+      F.campanhas.forEach(x => { const n = vagas(x), b = botao("campanha", x, n ? plural(n) : "Agenda cheia"); b.disabled = !n; opcoes.append(b); });
+      F.ensaios.forEach(x => opcoes.append(botao("ensaio", x)));
     }
 
     // 2. dia e horário
     const grade = $("[data-ag-dias]", raiz), mesNome = $("[data-ag-mes-nome]", raiz), horas = $("[data-ag-horas]", raiz), lista = $("[data-ag-horas-lista]", raiz), vazio = $("[data-ag-vazio]", raiz);
+    const espera = document.createElement("p"); espera.className = "ag-vazio"; espera.textContent = "Carregando os horários…"; espera.hidden = true; vazio.before(espera);
+    const aviso = document.createElement("p"); aviso.className = "ag-aviso"; aviso.setAttribute("role", "status"); aviso.hidden = true; $(".ag-cal", raiz).before(aviso);
     const desenharMes = () => {
       const [a, m] = est.mes.split("-").map(Number), primeiro = est.mes + "-01";
       mesNome.textContent = MESES[m - 1] + " de " + a;
@@ -911,18 +981,26 @@ window.AGENDA = {"whatsapp": "5511994794869", "quem": "A Rafaela", "duracao": 60
     const escolherDia = (iso, rolar = true) => {
       est.dia = iso; est.hora = ""; desenharMes();
       $("[data-ag-dia-nome]", raiz).textContent = "· " + dataLonga(iso);
-      lista.replaceChildren(...livres(iso, c()).map(h => {
+      lista.replaceChildren(...(est.mapa[iso] || []).map(h => {
         const b = document.createElement("button"); b.type = "button"; b.className = "ag-hora"; b.textContent = horaTexto(h);
-        b.addEventListener("click", () => { est.hora = h; avancar("dados"); const n = $("input[name=nome]", form); if (n) n.focus({ preventScroll: true }); });
+        b.addEventListener("click", () => { est.hora = h; aviso.hidden = true; avancar("dados"); const n = $("input[name=nome]", form); if (n) n.focus({ preventScroll: true }); });
         return b;
       }));
       horas.hidden = false;
       if (rolar) horas.scrollIntoView({ block: "nearest" });
     };
     const abrirDias = (rolar = false) => {
-      est.dias = diasCom(c()); horas.hidden = true;
-      vazio.hidden = est.dias.length > 0; $(".ag-cal", raiz).hidden = !est.dias.length;
-      if (est.dias.length) { est.mes = (est.dia || est.dias[0]).slice(0, 7); desenharMes(); if (est.dia && est.dias.includes(est.dia)) escolherDia(est.dia, rolar); }
+      const m = mapaDe(est.escolha), cal = $(".ag-cal", raiz);
+      horas.hidden = true;
+      if (!m) { // o painel ainda não mandou os horários deste ensaio
+        const e = est.escolha; cal.hidden = true; vazio.hidden = true; espera.hidden = false; mostrar("dia");
+        carregar(e).then(() => { if (est.etapa === "dia" && chave(est.escolha) === chave(e)) abrirDias(rolar); });
+        return;
+      }
+      espera.hidden = true; est.mapa = m;
+      est.dias = Object.keys(m).filter(d => m[d].length).sort();
+      vazio.hidden = est.dias.length > 0; cal.hidden = !est.dias.length;
+      if (est.dias.length) { est.mes = (est.dia && est.dias.includes(est.dia) ? est.dia : est.dias[0]).slice(0, 7); desenharMes(); if (est.dia && est.dias.includes(est.dia)) escolherDia(est.dia, rolar); }
       mostrar("dia");
     };
     $$("[data-ag-mes]", raiz).forEach(b => b.addEventListener("click", () => {
@@ -932,8 +1010,17 @@ window.AGENDA = {"whatsapp": "5511994794869", "quem": "A Rafaela", "duracao": 60
     $("[data-ag-voltar]", raiz).addEventListener("click", () => { const i = etapas.indexOf(est.etapa); if (i > 0) voltarPara(etapas[i - 1]); });
     $$("[data-ag-ir]", raiz).forEach(b => b.addEventListener("click", () => voltarPara(b.dataset.agIr)));
 
-    // 3. nome e WhatsApp: o pedido vai pelo WhatsApp, com a mensagem pronta
-    const zap = $("input[name=whatsapp]", form), nome = $("input[name=nome]", form);
+    // 3. nome e WhatsApp. Com o painel, o pedido vai para a agenda dele (pré-reserva); sem, pelo WhatsApp, com a
+    // mensagem pronta. Se o painel falhar na hora, o WhatsApp fica de reserva: o pedido nunca se perde.
+    const zap = $("input[name=whatsapp]", form), nome = $("input[name=nome]", form), enviar = $(".ag-enviar", form);
+    const pronta = $(".ag-pronto", raiz), tituloPronto = $(".ag-titulo", pronta), textoPronto = $("p:not([class])", pronta);
+    const PRONTO = { titulo: tituloPronto.textContent, texto: textoPronto ? textoPronto.textContent : "" };
+    const isca = document.createElement("input");
+    if (F.painel) {
+      isca.name = "website"; isca.tabIndex = -1; isca.autocomplete = "off"; isca.className = "ag-isca"; isca.setAttribute("aria-hidden", "true"); form.append(isca);
+      const nota = $(".ag-nota", form); if (nota) nota.textContent = A.quem + " recebe o pedido na agenda e confirma pelo WhatsApp.";
+      const icone = $("use", enviar); if (icone) icone.setAttribute("href", "#cal");
+    }
     const digitos = () => { let d = zap.value.replace(/\D/g, ""); if (d.length > 11 && d.startsWith("55")) d = d.slice(2); return d; };
     zap.addEventListener("input", () => {
       const d = digitos().slice(0, 11);
@@ -941,8 +1028,35 @@ window.AGENDA = {"whatsapp": "5511994794869", "quem": "A Rafaela", "duracao": 60
     });
     const erro = (campo, tem) => { const cx = campo.closest(".ag-campo"); cx.classList.toggle("erro", tem); $(".ag-erro", cx).hidden = !tem; return tem; };
     [nome, zap].forEach(campo => campo.addEventListener("input", () => erro(campo, false)));
+    const concluir = (titulo, texto) => {
+      tituloPronto.textContent = titulo; if (textoPronto) textoPronto.textContent = texto;
+      avancar("pronto"); pronta.focus({ preventScroll: true });
+    };
+    const peloWhatsApp = (link, abrir) => {
+      // No vídeo (?video=1) nada abre o WhatsApp; aberto ou não, o contador de visitas fica sabendo do pedido.
+      if (abrir && !document.documentElement.classList.contains("modo-video")) { try { window.open(link, "_blank", "noopener"); } catch (e) { /* o botão "Abrir o WhatsApp" fica na tela */ } }
+      try { if (window.rzVisita) window.rzVisita("clicou_whatsapp", { onde: "demo", parte: "Agenda" }, "demo"); } catch (e) { /* o contador nunca atrapalha */ }
+    };
+    const outroHorario = texto => { delete F.mapas[chave(est.escolha)]; est.hora = ""; aviso.textContent = texto; aviso.hidden = false; voltarPara("dia"); };
+    const aoPainel = link => {
+      const e = est.escolha, corpo = { nome: nome.value.trim(), whatsapp: digitos(), data: est.dia, hora: est.hora, tempo: Date.now() - comeco, website: isca.value };
+      corpo[e.tipo === "campanha" ? "campanha" : "servico"] = e.id;
+      enviar.disabled = true; form.setAttribute("aria-busy", "true");
+      const fim = () => { enviar.disabled = false; form.removeAttribute("aria-busy"); };
+      fetch(BASE + "/pedido", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(corpo) })
+        .then(r => r.json().catch(() => ({})).then(j => ({ status: r.status, j })), () => ({ status: 0, j: {} }))
+        .then(({ status, j }) => {
+          fim();
+          if (status === 201 && j.ok) { delete F.mapas[chave(e)]; concluir(PRONTO.titulo, A.quem + " recebe o pedido na agenda e confirma pelo WhatsApp. O horário fica separado por 48 horas."); return; }
+          if (status === 422 && (j.campo === "nome" || j.campo === "whatsapp")) { const c = j.campo === "nome" ? nome : zap; erro(c, true); c.focus(); return; }
+          if (status === 409 || (status === 422 && ["data", "hora", "servico", "campanha"].includes(j.campo))) { outroHorario("Esse horário acabou de ser reservado. Escolha outro, por favor."); return; }
+          peloWhatsApp(link, false); // painel fora do ar, limite ou outro problema: o pedido segue pelo WhatsApp
+          concluir("Falta enviar pelo WhatsApp.", "A agenda não respondeu agora. Toque em Abrir o WhatsApp: a mensagem já vai escrita.");
+        });
+    };
     form.addEventListener("submit", ev => {
       ev.preventDefault();
+      if (enviar.disabled) return;
       const e1 = erro(nome, nome.value.trim().length < 2), e2 = erro(zap, !/^\d{10,11}$/.test(digitos()));
       if (e1 || e2) { (e1 ? nome : zap).focus(); return; }
       const texto = A.mensagem.replace("{nome}", nome.value.trim()).replace("{ensaio}", est.escolha.nome).replace("{semana}", SEMANA[diaDaSemana(est.dia)])
@@ -950,19 +1064,18 @@ window.AGENDA = {"whatsapp": "5511994794869", "quem": "A Rafaela", "duracao": 60
       const link = "https://wa.me/" + A.whatsapp + "?text=" + encodeURIComponent(texto);
       $("[data-ag-abrir]", raiz).href = link;
       $("[data-ag-pronto-resumo]", raiz).textContent = est.escolha.nome + " · " + dataLonga(est.dia) + ", às " + horaTexto(est.hora);
-      // No vídeo (?video=1) nada abre o WhatsApp; aberto ou não, o contador de visitas fica sabendo do pedido.
-      if (!document.documentElement.classList.contains("modo-video")) { try { window.open(link, "_blank", "noopener"); } catch (e) { /* o botão "Abrir o WhatsApp" fica na tela */ } }
-      try { if (window.rzVisita) window.rzVisita("clicou_whatsapp", { onde: "demo", parte: "Agenda" }, "demo"); } catch (e) { /* o contador nunca atrapalha */ }
-      avancar("pronto"); $(".ag-pronto", raiz).focus({ preventScroll: true });
+      if (F.painel && est.escolha.id) { aoPainel(link); return; }
+      peloWhatsApp(link, true);
+      concluir(PRONTO.titulo, PRONTO.texto);
     });
     $("[data-ag-outro]", raiz).addEventListener("click", () => {
       const nossa = history.state && history.state.ag && history.state.ag.n === fundo;
       if (fundo > 0 && nossa) { history.go(-fundo); return; } // volta ao começo pelo histórico (o popstate refaz a tela)
-      if (!so) est.escolha = null; est.dia = est.hora = ""; fundo = 0; ir(etapas[0], false); guardar(); trazerAoTopo();
+      doComeco(); guardar(); trazerAoTopo();
     });
 
     ir(etapas[0], false); guardar();
-  });
+  }
 })();
 
 </script>

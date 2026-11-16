@@ -17,6 +17,8 @@
 //   o cliente edita pelo Painel Renderiza e, sem o painel, o site mostra o que está no index.html (03 do painel);
 // - com "painel": { "agenda": true }, entra a agenda online em /agenda/ (ferramentas/demo/agenda-online/), com um
 //   link na seção "Consulte a sua data": os dias livres e a pré-reserva vêm do painel; sem ele, vira WhatsApp.
+//   Site que já tem a agenda dele (a fotografia: window.AGENDA, do gerar-fotografia.py) não ganha /agenda/: a agenda
+//   de cada página passa a perguntar ao painel (window.RZ_AGENDA_PAINEL) e, sem resposta, fica como está.
 //
 // - com "paginas": ["natal"] no site.json, as outras páginas da demo vão junto (natal.html, servida em /natal): os links
 //   entre elas (/demo/<pasta>/natal) viram /natal e /, cada uma ganha o endereço oficial e a prévia dela, o script do
@@ -176,12 +178,23 @@ function comMeuSite(pagina) {
   if (/<\/script/i.test(js)) throw new Error('meu-site.js não pode ter </script');
   return pagina.replace('</head>', () => `  <script data-codigo="${codigo}"${api ? ` data-api="${esc(api + 'site/')}"` : ''}>\n${js}  </script>\n</head>`);
 }
+// A agenda que o próprio site já tem (fotografia): só o endereço do painel, antes do fim do <head>.
+const API_PADRAO = 'https://painel.renderizaweb.com.br/api/publico/';
+const temAgendaPropria = pagina => pagina.includes('window.AGENDA = ');
+function comAgendaPropria(pagina) {
+  const { codigo, api = API_PADRAO } = conf.painel;
+  const dados = JSON.stringify({ api, codigo }).replace(/</g, '\\u003c');
+  return pagina.replace('</head>', () => `  <script>window.RZ_AGENDA_PAINEL = ${dados};</script>\n</head>`);
+}
+const ligarAgenda = pagina => conf.painel && conf.painel.agenda && temAgendaPropria(pagina) ? comAgendaPropria(pagina) : pagina;
 if (conf.painel) {
   const { codigo, api, agenda = false, meuSite = true } = conf.painel;
   if (!/^[a-z0-9][a-z0-9-]{1,38}[a-z0-9]$/.test(codigo || '')) throw new Error('site.json: "painel.codigo" inválido (o mesmo formato da tabela sites)');
   if (api && !/^https?:\/\/[^\s"<>]+\/$/.test(api)) throw new Error('site.json: "painel.api" inválido (termina com /)');
   if (!html.includes('</head>')) throw new Error('index.html sem </head>');
-  if (agenda) {
+  if (agenda && temAgendaPropria(html)) {
+    html = comAgendaPropria(html);
+  } else if (agenda) {
     fs.mkdirSync(path.join(saida, 'agenda'), { recursive: true });
     fs.writeFileSync(path.join(saida, 'agenda', 'index.html'), paginaDaAgenda(html, { codigo, ...(api ? { api } : {}) }));
     const r = ligarNoSite(html);
@@ -199,7 +212,7 @@ for (const p of extras) {
   if (/data:image\//.test(pagina)) console.warn(`Atenção: ${p}.html: sobrou imagem embutida fora de <img> (CSS ou atributo).`);
   const foto = primeiraGrande || primeira;
   const ogDaPagina = foto ? await recortarPrevia(foto, `og-${p}.jpg`) : og;
-  pagina = comCabeca(pagina, url + p, ogDaPagina, false);
+  pagina = ligarAgenda(comCabeca(pagina, url + p, ogDaPagina, false));
   if (conf.painel && conf.painel.meuSite !== false) pagina = comMeuSite(pagina);
   fs.writeFileSync(path.join(saida, p + '.html'), pagina);
 }
@@ -246,7 +259,13 @@ O \`<script data-codigo="${conf.painel.codigo}">\` no fim do \`<head>\` liga o s
 Painel Renderiza aparece por cima do que está no \`index.html\`. Se o painel não responder, a conta for desconectada ou o
 script sair, o site mostra o \`index.html\` como está (a versão inicial). Não apague as marcações \`data-site-*\`: são
 elas que dizem ao script o que pode mudar.
-` : ''}${conf.painel && conf.painel.agenda ? `
+` : ''}${conf.painel && conf.painel.agenda && temAgendaPropria(html) ? `
+## Agenda online (Painel Renderiza)
+
+A agenda do site (o \`<script>window.RZ_AGENDA_PAINEL\` no fim do \`<head>\`) pergunta ao Painel Renderiza os ensaios,
+as campanhas e os horários livres, e manda o pedido de pré-reserva para lá. Se o painel não responder, ela fica como
+está no \`index.html\`: os horários escritos na página e o pedido pelo WhatsApp.
+` : conf.painel && conf.painel.agenda ? `
 ## Agenda online (Painel Renderiza)
 
 \`agenda/index.html\` é a agenda online: mostra os dias livres e manda o pedido de pré-reserva para o Painel
