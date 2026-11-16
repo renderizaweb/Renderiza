@@ -28,8 +28,9 @@
 // site.json: { dominio, nome, corTema, favicon: { texto, cor }, previaCentro: [x, y] (0 a 1; onde centrar o
 //             recorte da prévia, padrão [0.5, 0.1]), dadosEstruturados: [ {...schema.org} ],
 //             paginas: ["natal"] (opcional: as outras páginas da demo),
-//             painel: { codigo, agenda, meuSite } (opcional: o código do site no Painel Renderiza; agenda: true liga a
-//             agenda online; meuSite: false deixa sem o script do Meu site; "api" = a base da API pública, só para teste) }
+//             painel: { codigo, agenda, meuSite, visitas } (opcional: o código do site no Painel Renderiza; agenda:
+//             true liga a agenda online; meuSite: false deixa sem o script do Meu site; visitas: false desliga a
+//             contagem dos indicadores; "api" = a base da API pública, só para teste) }
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -176,7 +177,8 @@ function comMeuSite(pagina) {
   const { codigo, api } = conf.painel;
   const js = fs.readFileSync(path.join(raiz, 'ferramentas', 'meu-site', 'meu-site.js'), 'utf8');
   if (/<\/script/i.test(js)) throw new Error('meu-site.js não pode ter </script');
-  return pagina.replace('</head>', () => `  <script data-codigo="${codigo}"${api ? ` data-api="${esc(api + 'site/')}"` : ''}>\n${js}  </script>\n</head>`);
+  // "visitas": false no site.json desliga a contagem dos indicadores (03 do painel)
+  return pagina.replace('</head>', () => `  <script data-codigo="${codigo}"${api ? ` data-api="${esc(api + 'site/')}"` : ''}${conf.painel.visitas === false ? ' data-sem-visitas' : ''}>\n${js}  </script>\n</head>`);
 }
 // A agenda que o próprio site já tem (fotografia): só o endereço do painel, antes do fim do <head>.
 const API_PADRAO = 'https://painel.renderizaweb.com.br/api/publico/';

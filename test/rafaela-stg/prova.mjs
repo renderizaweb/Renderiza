@@ -273,6 +273,41 @@ test("Meu site: clicar no site abre o campo, o rascunho aparece ao vivo e o que 
   assert.ok(visto, "a frase nova apareceu no site");
 });
 
+test("indicadores: a visita de uma pessoa conta (tempo, parte vista, botão clicado) e aparece no painel; robô não conta", so, async () => {
+  // até aqui o site foi aberto várias vezes pelo navegador do teste, que se apresenta como robô: nada contado
+  assert.deepEqual(await banco.sql(`select count(*)::int as n from public.sites_visitas where conta_id = ${q(contaId)}`), [{ n: 0 }]);
+  // como uma pessoa: o navegador de um celular de verdade (o do teste diz "HeadlessChrome", que a API trata como robô)
+  const ctx = await navegador.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, reducedMotion: "reduce",
+    userAgent: "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1" });
+  await ctx.addInitScript(() => Object.defineProperty(Navigator.prototype, "webdriver", { get: () => false }));
+  try {
+    const p = await ctx.newPage();
+    await p.goto(siteUrl + "/");
+    await p.locator('[data-site-botao="inicio.link"]').tap(); // "Ver o portfólio": fica na página
+    await p.waitForTimeout(4200);
+    await p.evaluate(() => window.dispatchEvent(new Event("pagehide"))); // como fechar a aba
+    await p.waitForTimeout(800);
+  } finally { await ctx.close(); }
+  const [v] = await banco.sql(`select pagina, tela, origem, segundos, cliques, secoes, length(aparelho) as aparelho, length(visita) as visita from public.sites_visitas where conta_id = ${q(contaId)}`);
+  assert.ok(v, "a visita foi contada");
+  assert.deepEqual({ pagina: v.pagina, tela: v.tela, origem: v.origem, cliques: v.cliques, aparelho: v.aparelho, visita: v.visita },
+    { pagina: "/", tela: "celular", origem: null, cliques: { "inicio.link": 1 }, aparelho: 32, visita: 16 });
+  assert.ok(v.segundos >= 3 && v.segundos <= 8, `uns 4 segundos (${v.segundos})`);
+  assert.ok(Object.keys(v.secoes).length >= 1 && Object.values(v.secoes).reduce((a, b) => a + b, 0) <= v.segundos, JSON.stringify(v.secoes));
+
+  const { pagina: p, ctx: c } = await abrirPainel(DONA, senhaDona);
+  try {
+    await p.goto(`${painel.url}/meu-site`, { waitUntil: "networkidle" });
+    await p.locator('[data-aba="indicadores"]').click();
+    await p.getByText("Os botões mais clicados").waitFor({ timeout: 15000 });
+    const quadros = (await p.locator('[data-painel="indicadores"]').innerText()).replace(/\s+/g, " ");
+    assert.match(quadros, /Visitas 1 páginas abertas Aparelhos 1 somando dia a dia Tempo médio \d s com a página à vista Cliques em botões 1/);
+    assert.match(quadros, /Capa · Ver o portfólio 1/);
+    assert.match(quadros, /Celular 100%/);
+    await foto(p, "9-painel-indicadores");
+  } finally { await c.close(); }
+});
+
 test("desligar a conta no Admin: o site volta à versão inicial e a agenda ao WhatsApp; religar, volta tudo", so, async () => {
   const { pagina: p, ctx: c } = await abrirPainel(EQUIPE, senhaEquipe);
   const conta = () => p.locator(`[data-conta="${contaId}"]`).click();

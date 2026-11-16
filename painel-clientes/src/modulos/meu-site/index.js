@@ -544,7 +544,15 @@ export async function montar(el, { banco, conta, pode, avisar, ambiente }) {
   function mostrarAba(nome) {
     corpo.querySelectorAll("[data-aba]").forEach(b => b.setAttribute("aria-selected", String(b.dataset.aba === nome)));
     corpo.querySelectorAll("[data-painel]").forEach(p => { p.hidden = p.dataset.painel !== nome; });
+    raiz.classList.toggle("rz-ms--fora-do-editor", nome !== "editar"); // o "Ver o site" do celular é só do editor
     if (nome === "editar") ajustar();
+    // os indicadores carregam na primeira vez que a aba abre (e têm o próprio "Atualizar")
+    const ind = corpo.querySelector('[data-painel="indicadores"]');
+    if (nome === "indicadores" && !ind.dataset.montado) {
+      ind.dataset.montado = "sim";
+      import("./indicadores.js").then(m => m.montarIndicadores(ind, { banco, conta, conteudo: () => trabalho }))
+        .catch(e => { delete ind.dataset.montado; avisar(e.message, { tipo: "erro" }); });
+    }
   }
   // a altura das colunas depende do que está acima delas (a situação e os botões podem quebrar a linha)
   new ResizeObserver(ajustar).observe(acoes);
@@ -575,6 +583,7 @@ export async function montar(el, { banco, conta, pode, avisar, ambiente }) {
       ${!edita ? `<p class="rz-alerta" role="note">${icone("cadeado", { tamanho: 18 })}<span>Você só vê o Meu site. Quem muda e publica é o dono ou quem ele deixar.</span></p>` : ""}
       <div class="rz-abas" role="tablist">
         <button type="button" role="tab" data-aba="editar" aria-selected="true">Editar</button>
+        <button type="button" role="tab" data-aba="indicadores" aria-selected="false">Indicadores</button>
         <button type="button" role="tab" data-aba="versoes" aria-selected="false">Versões publicadas</button>
       </div>
       <div class="rz-ms-grade" data-painel="editar">
@@ -595,6 +604,7 @@ export async function montar(el, { banco, conta, pode, avisar, ambiente }) {
           </div>
         </aside>
       </div>
+      <div data-painel="indicadores" hidden></div>
       <div data-painel="versoes" hidden></div>
       <button class="rz-botao rz-botao--primario rz-ms-ver" type="button" data-ver>${icone("olho", { tamanho: 18 })}Ver o site</button>`;
     editor = corpo.querySelector("[data-editor]"); quadro = corpo.querySelector("[data-quadro]"); palco = corpo.querySelector("[data-palco]");

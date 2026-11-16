@@ -1064,3 +1064,10 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
   .rz-ms-ver,.rz-ms-fechar{display:none}
 }
 @media (prefers-reduced-motion:reduce){.rz-ms-piscar{animation:none;box-shadow:var(--rz-foco)}}
+/* os indicadores (as visitas do site): os quadros lado a lado quando cabe */
+.rz-ms--fora-do-editor .rz-ms-ver{display:none}
+.rz-ms-quadro{padding:var(--rz-4) var(--rz-5)}
+.rz-ms-quadro>h2{margin-bottom:var(--rz-1)}
+.rz-ms-quadro>p{margin-bottom:var(--rz-4)}
+.rz-ms-quadros{display:grid;gap:var(--rz-4);margin-top:var(--rz-4);grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
+.rz-ms-sub{display:block;margin:var(--rz-5) 0 var(--rz-3)}

@@ -197,3 +197,39 @@ export function whatsappDoContrato(texto) {
   const d = String(texto || "").replace(/\D/g, "").replace(/^55(?=\d{10,11}$)/, "");
   return d ? "55" + d : "";
 }
+
+// ---------- os indicadores (as visitas do site) ----------
+
+/** Segundos por extenso: "45 s", "1 min 20 s", "2 h 05 min". */
+export function duracao(segundos) {
+  const s = Math.max(0, Math.round(Number(segundos) || 0));
+  if (s < 60) return `${s} s`;
+  if (s < 3600) return `${Math.floor(s / 60)} min${s % 60 ? ` ${s % 60} s` : ""}`;
+  return `${Math.floor(s / 3600)} h ${String(Math.floor((s % 3600) / 60)).padStart(2, "0")} min`;
+}
+
+const CLIQUES = { whatsapp: "WhatsApp (o botão flutuante e os links)", instagram: "Instagram", telefone: "Ligar", agenda: "Enviar o pedido na agenda" };
+/** O nome de um botão clicado: os fixos, ou a parte e o que está escrito nele hoje ("Capa · Agendar um ensaio"). */
+export function nomeDoClique(nome, conteudo = {}) {
+  if (CLIQUES[nome]) return CLIQUES[nome];
+  const [secao, campo = ""] = String(nome).split("."), s = (conteudo.secoes || {})[secao];
+  if (!s) return String(nome);
+  const b = s.botoes && s.botoes[campo];
+  return `${nomeDaSecao(secao, s)} · ${semAsteriscos(b && b.rotulo) || rotulo("botoes", campo)}`;
+}
+
+const ORIGENS = [[/(^|\.)instagram\./, "Instagram"], [/(^|\.)google\./, "Google"], [/(^|\.)(facebook\.|fb\.)/, "Facebook"], [/whatsapp\.|(^|\.)wa\.me$/, "WhatsApp"],
+  [/(^|\.)bing\./, "Bing"], [/(^|\.)tiktok\./, "TikTok"], [/youtube\.|youtu\.be$/, "YouTube"]];
+/** De onde a visita veio, pelo site anterior ("" = sem site anterior). */
+export function nomeDaOrigem(host) {
+  if (!host) return "Direto (link no WhatsApp, QR code ou o endereço digitado)";
+  const o = ORIGENS.find(([re]) => re.test(host));
+  return o ? o[1] : host;
+}
+
+/** A escala do gráfico de visitas: o topo redondo e as linhas (no máximo 5), como no Financeiro. */
+export function escalaDoGrafico(maximo) {
+  const passo = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000].find(p => maximo / p <= 4) || 20000;
+  const topo = Math.max(passo, Math.ceil(maximo / passo) * passo);
+  return { topo, linhas: Array.from({ length: Math.round(topo / passo) + 1 }, (_, i) => i * passo) };
+}

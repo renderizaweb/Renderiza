@@ -6,6 +6,8 @@
 // - a última versão fica no navegador por até 24 horas, para aparecer logo nas visitas seguintes.
 // - dentro do editor do painel (o site num quadro, com ?rz-editor=1), mostra o rascunho que o painel manda a cada
 //   mudança e avisa em que parte a pessoa clicou; só aceita mensagem do endereço do painel e não grava nada;
+// - conta as visitas para os indicadores do painel, sem cookie e sem guardar nada no navegador (data-sem-visitas no
+//   <script> desliga): o tempo, as partes vistas e os botões clicados, por página aberta;
 // Entra no site pelo scripts/virar-site.mjs, num <script data-codigo="<código do site>"> no fim do <head>.
 // O mesmo arquivo é a biblioteca (validar, aplicar, extrair) do painel, dos testes e do scripts/versao-final.mjs.
 //
@@ -513,6 +515,53 @@
     w.addEventListener("load", function () { dizer("medidas", medidas(doc)); });
   }
 
+  // ---------- os indicadores: visitas, tempo, partes vistas e botões clicados ----------
+  // Nada de cookie nem de guardar algo no navegador: um sorteio que só vale nesta página aberta, o caminho, celular ou
+  // computador, o site de onde a pessoa veio, os segundos em cada parte (a que está no meio da tela) e os cliques nos
+  // botões. Vai para o painel 2 segundos depois de abrir, a cada 30 segundos se mudou e quando a página some.
+  // Robô (navigator.webdriver) não conta. Quem é a pessoa, o painel não sabe (03, "Indicadores").
+  function contarVisitas(doc, url) {
+    var w = doc.defaultView, nav = w.navigator;
+    if (!nav || nav.webdriver || typeof nav.sendBeacon !== "function" || !w.crypto || !w.crypto.getRandomValues) return;
+    var LETRAS = "abcdefghijklmnopqrstuvwxyz0123456789", v = "", origem = "";
+    Array.prototype.forEach.call(w.crypto.getRandomValues(new Uint8Array(16)), function (b) { v += LETRAS[b % 36]; });
+    var semWww = function (h) { return String(h).toLowerCase().replace(/^www\./, ""); };
+    try { var de = semWww(new URL(doc.referrer).hostname); if (de && de !== semWww(w.location.hostname)) origem = de; } catch (e) { /* veio direto */ }
+    var total = 0, secoes = {}, cliques = {}, mandado = "", vezes = 0;
+    var mandar = function () {
+      var dados = { v: v, p: w.location.pathname, t: w.innerWidth < 760 ? "celular" : "computador", s: total, se: secoes, c: cliques };
+      if (origem) dados.o = origem;
+      var texto = JSON.stringify(dados);
+      if (texto === mandado || vezes >= 60) return;
+      mandado = texto; vezes += 1;
+      try { nav.sendBeacon(url, texto); } catch (e) { /* sem contagem desta vez */ }
+    };
+    var noMeio = function () {
+      var y = w.innerHeight / 2, achada = null;
+      todos(doc, "[data-site-secao],section[id]").forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.height && r.top <= y && r.bottom >= y) achada = el.getAttribute("data-site-secao") || el.id;
+      });
+      return achada;
+    };
+    w.setInterval(function () {
+      if (doc.visibilityState !== "visible" || total >= 14400) return;
+      total += 1;
+      var s = noMeio();
+      if (s) secoes[s] = (secoes[s] || 0) + 1;
+      if (total === 2 || total % 30 === 0) mandar();
+    }, 1000);
+    doc.addEventListener("click", function (ev) {
+      var el = ev.target.closest && ev.target.closest("[data-site-botao],[data-whatsapp],[data-instagram],a[href^='https://wa.me'],a[href^='tel:'],.ag-enviar");
+      if (!el) return;
+      var nome = el.getAttribute("data-site-botao") || (el.hasAttribute("data-instagram") ? "instagram"
+        : /^tel:/.test(el.getAttribute("href") || "") ? "telefone" : el.classList.contains("ag-enviar") ? "agenda" : "whatsapp");
+      cliques[nome] = (cliques[nome] || 0) + 1;
+    }, true);
+    doc.addEventListener("visibilitychange", function () { if (doc.visibilityState === "hidden") mandar(); });
+    w.addEventListener("pagehide", mandar);
+  }
+
   // ---------- no site ----------
   function lerCache(chave) {
     try {
@@ -552,6 +601,9 @@
       if (doc.readyState === "loading") doc.addEventListener("DOMContentLoaded", function () { ok(); });
       else ok();
     });
+    if (!previa && !script.hasAttribute("data-sem-visitas")) {
+      pronto.then(function () { try { contarVisitas(doc, api + encodeURIComponent(codigo) + "/visita"); } catch (e) { /* o site segue sem contar */ } });
+    }
     var mostrar = function (c) {
       pronto.then(function () {
         try {
