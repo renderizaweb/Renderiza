@@ -370,6 +370,8 @@ test("fotografia (Rafaela): o site gerado sai com as marcações do Meu site, e 
   assert.ok(c.secoes.ensaios.listas.itens.every(it => it.textos.preco === ""), "o preço dos ensaios começa vazio (e vazio não aparece)");
   assert.equal(c.secoes.depoimentos.listas.avaliacoes.length, 4);
   assert.equal(c.contato.whatsapp, "5511994794869");
-  assert.doesNotMatch(fs.readFileSync(path.join(saida, "natal.html"), "utf8"), /data-site/, "a página de Natal fica sem marcações por enquanto");
+  // (com "painel" no site.json, o script do Meu site entra nas duas páginas e cita data-site-* no código: fora dele)
+  const natalSemScripts = fs.readFileSync(path.join(saida, "natal.html"), "utf8").replace(/<script\b[\s\S]*?<\/script>/g, "");
+  assert.doesNotMatch(natalSemScripts, /data-site/, "a página de Natal fica sem marcações por enquanto");
   fs.rmSync(saida, { recursive: true, force: true });
 });
