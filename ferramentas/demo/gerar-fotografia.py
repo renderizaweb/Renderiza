@@ -41,6 +41,10 @@
 #   agenda {...}: a agenda de verdade no lugar dos horários de exemplo (ver agenda_dados): a pessoa escolhe o ensaio
 #     ou a campanha (com vagas), o dia, um horário livre, deixa nome e WhatsApp e o pedido vai pelo WhatsApp. É o que
 #     a Agenda do painel entrega (horariosLivres e resumoDaCampanha em painel-clientes/src/modulos/agenda/logica.js).
+#   meu_site: true: as marcações data-site-* do Meu site (docs/painel-clientes/03) na página inicial (não na de Natal):
+#     o que a fotógrafa muda pelo painel (textos, botões, fotos da abertura e do "quem fotografa", as galerias do
+#     portfólio, os ensaios com um campo de preço que começa vazio e vazio não aparece, os números, as avaliações, o
+#     contato e mostrar/esconder seções). Sem a opção, a página sai idêntica.
 #   sobre.foto2: uma segunda foto, menor, sobre o canto da primeira. jornada.fonte vazio: sem a nota de fonte.
 #   natal.link_site: o rótulo do link de volta ao site na página de Natal (padrão: "O site da Ana").
 # No vídeo (gravar.mjs), a página aberta com ?video=1 esconde a camada da Renderiza (o vídeo não mostra preço).
@@ -53,6 +57,13 @@ import importlib.util
 _spec = importlib.util.spec_from_file_location('gerar_base', os.path.join(AQUI, 'gerar.py'))
 G = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(G)
 esc = lambda t: html.escape(str(t), quote=True)
+MEU_SITE = False  # meu_site no demo.json (vale para a página inicial; gerar() liga e desliga)
+
+
+def m(atributo, valor=None):
+    """Uma marcação do Meu site (só com meu_site no demo.json): m("data-site", "inicio.eyebrow") -> ' data-site="inicio.eyebrow"'."""
+    if not MEU_SITE: return ''
+    return f' {atributo}' if valor is None else f' {atributo}="{valor}"'
 _spec_m = importlib.util.spec_from_file_location('marca_fotografia', os.path.join(AQUI, 'marca-fotografia.py'))
 MARCA = importlib.util.module_from_spec(_spec_m); _spec_m.loader.exec_module(MARCA)
 
@@ -1302,13 +1313,13 @@ def cabecalho(cfg, F, pagina, nav, cta):
     inicio = 'index.html' if pagina == 'natal' else '#inicio'
     dp = ' data-pagina="site"' if pagina == 'natal' else ''
     links = ''.join(f'<a href="{esc(h)}"{" data-pagina=" + chr(34) + p + chr(34) if p else ""}>{esc(t)}</a>' for h, t, p in nav)
-    return f'''<header class="site-header">
+    return f'''<header class="site-header"{m("data-site-secao", "cabecalho") if pagina == "site" else ""}>
   <div class="container topo-in">
     <a class="marca" href="{inicio}"{dp} aria-label="{esc(cfg["marca"])}, início">{marca}</a>
     <nav class="nav" aria-label="Seções">{links}</nav>
-    <a class="botao topo-cta" {cta}</a>
+    <a class="botao topo-cta"{m("data-site-botao", "cabecalho.botao") if pagina == "site" else ""} {cta}</a>
     <button class="menu-botao" type="button" data-menu-button aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu"><span></span></button>
-    <nav class="menu-mobile" id="menu-mobile" aria-label="Menu" hidden>{links}<a class="botao" {cta}</a></nav>
+    <nav class="menu-mobile" id="menu-mobile" aria-label="Menu" hidden>{links}<a class="botao"{m("data-site-botao", "cabecalho.botao") if pagina == "site" else ""} {cta}</a></nav>
   </div>
 </header>'''
 
@@ -1325,6 +1336,8 @@ def head(cfg, F, titulo, descricao, comentario):
     if cfg['marca_img'].get('topo'):
         css += '\n/* o logo real no topo */\n.marca .marca-logo{width:auto;height:54px}@media(max-width:520px){.marca .marca-logo{height:46px}}\n'
     if cfg.get('agenda'): css += CSS_AGENDA
+    if MEU_SITE: css += ('\n/* Meu site: o preço do ensaio (vazio não aparece) */\n.jornada .preco{margin:14px 0 0;font-family:var(--serif);'
+                        'font-size:1.2rem;color:var(--acento-escuro)}.jornada .preco:empty{display:none}\n')
     if (cfg.get('site') or {}).get('sobre', {}).get('foto2'):
         css += ('\n/* sobre: a segunda foto, sobre o canto da primeira */\n.sobre-foto{margin-bottom:9%}'
                 '.sobre-foto .sobre-foto2{position:absolute;right:-7%;bottom:-9%;width:44%;height:auto;aspect-ratio:4/5;border:6px solid var(--areia);box-shadow:0 14px 34px #3a2b231f}'
@@ -1353,10 +1366,11 @@ def rodape(cfg, F, links):
     logo = F.png(cfg['marca_img']['logo_claro'], 480)
     nav = ''.join(f'<a href="{esc(h)}"{" data-pagina=" + chr(34) + p + chr(34) if p else ""}>{esc(t)}</a>' for h, t, p in links)
     v = cfg['site']['contato']
-    return f'''<footer class="rodape">
+    meu = MEU_SITE and links and links[0][2] == ''  # o rodapé da página inicial (o da de Natal começa no link do site)
+    return f'''<footer class="rodape"{' data-site-secao="rodape"' if meu else ''}>
   <div class="container">
     <img src="{logo[0]}" width="{logo[1]}" height="{logo[2]}" alt="{esc(cfg["marca"])}" loading="lazy"{dk(logo)}>
-    <p class="rodape-frase">{esc(cfg["slogan"])}</p>
+    <p class="rodape-frase"{' data-site="rodape.slogan"' if meu else ''}>{esc(cfg["slogan"])}</p>
     <nav aria-label="Links">{nav}<a data-whatsapp href="#">WhatsApp</a><a data-instagram href="#" target="_blank" rel="noopener noreferrer">Instagram</a></nav>
     <small>© <span data-year>2026</span> {esc(cfg["marca"])} · {esc(" · ".join(v["endereco"]))}</small>
   </div>
@@ -1364,20 +1378,23 @@ def rodape(cfg, F, links):
 <a class="flutuante" data-whatsapp href="#" aria-label="Conversar com {esc(quem(cfg)["a"])} no WhatsApp"><svg aria-hidden="true"><use href="#whats"/></svg></a>'''
 
 
-def galeria_html(F, gal, ativa):
+def galeria_html(F, gal, ativa, secao=None):
+    """secao: com o Meu site, a galeria vira a lista <secao>.<id da galeria> (cada foto um item)."""
     itens = []
     for i, f in enumerate(gal['fotos']):
         forma = f.get('f', 'p')
         u = F.uri(f, 1200, 800) if forma == 'l' else F.uri(f, 880, 1100)
         pos = f.get('pos', '50% 40%')
         alt = f.get('alt') or gal['nome']
-        itens.append(f'<button class="g-item g-{forma}" type="button" aria-label="{esc("Abrir em tela cheia: " + alt)}">'
-                     f'<img src="{u[0]}" width="{u[1]}" height="{u[2]}" alt="{esc(alt)}" loading="lazy" style="object-position:{pos}"{dk(u)}></button>')
+        item, campo = (' data-site-item', ' data-site-campo="foto"') if secao else ('', '')
+        itens.append(f'<button class="g-item g-{forma}" type="button"{item} aria-label="{esc("Abrir em tela cheia: " + alt)}">'
+                     f'<img src="{u[0]}" width="{u[1]}" height="{u[2]}" alt="{esc(alt)}" loading="lazy" style="object-position:{pos}"{campo}{dk(u)}></button>')
+    lista = f' data-site-lista="{secao}.{gal["id"]}"' if secao else ''
     classe = 'painel ativo' if ativa else 'painel'
     escondido = '' if ativa else ' aria-hidden="true"'
     return (f'<div class="{classe}" id="painel-{gal["id"]}" role="tabpanel" aria-labelledby="aba-{gal["id"]}"{escondido}>'
             f'<h3 class="painel-titulo">{esc(gal["nome"])}</h3>'
-            f'<div class="galeria" data-nome="{esc(gal["nome"])}">{"".join(itens)}</div></div>')
+            f'<div class="galeria" data-nome="{esc(gal["nome"])}"{lista}>{"".join(itens)}</div></div>')
 
 
 def lightbox():
@@ -1390,17 +1407,18 @@ def lightbox():
 </div>'''
 
 
-def avaliacoes_html(cfg, titulo, sub, id_secao='depoimentos'):
+def avaliacoes_html(cfg, titulo, sub, id_secao='depoimentos', meu=False):
     nota = G.mostrar_nota(cfg)
     placar = (f'<b>{esc(cfg["google_nota"])}</b>' if nota else '') + f'<span><span class="estrelas" aria-hidden="true">★★★★★</span>{esc(cfg["google_total"])} avaliações no Google</span>'
-    return f'''<section class="secao" id="{id_secao}" aria-labelledby="{id_secao}-titulo">
+    ms = (lambda a, v: f' {a}="{v}"') if meu else (lambda a, v: '')
+    return f'''<section class="secao" id="{id_secao}"{ms("data-site-secao", id_secao)} aria-labelledby="{id_secao}-titulo">
   <div class="container">
     <div class="avaliacoes-topo reveal">
-      <div><p class="eyebrow">{esc(sub)}</p><h2 id="{id_secao}-titulo">{titulo}</h2></div>
+      <div><p class="eyebrow"{ms("data-site", id_secao + ".eyebrow")}>{esc(sub)}</p><h2 id="{id_secao}-titulo"{ms("data-site", id_secao + ".titulo")}>{titulo}</h2></div>
       <a class="nota-google" data-reviews-link href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver as avaliações no Google">{placar}</a>
     </div>
     <div class="carousel reveal" data-carousel role="region" aria-roledescription="carrossel" aria-label="Avaliações do Google">
-      <ul class="carousel-track" id="reviews-track" data-reviews tabindex="0" aria-label="Avaliações; use as setas para navegar"></ul>
+      <ul class="carousel-track" id="reviews-track" data-reviews{ms("data-site-lista", id_secao + ".avaliacoes")}{' data-site-runtime="avaliacoes"' if meu else ''} tabindex="0" aria-label="Avaliações; use as setas para navegar"></ul>
       <div class="carousel-footer"><div class="carousel-controls"><button class="arrow-button" type="button" data-prev aria-controls="reviews-track" aria-label="Avaliações anteriores">←</button><div class="carousel-dots" data-dots></div><button class="arrow-button" type="button" data-next aria-controls="reviews-track" aria-label="Próximas avaliações">→</button><span class="sr-only" data-status aria-live="polite"></span></div></div>
     </div>
   </div>
@@ -1424,7 +1442,7 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
     cta = 'href="#agendar"><svg aria-hidden="true"><use href="#cal"/></svg>Agendar' if ag else 'data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar no WhatsApp'
     out = [head(cfg, F, s['titulo'], s['descricao'], s['comentario']), '<body class="pagina-site">', SIMBOLOS, faixa_rz(cfg, 'site'),
            cabecalho(cfg, F, 'site', nav, cta), '<main id="inicio">']
-    acao = '<a class="botao" href="#agendar"><svg aria-hidden="true"><use href="#cal"/></svg>Agendar um ensaio</a>' if ag else f'<a {wa_botao("Agendar pelo WhatsApp")}</a>'
+    acao = f'<a class="botao"{m("data-site-botao", "inicio.botao")} href="#agendar"><svg aria-hidden="true"><use href="#cal"/></svg>Agendar um ensaio</a>' if ag else f'<a{m("data-site-botao", "inicio.botao")} {wa_botao("Agendar pelo WhatsApp")}</a>'
     nota = G.mostrar_nota(cfg)
     if cfg.get('prova'):  # sem avaliações no Google: um número do perfil (ex.: "+310" ensaios), sem estrelas
         prova = f'<a class="prova" href="#sobre"><b>{esc(cfg["prova"][0])}</b><span>{esc(cfg["prova"][1])}</span></a>'
@@ -1435,24 +1453,24 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
     # nome com palavra longa (DIAMANTINO) não cabe na coluna no tamanho padrão: o título diminui na proporção
     maior = max(len(w) for w in q['nome'].split())
     tam_h1 = f' style="font-size:calc(clamp(2.5rem,6.4vw,5.6rem)*{min(1, 7.5 / maior):.3f})"' if maior > 8 else ''
-    out.append(f'''<section class="abertura" aria-labelledby="titulo-site">
+    out.append(f'''<section class="abertura"{m("data-site-secao", "inicio")} aria-labelledby="titulo-site">
   <div class="container abertura-grid">
     <div class="abertura-texto">
       <div class="abertura-topo">
-        <p class="eyebrow">{esc(h["eyebrow"])}</p>
+        <p class="eyebrow"{m("data-site", "inicio.eyebrow")}>{esc(h["eyebrow"])}</p>
         <h1 id="titulo-site"{tam_h1}>{esc(q["nome"])} <span class="script">{esc(q["script"])}</span></h1>
-        <p class="frase">{esc(h["frase"])}</p>
+        <p class="frase"{m("data-site", "inicio.frase")}>{esc(h["frase"])}</p>
       </div>
       <div class="abertura-baixo">
-        <p class="abertura-intro">{esc(h["intro"])}</p>
-        <div class="abertura-acoes">{acao}<a class="link" href="#portfolio">Ver o portfólio <svg aria-hidden="true"><use href="#seta"/></svg></a></div>
+        <p class="abertura-intro"{m("data-site", "inicio.texto")}>{esc(h["intro"])}</p>
+        <div class="abertura-acoes">{acao}<a class="link"{m("data-site-botao", "inicio.link")} href="#portfolio">Ver o portfólio <svg aria-hidden="true"><use href="#seta"/></svg></a></div>
         {prova}
       </div>
     </div>
     <div class="mosaico">
-      <figure class="hero-photo">{img(hero1, h["fotos"][0]["alt"], extra=' fetchpriority="high"')}<figcaption>{esc(rot[0])}</figcaption></figure>
-      <figure>{img(hero2, h["fotos"][1]["alt"])}<figcaption>{esc(rot[1])}</figcaption></figure>
-      <figure>{img(hero3, h["fotos"][2]["alt"])}<figcaption>{esc(rot[2])}</figcaption></figure>
+      <figure class="hero-photo">{img(hero1, h["fotos"][0]["alt"], extra=' fetchpriority="high"' + m("data-site-img", "inicio.foto"))}<figcaption{m("data-site", "inicio.rotulo")}>{esc(rot[0])}</figcaption></figure>
+      <figure>{img(hero2, h["fotos"][1]["alt"], extra=m("data-site-img", "inicio.foto2"))}<figcaption{m("data-site", "inicio.rotulo2")}>{esc(rot[1])}</figcaption></figure>
+      <figure>{img(hero3, h["fotos"][2]["alt"], extra=m("data-site-img", "inicio.foto3"))}<figcaption{m("data-site", "inicio.rotulo3")}>{esc(rot[2])}</figcaption></figure>
     </div>
   </div>
 </section>
@@ -1461,68 +1479,76 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
     # portfólio
     gals = s['galerias']
     abas = ''.join(f'<button class="aba" type="button" role="tab" id="aba-{g["id"]}" data-aba="{g["id"]}" aria-controls="painel-{g["id"]}" aria-selected="{"true" if i == 0 else "false"}">{esc(g["nome"])}<small>{len(g["fotos"])}</small></button>' for i, g in enumerate(gals))
-    paineis = ''.join(galeria_html(F, g, i == 0) for i, g in enumerate(gals))
+    paineis = ''.join(galeria_html(F, g, i == 0, 'portfolio' if MEU_SITE else None) for i, g in enumerate(gals))
     p = s['portfolio']
-    out.append(f'''<section class="secao" id="portfolio" aria-labelledby="portfolio-titulo">
+    out.append(f'''<section class="secao" id="portfolio"{m("data-site-secao", "portfolio")} aria-labelledby="portfolio-titulo">
   <div class="container">
-    <div class="cabeca reveal"><p class="eyebrow">{esc(p["eyebrow"])}</p><h2 id="portfolio-titulo">{p["h2"]}</h2><p>{esc(p["p"])}</p></div>
+    <div class="cabeca reveal"><p class="eyebrow"{m("data-site", "portfolio.eyebrow")}>{esc(p["eyebrow"])}</p><h2 id="portfolio-titulo"{m("data-site", "portfolio.titulo")}>{p["h2"]}</h2><p{m("data-site", "portfolio.texto")}>{esc(p["p"])}</p></div>
     <div class="abas" role="tablist" aria-label="Categorias do portfólio">{abas}</div>
     <div class="paineis">{paineis}</div>
-    <p class="galeria-nota">{esc(p["nota"])}</p>
+    <p class="galeria-nota"{m("data-site", "portfolio.nota")}>{esc(p["nota"])}</p>
   </div>
 </section>''')
 
     # sobre
     so = s['sobre']; foto = F.uri(so['foto'], 0, 0, q=70, tam=(760, 950))
-    nums = ''.join(f'<li><b>{esc(a)}</b>{esc(b)}</li>' for a, b in so['numeros'])
-    foto2 = img(F.uri(so['foto2'], 0, 0, q=70, tam=(560, 700)), so['foto2']['alt'], 'sobre-foto2', ' loading="lazy"') if so.get('foto2') else ''
-    ps1 = ''.join(f'<p>{esc(x)}</p>' for x in so['p'])
-    ps2 = ''.join(f'<p>{esc(x)}</p>' for x in so.get('p2', []))
-    out.append(f'''<section class="secao secao--areia" id="sobre" aria-labelledby="sobre-titulo">
+    if MEU_SITE: nums = ''.join(f'<li data-site-item><b data-site-campo="valor">{esc(a)}</b><span data-site-campo="texto">{esc(b)}</span></li>' for a, b in so['numeros'])
+    else: nums = ''.join(f'<li><b>{esc(a)}</b>{esc(b)}</li>' for a, b in so['numeros'])
+    foto2 = img(F.uri(so['foto2'], 0, 0, q=70, tam=(560, 700)), so['foto2']['alt'], 'sobre-foto2', ' loading="lazy"' + m("data-site-img", "sobre.foto2")) if so.get('foto2') else ''
+    ps1 = ''.join(f'<p{m("data-site", "sobre.texto") if i == 0 else ""}>{esc(x)}</p>' for i, x in enumerate(so['p']))
+    ps2 = ''.join(f'<p{m("data-site-item")}{m("data-site-campo", "texto")}>{esc(x)}</p>' for x in so.get('p2', []))
+    # as aspas ficam dentro da parte editável: cortar o texto entre "." e "”" muda o espaço entre eles (um pixel)
+    citacao = (f'<span data-site="sobre.citacao">“{esc(so["citacao"])}”</span><footer data-site="sobre.autor">{esc(so["citacao_quem"])}</footer>' if MEU_SITE
+               else f'“{esc(so["citacao"])}”<footer>{esc(so["citacao_quem"])}</footer>')
+    out.append(f'''<section class="secao secao--areia" id="sobre"{m("data-site-secao", "sobre")} aria-labelledby="sobre-titulo">
   <div class="container sobre-grid">
-    <figure class="sobre-foto reveal">{img(foto, so["foto"]["alt"], extra=' loading="lazy"')}{foto2}</figure>
-    <div class="sobre-texto reveal">
-      <p class="eyebrow">{esc(so["eyebrow"])}</p><h2 id="sobre-titulo">{so["h2"]}</h2>
+    <figure class="sobre-foto reveal">{img(foto, so["foto"]["alt"], extra=' loading="lazy"' + m("data-site-img", "sobre.foto"))}{foto2}</figure>
+    <div class="sobre-texto reveal"{m("data-site-lista", "sobre.paragrafos") if so.get("p2") else ""}>
+      <p class="eyebrow"{m("data-site", "sobre.eyebrow")}>{esc(so["eyebrow"])}</p><h2 id="sobre-titulo"{m("data-site", "sobre.titulo")}>{so["h2"]}</h2>
       {ps1}
-      <blockquote class="citacao">“{esc(so["citacao"])}”<footer>{esc(so["citacao_quem"])}</footer></blockquote>
+      <blockquote class="citacao">{citacao}</blockquote>
       {ps2}
-      <ul class="numeros">{nums}</ul>
+      <ul class="numeros"{m("data-site-lista", "sobre.numeros")}>{nums}</ul>
     </div>
   </div>
 </section>''')
 
     # jornada (os ensaios, nas palavras dela)
     j = s['jornada']
-    passos = ''.join(f'<li><h3>{esc(x["nome"])}</h3><p class="sub">{esc(x["sub"])}</p><p>{esc(x["p"])}</p></li>' for x in j['passos'])
-    out.append(f'''<section class="secao" id="ensaios" aria-labelledby="ensaios-titulo">
+    if MEU_SITE:
+        passos = ''.join(f'<li data-site-item><h3 data-site-campo="nome">{esc(x["nome"])}</h3><p class="sub" data-site-campo="sub">{esc(x["sub"])}</p>'
+                         f'<p data-site-campo="texto">{esc(x["p"])}</p><p class="preco" data-site-campo="preco">{esc(x.get("preco", ""))}</p></li>' for x in j['passos'])
+    else:
+        passos = ''.join(f'<li><h3>{esc(x["nome"])}</h3><p class="sub">{esc(x["sub"])}</p><p>{esc(x["p"])}</p></li>' for x in j['passos'])
+    out.append(f'''<section class="secao" id="ensaios"{m("data-site-secao", "ensaios")} aria-labelledby="ensaios-titulo">
   <div class="container">
-    <div class="cabeca reveal"><p class="eyebrow">{esc(j["eyebrow"])}</p><h2 id="ensaios-titulo">{j["h2"]}</h2><p>{esc(j["p"])}</p></div>
-    <ol class="jornada reveal">{passos}</ol>
+    <div class="cabeca reveal"><p class="eyebrow"{m("data-site", "ensaios.eyebrow")}>{esc(j["eyebrow"])}</p><h2 id="ensaios-titulo"{m("data-site", "ensaios.titulo")}>{j["h2"]}</h2><p{m("data-site", "ensaios.texto")}>{esc(j["p"])}</p></div>
+    <ol class="jornada reveal"{m("data-site-lista", "ensaios.itens")}>{passos}</ol>
     {f'<p class="fonte">{esc(j["fonte"])}</p>' if j.get("fonte") else ''}
   </div>
 </section>''')
 
-    if s['avaliacoes']: out.append(avaliacoes_html(cfg, s['avaliacoes_h2'], s.get('avaliacoes_eyebrow', 'Depoimentos')))
+    if s['avaliacoes']: out.append(avaliacoes_html(cfg, s['avaliacoes_h2'], s.get('avaliacoes_eyebrow', 'Depoimentos'), meu=MEU_SITE))
 
     # bloco de Natal (leva à página da campanha)
     n = s['natal_bloco']; nf = F.uri(n['foto'], 0, 0, q=66, tam=(1200, 800))
     if ag:  # a agenda de verdade: os horários livres da campanha (o JS refaz a conta ao abrir) e o caminho para escolher
         camp = n.get('campanha') or ag['campanhas'][0]['id']
-        out.append(f'''<section class="secao natal" id="natal" aria-labelledby="natal-titulo">
+        out.append(f'''<section class="secao natal" id="natal"{m("data-site-secao", "natal")} aria-labelledby="natal-titulo">
   <div class="container natal-grid">
     <div class="reveal">
-      <p class="eyebrow">{esc(n["eyebrow"])}</p><h2 id="natal-titulo">{n["h2"]}</h2>
-      <p style="margin-top:22px">{esc(n["p"])}</p>
+      <p class="eyebrow"{m("data-site", "natal.eyebrow")}>{esc(n["eyebrow"])}</p><h2 id="natal-titulo"{m("data-site", "natal.titulo")}>{n["h2"]}</h2>
+      <p style="margin-top:22px"{m("data-site", "natal.texto")}>{esc(n["p"])}</p>
       <p class="vagas"><b data-ag-vagas="{esc(camp)}">{agenda_vagas(cfg, camp)}</b> <span>horários livres</span></p>
-      <a class="botao" href="natal.html#horarios" data-pagina="natal"><svg aria-hidden="true"><use href="#cal"/></svg>Escolher o meu horário</a>
+      <a class="botao"{m("data-site-botao", "natal.botao")} href="natal.html#horarios" data-pagina="natal"><svg aria-hidden="true"><use href="#cal"/></svg>Escolher o meu horário</a>
     </div>
-    <figure class="natal-foto reveal">{img(nf, n["foto"]["alt"], extra=' loading="lazy"')}<figcaption>{esc(n["legenda"])}</figcaption></figure>
+    <figure class="natal-foto reveal">{img(nf, n["foto"]["alt"], extra=' loading="lazy"' + m("data-site-img", "natal.foto"))}<figcaption{m("data-site", "natal.legenda")}>{esc(n["legenda"])}</figcaption></figure>
   </div>
 </section>''')
         g = s['agendar']
-        out.append(f'''<section class="secao" id="agendar" aria-labelledby="agendar-titulo">
+        out.append(f'''<section class="secao" id="agendar"{m("data-site-secao", "agendar")} aria-labelledby="agendar-titulo">
   <div class="container">
-    <div class="cabeca reveal"><p class="eyebrow">{esc(g["eyebrow"])}</p><h2 id="agendar-titulo">{g["h2"]}</h2><p>{esc(g["p"])}</p></div>
+    <div class="cabeca reveal"><p class="eyebrow"{m("data-site", "agendar.eyebrow")}>{esc(g["eyebrow"])}</p><h2 id="agendar-titulo"{m("data-site", "agendar.titulo")}>{g["h2"]}</h2><p{m("data-site", "agendar.texto")}>{esc(g["p"])}</p></div>
     {agenda_html(cfg)}
   </div>
 </section>''')
@@ -1544,18 +1570,18 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
     # contato
     v = s['contato']
     horas_html = ''.join(f'<li data-days="{d}"><span>{esc(nm)}</span><span>{esc(t)}</span></li>' for nm, t, d in G.linhas_horario(horas)) if horas else ''
-    out.append(f'''<section class="secao secao--areia" id="contato" aria-labelledby="contato-titulo">
+    out.append(f'''<section class="secao secao--areia" id="contato"{m("data-site-secao", "contato")} aria-labelledby="contato-titulo">
   <div class="container contato-grid">
     <div class="reveal">
-      <p class="eyebrow">{esc(v["eyebrow"])}</p><h2 id="contato-titulo">{v["h2"]}</h2>
-      <p style="color:var(--tinta-2);margin-top:20px">{esc(v["p"])}</p>
+      <p class="eyebrow"{m("data-site", "contato.eyebrow")}>{esc(v["eyebrow"])}</p><h2 id="contato-titulo"{m("data-site", "contato.titulo")}>{v["h2"]}</h2>
+      <p style="color:var(--tinta-2);margin-top:20px"{m("data-site", "contato.texto")}>{esc(v["p"])}</p>
       <ul class="canais">
-        <li><svg aria-hidden="true"><use href="#whats"/></svg><div><b>WhatsApp</b><a data-whatsapp href="#">{esc(v["telefone"])}</a></div></li>
+        <li><svg aria-hidden="true"><use href="#whats"/></svg><div><b>WhatsApp</b><a data-whatsapp href="#"{m("data-site", "contato.telefone")}>{esc(v["telefone"])}</a></div></li>
         <li><svg aria-hidden="true"><use href="#insta"/></svg><div><b>Instagram</b><a data-instagram href="#" target="_blank" rel="noopener noreferrer">@{esc(cfg["instagram"])} · {esc(cfg["seguidores"])} seguidores</a></div></li>
         <li><svg aria-hidden="true"><use href="#pin"/></svg><div><b>{esc(v.get("rotulo", "Estúdio"))}</b><a data-directions href="#" target="_blank" rel="noopener noreferrer">{esc(" · ".join(v["endereco"]))}</a></div></li>
         <li><svg aria-hidden="true"><use href="#relogio"/></svg><div><b>Atendimento</b><ul class="hours">{horas_html}</ul></div></li>
       </ul>
-      <a {wa_botao("Chamar " + q["a"] + " no WhatsApp")}</a>
+      <a{m("data-site-botao", "contato.botao")} {wa_botao("Chamar " + q["a"] + " no WhatsApp")}</a>
     </div>
     <div class="mapa reveal"><a class="mapa-alt" data-directions href="#" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#pin"/></svg><b>{esc(cfg.get("mapa_nome") or "Estúdio " + q["da"])}</b><span>{esc(" · ".join(v["endereco"]))}</span><span class="link">Como chegar <svg aria-hidden="true" style="width:16px;height:16px"><use href="#seta"/></svg></span></a><iframe data-map-embed title="Mapa do estúdio da {esc(cfg["marca"])}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
   </div>
@@ -1667,6 +1693,10 @@ def fechar(cfg, partes, google, horas, lista):
     if not cfg.get('renderiza'):
         a, b = js.index('  // ---------- camada da Renderiza'), js.index('  // Links entre o site e a página de Natal')
         js = js[:a] + js[b:]
+    if MEU_SITE:  # o Meu site troca as fotos das galerias depois que a página abre: o toque é lido na galeria, não em cada foto
+        a = '$$(".galeria").forEach(g => $$(".g-item", g).forEach((b, i) => b.addEventListener("click", () => abrirLb(g, i, b))));'
+        assert js.count(a) == 1
+        js = js.replace(a, '$$(".galeria").forEach(g => g.addEventListener("click", e => { const b = e.target.closest(".g-item"); if (b) abrirLb(g, $$(".g-item", g).indexOf(b), b); }));')
     if cfg.get('agenda'):  # a agenda de verdade troca os horários de exemplo
         a = js.index('  // ---------- horários: o toque marca o escolhido')
         js = js[:a] + '})();\n'
@@ -1723,12 +1753,15 @@ def gerar(caminho):
     pasta = os.path.join(REPO, 'demos', cfg['pasta']); os.makedirs(pasta, exist_ok=True)
     F = Fotos(cfg, pasta)
     saidas = []
+    global MEU_SITE
     for nome, fn, lista in (('index.html', pagina_site, cfg['site']['avaliacoes']), ('natal.html', pagina_natal, cfg['natal']['avaliacoes'])):
+        MEU_SITE = bool(cfg.get('meu_site')) and nome == 'index.html'  # a página de Natal fica para depois (03, "Páginas extras")
         antes = F.bytes
         doc = links_publicados(fechar(cfg, fn(cfg, F, google, horas, dias, total, livres), google, horas, lista), cfg['pasta'])
         arq = os.path.join(pasta, nome); open(arq, 'w', encoding='utf-8').write(doc)
         print(f'{arq}: {len(doc) // 1024} KB (imagens novas: {(F.bytes - antes) // 1024} KB)')
         saidas.append(arq)
+    MEU_SITE = False
     for a in F.avisos: print('  AVISO', a)
     if F.saida: print(f'fotos: {F.n} tratadas agora, {F.reusadas} reaproveitadas das páginas (sem o original)')
     if cfg.get('horarios'): print(f'horários de exemplo: {livres} livres de {total}')

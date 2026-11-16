@@ -175,13 +175,32 @@ que o editor abre). Nos sites de eventos, hoje:
 | `visite` | `titulo` | `botao` | | |
 | `rodape` | `slogan` | | | |
 
+Nos sites de **fotografia** (`gerar-fotografia.py` com `"meu_site": true` no `demo.json`; sem a opção, a página sai
+idêntica), desde 16/11/2026, na página inicial (a de Natal fica para depois). O primeiro é o da Rafaela Damaceno
+(`docs/entregas/rafaela-damaceno.md`):
+
+| Seção | Textos | Botões | Imagens | Listas |
+|---|---|---|---|---|
+| `cabecalho` | | `botao` | | |
+| `inicio` | `eyebrow`, `frase`, `texto`, `rotulo`, `rotulo2`, `rotulo3` | `botao`, `link` | `foto`, `foto2`, `foto3` | |
+| `portfolio` | `eyebrow`, `titulo`, `texto`, `nota` | | | uma por galeria, com o id dela (ex.: `infantil`): `foto` |
+| `sobre` | `eyebrow`, `titulo`, `texto`, `citacao`, `autor` | | `foto`, `foto2` | `paragrafos` (`texto`), `numeros` (`valor`, `texto`) |
+| `ensaios` | `eyebrow`, `titulo`, `texto` | | | `itens` (`nome`, `sub`, `texto`, `preco`: começa vazio e vazio não aparece) |
+| `depoimentos` | `eyebrow`, `titulo` | | | `avaliacoes` (`nome`, `texto`, `tag`) |
+| `natal` (o bloco da campanha) | `eyebrow`, `titulo`, `texto`, `legenda` | `botao` | `foto` | |
+| `agendar` | `eyebrow`, `titulo`, `texto` | | | |
+| `contato` | `eyebrow`, `titulo`, `texto`, `telefone` | `botao` | | |
+| `rodape` | `slogan` | | | |
+
+Na tela cheia das galerias, o toque é lido na galeria (não em cada foto), para valer também nas fotos que o painel troca.
+
 Ficam para depois:
 - **cores e ordem das seções:** a base das demos deriva as cores de duas, então trocar pede mexer no gerador;
 - **posição dos botões;**
 - **endereço e horário**, que mexem nos dados para o Google;
 - **a mensagem pronta da consulta de data;**
-- **as marcações nos geradores de fotografia e odonto:** entram quando o primeiro cliente desses nichos quiser o
-  Meu site, com o mesmo padrão.
+- **as marcações no gerador de odonto** (quando o primeiro cliente quiser o Meu site) e **a página de Natal** das
+  fotógrafas.
 
 ### O que o painel entrega (blocos A e C da Missão 4)
 

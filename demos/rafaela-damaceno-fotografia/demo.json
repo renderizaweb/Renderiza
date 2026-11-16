@@ -798,5 +798,6 @@
    "A demo precisa ficar no ar até ela validar: conferir o prazo no card do lead, no Painel de prospecção.",
    "Fase 2: abrir a sessão num ambiente com as variáveis PAINEL_* e rede livre. A sessão desta fase abriu no ambiente Default (sem as variáveis e com a rede limitada)."
   ]
- }
+ },
+ "meu_site": true
 }
