@@ -5,7 +5,8 @@
 // a cada uso, nunca impressa nem gravada.
 //
 //   node test/rafaela-stg/conta.mjs conferir      o que a conta tem no STG (só lê)
-//   node test/rafaela-stg/conta.mjs criar         apaga a conta de teste, se existir, e cria de novo, limpa
+//   node test/rafaela-stg/conta.mjs criar         apaga a conta de teste, se existir, e cria de novo, limpa (as pessoas
+//                                                 e os convites que a Renderiza pôs nela voltam; o resto, não)
 //   node test/rafaela-stg/conta.mjs apagar        apaga a conta de teste e o login dela
 import fs from "node:fs";
 import os from "node:os";
@@ -68,9 +69,15 @@ export async function apagar(banco) {
     delete from auth.users where email = ${q(DONA)};`);
 }
 
-/** Cria a conta do zero (apaga a de antes): conta, módulos, site, ensaios, horários, campanha e a dona. */
+/** Cria a conta do zero (apaga a de antes): conta, módulos, site, ensaios, horários, campanha e a dona. Quem mais
+ *  estava na conta (o login de teste da Renderiza) e os convites pendentes voltam, iguais. */
 export async function criar(banco, conteudo) {
   const { duracao, ensaios, semana, natal } = agendaDaDemo();
+  const [{ pessoas, convites }] = await banco.sql(`select
+    (select coalesce(json_agg(json_build_object('usuario_id', usuario_id, 'nome', nome, 'email', email, 'papel', papel, 'cor', cor, 'dono', dono, 'acessos', acessos)), '[]')
+       from public.pessoas where conta_id = ${daConta} and email is distinct from ${q(DONA)}) as pessoas,
+    (select coalesce(json_agg(json_build_object('email', email, 'nome', nome, 'dono', dono, 'acessos', acessos, 'usuario', usuario, 'link_codigo', link_codigo, 'expira_em', expira_em, 'pela_renderiza', pela_renderiza)), '[]')
+       from public.convites where conta_id = ${daConta} and aceito_em is null and cancelado_em is null) as convites`);
   await apagar(banco);
   const servicos = [...ensaios.map((e, i) => ({ nome: e.nome, descricao: e.sub || null, online: true, ordem: i + 1 })),
     { nome: NATAL, descricao: natal.sub || null, online: false, ordem: ensaios.length + 1 }]; // o Natal só pela campanha
@@ -88,6 +95,13 @@ export async function criar(banco, conteudo) {
       values (${daConta}, ${q(NATAL)}, (select id from public.servicos where conta_id = ${daConta} and nome = ${q(NATAL)}),
         ${arr(natal.dias, "date")}, ${arr(natal.horarios, "time")});`);
   await criarDona(banco);
+  if (pessoas.length) await banco.sql(`insert into public.pessoas (conta_id, usuario_id, nome, email, papel, cor, dono, acessos)
+    select ${daConta}, p.usuario_id, p.nome, p.email, p.papel, p.cor, p.dono, p.acessos
+    from jsonb_to_recordset(${q(JSON.stringify(pessoas))}::jsonb) as p(usuario_id uuid, nome text, email text, papel text, cor text, dono boolean, acessos jsonb)
+    where p.usuario_id is null or exists (select 1 from auth.users u where u.id = p.usuario_id)`);
+  if (convites.length) await banco.sql(`insert into public.convites (conta_id, email, nome, dono, acessos, usuario, link_codigo, expira_em, pela_renderiza)
+    select ${daConta}, c.email, c.nome, c.dono, c.acessos, c.usuario, c.link_codigo, c.expira_em, c.pela_renderiza
+    from jsonb_to_recordset(${q(JSON.stringify(convites))}::jsonb) as c(email text, nome text, dono boolean, acessos jsonb, usuario text, link_codigo text, expira_em timestamptz, pela_renderiza boolean)`);
   return conferir(banco);
 }
 
@@ -125,7 +139,9 @@ export async function conferir(banco) {
     'ensaios', (select json_agg(nome || ' (' || duracao_min || ' min' || case when na_agenda_online then '' else ', só na campanha' end || ')' order by ordem) from public.servicos where conta_id = ${daConta}),
     'horarios', (select count(*) from public.horarios where conta_id = ${daConta}),
     'campanha', (select json_build_object('nome', nome, 'dias', cardinality(dias), 'horarios', cardinality(horarios), 'vagas', public.campanha_restam(conta_id, id)) from public.campanhas where conta_id = ${daConta}),
-    'dona', (select count(*) from public.pessoas where conta_id = ${daConta} and dono),
+    'dona', (select count(*) from public.pessoas where conta_id = ${daConta} and dono and email = ${q(DONA)}),
+    'outras_pessoas', (select count(*) from public.pessoas where conta_id = ${daConta} and email is distinct from ${q(DONA)}),
+    'convites_pendentes', (select count(*) from public.convites where conta_id = ${daConta} and aceito_em is null and cancelado_em is null),
     'pedidos', (select count(*) from public.pedidos where conta_id = ${daConta}),
     'reservas', (select count(*) from public.reservas where conta_id = ${daConta}),
     'versoes', (select count(*) from public.sites_versoes where conta_id = ${daConta})
