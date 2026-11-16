@@ -163,7 +163,7 @@ Explica a proposta comercial e responde as dúvidas de negócio. O Kaue manda no
 - **Gerar de novo:** `SSL_CERT_FILE=/root/.ccr/ca-bundle.crt node instagram/gerar.mjs reels-proposta-vereador-explica`
   (usa a foto `rascunhos/vereador-video/gabinete.jpg`) e reduzir para 720p com o ffmpeg.
 - **Roteiro (8 partes):** o que é (site e portal); R$ 3.300, 60 horas, valor fechado; pagamento em R$ 0, 40% com a
-  prévia e 60% na entrega validada; até 5 semanas, entrega única; 90 dias de garantia, 7 dias para desistir, domínio,
+  prévia e 60% na entrega validada; até 5 semanas, entrega única; 7 dias da assinatura para desistir, 90 dias de garantia, domínio,
   dados e código dele; banco no Brasil, acesso por pessoa, duas etapas e separado de campanha; planos de R$ 499,
   R$ 799 e R$ 1.299, sem prazo mínimo, ou sem plano; assinatura online com código por e-mail.
 - **Mudou um número na proposta ou no contrato:** mudar também na página e na narração, e gravar de novo.
@@ -189,7 +189,9 @@ Explica a proposta comercial e responde as dúvidas de negócio. O Kaue manda no
     silêncio vale como validação;
   - entrega final em até 25 dias úteis (cerca de 5 semanas);
   - garantia de 90 dias só para defeitos (erros de funcionamento), não para melhorias;
-  - desistência sem custo nos 7 primeiros dias (Código de Defesa do Consumidor, art. 49: contrato fechado pela internet);
+  - desistência sem custo nos 7 primeiros dias contados da assinatura. O contrato não cita o art. 49 do Código de
+    Defesa do Consumidor (16/11): o artigo fala em "assinatura ou recebimento do serviço", e citá-lo abria a leitura
+    de 7 dias depois da entrega. Depois da entrega validada, o preço é devido por inteiro;
   - planos (decisão do Kaue em 15/11): Essencial R$ 499 (o mínimo, sem horas de desenvolvimento), Gabinete R$ 799 (até
     7 h no mês, que cobrem também o ajuste da Câmara) e Completo R$ 1.299 (até 18 h no mês). Sem prazo mínimo (aviso de
     30 dias). A hospedagem, o banco e os e-mails estão no valor;
