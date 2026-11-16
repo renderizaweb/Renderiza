@@ -158,7 +158,7 @@ parecia amadora e prometia o que não dá para entregar. A versão 2 é uma **pe
 Explica a proposta comercial e responde as dúvidas de negócio. O Kaue manda no WhatsApp junto com o link da proposta.
 - **Arquivos:** página `instagram/reels-proposta-vereador-explica.html`, texto e voz em
   `instagram/narracao/reels-proposta-vereador-explica.json`, vídeo em
-  `gravacoes/vereador-mateuzinho-silva-proposta-explicada.mp4` (720p, 1 min 46 s; no ar em
+  `gravacoes/vereador-mateuzinho-silva-proposta-explicada.mp4` (720p, 1 min 47 s; no ar em
   /gravacao/vereador-mateuzinho-silva-proposta-explicada.mp4).
 - **Gerar de novo:** `SSL_CERT_FILE=/root/.ccr/ca-bundle.crt node instagram/gerar.mjs reels-proposta-vereador-explica`
   (usa a foto `rascunhos/vereador-video/gabinete.jpg`) e reduzir para 720p com o ffmpeg.
