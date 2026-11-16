@@ -176,6 +176,7 @@ aparecem abaixo. O comentário de cada tabela no banco (`comment on table`) diz 
 | `sites` | o site da conta (um por conta) | conta, domínio(s), código público, situação (`conectado`, `desconectado`, `versao_final`), esquema, conteúdo inicial. Cadastrado e desconectado pela Renderiza |
 | `sites_versoes` | rascunho (um por site) e publicadas | site, número (sozinho), conteúdo (JSON do `03`), estado (`rascunho`, `publicada`, `arquivada`), quem, publicada em. Publicada não muda |
 | `sites_previas` | links de prévia | site, versão, código, expira em (1 dia; no máximo 7) |
+| `sites_visitas` | uma linha por página aberta no site (indicadores, 16/11/2026) | site, visita (sorteio da página), dia, aparelho (embaralhado, muda a cada dia), página, tela, origem, segundos, partes, cliques; **sem dado de pessoa**; 13 meses; só as funções leem e gravam |
 | Storage | arquivos, sempre em `<bucket>/<id da conta>/…` | `logos` (público, PNG, JPEG ou WebP até 1 MB; o dono envia), `site-imagens` (público, WebP até 2 MB; quem edita o Meu site envia), `privado` (fechado, sem uso ainda) |
 
 **Admin (só a equipe Renderiza)**
@@ -292,6 +293,7 @@ banco local até o STG):** a agenda online da fotografia, por horário. As de ev
   e `publicado_em` por cima do que veio no conteúdo; nunca publicou = conteúdo vazio, versão 0 (o site fica na
   inicial).
 - `publico_previa(código, código da prévia)`: o rascunho da prévia, enquanto `sites_previas.expira_em` não passou.
+- `publico_visita(código, dados, domínio, aparelho)`: conta (ou atualiza) uma página aberta; só do domínio do site, só nomes e números no formato, com limites por aparelho e por site no dia. `site_indicadores(conta, dias)`: o resumo para quem vê o Meu site (não é pública: só `authenticated`, e só da própria conta).
 - As duas só respondem com o site **conectado**, a conta **liberada** e o módulo **Meu site ligado**; senão, nada
   (`404` na API, e o site volta à versão inicial).
 - O painel grava direto, pela RLS de quem tem "edita" no Meu site: o rascunho (`sites_versoes`, um por site), a

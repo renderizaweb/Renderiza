@@ -223,3 +223,47 @@ test("imagens: só .webp da pasta de uma conta, do Storage do projeto, com cache
   const fora = await imagem({ metodo: "GET", caminho: `/api/publico/imagens/${conta}/nao.webp`, env: ENV }, async () => ({ ok: false, status: 400 }));
   assert.equal(fora.status, 404);
 });
+
+// ---------- os indicadores do site (a contagem de visitas) ----------
+import { tratar as visita, aparelho } from "../api/publico/site/[codigo]/visita.js";
+
+test("visita: conta pelo banco com o aparelho embaralhado, responde sempre 204 e robô não chega ao banco", async () => {
+  const CELULAR = "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1";
+  const agora = new Date("2026-11-16T15:00:00Z");
+  const b = bancoFalso(() => ({ json: true }));
+  const pedir = extra => visita({ metodo: "POST", caminho: "/api/publico/site/villa-alecrim/visita", origem: "https://villa-alecrim.teste", ip: "203.0.113.7", agente: CELULAR, env: ENV,
+    corpo: { v: "abcdefgh12345678", p: "/", t: "celular", s: 12, se: { inicio: 12 }, c: { whatsapp: 1 }, nome: "não entra", ip: "nem isto" }, ...extra }, b.buscar, agora);
+  const r = await pedir();
+  assert.equal(r.status, 204);
+  assert.equal(r.corpo, null);
+  assert.equal(r.cabecalhos["Access-Control-Allow-Origin"], "*");
+  assert.equal(r.cabecalhos["Cache-Control"], "no-store");
+  assert.equal(b.chamadas.length, 1);
+  assert.match(b.chamadas[0].url, /\/rest\/v1\/rpc\/publico_visita$/);
+  assert.deepEqual(b.chamadas[0].corpo, {
+    p_codigo: "villa-alecrim", p_dominio: "villa-alecrim.teste", p_aparelho: aparelho("203.0.113.7", CELULAR, "villa-alecrim", agora),
+    p_dados: { v: "abcdefgh12345678", p: "/", t: "celular", s: 12, se: { inicio: 12 }, c: { whatsapp: 1 } },
+  }, "só os campos da contagem vão ao banco; o endereço e o navegador, só embaralhados");
+  assert.doesNotMatch(JSON.stringify(b.chamadas[0].corpo), /203\.0\.113\.7|iPhone/);
+
+  // o que não conta: robô, sem navegador, corpo que não é objeto, código fora do formato; e nada disso vira erro
+  for (const extra of [{ agente: "Mozilla/5.0 (compatible; Googlebot/2.1)" }, { agente: "HeadlessChrome/126" }, { agente: "" }, { corpo: Symbol.for("invalido") }, { corpo: [1] }, { caminho: "/api/publico/site/X!/visita" }]) {
+    assert.equal((await pedir(extra)).status, 204);
+  }
+  assert.equal(b.chamadas.length, 1, "nenhum deles chegou ao banco");
+  const fora = bancoFalso(() => new Error("fora do ar"));
+  assert.equal((await visita({ metodo: "POST", caminho: "/api/publico/site/villa-alecrim/visita", origem: "", ip: "", agente: CELULAR, corpo: {}, env: ENV }, fora.buscar)).status, 204, "banco fora: o site nem percebe");
+  assert.equal((await visita({ metodo: "GET", caminho: "/api/publico/site/villa-alecrim/visita", env: ENV }, b.buscar)).status, 405);
+  assert.equal((await visita({ metodo: "OPTIONS", caminho: "/api/publico/site/villa-alecrim/visita", env: ENV }, b.buscar)).status, 204);
+});
+
+test("visita: o aparelho é o mesmo no dia (o de São Paulo) e outro no dia seguinte, em outro site ou em outro navegador", () => {
+  const a = (ip, ua, site, quando) => aparelho(ip, ua, site, new Date(quando));
+  const base = a("203.0.113.7", "Safari", "villa-alecrim", "2026-11-16T15:00:00Z");
+  assert.match(base, /^[0-9a-f]{32}$/);
+  assert.equal(a("203.0.113.7", "Safari", "villa-alecrim", "2026-11-17T02:30:00Z"), base, "23h30 em São Paulo ainda é o mesmo dia");
+  assert.notEqual(a("203.0.113.7", "Safari", "villa-alecrim", "2026-11-17T03:30:00Z"), base, "no dia seguinte, outro valor: ninguém é seguido");
+  assert.notEqual(a("203.0.113.7", "Safari", "outro-site", "2026-11-16T15:00:00Z"), base);
+  assert.notEqual(a("203.0.113.7", "Chrome", "villa-alecrim", "2026-11-16T15:00:00Z"), base);
+  assert.notEqual(a("203.0.113.8", "Safari", "villa-alecrim", "2026-11-16T15:00:00Z"), base);
+});

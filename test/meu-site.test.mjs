@@ -350,6 +350,63 @@ test("editor ao vivo: dentro de um quadro do painel, o site mostra o rascunho qu
   } finally { await ctx.close(); }
 });
 
+test("indicadores: a página aberta por uma pessoa manda a contagem (sem guardar nada no navegador); robô, prévia e site com a contagem desligada, não", comNavegador, async () => {
+  const VISITA = "https://painel.renderizaweb.com.br/api/publico/site/villa-alecrim/visita";
+  const abrirContando = async ({ pessoa = true, caminho = "", pastaSite = site } = {}) => {
+    const ctx = await navegador.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce" });
+    if (pessoa) await ctx.addInitScript(() => Object.defineProperty(Navigator.prototype, "webdriver", { get: () => false }));
+    const mandadas = [];
+    await ctx.route("**/*", rota => {
+      const u = new URL(rota.request().url());
+      if (u.href === VISITA) { mandadas.push({ tipo: rota.request().headers()["content-type"], dados: JSON.parse(rota.request().postData()) }); return rota.fulfill({ status: 204, headers: { "access-control-allow-origin": "*" } }); }
+      if (u.origin === "https://villa-alecrim.teste") {
+        const arquivo = path.join(pastaSite, u.pathname === "/" ? "index.html" : decodeURIComponent(u.pathname));
+        if (!arquivo.startsWith(pastaSite) || !fs.existsSync(arquivo)) return rota.fulfill({ status: 404, body: "" });
+        return rota.fulfill({ status: 200, contentType: TIPO[path.extname(arquivo)] || "application/octet-stream", body: fs.readFileSync(arquivo) });
+      }
+      if (u.origin === "https://painel.renderizaweb.com.br") return rota.fulfill({ status: 404, headers: { "access-control-allow-origin": "*" }, body: "{}" });
+      return rota.abort();
+    });
+    const pagina = await ctx.newPage();
+    await pagina.goto(SITE + caminho);
+    return { ctx, pagina, mandadas };
+  };
+
+  const { ctx, pagina, mandadas } = await abrirContando();
+  try {
+    await pagina.locator('[data-site-botao="inicio.botao"]').first().click();
+    await pagina.waitForTimeout(2600);
+    assert.equal(mandadas.length, 1, "2 segundos depois de abrir");
+    const { v, ...primeira } = mandadas[0].dados;
+    assert.match(mandadas[0].tipo, /^text\/plain/, "pedido simples: o navegador não pergunta antes (sem preflight)");
+    assert.match(v, /^[a-z0-9]{16}$/, "um sorteio que só vale nesta página aberta");
+    assert.equal(primeira.p, "/");
+    assert.equal(primeira.t, "celular");
+    assert.equal(primeira.s, 2);
+    assert.deepEqual(primeira.c, { "inicio.botao": 1 });
+    assert.equal(primeira.o, undefined, "veio direto: sem origem");
+    assert.ok(Object.values(primeira.se).reduce((a, b) => a + b, 0) <= 2 && Object.keys(primeira.se).every(k => /^[a-z0-9-]+$/.test(k)), JSON.stringify(primeira.se));
+    await pagina.evaluate(() => window.dispatchEvent(new Event("pagehide")));
+    await pagina.evaluate(() => window.dispatchEvent(new Event("pagehide")));
+    await pagina.waitForTimeout(200);
+    assert.ok(mandadas.length <= 2 && mandadas.every(m => m.dados.v === v), "ao sair manda de novo só se mudou, sempre com o mesmo sorteio");
+    assert.deepEqual(await pagina.evaluate(() => [document.cookie, Object.keys(localStorage).filter(k => !k.startsWith("rz-meu-site:"))]), ["", []], "nenhum cookie e nada da contagem guardado no navegador");
+  } finally { await ctx.close(); }
+
+  for (const [nome, opcoes] of [["robô (navigator.webdriver)", { pessoa: false }], ["prévia do rascunho", { caminho: "?rz-previa=codigodaprevia123" }]]) {
+    const r = await abrirContando(opcoes);
+    try { await r.pagina.waitForTimeout(2600); assert.deepEqual(r.mandadas, [], nome + " não conta"); } finally { await r.ctx.close(); }
+  }
+  // "visitas": false no site.json: o script sai com data-sem-visitas e não conta
+  const semContar = path.join(pasta, "sem-contar");
+  fs.cpSync(site, semContar, { recursive: true });
+  const html = fs.readFileSync(path.join(semContar, "index.html"), "utf8");
+  fs.writeFileSync(path.join(semContar, "index.html"), html.replace('<script data-codigo="villa-alecrim"', '<script data-codigo="villa-alecrim" data-sem-visitas'));
+  assert.notEqual(fs.readFileSync(path.join(semContar, "index.html"), "utf8"), html);
+  const r = await abrirContando({ pastaSite: semContar });
+  try { await r.pagina.waitForTimeout(2600); assert.deepEqual(r.mandadas, [], "contagem desligada"); } finally { await r.ctx.close(); }
+});
+
 test("com o painel, o site deixa só o painel pôr ele num quadro (o editor ao vivo); sem o painel, ninguém de fora", () => {
   assert.match(fs.readFileSync(path.join(site, "_headers"), "utf8"), /\n  Content-Security-Policy: frame-ancestors 'self' https:\/\/painel\.renderizaweb\.com\.br\n/);
   assert.doesNotMatch(fs.readFileSync(path.join(site, "_headers"), "utf8"), /X-Frame-Options/);

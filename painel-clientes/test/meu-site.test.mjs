@@ -50,6 +50,22 @@ test("o editor ao vivo: onde a parte fica, o nome do item, o endereço do site e
   assert.match(dicaDaFoto(undefined), /^O site corta as sobras sozinho/, "sem a medida do site: só o que vale sempre");
 });
 
+test("indicadores: o tempo por extenso, o nome do botão clicado, de onde veio e a escala do gráfico", async () => {
+  const { duracao, nomeDoClique, nomeDaOrigem, escalaDoGrafico } = await import("../src/modulos/meu-site/conteudo.js");
+  assert.deepEqual([0, 45, 60, 80, 3600, 7500].map(duracao), ["0 s", "45 s", "1 min", "1 min 20 s", "1 h 00 min", "2 h 05 min"]);
+  const conteudo = { secoes: { inicio: { botoes: { botao: { rotulo: "Agendar *agora*" }, link: {} } } } };
+  assert.equal(nomeDoClique("inicio.botao", conteudo), "Capa · Agendar agora", "a parte e o que está escrito no botão hoje");
+  assert.equal(nomeDoClique("inicio.link", conteudo), "Capa · Link ao lado do botão", "sem rótulo: o nome do campo");
+  assert.equal(nomeDoClique("whatsapp", conteudo), "WhatsApp (o botão flutuante e os links)");
+  assert.equal(nomeDoClique("parte-que-saiu.botao", conteudo), "parte-que-saiu.botao", "botão de uma parte que o site não tem mais: como veio");
+  assert.equal(nomeDaOrigem(""), "Direto (link no WhatsApp, QR code ou o endereço digitado)");
+  assert.deepEqual(["l.instagram.com", "instagram.com", "google.com.br", "m.facebook.com", "wa.me", "guia.exemplo.com.br"].map(nomeDaOrigem),
+    ["Instagram", "Instagram", "Google", "Facebook", "WhatsApp", "guia.exemplo.com.br"]);
+  assert.deepEqual(escalaDoGrafico(1), { topo: 1, linhas: [0, 1] });
+  assert.deepEqual(escalaDoGrafico(7), { topo: 8, linhas: [0, 2, 4, 6, 8] });
+  assert.deepEqual(escalaDoGrafico(130), { topo: 150, linhas: [0, 50, 100, 150] });
+});
+
 test("mesclar: o rascunho por cima da inicial, campo a campo; listas inteiras; o resto fica", () => {
   const m = mesclar(INICIAL, {
     secoes: {

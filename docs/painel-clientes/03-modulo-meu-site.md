@@ -267,6 +267,33 @@ Em 30/10/2026 a produção tem uma conta só, "Espaço de teste" (código `espac
 `contato@renderizaweb.com.br`), com o Meu site ligado e sem site: a Renderiza deixou o teste do Meu site na produção
 para depois das próximas missões.
 
+## Indicadores: as visitas do site (16/11/2026)
+
+A aba **Indicadores** do Meu site mostra, dos últimos 7, 30 ou 90 dias: as **visitas** (cada página aberta), os
+**aparelhos**, o **tempo médio** com a página à vista, o gráfico dia a dia, **as partes mais vistas** (em quantas
+visitas a parte ficou no meio da tela e por quanto tempo), **os botões mais clicados** (com a parte e o que está
+escrito no botão hoje; o WhatsApp flutuante e os links de WhatsApp contam juntos), **de onde vieram** (o site
+anterior: Instagram, Google…; sem site anterior é "Direto") e celular ou computador. Quem vê o Meu site vê os
+indicadores.
+
+**Sem cookie e sem identificar ninguém** (decisão da Renderiza: um contador simples, não quem é quem):
+
+- O script do site (`contarVisitas`, no `meu-site.js`) manda por página aberta: um sorteio que só vale naquela página
+  (não fica guardado em lugar nenhum do navegador), o caminho, celular ou computador, o site de onde veio, os segundos
+  em cada parte e os cliques nos botões. Manda 2 segundos depois de abrir, a cada 30 segundos se mudou e quando a
+  página some (`navigator.sendBeacon`). Não conta: robô (`navigator.webdriver`, ou o navegador que a API reconhece
+  como robô), a prévia (`?rz-previa=`), o editor do painel e o site com `"painel": { "visitas": false }` no
+  `site.json` (o script sai com `data-sem-visitas`).
+- A API (`POST /api/publico/site/<código>/visita`, sempre 204) junta o **aparelho**: o endereço e o navegador
+  embaralhados com o site e o dia de São Paulo. O endereço e o navegador não ficam guardados, e no dia seguinte o
+  mesmo aparelho tem outro valor: dá para contar aparelhos por dia, não dá para seguir ninguém. Por isso "Aparelhos"
+  soma os de cada dia (o mesmo celular em dois dias conta duas vezes).
+- O banco (`publico_visita`) só aceita do domínio do site, nomes de parte e de botão no formato do contrato e
+  números; limites de 200 páginas por aparelho e 20.000 por site no dia; guarda por 13 meses (`sites_visitas`).
+  O painel lê só o resumo (`site_indicadores`); ninguém lê a tabela direto.
+- **O que falta decidir com cada cliente:** uma linha no rodapé do site dizendo que as visitas são contadas de forma
+  anônima, sem cookies (boa prática da LGPD, mesmo sem dado pessoal). O gerador ainda não põe.
+
 ## Situações do site
 
 | Situação | Quando | O que o endereço público responde | O que o site mostra |
