@@ -222,6 +222,31 @@ parecia amadora e prometia o que não dá para entregar. A versão 2 é uma **pe
 - **Para apagar um teste:** apagar as linhas de `termos_aceites` e `termos_codigos` e o passo `contrato-assinado` em
   `visitas` do lead.
 
+### Revisão final (15/11/2026, antes de enviar)
+
+Proposta e contrato relidos como o jurídico dele leria, para não haver contradição nem promessa aberta:
+- **Proposta igual ao contrato:** duas etapas para toda a equipe; registro de pedidos e cadastros, com acessos por 6
+  meses; dever de sigilo no contrato (sem termo à parte); código entregue "pago"; prazo em 25 dias úteis; pedidos "do
+  site e os que a equipe registra" (sem integração com WhatsApp).
+- **Limites claros:**
+  - IA até 200 rascunhos por mês, pausando no limite; uso extra só com aprovação, pelo custo do provedor (200
+    rascunhos custam cerca de R$ 15 a 30 em tokens);
+  - urgência definida e só no mesmo dia se avisada até 14h;
+  - "primeira resposta" no lugar de "resposta";
+  - reunião mensal online;
+  - treinamento numa sessão de até 1 h;
+  - modelo da página de privacidade aprovado pelo vereador.
+- **Proteção da Renderiza:** pode encerrar o plano com 60 dias de aviso, entregando tudo. Aumento extraordinário
+  (fornecedor, dólar PTAX acima de 20% ou volume de dados) limitado ao custo comprovado. Hora de R$ 55 corrigida pelo
+  IPCA a cada 12 meses.
+- **Prazos que se chocavam:**
+  - a multa de atraso vale para parcela e mensalidade;
+  - a suspensão por atraso fica em 15 dias na parcela e 30 na mensalidade;
+  - a exclusão em 30 dias conta da saída do sistema da estrutura da Renderiza, o que fecha com as cópias de 4 semanas;
+  - a hospedagem está incluída até o início do plano;
+  - garantia de 90 dias contada da entrega validada.
+- **Prévia do site (/demo):** o prazo foi estendido até 29/11, a validade da proposta.
+
 ### Compromissos de segurança do contrato (Anexo II): conferir na implantação
 
 1. HTTPS em tudo.
@@ -236,7 +261,7 @@ parecia amadora e prometia o que não dá para entregar. A versão 2 é uma **pe
 8. Página do pedido só pelo link ou pelo número com confirmação.
 9. O site público nunca mostra nome, telefone ou endereço de quem pediu.
 10. Atualizações de segurança, monitoramento e revisão de segurança antes de cada entrega.
-11. Domínio na conta do vereador no Registro.br, com duas etapas.
+11. Domínio na conta do vereador no Registro.br; a Renderiza ajuda a ativar as duas etapas (a conta é dele).
 12. Acesso da Renderiza só com duas etapas e só pelo tempo necessário.
 13. A IA nunca recebe nome, telefone, e-mail ou endereço de morador.
 14. Avisar o vereador de incidente em até 2 dias úteis.
