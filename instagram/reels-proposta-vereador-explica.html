@@ -7,8 +7,9 @@
   Vídeo "A proposta em 2 minutos" (16/11/2026): explica a proposta comercial do Gabinete Aberto ao vereador Mateuzinho
   Silva e responde as dúvidas de negócio. NÃO é post do Instagram da Renderiza. O Kaue manda no WhatsApp com o link.
   Gravar: SSL_CERT_FILE=/root/.ccr/ca-bundle.crt node instagram/gerar.mjs reels-proposta-vereador-explica
-  Texto e voz: narracao/reels-proposta-vereador-explica.json. Foto em rascunhos/vereador-video/gabinete.jpg (fora do
-  repositório; ver demos/vereador-mateuzinho-silva/proposta.md). Os números têm de bater com a proposta e o contrato.
+  Texto e voz: narracao/reels-proposta-vereador-explica.json. A capa é uma arte, sem foto (o outro vídeo já abre com a
+  foto dele) e parada desde o primeiro quadro, que é a miniatura no WhatsApp. O fecho usa a foto
+  rascunhos/vereador-video/gabinete.jpg desfocada (fora do repositório). Os números têm de bater com a proposta e o contrato.
   Cada peça entra sozinha pela marca data-e="frase", "frase+segundos" ou "frase@palavra" (o começo da palavra dita);
   os títulos, por data-l; os números que contam, por data-n; as barras, por data-w.
 -->
@@ -70,6 +71,7 @@ svg{display:block}
 .foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,11,37,.6) 0,rgba(20,11,37,.1) 18%,rgba(20,11,37,.15) 45%,rgba(20,11,37,.9) 78%,var(--noite) 100%)}
 #abre-p{left:80px;top:1010px;display:flex;align-items:center;gap:12px;height:54px;padding:0 22px;border-radius:999px;background:var(--lima);color:var(--noite);font:800 24px var(--x);letter-spacing:.12em;text-transform:uppercase}
 #abre-t{left:80px;width:930px;top:1100px;font-size:150px}
+#abre-img svg{width:84px;height:84px}
 #m-foto{position:absolute;inset:0;overflow:hidden}
 #m-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:blur(14px) saturate(.8);opacity:.28;transform:scale(1.1)}
 #m-foto::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 50% at 50% 42%,rgba(91,52,163,.55),rgba(20,11,37,.9) 80%)}
@@ -98,9 +100,14 @@ svg{display:block}
 <div id="palco">
 
   <div class="cena" id="c-abre">
-    <div class="foto"><img id="abre-img" src="../rascunhos/vereador-video/gabinete.jpg" alt=""></div>
-    <div class="a" id="abre-p" data-e="abre">Gabinete Aberto · site e portal do mandato</div>
-    <div class="a tit" id="abre-t" data-l="abre"><span class="ln"><span>A proposta</span></span><span class="ln"><span>em <em>2 minutos.</em></span></span></div>
+    <div class="a" id="abre-img" data-ic="porta" style="left:80px;top:200px;width:150px;height:150px;border-radius:40px;background:var(--lima);color:var(--noite);display:grid;place-items:center"></div>
+    <div class="a" id="abre-p" style="top:420px">Gabinete Aberto · a sua proposta</div>
+    <div class="a tit" id="abre-t" style="top:510px"><span class="ln"><span>A proposta</span></span><span class="ln"><span>em <em>2 minutos.</em></span></span></div>
+    <div class="a col" style="top:900px">
+      <div class="cx"><div class="ic" data-ic="globo"></div><div><b>Site e portal do gabinete</b><span>Para a cidade e para a equipe</span></div></div>
+      <div class="cx"><div class="ic" data-ic="check"></div><div><b>Pronto em até 5 semanas</b><span>Uma entrega só, completa</span></div></div>
+      <div class="cx lima"><div class="ic" data-ic="doc"></div><div><b>R$ 3.300, valor fechado</b><span>Pagamento só depois da prévia</span></div></div>
+    </div>
   </div>
 
   <div class="cena" id="c-oque">
@@ -309,7 +316,7 @@ window.preparar = () => {
     duracao: DUR, narracao: NOME, bpm: 112,
     // a trilha (ferramentas/video/trilha-pulso.py) corta a batida em "nada": aqui, no "Nos primeiros quinze dias, nada."
     pulso: frases.map(f => ({ id: f.id === "paga" ? "nada" : f.id, cena: f.trilha, ini: f.ini, fim: f.fim, pausa: f.pausa || 0, impacto: !!f.impacto })),
-    ensaio: [F.fluxo.fim - 0.5, F.fechado.fim - 0.5, F.saldo.fim - 0.4, F.prazo.fim - 0.3, F.dono.fim - 0.5, F.campanha.fim - 0.5, F.livre.fim - 0.5, F.assinar.fim + 0.3].map(x => +x.toFixed(2)),
+    ensaio: [0, F.fluxo.fim - 0.5, F.fechado.fim - 0.5, F.saldo.fim - 0.4, F.prazo.fim - 0.3, F.dono.fim - 0.5, F.campanha.fim - 0.5, F.livre.fim - 0.5, F.assinar.fim + 0.3].map(x => +x.toFixed(2)),
   };
 };
 
