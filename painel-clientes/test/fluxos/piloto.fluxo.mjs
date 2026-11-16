@@ -269,7 +269,7 @@ test("o piloto de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout: 
         await c.digitar("#pq-busca", "Juliana");
         await c.tocar(pDono.locator(`dialog[open] :is(button,a):has-text("${CLIENTE.nome}")`).first());
         await pDono.waitForSelector("#parc-valor");
-        await c.digitar("#parc-desc", "Sinal");
+        await c.escolher("#parc-tipo", "Sinal"); // "O que é" virou lista (6974f45)
         await c.digitar("#parc-valor", "3000");
         await c.tocar("dialog[open] button:has-text('Registrar')");
         await pDono.waitForSelector("#parc-valor", { state: "detached" });

@@ -221,7 +221,7 @@
  "site": {
   "titulo": "Rafaela Damaceno Estúdio Fotográfico | Gestante, bebês, família e aniversários em Franco da Rocha",
   "descricao": "Estúdio fotográfico da Rafaela Damaceno, no Centro de Franco da Rocha: gestante, newborn, acompanhamento, smash the cake, família, aniversários e Natal. Nota 5,0 no Google, com 26 avaliações.",
-  "comentario": "Rafaela Damaceno Estúdio Fotográfico (cliente; a demo é a proposta final, 14/11/2026): arquivo único com as fotos dentro. Logo, marca d'água e fotos de Natal e do estúdio do Drive dela; portfólio do Instagram (@rafaeladamacenofotografia); avaliações do Google. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "comentario": "Rafaela Damaceno Estúdio Fotográfico: o site (página inicial). Feito pela Renderiza (renderizaweb.com.br).",
   "hero": {
    "eyebrow": "Centro · Franco da Rocha",
    "frase": "Onde as memórias florescem.",
@@ -589,7 +589,7 @@
  "natal": {
   "titulo": "Natal 2026 | Rafaela Damaceno Estúdio Fotográfico",
   "descricao": "O ensaio de Natal 2026 da Rafaela Damaceno, em Franco da Rocha: o cenário novo, cheio de encanto e aconchego. Escolha o dia e o horário; a Rafaela confirma pelo WhatsApp.",
-  "comentario": "Rafaela Damaceno Estúdio Fotográfico: página da campanha de Natal (natal.html), ligada ao site. Fotos do cenário de 2026 do Drive dela. Gerada por ferramentas/demo/gerar-fotografia.py.",
+  "comentario": "Rafaela Damaceno Estúdio Fotográfico: a página do Natal 2026. Feito pela Renderiza (renderizaweb.com.br).",
   "hero": {
    "eyebrow": "Natal 2026 · Franco da Rocha",
    "h1": "Mais um capítulo <em>da história da sua família.</em>",
@@ -798,5 +798,6 @@
    "A demo precisa ficar no ar até ela validar: conferir o prazo no card do lead, no Painel de prospecção.",
    "Fase 2: abrir a sessão num ambiente com as variáveis PAINEL_* e rede livre. A sessão desta fase abriu no ambiente Default (sem as variáveis e com a rede limitada)."
   ]
- }
+ },
+ "meu_site": true
 }

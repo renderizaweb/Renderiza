@@ -7,6 +7,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { createRequire } from "node:module";
+import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { montar } from "./site-teste/montar.mjs";
 
@@ -353,4 +354,24 @@ test("versão final: conteúdo embutido, imagens em img/, sem o script e sem dep
   assert.deepEqual(erros, []);
   await contexto.close();
   await assert.rejects(versaoFinal(saida, conteudo, path.join(pasta, "final2"), { baixar: async () => ({ tipo: "image/png", dados: PNG }) }), /já é uma versão final/);
+});
+
+test("fotografia (Rafaela): o site gerado sai com as marcações do Meu site, e o conteúdo inicial é válido", comNavegador, async () => {
+  const { extrair } = await import("../ferramentas/meu-site/extrair.mjs");
+  const saida = fs.mkdtempSync(path.join(os.tmpdir(), "rafaela-"));
+  const r = spawnSync("node", ["scripts/virar-site.mjs", "rafaela-damaceno-fotografia", saida], { cwd: RAIZ, encoding: "utf8" });
+  assert.equal(r.status, 0, r.stdout + r.stderr);
+  const c = await extrair(fs.readFileSync(path.join(saida, "index.html"), "utf8"));
+  assert.deepEqual(lib.validar(c), []);
+  assert.deepEqual(c.ordem, ["cabecalho", "inicio", "portfolio", "sobre", "ensaios", "depoimentos", "natal", "agendar", "contato", "rodape"]);
+  assert.match(c.secoes.inicio.imagens.foto.src, /^\/img\//, "as fotos do site são caminhos do próprio site, que o painel aceita");
+  assert.deepEqual(Object.keys(c.secoes.portfolio.listas), ["infantil", "gestante", "familia"]);
+  assert.equal(c.secoes.ensaios.listas.itens.length, 6);
+  assert.ok(c.secoes.ensaios.listas.itens.every(it => it.textos.preco === ""), "o preço dos ensaios começa vazio (e vazio não aparece)");
+  assert.equal(c.secoes.depoimentos.listas.avaliacoes.length, 4);
+  assert.equal(c.contato.whatsapp, "5511994794869");
+  // (com "painel" no site.json, o script do Meu site entra nas duas páginas e cita data-site-* no código: fora dele)
+  const natalSemScripts = fs.readFileSync(path.join(saida, "natal.html"), "utf8").replace(/<script\b[\s\S]*?<\/script>/g, "");
+  assert.doesNotMatch(natalSemScripts, /data-site/, "a página de Natal fica sem marcações por enquanto");
+  fs.rmSync(saida, { recursive: true, force: true });
 });

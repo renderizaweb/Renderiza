@@ -230,7 +230,8 @@ Todas pedem login e conferem a conta e o acesso por dentro.
 ## Funções públicas (sem login)
 
 Só estas, cada uma devolvendo o mínimo: `publico_disponibilidade(código, de, até)`, `publico_pedido(código, dados)`
-(acha ou cria o cliente pelo WhatsApp e cria o pedido), `publico_site(código)`, `publico_previa(código, token)`,
+(acha ou cria o cliente pelo WhatsApp e cria o pedido), `publico_horarios(código, de, até, ensaio, campanha)` e
+`publico_pedido_horario(código, dados)` (as mesmas, por horário, para a fotografia), `publico_site(código)`, `publico_previa(código, token)`,
 `publico_contrato(código)` e `publico_aceitar_contrato(código, nome, …)`. Nenhuma devolve nome, telefone ou valor
 de cliente final, a não ser o contrato para quem tem o código dele.
 
@@ -257,6 +258,21 @@ vale para **toda** função de `public`, inclusive as auxiliares e as de gatilho
 - Tabelas de apoio, sem dado de pessoa e fechadas ao app (só as funções gravam): `publico_tentativas` (o endereço
   embaralhado de quem pediu, para o limite; apagado depois de 1 dia) e `pedidos_avisos` (pedido já avisado por e-mail).
 - `aviso_do_pedido(pedido)`: só a chave secreta (a função `avisar-pedido`); ver `04`.
+
+**Feito (16/11/2026, entrega da Rafaela, Parada C2, migração `…013045_publico_agenda_fotografia`; só no
+banco local até o STG):** a agenda online da fotografia, por horário. As de eventos não mudaram.
+- `publico_horarios(código, de, até, ensaio?, campanha?)`: só para conta de **fotografia** (as outras: nada). Os
+  horários de início de cada dia (`horarios` do dia da semana: os do ensaio, se ele tem horários próprios; senão os
+  do estúdio, sem serviço) e se cada um está livre: ainda não passou, sem bloqueio no dia e sem reserva que segure
+  [início, início + duração do ensaio). Com a campanha: só os dias e horários dela, com a duração do ensaio dela, e
+  nenhum livre quando as vagas acabam. Também os ensaios da agenda online (nome, descrição, duração) e as campanhas
+  ativas com dias por vir (dias, horários, vagas que restam). Sem preço e sem cliente.
+- `publico_pedido_horario(código, dados, domínio, endereço)`: o mesmo do `publico_pedido` (cliente pelo WhatsApp,
+  pedido `agenda_online` no Atendimento, pré-reserva ligada, os mesmos limites e o mesmo domínio), com o ensaio e,
+  se veio da campanha, a campanha na reserva (fim = início + duração). Confere se a hora é dos horários do dia (ou da
+  campanha, e o dia dela) e trava o dia da conta e a campanha enquanto grava (vaga e horário não vão duas vezes).
+- `campanha_restam(conta, campanha)`: as vagas que restam (vagas, ou dias × horários, menos as reservas da campanha
+  que seguram o horário); fechada ao visitante.
 
 **Já no banco (29/10/2026, Missão 3E, migração `…220000_publico_contrato`, STG e produção):**
 - `publico_contrato(código)`: o contrato **enviado** (conta liberada e Contratos ligado) ou **aceito** (este

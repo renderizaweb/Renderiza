@@ -41,6 +41,10 @@
 #   agenda {...}: a agenda de verdade no lugar dos horários de exemplo (ver agenda_dados): a pessoa escolhe o ensaio
 #     ou a campanha (com vagas), o dia, um horário livre, deixa nome e WhatsApp e o pedido vai pelo WhatsApp. É o que
 #     a Agenda do painel entrega (horariosLivres e resumoDaCampanha em painel-clientes/src/modulos/agenda/logica.js).
+#   meu_site: true: as marcações data-site-* do Meu site (docs/painel-clientes/03) na página inicial (não na de Natal):
+#     o que a fotógrafa muda pelo painel (textos, botões, fotos da abertura e do "quem fotografa", as galerias do
+#     portfólio, os ensaios com um campo de preço que começa vazio e vazio não aparece, os números, as avaliações, o
+#     contato e mostrar/esconder seções). Sem a opção, a página sai idêntica.
 #   sobre.foto2: uma segunda foto, menor, sobre o canto da primeira. jornada.fonte vazio: sem a nota de fonte.
 #   natal.link_site: o rótulo do link de volta ao site na página de Natal (padrão: "O site da Ana").
 # No vídeo (gravar.mjs), a página aberta com ?video=1 esconde a camada da Renderiza (o vídeo não mostra preço).
@@ -53,6 +57,13 @@ import importlib.util
 _spec = importlib.util.spec_from_file_location('gerar_base', os.path.join(AQUI, 'gerar.py'))
 G = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(G)
 esc = lambda t: html.escape(str(t), quote=True)
+MEU_SITE = False  # meu_site no demo.json (vale para a página inicial; gerar() liga e desliga)
+
+
+def m(atributo, valor=None):
+    """Uma marcação do Meu site (só com meu_site no demo.json): m("data-site", "inicio.eyebrow") -> ' data-site="inicio.eyebrow"'."""
+    if not MEU_SITE: return ''
+    return f' {atributo}' if valor is None else f' {atributo}="{valor}"'
 _spec_m = importlib.util.spec_from_file_location('marca_fotografia', os.path.join(AQUI, 'marca-fotografia.py'))
 MARCA = importlib.util.module_from_spec(_spec_m); _spec_m.loader.exec_module(MARCA)
 
@@ -884,7 +895,9 @@ JS = r'''
 #   horários de início por dia da semana (horarios da conta), campanhas com dias, horários e vagas (resumoDaCampanha),
 #   horário livre = sem reserva que segure (horariosLivres/seguraHorario) e fora das datas fechadas (bloqueios).
 # Na demo não há painel: os dados vão na página (window.AGENDA) e o pedido sai pelo WhatsApp, com a mensagem pronta.
-# No site no ar, os mesmos dados vêm do painel (a agenda online) e o pedido também cai lá, como pré-reserva.
+# No site ligado ao painel (scripts/virar-site.mjs com "painel": {"agenda": true} põe window.RZ_AGENDA_PAINEL), os
+# ensaios, as campanhas e os horários livres vêm da agenda online do painel (publico_horarios) e o pedido vira
+# pré-reserva lá (publico_pedido_horario). O painel fora do ar ou desligado: volta tudo ao que está na página.
 # demo.json: agenda {duracao (min), janela (dias à frente), semana {"2": ["08:00", ...]} (0 = domingo), fechados [datas],
 #   ensaios [{id, nome, sub}], campanhas [{id, nome, sub, dias [datas], horarios ["09:00"], vagas?}], mensagem
 #   ("... {nome} ... {ensaio} ... {semana} ... {data} ... {hora} ... {whatsapp}"), exemplo (aviso para a dona, opcional),
@@ -1004,6 +1017,8 @@ button.ag-d:hover,button.ag-d.escolhido{background:var(--acento);border-color:va
 .ag-hora{min-height:46px;border:1px solid var(--acento);border-radius:999px;color:var(--acento-escuro);font-weight:500;transition:background .2s,color .2s}
 .ag-hora:hover{background:var(--acento);color:#fff}
 .ag-vazio{margin:22px 0 0;text-align:center;color:var(--tinta-2)}
+.ag-aviso{margin:0 0 16px;padding:12px 16px;border-radius:12px;background:var(--areia);color:var(--acento-escuro);font-size:.95rem;text-align:center}
+.ag-isca{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 .ag-campo{margin:0 0 16px}.ag-campo label{display:block;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-2);margin-bottom:6px}
 .ag-campo input{width:100%;min-height:52px;padding:12px 16px;border:1px solid var(--linha);border-radius:12px;background:var(--fundo);color:var(--tinta);font:inherit;font-size:1.05rem}
 .ag-campo input:focus{outline:2px solid var(--acento);outline-offset:1px;border-color:transparent}.ag-campo.erro input{border-color:#b3402f}
@@ -1028,7 +1043,12 @@ JS_AGENDA = r'''
   "use strict";
   // A agenda: a mesma regra da Agenda do painel. Um horário de início está livre se é dos horários do dia (os da
   // campanha, nos dias dela; senão, os do dia da semana), ainda não passou, a data não está fechada e nenhuma reserva o segura.
+  // No site ligado ao painel (o virar-site põe window.RZ_AGENDA_PAINEL = { api, codigo }), os ensaios, as campanhas e
+  // os horários livres vêm da agenda online do painel e o pedido vira pré-reserva lá. Se o painel não responder, fica
+  // tudo como na demo: os dados desta página (window.AGENDA) e o pedido pelo WhatsApp.
   const A = window.AGENDA; if (!A) return;
+  const P = window.RZ_AGENDA_PAINEL || null;
+  const BASE = P && P.api && P.codigo ? P.api + "agenda/" + P.codigo : "";
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const SEMANA = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
   const MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
@@ -1043,30 +1063,89 @@ JS_AGENDA = r'''
   const horaTexto = h => Number(h.slice(0, 2)) + "h" + (h.slice(3) === "00" ? "" : h.slice(3));
   const dataTexto = iso => iso.slice(8) + "/" + iso.slice(5, 7);
   const dataLonga = iso => SEMANA[diaDaSemana(iso)] + ", " + Number(iso.slice(8)) + " de " + MESES[Number(iso.slice(5, 7)) - 1];
-  const campanha = id => A.campanhas.find(c => c.id === id) || null;
-  const livres = (iso, c) => {
+  const igual = (a, b) => String(a || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim() === String(b || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
+
+  // A fonte dos ensaios, das campanhas e dos horários livres: esta página, ou o painel quando ele responde.
+  const F = { painel: false, ensaios: A.ensaios, campanhas: A.campanhas, mapas: {} };
+  const campanha = id => F.campanhas.find(c => c.id === id) || null;
+  const chave = e => e ? e.tipo + ":" + e.id : "geral";
+  const livresFixo = (iso, c) => {
     const n = agora();
     if (iso < n.dia || A.fechados.includes(iso)) return [];
     if (c ? !c.dias.includes(iso) : iso > somar(n.dia, A.janela)) return [];
     const hs = c ? c.horarios : (A.semana[diaDaSemana(iso)] || []);
     return hs.filter(h => (iso > n.dia || minutos(h) > n.min) && !A.ocupados.includes(iso + " " + h));
   };
-  const diasCom = c => {
-    const n = agora(), out = [];
-    if (c) c.dias.forEach(d => { if (livres(d, c).length) out.push(d); });
-    else for (let i = 0; i <= A.janela; i++) { const d = somar(n.dia, i); if (livres(d, null).length) out.push(d); }
-    return out.sort();
+  const mapaFixo = c => {
+    const m = {}, n = agora(), dias = c ? c.dias : Array.from({ length: A.janela + 1 }, (_, i) => somar(n.dia, i));
+    dias.forEach(d => { const hs = livresFixo(d, c); if (hs.length) m[d] = hs; });
+    return m;
   };
-  const vagas = c => c.dias.reduce((t, d) => t + livres(d, c).length, 0);
+  // dia -> horários livres da escolha (ensaio ou campanha); null = o painel ainda não mandou os horários dela
+  const mapaDe = e => F.painel ? (F.mapas[chave(e)] || null) : mapaFixo(e && e.tipo === "campanha" ? campanha(e.id) : null);
+  const vagas = c => {
+    const m = mapaDe({ tipo: "campanha", id: c.id }) || {}, n = Object.values(m).reduce((t, hs) => t + hs.length, 0);
+    return typeof c.restam === "number" ? Math.min(n, c.restam) : n;
+  };
   const plural = n => n === 1 ? "1 horário livre" : n + " horários livres";
-  // O número de horários livres de uma campanha fora do quadro (ex.: o bloco de Natal do site).
-  $$("[data-ag-vagas]").forEach(e => { const c = campanha(e.dataset.agVagas); if (c) e.textContent = vagas(c); });
 
-  $$("[data-agenda]").forEach(raiz => {
-    const so = raiz.dataset.so ? campanha(raiz.dataset.so) : null;
+  // O painel: os horários livres (de hoje até a janela, no máximo 62 dias por pedido), sem esperar mais que uns segundos.
+  const perguntar = (q, ms) => new Promise(ok => {
+    const t = setTimeout(() => ok(null), ms || 5000);
+    fetch(BASE + "?" + q, { headers: { Accept: "application/json" } }).then(r => r.ok ? r.json() : null)
+      .then(j => { clearTimeout(t); ok(j); }, () => { clearTimeout(t); ok(null); });
+  });
+  const mapaDoPainel = r => {
+    const m = {};
+    ((r && r.dias) || []).forEach(d => { const hs = (d.horarios || []).filter(h => h.livre).map(h => h.hora); if (hs.length) m[d.data] = hs; });
+    return m;
+  };
+  const periodo = de => "de=" + de + "&ate=" + somar(de, Math.min(A.janela, 61));
+  const carregar = e => {
+    const k = chave(e); if (F.mapas[k]) return Promise.resolve(F.mapas[k]);
+    if (!e || !e.id) { F.mapas[k] = {}; return Promise.resolve(F.mapas[k]); }
+    const hoje = agora().dia, c = e.tipo === "campanha" ? campanha(e.id) : null;
+    const de = c ? (c.dias.find(d => d >= hoje) || hoje) : hoje;
+    return perguntar((c ? "campanha=" : "servico=") + encodeURIComponent(e.id) + "&" + periodo(de)).then(r => {
+      // sem resposta: para um ensaio, os horários do estúdio (a duração padrão; o pedido confere de novo); para a
+      // campanha, nenhum (a página manda chamar no WhatsApp). Devolve null quando não respondeu.
+      F.mapas[k] = r ? mapaDoPainel(r) : (c ? {} : F.mapas.geral || {});
+      return r ? F.mapas[k] : null;
+    });
+  };
+  const pronto = !BASE ? Promise.resolve(false) : perguntar("horarios=1&" + periodo(agora().dia), 4000).then(r => {
+    if (!r || r.nicho !== "fotografia" || !Array.isArray(r.dias)) return false;
+    const textoDe = (lista, nome) => { const x = lista.find(y => igual(y.nome, nome)); return x ? x.sub : ""; };
+    F.ensaios = (r.ensaios || []).map(x => ({ id: x.id, nome: x.nome, sub: x.descricao || textoDe(A.ensaios, x.nome) }));
+    F.campanhas = (r.campanhas || []).map(x => ({ id: x.id, nome: x.nome, sub: textoDe(A.campanhas, x.nome), dias: x.dias || [], horarios: x.horarios || [], restam: x.restam }));
+    F.mapas = { geral: mapaDoPainel(r) };
+    return Promise.all(F.campanhas.map(c => carregar({ tipo: "campanha", id: c.id }))).then(ms => {
+      if (ms.some(m => !m)) { F.ensaios = A.ensaios; F.campanhas = A.campanhas; F.mapas = {}; return false; }
+      F.painel = true; return true;
+    });
+  });
+  // A campanha do painel que é a desta página (pelo nome; ou a única que houver).
+  const doPainel = fixa => {
+    if (!F.painel) return fixa;
+    const c = fixa && F.campanhas.find(x => igual(x.nome, fixa.nome));
+    return c || (F.campanhas.length === 1 ? F.campanhas[0] : null);
+  };
+
+  pronto.then(() => {
+    // O número de horários livres de uma campanha fora do quadro (ex.: o bloco de Natal do site).
+    $$("[data-ag-vagas]").forEach(e => { const c = doPainel(A.campanhas.find(x => x.id === e.dataset.agVagas)); e.textContent = c ? vagas(c) : 0; });
+    if (F.painel) $$(".ag-exemplo").forEach(e => { e.hidden = true; }); // os horários já são os de verdade
+    $$("[data-agenda]").forEach(montar);
+  });
+  if (BASE) $$("[data-ag-opcoes]").forEach(o => { const p = document.createElement("p"); p.className = "ag-vazio"; p.textContent = "Carregando a agenda…"; o.append(p); });
+
+  function montar(raiz) {
+    const fixa = raiz.dataset.so ? A.campanhas.find(x => x.id === raiz.dataset.so) || null : null;
+    const so = raiz.dataset.so ? (doPainel(fixa) || { id: null, nome: fixa ? fixa.nome : "", dias: [], horarios: [] }) : null;
     const etapas = so ? ["dia", "dados"] : ["ensaio", "dia", "dados"];
-    const est = { escolha: so ? { tipo: "campanha", id: so.id, nome: so.nome } : null, dia: "", hora: "", mes: "", dias: [] };
+    const est = { escolha: so ? { tipo: "campanha", id: so.id, nome: so.nome } : null, dia: "", hora: "", mes: "", dias: [], mapa: {} };
     const trilha = $$(".ag-trilha li", raiz), resumo = $("[data-ag-resumo]", raiz), form = $("form", raiz);
+    const comeco = Date.now();
     const mostrar = etapa => {
       $$(".ag-etapa", raiz).forEach(e => { e.hidden = e.dataset.etapa !== etapa; });
       const i = etapas.indexOf(etapa);
@@ -1081,7 +1160,6 @@ JS_AGENDA = r'''
       resumo.hidden = etapa === "pronto" || i <= 0;
       est.etapa = etapa;
     };
-    const c = () => est.escolha && est.escolha.tipo === "campanha" ? campanha(est.escolha.id) : null;
     const topo = () => { const t = $(".site-header"); return t ? t.offsetHeight : 0; };
     const marcarTopo = () => raiz.style.setProperty("--ag-topo", topo() + 8 + "px");
     marcarTopo(); addEventListener("resize", marcarTopo, { passive: true });
@@ -1089,6 +1167,7 @@ JS_AGENDA = r'''
       const y = raiz.getBoundingClientRect().top, h = topo();
       if (y < h + 4 || y > innerHeight * 0.45) scrollTo({ top: scrollY + y - h - 12 });
     };
+    const valida = e => !e || (e.tipo === "campanha" ? !!campanha(e.id) : F.ensaios.some(x => x.id === e.id));
 
     // Os passos ficam no histórico do navegador: o "voltar" do celular volta um passo, sem sair da página.
     let fundo = 0; // quantos passos desta agenda estão empilhados no histórico
@@ -1108,10 +1187,11 @@ JS_AGENDA = r'''
       if (k > 0 && k <= fundo && nossa) { history.go(-k); return; } // o popstate refaz a tela
       ir(etapa, false); fundo = Math.max(0, fundo - Math.max(k, 0)); guardar(); trazerAoTopo();
     };
+    const doComeco = () => { if (!so) est.escolha = null; est.dia = est.hora = ""; fundo = 0; aviso.hidden = true; ir(etapas[0], false); };
     addEventListener("popstate", ev => {
       const f = ev.state && ev.state.ag;
-      if (f) { if (!so) est.escolha = f.escolha; est.dia = f.dia; est.hora = f.hora; fundo = f.n; ir(f.etapa, false); }
-      else if (est.etapa !== etapas[0]) { if (!so) est.escolha = null; est.dia = est.hora = ""; fundo = 0; ir(etapas[0], false); }
+      if (f && (so || valida(f.escolha))) { if (!so) est.escolha = f.escolha; est.dia = f.dia; est.hora = f.hora; fundo = f.n; ir(f.etapa, false); }
+      else if (est.etapa !== etapas[0]) doComeco();
       else return;
       trazerAoTopo();
     });
@@ -1127,12 +1207,15 @@ JS_AGENDA = r'''
         b.addEventListener("click", () => { est.escolha = { tipo, id: x.id, nome: x.nome }; est.dia = est.hora = ""; avancar("dia"); });
         return b;
       };
-      A.campanhas.forEach(x => { const n = vagas(x), b = botao("campanha", x, n ? plural(n) : "Agenda cheia"); b.disabled = !n; opcoes.append(b); });
-      A.ensaios.forEach(x => opcoes.append(botao("ensaio", x)));
+      opcoes.replaceChildren();
+      F.campanhas.forEach(x => { const n = vagas(x), b = botao("campanha", x, n ? plural(n) : "Agenda cheia"); b.disabled = !n; opcoes.append(b); });
+      F.ensaios.forEach(x => opcoes.append(botao("ensaio", x)));
     }
 
     // 2. dia e horário
     const grade = $("[data-ag-dias]", raiz), mesNome = $("[data-ag-mes-nome]", raiz), horas = $("[data-ag-horas]", raiz), lista = $("[data-ag-horas-lista]", raiz), vazio = $("[data-ag-vazio]", raiz);
+    const espera = document.createElement("p"); espera.className = "ag-vazio"; espera.textContent = "Carregando os horários…"; espera.hidden = true; vazio.before(espera);
+    const aviso = document.createElement("p"); aviso.className = "ag-aviso"; aviso.setAttribute("role", "status"); aviso.hidden = true; $(".ag-cal", raiz).before(aviso);
     const desenharMes = () => {
       const [a, m] = est.mes.split("-").map(Number), primeiro = est.mes + "-01";
       mesNome.textContent = MESES[m - 1] + " de " + a;
@@ -1151,18 +1234,26 @@ JS_AGENDA = r'''
     const escolherDia = (iso, rolar = true) => {
       est.dia = iso; est.hora = ""; desenharMes();
       $("[data-ag-dia-nome]", raiz).textContent = "· " + dataLonga(iso);
-      lista.replaceChildren(...livres(iso, c()).map(h => {
+      lista.replaceChildren(...(est.mapa[iso] || []).map(h => {
         const b = document.createElement("button"); b.type = "button"; b.className = "ag-hora"; b.textContent = horaTexto(h);
-        b.addEventListener("click", () => { est.hora = h; avancar("dados"); const n = $("input[name=nome]", form); if (n) n.focus({ preventScroll: true }); });
+        b.addEventListener("click", () => { est.hora = h; aviso.hidden = true; avancar("dados"); const n = $("input[name=nome]", form); if (n) n.focus({ preventScroll: true }); });
         return b;
       }));
       horas.hidden = false;
       if (rolar) horas.scrollIntoView({ block: "nearest" });
     };
     const abrirDias = (rolar = false) => {
-      est.dias = diasCom(c()); horas.hidden = true;
-      vazio.hidden = est.dias.length > 0; $(".ag-cal", raiz).hidden = !est.dias.length;
-      if (est.dias.length) { est.mes = (est.dia || est.dias[0]).slice(0, 7); desenharMes(); if (est.dia && est.dias.includes(est.dia)) escolherDia(est.dia, rolar); }
+      const m = mapaDe(est.escolha), cal = $(".ag-cal", raiz);
+      horas.hidden = true;
+      if (!m) { // o painel ainda não mandou os horários deste ensaio
+        const e = est.escolha; cal.hidden = true; vazio.hidden = true; espera.hidden = false; mostrar("dia");
+        carregar(e).then(() => { if (est.etapa === "dia" && chave(est.escolha) === chave(e)) abrirDias(rolar); });
+        return;
+      }
+      espera.hidden = true; est.mapa = m;
+      est.dias = Object.keys(m).filter(d => m[d].length).sort();
+      vazio.hidden = est.dias.length > 0; cal.hidden = !est.dias.length;
+      if (est.dias.length) { est.mes = (est.dia && est.dias.includes(est.dia) ? est.dia : est.dias[0]).slice(0, 7); desenharMes(); if (est.dia && est.dias.includes(est.dia)) escolherDia(est.dia, rolar); }
       mostrar("dia");
     };
     $$("[data-ag-mes]", raiz).forEach(b => b.addEventListener("click", () => {
@@ -1172,8 +1263,17 @@ JS_AGENDA = r'''
     $("[data-ag-voltar]", raiz).addEventListener("click", () => { const i = etapas.indexOf(est.etapa); if (i > 0) voltarPara(etapas[i - 1]); });
     $$("[data-ag-ir]", raiz).forEach(b => b.addEventListener("click", () => voltarPara(b.dataset.agIr)));
 
-    // 3. nome e WhatsApp: o pedido vai pelo WhatsApp, com a mensagem pronta
-    const zap = $("input[name=whatsapp]", form), nome = $("input[name=nome]", form);
+    // 3. nome e WhatsApp. Com o painel, o pedido vai para a agenda dele (pré-reserva); sem, pelo WhatsApp, com a
+    // mensagem pronta. Se o painel falhar na hora, o WhatsApp fica de reserva: o pedido nunca se perde.
+    const zap = $("input[name=whatsapp]", form), nome = $("input[name=nome]", form), enviar = $(".ag-enviar", form);
+    const pronta = $(".ag-pronto", raiz), tituloPronto = $(".ag-titulo", pronta), textoPronto = $("p:not([class])", pronta);
+    const PRONTO = { titulo: tituloPronto.textContent, texto: textoPronto ? textoPronto.textContent : "" };
+    const isca = document.createElement("input");
+    if (F.painel) {
+      isca.name = "website"; isca.tabIndex = -1; isca.autocomplete = "off"; isca.className = "ag-isca"; isca.setAttribute("aria-hidden", "true"); form.append(isca);
+      const nota = $(".ag-nota", form); if (nota) nota.textContent = A.quem + " recebe o pedido na agenda e confirma pelo WhatsApp.";
+      const icone = $("use", enviar); if (icone) icone.setAttribute("href", "#cal");
+    }
     const digitos = () => { let d = zap.value.replace(/\D/g, ""); if (d.length > 11 && d.startsWith("55")) d = d.slice(2); return d; };
     zap.addEventListener("input", () => {
       const d = digitos().slice(0, 11);
@@ -1181,8 +1281,35 @@ JS_AGENDA = r'''
     });
     const erro = (campo, tem) => { const cx = campo.closest(".ag-campo"); cx.classList.toggle("erro", tem); $(".ag-erro", cx).hidden = !tem; return tem; };
     [nome, zap].forEach(campo => campo.addEventListener("input", () => erro(campo, false)));
+    const concluir = (titulo, texto) => {
+      tituloPronto.textContent = titulo; if (textoPronto) textoPronto.textContent = texto;
+      avancar("pronto"); pronta.focus({ preventScroll: true });
+    };
+    const peloWhatsApp = (link, abrir) => {
+      // No vídeo (?video=1) nada abre o WhatsApp; aberto ou não, o contador de visitas fica sabendo do pedido.
+      if (abrir && !document.documentElement.classList.contains("modo-video")) { try { window.open(link, "_blank", "noopener"); } catch (e) { /* o botão "Abrir o WhatsApp" fica na tela */ } }
+      try { if (window.rzVisita) window.rzVisita("clicou_whatsapp", { onde: "demo", parte: "Agenda" }, "demo"); } catch (e) { /* o contador nunca atrapalha */ }
+    };
+    const outroHorario = texto => { delete F.mapas[chave(est.escolha)]; est.hora = ""; aviso.textContent = texto; aviso.hidden = false; voltarPara("dia"); };
+    const aoPainel = link => {
+      const e = est.escolha, corpo = { nome: nome.value.trim(), whatsapp: digitos(), data: est.dia, hora: est.hora, tempo: Date.now() - comeco, website: isca.value };
+      corpo[e.tipo === "campanha" ? "campanha" : "servico"] = e.id;
+      enviar.disabled = true; form.setAttribute("aria-busy", "true");
+      const fim = () => { enviar.disabled = false; form.removeAttribute("aria-busy"); };
+      fetch(BASE + "/pedido", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(corpo) })
+        .then(r => r.json().catch(() => ({})).then(j => ({ status: r.status, j })), () => ({ status: 0, j: {} }))
+        .then(({ status, j }) => {
+          fim();
+          if (status === 201 && j.ok) { delete F.mapas[chave(e)]; concluir(PRONTO.titulo, A.quem + " recebe o pedido na agenda e confirma pelo WhatsApp. O horário fica separado por 48 horas."); return; }
+          if (status === 422 && (j.campo === "nome" || j.campo === "whatsapp")) { const c = j.campo === "nome" ? nome : zap; erro(c, true); c.focus(); return; }
+          if (status === 409 || (status === 422 && ["data", "hora", "servico", "campanha"].includes(j.campo))) { outroHorario("Esse horário acabou de ser reservado. Escolha outro, por favor."); return; }
+          peloWhatsApp(link, false); // painel fora do ar, limite ou outro problema: o pedido segue pelo WhatsApp
+          concluir("Falta enviar pelo WhatsApp.", "A agenda não respondeu agora. Toque em Abrir o WhatsApp: a mensagem já vai escrita.");
+        });
+    };
     form.addEventListener("submit", ev => {
       ev.preventDefault();
+      if (enviar.disabled) return;
       const e1 = erro(nome, nome.value.trim().length < 2), e2 = erro(zap, !/^\d{10,11}$/.test(digitos()));
       if (e1 || e2) { (e1 ? nome : zap).focus(); return; }
       const texto = A.mensagem.replace("{nome}", nome.value.trim()).replace("{ensaio}", est.escolha.nome).replace("{semana}", SEMANA[diaDaSemana(est.dia)])
@@ -1190,19 +1317,18 @@ JS_AGENDA = r'''
       const link = "https://wa.me/" + A.whatsapp + "?text=" + encodeURIComponent(texto);
       $("[data-ag-abrir]", raiz).href = link;
       $("[data-ag-pronto-resumo]", raiz).textContent = est.escolha.nome + " · " + dataLonga(est.dia) + ", às " + horaTexto(est.hora);
-      // No vídeo (?video=1) nada abre o WhatsApp; aberto ou não, o contador de visitas fica sabendo do pedido.
-      if (!document.documentElement.classList.contains("modo-video")) { try { window.open(link, "_blank", "noopener"); } catch (e) { /* o botão "Abrir o WhatsApp" fica na tela */ } }
-      try { if (window.rzVisita) window.rzVisita("clicou_whatsapp", { onde: "demo", parte: "Agenda" }, "demo"); } catch (e) { /* o contador nunca atrapalha */ }
-      avancar("pronto"); $(".ag-pronto", raiz).focus({ preventScroll: true });
+      if (F.painel && est.escolha.id) { aoPainel(link); return; }
+      peloWhatsApp(link, true);
+      concluir(PRONTO.titulo, PRONTO.texto);
     });
     $("[data-ag-outro]", raiz).addEventListener("click", () => {
       const nossa = history.state && history.state.ag && history.state.ag.n === fundo;
       if (fundo > 0 && nossa) { history.go(-fundo); return; } // volta ao começo pelo histórico (o popstate refaz a tela)
-      if (!so) est.escolha = null; est.dia = est.hora = ""; fundo = 0; ir(etapas[0], false); guardar(); trazerAoTopo();
+      doComeco(); guardar(); trazerAoTopo();
     });
 
     ir(etapas[0], false); guardar();
-  });
+  }
 })();
 '''
 
@@ -1302,13 +1428,13 @@ def cabecalho(cfg, F, pagina, nav, cta):
     inicio = 'index.html' if pagina == 'natal' else '#inicio'
     dp = ' data-pagina="site"' if pagina == 'natal' else ''
     links = ''.join(f'<a href="{esc(h)}"{" data-pagina=" + chr(34) + p + chr(34) if p else ""}>{esc(t)}</a>' for h, t, p in nav)
-    return f'''<header class="site-header">
+    return f'''<header class="site-header"{m("data-site-secao", "cabecalho") if pagina == "site" else ""}>
   <div class="container topo-in">
     <a class="marca" href="{inicio}"{dp} aria-label="{esc(cfg["marca"])}, início">{marca}</a>
     <nav class="nav" aria-label="Seções">{links}</nav>
-    <a class="botao topo-cta" {cta}</a>
+    <a class="botao topo-cta"{m("data-site-botao", "cabecalho.botao") if pagina == "site" else ""} {cta}</a>
     <button class="menu-botao" type="button" data-menu-button aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu"><span></span></button>
-    <nav class="menu-mobile" id="menu-mobile" aria-label="Menu" hidden>{links}<a class="botao" {cta}</a></nav>
+    <nav class="menu-mobile" id="menu-mobile" aria-label="Menu" hidden>{links}<a class="botao"{m("data-site-botao", "cabecalho.botao") if pagina == "site" else ""} {cta}</a></nav>
   </div>
 </header>'''
 
@@ -1325,6 +1451,8 @@ def head(cfg, F, titulo, descricao, comentario):
     if cfg['marca_img'].get('topo'):
         css += '\n/* o logo real no topo */\n.marca .marca-logo{width:auto;height:54px}@media(max-width:520px){.marca .marca-logo{height:46px}}\n'
     if cfg.get('agenda'): css += CSS_AGENDA
+    if MEU_SITE: css += ('\n/* Meu site: o preço do ensaio (vazio não aparece) */\n.jornada .preco{margin:14px 0 0;font-family:var(--serif);'
+                        'font-size:1.2rem;color:var(--acento-escuro)}.jornada .preco:empty{display:none}\n')
     if (cfg.get('site') or {}).get('sobre', {}).get('foto2'):
         css += ('\n/* sobre: a segunda foto, sobre o canto da primeira */\n.sobre-foto{margin-bottom:9%}'
                 '.sobre-foto .sobre-foto2{position:absolute;right:-7%;bottom:-9%;width:44%;height:auto;aspect-ratio:4/5;border:6px solid var(--areia);box-shadow:0 14px 34px #3a2b231f}'
@@ -1353,10 +1481,11 @@ def rodape(cfg, F, links):
     logo = F.png(cfg['marca_img']['logo_claro'], 480)
     nav = ''.join(f'<a href="{esc(h)}"{" data-pagina=" + chr(34) + p + chr(34) if p else ""}>{esc(t)}</a>' for h, t, p in links)
     v = cfg['site']['contato']
-    return f'''<footer class="rodape">
+    meu = MEU_SITE and links and links[0][2] == ''  # o rodapé da página inicial (o da de Natal começa no link do site)
+    return f'''<footer class="rodape"{' data-site-secao="rodape"' if meu else ''}>
   <div class="container">
     <img src="{logo[0]}" width="{logo[1]}" height="{logo[2]}" alt="{esc(cfg["marca"])}" loading="lazy"{dk(logo)}>
-    <p class="rodape-frase">{esc(cfg["slogan"])}</p>
+    <p class="rodape-frase"{' data-site="rodape.slogan"' if meu else ''}>{esc(cfg["slogan"])}</p>
     <nav aria-label="Links">{nav}<a data-whatsapp href="#">WhatsApp</a><a data-instagram href="#" target="_blank" rel="noopener noreferrer">Instagram</a></nav>
     <small>© <span data-year>2026</span> {esc(cfg["marca"])} · {esc(" · ".join(v["endereco"]))}</small>
   </div>
@@ -1364,20 +1493,23 @@ def rodape(cfg, F, links):
 <a class="flutuante" data-whatsapp href="#" aria-label="Conversar com {esc(quem(cfg)["a"])} no WhatsApp"><svg aria-hidden="true"><use href="#whats"/></svg></a>'''
 
 
-def galeria_html(F, gal, ativa):
+def galeria_html(F, gal, ativa, secao=None):
+    """secao: com o Meu site, a galeria vira a lista <secao>.<id da galeria> (cada foto um item)."""
     itens = []
     for i, f in enumerate(gal['fotos']):
         forma = f.get('f', 'p')
         u = F.uri(f, 1200, 800) if forma == 'l' else F.uri(f, 880, 1100)
         pos = f.get('pos', '50% 40%')
         alt = f.get('alt') or gal['nome']
-        itens.append(f'<button class="g-item g-{forma}" type="button" aria-label="{esc("Abrir em tela cheia: " + alt)}">'
-                     f'<img src="{u[0]}" width="{u[1]}" height="{u[2]}" alt="{esc(alt)}" loading="lazy" style="object-position:{pos}"{dk(u)}></button>')
+        item, campo = (' data-site-item', ' data-site-campo="foto"') if secao else ('', '')
+        itens.append(f'<button class="g-item g-{forma}" type="button"{item} aria-label="{esc("Abrir em tela cheia: " + alt)}">'
+                     f'<img src="{u[0]}" width="{u[1]}" height="{u[2]}" alt="{esc(alt)}" loading="lazy" style="object-position:{pos}"{campo}{dk(u)}></button>')
+    lista = f' data-site-lista="{secao}.{gal["id"]}"' if secao else ''
     classe = 'painel ativo' if ativa else 'painel'
     escondido = '' if ativa else ' aria-hidden="true"'
     return (f'<div class="{classe}" id="painel-{gal["id"]}" role="tabpanel" aria-labelledby="aba-{gal["id"]}"{escondido}>'
             f'<h3 class="painel-titulo">{esc(gal["nome"])}</h3>'
-            f'<div class="galeria" data-nome="{esc(gal["nome"])}">{"".join(itens)}</div></div>')
+            f'<div class="galeria" data-nome="{esc(gal["nome"])}"{lista}>{"".join(itens)}</div></div>')
 
 
 def lightbox():
@@ -1390,17 +1522,18 @@ def lightbox():
 </div>'''
 
 
-def avaliacoes_html(cfg, titulo, sub, id_secao='depoimentos'):
+def avaliacoes_html(cfg, titulo, sub, id_secao='depoimentos', meu=False):
     nota = G.mostrar_nota(cfg)
     placar = (f'<b>{esc(cfg["google_nota"])}</b>' if nota else '') + f'<span><span class="estrelas" aria-hidden="true">★★★★★</span>{esc(cfg["google_total"])} avaliações no Google</span>'
-    return f'''<section class="secao" id="{id_secao}" aria-labelledby="{id_secao}-titulo">
+    ms = (lambda a, v: f' {a}="{v}"') if meu else (lambda a, v: '')
+    return f'''<section class="secao" id="{id_secao}"{ms("data-site-secao", id_secao)} aria-labelledby="{id_secao}-titulo">
   <div class="container">
     <div class="avaliacoes-topo reveal">
-      <div><p class="eyebrow">{esc(sub)}</p><h2 id="{id_secao}-titulo">{titulo}</h2></div>
+      <div><p class="eyebrow"{ms("data-site", id_secao + ".eyebrow")}>{esc(sub)}</p><h2 id="{id_secao}-titulo"{ms("data-site", id_secao + ".titulo")}>{titulo}</h2></div>
       <a class="nota-google" data-reviews-link href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver as avaliações no Google">{placar}</a>
     </div>
     <div class="carousel reveal" data-carousel role="region" aria-roledescription="carrossel" aria-label="Avaliações do Google">
-      <ul class="carousel-track" id="reviews-track" data-reviews tabindex="0" aria-label="Avaliações; use as setas para navegar"></ul>
+      <ul class="carousel-track" id="reviews-track" data-reviews{ms("data-site-lista", id_secao + ".avaliacoes")}{' data-site-runtime="avaliacoes"' if meu else ''} tabindex="0" aria-label="Avaliações; use as setas para navegar"></ul>
       <div class="carousel-footer"><div class="carousel-controls"><button class="arrow-button" type="button" data-prev aria-controls="reviews-track" aria-label="Avaliações anteriores">←</button><div class="carousel-dots" data-dots></div><button class="arrow-button" type="button" data-next aria-controls="reviews-track" aria-label="Próximas avaliações">→</button><span class="sr-only" data-status aria-live="polite"></span></div></div>
     </div>
   </div>
@@ -1424,7 +1557,7 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
     cta = 'href="#agendar"><svg aria-hidden="true"><use href="#cal"/></svg>Agendar' if ag else 'data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar no WhatsApp'
     out = [head(cfg, F, s['titulo'], s['descricao'], s['comentario']), '<body class="pagina-site">', SIMBOLOS, faixa_rz(cfg, 'site'),
            cabecalho(cfg, F, 'site', nav, cta), '<main id="inicio">']
-    acao = '<a class="botao" href="#agendar"><svg aria-hidden="true"><use href="#cal"/></svg>Agendar um ensaio</a>' if ag else f'<a {wa_botao("Agendar pelo WhatsApp")}</a>'
+    acao = f'<a class="botao"{m("data-site-botao", "inicio.botao")} href="#agendar"><svg aria-hidden="true"><use href="#cal"/></svg>Agendar um ensaio</a>' if ag else f'<a{m("data-site-botao", "inicio.botao")} {wa_botao("Agendar pelo WhatsApp")}</a>'
     nota = G.mostrar_nota(cfg)
     if cfg.get('prova'):  # sem avaliações no Google: um número do perfil (ex.: "+310" ensaios), sem estrelas
         prova = f'<a class="prova" href="#sobre"><b>{esc(cfg["prova"][0])}</b><span>{esc(cfg["prova"][1])}</span></a>'
@@ -1435,24 +1568,24 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
     # nome com palavra longa (DIAMANTINO) não cabe na coluna no tamanho padrão: o título diminui na proporção
     maior = max(len(w) for w in q['nome'].split())
     tam_h1 = f' style="font-size:calc(clamp(2.5rem,6.4vw,5.6rem)*{min(1, 7.5 / maior):.3f})"' if maior > 8 else ''
-    out.append(f'''<section class="abertura" aria-labelledby="titulo-site">
+    out.append(f'''<section class="abertura"{m("data-site-secao", "inicio")} aria-labelledby="titulo-site">
   <div class="container abertura-grid">
     <div class="abertura-texto">
       <div class="abertura-topo">
-        <p class="eyebrow">{esc(h["eyebrow"])}</p>
+        <p class="eyebrow"{m("data-site", "inicio.eyebrow")}>{esc(h["eyebrow"])}</p>
         <h1 id="titulo-site"{tam_h1}>{esc(q["nome"])} <span class="script">{esc(q["script"])}</span></h1>
-        <p class="frase">{esc(h["frase"])}</p>
+        <p class="frase"{m("data-site", "inicio.frase")}>{esc(h["frase"])}</p>
       </div>
       <div class="abertura-baixo">
-        <p class="abertura-intro">{esc(h["intro"])}</p>
-        <div class="abertura-acoes">{acao}<a class="link" href="#portfolio">Ver o portfólio <svg aria-hidden="true"><use href="#seta"/></svg></a></div>
+        <p class="abertura-intro"{m("data-site", "inicio.texto")}>{esc(h["intro"])}</p>
+        <div class="abertura-acoes">{acao}<a class="link"{m("data-site-botao", "inicio.link")} href="#portfolio">Ver o portfólio <svg aria-hidden="true"><use href="#seta"/></svg></a></div>
         {prova}
       </div>
     </div>
     <div class="mosaico">
-      <figure class="hero-photo">{img(hero1, h["fotos"][0]["alt"], extra=' fetchpriority="high"')}<figcaption>{esc(rot[0])}</figcaption></figure>
-      <figure>{img(hero2, h["fotos"][1]["alt"])}<figcaption>{esc(rot[1])}</figcaption></figure>
-      <figure>{img(hero3, h["fotos"][2]["alt"])}<figcaption>{esc(rot[2])}</figcaption></figure>
+      <figure class="hero-photo">{img(hero1, h["fotos"][0]["alt"], extra=' fetchpriority="high"' + m("data-site-img", "inicio.foto"))}<figcaption{m("data-site", "inicio.rotulo")}>{esc(rot[0])}</figcaption></figure>
+      <figure>{img(hero2, h["fotos"][1]["alt"], extra=m("data-site-img", "inicio.foto2"))}<figcaption{m("data-site", "inicio.rotulo2")}>{esc(rot[1])}</figcaption></figure>
+      <figure>{img(hero3, h["fotos"][2]["alt"], extra=m("data-site-img", "inicio.foto3"))}<figcaption{m("data-site", "inicio.rotulo3")}>{esc(rot[2])}</figcaption></figure>
     </div>
   </div>
 </section>
@@ -1461,68 +1594,76 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
     # portfólio
     gals = s['galerias']
     abas = ''.join(f'<button class="aba" type="button" role="tab" id="aba-{g["id"]}" data-aba="{g["id"]}" aria-controls="painel-{g["id"]}" aria-selected="{"true" if i == 0 else "false"}">{esc(g["nome"])}<small>{len(g["fotos"])}</small></button>' for i, g in enumerate(gals))
-    paineis = ''.join(galeria_html(F, g, i == 0) for i, g in enumerate(gals))
+    paineis = ''.join(galeria_html(F, g, i == 0, 'portfolio' if MEU_SITE else None) for i, g in enumerate(gals))
     p = s['portfolio']
-    out.append(f'''<section class="secao" id="portfolio" aria-labelledby="portfolio-titulo">
+    out.append(f'''<section class="secao" id="portfolio"{m("data-site-secao", "portfolio")} aria-labelledby="portfolio-titulo">
   <div class="container">
-    <div class="cabeca reveal"><p class="eyebrow">{esc(p["eyebrow"])}</p><h2 id="portfolio-titulo">{p["h2"]}</h2><p>{esc(p["p"])}</p></div>
+    <div class="cabeca reveal"><p class="eyebrow"{m("data-site", "portfolio.eyebrow")}>{esc(p["eyebrow"])}</p><h2 id="portfolio-titulo"{m("data-site", "portfolio.titulo")}>{p["h2"]}</h2><p{m("data-site", "portfolio.texto")}>{esc(p["p"])}</p></div>
     <div class="abas" role="tablist" aria-label="Categorias do portfólio">{abas}</div>
     <div class="paineis">{paineis}</div>
-    <p class="galeria-nota">{esc(p["nota"])}</p>
+    <p class="galeria-nota"{m("data-site", "portfolio.nota")}>{esc(p["nota"])}</p>
   </div>
 </section>''')
 
     # sobre
     so = s['sobre']; foto = F.uri(so['foto'], 0, 0, q=70, tam=(760, 950))
-    nums = ''.join(f'<li><b>{esc(a)}</b>{esc(b)}</li>' for a, b in so['numeros'])
-    foto2 = img(F.uri(so['foto2'], 0, 0, q=70, tam=(560, 700)), so['foto2']['alt'], 'sobre-foto2', ' loading="lazy"') if so.get('foto2') else ''
-    ps1 = ''.join(f'<p>{esc(x)}</p>' for x in so['p'])
-    ps2 = ''.join(f'<p>{esc(x)}</p>' for x in so.get('p2', []))
-    out.append(f'''<section class="secao secao--areia" id="sobre" aria-labelledby="sobre-titulo">
+    if MEU_SITE: nums = ''.join(f'<li data-site-item><b data-site-campo="valor">{esc(a)}</b><span data-site-campo="texto">{esc(b)}</span></li>' for a, b in so['numeros'])
+    else: nums = ''.join(f'<li><b>{esc(a)}</b>{esc(b)}</li>' for a, b in so['numeros'])
+    foto2 = img(F.uri(so['foto2'], 0, 0, q=70, tam=(560, 700)), so['foto2']['alt'], 'sobre-foto2', ' loading="lazy"' + m("data-site-img", "sobre.foto2")) if so.get('foto2') else ''
+    ps1 = ''.join(f'<p{m("data-site", "sobre.texto") if i == 0 else ""}>{esc(x)}</p>' for i, x in enumerate(so['p']))
+    ps2 = ''.join(f'<p{m("data-site-item")}{m("data-site-campo", "texto")}>{esc(x)}</p>' for x in so.get('p2', []))
+    # as aspas ficam dentro da parte editável: cortar o texto entre "." e "”" muda o espaço entre eles (um pixel)
+    citacao = (f'<span data-site="sobre.citacao">“{esc(so["citacao"])}”</span><footer data-site="sobre.autor">{esc(so["citacao_quem"])}</footer>' if MEU_SITE
+               else f'“{esc(so["citacao"])}”<footer>{esc(so["citacao_quem"])}</footer>')
+    out.append(f'''<section class="secao secao--areia" id="sobre"{m("data-site-secao", "sobre")} aria-labelledby="sobre-titulo">
   <div class="container sobre-grid">
-    <figure class="sobre-foto reveal">{img(foto, so["foto"]["alt"], extra=' loading="lazy"')}{foto2}</figure>
-    <div class="sobre-texto reveal">
-      <p class="eyebrow">{esc(so["eyebrow"])}</p><h2 id="sobre-titulo">{so["h2"]}</h2>
+    <figure class="sobre-foto reveal">{img(foto, so["foto"]["alt"], extra=' loading="lazy"' + m("data-site-img", "sobre.foto"))}{foto2}</figure>
+    <div class="sobre-texto reveal"{m("data-site-lista", "sobre.paragrafos") if so.get("p2") else ""}>
+      <p class="eyebrow"{m("data-site", "sobre.eyebrow")}>{esc(so["eyebrow"])}</p><h2 id="sobre-titulo"{m("data-site", "sobre.titulo")}>{so["h2"]}</h2>
       {ps1}
-      <blockquote class="citacao">“{esc(so["citacao"])}”<footer>{esc(so["citacao_quem"])}</footer></blockquote>
+      <blockquote class="citacao">{citacao}</blockquote>
       {ps2}
-      <ul class="numeros">{nums}</ul>
+      <ul class="numeros"{m("data-site-lista", "sobre.numeros")}>{nums}</ul>
     </div>
   </div>
 </section>''')
 
     # jornada (os ensaios, nas palavras dela)
     j = s['jornada']
-    passos = ''.join(f'<li><h3>{esc(x["nome"])}</h3><p class="sub">{esc(x["sub"])}</p><p>{esc(x["p"])}</p></li>' for x in j['passos'])
-    out.append(f'''<section class="secao" id="ensaios" aria-labelledby="ensaios-titulo">
+    if MEU_SITE:
+        passos = ''.join(f'<li data-site-item><h3 data-site-campo="nome">{esc(x["nome"])}</h3><p class="sub" data-site-campo="sub">{esc(x["sub"])}</p>'
+                         f'<p data-site-campo="texto">{esc(x["p"])}</p><p class="preco" data-site-campo="preco">{esc(x.get("preco", ""))}</p></li>' for x in j['passos'])
+    else:
+        passos = ''.join(f'<li><h3>{esc(x["nome"])}</h3><p class="sub">{esc(x["sub"])}</p><p>{esc(x["p"])}</p></li>' for x in j['passos'])
+    out.append(f'''<section class="secao" id="ensaios"{m("data-site-secao", "ensaios")} aria-labelledby="ensaios-titulo">
   <div class="container">
-    <div class="cabeca reveal"><p class="eyebrow">{esc(j["eyebrow"])}</p><h2 id="ensaios-titulo">{j["h2"]}</h2><p>{esc(j["p"])}</p></div>
-    <ol class="jornada reveal">{passos}</ol>
+    <div class="cabeca reveal"><p class="eyebrow"{m("data-site", "ensaios.eyebrow")}>{esc(j["eyebrow"])}</p><h2 id="ensaios-titulo"{m("data-site", "ensaios.titulo")}>{j["h2"]}</h2><p{m("data-site", "ensaios.texto")}>{esc(j["p"])}</p></div>
+    <ol class="jornada reveal"{m("data-site-lista", "ensaios.itens")}>{passos}</ol>
     {f'<p class="fonte">{esc(j["fonte"])}</p>' if j.get("fonte") else ''}
   </div>
 </section>''')
 
-    if s['avaliacoes']: out.append(avaliacoes_html(cfg, s['avaliacoes_h2'], s.get('avaliacoes_eyebrow', 'Depoimentos')))
+    if s['avaliacoes']: out.append(avaliacoes_html(cfg, s['avaliacoes_h2'], s.get('avaliacoes_eyebrow', 'Depoimentos'), meu=MEU_SITE))
 
     # bloco de Natal (leva à página da campanha)
     n = s['natal_bloco']; nf = F.uri(n['foto'], 0, 0, q=66, tam=(1200, 800))
     if ag:  # a agenda de verdade: os horários livres da campanha (o JS refaz a conta ao abrir) e o caminho para escolher
         camp = n.get('campanha') or ag['campanhas'][0]['id']
-        out.append(f'''<section class="secao natal" id="natal" aria-labelledby="natal-titulo">
+        out.append(f'''<section class="secao natal" id="natal"{m("data-site-secao", "natal")} aria-labelledby="natal-titulo">
   <div class="container natal-grid">
     <div class="reveal">
-      <p class="eyebrow">{esc(n["eyebrow"])}</p><h2 id="natal-titulo">{n["h2"]}</h2>
-      <p style="margin-top:22px">{esc(n["p"])}</p>
+      <p class="eyebrow"{m("data-site", "natal.eyebrow")}>{esc(n["eyebrow"])}</p><h2 id="natal-titulo"{m("data-site", "natal.titulo")}>{n["h2"]}</h2>
+      <p style="margin-top:22px"{m("data-site", "natal.texto")}>{esc(n["p"])}</p>
       <p class="vagas"><b data-ag-vagas="{esc(camp)}">{agenda_vagas(cfg, camp)}</b> <span>horários livres</span></p>
-      <a class="botao" href="natal.html#horarios" data-pagina="natal"><svg aria-hidden="true"><use href="#cal"/></svg>Escolher o meu horário</a>
+      <a class="botao"{m("data-site-botao", "natal.botao")} href="natal.html#horarios" data-pagina="natal"><svg aria-hidden="true"><use href="#cal"/></svg>Escolher o meu horário</a>
     </div>
-    <figure class="natal-foto reveal">{img(nf, n["foto"]["alt"], extra=' loading="lazy"')}<figcaption>{esc(n["legenda"])}</figcaption></figure>
+    <figure class="natal-foto reveal">{img(nf, n["foto"]["alt"], extra=' loading="lazy"' + m("data-site-img", "natal.foto"))}<figcaption{m("data-site", "natal.legenda")}>{esc(n["legenda"])}</figcaption></figure>
   </div>
 </section>''')
         g = s['agendar']
-        out.append(f'''<section class="secao" id="agendar" aria-labelledby="agendar-titulo">
+        out.append(f'''<section class="secao" id="agendar"{m("data-site-secao", "agendar")} aria-labelledby="agendar-titulo">
   <div class="container">
-    <div class="cabeca reveal"><p class="eyebrow">{esc(g["eyebrow"])}</p><h2 id="agendar-titulo">{g["h2"]}</h2><p>{esc(g["p"])}</p></div>
+    <div class="cabeca reveal"><p class="eyebrow"{m("data-site", "agendar.eyebrow")}>{esc(g["eyebrow"])}</p><h2 id="agendar-titulo"{m("data-site", "agendar.titulo")}>{g["h2"]}</h2><p{m("data-site", "agendar.texto")}>{esc(g["p"])}</p></div>
     {agenda_html(cfg)}
   </div>
 </section>''')
@@ -1544,18 +1685,18 @@ def pagina_site(cfg, F, google, horas, dias, total, livres):
     # contato
     v = s['contato']
     horas_html = ''.join(f'<li data-days="{d}"><span>{esc(nm)}</span><span>{esc(t)}</span></li>' for nm, t, d in G.linhas_horario(horas)) if horas else ''
-    out.append(f'''<section class="secao secao--areia" id="contato" aria-labelledby="contato-titulo">
+    out.append(f'''<section class="secao secao--areia" id="contato"{m("data-site-secao", "contato")} aria-labelledby="contato-titulo">
   <div class="container contato-grid">
     <div class="reveal">
-      <p class="eyebrow">{esc(v["eyebrow"])}</p><h2 id="contato-titulo">{v["h2"]}</h2>
-      <p style="color:var(--tinta-2);margin-top:20px">{esc(v["p"])}</p>
+      <p class="eyebrow"{m("data-site", "contato.eyebrow")}>{esc(v["eyebrow"])}</p><h2 id="contato-titulo"{m("data-site", "contato.titulo")}>{v["h2"]}</h2>
+      <p style="color:var(--tinta-2);margin-top:20px"{m("data-site", "contato.texto")}>{esc(v["p"])}</p>
       <ul class="canais">
-        <li><svg aria-hidden="true"><use href="#whats"/></svg><div><b>WhatsApp</b><a data-whatsapp href="#">{esc(v["telefone"])}</a></div></li>
+        <li><svg aria-hidden="true"><use href="#whats"/></svg><div><b>WhatsApp</b><a data-whatsapp href="#"{m("data-site", "contato.telefone")}>{esc(v["telefone"])}</a></div></li>
         <li><svg aria-hidden="true"><use href="#insta"/></svg><div><b>Instagram</b><a data-instagram href="#" target="_blank" rel="noopener noreferrer">@{esc(cfg["instagram"])} · {esc(cfg["seguidores"])} seguidores</a></div></li>
         <li><svg aria-hidden="true"><use href="#pin"/></svg><div><b>{esc(v.get("rotulo", "Estúdio"))}</b><a data-directions href="#" target="_blank" rel="noopener noreferrer">{esc(" · ".join(v["endereco"]))}</a></div></li>
         <li><svg aria-hidden="true"><use href="#relogio"/></svg><div><b>Atendimento</b><ul class="hours">{horas_html}</ul></div></li>
       </ul>
-      <a {wa_botao("Chamar " + q["a"] + " no WhatsApp")}</a>
+      <a{m("data-site-botao", "contato.botao")} {wa_botao("Chamar " + q["a"] + " no WhatsApp")}</a>
     </div>
     <div class="mapa reveal"><a class="mapa-alt" data-directions href="#" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#pin"/></svg><b>{esc(cfg.get("mapa_nome") or "Estúdio " + q["da"])}</b><span>{esc(" · ".join(v["endereco"]))}</span><span class="link">Como chegar <svg aria-hidden="true" style="width:16px;height:16px"><use href="#seta"/></svg></span></a><iframe data-map-embed title="Mapa do estúdio da {esc(cfg["marca"])}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
   </div>
@@ -1667,6 +1808,10 @@ def fechar(cfg, partes, google, horas, lista):
     if not cfg.get('renderiza'):
         a, b = js.index('  // ---------- camada da Renderiza'), js.index('  // Links entre o site e a página de Natal')
         js = js[:a] + js[b:]
+    if MEU_SITE:  # o Meu site troca as fotos das galerias depois que a página abre: o toque é lido na galeria, não em cada foto
+        a = '$$(".galeria").forEach(g => $$(".g-item", g).forEach((b, i) => b.addEventListener("click", () => abrirLb(g, i, b))));'
+        assert js.count(a) == 1
+        js = js.replace(a, '$$(".galeria").forEach(g => g.addEventListener("click", e => { const b = e.target.closest(".g-item"); if (b) abrirLb(g, $$(".g-item", g).indexOf(b), b); }));')
     if cfg.get('agenda'):  # a agenda de verdade troca os horários de exemplo
         a = js.index('  // ---------- horários: o toque marca o escolhido')
         js = js[:a] + '})();\n'
@@ -1723,12 +1868,15 @@ def gerar(caminho):
     pasta = os.path.join(REPO, 'demos', cfg['pasta']); os.makedirs(pasta, exist_ok=True)
     F = Fotos(cfg, pasta)
     saidas = []
+    global MEU_SITE
     for nome, fn, lista in (('index.html', pagina_site, cfg['site']['avaliacoes']), ('natal.html', pagina_natal, cfg['natal']['avaliacoes'])):
+        MEU_SITE = bool(cfg.get('meu_site')) and nome == 'index.html'  # a página de Natal fica para depois (03, "Páginas extras")
         antes = F.bytes
         doc = links_publicados(fechar(cfg, fn(cfg, F, google, horas, dias, total, livres), google, horas, lista), cfg['pasta'])
         arq = os.path.join(pasta, nome); open(arq, 'w', encoding='utf-8').write(doc)
         print(f'{arq}: {len(doc) // 1024} KB (imagens novas: {(F.bytes - antes) // 1024} KB)')
         saidas.append(arq)
+    MEU_SITE = False
     for a in F.avisos: print('  AVISO', a)
     if F.saida: print(f'fotos: {F.n} tratadas agora, {F.reusadas} reaproveitadas das páginas (sem o original)')
     if cfg.get('horarios'): print(f'horários de exemplo: {livres} livres de {total}')

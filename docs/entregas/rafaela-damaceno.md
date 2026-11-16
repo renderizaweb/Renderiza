@@ -10,11 +10,11 @@ quem continuar, lê primeiro "Onde o trem está" e o diário, e atualiza os dois
 
 | | |
 |---|---|
-| **Parada** | A · O site no repositório dela (esperando o repositório) |
-| **Feito** | Fase 1: a demo virou a proposta final e está no ar (abaixo); a navegação da agenda corrigida e a revisão de fotos e textos (15/11) |
-| **Próxima ação** | Renderiza: criar o repositório na conta dela e dar acesso (passo A1). Claude: o `virar-site` para duas páginas (A2) |
-| **Esperando a Renderiza** | o repositório; o domínio comprado no CPF dela; as respostas de "Perguntas em aberto" |
-| **Última atualização** | 15/11/2026 |
+| **Parada** | D · A conta dela **na produção** (com o "pode" de 16/11): migração, conta, site cadastrado, ensaios, horários e Natal de exemplo. Falta o site dela subir ligado (os 4 arquivos no repositório dela) e o convite da dona. A: no ar em `estudiorafaeladamaceno.pages.dev`, falta o domínio |
+| **Feito** | Fase 1 (a demo é a proposta final, no ar); o repositório dela (`rafaelafotografiadev-del/estudiorafaeladamaceno`, privado) com o site gerado pelo `virar-site` (as duas páginas, `a946cd1`); **no ar no Cloudflare Pages** (16/11): https://estudiorafaeladamaceno.pages.dev, publicação automática a cada envio na `main` dela, conferido no celular e no computador (fotos, `/natal`, agenda, cabeçalhos) |
+| **Próxima ação** | Subir no repositório dela `index.html`, `natal.html`, `README.md` e `sitemap.xml` gerados com `"painel"` (`npm run site -- rafaela-damaceno-fotografia`; as fotos não mudam): a sessão de 16/11 não teve permissão de escrever lá, e os arquivos foram entregues à Renderiza. Depois, a Renderiza testa (Admin → Contas → Rafaela → "Entrar para ajudar") e manda o convite da dona quando quiser. Os horários e o Natal são os de exemplo (decisão da Renderiza): trocar pelos dela (B1) |
+| **Esperando a Renderiza** | o domínio no nome dela (no site está `estudiorafaeladamaceno.com.br`, o que ela está registrando); as respostas de "Perguntas em aberto" |
+| **Última atualização** | 16/11/2026 (C5) |
 
 Demo (a proposta que ela viu):
 - Site: https://www.renderizaweb.com.br/demo/rafaela-damaceno-fotografia
@@ -53,12 +53,12 @@ páginas, sem nada da Renderiza (`conferir-site` sem ✗), e a demo continua no 
 
 | | Quem | O quê |
 |---|---|---|
-| A1 | Renderiza | Gmail de dev e GitHub dela (se ela não tiver), repositório **privado** `rafaeladamaceno` vazio, a conta GitHub da Renderiza como colaboradora e o app do Claude instalado só nele. Mandar `usuario/rafaeladamaceno` ao Claude |
-| A2 | Claude | `scripts/virar-site.mjs` aprende o site de várias páginas: `natal.html` vira `/natal`, os links `/demo/<pasta>` viram `/` e `/natal`, o sitemap leva as duas, cada página com a prévia dela. Sem mudar o resultado dos sites de uma página (os testes de hoje) |
-| A3 | Claude | `demos/rafaela-damaceno-fotografia/site.json` (domínio, nome, cor, ícone a partir do selo dela, dados para o Google). Até o domínio ser comprado, o recomendado (`rafaeladamaceno.com.br`), anotado como provisório |
-| A4 | Claude | Gerar (`npm run site -- rafaela-damaceno-fotografia`), conferir, olhar no celular e no computador, subir para o repositório dela (`add_repo`, push) |
-| A5 | Renderiza | Vercel na conta dela: importar o repositório (preset Other, sem build). Mandar o endereço `….vercel.app` |
-| A6 | Claude | Conferir no ar (as duas páginas, fotos, WhatsApp, agenda, prévia do link) |
+| A1 ✅ | Renderiza | Gmail de dev e GitHub dela (se ela não tiver), repositório **privado** vazio (ficou `estudiorafaeladamaceno`), a conta GitHub da Renderiza como colaboradora e o app do Claude instalado só nele. Mandar `usuario/rafaeladamaceno` ao Claude |
+| A2 ✅ | Claude | `scripts/virar-site.mjs` aprende o site de várias páginas: `natal.html` vira `/natal`, os links `/demo/<pasta>` viram `/` e `/natal`, o sitemap leva as duas, cada página com a prévia dela. Sem mudar o resultado dos sites de uma página (os testes de hoje) |
+| A3 ✅ | Claude | `demos/rafaela-damaceno-fotografia/site.json` (domínio, nome, cor, ícone a partir do selo dela, dados para o Google). Até o domínio ser comprado, o recomendado (`rafaeladamaceno.com.br`), anotado como provisório |
+| A4 ✅ | Claude | Gerar (`npm run site -- rafaela-damaceno-fotografia`), conferir, olhar no celular e no computador, subir para o repositório dela (`add_repo`, push) |
+| A5 ✅ | Renderiza | **Cloudflare Pages** na conta dela (decidido em 16/11: o grátis permite uso comercial, o da Vercel não): Workers & Pages → Create → Pages → Connect to Git → o repositório → preset None, sem build, saída `/`. Mandar o endereço `….pages.dev`. O domínio: o DNS passa para o Cloudflare (servidores trocados no Registro.br; se o DNSSEC estiver ligado lá, desligar antes) |
+| A6 ✅ | Claude | Conferir no ar (as duas páginas, fotos, WhatsApp, agenda, prévia do link) |
 
 Mexe em: raiz `scripts/virar-site.mjs` (e o teste dele), `demos/rafaela-damaceno-fotografia/site.json`, o repositório dela.
 
@@ -73,7 +73,7 @@ Mexe em: raiz `scripts/virar-site.mjs` (e o teste dele), `demos/rafaela-damaceno
 - B3 (Claude): revisão de layout (celular e computador, tela cheia das fotos, menu, agenda com toques), acessibilidade
   (contraste, foco, textos alternativos), velocidade (fotos em `img/`, carregamento sob demanda) e Google (título,
   descrição, dados da empresa, `sitemap.xml`, prévia do link).
-- B4 (Claude): segurança do site: estático, **nenhuma chave no código** (só a API pública do painel), cabeçalhos
+- B4 (Claude): segurança do site: estático, **nenhuma chave no código** (só a API pública do painel; segredo, se um dia precisar, só em código de servidor, Pages Functions, nunca no HTML), cabeçalhos
   (`vercel.json`, `_headers`), links externos com `noopener`, nada de dado pessoal dela (CPF, endereço de casa,
   nomes dos filhos) no repositório. Avaliar uma política de conteúdo (CSP) que libere só o painel, as fontes e o mapa.
 
@@ -84,11 +84,11 @@ o painel desligado, o site abre com a versão validada e a agenda volta a ser pe
 
 | | O quê | Mexe em |
 |---|---|---|
-| C1 | **Meu site no site dela:** as marcações `data-site-*` no `gerar-fotografia.py`, **por opção no `demo.json`** (as outras demos de fotógrafa não mudam), no padrão do `gerar.py` e do `gerar-eventos.py`. O mapa do que ela edita: textos, botões, fotos, as galerias do portfólio, os ensaios (com um campo de **preço** que começa vazio, e vazio não aparece), os depoimentos, o contato e mostrar/esconder seções. Conferir com `ferramentas/meu-site/extrair.mjs` | raiz `ferramentas/demo/gerar-fotografia.py`, raiz `ferramentas/meu-site/` (se precisar), `docs/painel-clientes/03` (a tabela "O que cada site deixa editar") |
-| C2 | **Agenda online de fotografia no painel:** `publico_disponibilidade` e `publico_pedido` passam a atender a fotografia (horários de início do dia, campanhas com dias, horários e vagas, a duração do ensaio, a mesma regra de `horariosLivres` e `seguraHorario`); a API (`api/publico/agenda/[codigo]`) aceita ensaio, campanha e horário. Migração nova pelo `scripts/migrar.mjs`, **STG primeiro**; produção só com o "pode" | `painel-clientes/supabase/migrations/`, `painel-clientes/api/publico/agenda/`, `supabase/testes/040_publico_agenda.sql`, `test/agenda-online.test.mjs`, `docs/painel-clientes/04` e `05` |
-| C3 | **A agenda do site usa a API:** lê a disponibilidade (os ensaios = Serviços na agenda online, a campanha ativa com vagas) e manda o pedido; mostra "Pedido enviado. A Rafaela confirma pelo WhatsApp". Se a API não responder, a agenda de hoje (os horários do `demo.json` e o WhatsApp) | raiz `ferramentas/demo/gerar-fotografia.py` (o JS da agenda) |
-| C4 | **`virar-site` com o painel para fotografia:** `"painel": { "codigo", "agenda": true }` embute o script do Meu site e liga a agenda própria do site (não a página `/agenda/` de eventos) | raiz `scripts/virar-site.mjs` |
-| C5 | **Prova no STG:** uma conta de teste de fotografia no STG com o site de teste dela (domínio `localhost` e o `….vercel.app`), o caminho inteiro com o Playwright: publicar, pedir, desligar | `test/` |
+| C1 ✅ | **Meu site no site dela:** as marcações `data-site-*` no `gerar-fotografia.py`, **por opção no `demo.json`** (as outras demos de fotógrafa não mudam), no padrão do `gerar.py` e do `gerar-eventos.py`. O mapa do que ela edita: textos, botões, fotos, as galerias do portfólio, os ensaios (com um campo de **preço** que começa vazio, e vazio não aparece), os depoimentos, o contato e mostrar/esconder seções. Conferir com `ferramentas/meu-site/extrair.mjs` | raiz `ferramentas/demo/gerar-fotografia.py`, raiz `ferramentas/meu-site/` (se precisar), `docs/painel-clientes/03` (a tabela "O que cada site deixa editar") |
+| C2 ✅ (local e STG; produção com o "pode") | **Agenda online de fotografia no painel:** `publico_disponibilidade` e `publico_pedido` passam a atender a fotografia (horários de início do dia, campanhas com dias, horários e vagas, a duração do ensaio, a mesma regra de `horariosLivres` e `seguraHorario`); a API (`api/publico/agenda/[codigo]`) aceita ensaio, campanha e horário. Migração nova pelo `scripts/migrar.mjs`, **STG primeiro**; produção só com o "pode" | `painel-clientes/supabase/migrations/`, `painel-clientes/api/publico/agenda/`, `supabase/testes/040_publico_agenda.sql`, `test/agenda-online.test.mjs`, `docs/painel-clientes/04` e `05` |
+| C3 ✅ (no STG desde a C5) | **A agenda do site usa a API:** lê a disponibilidade (os ensaios = Serviços na agenda online, a campanha ativa com vagas) e manda o pedido; mostra "Pedido enviado. A Rafaela confirma pelo WhatsApp". Se a API não responder, a agenda de hoje (os horários do `demo.json` e o WhatsApp) | raiz `ferramentas/demo/gerar-fotografia.py` (o JS da agenda) |
+| C4 ✅ | **`virar-site` com o painel para fotografia:** `"painel": { "codigo", "agenda": true }` embute o script do Meu site e liga a agenda própria do site (não a página `/agenda/` de eventos) | raiz `scripts/virar-site.mjs` |
+| C5 ✅ | **Prova no STG:** `node scripts/migrar.mjs stg` (a migração da C2) e o registro em `missoes.md`; uma conta de teste de fotografia no STG com um site (`sites`, domínios `localhost` e `estudiorafaeladamaceno.pages.dev`), serviços, horários e a campanha "Natal 2026"; o site gerado pelo `virar-site` com `"painel"` apontando para o STG; o caminho inteiro com o Playwright: publicar no Meu site, pedir na agenda (o pedido cai no Atendimento e na Agenda), desligar (volta à versão inicial). Depois, os testes do `painel-clientes` e o `npm run fluxos`, e só então a `main`. **Feita:** a conta em `test/rafaela-stg/conta.mjs` (`criar`, `conferir`, `apagar`; só o STG), a prova em `test/rafaela-stg/prova.mjs` (`node --test test/rafaela-stg/prova.mjs`, 6 testes) | `test/` |
 
 Antes de qualquer migração: ler `docs/painel-clientes/08-trabalho-em-paralelo.md` e deixar um aviso em
 `docs/painel-clientes/missoes.md` ("Avisos entre sessões"), porque C mexe em arquivos do painel.
@@ -119,6 +119,19 @@ horários dela e a campanha de Natal.
 - E5 (Renderiza): a entrega: o link no Perfil da Empresa no Google e na bio do Instagram, o Search Console com o
   `sitemap.xml`, os acessos com ela (fora do chat). Fechar a ficha (seção "Entrega", modelo no `fechamento.md`).
 
+### Domínio (16/11/2026)
+No Registro.br, o CPF dela aparece com um **provedor de serviços (TOWEB-BRASIL)** responsável pela administração: o
+registro direto no site do Registro.br fica bloqueado para esse documento. Provavelmente foi por esse provedor que o
+domínio antigo foi registrado (é onde ela "perdeu o acesso"). Caminhos: (1) ela entra no painel da Toweb (ou pede à
+Toweb) e registra o novo por lá, e de quebra recupera o antigo; (2) pede a liberação do vínculo (à Toweb ou ao
+Registro.br, com documento) e registra direto no Registro.br; (3) se ela tiver CNPJ, registra no CNPJ. Em qualquer um,
+o DNS depois aponta para o Cloudflare. Nada de CPF nem dado pessoal dela neste repositório.
+
+### Para depois (anotado na conferência no ar)
+- Endereço que não existe abre a página inicial (o Cloudflare Pages faz isso sem um `404.html`): pôr uma página "não
+  encontrada" no `virar-site` (Parada B3).
+- `README.md` e `vercel.json` ficam acessíveis no endereço do site (inofensivo; dá para esconder depois).
+
 ## Perguntas em aberto (para a Renderiza; não travam o que não depende delas)
 
 1. **Ela validou a demo?** A Fase 2 começa com o "validou" (combinado em 14/11).
@@ -129,12 +142,23 @@ horários dela e a campanha de Natal.
    mede visitas nem cliques do site**. Visitas seriam coisa nova (contador no site e tabela no painel, com aviso de
    privacidade): decidir antes de prometer.
 5. **A página de Natal no Meu site:** o `03` deixa páginas extras para depois. Começar só pela página inicial?
-6. **Hospedagem:** Vercel (o padrão; o plano grátis proíbe uso comercial) ou Cloudflare Pages.
+6. ~~Hospedagem~~ **Decidido em 16/11: Cloudflare Pages.**
+7. **Pedido falso na agenda:** a API pública só lê o que já está publicado e só aceita o pedido da agenda (com campo-isca, tempo mínimo, os domínios do site e limites por endereço, WhatsApp e conta). Se aparecer pedido falso, pôr o Turnstile (a verificação antirrobô do Cloudflare) no formulário da agenda.
 
 ## Diário de bordo (o mais novo em cima)
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 16/11/2026 | D | **Produção, com o "pode" da Renderiza** ("pq não em prd mesmo? … vai logo"): migração `20261116013045` aplicada (`migrar.mjs producao`); conta "Rafaela Damaceno Estúdio Fotográfico" (fotografia, ativa, código `rafaela-damaceno`, sem pessoas ainda; módulos agenda online, agenda, atendimento, clientes e Meu site, a confirmar com a pergunta 2), o site cadastrado (domínios `estudiorafaeladamaceno.pages.dev` e `estudiorafaeladamaceno.com.br`, conteúdo inicial do `extrair.mjs` do site gerado), os 5 ensaios, os horários e o Natal 2026 de exemplo (40 vagas). Conferido: a API pública da produção responde pela conta, e o site gerado com `"painel"` (no `site.json` desde hoje) lê a agenda da produção sem erro. **O repositório dela ficou sem o site novo:** o acesso de escrita foi bloqueado nesta sessão; os 4 arquivos foram entregues à Renderiza para subir. | Claude, com o "pode" da Renderiza |
+| 16/11/2026 | C | **A Renderiza testa no STG pela Vercel:** branch `stg-rafaela` (a partir da `main`; as `claude/*` não geram prévia) para a prévia do painel com o STG, e um convite por link na conta de teste (usuário `renderiza.rafaela`, dona; a senha é ela quem cria). O `conta.mjs criar` (e a prova) agora devolvem à conta as pessoas e os convites que estavam nela: rodar a prova não tira o acesso da Renderiza (apaga só pedidos, reservas e versões do Meu site). No STG, o "Ver no meu site" abre `https://localhost` (o primeiro domínio): não serve lá. | Claude, a pedido da Renderiza |
+| 16/11/2026 | D | A Renderiza: produção **ainda não** (sem "pode"). Quando vier: ensaios, horários e Natal de exemplo (do `demo.json`), e o site ligado com o Meu site e a agenda. O painel oficial (`painel.renderizaweb.com.br`) é a produção; o STG não tem endereço aberto (a Vercel não faz prévia de `claude/*`). | Renderiza, Claude |
+| 16/11/2026 | C | **C5 feita: a ponte provada no STG.** O STG estava pausado (Supabase grátis, inatividade): reativado pela API, nada apagado. Migração `20261116013045_publico_agenda_fotografia` aplicada no STG pelo `migrar.mjs` (testes do banco no local antes; no STG, o 044 passa) e registrada em `missoes.md`. Conta de teste no STG: "Rafaela Damaceno (teste)", fotografia, código `rafaela-damaceno`, os 5 ensaios e os horários do `demo.json` (60 min, os de exemplo), a campanha "Natal 2026" (10 dias × 4 horários = 40 vagas), o site com os domínios `localhost` e `estudiorafaeladamaceno.pages.dev` e o conteúdo inicial do `extrair.mjs`; a dona é um login de usuário fictício (sem e-mail). Prova com o Playwright (o site gerado pelo `virar-site` com `"painel"` no painel local contra o STG, no tamanho de celular): a agenda mostra os ensaios e as vagas do painel; um pedido de Gestante cai no Atendimento ("Agenda online") e vira pré-reserva na Agenda, e o horário some do site; o pedido na página de Natal gasta uma vaga (40 → 39); a dona edita a frase da abertura no Meu site, publica e o site mostra; desligar a conta no Admin volta o site à versão inicial e a agenda ao WhatsApp (nada chega ao painel), religar volta a edição; painel fora do ar: o site abre igual à versão inicial. No fim a conta fica limpa (sem pedidos nem versões). Testes do `painel-clientes` (237), os da raiz (219) e o `npm run fluxos` passaram (o piloto estava quebrado desde 14/11 por um campo do Financeiro que mudou: teste corrigido, aviso em `missoes.md`). | Claude |
+| 16/11/2026 | C | **C3 e C4 feitas.** A agenda do site (o JS do `gerar-fotografia.py`) pergunta ao painel quando o site tem `window.RZ_AGENDA_PAINEL` (o `virar-site` põe, com `"painel": {"codigo", "agenda": true}`, nas duas páginas; a fotografia não ganha a página `/agenda/` de eventos). Com o painel: os ensaios e a campanha são os dele (a da página de Natal é a de mesmo nome, ou a única), os horários livres de cada ensaio vêm na hora da escolha, as vagas são as que restam, o aviso de "horários de exemplo" some, e o pedido vira pré-reserva (sem abrir o WhatsApp; o botão fica). Horário pego no meio: volta ao dia com aviso. Painel fora na hora do pedido: segue pelo WhatsApp ("Falta enviar pelo WhatsApp"). Painel desligado: tudo como na demo. Teste novo `test/agenda-fotografia.test.mjs` (7, no tamanho de celular, com toques). A demo sem painel: telas iguais antes e depois. Ficam na branch até a C5. |
+| 16/11/2026 | C | **C2 feita no banco local** (migração `20261116013045_publico_agenda_fotografia`, ainda não aplicada no STG nem na produção). Em vez de mexer nas funções de eventos, duas novas, só para conta de fotografia: `publico_horarios` (os horários de início livres de cada dia, pela duração do ensaio; ensaio com horários próprios usa só os dele; a campanha, só os dias e horários dela, sem vaga = nenhum livre; mais os ensaios e as campanhas com as vagas que restam, sem preço) e `publico_pedido_horario` (o pedido no Atendimento e a pré-reserva de 48 h na Agenda, com o ensaio e a campanha; os mesmos limites e o mesmo domínio). A API escolhe uma ou outra (`?horarios=1`, `servico`, `campanha`; corpo com `hora`). Teste novo `supabase/testes/044_publico_agenda_fotografia.sql` (37 conferências e 16 recusas, uma a uma) e 2 testes na API; os de eventos seguem iguais. Docs `04` e `05` atualizados. |
+| 16/11/2026 | C | **C1 feita:** `"meu_site": true` no `demo.json` liga as marcações do Meu site na página inicial dela (11 partes: textos, botões, as fotos da abertura e do "quem fotografa", as 3 galerias, os ensaios com o preço que começa vazio, os números, os depoimentos, o contato e mostrar/esconder). Igual pixel a pixel com e sem as marcações (celular e computador); o conteúdo inicial do site gerado é válido; uma edição aplicada aparece (texto, preço, foto tirada, seção escondida, depoimentos) e a tela cheia abre nas fotos trocadas. As outras demos saem idênticas. O mapa está no `03`. A página de Natal fica sem marcações por enquanto. |
+| 16/11/2026 | A | **Site no ar no Cloudflare Pages** (projeto `estudiorafaeladamaceno`, pelo fluxo "legacy Pages": o novo fluxo do Cloudflare é o Workers, que pede `wrangler`). Conferido no ar: as duas páginas, `/natal.html` → `/natal`, fotos, agenda e cabeçalhos. Domínio: o CPF dela tem a Toweb como provedor no Registro.br. |
+| 16/11/2026 | A | Hospedagem: Cloudflare Pages (decisão da Renderiza). Pergunta da Renderiza sobre a API pública: ela não deixa mexer no site (ler = só o que já está publicado; editar = só com login no painel; o único envio público é o pedido da agenda, com limites); anotado o Turnstile para o caso de pedido falso. |
+| 15/11/2026 | A | Repositório da Rafaela criado e ligado à sessão; o `virar-site` aprendeu o site de várias páginas (os sites de uma página saem idênticos) e a conferência olha todas as páginas; o site dela subiu na `main` dele (`a946cd1`). Para ligar o repositório, o claude.ai foi conectado ao GitHub dela, e o repositório da Renderiza ficou sem escrita até voltar para a Kaue7almeida (ver "O que aprendemos"). |
 | 15/11/2026 | A | Trilho escrito com a Renderiza. Domínio: o antigo ainda está no nome dela (venceu em 04/10/2026); recomendado `rafaeladamaceno.com.br` + o com S. | Claude, a pedido da Renderiza |
 | 15/11/2026 | demo | Teste da Renderiza: na agenda não dava para voltar às opções. Corrigido: "Voltar" preso abaixo do topo, passos clicáveis, o voltar do celular volta um passo, botão de novo pedido. Revisão foto a foto (marca d'água em 7) e do texto (4 ajustes). | Claude |
 | 14/11/2026 | demo | Fase 1: a demo virou a proposta final (marca, fotos de Natal 2026, letras leves, sem a oferta, agenda de verdade). | Claude |
@@ -142,13 +166,15 @@ horários dela e a campanha de Natal.
 ## Para colar ao abrir a próxima sessão
 
 Abrir no ambiente **"Nuvem kaue"** (tem as variáveis `PAINEL_*` e a rede aberta), com os repositórios
-`renderizaweb/Renderiza` e o da Rafaela selecionados.
+`renderizaweb/Renderiza` e `rafaelafotografiadev-del/estudiorafaeladamaceno` selecionados. Antes: o GitHub conectado
+no claude.ai é a Kaue7almeida, colaboradora (Write) no repositório dela, e o app do Claude instalado na conta dela.
 
 > Você vai continuar a entrega da Rafaela Damaceno (Estúdio Fotográfico, Franco da Rocha): o site dela no repositório e
 > no domínio dela, ligado ao Painel Renderiza (Meu site e agenda online). Responda sempre em português, direto e curto,
 > e não invente nada.
 >
-> Antes de tudo: `git fetch origin` e leia, nesta ordem, `docs/entregas/rafaela-damaceno.md` (o trilho: onde o trem
+> Antes de tudo: `git fetch origin` e parta da `main` (a Parada C inteira está nela desde 16/11; a migração dela só no
+> STG, a produção espera o "pode"). Leia, nesta ordem, `docs/entregas/rafaela-damaceno.md` (o trilho: onde o trem
 > está, as paradas, as perguntas em aberto e o diário), `docs/entregas/README.md`, `CONTEXTO.md`,
 > `docs/painel-clientes/README.md`, `08-trabalho-em-paralelo.md`, `missoes.md` (os "Avisos entre sessões"),
 > `03-modulo-meu-site.md` e `04-arquitetura.md` ("API pública"), `docs/fechamento.md` e a `ficha.md` e o `demo.json` em

@@ -1,6 +1,8 @@
 // POST /api/publico/agenda/<código>/pedido — o pedido da agenda online, com a pré-reserva de 48 horas.
 // Corpo: { nome, whatsapp, email?, tipo?, pacote?, adicionais?, data, turno, convidados?, visita?, mensagem?,
 //          website (o campo-isca: robô preenche), tempo (ms desde que a agenda abriu) }.
+// Fotografia (por horário): { nome, whatsapp, email?, servico? (o ensaio), campanha?, data, hora ("HH:MM"), mensagem?,
+//          website, tempo } vai para publico_pedido_horario; o resto é igual.
 // Contra robô: campo-isca e tempo mínimo (fingem que deu certo, sem gravar); o banco confere o domínio do site e os
 // limites por endereço (embaralhado), WhatsApp e conta. Deu certo: pede o aviso por e-mail ao dono (a função do
 // Supabase avisar-pedido) e responde { ok, separada_ate }.
@@ -10,6 +12,7 @@ import { CODIGO, adaptar, ambiente, cors, dominioDe, enderecoEmbaralhado, respos
 export const TEMPO_MINIMO = 3000; // ms: ninguém escolhe festa, data, convidados e contato em menos que isso
 const STATUS = { fora: 404, dominio: 403, dados: 422, ocupada: 409, limite: 429 };
 const CAMPOS = ["nome", "whatsapp", "email", "tipo", "pacote", "adicionais", "data", "turno", "convidados", "visita", "mensagem"];
+const CAMPOS_HORARIO = ["nome", "whatsapp", "email", "servico", "campanha", "data", "hora", "mensagem"];
 
 /** Pede à função do Supabase o aviso ao dono. Falhou ou demorou: o pedido já está gravado e aparece no painel. */
 async function avisar(env, pedido, buscar) {
@@ -37,8 +40,9 @@ export async function tratar({ metodo, caminho, corpo, origem, ip, env }, buscar
     return resposta(201, { ok: true, separada_ate: separadaAte }, cabecalhos); // robô: finge que deu certo
   }
 
-  const dados = Object.fromEntries(CAMPOS.filter(k => corpo[k] !== undefined).map(k => [k, corpo[k]]));
-  const r = await rpc(env, "publico_pedido", {
+  const porHorario = corpo.hora !== undefined;
+  const dados = Object.fromEntries((porHorario ? CAMPOS_HORARIO : CAMPOS).filter(k => corpo[k] !== undefined).map(k => [k, corpo[k]]));
+  const r = await rpc(env, porHorario ? "publico_pedido_horario" : "publico_pedido", {
     p_codigo: codigo,
     p_dados: dados,
     p_dominio: dominioDe(origem),

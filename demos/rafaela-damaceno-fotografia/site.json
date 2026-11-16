@@ -1,0 +1,56 @@
+{
+  "dominio": "estudiorafaeladamaceno.com.br",
+  "nome": "Rafaela Damaceno Estúdio Fotográfico",
+  "corTema": "#a7674b",
+  "previaCentro": [
+    0.5,
+    0.42
+  ],
+  "paginas": [
+    "natal"
+  ],
+  "dadosEstruturados": [
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Rafaela Damaceno Estúdio Fotográfico",
+      "description": "Estúdio fotográfico em Franco da Rocha: gestante, newborn, acompanhamento, smash the cake, família, aniversários e Natal.",
+      "telephone": "+55 11 99479-4869",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Liberdade, 125, 1º andar, sala 2 - Centro",
+        "addressLocality": "Franco da Rocha",
+        "addressRegion": "SP",
+        "postalCode": "07850-325",
+        "addressCountry": "BR"
+      },
+      "hasMap": "https://www.google.com/maps?cid=18229428750530325729",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "16:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/rafaeladamacenofotografia/"
+      ]
+    }
+  ],
+  "painel": {
+    "codigo": "rafaela-damaceno",
+    "agenda": true
+  }
+}
