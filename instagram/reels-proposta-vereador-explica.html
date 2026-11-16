@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Gabinete Aberto · a proposta em 2 minutos</title>
+<!--
+  Vídeo "A proposta em 2 minutos" (16/11/2026): explica a proposta comercial do Gabinete Aberto ao vereador Mateuzinho
+  Silva e responde as dúvidas de negócio. NÃO é post do Instagram da Renderiza. O Kaue manda no WhatsApp com o link.
+  Gravar: SSL_CERT_FILE=/root/.ccr/ca-bundle.crt node instagram/gerar.mjs reels-proposta-vereador-explica
+  Texto e voz: narracao/reels-proposta-vereador-explica.json. Foto em rascunhos/vereador-video/gabinete.jpg (fora do
+  repositório; ver demos/vereador-mateuzinho-silva/proposta.md). Os números têm de bater com a proposta e o contrato.
+  Cada peça entra sozinha pela marca data-e="frase", "frase+segundos" ou "frase@palavra" (o começo da palavra dita);
+  os títulos, por data-l; os números que contam, por data-n; as barras, por data-w.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=block" rel="stylesheet">
+<style>
+:root{--noite:#140b25;--roxo:#4b2a80;--roxo3:#8a69cc;--roxo4:#5b34a3;--lima:#bfe85a;--suave:#cdbfe0;
+  --t:"Bricolage Grotesque","Plus Jakarta Sans",sans-serif;--x:"Plus Jakarta Sans",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--noite)}
+body{font-family:var(--x);color:#fff;-webkit-font-smoothing:antialiased;position:relative}
+svg{display:block}
+.a{position:absolute}
+#fundo{position:absolute;inset:0;overflow:hidden}
+.bolhao{position:absolute;left:0;top:0;width:1300px;height:1300px;border-radius:50%;filter:blur(40px)}
+#bl1{background:radial-gradient(closest-side,rgba(91,52,163,.55),rgba(91,52,163,0))}
+#bl2{background:radial-gradient(closest-side,rgba(52,26,94,.8),rgba(52,26,94,0))}
+#bl3{width:900px;height:900px;background:radial-gradient(closest-side,rgba(191,232,90,.10),rgba(191,232,90,0))}
+#palco{position:absolute;inset:0;transform-origin:50% 45%}
+.cena{position:absolute;inset:0;visibility:hidden}
+.tit{font-family:var(--t);font-weight:800;letter-spacing:-.035em;line-height:.98}
+.tit em{font-style:normal;color:var(--lima)}
+.ln{display:block;overflow:hidden;padding:0 .02em .1em}
+.ln>span{display:inline-block}
+.kick{left:80px;top:150px;display:flex;align-items:center;gap:14px;font:800 24px var(--x);letter-spacing:.16em;text-transform:uppercase;color:#dccff0}
+.kick b{display:grid;place-items:center;height:40px;padding:0 14px;border-radius:999px;background:var(--lima);color:var(--noite);letter-spacing:.04em}
+.head{left:80px;top:205px;width:930px;font-size:92px}
+.col{left:80px;width:920px;display:flex;flex-direction:column;gap:26px}
+.cx{display:flex;align-items:center;gap:28px;padding:38px 36px;border-radius:32px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.14)}
+.cx .ic{flex:none;width:94px;height:94px;border-radius:24px;background:var(--roxo4);display:grid;place-items:center}
+.cx .ic svg{width:44px;height:44px}
+.cx b{display:block;font:800 49px/1.1 var(--t);letter-spacing:-.02em}
+.cx span{display:block;font:500 33px/1.3 var(--x);color:var(--suave);margin-top:6px}
+.cx.lima{background:var(--lima);border-color:var(--lima);color:var(--noite)}
+.cx.lima span{color:#3c4a1c}.cx.lima .ic{background:var(--noite);color:var(--lima)}
+.cx.traco{border-style:dashed;background:none}
+.fl{display:flex;align-items:center;gap:22px;font:700 40px var(--x)}
+.fl i{flex:none;width:58px;height:58px;border-radius:50%;background:rgba(191,232,90,.16);color:var(--lima);display:grid;place-items:center}
+.fl i svg{width:30px;height:30px}
+.val{flex:none;min-width:290px;font:800 64px/1 var(--t);letter-spacing:-.03em;color:var(--lima)}
+.cx.lima .val{color:var(--noite)}
+.num{flex:none;width:76px;height:76px;border-radius:50%;background:var(--lima);color:var(--noite);display:grid;place-items:center;font:800 40px var(--t)}
+.tag{display:inline-block;margin-left:12px;padding:4px 14px;border-radius:999px;background:var(--lima);color:var(--noite);font:800 20px var(--x);letter-spacing:.08em;text-transform:uppercase;vertical-align:middle}
+.grid{left:80px;width:920px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.grid .cx{flex-direction:column;align-items:flex-start;gap:18px;min-height:350px;padding:38px}
+#preco{left:80px;top:500px;width:920px;font:800 250px/1 var(--t);letter-spacing:-.05em;color:var(--lima)}
+#preco small{font-size:96px;letter-spacing:-.02em;margin-right:14px;color:#fff}
+#de{left:86px;top:770px;font:600 40px var(--x);color:var(--suave)}
+#de s{color:#fff;opacity:.75}
+#sem{left:80px;top:560px;width:920px;display:flex;gap:14px}
+#sem div{flex:1;height:150px;border-radius:26px;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.14);position:relative;overflow:hidden;display:grid;place-items:center;font:800 54px var(--t)}
+#sem div i{position:absolute;inset:0;background:var(--roxo4);transform-origin:0 50%}
+#sem div:last-child i{background:var(--lima)}
+#sem div b{position:relative}
+#sem div:last-child b{color:var(--noite)}
+#sem-l{left:80px;top:730px;width:920px;display:flex;justify-content:space-between;font:700 28px var(--x);color:var(--suave)}
+.foto{position:absolute;left:0;top:0;width:1080px;height:1440px;overflow:hidden}
+.foto img{width:100%;height:100%;object-fit:cover;transform-origin:50% 40%}
+.foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,11,37,.6) 0,rgba(20,11,37,.1) 18%,rgba(20,11,37,.15) 45%,rgba(20,11,37,.9) 78%,var(--noite) 100%)}
+#abre-p{left:80px;top:1010px;display:flex;align-items:center;gap:12px;height:54px;padding:0 22px;border-radius:999px;background:var(--lima);color:var(--noite);font:800 24px var(--x);letter-spacing:.12em;text-transform:uppercase}
+#abre-t{left:80px;width:930px;top:1100px;font-size:150px}
+#m-foto{position:absolute;inset:0;overflow:hidden}
+#m-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:blur(14px) saturate(.8);opacity:.28;transform:scale(1.1)}
+#m-foto::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 50% at 50% 42%,rgba(91,52,163,.55),rgba(20,11,37,.9) 80%)}
+.logo-ic{width:200px;height:236px}
+#m-logo{left:440px;top:330px}
+.marca-txt{left:0;width:1080px;text-align:center;font-size:200px;line-height:.9}
+#m-frase{left:0;width:1080px;top:1110px;text-align:center;font:700 62px var(--x)}
+#m-quem{left:0;width:1080px;top:1215px;text-align:center;font:700 30px var(--x);color:var(--suave)}
+#m-val{left:0;width:1080px;top:1330px;display:flex;justify-content:center}
+#m-val span{display:flex;align-items:center;height:60px;padding:0 28px;border-radius:999px;background:var(--lima);color:var(--noite);font:800 26px var(--x);letter-spacing:.06em}
+#legenda{position:absolute;left:90px;width:900px;top:1640px;text-align:center;font:700 40px/1.32 var(--x);text-shadow:0 2px 18px rgba(0,0,0,.45)}
+#legenda span{opacity:.42}
+#legenda span.dito{opacity:1}
+#legenda span.tom{color:var(--lima)}
+#pe{position:absolute;left:0;right:0;top:1500px;bottom:0;background:linear-gradient(180deg,rgba(20,11,37,0),rgba(20,11,37,.85) 120px,var(--noite) 260px);pointer-events:none}
+#selo{position:absolute;right:56px;top:58px;display:flex;align-items:center;gap:10px;height:46px;padding:0 18px;border-radius:999px;border:1.5px solid rgba(255,255,255,.22);background:rgba(20,11,37,.6);font:800 19px var(--x);letter-spacing:.14em;text-transform:uppercase;color:#dccff0}
+#selo i{width:10px;height:10px;border-radius:50%;background:var(--lima)}
+#cortina{position:absolute;left:0;top:-400px;width:2600px;height:2700px;pointer-events:none;display:flex}
+#cortina i{display:block;height:100%}
+#cortina i:nth-child(1){width:2340px;background:var(--lima)}
+#cortina i:nth-child(2){width:260px;background:var(--roxo3)}
+</style>
+</head>
+<body>
+<div id="fundo"><div class="bolhao" id="bl1"></div><div class="bolhao" id="bl2"></div><div class="bolhao" id="bl3"></div></div>
+<div id="palco">
+
+  <div class="cena" id="c-abre">
+    <div class="foto"><img id="abre-img" src="../rascunhos/vereador-video/gabinete.jpg" alt=""></div>
+    <div class="a" id="abre-p" data-e="abre">Gabinete Aberto · site e portal do mandato</div>
+    <div class="a tit" id="abre-t" data-l="abre"><span class="ln"><span>A proposta</span></span><span class="ln"><span>em <em>2 minutos.</em></span></span></div>
+  </div>
+
+  <div class="cena" id="c-oque">
+    <div class="a kick" data-e="oque"><b>01</b>O que é</div>
+    <div class="a tit head" data-l="oque"><span class="ln"><span>Duas partes,</span></span><span class="ln"><span><em>uma só operação.</em></span></span></div>
+    <div class="a col" style="top:470px">
+      <div class="cx" data-e="oque@site"><div class="ic" data-ic="globo"></div><div><b>Site do mandato</b><span>Aberto à cidade: pedido do bairro, rua por rua, notícias</span></div></div>
+      <div class="cx" data-e="oque@portal"><div class="ic" data-ic="porta"></div><div><b>Portal Gabinete Aberto</b><span>Só a equipe, cada pessoa com a sua senha</span></div></div>
+    </div>
+    <div class="a col" style="top:960px;gap:36px;left:100px">
+      <div class="fl" data-e="fluxo@morador"><i data-ic="user"></i>O morador pede e acompanha pelo site</div>
+      <div class="fl" data-e="fluxo@equipe"><i data-ic="equipe"></i>A equipe organiza tudo no portal</div>
+      <div class="fl" data-e="fluxo@indica"><i data-ic="predio"></i>As indicações vêm do sistema da Câmara</div>
+      <div class="fl" data-e="fluxo@ajuda"><i data-ic="ia"></i>A IA ajuda a redigir; a equipe revisa</div>
+    </div>
+  </div>
+
+  <div class="cena" id="c-preco">
+    <div class="a kick" data-e="preco-0.2"><b>02</b>Investimento</div>
+    <div class="a tit head" data-l="preco-0.2"><span class="ln"><span>Quanto <em>custa.</em></span></span></div>
+    <div class="a" id="preco" data-e="preco+0.9"><small>R$</small><span data-n="3300" data-c="preco+0.9">0</span></div>
+    <div class="a" id="de" data-e="tabela@tabela">Pela tabela: <s>R$ 4.500</s> · indicação do Dr. Marcos</div>
+    <div class="a col" style="top:900px">
+      <div class="cx" data-e="tabela"><div class="val">60 h</div><div><b>de trabalho</b><span>R$ 55 a hora, no lugar de R$ 75</span></div></div>
+      <div class="cx lima" data-e="fechado"><div class="ic" data-ic="check"></div><div><b>Valor fechado</b><span>Passou de 60 horas? A diferença é da Renderiza.</span></div></div>
+    </div>
+  </div>
+
+  <div class="cena" id="c-paga">
+    <div class="a kick" data-e="paga-0.2"><b>03</b>Pagamento</div>
+    <div class="a tit head" data-l="paga-0.2"><span class="ln"><span>Como <em>se paga.</em></span></span></div>
+    <div class="a col" style="top:470px;gap:26px">
+      <div class="cx" data-e="paga@primeiros"><div class="val">R$ 0</div><div><b>Primeiros 15 dias</b><span>O trabalho começa sem entrada</span></div></div>
+      <div class="cx" data-e="previa"><div class="val">R$ 1.320</div><div><b>40% no 15º dia</b><span>Com a prévia do trabalho em mãos</span></div></div>
+      <div class="cx" data-e="saldo"><div class="val">R$ 1.980</div><div><b>60% na entrega</b><span>Depois que o gabinete validar</span></div></div>
+      <div class="fl" data-e="saldo+1.2" style="margin-top:14px"><i data-ic="check"></i>Por Pix ou transferência, com recibo</div>
+    </div>
+  </div>
+
+  <div class="cena" id="c-prazo">
+    <div class="a kick" data-e="prazo-0.2"><b>04</b>Prazo</div>
+    <div class="a tit head" data-l="prazo-0.2"><span class="ln"><span>Tudo pronto em</span></span><span class="ln"><span><em>até 5 semanas.</em></span></span></div>
+    <div class="a" id="sem" data-e="prazo+0.3"><div><i data-w="prazo+0.4"></i><b>1</b></div><div><i data-w="prazo+0.7"></i><b>2</b></div><div><i data-w="prazo+1.0"></i><b>3</b></div><div><i data-w="prazo+1.3"></i><b>4</b></div><div><i data-w="prazo+1.6"></i><b>5</b></div></div>
+    <div class="a" id="sem-l" data-e="prazo+0.6"><span>assinatura</span><span>prévia no 15º dia</span><span>entrega</span></div>
+    <div class="a col" style="top:840px">
+      <div class="cx" data-e="prazo+1.0"><div class="ic" data-ic="check"></div><div><b>Uma entrega só, completa</b><span>O site e o portal juntos, prontos para usar</span></div></div>
+      <div class="cx" data-e="prazo+1.5"><div class="ic" data-ic="equipe"></div><div><b>Com treinamento da equipe</b><span>E um resumo do andamento toda semana</span></div></div>
+    </div>
+  </div>
+
+  <div class="cena" id="c-garantias">
+    <div class="a kick" data-e="garantias-0.2"><b>05</b>Garantias</div>
+    <div class="a tit head" data-l="garantias-0.2"><span class="ln"><span>O gabinete</span></span><span class="ln"><span><em>protegido.</em></span></span></div>
+    <div class="a col" style="top:480px">
+      <div class="cx" data-e="garantias@noventa"><div class="val" style="min-width:230px">90 dias</div><div><b>de garantia</b><span>Contra defeitos, com ou sem plano</span></div></div>
+      <div class="cx" data-e="garantias@sete"><div class="val" style="min-width:230px">7 dias</div><div><b>para desistir</b><span>Sem nenhum custo</span></div></div>
+    </div>
+    <div class="a col" style="top:990px;gap:36px;left:100px">
+      <div class="fl" data-e="dono@dominio"><i data-ic="globo"></i>O domínio fica no nome do vereador</div>
+      <div class="fl" data-e="dono@dados"><i data-ic="doc"></i>Os dados são sempre do gabinete</div>
+      <div class="fl" data-e="dono@codigo"><i data-ic="check"></i>O código passa a ser dele com o pagamento</div>
+    </div>
+  </div>
+
+  <div class="cena" id="c-seguranca">
+    <div class="a kick" data-e="seguranca-0.2"><b>06</b>Segurança</div>
+    <div class="a tit head" data-l="seguranca-0.2"><span class="ln"><span>Seguro e separado</span></span><span class="ln"><span><em>de campanha.</em></span></span></div>
+    <div class="a grid" style="top:480px">
+      <div class="cx" data-e="seguranca@banco"><div class="ic" data-ic="pin"></div><div><b>Banco exclusivo</b><span>Em servidor no Brasil</span></div></div>
+      <div class="cx" data-e="seguranca@acesso"><div class="ic" data-ic="user"></div><div><b>Acesso por pessoa</b><span>Cada um vê o que o perfil permite</span></div></div>
+      <div class="cx" data-e="seguranca@verifica"><div class="ic" data-ic="check"></div><div><b>Duas etapas</b><span>Para toda a equipe</span></div></div>
+      <div class="cx lima" data-e="campanha@mandato"><div class="ic" data-ic="predio"></div><div><b>Do mandato</b><span>Nada de campanha no sistema</span></div></div>
+    </div>
+  </div>
+
+  <div class="cena" id="c-planos">
+    <div class="a kick" data-e="depois-0.2"><b>07</b>Depois da entrega</div>
+    <div class="a tit head" data-l="depois-0.2"><span class="ln"><span>Manter tudo</span></span><span class="ln"><span><em>no ar.</em></span></span></div>
+    <div class="a col" style="top:480px">
+      <div class="cx" data-e="depois+0.8"><div class="val">R$ 499</div><div><b>Essencial</b><span>Hospedagem, banco e segurança</span></div></div>
+      <div class="cx" data-e="depois+1.6" style="border-color:var(--lima)"><div class="val">R$ 799</div><div><b>Gabinete<i class="tag">recomendado</i></b><span>Até 7 horas de melhorias no mês</span></div></div>
+      <div class="cx" data-e="depois+2.4"><div class="val">R$ 1.299</div><div><b>Completo</b><span>Até 18 horas no mês</span></div></div>
+      <div class="cx traco" data-e="livre"><div class="ic" data-ic="sinc"></div><div><b>Sem prazo mínimo</b><span>Ou sem plano: o gabinete cuida da estrutura</span></div></div>
+    </div>
+  </div>
+
+  <div class="cena" id="c-assinar">
+    <div class="a kick" data-e="assinar-0.2"><b>08</b>Para seguir</div>
+    <div class="a tit head" data-l="assinar-0.2"><span class="ln"><span>Assinar leva</span></span><span class="ln"><span><em>poucos minutos.</em></span></span></div>
+    <div class="a col" style="top:480px">
+      <div class="cx" data-e="assinar"><div class="num">1</div><div><b>Abrir o contrato</b><span>Pelo link, no celular ou no computador</span></div></div>
+      <div class="cx" data-e="assinar@online"><div class="num">2</div><div><b>Preencher os dados</b><span>E escolher o plano de manutenção</span></div></div>
+      <div class="cx" data-e="assinar@codigo"><div class="num">3</div><div><b>Confirmar com o código</b><span>Enviado ao e-mail, na hora</span></div></div>
+      <div class="cx lima" data-e="assinar@codigo+0.7"><div class="ic" data-ic="doc"></div><div><b>O comprovante chega por e-mail</b><span>Com a data, o protocolo e os dados das duas partes</span></div></div>
+    </div>
+  </div>
+
+  <div class="cena" id="c-marca">
+    <div id="m-foto"><img src="../rascunhos/vereador-video/gabinete.jpg" alt=""></div>
+    <div class="a" id="m-logo" data-e="fecho-0.2"><svg class="logo-ic" data-logo viewBox="0 0 120 142"></svg></div>
+    <div class="a tit marca-txt" style="top:640px" data-l="fecho-0.1"><span class="ln"><span>Gabinete</span></span></div>
+    <div class="a tit marca-txt" style="top:820px" data-l="fecho"><span class="ln"><span><em>Aberto</em></span></span></div>
+    <div class="a" id="m-frase" data-e="fecho@um">Um olhar para a população.</div>
+    <div class="a" id="m-quem" data-e="fecho@um+0.4">Proposta da Renderiza · renderizaweb.com.br</div>
+    <div class="a" id="m-val" data-e="fecho@um+0.8"><span>Proposta válida até 29/11/2026</span></div>
+  </div>
+</div>
+<div id="pe"></div>
+<div id="selo"><i></i>A proposta em 2 minutos</div>
+<div id="legenda"></div>
+<div id="cortina"><i></i><i></i></div>
+
+<script type="module">
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const fase = (t, a, b) => clamp((t - a) / (b - a));
+const ease = x => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+const sai = x => 1 - Math.pow(1 - x, 3);
+const volta = x => (x <= 0 ? 0 : 1 + 2.4 * Math.pow(x - 1, 3) + 1.4 * Math.pow(x - 1, 2));
+const lerp = (a, b, x) => a + (b - a) * x;
+const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
+
+// ícones (Lucide, ISC) e a marca (uma porta aberta, com luz), como em reels-proposta-vereador.html
+const IC = {
+  user: '<circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/>',
+  doc: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>',
+  predio: '<line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/>',
+  equipe: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  ia: '<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>',
+  sinc: '<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/>',
+  check: '<path d="M20 6 9 17l-5-5"/>',
+  globo: '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
+  porta: '<path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/><path d="M10 12v.01"/><path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561Z"/>',
+  pin: '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
+};
+$$("[data-ic]").forEach(el => (el.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[el.dataset.ic]}</svg>`));
+$$("[data-logo]").forEach(el => { el.innerHTML = `<defs><radialGradient id="vao" cx="60%" cy="55%" r="70%"><stop offset="0" stop-color="#f3ffd2"/><stop offset=".55" stop-color="#bfe85a"/><stop offset="1" stop-color="#7fa32a"/></radialGradient></defs>` +
+  `<rect x="8" y="8" width="104" height="126" rx="12" fill="url(#vao)" stroke="#bfe85a" stroke-width="8"/><path d="M12 12 L64 26 L64 128 L12 130 Z" fill="#5b34a3" stroke="#3c1f72" stroke-width="2"/><circle cx="54" cy="76" r="5" fill="#bfe85a"/>`; });
+
+// tempos da narração (instagram/narrar.py)
+const NOME = "reels-proposta-vereador-explica";
+const TEMPOS = await (await fetch(`narracao/${NOME}.tempos.json?v=${Date.now()}`)).json();
+const frases = TEMPOS.frases, F = Object.fromEntries(frases.map(f => [f.id, f]));
+const DUR = +(TEMPOS.duracao + 1.6).toFixed(2);
+const T = id => F[id].ini;
+// "frase", "frase+1.2", "frase-0.2", "frase@palavra" ou "frase@palavra+0.4" → o segundo em que a peça entra
+function quando(marca) {
+  const m = /^([a-z]+)(?:@([a-z0-9]+))?([+-][0-9.]+)?$/.exec(marca);
+  if (!m || !F[m[1]]) throw new Error("marca desconhecida: " + marca);
+  let t = F[m[1]].ini;
+  if (m[2]) { const p = F[m[1]].palavras.find(x => norm(x.p).startsWith(m[2])); if (!p) throw new Error(`não achei "${m[2]}" em ${m[1]}`); t = p.ini - 0.12; }
+  return t + (m[3] ? +m[3] : 0);
+}
+const PECAS = $$("[data-e]").map(el => [el, quando(el.dataset.e)]);
+const TITULOS = $$("[data-l]").map(el => [el, quando(el.dataset.l)]);
+const CONTAS = $$("[data-n]").map(el => [el, +el.dataset.n, quando(el.dataset.c)]);
+const BARRAS = $$("[data-w]").map(el => [el, quando(el.dataset.w)]);
+
+// cenas: [seletor, início, entra com a cortina?]; cada uma vai até a seguinte começar
+const CENAS = [["#c-abre", 0], ["#c-oque", T("oque") - 0.3], ["#c-preco", T("preco") - 0.3, true], ["#c-paga", T("paga") - 0.3, true], ["#c-prazo", T("prazo") - 0.3, true],
+  ["#c-garantias", T("garantias") - 0.3, true], ["#c-seguranca", T("seguranca") - 0.3, true], ["#c-planos", T("depois") - 0.3, true], ["#c-assinar", T("assinar") - 0.3, true], ["#c-marca", T("fecho") - 0.3]];
+const CORTE = 0.075; // a troca acontece quando a cortina cobre a tela inteira
+function alfa(t, k) {
+  const [, a, nossa] = CENAS[k], prox = CENAS[k + 1], b = prox ? prox[1] : 999;
+  const ent = a === 0 ? 1 : nossa ? (t >= a - CORTE ? 1 : 0) : fase(t, a - 0.3, a);
+  const sa = prox && prox[2] ? (t >= b - CORTE ? 0 : 1) : 1 - fase(t, b - 0.3, b);
+  return ent * sa;
+}
+
+const SEM_LEGENDA = new Set(["abre", "fecho"]);
+let fraseAtual = null;
+function legenda(t) {
+  const el = $("#legenda"), i = frases.findIndex((f, k) => t >= f.ini - 0.2 && t < (frases[k + 1] ? frases[k + 1].ini - 0.2 : DUR + 1)), f = i >= 0 ? frases[i] : null;
+  if (!f || SEM_LEGENDA.has(f.id)) { el.style.opacity = "0"; return; }
+  if (f !== fraseAtual) { fraseAtual = f; el.innerHTML = f.palavras.map(p => `<span class="${p.tom ? "tom" : ""}">${p.p}</span>`).join(" "); }
+  [...el.children].forEach((sp, k) => sp.classList.toggle("dito", t >= f.palavras[k].ini - 0.04));
+  el.style.opacity = fase(t, f.ini - 0.2, f.ini).toFixed(3);
+}
+
+window.quadro = t => {
+  CENAS.forEach(([sel], k) => { const o = alfa(t, k), el = $(sel); el.style.opacity = o.toFixed(3); el.style.visibility = o > 0.002 ? "visible" : "hidden"; });
+  for (const [el, t0] of PECAS) { // cada peça sobe e cresce um pouco ao entrar
+    const x = fase(t, t0, t0 + 0.42), o = clamp(x * 3);
+    el.style.transform = `translateY(${((1 - sai(x)) * 50).toFixed(1)}px) scale(${(x > 0 ? lerp(0.86, 1, volta(x)) : 0.86).toFixed(4)})`;
+    el.style.opacity = o.toFixed(3);
+  }
+  for (const [el, t0] of TITULOS) $$(".ln > span", el).forEach((s, i) => (s.style.transform = `translateY(${((1 - sai(fase(t, t0 + i * 0.09, t0 + i * 0.09 + 0.6))) * 115).toFixed(1)}%)`));
+  for (const [el, alvo, t0] of CONTAS) el.textContent = Math.round(alvo * sai(fase(t, t0, t0 + 1.1))).toLocaleString("pt-BR");
+  for (const [el, t0] of BARRAS) el.style.transform = `scaleX(${ease(fase(t, t0, t0 + 0.45)).toFixed(4)})`;
+  $("#abre-img").style.transform = `scale(${lerp(1.0, 1.08, fase(t, 0, T("oque"))).toFixed(4)})`;
+  $("#bl1").style.transform = `translate(${(420 + 120 * Math.sin(t * 0.21)).toFixed(0)}px,${(-420 + 140 * Math.cos(t * 0.17)).toFixed(0)}px)`; // fundo vivo
+  $("#bl2").style.transform = `translate(${(-560 + 120 * Math.cos(t * 0.15)).toFixed(0)}px,${(1100 + 120 * Math.sin(t * 0.19)).toFixed(0)}px)`;
+  $("#bl3").style.transform = `translate(${(90 + 160 * Math.sin(t * 0.12 + 1)).toFixed(0)}px,${(600 + 200 * Math.cos(t * 0.1)).toFixed(0)}px)`;
+  $("#selo").style.opacity = (fase(t, T("oque") - 0.3, T("oque") + 0.1) * (1 - fase(t, T("fecho") - 0.5, T("fecho") - 0.2))).toFixed(3);
+  let cx = -99999; for (const c of CENAS) if (c[2]) { const x = ease(fase(t, c[1] - 0.45, c[1] + 0.3)); if (x > 0 && x < 1) cx = lerp(-3000, 1500, x); } // a cortina entre as partes
+  $("#cortina").style.transform = `translateX(${cx.toFixed(0)}px) rotate(14deg)`;
+  legenda(t);
+  let soco = 0; for (const f of frases) if (f.impacto) { const p = f.palavras[f.palavras.length - 1], x = fase(t, p.ini - 0.03, p.ini + 0.45); if (x > 0 && x < 1) soco = Math.max(soco, 1 - sai(x)); }
+  $("#palco").style.transform = soco ? `scale(${(1 + 0.035 * soco).toFixed(4)})` : "";
+};
+
+window.preparar = () => {
+  window.quadro(0);
+  return {
+    duracao: DUR, narracao: NOME, bpm: 112,
+    // a trilha (ferramentas/video/trilha-pulso.py) corta a batida em "nada": aqui, no "Nos primeiros quinze dias, nada."
+    pulso: frases.map(f => ({ id: f.id === "paga" ? "nada" : f.id, cena: f.trilha, ini: f.ini, fim: f.fim, pausa: f.pausa || 0, impacto: !!f.impacto })),
+    ensaio: [F.fluxo.fim - 0.5, F.fechado.fim - 0.5, F.saldo.fim - 0.4, F.prazo.fim - 0.3, F.dono.fim - 0.5, F.campanha.fim - 0.5, F.livre.fim - 0.5, F.assinar.fim + 0.3].map(x => +x.toFixed(2)),
+  };
+};
+
+await Promise.all(["800 80px 'Bricolage Grotesque'", "700 80px 'Bricolage Grotesque'", "800 30px 'Plus Jakarta Sans'", "700 30px 'Plus Jakarta Sans'", "600 30px 'Plus Jakarta Sans'", "500 30px 'Plus Jakarta Sans'"].map(f => document.fonts.load(f).catch(() => {})));
+await document.fonts.ready;
+window.quadro(0);
+window.pronto = true;
+</script>
+</body>
+</html>
