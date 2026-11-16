@@ -939,7 +939,7 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | `20261030270000_acompanhamento.sql` (os passos do onboarding, `publico_convite_aberto`, `admin_onboarding` com as etapas e os marcos) | 7G | `claude/painel-renderiza-setup-ztnrzy` | 30/10/2026 | 30/10/2026 |
 | `20261031120000_email_de_recuperacao.sql` (o e-mail opcional de quem entra com usuário; o aviso de pedido novo sem o e-mail interno) | 7 | `claude/painel-renderiza-setup-ztnrzy` | 31/10/2026 | 31/10/2026 |
 | `20261104120000_trazer_o_que_tem.sql` (trazer o que tem: o bucket privado `importacoes`, `pedidos_a_renderiza`, `importacoes`, o Admin · Onboarding com o que a conta trouxe) | 7F | `claude/painel-renderiza-roadmap-jfhmpp` | 04/11/2026 | 04/11/2026 |
-| `20261116013045_publico_agenda_fotografia.sql` (agenda online da fotografia: `publico_horarios`, `publico_pedido_horario`, `campanha_restam`; as de eventos não mudam) | Entrega Rafaela (C2) | `claude/rafaela-damaceno-demo-irwkqp` | 16/11/2026 | — (só com o "pode") |
+| `20261116013045_publico_agenda_fotografia.sql` (agenda online da fotografia: `publico_horarios`, `publico_pedido_horario`, `campanha_restam`; as de eventos não mudam) | Entrega Rafaela (C2) | `claude/rafaela-damaceno-demo-irwkqp` | 16/11/2026 | 16/11/2026 (com o "pode" da Renderiza) |
 
 ## Avisos entre sessões
 

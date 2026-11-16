@@ -48,5 +48,9 @@
         "https://www.instagram.com/rafaeladamacenofotografia/"
       ]
     }
-  ]
+  ],
+  "painel": {
+    "codigo": "rafaela-damaceno",
+    "agenda": true
+  }
 }
