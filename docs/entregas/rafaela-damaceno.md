@@ -10,11 +10,11 @@ quem continuar, lê primeiro "Onde o trem está" e o diário, e atualiza os dois
 
 | | |
 |---|---|
-| **Parada** | A · O site no repositório dela (esperando o repositório) |
-| **Feito** | Fase 1: a demo virou a proposta final e está no ar (abaixo); a navegação da agenda corrigida e a revisão de fotos e textos (15/11) |
-| **Próxima ação** | Renderiza: criar o repositório na conta dela e dar acesso (passo A1). Claude: o `virar-site` para duas páginas (A2) |
-| **Esperando a Renderiza** | o repositório; o domínio comprado no CPF dela; as respostas de "Perguntas em aberto" |
-| **Última atualização** | 15/11/2026 |
+| **Parada** | A · O site no repositório dela (no repositório; falta a hospedagem) |
+| **Feito** | Fase 1 (a demo é a proposta final, no ar); o repositório dela criado (`rafaelafotografiadev-del/estudiorafaeladamaceno`, privado) e o site gerado pelo `virar-site` (as duas páginas) subido na `main` dele em 15/11 (`a946cd1`), testado como na hospedagem (celular e computador) |
+| **Próxima ação** | Renderiza: o Cloudflare Pages na conta dela (A5) e o endereço `….pages.dev`; depois, o GitHub da Kaue7almeida de volta no claude.ai, com a Kaue7almeida colaboradora (Write) no repositório dela. Claude: conferir no ar (A6) |
+| **Esperando a Renderiza** | a hospedagem; o domínio comprado no CPF dela (no site está `estudiorafaeladamaceno.com.br`, provisório, pelo nome do repositório); as respostas de "Perguntas em aberto" |
+| **Última atualização** | 16/11/2026 |
 
 Demo (a proposta que ela viu):
 - Site: https://www.renderizaweb.com.br/demo/rafaela-damaceno-fotografia
@@ -53,11 +53,11 @@ páginas, sem nada da Renderiza (`conferir-site` sem ✗), e a demo continua no 
 
 | | Quem | O quê |
 |---|---|---|
-| A1 | Renderiza | Gmail de dev e GitHub dela (se ela não tiver), repositório **privado** `rafaeladamaceno` vazio, a conta GitHub da Renderiza como colaboradora e o app do Claude instalado só nele. Mandar `usuario/rafaeladamaceno` ao Claude |
-| A2 | Claude | `scripts/virar-site.mjs` aprende o site de várias páginas: `natal.html` vira `/natal`, os links `/demo/<pasta>` viram `/` e `/natal`, o sitemap leva as duas, cada página com a prévia dela. Sem mudar o resultado dos sites de uma página (os testes de hoje) |
-| A3 | Claude | `demos/rafaela-damaceno-fotografia/site.json` (domínio, nome, cor, ícone a partir do selo dela, dados para o Google). Até o domínio ser comprado, o recomendado (`rafaeladamaceno.com.br`), anotado como provisório |
-| A4 | Claude | Gerar (`npm run site -- rafaela-damaceno-fotografia`), conferir, olhar no celular e no computador, subir para o repositório dela (`add_repo`, push) |
-| A5 | Renderiza | Vercel na conta dela: importar o repositório (preset Other, sem build). Mandar o endereço `….vercel.app` |
+| A1 ✅ | Renderiza | Gmail de dev e GitHub dela (se ela não tiver), repositório **privado** vazio (ficou `estudiorafaeladamaceno`), a conta GitHub da Renderiza como colaboradora e o app do Claude instalado só nele. Mandar `usuario/rafaeladamaceno` ao Claude |
+| A2 ✅ | Claude | `scripts/virar-site.mjs` aprende o site de várias páginas: `natal.html` vira `/natal`, os links `/demo/<pasta>` viram `/` e `/natal`, o sitemap leva as duas, cada página com a prévia dela. Sem mudar o resultado dos sites de uma página (os testes de hoje) |
+| A3 ✅ | Claude | `demos/rafaela-damaceno-fotografia/site.json` (domínio, nome, cor, ícone a partir do selo dela, dados para o Google). Até o domínio ser comprado, o recomendado (`rafaeladamaceno.com.br`), anotado como provisório |
+| A4 ✅ | Claude | Gerar (`npm run site -- rafaela-damaceno-fotografia`), conferir, olhar no celular e no computador, subir para o repositório dela (`add_repo`, push) |
+| A5 | Renderiza | **Cloudflare Pages** na conta dela (decidido em 16/11: o grátis permite uso comercial, o da Vercel não): Workers & Pages → Create → Pages → Connect to Git → o repositório → preset None, sem build, saída `/`. Mandar o endereço `….pages.dev`. O domínio: o DNS passa para o Cloudflare (servidores trocados no Registro.br; se o DNSSEC estiver ligado lá, desligar antes) |
 | A6 | Claude | Conferir no ar (as duas páginas, fotos, WhatsApp, agenda, prévia do link) |
 
 Mexe em: raiz `scripts/virar-site.mjs` (e o teste dele), `demos/rafaela-damaceno-fotografia/site.json`, o repositório dela.
@@ -73,7 +73,7 @@ Mexe em: raiz `scripts/virar-site.mjs` (e o teste dele), `demos/rafaela-damaceno
 - B3 (Claude): revisão de layout (celular e computador, tela cheia das fotos, menu, agenda com toques), acessibilidade
   (contraste, foco, textos alternativos), velocidade (fotos em `img/`, carregamento sob demanda) e Google (título,
   descrição, dados da empresa, `sitemap.xml`, prévia do link).
-- B4 (Claude): segurança do site: estático, **nenhuma chave no código** (só a API pública do painel), cabeçalhos
+- B4 (Claude): segurança do site: estático, **nenhuma chave no código** (só a API pública do painel; segredo, se um dia precisar, só em código de servidor, Pages Functions, nunca no HTML), cabeçalhos
   (`vercel.json`, `_headers`), links externos com `noopener`, nada de dado pessoal dela (CPF, endereço de casa,
   nomes dos filhos) no repositório. Avaliar uma política de conteúdo (CSP) que libere só o painel, as fontes e o mapa.
 
@@ -129,12 +129,15 @@ horários dela e a campanha de Natal.
    mede visitas nem cliques do site**. Visitas seriam coisa nova (contador no site e tabela no painel, com aviso de
    privacidade): decidir antes de prometer.
 5. **A página de Natal no Meu site:** o `03` deixa páginas extras para depois. Começar só pela página inicial?
-6. **Hospedagem:** Vercel (o padrão; o plano grátis proíbe uso comercial) ou Cloudflare Pages.
+6. ~~Hospedagem~~ **Decidido em 16/11: Cloudflare Pages.**
+7. **Pedido falso na agenda:** a API pública só lê o que já está publicado e só aceita o pedido da agenda (com campo-isca, tempo mínimo, os domínios do site e limites por endereço, WhatsApp e conta). Se aparecer pedido falso, pôr o Turnstile (a verificação antirrobô do Cloudflare) no formulário da agenda.
 
 ## Diário de bordo (o mais novo em cima)
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 16/11/2026 | A | Hospedagem: Cloudflare Pages (decisão da Renderiza). Pergunta da Renderiza sobre a API pública: ela não deixa mexer no site (ler = só o que já está publicado; editar = só com login no painel; o único envio público é o pedido da agenda, com limites); anotado o Turnstile para o caso de pedido falso. |
+| 15/11/2026 | A | Repositório da Rafaela criado e ligado à sessão; o `virar-site` aprendeu o site de várias páginas (os sites de uma página saem idênticos) e a conferência olha todas as páginas; o site dela subiu na `main` dele (`a946cd1`). Para ligar o repositório, o claude.ai foi conectado ao GitHub dela, e o repositório da Renderiza ficou sem escrita até voltar para a Kaue7almeida (ver "O que aprendemos"). |
 | 15/11/2026 | A | Trilho escrito com a Renderiza. Domínio: o antigo ainda está no nome dela (venceu em 04/10/2026); recomendado `rafaeladamaceno.com.br` + o com S. | Claude, a pedido da Renderiza |
 | 15/11/2026 | demo | Teste da Renderiza: na agenda não dava para voltar às opções. Corrigido: "Voltar" preso abaixo do topo, passos clicáveis, o voltar do celular volta um passo, botão de novo pedido. Revisão foto a foto (marca d'água em 7) e do texto (4 ajustes). | Claude |
 | 14/11/2026 | demo | Fase 1: a demo virou a proposta final (marca, fotos de Natal 2026, letras leves, sem a oferta, agenda de verdade). | Claude |
@@ -142,7 +145,8 @@ horários dela e a campanha de Natal.
 ## Para colar ao abrir a próxima sessão
 
 Abrir no ambiente **"Nuvem kaue"** (tem as variáveis `PAINEL_*` e a rede aberta), com os repositórios
-`renderizaweb/Renderiza` e o da Rafaela selecionados.
+`renderizaweb/Renderiza` e `rafaelafotografiadev-del/estudiorafaeladamaceno` selecionados. Antes: o GitHub conectado
+no claude.ai é a Kaue7almeida, colaboradora (Write) no repositório dela, e o app do Claude instalado na conta dela.
 
 > Você vai continuar a entrega da Rafaela Damaceno (Estúdio Fotográfico, Franco da Rocha): o site dela no repositório e
 > no domínio dela, ligado ao Painel Renderiza (Meu site e agenda online). Responda sempre em português, direto e curto,

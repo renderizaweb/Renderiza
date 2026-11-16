@@ -57,6 +57,8 @@ B pode andar junto com C; D depende de C (e das migrações com o "pode" da Rend
 
 | Data | Cliente | Lição |
 |---|---|---|
+| 16/11/2026 | Rafaela | **O claude.ai fica ligado a uma conta do GitHub por vez.** Para o Claude ter o repositório do cliente e o da Renderiza na mesma sessão: o GitHub conectado é o da Renderiza (Kaue7almeida), ela é colaboradora (Write) no repositório do cliente **e** o app do Claude está instalado na conta do cliente, só nesse repositório. Só o colaborador não basta. Conectar o GitHub do cliente no lugar funciona para ele, mas tira a escrita no repositório da Renderiza até voltar. Token em variável de ambiente não serve: a sessão só grava em repositório ligado pelo app. |
+| 16/11/2026 | Rafaela | **Hospedagem: Cloudflare Pages.** O grátis permite uso comercial (o Hobby da Vercel não). Publica como a Vercel (conectar o GitHub, sem build, saída `/`; `natal.html` sai em `/natal`; o `_headers` do `virar-site` vale lá). O domínio pede o DNS no Cloudflare (trocar os servidores no Registro.br). Variáveis e segredos existem, mas só servem a código de servidor (Pages Functions), nunca ao HTML. |
 | 15/11/2026 | Rafaela | A sessão precisa nascer no ambiente certo: com as variáveis `PAINEL_*` e a rede aberta (ambiente "Nuvem kaue"). No "Default", o Drive, o Instagram, o Google e até o site da Renderiza ficam bloqueados. |
 | 15/11/2026 | Rafaela | A agenda tem que funcionar no celular como o cliente usa: o "voltar" do aparelho volta um passo, e o "Voltar" não pode ficar embaixo do topo fixo do site. Teste com toques no tamanho de celular, não só cliques. |
 | 15/11/2026 | Rafaela | O `virar-site` (até aqui) só sabia transformar uma página; fotógrafa tem o site e a página de Natal. |
