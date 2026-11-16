@@ -211,7 +211,8 @@ cliente, ajustes, repositório, hospedagem, domínio, entrega). Abaixo, o que é
   opções, as outras demos de fotógrafa saem idênticas. As fotos tratadas levam `data-k`: outra sessão gera de novo sem os
   originais. Fase 2, só depois que ela validar: as marcações do Meu site nos geradores de fotografia, a agenda online de
   fotografia no painel, a conta dela e o site no ar. O que entrou, de onde veio e o que conferir com ela:
-  `demos/rafaela-damaceno-fotografia/ficha.md`. Lição de ambiente: a sessão precisa abrir no ambiente com rede livre e as
+  `demos/rafaela-damaceno-fotografia/ficha.md`. **O trilho da entrega (site no repositório dela + painel), com o prompt da
+  próxima sessão: `docs/entregas/rafaela-damaceno.md`** (o modelo para os próximos clientes: `docs/entregas/README.md`). Lição de ambiente: a sessão precisa abrir no ambiente com rede livre e as
   variáveis `PAINEL_*`; no Default, o Drive, o Instagram, o Google e o próprio site ficam bloqueados.
 - **Bia Maida: versão 2 da demo, com foco em eventos** (12/11/2026, pedido do Kaue): a Bia gostou da demo e pediu o foco em
   eventos no lugar do estúdio, fotos novas (32, pelo WhatsApp) e a demo refeita. O site virou uma página feita à mão, com a

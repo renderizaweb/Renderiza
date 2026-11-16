@@ -9,7 +9,7 @@
 | Horário | Segunda Fechado; Terça a sexta 8h às 18h; Sábado 8h às 16h; Domingo Fechado |
 | Site | o domínio antigo (rafaeladamacenofotografia.com.br) expirou (NXDOMAIN); a página dela no Alboom (rafaeladamacenofotografia.alboompro.com) segue no ar e serviu de referência de letra e cor |
 | Entregável | o site (`index.html`) e a página da campanha de Natal (`natal.html`), gerados por `ferramentas/demo/gerar-fotografia.py` a partir do `demo.json` |
-| Situação | cliente fechada (site e painel) · proposta final em 14/11/2026 · `/demo/rafaela-damaceno-fotografia` e `/demo/rafaela-damaceno-fotografia/natal` · esperando ela validar para a Fase 2 (o site no ar, ligado ao Painel Renderiza) |
+| Situação | cliente fechada (site e painel) · proposta final em 14/11/2026 · `/demo/rafaela-damaceno-fotografia` e `/demo/rafaela-damaceno-fotografia/natal` · entrega em andamento: o trilho em `docs/entregas/rafaela-damaceno.md` |
 | Oferta na demo | sem oferta na página (cliente fechada: a demo é a proposta final) |
 | Agenda | a de verdade (`agenda` no `demo.json`): ensaio ou campanha, dia, horário livre, nome e WhatsApp; o pedido sai pelo WhatsApp |
 
