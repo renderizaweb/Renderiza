@@ -88,7 +88,7 @@ o painel desligado, o site abre com a versão validada e a agenda volta a ser pe
 | C2 ✅ (local; STG pendente) | **Agenda online de fotografia no painel:** `publico_disponibilidade` e `publico_pedido` passam a atender a fotografia (horários de início do dia, campanhas com dias, horários e vagas, a duração do ensaio, a mesma regra de `horariosLivres` e `seguraHorario`); a API (`api/publico/agenda/[codigo]`) aceita ensaio, campanha e horário. Migração nova pelo `scripts/migrar.mjs`, **STG primeiro**; produção só com o "pode" | `painel-clientes/supabase/migrations/`, `painel-clientes/api/publico/agenda/`, `supabase/testes/040_publico_agenda.sql`, `test/agenda-online.test.mjs`, `docs/painel-clientes/04` e `05` |
 | C3 ✅ (testada com o painel imitado) | **A agenda do site usa a API:** lê a disponibilidade (os ensaios = Serviços na agenda online, a campanha ativa com vagas) e manda o pedido; mostra "Pedido enviado. A Rafaela confirma pelo WhatsApp". Se a API não responder, a agenda de hoje (os horários do `demo.json` e o WhatsApp) | raiz `ferramentas/demo/gerar-fotografia.py` (o JS da agenda) |
 | C4 ✅ | **`virar-site` com o painel para fotografia:** `"painel": { "codigo", "agenda": true }` embute o script do Meu site e liga a agenda própria do site (não a página `/agenda/` de eventos) | raiz `scripts/virar-site.mjs` |
-| C5 | **Prova no STG:** uma conta de teste de fotografia no STG com o site de teste dela (domínio `localhost` e o `….vercel.app`), o caminho inteiro com o Playwright: publicar, pedir, desligar | `test/` |
+| C5 | **Prova no STG:** `node scripts/migrar.mjs stg` (a migração da C2) e o registro em `missoes.md`; uma conta de teste de fotografia no STG com um site (`sites`, domínios `localhost` e `estudiorafaeladamaceno.pages.dev`), serviços, horários e a campanha "Natal 2026"; o site gerado pelo `virar-site` com `"painel"` apontando para o STG; o caminho inteiro com o Playwright: publicar no Meu site, pedir na agenda (o pedido cai no Atendimento e na Agenda), desligar (volta à versão inicial). Depois, os testes do `painel-clientes` e o `npm run fluxos`, e só então a `main` | `test/` |
 
 Antes de qualquer migração: ler `docs/painel-clientes/08-trabalho-em-paralelo.md` e deixar um aviso em
 `docs/painel-clientes/missoes.md` ("Avisos entre sessões"), porque C mexe em arquivos do painel.
@@ -169,7 +169,8 @@ no claude.ai é a Kaue7almeida, colaboradora (Write) no repositório dela, e o a
 > no domínio dela, ligado ao Painel Renderiza (Meu site e agenda online). Responda sempre em português, direto e curto,
 > e não invente nada.
 >
-> Antes de tudo: `git fetch origin` e leia, nesta ordem, `docs/entregas/rafaela-damaceno.md` (o trilho: onde o trem
+> Antes de tudo: `git fetch origin` e parta da branch `claude/rafaela-damaceno-demo-irwkqp` (as Paradas C2 a C4 estão
+> nela e ainda não na `main`, porque a `main` publica o painel; o trilho atualizado também está lá). Leia, nesta ordem, `docs/entregas/rafaela-damaceno.md` (o trilho: onde o trem
 > está, as paradas, as perguntas em aberto e o diário), `docs/entregas/README.md`, `CONTEXTO.md`,
 > `docs/painel-clientes/README.md`, `08-trabalho-em-paralelo.md`, `missoes.md` (os "Avisos entre sessões"),
 > `03-modulo-meu-site.md` e `04-arquitetura.md` ("API pública"), `docs/fechamento.md` e a `ficha.md` e o `demo.json` em
