@@ -1052,6 +1052,7 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-ms-dica{margin-left:auto}
 .rz-ms-palco{position:relative;flex:1;min-height:0;overflow:hidden;border:1px solid var(--rz-linha);border-radius:var(--rz-raio-g);background:var(--rz-gelo)}
 .rz-ms-palco iframe{position:absolute;top:0;left:0;border:0;background:var(--rz-superficie);transform-origin:top left}
+.rz-ms-palco iframe[hidden],.rz-ms-sem-ponte[hidden]{display:none}
 .rz-ms-sem-ponte{position:absolute;inset:auto var(--rz-4) var(--rz-4);display:flex;flex-direction:column;align-items:flex-start;gap:var(--rz-2);padding:var(--rz-4);border-radius:var(--rz-raio);background:var(--rz-superficie);box-shadow:var(--rz-sombra-2)}
 .rz-ms-ver{position:fixed;right:var(--rz-4);bottom:calc(var(--rz-16) + var(--rz-6) + env(safe-area-inset-bottom));z-index:5;box-shadow:var(--rz-sombra-2)}
 .rz-ms--vendo .rz-ms-previa{display:flex;flex-direction:column;position:fixed;inset:0;z-index:60;padding:var(--rz-3);background:var(--rz-fundo)}

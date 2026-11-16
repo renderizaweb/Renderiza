@@ -203,6 +203,7 @@ export async function montar(el, { banco, conta, pode, avisar, ambiente }) {
       ponte.imagens = d.imagens || {};
       ponte.ancoras = Array.isArray(d.ancoras) ? d.ancoras : [];
       corpo.querySelector("[data-sem-ponte]").hidden = true;
+      quadro.hidden = false;
       if (d.tipo === "pronto") mostrarNoSite();
       corpo.querySelectorAll("[data-dica-foto]").forEach(p => { p.textContent = dicaDaFoto(ponte.imagens[p.dataset.dicaFoto]); });
     } else if (d.tipo === "clique" && edita && typeof d.secao === "string" && trabalho.secoes[d.secao]) {
@@ -612,7 +613,13 @@ export async function montar(el, { banco, conta, pode, avisar, ambiente }) {
     ligarEditor();
     desenharEditor(); desenharVersoes(); situacao();
     if (quadro) { olharPalco.observe(palco); ajustar(); }
-    setTimeout(() => { if (!ponte.pronta && corpo.isConnected) corpo.querySelector("[data-sem-ponte]").hidden = false; }, 7000);
+    // site sem a ponte (gerado antes do editor ao vivo, ou que não deixa o painel pôr ele num quadro): sai o quadro,
+    // que o navegador mostraria quebrado, e fica o caminho de antes (a prévia em outra aba)
+    setTimeout(() => {
+      if (ponte.pronta || !corpo.isConnected) return;
+      if (quadro) quadro.hidden = true;
+      corpo.querySelector("[data-sem-ponte]").hidden = false;
+    }, 7000);
   };
 
   el.addEventListener("click", async ev => {
