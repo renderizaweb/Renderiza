@@ -217,15 +217,26 @@ Feito em 29/10/2026 (Missão 4C), em `painel-clientes/src/modulos/meu-site/` (as
 testadas em `test/meu-site.test.mjs`); na `main` desde 29/10/2026. No STG, a Villa Alecrim da semente tem o Meu
 site ligado e o site de teste `villa-alecrim` cadastrado.
 
-- **Meu site** no menu: o que está no ar (versão, quando e quem publicou), a lista das partes do site na ordem da
-  página (nome e resumo; "Não publicado" no que mudou; "Escondida") e "Contato e WhatsApp".
-- Cada parte abre uma gaveta com os campos dela: textos (o destaque entre asteriscos), botões (rótulo, ação e
-  destino), fotos ("Trocar a foto": reduzida para até 1600 px e convertida para WebP no próprio aparelho, até 2 MB, e
-  a descrição), listas (subir, descer, tirar, adicionar; o item novo nasce do primeiro) e "esta parte aparece no
-  site" (a capa não some). **"Salvar no rascunho"** grava (com "Desfazer"), sem salvar a cada tecla; salvar espera a
-  foto que ainda está subindo. Antes de gravar, a mesma `validar()` do site.
-- **Ver no meu site:** cria um código de prévia e abre o site de verdade com `?rz-previa=` (a faixa "Prévia do
-  rascunho" aparece no alto); quem não tem o código continua vendo o publicado.
+- **Meu site** no menu é um **editor ao vivo** (refeito em 16/11/2026, com o primeiro site real, o da Rafaela; a
+  tela de antes, com gaveta e "Salvar no rascunho", confundia quem editava e a prévia não acompanhava): à esquerda, as
+  partes do site na ordem da página (o nome, **onde fica no site** em uma linha, "Alterada" no que mudou, "Escondida")
+  e "WhatsApp e redes"; à direita, **o site de verdade num quadro** (`https://<1º domínio>/?rz-editor=1`), no tamanho
+  de um celular ou de um computador. No celular, a lista ocupa a tela e "Ver o site" abre o quadro por cima.
+- **O que se muda aparece na hora no quadro** (o painel manda o rascunho inteiro ao site a cada tecla; ver "O editor
+  ao vivo, por dentro") e **grava sozinho no rascunho** pouco depois (a situação diz "Salvando…", "Rascunho salvo.
+  Falta publicar." ou "Confira: …" com o que a `validar()` do site recusou). Não existe mais "Salvar no rascunho".
+- **Clicar numa parte do site abre o campo dela** no painel (o texto, o botão, a foto, o item da lista), com o cursor
+  nele; parar o mouse numa parte da lista, ou entrar num campo, rola o site até ela e destaca.
+- Cada parte mostra os campos em grupos: **Textos** (o destaque entre asteriscos), **Fotos** ("Trocar a foto":
+  reduzida para até 1600 px e convertida para WebP no próprio aparelho, até 2 MB; a orientação diz o formato em que a
+  foto aparece na página e a largura boa, pela medida que o site manda; "Voltar à foto original"; a descrição),
+  **Botões** (o que está escrito, o que acontece ao clicar e só o campo que a ação pede: o link, a parte da página
+  numa lista, a mensagem do WhatsApp) e as **listas** (cada item recolhido com o nome dele; abrir, mudar, subir,
+  descer, tirar e "Adicionar <item>", que nasce do primeiro) e "Esta parte aparece no site" (a capa não some).
+- **Descartar mudanças** (com confirmação) deixa o rascunho igual ao que está no ar.
+- **Site sem a ponte** (gerado antes de 16/11/2026, ou que não deixa o painel pôr ele num quadro): depois de 7
+  segundos sem resposta, o painel oferece "Ver o rascunho no site", que cria um código de prévia e abre o site com
+  `?rz-previa=` em outra aba (a faixa "Prévia do rascunho"); editar e publicar funcionam igual.
 - **Publicar:** o rascunho vira a versão no ar (o site vê em até 1 minuto). Cada publicação fica em "Versões
   publicadas", com quem publicou.
 - **Usar esta** (numa versão antiga) e **Voltar ao site como foi entregue** levam aquilo para o rascunho; publicar
@@ -264,6 +275,26 @@ para depois das próximas missões.
 | `desconectado` | a Renderiza desligou a conta ou o módulo (não pagou, cancelou) | "não encontrado" | a versão inicial |
 | `versao_final` | o cliente comprou a versão final | "não encontrado" (o site novo já tem o conteúdo e não tem mais o script) | a versão final, embutida |
 
+### O editor ao vivo, por dentro (16/11/2026)
+
+O script do site (`ferramentas/meu-site/meu-site.js`) entra no **modo editor** só quando a página está dentro de um
+quadro **e** tem `?rz-editor=1`. Nele não pede a versão publicada nem usa a guardada no navegador; conversa com o
+painel por `postMessage`, aceitando mensagem **só da origem da API** (`data-api`, a do painel) e mandando só para ela:
+
+| De | Mensagem (`rz: "meu-site"`) | O que faz |
+|---|---|---|
+| painel | `{ tipo: "conteudo", conteudo }` | aplica o rascunho por cima da versão inicial (a mesma `validar()`; inválido = fica como está; sem conteúdo = a inicial) |
+| painel | `{ tipo: "foco", secao, grupo?, campo?, indice? }` | rola até a parte (ou o campo, ou o item da lista) e destaca por 2 segundos |
+| site | `{ tipo: "pronto" \| "medidas", imagens, ancoras }` | o tamanho de cada foto na página (`"<seção>.<campo>"` e `"<seção>.<lista>.<campo>"` → `[largura, altura]`) e as partes com âncora (`{ id, secao }`) |
+| site | `{ tipo: "clique", secao, grupo, campo, indice?, subcampo? }` | a pessoa clicou numa parte marcada (o clique não segue o link; no editor ninguém sai da página) |
+
+`grupo` é `textos`, `botoes`, `imagens` ou `listas`. Nada é gravado pelo site: o rascunho só existe no quadro de quem
+edita. Para o painel poder pôr o site num quadro, o `virar-site.mjs` troca, **nos sites com `"painel"`**, o
+`X-Frame-Options: SAMEORIGIN` por `Content-Security-Policy: frame-ancestors 'self' <origem do painel>` (`_headers` e
+`vercel.json`); os sites sem painel continuam como eram. No painel, a CSP ganhou `frame-src https:` (e
+`http://localhost:*` para os testes), e o quadro vai com `sandbox` sem `allow-top-navigation` (o site não tira o
+painel do lugar). **Site já entregue precisa ser gerado e subido de novo** para ganhar a ponte e o cabeçalho.
+
 ## Segurança
 
 - Público só o que está publicado; rascunho só com o código de prévia, que expira.
@@ -272,6 +303,8 @@ para depois das próximas missões.
 - Links permitidos: `https://`, WhatsApp (`wa.me`), telefone, e-mail, mapas e âncoras da própria página.
 - Imagens: só tipos de imagem, tamanho máximo no envio, convertidas para WebP e redimensionadas; limite de espaço por
   conta (o gratuito do Supabase tem 1 GB de arquivos no total).
+- O editor ao vivo não abre nada novo para fora: o rascunho só chega ao quadro de quem está logado no painel, o site
+  só aceita mensagem da origem do painel e só o painel pode pôr o site num quadro.
 - O cliente garante nos termos que tem autorização para as fotos e os depoimentos que publicar (`06`).
 
 ## O que mudou no que já existe (29/10/2026)

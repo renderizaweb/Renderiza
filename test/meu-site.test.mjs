@@ -294,6 +294,69 @@ test("prévia: ?rz-previa=<código> pede o rascunho, mostra o aviso e não guard
   await contexto.close();
 });
 
+test("editor ao vivo: dentro de um quadro do painel, o site mostra o rascunho que chega e avisa onde foi o clique", comNavegador, async () => {
+  const PAINEL = "https://painel.renderizaweb.com.br";
+  const ctx = await navegador.newContext({ viewport: { width: 1200, height: 900 }, reducedMotion: "reduce" });
+  const erros = [], pedidos = [];
+  await ctx.route("**/*", rota => {
+    const u = new URL(rota.request().url());
+    if (u.origin === PAINEL && u.pathname === "/meu-site") {
+      return rota.fulfill({ status: 200, contentType: "text/html", body: `<!doctype html><meta charset="utf-8"><iframe id="q" src="${SITE}?rz-editor=1" style="width:1000px;height:800px"></iframe>
+        <script>window.recebidas = []; addEventListener("message", e => { if (e.origin === "https://villa-alecrim.teste") recebidas.push(e.data); });</script>` });
+    }
+    if (u.origin === PAINEL) { pedidos.push(u.pathname); return rota.fulfill({ status: 404, headers: { "access-control-allow-origin": "*" }, body: "{}" }); }
+    if (u.origin === "https://villa-alecrim.teste") {
+      const arquivo = path.join(site, u.pathname === "/" ? "index.html" : decodeURIComponent(u.pathname));
+      if (!arquivo.startsWith(site) || !fs.existsSync(arquivo)) return rota.fulfill({ status: 404, body: "" });
+      return rota.fulfill({ status: 200, contentType: TIPO[path.extname(arquivo)] || "application/octet-stream", body: fs.readFileSync(arquivo) });
+    }
+    return rota.abort();
+  });
+  try {
+    const p = await ctx.newPage();
+    p.on("pageerror", e => erros.push(e.message));
+    await p.goto(PAINEL + "/meu-site");
+    await p.waitForFunction(() => recebidas.some(m => m.tipo === "pronto"));
+    const pronto = await p.evaluate(() => recebidas.find(m => m.tipo === "pronto"));
+    assert.equal(pronto.rz, "meu-site");
+    assert.ok(Array.isArray(pronto.imagens["inicio.foto"]) && pronto.imagens["inicio.foto"][0] > 8, "o tamanho de cada foto na página, para a orientação de quem troca");
+    assert.ok(pronto.ancoras.length > 0 && pronto.ancoras.every(a => a.id && a.secao), "as partes com âncora, para o botão que leva a uma parte");
+    assert.deepEqual(pedidos, [], "no editor, o site não pede a versão publicada: quem manda o conteúdo é o painel");
+
+    const quadro = p.frameLocator("#q");
+    const mandar = m => p.evaluate(m => document.getElementById("q").contentWindow.postMessage({ rz: "meu-site", ...m }, "https://villa-alecrim.teste"), m);
+    const tituloInicial = await quadro.locator('[data-site="inicio.titulo"]').textContent();
+    await mandar({ tipo: "conteudo", conteudo: { esquema: 1, secoes: { inicio: { textos: { titulo: "Rascunho *ao vivo.*" } } } } });
+    await quadro.locator('[data-site="inicio.titulo"]', { hasText: "Rascunho ao vivo." }).waitFor();
+    await mandar({ tipo: "conteudo", conteudo: { esquema: 2 } }); // inválido: fica como estava
+    await mandar({ tipo: "foco", secao: "inicio", grupo: "textos", campo: "titulo" });
+    await quadro.locator('[data-site="inicio.titulo"].rz-ed-foco').waitFor();
+    await mandar({ tipo: "conteudo", conteudo: null }); // sem conteúdo: a versão inicial
+    await assert.doesNotReject(quadro.locator('[data-site="inicio.titulo"]').filter({ hasText: tituloInicial.trim() }).waitFor());
+
+    await quadro.locator('[data-site="inicio.titulo"]').click();
+    await quadro.locator('[data-site-botao="inicio.botao"]').first().click();
+    await p.waitForFunction(() => recebidas.filter(m => m.tipo === "clique").length === 2);
+    const cliques = await p.evaluate(() => recebidas.filter(m => m.tipo === "clique").map(({ secao, grupo, campo }) => ({ secao, grupo, campo })));
+    assert.deepEqual(cliques, [{ secao: "inicio", grupo: "textos", campo: "titulo" }, { secao: "inicio", grupo: "botoes", campo: "botao" }]);
+    assert.equal(new URL(p.frames()[1].url()).pathname, "/", "o clique no botão não tira o site do lugar");
+    assert.deepEqual(erros, []);
+
+    // fora de um quadro, ?rz-editor=1 não faz nada: o site é o de sempre e pede a versão publicada
+    const solto = await ctx.newPage();
+    await solto.goto(SITE + "?rz-editor=1");
+    await solto.waitForLoadState("networkidle");
+    assert.ok(pedidos.some(c => c.startsWith("/api/publico/site/")), "pede a versão publicada");
+  } finally { await ctx.close(); }
+});
+
+test("com o painel, o site deixa só o painel pôr ele num quadro (o editor ao vivo); sem o painel, ninguém de fora", () => {
+  assert.match(fs.readFileSync(path.join(site, "_headers"), "utf8"), /\n  Content-Security-Policy: frame-ancestors 'self' https:\/\/painel\.renderizaweb\.com\.br\n/);
+  assert.doesNotMatch(fs.readFileSync(path.join(site, "_headers"), "utf8"), /X-Frame-Options/);
+  const cabecalhos = JSON.parse(fs.readFileSync(path.join(site, "vercel.json"), "utf8")).headers[0].headers;
+  assert.deepEqual(cabecalhos.filter(h => /frame/i.test(h.key + h.value)), [{ key: "Content-Security-Policy", value: "frame-ancestors 'self' https://painel.renderizaweb.com.br" }]);
+});
+
 test("extrair: o conteúdo inicial sai no formato do contrato, válido, e aplicá-lo não muda nada", comNavegador, async () => {
   const { pagina, contexto } = await abrir({ painel: { status: 404 } });
   await espera(300);

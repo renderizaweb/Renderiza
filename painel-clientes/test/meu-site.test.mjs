@@ -23,11 +23,31 @@ test("nomes: as seções conhecidas, as galerias pela chamada e os campos por ex
   assert.equal(nomeDaSecao("inicio"), "Capa");
   assert.equal(nomeDaSecao("espaco", INICIAL.secoes.espaco), "Galeria · O espaço");
   assert.equal(nomeDaSecao("festas", { textos: { titulo: "Festas *aqui.*" } }), "Festas aqui.");
-  assert.equal(rotulo("textos", "eyebrow"), "Chamada acima do título");
+  assert.equal(rotulo("textos", "eyebrow"), "Chamada pequena, acima do título");
   assert.equal(rotulo("listas", "avaliacoes"), "Avaliações");
   assert.equal(rotulo("textos", "outro-campo"), "Outro campo");
   assert.equal(resumoDaSecao(INICIAL.secoes.inicio), "Festas no verde.");
   assert.equal(resumoDaSecao(INICIAL.secoes.estrutura), "1 item");
+});
+
+test("o editor ao vivo: onde a parte fica, o nome do item, o endereço do site e a orientação da foto", async () => {
+  const { ondeFica, nomeDoItem, resumoDoItem, enderecoDoSite, dicaDaFoto, imagemParaVer, linkDaPrevia } = await import("../src/modulos/meu-site/conteudo.js");
+  assert.match(ondeFica("cabecalho"), /barra presa no alto/);
+  assert.equal(ondeFica("parte-que-o-painel-nao-conhece"), "");
+  assert.equal(nomeDoItem("avaliacoes"), "avaliação");
+  assert.equal(nomeDoItem("infantil", [{ imagens: { foto: {} } }]), "foto", "lista só de fotos");
+  assert.equal(nomeDoItem("itens", [{ textos: { nome: "x" }, imagens: { foto: {} } }]), "item");
+  assert.equal(resumoDoItem({ textos: { nome: "Ana *Souza*", texto: "x" } }, 0, "avaliação"), "Ana Souza");
+  assert.equal(resumoDoItem({ imagens: { foto: {} } }, 2, "foto"), "Foto 3");
+  assert.equal(enderecoDoSite("estudio.com.br"), "https://estudio.com.br");
+  assert.equal(enderecoDoSite("localhost:4010"), "http://localhost:4010", "o site dos testes");
+  assert.equal(enderecoDoSite(""), "");
+  assert.equal(imagemParaVer("/img/a.jpg", ["localhost:4010"]), "http://localhost:4010/img/a.jpg");
+  assert.equal(linkDaPrevia(["estudio.com.br"], "abc"), "https://estudio.com.br/?rz-previa=abc");
+  assert.match(dicaDaFoto([300, 400]), /^Aqui a foto aparece em pé \(perto de 3:4\)\. Use uma com 800 px/);
+  assert.match(dicaDaFoto([900, 500]), /deitada \(perto de 16:9\)\. Use uma com 1\.600 px/, "no máximo 1600: é o que o painel guarda");
+  assert.match(dicaDaFoto([400, 400]), /aparece quadrada\. Use/);
+  assert.match(dicaDaFoto(undefined), /^O site corta as sobras sozinho/, "sem a medida do site: só o que vale sempre");
 });
 
 test("mesclar: o rascunho por cima da inicial, campo a campo; listas inteiras; o resto fica", () => {

@@ -1,19 +1,19 @@
-// Meu site (Missão 4, bloco C): o cliente edita o site pelo painel (03-modulo-meu-site.md). As seções vêm do mapa do
-// site (sites.conteudo_inicial); cada uma abre numa gaveta com os textos, os botões, as fotos e as listas dela. O que
-// se salva vai para o rascunho (sites_versoes, estado rascunho); "Ver no meu site" abre o site de verdade com o
-// rascunho (sites_previas); "Publicar" põe no ar em até 1 minuto. O histórico deixa voltar a qualquer versão ou à
-// versão inicial. Quem tem "editar" no Meu site publica (a regra do banco); "só vê" olha e não muda.
+// Meu site: o editor ao vivo (03-modulo-meu-site.md). À esquerda, as partes do site (o mapa é o sites.conteudo_inicial)
+// e os campos da parte aberta; à direita, o site de verdade num quadro (?rz-editor=1), que mostra o rascunho a cada
+// tecla e avisa onde a pessoa clicou (o script do site, ferramentas/meu-site/meu-site.js). O que muda vai sozinho para
+// o rascunho (sites_versoes, estado rascunho); "Publicar" põe no ar em até 1 minuto. As versões publicadas deixam
+// voltar a qualquer uma ou à versão entregue. Quem tem "editar" no Meu site muda e publica; "só vê" olha.
 // A validação é a mesma do site (meu-site.js, cópia de ferramentas/meu-site/meu-site.js, conferida por teste).
 
 import { icone } from "../../ui/icones.js";
-import { escapar, avisoDoFormulario, ocupado } from "../../ui/formulario.js";
-import { abrirGaveta } from "../../ui/gaveta.js";
+import { escapar } from "../../ui/formulario.js";
+import { confirmar } from "../../ui/gaveta.js";
 import { comEstados, vazio } from "../../ui/estados.js";
 import { campoTexto, campoArea, campoSelecao, interruptor } from "../../ui/campos.js";
 import { telefone, dataNumerica } from "../../ui/formatos.js";
 import {
-  ACOES, nomeDaSecao, rotulo, resumoDaSecao, mesclar, igual, novoItem, imagemParaVer, caminhoDaImagem,
-  enderecoDaImagem, linkDaPrevia, whatsappDoContrato,
+  ACOES, nomeDaSecao, ondeFica, rotulo, mesclar, igual, novoItem, nomeDoItem, resumoDoItem, dicaDaFoto, imagemParaVer,
+  caminhoDaImagem, enderecoDaImagem, enderecoDoSite, linkDaPrevia, whatsappDoContrato,
 } from "./conteudo.js";
 
 let validacao = null;
@@ -45,22 +45,31 @@ async function paraWebp(arquivo, lado = 1600) {
   return blob;
 }
 
+const CONTATO = "@contato"; // a parte que não é uma seção: o WhatsApp e as redes, que valem para o site todo
+const TELAS = { celular: 390, computador: 1280 };
 const etiqueta = (texto, tipo = "") => `<span class="rz-etiqueta${tipo ? ` rz-etiqueta--${tipo}` : ""}">${escapar(texto)}</span>`;
 const quando = iso => (iso ? `${dataNumerica(iso)} às ${new Date(iso).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}` : "");
-const MINIATURA = "width:132px;height:88px;object-fit:cover;border-radius:10px;background:var(--rz-fundo-2,#eee);display:block";
+const DESTINO = {
+  link: ["Endereço do link", "Comece com https://"], telefone: ["Telefone", "Com DDD. Em branco: o telefone do site."],
+  instagram: ["Perfil do Instagram", "Sem o @. Em branco: o Instagram do site."], rota: ["Endereço no mapa", "Rua, número e cidade."],
+  email: ["E-mail", ""], secao: ["Qual parte", "A parte da página para onde o botão leva."],
+};
 
 export async function montar(el, { banco, conta, pode, avisar, ambiente }) {
   const edita = pode("meu-site", "editar");
-  el.innerHTML = `
+  el.innerHTML = `<div class="rz-ms">
     <header class="rz-cabeca">
       <div class="rz-cabeca-titulos"><h1 class="rz-titulo-1">Meu site</h1>
-        <p class="rz-texto-2">Mude os textos, os botões e as fotos do site, veja como fica e publique.</p></div>
+        <p class="rz-texto-2">Clique numa parte do site, mude e veja na hora. Só vai ao ar quando você publicar.</p></div>
       <div class="rz-cabeca-acoes" data-acoes></div>
     </header>
-    <div data-corpo></div>`;
-  const corpo = el.querySelector("[data-corpo]");
-  const acoes = el.querySelector("[data-acoes]");
+    <div data-corpo></div></div>`;
+  const raiz = el.querySelector(".rz-ms"), corpo = el.querySelector("[data-corpo]"), acoes = el.querySelector("[data-acoes]");
   let site = null, inicial = {}, rascunho = null, historico = [], nomes = {};
+  let trabalho = null, aberta = null, tela = "celular";
+  let relogio = null, gravando = 0, fila = Promise.resolve(), problema = "";
+  let editor = null, quadro = null, palco = null, origemDoSite = "";
+  const ponte = { pronta: false, imagens: {}, ancoras: [] };
 
   const carregar = async () => {
     const sites = await banco.resultado(banco.tabela("sites").select("id, codigo, dominios, situacao, conteudo_inicial").eq("conta_id", conta.conta_id));
@@ -75,133 +84,241 @@ export async function montar(el, { banco, conta, pode, avisar, ambiente }) {
       const pessoas = await banco.resultado(banco.tabela("pessoas").select("id, nome").eq("conta_id", conta.conta_id));
       nomes = Object.fromEntries(pessoas.map(p => [p.id, p.nome]));
     } catch { nomes = {}; }
+    trabalho = mesclar(inicial, rascunho ? rascunho.conteudo : publicada() ? publicada().conteudo : {});
     return true;
   };
 
   const publicada = () => historico[0] || null;
-  /** O que está no ar e o que o editor mostra (o rascunho, ou o publicado se não há rascunho). */
+  /** O que está no ar: a versão inicial com a última publicada por cima. */
   const noAr = () => mesclar(inicial, publicada() ? publicada().conteudo : {});
-  const atual = () => mesclar(inicial, rascunho ? rascunho.conteudo : publicada() ? publicada().conteudo : {});
-  const pendente = () => Boolean(rascunho) && !igual(rascunho.conteudo, publicada() ? publicada().conteudo : {});
+  const pendente = () => Boolean(trabalho) && !igual(trabalho, noAr());
+  const dominio = () => (site && site.dominios || [])[0] || "";
 
-  // ---------- a tela ----------
-  const desenhar = ok => {
-    acoes.innerHTML = "";
-    if (!ok) {
-      corpo.innerHTML = `<div class="rz-cartao">${vazio({ icone: "site", titulo: "O seu site ainda não está ligado ao painel", texto: "Quando a Renderiza fizer a montagem do site, ele aparece aqui para você mudar os textos, os botões e as fotos." })}</div>`;
-      return;
-    }
-    if (!Object.keys(inicial.secoes || {}).length) {
-      corpo.innerHTML = `<div class="rz-cartao">${vazio({ icone: "site", titulo: "O conteúdo do site ainda não foi cadastrado", texto: "A Renderiza cadastra na montagem do site. Depois disso, é só editar aqui." })}</div>`;
-      return;
-    }
-    const a = atual(), ar = noAr(), p = publicada();
-    const dominio = (site.dominios || [])[0];
-    acoes.innerHTML = `
-      ${dominio ? `<a class="rz-botao" href="https://${escapar(dominio)}" target="_blank" rel="noopener">${icone("link", { tamanho: 18 })}Abrir o site</a>` : ""}
-      ${edita && dominio ? `<button class="rz-botao" type="button" data-previa>${icone("olho", { tamanho: 18 })}Ver no meu site</button>` : ""}
-      ${edita ? `<button class="rz-botao rz-botao--primario" type="button" data-publicar${pendente() ? "" : " disabled"}>Publicar</button>` : ""}`;
-    const situacao = site.situacao === "conectado" ? "" : `<p class="rz-alerta rz-alerta--aviso" role="note">${icone("alerta", { tamanho: 18 })}<span>${site.situacao === "versao_final"
-      ? "Este site já recebeu a versão final: ele não depende mais do painel e as mudanças daqui não aparecem nele."
-      : "O site está desconectado do painel: ele mostra a versão inicial. Para voltar, fale com a Renderiza."}</span></p>`;
-    // a regra da saída, à vista de quem publica (termos, cláusula 9; D37): o cliente sabe antes, não depois
-    const regra = site.situacao === "conectado" && edita ? `<p class="rz-alerta rz-alerta--info" role="note">${icone("alerta", { tamanho: 18 })}<span>Bom saber: o que você publica aqui aparece no site enquanto o Meu site estiver ativo. Se ele for desligado ou o painel cancelado, o site volta à versão entregue. Para manter as mudanças nos arquivos do site, a Renderiza faz a versão final, por até 3 mensalidades. <a href="/termos#site" target="_blank" rel="noopener">Ver nos termos</a></span></p>` : "";
-    const estado = p ? `No ar: versão ${p.numero}, publicada em ${escapar(quando(p.publicada_em))}${nomes[p.pessoa_id] ? ` por ${escapar(nomes[p.pessoa_id])}` : ""}.`
-      : "No ar: o site como foi entregue.";
-    const linhaSecao = id => {
-      const s = a.secoes[id], mudou = !igual(s, ar.secoes[id]);
-      const conteudo = `<span class="rz-linha-texto"><b>${escapar(nomeDaSecao(id, s))}</b><small>${escapar(resumoDaSecao(s) || " ")}</small></span>
-        <span class="rz-linha-fim">${s.visivel === false ? etiqueta("Escondida") : ""}${mudou ? etiqueta("Não publicado", "alerta") : ""}</span>`;
-      return `<li>${edita ? `<button class="rz-linha" type="button" data-secao="${escapar(id)}">${conteudo}${icone("editar", { tamanho: 18, classe: "rz-texto-3" })}</button>` : `<div class="rz-linha">${conteudo}</div>`}</li>`;
-    };
-    const c = a.contato || {};
-    const contato = `<li>${edita ? `<button class="rz-linha" type="button" data-contato>` : `<div class="rz-linha">`}<span class="rz-linha-texto"><b>Contato e WhatsApp</b>
-      <small>${escapar([c.whatsapp ? telefone(c.whatsapp.replace(/^55/, "")) : "", c.instagram ? "@" + c.instagram : ""].filter(Boolean).join(" · ") || "Sem contato")}</small></span>
-      <span class="rz-linha-fim">${!igual(a.contato, ar.contato) ? etiqueta("Não publicado", "alerta") : ""}</span>${edita ? `${icone("editar", { tamanho: 18, classe: "rz-texto-3" })}</button>` : "</div>"}</li>`;
-    corpo.innerHTML = `
-      ${situacao}${regra}
-      ${!edita ? `<p class="rz-alerta" role="note">${icone("cadeado", { tamanho: 18 })}<span>Você só vê o Meu site. Quem muda e publica é o dono ou quem ele deixar.</span></p>` : ""}
-      <p class="rz-texto-2" data-estado style="margin-bottom:var(--rz-6)">${estado}${pendente() ? ` ${etiqueta("Há mudanças no rascunho", "alerta")}` : ""}</p>
-      <section class="rz-secao"><h2 class="rz-titulo-3">As partes do site</h2>
-        <ul class="rz-cartao rz-linhas">${Object.keys(a.secoes).map(linhaSecao).join("")}${contato}</ul></section>
-      <section class="rz-secao"><h2 class="rz-titulo-3">Versões publicadas</h2>
-        ${historico.length ? `<ul class="rz-cartao rz-linhas">${historico.map((v, i) => `<li><div class="rz-linha"><span class="rz-linha-texto"><b>Versão ${v.numero}${i === 0 ? " · no ar" : ""}</b>
-          <small>${escapar(quando(v.publicada_em))}${nomes[v.pessoa_id] ? " · " + escapar(nomes[v.pessoa_id]) : ""}</small></span>
-          ${edita && i > 0 ? `<span class="rz-linha-fim"><button class="rz-botao rz-botao--pequeno" type="button" data-usar="${escapar(v.id)}">Usar esta</button></span>` : ""}</div></li>`).join("")}</ul>`
-          : `<p class="rz-texto-3">Nada publicado ainda: o site está como foi entregue.</p>`}
-        ${edita ? `<p class="rz-texto-3" style="margin-top:12px"><button class="rz-link" type="button" data-inicial>Voltar ao site como foi entregue</button> (vai para o rascunho; publique para valer).</p>` : ""}
-      </section>`;
-  };
-
-  const atualizar = () => comEstados(corpo, { carregar, desenhar });
-
-  // ---------- gravar o rascunho ----------
+  // ---------- o rascunho: grava sozinho, pouco depois da última mudança ----------
   async function gravarRascunho(conteudo) {
-    const v = await carregarValidacao();
-    const erros = v.validar(conteudo);
-    if (erros.length) throw new Error("Confira: " + erros.slice(0, 3).join("; ") + ".");
+    const erros = (await carregarValidacao()).validar(conteudo);
+    if (erros.length) {
+      const [onde, oQue] = erros[0].split(": "), secao = onde.split(".")[1];
+      throw Object.assign(new Error(`${secao && conteudo.secoes[secao] ? nomeDaSecao(secao, conteudo.secoes[secao]) + ": " : ""}${oQue || erros[0]}`), { doConteudo: true });
+    }
     if (rascunho) {
       await banco.resultado(banco.tabela("sites_versoes").update({ conteudo }).eq("id", rascunho.id));
+      rascunho = { ...rascunho, conteudo };
     } else {
-      await banco.resultado(banco.tabela("sites_versoes").insert({ conta_id: conta.conta_id, site_id: site.id, conteudo }));
+      [rascunho] = await banco.resultado(banco.tabela("sites_versoes").insert({ conta_id: conta.conta_id, site_id: site.id, conteudo }).select("id, numero, estado, conteudo"));
     }
   }
 
-  async function trocarRascunho(conteudo, mensagem) {
-    const antes = rascunho ? rascunho.conteudo : null;
-    await gravarRascunho(conteudo);
-    await atualizar();
-    avisar(mensagem, {
-      desfazer: async () => {
-        await gravarRascunho(antes || (publicada() ? publicada().conteudo : { esquema: 1, secoes: {} }));
-        await atualizar();
-      },
+  /** Grava o `trabalho` no rascunho, uma gravação por vez. Devolve a promessa da fila (pronta = tudo gravado). */
+  function salvar() {
+    clearTimeout(relogio); relogio = null;
+    gravando += 1;
+    fila = fila.then(async () => {
+      try {
+        await gravarRascunho(trabalho);
+        problema = "";
+      } catch (e) {
+        problema = e.doConteudo ? e.message : "Não salvou (" + e.message + "). Tento de novo na próxima mudança.";
+      } finally {
+        gravando -= 1;
+        situacao();
+      }
     });
+    return fila;
   }
 
-  // ---------- a gaveta de uma seção ----------
-  const campoDeImagem = (nome, img, rot, prefixo) => `
-    <div class="rz-campo" data-imagem="${escapar(nome)}">
+  /** Algo mudou no `trabalho`: o site mostra já e o rascunho grava logo depois. */
+  function mudou() {
+    mostrarNoSite();
+    clearTimeout(relogio);
+    relogio = setTimeout(salvar, 900);
+    situacao();
+  }
+
+  /** Troca o rascunho inteiro (uma versão antiga, a versão entregue, descartar) e volta para a lista. */
+  async function trocarTudo(conteudo, mensagem) {
+    clearTimeout(relogio); relogio = null;
+    await fila;
+    trabalho = mesclar(inicial, conteudo);
+    try {
+      await gravarRascunho(trabalho);
+      problema = "";
+      avisar(mensagem);
+    } catch (e) { avisar(e.message, { tipo: "erro" }); }
+    aberta = null;
+    desenharEditor(); mostrarNoSite(); situacao(); mostrarAba("editar");
+  }
+
+  // ---------- o que está no alto: a situação, descartar e publicar ----------
+  function situacao() {
+    const st = acoes.querySelector("[data-situacao]");
+    if (!st) return;
+    const p = publicada(), falta = pendente();
+    st.textContent = problema ? `Confira: ${problema}` : relogio || gravando ? "Salvando…" : falta ? "Rascunho salvo. Falta publicar."
+      : p ? `No ar: versão ${p.numero}, de ${quando(p.publicada_em)}.` : "No ar: o site como foi entregue.";
+    st.dataset.tom = problema ? "erro" : falta ? "alerta" : "";
+    const pub = acoes.querySelector("[data-publicar]"), desc = acoes.querySelector("[data-descartar]");
+    if (pub) pub.disabled = !falta || Boolean(problema);
+    if (desc) desc.hidden = !falta;
+    if (editor && aberta === null) marcarAlteradas();
+  }
+
+  async function publicar(botao) {
+    botao.disabled = true;
+    await salvar();
+    if (problema || !rascunho) return situacao();
+    try {
+      await banco.resultado(banco.tabela("sites_versoes").update({ estado: "publicada" }).eq("id", rascunho.id));
+      await carregar();
+      desenharVersoes();
+      avisar("Publicado. Aparece no site em até 1 minuto.");
+    } catch (e) { avisar(e.message, { tipo: "erro" }); }
+    situacao();
+  }
+
+  async function verEmOutraAba() {
+    const janela = window.open("", "_blank"); // abre já, para o navegador não bloquear
+    try {
+      await salvar();
+      if (!rascunho || !pendente()) { if (janela) janela.location = enderecoDoSite(dominio()); return; }
+      const [p] = await banco.resultado(banco.tabela("sites_previas").insert({ conta_id: conta.conta_id, site_id: site.id, versao_id: rascunho.id }).select("codigo"));
+      if (janela) { janela.opener = null; janela.location = linkDaPrevia(site.dominios, p.codigo); }
+    } catch (e) {
+      if (janela) janela.close();
+      avisar(e.message, { tipo: "erro" });
+    }
+  }
+
+  // ---------- a conversa com o site (o quadro) ----------
+  const dizer = m => { if (ponte.pronta && quadro && quadro.contentWindow) quadro.contentWindow.postMessage({ rz: "meu-site", ...m }, origemDoSite); };
+  const mostrarNoSite = () => dizer({ tipo: "conteudo", conteudo: trabalho });
+  let ultimoAlvo = null;
+  const destacar = alvo => { ultimoAlvo = alvo; dizer({ tipo: "foco", ...alvo }); };
+
+  function aoReceber(ev) {
+    const d = ev.data;
+    if (!quadro || ev.source !== quadro.contentWindow || ev.origin !== origemDoSite || !d || d.rz !== "meu-site") return;
+    if (d.tipo === "pronto" || d.tipo === "medidas") {
+      ponte.pronta = true;
+      ponte.imagens = d.imagens || {};
+      ponte.ancoras = Array.isArray(d.ancoras) ? d.ancoras : [];
+      corpo.querySelector("[data-sem-ponte]").hidden = true;
+      if (d.tipo === "pronto") mostrarNoSite();
+      corpo.querySelectorAll("[data-dica-foto]").forEach(p => { p.textContent = dicaDaFoto(ponte.imagens[p.dataset.dicaFoto]); });
+    } else if (d.tipo === "clique" && edita && typeof d.secao === "string" && trabalho.secoes[d.secao]) {
+      raiz.classList.remove("rz-ms--vendo");
+      abrirParte(d.secao, d);
+    }
+  }
+
+  /** O quadro no tamanho de um celular ou de um computador, encolhido para caber no palco. */
+  function ajustar() {
+    // no computador, as duas colunas têm a altura que sobra na janela: a da esquerda rola sozinha e o alto não some
+    const grade = corpo.querySelector(".rz-ms-grade");
+    if (grade) grade.style.setProperty("--rz-ms-altura", Math.max(420, window.innerHeight - (grade.getBoundingClientRect().top + window.scrollY) - 24) + "px");
+    if (!palco || !palco.clientWidth) return;
+    const largura = TELAS[tela], escala = Math.min(1, palco.clientWidth / largura);
+    quadro.style.width = largura + "px";
+    quadro.style.height = Math.round(palco.clientHeight / escala) + "px";
+    quadro.style.transform = `scale(${escala})`;
+    quadro.style.left = Math.max(0, Math.round((palco.clientWidth - largura * escala) / 2)) + "px";
+  }
+  const olharPalco = new ResizeObserver(ajustar);
+
+  // ---------- os campos ----------
+  const chaveDaFoto = (secao, campo, lista) => (lista ? `${secao}.${lista}.${campo}` : `${secao}.${campo}`);
+  const miniatura = src => (imagemParaVer(src, site.dominios) ? `<img class="rz-ms-mini" src="${escapar(imagemParaVer(src, site.dominios))}" alt="" data-miniatura>` : `<span class="rz-ms-mini" data-miniatura></span>`);
+
+  const campoDeFoto = (prefixo, img, rot, chave, original) => `
+    <div class="rz-campo rz-ms-foto" data-imagem="${escapar(prefixo)}">
       <span class="rz-rotulo">${escapar(rot)}</span>
-      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
-        ${imagemParaVer(img.src, site.dominios) ? `<img src="${escapar(imagemParaVer(img.src, site.dominios))}" alt="" style="${MINIATURA}" data-miniatura>` : `<span style="${MINIATURA}" data-miniatura></span>`}
-        <label class="rz-botao rz-botao--pequeno">${icone("imagem", { tamanho: 16 })}Trocar a foto<input type="file" accept="image/png,image/jpeg,image/webp" data-enviar hidden></label>
-      </div>
+      <div class="rz-ms-foto-linha">${miniatura(img.src)}
+        <div class="rz-pilha-p">
+          <label class="rz-botao rz-botao--pequeno">${icone("imagem", { tamanho: 16 })}Trocar a foto<input type="file" accept="image/png,image/jpeg,image/webp" data-enviar hidden></label>
+          ${original !== undefined ? `<button class="rz-link" type="button" data-original="${escapar(original)}"${img.src === original ? " hidden" : ""}>Voltar à foto original</button>` : ""}
+        </div></div>
+      <p class="rz-ajuda" data-dica-foto="${escapar(chave)}">${escapar(dicaDaFoto(ponte.imagens[chave]))}</p>
       <input type="hidden" name="${prefixo}:src" value="${escapar(img.src || "")}">
-    </div>
-    ${campoTexto({ id: `${prefixo}-alt`, nome: `${prefixo}:alt`, rotulo: "Descrição da foto", valor: img.alt || "", opcional: true, ajuda: "Para quem não enxerga e para o Google. Ex.: Salão montado para casamento." })}`;
+      ${campoTexto({ id: `${prefixo}-alt`, nome: `${prefixo}:alt`, rotulo: "O que aparece na foto", valor: img.alt || "", opcional: true, ajuda: "Para quem não enxerga e para o Google. Ex.: Bebê dormindo num cesto.", extra: { maxlength: 200 } })}
+    </div>`;
+
+  function campoDoDestino(pre, b) {
+    const [rot, ajuda] = DESTINO[b.acao] || ["Para onde", ""];
+    if (b.acao === "secao" && ponte.ancoras.length) {
+      const opcoes = ponte.ancoras.map(a => ({ valor: a.id, rotulo: nomeDaSecao(a.secao, trabalho.secoes[a.secao]) }));
+      if (b.destino && !opcoes.some(o => o.valor === b.destino)) opcoes.push({ valor: b.destino, rotulo: b.destino });
+      return campoSelecao({ id: `${pre}-destino`, nome: `${pre}:destino`, rotulo: rot, valor: b.destino || "", opcoes, ajuda });
+    }
+    return campoTexto({ id: `${pre}-destino`, nome: `${pre}:destino`, rotulo: rot, valor: b.destino || "", opcional: b.acao !== "link" && b.acao !== "secao", ajuda, extra: { maxlength: 300 } });
+  }
 
   const formBotao = (campo, b) => {
     const pre = `b:${campo}`;
-    return `<fieldset class="rz-campo rz-pilha" style="border:1px solid var(--rz-linha,#e6e4df);border-radius:14px;padding:14px">
+    return `<fieldset class="rz-ms-caixa rz-pilha" data-botao="${escapar(campo)}">
       <legend class="rz-rotulo">${escapar(rotulo("botoes", campo))}</legend>
-      ${campoTexto({ id: `${pre}-rotulo`, nome: `${pre}:rotulo`, rotulo: "O que está escrito", valor: b.rotulo || "" })}
-      ${b.acao ? `${campoSelecao({ id: `${pre}-acao`, nome: `${pre}:acao`, rotulo: "O que faz", valor: b.acao, opcoes: ACOES })}
-      ${campoTexto({ id: `${pre}-destino`, nome: `${pre}:destino`, rotulo: "Para onde", valor: b.destino || "", opcional: true, ajuda: "Link: comece com https://. Parte da página: o nome dela (ex.: estrutura). Telefone: com DDD. Em branco: o contato do site." })}
-      ${campoArea({ id: `${pre}-mensagem`, nome: `${pre}:mensagem`, rotulo: "Mensagem pronta do WhatsApp", valor: b.mensagem || "", opcional: true, linhas: 2, ajuda: "Em branco: a mensagem do contato do site." })}` : ""}
-      ${interruptor({ nome: `${pre}:visivel`, rotulo: "Aparece no site", marcado: b.visivel !== false })}
+      ${campoTexto({ id: `${pre}-rotulo`, nome: `${pre}:rotulo`, rotulo: "O que está escrito", valor: b.rotulo || "", extra: { maxlength: 60 } })}
+      ${b.acao ? `${campoSelecao({ id: `${pre}-acao`, nome: `${pre}:acao`, rotulo: "O que acontece ao clicar", valor: b.acao, opcoes: ACOES })}
+      <div data-destino${b.acao === "whatsapp" ? " hidden" : ""}>${campoDoDestino(pre, b)}</div>
+      <div data-mensagem${b.acao === "whatsapp" ? "" : " hidden"}>${campoArea({ id: `${pre}-mensagem`, nome: `${pre}:mensagem`, rotulo: "Mensagem que já vai escrita", valor: b.mensagem || "", opcional: true, linhas: 2, ajuda: "Em branco: a mensagem de \"WhatsApp e redes\"." })}</div>` : ""}
+      ${interruptor({ nome: `${pre}:visivel`, rotulo: "Este botão aparece no site", marcado: b.visivel !== false })}
     </fieldset>`;
   };
 
-  const itemDeLista = (campo, it, i) => `
-    <li data-item${it.de !== undefined ? ` data-de="${it.de}"` : ""} class="rz-pilha-p" style="border:1px solid var(--rz-linha,#e6e4df);border-radius:14px;padding:12px">
-      ${Object.entries(it.textos || {}).map(([k, v]) => k === "texto" && campo !== "itens" && campo !== "tipos" && campo !== "numeros"
-        ? campoArea({ id: `l-${campo}-${i}-${k}`, nome: `l:${k}`, rotulo: rotulo("item", k), valor: v || "", linhas: 3 })
-        : campoTexto({ id: `l-${campo}-${i}-${k}`, nome: `l:${k}`, rotulo: rotulo("item", k), valor: v || "" })).join("")}
-      ${Object.entries(it.imagens || {}).map(([k, img]) => campoDeImagem(`${campo}-${i}-${k}`, img, rotulo("item", k), `li:${k}`)).join("")}
-      <div class="rz-cabeca-acoes">
-        <button class="rz-botao rz-botao--pequeno rz-botao--fantasma" type="button" data-subir aria-label="Subir">↑</button>
-        <button class="rz-botao rz-botao--pequeno rz-botao--fantasma" type="button" data-descer aria-label="Descer">↓</button>
-        <button class="rz-botao rz-botao--pequeno rz-botao--fantasma" type="button" data-tirar>${icone("lixo", { tamanho: 16 })}Tirar</button>
-      </div>
-    </li>`;
+  const itemDeLista = (secao, campo, it, i, nome, aberto = false) => {
+    const foto = Object.values(it.imagens || {})[0];
+    return `<li data-item${it.de !== undefined ? ` data-de="${it.de}"` : ""}><details class="rz-ms-item"${aberto ? " open" : ""}>
+      <summary>${foto ? miniatura(foto.src) : ""}<span class="rz-ms-item-nome" data-resumo>${escapar(resumoDoItem(it, i, nome))}</span>
+        <span class="rz-ms-item-acoes">
+          <button class="rz-botao rz-botao--pequeno rz-botao--fantasma" type="button" data-subir aria-label="Subir">↑</button>
+          <button class="rz-botao rz-botao--pequeno rz-botao--fantasma" type="button" data-descer aria-label="Descer">↓</button>
+          <button class="rz-botao rz-botao--pequeno rz-botao--fantasma" type="button" data-tirar aria-label="Tirar">${icone("lixo", { tamanho: 16 })}</button>
+        </span></summary>
+      <div class="rz-pilha-p">
+        ${Object.entries(it.textos || {}).map(([k, v]) => (k === "texto" && campo !== "itens" && campo !== "tipos" && campo !== "numeros"
+          ? campoArea({ id: `l-${campo}-${i}-${k}`, nome: `l:${k}`, rotulo: rotulo("item", k), valor: v || "", linhas: 3 })
+          : campoTexto({ id: `l-${campo}-${i}-${k}`, nome: `l:${k}`, rotulo: rotulo("item", k), valor: v || "", extra: { maxlength: 600 } }))).join("")}
+        ${Object.entries(it.imagens || {}).map(([k, img]) => campoDeFoto(`li:${k}`, img, rotulo("item", k), chaveDaFoto(secao, k, campo))).join("")}
+      </div></details></li>`;
+  };
 
+  function formDaSecao(id) {
+    const s = trabalho.secoes[id], ini = (inicial.secoes || {})[id] || {};
+    const grupo = (titulo, html) => (html ? `<fieldset class="rz-ms-grupo rz-pilha"><legend class="rz-titulo-3">${titulo}</legend>${html}</fieldset>` : "");
+    return `<form class="rz-pilha" id="form-secao" novalidate>
+      ${id !== "inicio" ? interruptor({ nome: "visivel", rotulo: "Esta parte aparece no site", marcado: s.visivel !== false }) : ""}
+      ${grupo("Textos", Object.entries(s.textos || {}).map(([k, v]) => (String(v).length > 90 || k === "texto"
+        ? campoArea({ id: `t-${k}`, nome: `t:${k}`, rotulo: rotulo("textos", k), valor: v, linhas: 3 })
+        : campoTexto({ id: `t-${k}`, nome: `t:${k}`, rotulo: rotulo("textos", k), valor: v, extra: { maxlength: 600 }, ajuda: k === "titulo" ? "Para destacar um trecho, ponha entre asteriscos: *assim*." : "" }))).join(""))}
+      ${grupo("Fotos", Object.entries(s.imagens || {}).map(([k, img]) => campoDeFoto(`i:${k}`, img, rotulo("imagens", k), chaveDaFoto(id, k), ((ini.imagens || {})[k] || {}).src || "")).join(""))}
+      ${grupo("Botões", Object.entries(s.botoes || {}).map(([k, b]) => formBotao(k, b)).join(""))}
+      ${Object.entries(s.listas || {}).map(([campo, itens]) => {
+        const nome = nomeDoItem(campo, itens);
+        return `<fieldset class="rz-ms-grupo rz-pilha" data-lista="${escapar(campo)}" data-nome="${escapar(nome)}">
+          <legend class="rz-titulo-3">${escapar(rotulo("listas", campo))}</legend>
+          <p class="rz-ajuda">Toque num item para abrir e mudar. As setas mudam a ordem; a lixeira tira do site.</p>
+          <ol class="rz-ms-itens" data-itens>${itens.map((it, i) => itemDeLista(id, campo, it, i, nome)).join("")}</ol>
+          ${itens.length ? `<div><button class="rz-botao rz-botao--pequeno" type="button" data-adicionar>${icone("adicionar", { tamanho: 16 })}Adicionar ${escapar(nome)}</button></div>` : ""}
+        </fieldset>`;
+      }).join("")}
+    </form>`;
+  }
+
+  function formDoContato() {
+    const c = trabalho.contato || {};
+    return `<form class="rz-pilha" id="form-contato" novalidate>
+      ${campoTexto({ id: "c-zap", nome: "whatsapp", rotulo: "WhatsApp", valor: c.whatsapp ? telefone(c.whatsapp.replace(/^55/, "")) : "", tipo: "tel", teclado: "tel", placeholder: "(11) 98888-7777" })}
+      ${campoArea({ id: "c-msg", nome: "mensagem", rotulo: "Mensagem que já vai escrita no WhatsApp", valor: c.mensagem || "", opcional: true, linhas: 2 })}
+      ${campoTexto({ id: "c-ig", nome: "instagram", rotulo: "Instagram", valor: c.instagram || "", opcional: true, placeholder: "usuario (sem o @)" })}
+      ${campoTexto({ id: "c-tel", nome: "telefone", rotulo: "Telefone", valor: c.telefone ? telefone(c.telefone.replace(/^55/, "")) : "", tipo: "tel", teclado: "tel", opcional: true, ajuda: "O número que aparece escrito no site." })}
+    </form>`;
+  }
+
+  /** O que está nos campos da parte aberta, no formato do contrato. */
   function lerSecao(form, id) {
-    const s = {};
+    const a = trabalho.secoes[id], s = {};
     const valor = nome => { const c = form.querySelector(`[name="${CSS.escape(nome)}"]`); return c ? c.value : undefined; };
     const marcado = nome => { const c = form.querySelector(`[name="${CSS.escape(nome)}"]`); return c ? c.checked : undefined; };
     if (form.querySelector('[name="visivel"]')) s.visivel = marcado("visivel");
-    const a = atual().secoes[id];
     if (a.textos) s.textos = Object.fromEntries(Object.keys(a.textos).map(k => [k, valor(`t:${k}`) ?? a.textos[k]]));
     if (a.imagens) s.imagens = Object.fromEntries(Object.keys(a.imagens).map(k => [k, { src: valor(`i:${k}:src`), alt: valor(`i:${k}:alt`) }]));
     if (a.botoes) {
@@ -211,7 +328,7 @@ export async function montar(el, { banco, conta, pode, avisar, ambiente }) {
         if (acao) {
           b.acao = acao;
           const destino = (valor(`b:${k}:destino`) || "").trim(), mensagem = (valor(`b:${k}:mensagem`) || "").trim();
-          if (destino) b.destino = destino;
+          if (destino && acao !== "whatsapp") b.destino = destino;
           if (mensagem && acao === "whatsapp") b.mensagem = mensagem;
         }
         return [k, b];
@@ -234,188 +351,295 @@ export async function montar(el, { banco, conta, pode, avisar, ambiente }) {
     return s;
   }
 
-  /** Liga o "Trocar a foto" e devolve o que espera os envios em andamento (salvar antes perderia a foto nova). */
-  function ligarImagens(raiz, secao) {
-    const enviando = new Set();
-    raiz.addEventListener("change", ev => {
-      const entrada = ev.target.closest("[data-enviar]");
-      if (!entrada || !entrada.files[0]) return;
-      const envio = enviarFoto(entrada, secao);
-      enviando.add(envio);
-      envio.finally(() => enviando.delete(envio));
-    });
-    return () => Promise.all([...enviando]);
+  function lerContato(form) {
+    const d = Object.fromEntries(new FormData(form)), contato = {};
+    const zap = whatsappDoContrato(d.whatsapp), tel = whatsappDoContrato(d.telefone);
+    if (zap) contato.whatsapp = zap;
+    if (d.mensagem.trim()) contato.mensagem = d.mensagem.trim();
+    if (d.instagram.trim()) contato.instagram = d.instagram.trim().replace(/^@/, "");
+    if (tel) contato.telefone = tel;
+    return contato;
   }
 
-  async function enviarFoto(entrada, secao) {
-    const bloco = entrada.closest("[data-imagem]");
-    const rotuloBotao = entrada.closest("label");
-    rotuloBotao.classList.add("rz-abrindo");
+  /** Leva o que está nos campos para o `trabalho` (e daí para o site e o rascunho). */
+  function colher() {
+    const form = editor.querySelector("form");
+    if (!form || aberta === null) return;
+    const novo = aberta === CONTATO ? { ...trabalho, contato: lerContato(form) } : { ...trabalho, secoes: { ...trabalho.secoes, [aberta]: lerSecao(form, aberta) } };
+    if (igual(novo, trabalho)) return; // sair de um campo sem mudar nada não regrava (nem mexe na tela)
+    trabalho = novo;
+    if (aberta !== CONTATO) {
+      form.querySelectorAll("[data-lista]").forEach(lista => lista.querySelectorAll("[data-item]").forEach((li, i) => {
+        li.querySelector("[data-resumo]").textContent = resumoDoItem(trabalho.secoes[aberta].listas[lista.dataset.lista][i], i, lista.dataset.nome);
+      }));
+    }
+    mudou();
+  }
+
+  async function enviarFoto(entrada) {
+    const bloco = entrada.closest("[data-imagem]"), botao = entrada.closest("label");
+    botao.classList.add("rz-ms-enviando");
     try {
       const blob = await paraWebp(entrada.files[0]);
-      const caminho = caminhoDaImagem(conta.conta_id, secao, bloco.dataset.imagem);
+      const caminho = caminhoDaImagem(conta.conta_id, aberta, bloco.dataset.imagem);
       await banco.enviarArquivo("site-imagens", caminho, blob, "image/webp", { trocar: false });
-      const src = enderecoDaImagem(caminho, { ambiente, origem: location.origin });
-      bloco.querySelector('input[type="hidden"]').value = src;
-      const mini = bloco.querySelector("[data-miniatura]");
-      const img = document.createElement("img");
+      bloco.querySelector('input[type="hidden"]').value = enderecoDaImagem(caminho, { ambiente, origem: location.origin });
       // data: e não blob: (a CSP do painel só aceita imagem de data: e https:)
-      img.src = await new Promise(r => { const f = new FileReader(); f.onload = () => r(f.result); f.readAsDataURL(blob); });
-      img.alt = ""; img.setAttribute("style", MINIATURA); img.dataset.miniatura = "";
-      mini.replaceWith(img);
+      const src = await new Promise(r => { const f = new FileReader(); f.onload = () => r(f.result); f.readAsDataURL(blob); });
+      trocarMiniatura(bloco, src);
+      const original = bloco.querySelector("[data-original]");
+      if (original) original.hidden = false;
+      colher();
     } catch (e) {
       avisar(e.message || "A foto não subiu. Tente de novo.", { tipo: "erro" });
     } finally {
-      rotuloBotao.classList.remove("rz-abrindo");
+      botao.classList.remove("rz-ms-enviando");
       entrada.value = "";
     }
   }
 
-  function abrirSecao(id) {
-    const s = atual().secoes[id];
-    const formulario = `<form class="rz-pilha" id="form-secao" novalidate><div role="alert" hidden></div>
-      ${id !== "inicio" ? interruptor({ nome: "visivel", rotulo: "Esta parte aparece no site", marcado: s.visivel !== false }) : ""}
-      ${Object.entries(s.textos || {}).map(([k, v]) => (String(v).length > 90 || k === "texto"
-        ? campoArea({ id: `t-${k}`, nome: `t:${k}`, rotulo: rotulo("textos", k), valor: v, linhas: 3 })
-        : campoTexto({ id: `t-${k}`, nome: `t:${k}`, rotulo: rotulo("textos", k), valor: v, ajuda: k === "titulo" ? "Para destacar um trecho, ponha entre asteriscos: *no meio do verde.*" : "" }))).join("")}
-      ${Object.entries(s.imagens || {}).map(([k, img]) => campoDeImagem(k, img, rotulo("imagens", k), `i:${k}`)).join("")}
-      ${Object.entries(s.botoes || {}).map(([k, b]) => formBotao(k, b)).join("")}
-      ${Object.entries(s.listas || {}).map(([campo, itens]) => `<fieldset class="rz-campo" data-lista="${escapar(campo)}">
-        <legend class="rz-rotulo">${escapar(rotulo("listas", campo))}</legend>
-        <ol class="rz-pilha-p" style="list-style:none;padding:0;margin:0" data-itens>${itens.map((it, i) => itemDeLista(campo, it, i)).join("")}</ol>
-        ${itens.length ? `<div><button class="rz-botao rz-botao--pequeno" type="button" data-adicionar>${icone("adicionar", { tamanho: 16 })}Adicionar</button></div>` : ""}
-      </fieldset>`).join("")}
-    </form>`;
-    const g = abrirGaveta({
-      titulo: nomeDaSecao(id, s),
-      subtitulo: "O que mudar aqui vai para o rascunho. Publique para aparecer no site.",
-      corpo: formulario,
-      rodape: `<button class="rz-botao" type="button" data-fechar>Voltar</button><button class="rz-botao rz-botao--primario" type="submit" form="form-secao">Salvar no rascunho</button>`,
-    });
-    const form = g.corpo.querySelector("form");
-    const esperarFotos = ligarImagens(form, id);
-    form.addEventListener("click", ev => {
-      const item = ev.target.closest("[data-item]");
-      if (ev.target.closest("[data-tirar]") && item) {
-        if (item.parentElement.children.length > 1) item.remove();
-        else avisar("A lista precisa de pelo menos um item. Para esconder, desligue a parte inteira.", { tipo: "erro" });
-      } else if (ev.target.closest("[data-subir]") && item && item.previousElementSibling) {
-        item.parentElement.insertBefore(item, item.previousElementSibling);
-      } else if (ev.target.closest("[data-descer]") && item && item.nextElementSibling) {
-        item.parentElement.insertBefore(item.nextElementSibling, item);
-      } else if (ev.target.closest("[data-adicionar]")) {
-        const lista = ev.target.closest("[data-lista]"), campo = lista.dataset.lista;
-        const ol = lista.querySelector("[data-itens]");
-        if (ol.children.length >= 60) return avisar("No máximo 60 itens.", { tipo: "erro" });
-        const atuais = lerSecao(form, id).listas[campo];
-        ol.insertAdjacentHTML("beforeend", itemDeLista(campo, novoItem(atuais), ol.children.length + Date.now() % 1000));
-        ol.lastElementChild.querySelector("input, textarea")?.focus();
-      }
-    });
-    form.addEventListener("submit", async ev => {
-      ev.preventDefault();
-      const botao = g.pe.querySelector("[type=submit]");
-      ocupado(botao, true, "Salvando…");
-      try {
-        await esperarFotos();
-        const a = atual();
-        await trocarRascunho({ ...a, secoes: { ...a.secoes, [id]: lerSecao(form, id) } }, "Salvo no rascunho. Publique para aparecer no site.");
-        g.fechar();
-      } catch (e) {
-        ocupado(botao, false);
-        avisoDoFormulario(form.querySelector("[role=alert]"), e.message);
-      }
+  function trocarMiniatura(bloco, src) {
+    const img = document.createElement("img");
+    img.className = "rz-ms-mini"; img.alt = ""; img.dataset.miniatura = ""; img.src = src;
+    bloco.querySelector("[data-miniatura]").replaceWith(img);
+    const doItem = bloco.closest("[data-item]");
+    if (doItem && doItem.querySelector("summary [data-miniatura]")) doItem.querySelector("summary [data-miniatura]").replaceWith(img.cloneNode());
+  }
+
+  // ---------- a coluna da esquerda: a lista das partes ou a parte aberta ----------
+  function marcarAlteradas() {
+    const ar = noAr();
+    editor.querySelectorAll("[data-secao]").forEach(b => {
+      const id = b.dataset.secao, mudou = id === CONTATO ? !igual(trabalho.contato, ar.contato) : !igual(trabalho.secoes[id], ar.secoes[id]);
+      b.querySelector("[data-marcas]").innerHTML = `${id !== CONTATO && trabalho.secoes[id].visivel === false ? etiqueta("Escondida") : ""}${mudou ? etiqueta("Alterada", "alerta") : ""}`;
     });
   }
 
-  function abrirContato() {
-    const c = atual().contato || {};
-    const g = abrirGaveta({
-      titulo: "Contato e WhatsApp",
-      subtitulo: "Vale para todos os botões de WhatsApp e Instagram do site.",
-      corpo: `<form class="rz-pilha" id="form-contato" novalidate><div role="alert" hidden></div>
-        ${campoTexto({ id: "c-zap", nome: "whatsapp", rotulo: "WhatsApp", valor: c.whatsapp ? telefone(c.whatsapp.replace(/^55/, "")) : "", tipo: "tel", teclado: "tel", placeholder: "(11) 98888-7777" })}
-        ${campoArea({ id: "c-msg", nome: "mensagem", rotulo: "Mensagem pronta do WhatsApp", valor: c.mensagem || "", opcional: true, linhas: 2 })}
-        ${campoTexto({ id: "c-ig", nome: "instagram", rotulo: "Instagram", valor: c.instagram || "", opcional: true, placeholder: "usuario (sem o @)" })}
-        ${campoTexto({ id: "c-tel", nome: "telefone", rotulo: "Telefone", valor: c.telefone ? telefone(c.telefone.replace(/^55/, "")) : "", tipo: "tel", teclado: "tel", opcional: true, ajuda: "O número escrito em \"Como chegar\"." })}
-      </form>`,
-      rodape: `<button class="rz-botao" type="button" data-fechar>Voltar</button><button class="rz-botao rz-botao--primario" type="submit" form="form-contato">Salvar no rascunho</button>`,
-    });
-    const form = g.corpo.querySelector("form");
-    form.addEventListener("submit", async ev => {
-      ev.preventDefault();
-      const botao = g.pe.querySelector("[type=submit]");
-      ocupado(botao, true, "Salvando…");
-      const d = Object.fromEntries(new FormData(form));
-      const contato = {};
-      const zap = whatsappDoContrato(d.whatsapp), tel = whatsappDoContrato(d.telefone);
-      if (zap) contato.whatsapp = zap;
-      if (d.mensagem.trim()) contato.mensagem = d.mensagem.trim();
-      if (d.instagram.trim()) contato.instagram = d.instagram.trim().replace(/^@/, "");
-      if (tel) contato.telefone = tel;
-      try {
-        await trocarRascunho({ ...atual(), contato }, "Salvo no rascunho. Publique para aparecer no site.");
-        g.fechar();
-      } catch (e) {
-        ocupado(botao, false);
-        avisoDoFormulario(form.querySelector("[role=alert]"), e.message);
-      }
-    });
-  }
-
-  // ---------- publicar, prévia e histórico ----------
-  async function publicar(botao) {
-    if (!rascunho) return;
-    ocupado(botao, true, "Publicando…");
-    try {
-      await banco.resultado(banco.tabela("sites_versoes").update({ estado: "publicada" }).eq("id", rascunho.id));
-      await atualizar();
-      avisar("Publicado. Aparece no site em até 1 minuto.");
-    } catch (e) {
-      ocupado(botao, false);
-      avisar(e.message, { tipo: "erro" });
-    }
-  }
-
-  async function verPrevia(botao) {
-    const dominio = (site.dominios || [])[0];
-    if (!rascunho || !pendente()) {
-      window.open(`https://${dominio}`, "_blank", "noopener");
-      avisar("Nada novo para ver: o site já mostra o que está publicado.");
+  function desenharEditor() {
+    if (aberta === null) {
+      const linha = (id, nome, onde, n) => {
+        const dentro = `<span class="rz-ms-num" aria-hidden="true">${n}</span><span class="rz-linha-texto"><b>${escapar(nome)}</b><small>${escapar(onde || " ")}</small></span><span class="rz-linha-fim" data-marcas></span>`;
+        return `<li>${edita ? `<button class="rz-linha" type="button" data-secao="${escapar(id)}">${dentro}${icone("seta", { tamanho: 18, classe: "rz-texto-3" })}</button>` : `<div class="rz-linha" data-secao="${escapar(id)}">${dentro}</div>`}</li>`;
+      };
+      const ids = Object.keys(trabalho.secoes);
+      editor.innerHTML = `
+        <h2 class="rz-titulo-3">As partes do site, de cima para baixo</h2>
+        <ul class="rz-cartao rz-linhas">${ids.map((id, i) => linha(id, nomeDaSecao(id, trabalho.secoes[id]), ondeFica(id), i + 1)).join("")}
+          ${linha(CONTATO, "WhatsApp e redes", "O número e a mensagem de todos os botões de WhatsApp, e o Instagram.", icone("whatsapp", { tamanho: 16 }))}</ul>
+        ${site.situacao === "conectado" && edita ? `<p class="rz-texto-3 rz-ms-regra">Bom saber: o que você publica aparece no site enquanto o Meu site estiver ativo. Se ele for desligado ou o painel cancelado, o site volta à versão entregue. Para manter as mudanças nos arquivos do site, a Renderiza faz a versão final, por até 3 mensalidades. <a href="/termos#site" target="_blank" rel="noopener">Ver nos termos</a></p>` : ""}`;
+      marcarAlteradas();
       return;
     }
-    const janela = window.open("", "_blank"); // abre já, para o navegador não bloquear
-    ocupado(botao, true, "Abrindo…");
-    try {
-      const [p] = await banco.resultado(banco.tabela("sites_previas").insert({ conta_id: conta.conta_id, site_id: site.id, versao_id: rascunho.id }).select("codigo"));
-      const link = linkDaPrevia(site.dominios, p.codigo);
-      if (janela) { janela.opener = null; janela.location = link; } else window.location.href = link;
-    } catch (e) {
-      if (janela) janela.close();
-      avisar(e.message, { tipo: "erro" });
-    } finally {
-      ocupado(botao, false);
-    }
+    const contato = aberta === CONTATO, s = contato ? null : trabalho.secoes[aberta];
+    editor.innerHTML = `
+      <button class="rz-botao rz-botao--pequeno rz-botao--fantasma" type="button" data-voltar>${icone("voltar", { tamanho: 16 })}Todas as partes</button>
+      <div class="rz-ms-parte">
+        <h2 class="rz-titulo-2">${escapar(contato ? "WhatsApp e redes" : nomeDaSecao(aberta, s))}</h2>
+        <p class="rz-texto-2">${escapar(contato ? "Vale para todos os botões de WhatsApp e de Instagram do site." : ondeFica(aberta))}</p>
+      </div>
+      ${contato ? formDoContato() : formDaSecao(aberta)}`;
   }
 
-  el.addEventListener("click", async ev => {
-    const alvo = ev.target.closest("button");
-    if (!alvo || !el.contains(alvo)) return;
-    if (alvo.dataset.secao) return abrirSecao(alvo.dataset.secao);
-    if (alvo.hasAttribute("data-contato")) return abrirContato();
-    if (alvo.hasAttribute("data-publicar")) return publicar(alvo);
-    if (alvo.hasAttribute("data-previa")) return verPrevia(alvo);
-    try {
-      if (alvo.dataset.usar) {
-        const v = historico.find(x => x.id === alvo.dataset.usar);
-        if (v) await trocarRascunho(mesclar(inicial, v.conteudo), `A versão ${v.numero} está no rascunho. Confira e publique.`);
-      } else if (alvo.hasAttribute("data-inicial")) {
-        await trocarRascunho({ esquema: 1, secoes: {} }, "O site como foi entregue está no rascunho. Publique para valer.");
+  /** Abre uma parte; com `alvo` (um clique no site), abre o item da lista e leva o cursor ao campo. */
+  function abrirParte(id, alvo = null) {
+    if (aberta !== id) { aberta = id; desenharEditor(); editor.scrollTop = 0; if (window.innerWidth < 1100) editor.scrollIntoView({ block: "start" }); }
+    if (!alvo || !alvo.grupo) { destacar({ secao: id }); return; }
+    const form = editor.querySelector("form");
+    let campo = null;
+    if (alvo.grupo === "textos") campo = form.querySelector(`[name="t:${CSS.escape(alvo.campo)}"]`);
+    else if (alvo.grupo === "botoes") campo = form.querySelector(`[name="b:${CSS.escape(alvo.campo)}:rotulo"]`);
+    else if (alvo.grupo === "imagens") campo = form.querySelector(`[data-imagem="i:${CSS.escape(alvo.campo)}"]`);
+    else if (alvo.grupo === "listas") {
+      const lista = form.querySelector(`[data-lista="${CSS.escape(alvo.campo)}"]`);
+      const item = lista && typeof alvo.indice === "number" ? lista.querySelectorAll("[data-item]")[alvo.indice] : null;
+      if (item) item.querySelector("details").open = true;
+      campo = (item && ((alvo.subcampo && item.querySelector(`[name="l:${CSS.escape(alvo.subcampo)}"], [data-imagem="li:${CSS.escape(alvo.subcampo)}"]`)) || item)) || lista;
+    }
+    if (!campo) return;
+    const bloco = campo.closest(".rz-campo, [data-item], fieldset") || campo;
+    bloco.scrollIntoView({ block: "center" });
+    bloco.classList.remove("rz-ms-piscar"); void bloco.offsetWidth; bloco.classList.add("rz-ms-piscar");
+    if (campo.matches("input, textarea, select")) campo.focus({ preventScroll: true });
+  }
+
+  /** De um campo do editor para a marcação dele no site ({ secao, grupo, campo, indice }). */
+  function alvoDoCampo(e) {
+    if (aberta === null || aberta === CONTATO) return null;
+    const lista = e.closest("[data-lista]"), item = e.closest("[data-item]");
+    if (lista) return { secao: aberta, grupo: "listas", campo: lista.dataset.lista, ...(item ? { indice: [...item.parentElement.children].indexOf(item) } : {}) };
+    const foto = e.closest("[data-imagem]"), botao = e.closest("[data-botao]");
+    if (foto) return { secao: aberta, grupo: "imagens", campo: foto.dataset.imagem.slice(2) };
+    if (botao) return { secao: aberta, grupo: "botoes", campo: botao.dataset.botao };
+    return e.name && e.name.startsWith("t:") ? { secao: aberta, grupo: "textos", campo: e.name.slice(2) } : { secao: aberta };
+  }
+
+  function ligarEditor() {
+    let espera = null;
+    editor.addEventListener("click", ev => {
+      const b = ev.target.closest("button, summary");
+      if (!b) return;
+      if (b.dataset.secao) return abrirParte(b.dataset.secao);
+      if (b.hasAttribute("data-voltar")) { aberta = null; desenharEditor(); return; }
+      const item = b.closest("[data-item]");
+      if (b.matches("[data-subir], [data-descer], [data-tirar]")) {
+        ev.preventDefault(); // dentro do <summary>: não abre nem fecha o item
+        if (b.hasAttribute("data-tirar")) {
+          if (item.parentElement.children.length < 2) return avisar("A lista precisa de pelo menos um item. Para esconder tudo, desligue \"Esta parte aparece no site\".", { tipo: "erro" });
+          item.remove();
+        } else if (b.hasAttribute("data-subir") && item.previousElementSibling) item.parentElement.insertBefore(item, item.previousElementSibling);
+        else if (b.hasAttribute("data-descer") && item.nextElementSibling) item.parentElement.insertBefore(item.nextElementSibling, item);
+        return colher();
       }
-    } catch (e) {
-      avisar(e.message, { tipo: "erro" });
+      if (b.hasAttribute("data-adicionar")) {
+        const lista = b.closest("[data-lista]"), campo = lista.dataset.lista, ol = lista.querySelector("[data-itens]");
+        if (ol.children.length >= 60) return avisar("No máximo 60 itens.", { tipo: "erro" });
+        ol.insertAdjacentHTML("beforeend", itemDeLista(aberta, campo, novoItem(trabalho.secoes[aberta].listas[campo]), ol.children.length, lista.dataset.nome, true));
+        colher();
+        const novo = ol.lastElementChild;
+        novo.scrollIntoView({ block: "center" });
+        (novo.querySelector("input:not([type=hidden]):not([type=file]), textarea") || novo.querySelector("summary")).focus({ preventScroll: true });
+        return;
+      }
+      if (b.dataset.original !== undefined) {
+        const bloco = b.closest("[data-imagem]");
+        bloco.querySelector('input[type="hidden"]').value = b.dataset.original;
+        trocarMiniatura(bloco, imagemParaVer(b.dataset.original, site.dominios));
+        b.hidden = true;
+        colher();
+      }
+    });
+    editor.addEventListener("submit", ev => ev.preventDefault());
+    editor.addEventListener("change", ev => {
+      if (ev.target.matches("[data-enviar]")) { if (ev.target.files[0]) enviarFoto(ev.target); return; }
+      const caixa = ev.target.closest("[data-botao]");
+      if (caixa && ev.target.name.endsWith(":acao")) { // o que o botão faz mudou: os campos de "para onde" mudam junto
+        const acao = ev.target.value, pre = `b:${caixa.dataset.botao}`;
+        caixa.querySelector("[data-destino]").innerHTML = campoDoDestino(pre, { acao, destino: "" });
+        caixa.querySelector("[data-destino]").hidden = acao === "whatsapp";
+        caixa.querySelector("[data-mensagem]").hidden = acao !== "whatsapp";
+      }
+      colher();
+    });
+    editor.addEventListener("input", ev => { if (!ev.target.matches("[type=file]")) colher(); });
+    editor.addEventListener("focusin", ev => { const a = alvoDoCampo(ev.target); if (a) destacar(a); });
+    // na lista, parar o mouse (ou o foco) numa parte mostra onde ela fica no site
+    editor.addEventListener("mouseover", ev => {
+      const b = ev.target.closest("[data-secao]");
+      clearTimeout(espera);
+      if (b && aberta === null && b.dataset.secao !== CONTATO) espera = setTimeout(() => destacar({ secao: b.dataset.secao }), 220);
+    });
+  }
+
+  // ---------- as versões publicadas ----------
+  function desenharVersoes() {
+    const lugar = corpo.querySelector('[data-painel="versoes"]');
+    if (!lugar) return;
+    lugar.innerHTML = `${historico.length ? `<ul class="rz-cartao rz-linhas">${historico.map((v, i) => `<li><div class="rz-linha"><span class="rz-linha-texto"><b>Versão ${v.numero}${i === 0 ? " · no ar" : ""}</b>
+        <small>${escapar(quando(v.publicada_em))}${nomes[v.pessoa_id] ? " · " + escapar(nomes[v.pessoa_id]) : ""}</small></span>
+        ${edita && i > 0 ? `<span class="rz-linha-fim"><button class="rz-botao rz-botao--pequeno" type="button" data-usar="${escapar(v.id)}">Usar esta</button></span>` : ""}</div></li>`).join("")}</ul>`
+      : `<p class="rz-texto-2">Nada publicado ainda: o site está como foi entregue.</p>`}
+      ${edita ? `<p class="rz-texto-3 rz-ms-regra"><button class="rz-link" type="button" data-inicial>Voltar ao site como foi entregue</button> (vai para o rascunho; publique para valer).</p>` : ""}`;
+  }
+
+  function mostrarAba(nome) {
+    corpo.querySelectorAll("[data-aba]").forEach(b => b.setAttribute("aria-selected", String(b.dataset.aba === nome)));
+    corpo.querySelectorAll("[data-painel]").forEach(p => { p.hidden = p.dataset.painel !== nome; });
+    if (nome === "editar") ajustar();
+  }
+  // a altura das colunas depende do que está acima delas (a situação e os botões podem quebrar a linha)
+  new ResizeObserver(ajustar).observe(acoes);
+
+  // ---------- a tela ----------
+  const desenhar = ok => {
+    acoes.innerHTML = "";
+    if (!ok) {
+      corpo.innerHTML = `<div class="rz-cartao">${vazio({ icone: "site", titulo: "O seu site ainda não está ligado ao painel", texto: "Quando a Renderiza fizer a montagem do site, ele aparece aqui para você mudar os textos, os botões e as fotos." })}</div>`;
+      return;
+    }
+    if (!Object.keys(inicial.secoes || {}).length) {
+      corpo.innerHTML = `<div class="rz-cartao">${vazio({ icone: "site", titulo: "O conteúdo do site ainda não foi cadastrado", texto: "A Renderiza cadastra na montagem do site. Depois disso, é só editar aqui." })}</div>`;
+      return;
+    }
+    const endereco = enderecoDoSite(dominio());
+    origemDoSite = endereco ? new URL(endereco).origin : "";
+    acoes.classList.add("rz-ms-acoes");
+    acoes.innerHTML = `
+      <span class="rz-ms-situacao" data-situacao role="status"></span>
+      ${endereco ? `<a class="rz-botao" href="${escapar(endereco)}" target="_blank" rel="noopener">${icone("link", { tamanho: 18 })}Abrir o site</a>` : ""}
+      ${edita ? `<button class="rz-botao" type="button" data-descartar hidden>Descartar mudanças</button>
+      <button class="rz-botao rz-botao--primario" type="button" data-publicar disabled>Publicar</button>` : ""}`;
+    corpo.innerHTML = `
+      ${site.situacao === "conectado" ? "" : `<p class="rz-alerta rz-alerta--aviso" role="note">${icone("alerta", { tamanho: 18 })}<span>${site.situacao === "versao_final"
+        ? "Este site já recebeu a versão final: ele não depende mais do painel e as mudanças daqui não aparecem nele."
+        : "O site está desconectado do painel: ele mostra a versão inicial. Para voltar, fale com a Renderiza."}</span></p>`}
+      ${!edita ? `<p class="rz-alerta" role="note">${icone("cadeado", { tamanho: 18 })}<span>Você só vê o Meu site. Quem muda e publica é o dono ou quem ele deixar.</span></p>` : ""}
+      <div class="rz-abas" role="tablist">
+        <button type="button" role="tab" data-aba="editar" aria-selected="true">Editar</button>
+        <button type="button" role="tab" data-aba="versoes" aria-selected="false">Versões publicadas</button>
+      </div>
+      <div class="rz-ms-grade" data-painel="editar">
+        <div class="rz-ms-editor" data-editor></div>
+        <aside class="rz-ms-previa" aria-label="O site, com o rascunho">
+          <div class="rz-ms-barra">
+            <button class="rz-botao rz-botao--pequeno rz-ms-fechar" type="button" data-fechar-previa>${icone("voltar", { tamanho: 16 })}Voltar a editar</button>
+            <div class="rz-segmentos" role="group" aria-label="Tamanho da tela">
+              <button type="button" data-tela="celular" aria-pressed="true">Celular</button><button type="button" data-tela="computador" aria-pressed="false">Computador</button>
+            </div>
+            <span class="rz-texto-3 rz-ms-dica">${edita ? "Clique no site para editar aquela parte" : "O site com o rascunho"}</span>
+          </div>
+          <div class="rz-ms-palco" data-palco>
+            ${endereco ? `<iframe title="O seu site, com o rascunho" src="${escapar(endereco)}/?rz-editor=1" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" data-quadro></iframe>` : ""}
+            <div class="rz-ms-sem-ponte" data-sem-ponte hidden><p><b>A prévia ao vivo ainda não está ligada neste site.</b></p>
+              <p class="rz-texto-2">Você pode editar normalmente e ver o rascunho no site em outra aba.</p>
+              <button class="rz-botao" type="button" data-outra-aba>${icone("olho", { tamanho: 18 })}Ver o rascunho no site</button></div>
+          </div>
+        </aside>
+      </div>
+      <div data-painel="versoes" hidden></div>
+      <button class="rz-botao rz-botao--primario rz-ms-ver" type="button" data-ver>${icone("olho", { tamanho: 18 })}Ver o site</button>`;
+    editor = corpo.querySelector("[data-editor]"); quadro = corpo.querySelector("[data-quadro]"); palco = corpo.querySelector("[data-palco]");
+    ponte.pronta = false;
+    ligarEditor();
+    desenharEditor(); desenharVersoes(); situacao();
+    if (quadro) { olharPalco.observe(palco); ajustar(); }
+    setTimeout(() => { if (!ponte.pronta && corpo.isConnected) corpo.querySelector("[data-sem-ponte]").hidden = false; }, 7000);
+  };
+
+  el.addEventListener("click", async ev => {
+    const b = ev.target.closest("button");
+    if (!b || !el.contains(b)) return;
+    if (b.dataset.aba) return mostrarAba(b.dataset.aba);
+    if (b.dataset.tela) {
+      tela = b.dataset.tela;
+      corpo.querySelectorAll("[data-tela]").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+      ajustar();
+      if (ultimoAlvo) setTimeout(() => destacar(ultimoAlvo), 300); // a página mudou de largura: volta para a parte
+      return;
+    }
+    if (b.hasAttribute("data-ver")) { raiz.classList.add("rz-ms--vendo"); return ajustar(); }
+    if (b.hasAttribute("data-fechar-previa")) return raiz.classList.remove("rz-ms--vendo");
+    if (b.hasAttribute("data-outra-aba")) return verEmOutraAba();
+    if (b.hasAttribute("data-publicar")) return publicar(b);
+    if (b.hasAttribute("data-descartar")) {
+      const ok = await confirmar({ titulo: "Descartar as mudanças?", texto: "O rascunho volta a ser igual ao que está no ar. O site não muda.", sim: "Descartar", nao: "Voltar", perigo: true });
+      if (ok) await trocarTudo(publicada() ? publicada().conteudo : { esquema: 1, secoes: {} }, "Mudanças descartadas: o rascunho está igual ao site.");
+      return;
+    }
+    if (b.dataset.usar) {
+      const v = historico.find(x => x.id === b.dataset.usar);
+      if (v) await trocarTudo(v.conteudo, `A versão ${v.numero} está no rascunho. Confira e publique.`);
+    } else if (b.hasAttribute("data-inicial")) {
+      await trocarTudo({ esquema: 1, secoes: {} }, "O site como foi entregue está no rascunho. Publique para valer.");
     }
   });
 
-  await atualizar();
+  window.addEventListener("message", aoReceber);
+  window.addEventListener("resize", ajustar);
+  await comEstados(corpo, { carregar, desenhar });
+  return () => {
+    window.removeEventListener("message", aoReceber);
+    window.removeEventListener("resize", ajustar);
+    olharPalco.disconnect();
+    if (relogio) salvar(); // sair no meio de uma mudança: o rascunho grava antes
+  };
 }

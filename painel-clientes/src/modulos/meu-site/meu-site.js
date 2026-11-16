@@ -4,6 +4,8 @@
 // - texto entra como texto (só *destaque* vira <em>, e só nos títulos), links só dos tipos permitidos, imagens só do
 //   endereço do painel;
 // - a última versão fica no navegador por até 24 horas, para aparecer logo nas visitas seguintes.
+// - dentro do editor do painel (o site num quadro, com ?rz-editor=1), mostra o rascunho que o painel manda a cada
+//   mudança e avisa em que parte a pessoa clicou; só aceita mensagem do endereço do painel e não grava nada;
 // Entra no site pelo scripts/virar-site.mjs, num <script data-codigo="<código do site>"> no fim do <head>.
 // O mesmo arquivo é a biblioteca (validar, aplicar, extrair) do painel, dos testes e do scripts/versao-final.mjs.
 //
@@ -426,6 +428,91 @@
     return c;
   }
 
+  // ---------- o editor ao vivo (o site num quadro do painel, em /meu-site) ----------
+  // O painel manda { rz: "meu-site", tipo: "conteudo", conteudo } (o rascunho inteiro; sem conteúdo = a versão inicial)
+  // e { tipo: "foco", secao, grupo?, campo?, indice? } (rola até a parte e destaca). O site manda { tipo: "pronto" } e
+  // { tipo: "medidas" } (o tamanho de cada foto na página e as partes que têm âncora) e { tipo: "clique", secao,
+  // grupo?, campo?, indice?, subcampo? } quando a pessoa clica numa parte marcada.
+  var GRUPOS = [["data-site-botao", "botoes"], ["data-site-img", "imagens"], ["data-site", "textos"]];
+
+  function marcaDe(el) {
+    if (!el || !el.closest) return null;
+    var lista = el.closest("[data-site-lista]"), p, i;
+    if (lista) {
+      p = lista.getAttribute("data-site-lista").split(".");
+      var item = el.closest("[data-site-item]"), campo = el.closest("[data-site-campo]");
+      var m = { secao: p[0], grupo: "listas", campo: p[1] };
+      if (item && lista.contains(item)) { m.indice = itensDe(lista).indexOf(item); if (campo && item.contains(campo)) m.subcampo = campo.getAttribute("data-site-campo"); }
+      return m;
+    }
+    for (i = 0; i < GRUPOS.length; i++) {
+      var e = el.closest("[" + GRUPOS[i][0] + "]");
+      if (e) { p = e.getAttribute(GRUPOS[i][0]).split("."); return { secao: p[0], grupo: GRUPOS[i][1], campo: p[1] }; }
+    }
+    return null;
+  }
+
+  function alvoDe(doc, d) {
+    var chave = d.secao + "." + d.campo, visivel = function (e) { return e && e.getClientRects().length; }, achados = [];
+    if (d.grupo === "listas") {
+      var lista = doc.querySelector('[data-site-lista="' + chave + '"]');
+      if (lista) achados = [typeof d.indice === "number" ? itensDe(lista)[d.indice] : null, lista];
+    } else {
+      GRUPOS.forEach(function (g) { if (g[1] === d.grupo) achados = todos(doc, "[" + g[0] + '="' + chave + '"]'); });
+    }
+    return achados.filter(visivel)[0] || doc.querySelector('[data-site-secao="' + d.secao + '"]');
+  }
+
+  function medidas(doc) {
+    var imagens = {}, medir = function (chave, el) {
+      var r = el.getBoundingClientRect();
+      if (r.width > 8 && r.height > 8 && !imagens[chave]) imagens[chave] = [Math.round(r.width), Math.round(r.height)];
+    };
+    todos(doc, "img[data-site-img]").forEach(function (el) { medir(el.getAttribute("data-site-img"), el); });
+    todos(doc, "[data-site-lista]").forEach(function (lista) {
+      todos(lista, "img[data-site-campo]").forEach(function (el) { medir(lista.getAttribute("data-site-lista") + "." + el.getAttribute("data-site-campo"), el); });
+    });
+    var ancoras = todos(doc, "[data-site-secao][id]").map(function (el) { return { id: el.id, secao: el.getAttribute("data-site-secao") }; });
+    return { imagens: imagens, ancoras: ancoras };
+  }
+
+  function ligarEditor(doc, origem, opcoes) {
+    var w = doc.defaultView, focado = null, relogio = null;
+    var dizer = function (tipo, m) { m = m || {}; m.rz = "meu-site"; m.tipo = tipo; w.parent.postMessage(m, origem); };
+    var estilo = doc.createElement("style");
+    estilo.textContent = "[data-site],[data-site-botao],[data-site-img],[data-site-item],[data-site-lista][data-site-runtime]{cursor:pointer}" +
+      "[data-site]:hover,[data-site-botao]:hover,[data-site-img]:hover,[data-site-item]:hover{outline:2px dashed #2563eb;outline-offset:3px}" +
+      ".rz-ed-foco{outline:3px solid #2563eb!important;outline-offset:4px}";
+    doc.head.appendChild(estilo);
+    doc.addEventListener("click", function (ev) {
+      var m = marcaDe(ev.target);
+      if (m) { ev.preventDefault(); ev.stopPropagation(); dizer("clique", m); return; }
+      var a = ev.target.closest && ev.target.closest("a[href]");
+      if (a && a.getAttribute("href").charAt(0) !== "#") ev.preventDefault(); // no editor, ninguém sai da página
+    }, true);
+    w.addEventListener("message", function (ev) {
+      var d = ev.data;
+      if (ev.origin !== origem || !ehObjeto(d) || d.rz !== "meu-site") return;
+      try {
+        if (d.tipo === "conteudo") { if (d.conteudo) aplicar(doc, d.conteudo, opcoes); else voltar(doc); }
+        else if (d.tipo === "foco" && typeof d.secao === "string") {
+          var alvo = alvoDe(doc, d);
+          if (focado) focado.classList.remove("rz-ed-foco");
+          clearTimeout(relogio);
+          if (!alvo) return;
+          focado = alvo;
+          alvo.classList.add("rz-ed-foco");
+          // parte alta: o começo dela, logo abaixo do topo do site; parte pequena: no meio da tela
+          var r = alvo.getBoundingClientRect(), alto = w.innerHeight;
+          w.scrollTo({ top: Math.max(0, w.pageYOffset + (r.height > alto * 0.7 ? r.top - 96 : r.top - (alto - r.height) / 2)), behavior: "smooth" });
+          relogio = setTimeout(function () { alvo.classList.remove("rz-ed-foco"); }, 1800);
+        }
+      } catch (e) { /* o site fica como está */ }
+    });
+    dizer("pronto", medidas(doc));
+    w.addEventListener("load", function () { dizer("medidas", medidas(doc)); });
+  }
+
   // ---------- no site ----------
   function lerCache(chave) {
     try {
@@ -455,6 +542,11 @@
     var previa = (global.location.search.match(/[?&]rz-previa=([A-Za-z0-9_-]{8,200})(?:&|$)/) || [])[1];
     var chave = "rz-meu-site:" + codigo, aplicada = null, noPrazo = true;
     var opcoes = { imagem: function (src) { try { return new URL(src).origin === origem ? src : null; } catch (e) { return null; } } };
+    if (global.parent !== global && /[?&]rz-editor=1(?:&|$)/.test(global.location.search)) {
+      var comecar = function () { ligarEditor(doc, origem, opcoes); };
+      if (doc.readyState === "loading") doc.addEventListener("DOMContentLoaded", comecar); else comecar();
+      return;
+    }
     var assinatura = function (c) { return c.versao + "|" + c.publicado_em; };
     var pronto = new Promise(function (ok) {
       if (doc.readyState === "loading") doc.addEventListener("DOMContentLoaded", function () { ok(); });
@@ -489,7 +581,7 @@
       .catch(function () { /* fora do ar, demorou ou bloqueado: fica a versão que está na tela */ });
   }
 
-  var api = { ESQUEMA: ESQUEMA, API: API, validar: validar, partes: partes, destino: destino, iniciais: iniciais, aplicar: aplicar, voltar: voltar, extrair: extrair, lerCliente: lerCliente };
+  var api = { ESQUEMA: ESQUEMA, API: API, validar: validar, partes: partes, destino: destino, iniciais: iniciais, aplicar: aplicar, voltar: voltar, extrair: extrair, lerCliente: lerCliente, marcaDe: marcaDe };
   if (typeof module === "object" && module && module.exports) module.exports = api;
   else {
     global.RZ_MEU_SITE = api;

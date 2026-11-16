@@ -241,7 +241,9 @@ painel-clientes/
   no local com a chave de teste da Cloudflare (`1x00000000000000000000AA`, que sempre passa).
 - **Cabeçalhos:** o painel fora do Google (`noindex`), sem abrir dentro de outro site (`X-Frame-Options: DENY`),
   política de conteúdo (CSP) restringindo de onde vêm scripts. Conferidos na produção na revisão de segurança
-  (30/10/2026, `06`).
+  (30/10/2026, `06`). Desde 16/11/2026, `frame-src https: http://localhost:*`: o Meu site mostra o site do
+  cliente num quadro (o editor ao vivo, `03`); o painel continua sem abrir dentro de ninguém (`frame-ancestors
+  'none'`).
 - **Rewrites, nesta ordem** (`vercel.json`; o `scripts/servidor.mjs` imita): `/c/:codigo` (o contrato),
   `/termos` e `/privacidade` (os documentos, Missão 5B), e por último o app (`index.html`). Quem acrescentar um
   rewrite põe antes do app.

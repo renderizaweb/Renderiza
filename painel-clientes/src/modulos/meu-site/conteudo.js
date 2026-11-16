@@ -6,19 +6,43 @@
 const NOMES = {
   cabecalho: "Topo e menu", inicio: "Capa", sobre: "Sobre", estilos: "Estilos", estrutura: "Estrutura",
   atendimento: "Como funciona", depoimentos: "Avaliações", consulta: "Consultar uma data", instagram: "Instagram",
-  visite: "Como chegar", rodape: "Rodapé",
+  visite: "Como chegar", rodape: "Rodapé", portfolio: "Portfólio", ensaios: "Ensaios", natal: "Natal",
+  agendar: "Agenda", contato: "Contato e endereço",
+};
+// Onde a parte fica no site, em uma linha (aparece embaixo do nome, na lista e na parte aberta).
+const ONDE = {
+  cabecalho: "A barra presa no alto do site, com o menu e o botão principal.",
+  inicio: "A primeira tela que a pessoa vê: a frase, as fotos e os botões.",
+  sobre: "A apresentação: quem é, a história e os números.",
+  portfolio: "As galerias de fotos, uma por tipo de trabalho.",
+  ensaios: "A lista do que você oferece, com foto, descrição e preço.",
+  depoimentos: "O que os clientes disseram.",
+  natal: "O bloco da campanha, com a foto e o botão para escolher o horário.",
+  agendar: "O título e o texto acima da agenda (os horários vêm da Agenda do painel).",
+  contato: "O endereço, o telefone e o botão de falar com você.",
+  estrutura: "O que o espaço oferece.", estilos: "Os tipos de festa.", atendimento: "O passo a passo de como funciona.",
+  consulta: "O formulário de consultar uma data.", instagram: "O convite para seguir no Instagram.",
+  visite: "O mapa e como chegar.", rodape: "O fim da página.",
 };
 const TEXTOS = {
-  eyebrow: "Chamada acima do título", titulo: "Título", texto: "Texto", selo: "Selo", legenda: "Legenda da foto pequena",
-  aviso: "Faixa no alto do site", slogan: "Frase do rodapé", botao: "Texto do botão",
+  eyebrow: "Chamada pequena, acima do título", titulo: "Título", texto: "Texto", selo: "Selo", legenda: "Legenda da foto",
+  aviso: "Faixa no alto do site", slogan: "Frase do rodapé", botao: "Texto do botão", frase: "Frase principal",
+  rotulo: "Etiqueta da foto grande", rotulo2: "Etiqueta da foto de cima", rotulo3: "Etiqueta da foto de baixo",
+  nota: "Observação pequena", citacao: "Frase em destaque", autor: "Quem assina a frase", telefone: "Telefone escrito",
 };
-const BOTOES = { botao: "Botão", link: "Link", chip: "Etiqueta sobre a foto", agenda: "Link da agenda online" };
-const IMAGENS = { foto: "Foto", foto2: "Foto pequena" };
+const BOTOES = { botao: "Botão principal", link: "Link ao lado do botão", chip: "Etiqueta sobre a foto", agenda: "Link da agenda online" };
+const IMAGENS = { foto: "Foto principal", foto2: "Segunda foto", foto3: "Terceira foto" };
 const LISTAS = {
   paragrafos: "Parágrafos", numeros: "Números em destaque", fotos: "Fotos", itens: "Itens", passos: "Passos",
-  tipos: "Tipos de festa do formulário", avaliacoes: "Avaliações",
+  tipos: "Tipos de festa do formulário", avaliacoes: "Avaliações", infantil: "Galeria · Infantil",
+  gestante: "Galeria · Gestante", familia: "Galeria · Família",
 };
-const CAMPOS_DE_ITEM = { texto: "Texto", valor: "Número", foto: "Foto", legenda: "Legenda", nome: "Nome", tag: "Etiqueta (ex.: Casamento)" };
+const CAMPOS_DE_ITEM = {
+  texto: "Texto", valor: "Número", foto: "Foto", legenda: "Legenda", nome: "Nome", tag: "Etiqueta (ex.: Casamento)",
+  sub: "Descrição curta", preco: "Preço (em branco, não aparece)",
+};
+// Como se chama um item de cada lista ("Adicionar avaliação", "Foto 3").
+const ITEM = { avaliacoes: "avaliação", paragrafos: "parágrafo", numeros: "número", passos: "passo", tipos: "tipo" };
 
 export const ACOES = [
   { valor: "whatsapp", rotulo: "Abrir o WhatsApp" },
@@ -37,6 +61,44 @@ export function nomeDaSecao(id, secao = {}) {
   if (NOMES[id]) return NOMES[id];
   const chamada = semAsteriscos(secao.textos && (secao.textos.eyebrow || secao.textos.titulo));
   return secao.listas && secao.listas.fotos ? `Galeria · ${chamada || id}` : chamada || id;
+}
+
+/** Onde a parte fica no site (uma linha); vazio se o painel não conhece a parte. */
+export const ondeFica = id => ONDE[id] || "";
+
+/** O nome de um item da lista: "avaliação", "foto" (lista só de fotos) ou "item". */
+export function nomeDoItem(campo, itens = []) {
+  if (ITEM[campo]) return ITEM[campo];
+  const base = itens[0] || {};
+  return base.imagens && !Object.keys(base.textos || {}).length ? "foto" : "item";
+}
+
+/** O que identifica um item na lista recolhida: o nome, o primeiro texto ou a posição. */
+export function resumoDoItem(item = {}, i = 0, nome = "item") {
+  const t = item.textos || {};
+  const texto = semAsteriscos(t.nome || t.titulo || t.valor || t.texto || Object.values(t).find(Boolean) || "").trim();
+  if (!texto) return `${nome.charAt(0).toUpperCase() + nome.slice(1)} ${i + 1}`;
+  return texto.length > 46 ? texto.slice(0, 44) + "…" : texto;
+}
+
+/** O endereço do site a partir do domínio cadastrado (o localhost dos testes vai sem https). */
+export function enderecoDoSite(dominio) {
+  return dominio ? `${/^(localhost|127\.0\.0\.1)(:\d+)?$/.test(dominio) ? "http" : "https"}://${dominio}` : "";
+}
+
+const FORMATOS = [[1, "1:1"], [4 / 3, "4:3"], [3 / 2, "3:2"], [16 / 9, "16:9"], [3 / 4, "3:4"], [2 / 3, "2:3"], [4 / 5, "4:5"], [9 / 16, "9:16"]];
+/**
+ * A orientação para trocar uma foto, a partir do tamanho que ela tem na página ([largura, altura], que o site manda):
+ * o formato (em pé, deitada, quadrada), a proporção mais próxima e a largura boa (o dobro da tela, de 800 a 1600).
+ */
+export function dicaDaFoto(medida) {
+  const fim = "O site corta as sobras sozinho: deixe o assunto no centro. JPG, PNG ou WebP; o painel reduz e deixa leve.";
+  if (!Array.isArray(medida) || !(medida[0] > 0) || !(medida[1] > 0)) return fim;
+  const r = medida[0] / medida[1];
+  const formato = r > 1.15 ? "deitada" : r < 0.87 ? "em pé" : "quadrada";
+  const perto = FORMATOS.reduce((a, b) => (Math.abs(Math.log(b[0] / r)) < Math.abs(Math.log(a[0] / r)) ? b : a))[1];
+  const largura = Math.min(1600, Math.max(800, Math.ceil(medida[0] * 2 / 100) * 100));
+  return `Aqui a foto aparece ${formato}${formato === "quadrada" ? "" : ` (perto de ${perto})`}. Use uma com ${largura.toLocaleString("pt-BR")} px de largura ou mais. ${fim}`;
 }
 
 export function rotulo(tipo, campo) {
@@ -110,7 +172,7 @@ export function novoItem(itens) {
 export function imagemParaVer(src, dominios = []) {
   if (!src) return "";
   if (/^https?:\/\//.test(src)) return src;
-  return dominios[0] ? `https://${dominios[0]}${src.startsWith("/") ? "" : "/"}${src}` : "";
+  return dominios[0] ? `${enderecoDoSite(dominios[0])}${src.startsWith("/") ? "" : "/"}${src}` : "";
 }
 
 /** Onde a imagem enviada fica: na pasta da conta (a regra do Storage), com um nome novo a cada envio. */
@@ -127,7 +189,7 @@ export function enderecoDaImagem(caminho, { ambiente, origem }) {
 
 /** O link da prévia no site de verdade. */
 export function linkDaPrevia(dominios = [], codigo) {
-  return dominios[0] ? `https://${dominios[0]}/?rz-previa=${encodeURIComponent(codigo)}` : "";
+  return dominios[0] ? `${enderecoDoSite(dominios[0])}/?rz-previa=${encodeURIComponent(codigo)}` : "";
 }
 
 /** WhatsApp digitado ("(11) 98888-7777") para o contrato ("5511988887777"); vazio fica vazio. */

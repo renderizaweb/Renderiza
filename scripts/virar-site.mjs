@@ -220,11 +220,15 @@ for (const p of extras) {
 // 5. Google, cabeçalhos e instruções.
 fs.writeFileSync(path.join(saida, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${url}sitemap.xml\n`);
 fs.writeFileSync(path.join(saida, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[url, ...extras.map(p => url + p)].map(u => `  <url><loc>${u}</loc><lastmod>${hoje}</lastmod></url>\n`).join('')}</urlset>\n`);
-fs.writeFileSync(path.join(saida, '_headers'), `/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: SAMEORIGIN\n/img/*\n  Cache-Control: public, max-age=31536000, immutable\n`);
+// Quem pode pôr o site num quadro: só ele; com o painel, também o painel (o editor ao vivo do Meu site, 03).
+const quadro = conf.painel
+  ? { key: 'Content-Security-Policy', value: `frame-ancestors 'self' ${new URL(conf.painel.api || API_PADRAO).origin}` }
+  : { key: 'X-Frame-Options', value: 'SAMEORIGIN' };
+fs.writeFileSync(path.join(saida, '_headers'), `/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  ${quadro.key}: ${quadro.value}\n/img/*\n  Cache-Control: public, max-age=31536000, immutable\n`);
 fs.writeFileSync(path.join(saida, 'vercel.json'), JSON.stringify({
   cleanUrls: true,
   headers: [
-    { source: '/(.*)', headers: [{ key: 'X-Content-Type-Options', value: 'nosniff' }, { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' }, { key: 'X-Frame-Options', value: 'SAMEORIGIN' }] },
+    { source: '/(.*)', headers: [{ key: 'X-Content-Type-Options', value: 'nosniff' }, { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' }, quadro] },
     { source: '/img/(.*)', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
   ],
 }, null, 2) + '\n');

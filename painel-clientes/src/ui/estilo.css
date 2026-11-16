@@ -1010,3 +1010,57 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
   .rz-trazer-campo--largo{flex-basis:100%}
 }
 .rz-com-barra .rz-avisos{left:var(--rz-4);bottom:calc(96px + env(safe-area-inset-bottom))}
+
+/* ---------- 29. Meu site: o editor ao vivo (03; a entrega da Rafaela) ----------
+   À esquerda, as partes e os campos; à direita, o site num quadro. No celular, o site abre por cima ("Ver o site"). */
+.rz-principal:has(.rz-ms){max-width:none}
+/* a situação fica numa linha só dela e os botões presos à direita: mudar o texto não tira o "Publicar" do lugar
+   (no meio de um clique, o botão que se mexe perde o clique) */
+.rz-ms-acoes{justify-content:flex-end}
+.rz-ms-situacao{flex:0 0 100%;min-height:1.5em;text-align:right;font-size:var(--rz-t-sm);color:var(--rz-tinta-2)}
+@media (max-width:719px){.rz-ms-acoes{width:100%;justify-content:flex-start}.rz-ms-situacao{text-align:left}.rz-ms-acoes [data-publicar]{order:-1}}
+.rz-ms-situacao[data-tom=alerta]{color:var(--rz-alerta);font-weight:600}
+.rz-ms-situacao[data-tom=erro]{color:var(--rz-perigo);font-weight:600}
+.rz-ms-grade{display:grid;gap:var(--rz-5)}
+.rz-ms-editor{display:flex;flex-direction:column;gap:var(--rz-4);min-width:0;scroll-margin-top:var(--rz-4)}
+.rz-ms-editor>button{align-self:flex-start}
+.rz-ms-num{flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:var(--rz-raio-pilula);background:var(--rz-gelo);color:var(--rz-tinta-2);font-size:var(--rz-t-sm);font-weight:600}
+.rz-ms-editor .rz-linha-texto small{white-space:normal}
+.rz-ms-regra{margin-top:var(--rz-2)}
+.rz-ms-grupo{min-width:0;margin:0;padding:var(--rz-4);border:1px solid var(--rz-linha);border-radius:var(--rz-raio-g);background:var(--rz-superficie)}
+.rz-ms-grupo>legend{padding:0 var(--rz-2)}
+.rz-ms-caixa{min-width:0;margin:0;padding:var(--rz-3);border:1px solid var(--rz-linha);border-radius:var(--rz-raio)}
+.rz-ms-caixa [hidden]{display:none}
+.rz-ms-mini{flex:none;display:block;width:72px;height:54px;object-fit:cover;border-radius:var(--rz-raio-p);background:var(--rz-gelo)}
+.rz-ms-foto-linha{display:flex;align-items:center;gap:var(--rz-3)}
+.rz-ms-foto-linha .rz-ms-mini{width:132px;height:99px;border-radius:var(--rz-raio)}
+.rz-ms-foto .rz-ajuda{display:block}
+.rz-ms-enviando{opacity:.6;pointer-events:none}
+.rz-ms-itens{display:flex;flex-direction:column;gap:var(--rz-2);margin:0;padding:0;list-style:none}
+.rz-ms-item{border:1px solid var(--rz-linha);border-radius:var(--rz-raio);background:var(--rz-superficie-2)}
+.rz-ms-item[open]{background:var(--rz-superficie);border-color:var(--rz-linha-forte)}
+.rz-ms-item>summary{display:flex;align-items:center;gap:var(--rz-3);min-height:56px;padding:var(--rz-2) var(--rz-3);cursor:pointer;list-style:none}
+.rz-ms-item>summary::-webkit-details-marker{display:none}
+.rz-ms-item>summary:focus-visible{outline:none;box-shadow:var(--rz-foco);border-radius:var(--rz-raio)}
+.rz-ms-item-nome{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.rz-ms-item-acoes{flex:none;display:flex;gap:2px}
+.rz-ms-item>div{padding:var(--rz-2) var(--rz-3) var(--rz-4)}
+.rz-ms-piscar{animation:rz-ms-piscar 1.4s var(--rz-curva)}
+@keyframes rz-ms-piscar{0%,60%{box-shadow:var(--rz-foco)}100%{box-shadow:0 0 0 0 transparent}}
+.rz-ms-previa{display:none;min-width:0}
+.rz-ms-barra{display:flex;align-items:center;gap:var(--rz-3);flex-wrap:wrap;padding-bottom:var(--rz-3)}
+.rz-ms-dica{margin-left:auto}
+.rz-ms-palco{position:relative;flex:1;min-height:0;overflow:hidden;border:1px solid var(--rz-linha);border-radius:var(--rz-raio-g);background:var(--rz-gelo)}
+.rz-ms-palco iframe{position:absolute;top:0;left:0;border:0;background:var(--rz-superficie);transform-origin:top left}
+.rz-ms-sem-ponte{position:absolute;inset:auto var(--rz-4) var(--rz-4);display:flex;flex-direction:column;align-items:flex-start;gap:var(--rz-2);padding:var(--rz-4);border-radius:var(--rz-raio);background:var(--rz-superficie);box-shadow:var(--rz-sombra-2)}
+.rz-ms-ver{position:fixed;right:var(--rz-4);bottom:calc(var(--rz-16) + var(--rz-6) + env(safe-area-inset-bottom));z-index:5;box-shadow:var(--rz-sombra-2)}
+.rz-ms--vendo .rz-ms-previa{display:flex;flex-direction:column;position:fixed;inset:0;z-index:60;padding:var(--rz-3);background:var(--rz-fundo)}
+.rz-ms--vendo .rz-ms-ver{display:none}
+@media (min-width:1100px){
+  .rz-ms-grade{grid-template-columns:minmax(360px,440px) minmax(0,1fr);align-items:start}
+  .rz-principal:has(.rz-ms){padding-bottom:var(--rz-4)}
+  .rz-ms-editor{height:var(--rz-ms-altura,70vh);overflow-y:auto;padding:0 var(--rz-2) var(--rz-6) 2px;scrollbar-width:thin}
+  .rz-ms-previa,.rz-ms--vendo .rz-ms-previa{display:flex;flex-direction:column;position:static;z-index:auto;height:var(--rz-ms-altura,70vh);padding:0;background:none}
+  .rz-ms-ver,.rz-ms-fechar{display:none}
+}
+@media (prefers-reduced-motion:reduce){.rz-ms-piscar{animation:none;box-shadow:var(--rz-foco)}}
