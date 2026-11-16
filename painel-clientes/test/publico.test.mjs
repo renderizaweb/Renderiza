@@ -1,6 +1,7 @@
 // A API pública (api/publico/): o que os sites dos clientes chamam. O banco é imitado (a função fetch), então aqui
 // se testa o que a API faz antes e depois do banco: CORS, cache, códigos, campo-isca, tempo mínimo, domínio,
-// endereço embaralhado e o aviso. As regras do banco estão em supabase/testes/040_publico_agenda.sql.
+// endereço embaralhado e o aviso. As regras do banco estão em supabase/testes/040_publico_agenda.sql (eventos) e
+// 044_publico_agenda_fotografia.sql (fotografia, por horário).
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { tratar as agenda } from "../api/publico/agenda/[codigo]/index.js";
@@ -46,6 +47,25 @@ test("agenda: site que não responde é 404; código ou data estranhos, 400; OPT
   assert.equal((await agenda({ metodo: "POST", caminho: "/api/publico/agenda/villa-alecrim", busca: new URLSearchParams(), env: ENV })).status, 405);
 });
 
+const ENSAIO = "6c8f0d2e-0000-4000-8000-0000000000aa", CAMPANHA = "6c8f0d2e-0000-4000-8000-0000000000bb";
+
+test("agenda (fotografia): com horarios, ensaio ou campanha, pergunta os horários livres; id estranho é 400", async () => {
+  const b = bancoFalso(() => ({ json: { esquema: 1, nicho: "fotografia", dias: [] } }));
+  for (const [busca, servico, campanha] of [["horarios=1", null, null], [`servico=${ENSAIO}`, ENSAIO, null], [`campanha=${CAMPANHA}&de=2026-11-19`, null, CAMPANHA]]) {
+    const r = await agenda({ metodo: "GET", caminho: "/api/publico/agenda/rafaela-damaceno", busca: new URLSearchParams(busca), env: ENV }, b.buscar);
+    assert.equal(r.status, 200, busca);
+    const c = b.chamadas.at(-1);
+    assert.equal(c.url, ENV.SUPABASE_URL + "/rest/v1/rpc/publico_horarios");
+    assert.deepEqual(c.corpo, { p_codigo: "rafaela-damaceno", p_de: busca.includes("de=") ? "2026-11-19" : null, p_ate: null, p_servico: servico, p_campanha: campanha });
+  }
+  const nulo = bancoFalso(() => ({ json: null }));
+  assert.equal((await agenda({ metodo: "GET", caminho: "/api/publico/agenda/rafaela-damaceno", busca: new URLSearchParams("horarios=1"), env: ENV }, nulo.buscar)).status, 404);
+  for (const busca of ["servico=1", "campanha=natal", `servico=${ENSAIO}x`]) {
+    assert.equal((await agenda({ metodo: "GET", caminho: "/api/publico/agenda/rafaela-damaceno", busca: new URLSearchParams(busca), env: ENV }, nulo.buscar)).status, 400, busca);
+  }
+  assert.equal(nulo.chamadas.length, 1, "id estranho nem chega ao banco");
+});
+
 test("a API recusa chave secreta e o banco do Painel de prospecção", async () => {
   const b = bancoFalso(() => ({ json: {} }));
   for (const env of [{ ...ENV, SUPABASE_ANON_KEY: "sb_secret_abc" }, { ...ENV, SUPABASE_URL: "https://gxdwluswpczlfgvzxqvg.supabase.co" }, {}]) {
@@ -72,6 +92,22 @@ test("pedido: manda ao banco só os campos do pedido, o domínio de quem chamou 
   assert.equal(b.chamadas[1].url, ENV.SUPABASE_URL + "/functions/v1/avisar-pedido");
   assert.deepEqual(b.chamadas[1].corpo, { pedido: "pedido-1" });
   assert.equal(r.cabecalhos["Cache-Control"], "no-store");
+});
+
+test("pedido (fotografia): com hora, vai para o pedido por horário só com os campos dele; avisa o dono", async () => {
+  const b = bancoFalso(url => url.endsWith("/rpc/publico_pedido_horario")
+    ? { json: { ok: true, pedido: "pedido-2", separada_ate: "2026-11-18T15:00:00Z" } }
+    : { json: {} });
+  const corpo = { nome: "Lia", whatsapp: "11988887777", servico: ENSAIO, campanha: CAMPANHA, data: "2026-11-19", hora: "09:00", mensagem: "Oi", turno: "x", convidados: 3, tempo: 9000, website: "" };
+  const r = await pedido({ metodo: "POST", caminho: "/api/publico/agenda/rafaela-damaceno/pedido", corpo, origem: "https://estudiorafaeladamaceno.com.br", ip: "200.1.2.3", env: ENV }, b.buscar);
+  assert.equal(r.status, 201);
+  assert.deepEqual(r.corpo, { ok: true, separada_ate: "2026-11-18T15:00:00Z" });
+  assert.equal(b.chamadas[0].url, ENV.SUPABASE_URL + "/rest/v1/rpc/publico_pedido_horario");
+  assert.deepEqual(Object.keys(b.chamadas[0].corpo.p_dados).sort(), ["campanha", "data", "hora", "mensagem", "nome", "servico", "whatsapp"]);
+  assert.equal(b.chamadas[0].corpo.p_dominio, "estudiorafaeladamaceno.com.br");
+  assert.deepEqual(b.chamadas[1].corpo, { pedido: "pedido-2" });
+  const ocupada = bancoFalso(() => ({ json: { ok: false, erro: "ocupada" } }));
+  assert.equal((await pedido({ metodo: "POST", caminho: "/api/publico/agenda/rafaela-damaceno/pedido", corpo, origem: "", ip: "", env: ENV }, ocupada.buscar)).status, 409);
 });
 
 test("pedido: o aviso falhar não derruba o pedido", async () => {
