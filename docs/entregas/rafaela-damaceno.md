@@ -10,10 +10,10 @@ quem continuar, lê primeiro "Onde o trem está" e o diário, e atualiza os dois
 
 | | |
 |---|---|
-| **Parada** | A · O site no repositório dela (no repositório; falta a hospedagem) |
-| **Feito** | Fase 1 (a demo é a proposta final, no ar); o repositório dela criado (`rafaelafotografiadev-del/estudiorafaeladamaceno`, privado) e o site gerado pelo `virar-site` (as duas páginas) subido na `main` dele em 15/11 (`a946cd1`), testado como na hospedagem (celular e computador) |
-| **Próxima ação** | Renderiza: o Cloudflare Pages na conta dela (A5) e o endereço `….pages.dev`; depois, o GitHub da Kaue7almeida de volta no claude.ai, com a Kaue7almeida colaboradora (Write) no repositório dela. Claude: conferir no ar (A6) |
-| **Esperando a Renderiza** | a hospedagem; o domínio comprado no CPF dela (no site está `estudiorafaeladamaceno.com.br`, provisório, pelo nome do repositório); as respostas de "Perguntas em aberto" |
+| **Parada** | A · O site no repositório dela (no ar em `estudiorafaeladamaceno.pages.dev`; falta o domínio) |
+| **Feito** | Fase 1 (a demo é a proposta final, no ar); o repositório dela (`rafaelafotografiadev-del/estudiorafaeladamaceno`, privado) com o site gerado pelo `virar-site` (as duas páginas, `a946cd1`); **no ar no Cloudflare Pages** (16/11): https://estudiorafaeladamaceno.pages.dev, publicação automática a cada envio na `main` dela, conferido no celular e no computador (fotos, `/natal`, agenda, cabeçalhos) |
+| **Próxima ação** | Renderiza: o domínio (ver "Domínio" abaixo) e as respostas de "Perguntas em aberto". Parada B (revisão com ela) e C (a ponte, numa sessão no "Nuvem kaue") podem começar |
+| **Esperando a Renderiza** | o domínio no nome dela (no site está `estudiorafaeladamaceno.com.br`, o que ela está registrando); as respostas de "Perguntas em aberto" |
 | **Última atualização** | 16/11/2026 |
 
 Demo (a proposta que ela viu):
@@ -57,8 +57,8 @@ páginas, sem nada da Renderiza (`conferir-site` sem ✗), e a demo continua no 
 | A2 ✅ | Claude | `scripts/virar-site.mjs` aprende o site de várias páginas: `natal.html` vira `/natal`, os links `/demo/<pasta>` viram `/` e `/natal`, o sitemap leva as duas, cada página com a prévia dela. Sem mudar o resultado dos sites de uma página (os testes de hoje) |
 | A3 ✅ | Claude | `demos/rafaela-damaceno-fotografia/site.json` (domínio, nome, cor, ícone a partir do selo dela, dados para o Google). Até o domínio ser comprado, o recomendado (`rafaeladamaceno.com.br`), anotado como provisório |
 | A4 ✅ | Claude | Gerar (`npm run site -- rafaela-damaceno-fotografia`), conferir, olhar no celular e no computador, subir para o repositório dela (`add_repo`, push) |
-| A5 | Renderiza | **Cloudflare Pages** na conta dela (decidido em 16/11: o grátis permite uso comercial, o da Vercel não): Workers & Pages → Create → Pages → Connect to Git → o repositório → preset None, sem build, saída `/`. Mandar o endereço `….pages.dev`. O domínio: o DNS passa para o Cloudflare (servidores trocados no Registro.br; se o DNSSEC estiver ligado lá, desligar antes) |
-| A6 | Claude | Conferir no ar (as duas páginas, fotos, WhatsApp, agenda, prévia do link) |
+| A5 ✅ | Renderiza | **Cloudflare Pages** na conta dela (decidido em 16/11: o grátis permite uso comercial, o da Vercel não): Workers & Pages → Create → Pages → Connect to Git → o repositório → preset None, sem build, saída `/`. Mandar o endereço `….pages.dev`. O domínio: o DNS passa para o Cloudflare (servidores trocados no Registro.br; se o DNSSEC estiver ligado lá, desligar antes) |
+| A6 ✅ | Claude | Conferir no ar (as duas páginas, fotos, WhatsApp, agenda, prévia do link) |
 
 Mexe em: raiz `scripts/virar-site.mjs` (e o teste dele), `demos/rafaela-damaceno-fotografia/site.json`, o repositório dela.
 
@@ -119,6 +119,19 @@ horários dela e a campanha de Natal.
 - E5 (Renderiza): a entrega: o link no Perfil da Empresa no Google e na bio do Instagram, o Search Console com o
   `sitemap.xml`, os acessos com ela (fora do chat). Fechar a ficha (seção "Entrega", modelo no `fechamento.md`).
 
+### Domínio (16/11/2026)
+No Registro.br, o CPF dela aparece com um **provedor de serviços (TOWEB-BRASIL)** responsável pela administração: o
+registro direto no site do Registro.br fica bloqueado para esse documento. Provavelmente foi por esse provedor que o
+domínio antigo foi registrado (é onde ela "perdeu o acesso"). Caminhos: (1) ela entra no painel da Toweb (ou pede à
+Toweb) e registra o novo por lá, e de quebra recupera o antigo; (2) pede a liberação do vínculo (à Toweb ou ao
+Registro.br, com documento) e registra direto no Registro.br; (3) se ela tiver CNPJ, registra no CNPJ. Em qualquer um,
+o DNS depois aponta para o Cloudflare. Nada de CPF nem dado pessoal dela neste repositório.
+
+### Para depois (anotado na conferência no ar)
+- Endereço que não existe abre a página inicial (o Cloudflare Pages faz isso sem um `404.html`): pôr uma página "não
+  encontrada" no `virar-site` (Parada B3).
+- `README.md` e `vercel.json` ficam acessíveis no endereço do site (inofensivo; dá para esconder depois).
+
 ## Perguntas em aberto (para a Renderiza; não travam o que não depende delas)
 
 1. **Ela validou a demo?** A Fase 2 começa com o "validou" (combinado em 14/11).
@@ -136,6 +149,7 @@ horários dela e a campanha de Natal.
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 16/11/2026 | A | **Site no ar no Cloudflare Pages** (projeto `estudiorafaeladamaceno`, pelo fluxo "legacy Pages": o novo fluxo do Cloudflare é o Workers, que pede `wrangler`). Conferido no ar: as duas páginas, `/natal.html` → `/natal`, fotos, agenda e cabeçalhos. Domínio: o CPF dela tem a Toweb como provedor no Registro.br. |
 | 16/11/2026 | A | Hospedagem: Cloudflare Pages (decisão da Renderiza). Pergunta da Renderiza sobre a API pública: ela não deixa mexer no site (ler = só o que já está publicado; editar = só com login no painel; o único envio público é o pedido da agenda, com limites); anotado o Turnstile para o caso de pedido falso. |
 | 15/11/2026 | A | Repositório da Rafaela criado e ligado à sessão; o `virar-site` aprendeu o site de várias páginas (os sites de uma página saem idênticos) e a conferência olha todas as páginas; o site dela subiu na `main` dele (`a946cd1`). Para ligar o repositório, o claude.ai foi conectado ao GitHub dela, e o repositório da Renderiza ficou sem escrita até voltar para a Kaue7almeida (ver "O que aprendemos"). |
 | 15/11/2026 | A | Trilho escrito com a Renderiza. Domínio: o antigo ainda está no nome dela (venceu em 04/10/2026); recomendado `rafaeladamaceno.com.br` + o com S. | Claude, a pedido da Renderiza |
