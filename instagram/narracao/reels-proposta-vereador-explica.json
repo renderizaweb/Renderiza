@@ -15,7 +15,7 @@
   {"id": "previa", "cena": "paga", "trilha": "site", "texto": "No décimo quinto dia chega a prévia do trabalho, e só então a primeira parte: *40%.*", "fala": "No décimo quinto dia chega a prévia do trabalho, e só então a primeira parte: quarenta por cento.", "pausa": 0.4, "impacto": true},
   {"id": "saldo", "cena": "paga", "trilha": "site", "texto": "O restante, só na entrega, depois que o gabinete *validar.*", "pausa": 0.5},
   {"id": "prazo", "cena": "prazo", "trilha": "site", "texto": "A entrega é uma só: tudo pronto em até *cinco semanas.*", "pausa": 1.1},
-  {"id": "garantias", "cena": "garantias", "trilha": "site", "texto": "Depois, são noventa dias de garantia contra defeitos. E, nos sete primeiros dias, dá para desistir sem *custo.*", "pausa": 0.4},
+  {"id": "garantias", "cena": "garantias", "trilha": "site", "texto": "Nos sete primeiros dias depois da assinatura, dá para desistir sem custo. E, depois da entrega, são noventa dias de garantia contra *defeitos.*", "pausa": 0.4},
   {"id": "dono", "cena": "garantias", "trilha": "site", "texto": "O domínio fica no nome do vereador. Os dados são sempre do gabinete. E o código passa a ser dele com o *pagamento.*", "pausa": 0.5},
   {"id": "seguranca", "cena": "seguranca", "trilha": "site", "texto": "Tudo fica num banco exclusivo, no Brasil, com acesso por pessoa e verificação em *duas etapas.*", "pausa": 0.4},
   {"id": "campanha", "cena": "seguranca", "trilha": "site", "texto": "E o sistema é do mandato: separado de qualquer *campanha.*", "pausa": 0.5},
