@@ -103,8 +103,16 @@ export function conflitos(reservas, { inicio, fim, ignorar = null, agora, origem
   return reservas.filter(r => r.id !== ignorar && Date.parse(r.inicio) < b && Date.parse(r.fim) > a && seguraHorario(r, { agora, origemDoPedido }));
 }
 
-/** A data está fechada? (bloqueios de/até inclusive) */
-export const bloqueioDoDia = (bloqueios, d) => bloqueios.find(b => b.de <= d && b.ate >= d) || null;
+/** A data está fechada inteira? (bloqueios de/até inclusive, sem horário) */
+export const bloqueioDoDia = (bloqueios, d) => bloqueios.find(b => !b.inicio && b.de <= d && b.ate >= d) || null;
+
+/** Os horários fechados do dia (bloqueios com início e fim: "fechar só este horário"). */
+export const fechadosDoDia = (bloqueios, d) => bloqueios.filter(b => b.inicio && b.de <= d && b.ate >= d);
+
+const minutos = h => Number(h.slice(0, 2)) * 60 + Number(h.slice(3, 5));
+const hhmm = m => `${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`;
+/** O horário que começa em `h` e dura `duracao` minutos cruza um fechado? Devolve o fechado ou null. */
+const fechadoEm = (fechados, h, duracao) => fechados.find(b => minutos(h) < minutos(b.fim) && minutos(h) + duracao > minutos(b.inicio)) || null;
 
 /** Os turnos do dia da semana (eventos: "De dia", "À noite") ou os horários de início (fotografia), sem serviço próprio. */
 export function horariosDoDia(horarios, d) {
@@ -127,10 +135,55 @@ export function horariosLivres({ d, horarios, campanha = null, reservas, bloquei
   const inicios = campanha && (campanha.dias || []).includes(d)
     ? (campanha.horarios || []).map(h => h.slice(0, 5))
     : horariosDoDia(horarios, d).map(h => h.inicio.slice(0, 5));
+  const fechados = fechadosDoDia(bloqueios, d);
   return [...new Set(inicios)].sort().filter(h => {
+    if (fechadoEm(fechados, h, duracao)) return false;
     const comeca = instanteNoFuso(d, h, fuso);
     const termina = new Date(comeca.getTime() + duracao * 60000);
     return !conflitos(reservas, { inicio: comeca.toISOString(), fim: termina.toISOString(), agora, origemDoPedido }).length;
+  });
+}
+
+/**
+ * Fotografia, a semana de horários: cada horário do dia com a situação dele. `livre` (aparece no site), `marcado`
+ * (reserva confirmada ou realizada), `pedido` (pré-reserva que ainda segura), `fechado` (folga daquele horário) ou
+ * `passou`. Reservas fora dos horários de trabalho também entram, na hora delas. Dia fechado inteiro: lista vazia.
+ */
+export function horariosDoDiaComSituacao({ d, horarios, campanha = null, reservas, bloqueios = [], duracao = 60, fuso, agora = Date.now(), origemDoPedido }) {
+  if (bloqueioDoDia(bloqueios, d)) return [];
+  const inicios = campanha && (campanha.dias || []).includes(d)
+    ? (campanha.horarios || []).map(h => h.slice(0, 5))
+    : horariosDoDia(horarios, d).map(h => h.inicio.slice(0, 5));
+  const fechados = fechadosDoDia(bloqueios, d);
+  const doDia = reservas.filter(r => instanteNoFuso(d, "00:00", fuso) <= new Date(r.inicio) && new Date(r.inicio) < instanteNoFuso(d, "23:59", fuso) && seguraHorario(r, { agora, origemDoPedido }));
+  const horaDe = r => new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit", hour12: false, timeZone: fuso }).format(new Date(r.inicio));
+  const todas = [...new Set([...inicios, ...doDia.map(horaDe)])].sort();
+  return todas.map(h => {
+    const comeca = instanteNoFuso(d, h, fuso), termina = new Date(comeca.getTime() + duracao * 60000);
+    const reserva = doDia.find(r => Date.parse(r.inicio) < termina.getTime() && Date.parse(r.fim) > comeca.getTime());
+    if (reserva) return { hora: h, situacao: reserva.situacao === "pre_reserva" ? "pedido" : "marcado", reserva };
+    const fechado = fechadoEm(fechados, h, duracao);
+    if (fechado) return { hora: h, situacao: "fechado", bloqueio: fechado };
+    return { hora: h, situacao: comeca.getTime() <= agora ? "passou" : "livre" };
+  });
+}
+
+/** Os horários de início de um dia de trabalho: do primeiro ao último, a cada `cada` minutos ("08:00", "09:00"…). */
+export function gerarHorarios({ primeiro, ultimo, cada = 60 }) {
+  const a = minutos(primeiro), b = minutos(ultimo), passo = Math.max(15, Number(cada) || 60);
+  if (!(b >= a)) return [];
+  const lista = [];
+  for (let m = a; m <= b && lista.length < 48; m += passo) lista.push(hhmm(m));
+  return lista;
+}
+
+/** A semana de trabalho a partir dos horários gerais: por dia (0 = domingo), { ligado, primeiro, ultimo, cada }. */
+export function jornadaDaSemana(horarios) {
+  return Array.from({ length: 7 }, (_, ds) => {
+    const hs = [...new Set(horarios.filter(h => h.dia_semana === ds && !h.servico_id).map(h => h.inicio.slice(0, 5)))].sort();
+    if (!hs.length) return { ligado: false, primeiro: "09:00", ultimo: "17:00", cada: 60 };
+    const passos = hs.slice(1).map((h, i) => minutos(h) - minutos(hs[i]));
+    return { ligado: true, primeiro: hs[0], ultimo: hs[hs.length - 1], cada: passos.length ? Math.min(...passos) : 60 };
   });
 }
 

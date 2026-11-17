@@ -1080,3 +1080,42 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-ms-quadro>p{margin-bottom:var(--rz-4)}
 .rz-ms-quadros{display:grid;gap:var(--rz-4);margin-top:var(--rz-4);grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
 .rz-ms-sub{display:block;margin:var(--rz-5) 0 var(--rz-3)}
+
+/* ---------- 30. Agenda da fotografia: a semana de horários e a semana de trabalho (17/11/2026) ---------- */
+.rz-dia-livres{display:block;margin-top:auto;font-size:var(--rz-t-xs);font-weight:600;color:var(--rz-sucesso)}
+.rz-dia-livres--zero,.rz-dia--fechado .rz-dia-livres{color:var(--rz-tinta-3)}
+.rz-dia--sem-trabalho{background:var(--rz-superficie-2)}
+.rz-dia--sem-trabalho .rz-dia-n{color:var(--rz-tinta-3)}
+.rz-dia--campanha .rz-dia-n::after{content:"";display:inline-block;width:6px;height:6px;margin-left:4px;border-radius:50%;background:var(--rz-destaque);vertical-align:middle}
+.rz-livres-acoes{display:flex;gap:var(--rz-1)}
+.rz-livres--fechados b,.rz-livres--fechados span{color:var(--rz-tinta-3)}
+.rz-hs-legenda{display:flex;flex-wrap:wrap;gap:var(--rz-2) var(--rz-4);margin:0 0 var(--rz-4);padding:0;list-style:none;font-size:var(--rz-t-sm);color:var(--rz-tinta-2)}
+.rz-hs-legenda li::before{content:"";display:inline-block;width:12px;height:12px;margin-right:6px;border-radius:4px;vertical-align:-2px;border:1px solid var(--rz-linha-forte)}
+.rz-hs-legenda [data-situacao=livre]::before,.rz-hs-slot[data-situacao=livre]{background:var(--rz-sucesso-fundo);border-color:color-mix(in srgb,var(--rz-sucesso) 35%,transparent)}
+.rz-hs-legenda [data-situacao=pedido]::before,.rz-hs-slot[data-situacao=pedido]{background:var(--rz-alerta-fundo);border-color:color-mix(in srgb,var(--rz-alerta) 35%,transparent)}
+.rz-hs-legenda [data-situacao=marcado]::before,.rz-hs-slot[data-situacao=marcado]{background:var(--rz-destaque-fundo);border-color:color-mix(in srgb,var(--rz-destaque) 35%,transparent)}
+.rz-hs-legenda [data-situacao=fechado]::before,.rz-hs-slot[data-situacao=fechado]{background:repeating-linear-gradient(135deg,var(--rz-gelo) 0 6px,var(--rz-superficie) 6px 12px)}
+.rz-hs{display:grid;gap:var(--rz-3)}
+.rz-hs-dia{display:flex;flex-direction:column;gap:var(--rz-2);min-width:0;padding:var(--rz-3);border:1px solid var(--rz-linha);border-radius:var(--rz-raio-g);background:var(--rz-superficie)}
+.rz-hs-dia--hoje{border-color:var(--rz-destaque)}
+.rz-hs-dia--folga{background:var(--rz-superficie-2)}
+.rz-hs-dia header{display:flex;align-items:baseline;justify-content:space-between;gap:var(--rz-2)}
+.rz-hs-dia header b{text-transform:capitalize}
+.rz-hs-dia header small{font-size:var(--rz-t-xs);color:var(--rz-tinta-2);text-align:right}
+.rz-hs-dia ul{display:flex;flex-wrap:wrap;gap:var(--rz-1);margin:0;padding:0;list-style:none}
+.rz-hs-dia>.rz-link{align-self:flex-start;font-size:var(--rz-t-sm)}
+.rz-hs-slot{display:flex;flex-direction:column;align-items:flex-start;min-width:84px;min-height:var(--rz-alvo);padding:6px var(--rz-2);border:1px solid var(--rz-linha);border-radius:var(--rz-raio-p);background:var(--rz-superficie);color:var(--rz-tinta);font:inherit;text-align:left;cursor:pointer}
+.rz-hs-slot b{font-size:var(--rz-t-sm)}
+.rz-hs-slot span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:var(--rz-t-xs);color:var(--rz-tinta-2)}
+.rz-hs-slot:hover:not(:disabled){box-shadow:var(--rz-sombra-1);border-color:var(--rz-linha-forte)}
+.rz-hs-slot:focus-visible{outline:none;box-shadow:var(--rz-foco)}
+.rz-hs-slot:disabled{cursor:default;opacity:.55}
+.rz-jornada-dia{margin:0;padding:var(--rz-3) 0;border:0;border-top:1px solid var(--rz-linha)}
+.rz-jornada-dia .rz-jornada-horas{margin-top:var(--rz-3)}
+.rz-jornada-dia .rz-jornada-horas[hidden]{display:none}
+.rz-jornada-dia [data-conta]{display:block;margin-top:var(--rz-2)}
+@media (min-width:1000px){
+  .rz-hs{grid-template-columns:repeat(7,minmax(0,1fr))}
+  .rz-hs-dia ul{flex-direction:column;flex-wrap:nowrap}
+  .rz-hs-slot{width:100%;min-width:0}
+}

@@ -7,13 +7,14 @@
 
 import { icone } from "../../ui/icones.js";
 import { escapar } from "../../ui/formulario.js";
-import { abrirFolha } from "../../ui/gaveta.js";
+import { abrirFolha, abrirGaveta } from "../../ui/gaveta.js";
 import { comEstados } from "../../ui/estados.js";
-import { interruptor } from "../../ui/campos.js";
+import { interruptor, campoTexto, campoSelecao } from "../../ui/campos.js";
 import { dia, dataLonga, somarDias, instanteNoFuso, horaDoTexto, nomeCurto } from "../../ui/formatos.js";
 import {
   DIAS_DA_SEMANA, gradeDoMes, semana, primeiroDoMes, somarMeses, nomeDoMes, itemDaReserva, itemDoCompromisso,
   itensDoDia, filtrarItens, bloqueioDoDia, horariosDoDia, horariosLivres, faixa, quandoFoi, seguraHorario,
+  fechadosDoDia, horariosDoDiaComSituacao, gerarHorarios, jornadaDaSemana,
 } from "./logica.js";
 import { COLUNAS_RESERVA, etiquetaDaSituacao, abrirReserva, abrirFormReserva } from "./reserva.js";
 import { COLUNAS_COMPROMISSO, abrirCompromisso, abrirFormCompromisso } from "./compromisso.js";
@@ -33,6 +34,10 @@ export async function montar(el, contexto) {
   let diaSel = DIA.test(params.get("dia") || "") ? params.get("dia") : hoje;
   let mes = primeiroDoMes(diaSel);
   let vistaCelular = "mes"; // como o exemplo validado (cara-dos-exemplos.md, A1): o mês, com o dia embaixo
+  // fotografia: "mes" ou "horarios" (a semana com cada horário e a situação dele; 17/11/2026), no celular e no computador
+  let vista = "mes";
+  const mexeNosHorarios = fotografia && pode("servicos", "editar"); // a regra do banco: os horários são de Serviços
+  const duracao = nicho.horarioPadrao.duracao;
   const filtro = { pessoa: null, escondidas: [], canceladas: false };
   let dados = { reservas: [], compromissos: [], bloqueios: [], horarios: [], campanhas: [], de: "", ate: "" };
   const ctx = { banco, conta, nicho, pode, avisar, navegar, pessoa, fuso, hoje, equipe: [], aoMudar: () => desenhar(), recarregar: d => atualizar(d), abrirReservaPorId: id => abrirPorId(id), origemDoPedido: () => null };
@@ -41,8 +46,9 @@ export async function montar(el, contexto) {
   el.innerHTML = `
     <header class="rz-cabeca">
       <div class="rz-cabeca-titulos"><h1 class="rz-titulo-1">${escapar(nomeDoModulo)}</h1>
-        <p class="rz-texto-2">${fotografia ? "Os ensaios por horário. Toque num dia para ver os horários livres." : "Festas, visitas, degustações e reuniões. Toque num dia ou numa festa."}</p></div>
+        <p class="rz-texto-2">${fotografia ? "Os ensaios por horário. Em \"Semana\", cada horário com a situação dele: livre, marcado ou fechado." : "Festas, visitas, degustações e reuniões. Toque num dia ou numa festa."}</p></div>
       <div class="rz-cabeca-acoes">
+        ${mexeNosHorarios ? `<button class="rz-botao" type="button" data-jornada>${icone("relogio", { tamanho: 18 })}Meus horários de trabalho</button>` : ""}
         ${marca ? `<button class="rz-botao" type="button" data-compromisso>${icone("relogio", { tamanho: 18 })}${fotografia ? "Marcar reunião" : "Marcar visita"}</button>` : ""}
         ${edita ? `<button class="rz-botao rz-botao--primario" type="button" data-reservar>${icone("adicionar", { tamanho: 18 })}${escapar(nicho.palavras.novaReserva)}</button>` : ""}
       </div>
@@ -74,14 +80,60 @@ export async function montar(el, contexto) {
         <div class="rz-mes-dias">${gradeDoMes(mes).map(d => {
           const lista = itensDoDia(todos, d);
           const bloq = bloqueioDoDia(dados.bloqueios, d);
-          const classes = ["rz-dia", d.slice(0, 7) !== mes.slice(0, 7) && "rz-dia--fora", d === hoje && "rz-dia--hoje", bloq && "rz-dia--fechado"].filter(Boolean).join(" ");
+          const extra = fotografia ? doMes(d, bloq) : null;
+          const classes = ["rz-dia", d.slice(0, 7) !== mes.slice(0, 7) && "rz-dia--fora", d === hoje && "rz-dia--hoje", bloq && "rz-dia--fechado", extra && extra.semTrabalho && "rz-dia--sem-trabalho", extra && extra.campanha && "rz-dia--campanha"].filter(Boolean).join(" ");
           return `<button type="button" role="gridcell" class="${classes}" data-dia="${d}" aria-pressed="${d === diaSel}" aria-label="${escapar(rotuloDoDia(d, lista, bloq))}">
             <span class="rz-dia-n">${Number(d.slice(8))}</span>
             <span class="rz-dia-itens">${lista.slice(0, 3).map(chipDoItem).join("")}${lista.length > 3 ? `<span class="rz-dia-mais">+${lista.length - 3}</span>` : ""}</span>
+            ${extra && extra.texto ? `<span class="rz-dia-livres${extra.livres ? "" : " rz-dia-livres--zero"}">${escapar(extra.texto)}</span>` : ""}
             ${pontos(lista)}</button>`;
         }).join("")}</div>
       </div>`;
   }
+
+  /** Fotografia, no mês: quantos horários livres o dia tem (de hoje em diante), se não atende e se é dia de campanha. */
+  function doMes(d, bloq) {
+    const campanha = dados.campanhas.find(c => (c.dias || []).includes(d)) || null;
+    if (bloq) return { campanha, texto: "Folga" };
+    if (d < hoje) return { campanha };
+    const lista = horariosDoDiaComSituacao({ d, horarios: dados.horarios, campanha, reservas: dados.reservas, bloqueios: dados.bloqueios, duracao, fuso });
+    if (!lista.length) return { campanha, semTrabalho: true };
+    const livres = lista.filter(x => x.situacao === "livre").length;
+    return { campanha, livres, texto: livres ? `${livres} ${livres === 1 ? "livre" : "livres"}` : "Cheio" };
+  }
+
+  const rotuloDoHorario = x => x.situacao === "livre" ? (temAgendaOnline ? "Livre · no site" : "Livre")
+    : x.situacao === "fechado" ? `Fechado${x.bloqueio.motivo ? ` · ${x.bloqueio.motivo}` : ""}`
+    : x.reserva ? `${x.situacao === "pedido" ? "Pedido · " : ""}${nomeCurto((x.reserva.clientes && x.reserva.clientes.nome) || itemDaReserva(x.reserva, fuso).titulo)}` : "Passou";
+
+  /** Fotografia: a semana de horários, um dia por coluna (no celular, um embaixo do outro). */
+  function horariosDaSemanaHtml() {
+    const dias = semana(diaSel);
+    const mesDe = d => nomeDoMes(primeiroDoMes(d)).split(" ")[0].toLowerCase();
+    const titulo = `${Number(dias[0].slice(8))} de ${mesDe(dias[0])} a ${Number(dias[6].slice(8))} de ${mesDe(dias[6])}`;
+    return `<div class="rz-agenda-barra">
+        <div class="rz-mes-nav"><button class="rz-botao rz-botao--fantasma rz-botao--pequeno" type="button" data-semana="-7" aria-label="Semana anterior">${icone("voltar", { tamanho: 18 })}</button>
+          <b>${escapar(titulo)}</b>
+          <button class="rz-botao rz-botao--fantasma rz-botao--pequeno rz-girar" type="button" data-semana="7" aria-label="Próxima semana">${icone("voltar", { tamanho: 18 })}</button></div>
+        <button class="rz-chip" type="button" data-hoje>Hoje</button>${seletorDeVista()}
+      </div>
+      <ul class="rz-hs-legenda" aria-label="O que cada cor quer dizer"><li data-situacao="livre">Livre${temAgendaOnline ? " (aparece no site)" : ""}</li><li data-situacao="pedido">Pedido esperando</li><li data-situacao="marcado">Marcado</li><li data-situacao="fechado">Fechado</li></ul>
+      <div class="rz-hs">${dias.map(d => {
+        const campanha = dados.campanhas.find(c => (c.dias || []).includes(d)) || null;
+        const bloq = bloqueioDoDia(dados.bloqueios, d);
+        const lista = horariosDoDiaComSituacao({ d, horarios: dados.horarios, campanha, reservas: dados.reservas, bloqueios: dados.bloqueios, duracao, fuso });
+        const livres = lista.filter(x => x.situacao === "livre").length;
+        const resumo = bloq ? `Folga${bloq.motivo && bloq.motivo !== "Folga" ? ` · ${bloq.motivo}` : ""}` : !lista.length ? "Não atende" : d < hoje ? "" : livres ? `${livres} ${livres === 1 ? "livre" : "livres"}` : "Cheio";
+        return `<section class="rz-hs-dia${d === hoje ? " rz-hs-dia--hoje" : ""}${bloq ? " rz-hs-dia--folga" : ""}" aria-label="${escapar(dataLonga(instanteNoFuso(d, "12:00", fuso), fuso))}">
+          <header><b>${DIAS_DA_SEMANA[new Date(d + "T12:00:00Z").getUTCDay()]} ${Number(d.slice(8))}</b><small>${escapar(resumo)}${campanha ? ` · ${escapar(campanha.nome)}` : ""}</small></header>
+          ${lista.length ? `<ul>${lista.map(x => `<li><button type="button" class="rz-hs-slot" data-slot="${d}|${x.hora}" data-situacao="${x.situacao}"${x.situacao === "passou" || (!edita && !x.reserva) ? " disabled" : ""}>
+            <b>${escapar(horaDoTexto(x.hora))}</b><span>${escapar(rotuloDoHorario(x))}</span></button></li>`).join("")}</ul>` : ""}
+          ${edita && d >= hoje ? (bloq ? `<button class="rz-link" type="button" data-reabrir="${escapar(bloq.id)}">Reabrir o dia</button>` : lista.length ? `<button class="rz-link" type="button" data-fechar-dia="${d}">Fechar o dia</button>` : "") : ""}
+        </section>`;
+      }).join("")}</div>`;
+  }
+
+  const seletorDeVista = () => fotografia ? `<div class="rz-segmentos" role="group" aria-label="Ver"><button type="button" data-ver="mes" aria-pressed="${vista === "mes"}">Mês</button><button type="button" data-ver="horarios" aria-pressed="${vista === "horarios"}">Semana</button></div>` : "";
 
   function semanaHtml() {
     const todos = itens();
@@ -119,7 +171,9 @@ export async function montar(el, contexto) {
             <span class="rz-linha-texto"><b>${escapar(it.titulo)}</b><small>${escapar((it.tipo === "reserva" ? [it.sub, it.original.convidados && nicho.temConvidados ? `${it.original.convidados} convidados` : null, nomeDe(it.responsaveis[0])] : [it.com, nomeDe(it.responsaveis[0])]).filter(Boolean).join(" · ") || " ")}</small></span>
             <span class="rz-linha-fim">${it.situacao ? etiquetaDaSituacao(it.situacao) : `<span class="rz-etiqueta rz-etiqueta--info">${escapar(it.sub)}</span>`}</span></button></li>`).join("")}</ul>`
           : `<p class="rz-texto-2">${bloq ? "" : diaSel < hoje ? "Nada marcado neste dia." : "Nada marcado ainda."}</p>`}
-        ${livres.length ? `<ul class="rz-livres">${livres.map(h => `<li><b>${escapar(horaDoTexto(h))}</b><span>Horário livre${temAgendaOnline ? ": aparece na agenda online" : ""}</span>${edita ? `<button class="rz-botao rz-botao--pequeno" type="button" data-marcar-hora="${h}">Marcar</button>` : ""}</li>`).join("")}</ul>` : ""}
+        ${livres.length ? `<ul class="rz-livres">${livres.map(h => `<li><b>${escapar(horaDoTexto(h))}</b><span>Horário livre${temAgendaOnline ? ": aparece na agenda online" : ""}</span>${edita ? `<span class="rz-livres-acoes"><button class="rz-botao rz-botao--pequeno rz-botao--fantasma" type="button" data-fechar-hora="${diaSel}|${h}">Fechar</button><button class="rz-botao rz-botao--pequeno" type="button" data-marcar-hora="${h}">Marcar</button></span>` : ""}</li>`).join("")}</ul>` : ""}
+        ${fotografia && fechadosDoDia(dados.bloqueios, diaSel).length ? `<ul class="rz-livres rz-livres--fechados">${fechadosDoDia(dados.bloqueios, diaSel).map(b => `<li><b>${escapar(horaDoTexto(b.inicio.slice(0, 5)))}</b><span>Fechado${b.motivo ? `: ${escapar(b.motivo)}` : ""}</span>${edita && diaSel >= hoje ? `<button class="rz-botao rz-botao--pequeno" type="button" data-reabrir="${escapar(b.id)}">Reabrir</button>` : ""}</li>`).join("")}</ul>` : ""}
+        ${fotografia && edita && diaSel >= hoje ? (bloq ? `<button class="rz-botao rz-botao--bloco" type="button" data-reabrir="${escapar(bloq.id)}">Reabrir este dia</button>` : `<button class="rz-botao rz-botao--fantasma rz-botao--bloco" type="button" data-fechar-dia="${diaSel}">${icone("cadeado", { tamanho: 18 })}Fechar este dia (folga)</button>`) : ""}
         ${diaLivre && temAgendaOnline ? `<p class="rz-alerta rz-alerta--sucesso">${icone("estrela", { tamanho: 18 })}<span>Dia livre: já aparece na agenda online para o cliente pedir.</span></p>` : ""}
         ${edita && !bloq && diaSel >= hoje && !lista.some(i => i.tipo === "reserva" && i.situacao !== "cancelada") && !fotografia ? `<button class="rz-botao rz-botao--primario rz-botao--bloco" type="button" data-reservar-dia>${icone("adicionar", { tamanho: 18 })}Reservar este dia</button>` : ""}
       </section>`;
@@ -138,6 +192,7 @@ export async function montar(el, contexto) {
   const corDe = c => `<span class="rz-cor${c.compromisso ? " rz-ponto-compromisso" : ""}"${c.cor ? ` style="--cor:${escapar(c.cor)}"` : ""}></span>`;
 
   function desenhar() {
+    if (fotografia && vista === "horarios") { corpo.innerHTML = horariosDaSemanaHtml(); return; }
     const legenda = categorias();
     corpo.innerHTML = `
       <div class="rz-agenda-barra">
@@ -145,7 +200,7 @@ export async function montar(el, contexto) {
           <b>${escapar(nomeDoMes(mes))}</b>
           <button class="rz-botao rz-botao--fantasma rz-botao--pequeno rz-girar" type="button" data-mes="1" aria-label="Próximo mês">${icone("voltar", { tamanho: 18 })}</button></div>
         <button class="rz-chip" type="button" data-hoje>Hoje</button>
-        <div class="rz-segmentos rz-so-celular" role="group" aria-label="Ver"><button type="button" data-vista="semana" aria-pressed="${vistaCelular === "semana"}">Semana</button><button type="button" data-vista="mes" aria-pressed="${vistaCelular === "mes"}">Mês</button></div>
+        ${seletorDeVista()}${fotografia ? "" : `<div class="rz-segmentos rz-so-celular" role="group" aria-label="Ver"><button type="button" data-vista="semana" aria-pressed="${vistaCelular === "semana"}">Semana</button><button type="button" data-vista="mes" aria-pressed="${vistaCelular === "mes"}">Mês</button></div>`}
         <button class="rz-botao rz-botao--pequeno" type="button" data-filtrar aria-pressed="${filtroAtivo()}">${icone("filtro", { tamanho: 16 })}Filtrar${filtroAtivo() ? " ·" : ""}</button>
       </div>
       ${legenda.length ? `<ul class="rz-legenda" aria-label="O que cada cor quer dizer">${legenda.map(c => `<li${filtro.escondidas.includes(c.id) ? ' data-escondida="true"' : ""}>${corDe(c)}${escapar(c.nome)}</li>`).join("")}</ul>` : ""}
@@ -171,7 +226,7 @@ export async function montar(el, contexto) {
     const [reservas, compromissos, bloqueios, fixos] = await Promise.all([
       banco.resultado(banco.tabela("reservas").select(COLUNAS_RESERVA).eq("conta_id", conta.conta_id).lt("inicio", ateIso).gt("fim", deIso).order("inicio")),
       banco.resultado(banco.tabela("compromissos").select(COLUNAS_COMPROMISSO).eq("conta_id", conta.conta_id).gte("inicio", deIso).lt("inicio", ateIso).order("inicio")),
-      banco.resultado(banco.tabela("bloqueios").select("id, de, ate, motivo").eq("conta_id", conta.conta_id).lte("de", ate).gte("ate", de)),
+      banco.resultado(banco.tabela("bloqueios").select("id, de, ate, inicio, fim, motivo").eq("conta_id", conta.conta_id).lte("de", ate).gte("ate", de)),
       primeiraVez ? Promise.all([
         banco.resultado(banco.tabela("horarios").select("dia_semana, inicio, fim, nome, servico_id").eq("conta_id", conta.conta_id)).catch(() => []),
         fotografia ? banco.resultado(banco.tabela("campanhas").select("id, nome, dias, horarios, vagas, servico_id").eq("conta_id", conta.conta_id).eq("ativa", true)).catch(() => []) : [],
@@ -244,9 +299,95 @@ export async function montar(el, contexto) {
     folha.el.querySelector("[name=canceladas]").addEventListener("change", e => { filtro.canceladas = e.target.checked; });
   }
 
+  // ---------- fechar e reabrir (folga do dia ou de um horário) e a semana de trabalho ----------
+  async function gravar(acao, mensagem) {
+    try { await acao(); avisar(mensagem); await atualizar(); } catch (er) { avisar(er.message, { tipo: "erro" }); }
+  }
+  const somar = (h, min) => { const m = Math.min(24 * 60 - 1, Number(h.slice(0, 2)) * 60 + Number(h.slice(3, 5)) + min); return `${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`; };
+  const fecharHorario = (d, h, motivo = "") => gravar(() => banco.resultado(banco.tabela("bloqueios").insert({ conta_id: conta.conta_id, de: d, ate: d, inicio: h, fim: somar(h, duracao), motivo: motivo || null })),
+    `${horaDoTexto(h)} fechado: não aparece mais no site.`);
+  const fecharDia = d => gravar(() => banco.resultado(banco.tabela("bloqueios").insert({ conta_id: conta.conta_id, de: d, ate: d, motivo: "Folga" })), "Dia fechado: o site não oferece horário nele.");
+  const reabrir = id => gravar(() => banco.resultado(banco.tabela("bloqueios").delete().eq("id", id)), "Reaberto: volta a aparecer no site.");
+
+  /** Tocar num horário da semana: o livre marca ou fecha; o fechado reabre; o marcado abre o ensaio. */
+  function tocarHorario(d, h) {
+    const campanha = dados.campanhas.find(c => (c.dias || []).includes(d)) || null;
+    const x = horariosDoDiaComSituacao({ d, horarios: dados.horarios, campanha, reservas: dados.reservas, bloqueios: dados.bloqueios, duracao, fuso }).find(y => y.hora === h);
+    if (!x) return;
+    if (x.reserva) return abrirReserva(x.reserva, ctx);
+    if (!edita) return;
+    const quando = `${dataLonga(instanteNoFuso(d, "12:00", fuso), fuso)}, ${horaDoTexto(h)}`;
+    if (x.situacao === "fechado") {
+      const f = abrirFolha({ titulo: quando, corpo: `<p class="rz-texto-2">Este horário está fechado${x.bloqueio.motivo ? ` (${escapar(x.bloqueio.motivo)})` : ""}: o site não oferece.</p>`,
+        rodape: `<button class="rz-botao" type="button" data-fechar>Voltar</button><button class="rz-botao rz-botao--primario" type="button" data-sim>Reabrir este horário</button>` });
+      f.el.querySelector("[data-sim]").addEventListener("click", () => { f.fechar(); reabrir(x.bloqueio.id); });
+      return;
+    }
+    const f = abrirFolha({ titulo: quando, corpo: `<p class="rz-texto-2">Horário livre${temAgendaOnline ? ": aparece no site para pedirem" : ""}.</p>
+        ${campoTexto({ id: "fechar-motivo", nome: "motivo", rotulo: "Se for fechar, o motivo (só você vê)", opcional: true, placeholder: "Ex.: médico, compromisso", extra: { maxlength: 200 } })}`,
+      rodape: `<button class="rz-botao" type="button" data-fechar-este>Fechar este horário</button><button class="rz-botao rz-botao--primario" type="button" data-marcar-este>Marcar um ensaio</button>` });
+    f.el.querySelector("[data-marcar-este]").addEventListener("click", () => { f.fechar(); abrirFormReserva(ctx, { dia: d, hora: h, campanha }); });
+    f.el.querySelector("[data-fechar-este]").addEventListener("click", () => { const m = f.el.querySelector("[name=motivo]").value.trim(); f.fechar(); fecharHorario(d, h, m); });
+  }
+
+  /** Meus horários de trabalho: por dia da semana, liga e desliga, o primeiro e o último horário e de quanto em quanto. */
+  function abrirJornada() {
+    const j = jornadaDaSemana(dados.horarios);
+    const NOMES = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+    const CADA = [30, 45, 60, 90, 120].map(m => ({ valor: String(m), rotulo: m < 60 ? `${m} minutos` : m === 60 ? "1 hora" : m === 90 ? "1 hora e meia" : "2 horas" }));
+    const linha = ds => `<fieldset class="rz-jornada-dia" data-ds="${ds}">
+        ${interruptor({ nome: `l-${ds}`, rotulo: NOMES[ds], marcado: j[ds].ligado })}
+        <div class="rz-campos--tres rz-jornada-horas"${j[ds].ligado ? "" : " hidden"}>
+          ${campoTexto({ id: `p-${ds}`, nome: `p-${ds}`, rotulo: "Primeiro horário", tipo: "time", valor: j[ds].primeiro })}
+          ${campoTexto({ id: `u-${ds}`, nome: `u-${ds}`, rotulo: "Último horário", tipo: "time", valor: j[ds].ultimo })}
+          ${campoSelecao({ id: `c-${ds}`, nome: `c-${ds}`, rotulo: "A cada", valor: String(CADA.some(c => c.valor === String(j[ds].cada)) ? j[ds].cada : 60), opcoes: CADA })}
+        </div><p class="rz-ajuda" data-conta></p></fieldset>`;
+    const g = abrirGaveta({
+      titulo: "Meus horários de trabalho",
+      subtitulo: "Os horários em que começa um ensaio. O site e a agenda online oferecem só estes (menos os marcados e os fechados).",
+      corpo: `<form class="rz-pilha" id="form-jornada" novalidate><div role="alert" hidden></div>${[1, 2, 3, 4, 5, 6, 0].map(linha).join("")}
+        <p class="rz-texto-3">Ensaio com horário próprio (em Serviços) continua com os dele. Para um dia só (feriado, viagem), use "Fechar o dia" na Agenda.</p></form>`,
+      rodape: `<button class="rz-botao" type="button" data-fechar>Voltar</button><button class="rz-botao rz-botao--primario" type="submit" form="form-jornada">Salvar os horários</button>`,
+    });
+    const form = g.corpo.querySelector("form");
+    const ler = ds => ({ ligado: form[`l-${ds}`].checked, primeiro: form[`p-${ds}`].value, ultimo: form[`u-${ds}`].value, cada: Number(form[`c-${ds}`].value) });
+    const contar = () => form.querySelectorAll("[data-ds]").forEach(fs => {
+      const ds = Number(fs.dataset.ds), x = ler(ds), hs = x.ligado ? gerarHorarios(x) : [];
+      fs.querySelector(".rz-jornada-horas").hidden = !x.ligado;
+      fs.querySelector("[data-conta]").textContent = !x.ligado ? "Não atende." : hs.length ? `${hs.length} ${hs.length === 1 ? "horário" : "horários"}: ${hs.map(h => horaDoTexto(h)).join(", ")}` : "Confira: o último horário vem antes do primeiro.";
+    });
+    form.addEventListener("input", contar); form.addEventListener("change", contar); contar();
+    form.addEventListener("submit", async ev => {
+      ev.preventDefault();
+      const linhas = [];
+      for (const ds of [0, 1, 2, 3, 4, 5, 6]) { const x = ler(ds); if (x.ligado) for (const h of gerarHorarios(x)) linhas.push({ conta_id: conta.conta_id, servico_id: null, dia_semana: ds, inicio: h }); }
+      const botao = g.pe.querySelector("[type=submit]");
+      botao.disabled = true;
+      try {
+        await banco.resultado(banco.tabela("horarios").delete().eq("conta_id", conta.conta_id).is("servico_id", null));
+        if (linhas.length) await banco.resultado(banco.tabela("horarios").insert(linhas));
+        g.fechar();
+        dados = { ...dados, de: "" }; // recarrega os horários
+        await atualizar();
+        avisar("Horários salvos: o site já oferece os novos.");
+      } catch (er) { botao.disabled = false; avisar(er.message, { tipo: "erro" }); }
+    });
+  }
+
   // ---------- eventos ----------
   el.addEventListener("click", async e => {
     const alvo = e.target;
+    if (alvo.closest("[data-jornada]")) return abrirJornada();
+    const ver = alvo.closest("[data-ver]");
+    if (ver) { vista = ver.dataset.ver; return desenhar(); }
+    const slot = alvo.closest("[data-slot]");
+    if (slot) { const [d, h] = slot.dataset.slot.split("|"); return tocarHorario(d, h); }
+    const fh = alvo.closest("[data-fechar-hora]");
+    if (fh) { const [d, h] = fh.dataset.fecharHora.split("|"); return fecharHorario(d, h); }
+    const fd = alvo.closest("[data-fechar-dia]");
+    if (fd) return fecharDia(fd.dataset.fecharDia);
+    const ra = alvo.closest("[data-reabrir]");
+    if (ra) return reabrir(ra.dataset.reabrir);
     if (alvo.closest("[data-reservar]")) return abrirFormReserva(ctx, { dia: diaSel >= hoje ? diaSel : "" });
     if (alvo.closest("[data-reservar-dia]")) return abrirFormReserva(ctx, { dia: diaSel });
     if (alvo.closest("[data-compromisso]")) return abrirFormCompromisso(ctx, { dia: diaSel >= hoje ? diaSel : "", tipo: fotografia ? "reuniao" : "visita" });

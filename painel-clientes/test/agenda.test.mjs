@@ -101,3 +101,29 @@ test("quando foi e os compromissos do nicho", () => {
   assert.deepEqual(tiposDeCompromisso("eventos").map(t => t.id), ["visita", "degustacao", "reuniao", "outro"]);
   assert.deepEqual(tiposDeCompromisso("fotografia").map(t => t.id), ["reuniao", "outro"]);
 });
+
+// ---------- a semana de horários e a semana de trabalho (17/11/2026) ----------
+test("horários do dia com a situação: livre, marcado, pedido, fechado (só aquele horário) e passou; dia fechado, nada", async () => {
+  const { horariosDoDiaComSituacao, horariosLivres, gerarHorarios, jornadaDaSemana } = await import("../src/modulos/agenda/logica.js");
+  const fuso = "America/Sao_Paulo", d = "2030-03-05"; // terça
+  const horarios = ["08:00", "09:00", "10:00", "11:00"].map(inicio => ({ dia_semana: 2, inicio: inicio + ":00", servico_id: null }));
+  const reservas = [
+    { id: "a", situacao: "confirmada", inicio: "2030-03-05T11:00:00.000Z", fim: "2030-03-05T12:00:00.000Z" }, // 8h em SP
+    { id: "b", situacao: "pre_reserva", criado_em: "2030-03-05T00:00:00.000Z", pedido_id: null, inicio: "2030-03-05T15:30:00.000Z", fim: "2030-03-05T16:30:00.000Z" }, // 12h30, fora dos horários
+  ];
+  const bloqueios = [{ id: "f", de: d, ate: d, inicio: "10:00", fim: "11:00" }];
+  const agora = Date.parse("2030-03-05T10:30:00.000Z"); // 7h30 em SP
+  const s = horariosDoDiaComSituacao({ d, horarios, reservas, bloqueios, fuso, agora });
+  assert.deepEqual(s.map(x => `${x.hora} ${x.situacao}`), ["08:00 marcado", "09:00 livre", "10:00 fechado", "11:00 livre", "12:30 pedido"]);
+  assert.equal(s[2].bloqueio.id, "f");
+  assert.deepEqual(horariosLivres({ d, horarios, reservas, bloqueios, fuso, agora }), ["09:00", "11:00"], "o horário fechado sai dos livres (e do site)");
+  assert.deepEqual(horariosDoDiaComSituacao({ d, horarios, reservas, bloqueios: [{ de: d, ate: d }], fuso, agora }), [], "dia fechado inteiro");
+  assert.equal(horariosDoDiaComSituacao({ d, horarios, reservas: [], bloqueios: [], fuso, agora: Date.parse("2030-03-05T12:30:00.000Z") })[0].situacao, "passou");
+
+  assert.deepEqual(gerarHorarios({ primeiro: "08:00", ultimo: "10:00", cada: 60 }), ["08:00", "09:00", "10:00"]);
+  assert.deepEqual(gerarHorarios({ primeiro: "09:00", ultimo: "10:30", cada: 45 }), ["09:00", "09:45", "10:30"]);
+  assert.deepEqual(gerarHorarios({ primeiro: "17:00", ultimo: "08:00" }), [], "último antes do primeiro: nada");
+  const j = jornadaDaSemana([...horarios, { dia_semana: 2, inicio: "14:00:00", servico_id: "x" }]);
+  assert.deepEqual(j[2], { ligado: true, primeiro: "08:00", ultimo: "11:00", cada: 60 }, "só os gerais (o horário próprio de um ensaio fica fora)");
+  assert.equal(j[0].ligado, false);
+});
