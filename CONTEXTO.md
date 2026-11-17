@@ -223,6 +223,11 @@ cliente, ajustes, repositório, hospedagem, domínio, entrega). Abaixo, o que é
   (2) animação de entrada que corta a própria moldura (`clip-path`) faz a foto nunca aparecer, porque moldura toda cortada
   não conta como "na tela": a cortina vai na imagem de dentro; (3) testar com rolagem e cliques de verdade, não só com a
   página inteira capturada (foi assim que o defeito apareceu).
+- **Fotógrafas: mensagem de primeiro contato no card** (17/11/2026, pedido do Kaue): a mensagem da Milena que fechou 2
+  vendas (texto do Kaue, sem mexer) fica em `leads.mensagem_whatsapp` e aparece no botão **Copiar mensagem** do card,
+  com o nome (`renderiza.ola` do `demo.json`) e o link da demo; o parágrafo do Natal só vai se a demo tem `natal.html`.
+  Demo nova de fotógrafa: `python3 -I ferramentas/demo/mensagem-fotografia.py <pasta>` dá o SQL (só preenche quem
+  está vazio; `--texto` mostra a mensagem). Preenchidas em 17/11: as 19 de Demo pronta e a Mariana Lima.
 - **Fotógrafas: portfólio online** (09/11/2026, pedido do Kaue): a proposta deixa de ser "site" e vira portfólio online (galerias por ensaio, ensaios e valores, promoção, WhatsApp). O porquê e o formato estão em `docs/nichos/fotografos.md` (seção 10); a demo sai de `ferramentas/demo/gerar-portfolio.py`. Primeira: `/demo/olivares-fotografia`.
 - `/exemplos/fotografia` (28/10/2026, pedido do Kaue): o Painel Renderiza para fotógrafas, com o **Estúdio Ciranda**
   inventado: agenda por horário e campanha de Natal com vagas (o que a pesquisa do nicho pediu). O card dos leads
