@@ -502,6 +502,14 @@ input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;appeara
 .rz-fatos dt{font-size:var(--rz-t-sm);color:var(--rz-tinta-3)}
 .rz-fatos dd{margin:2px 0 0;font-weight:500}
 @media (min-width:720px){.rz-fatos{grid-template-columns:repeat(3,minmax(0,1fr))}}
+/* valor comprido (um @ de Instagram, um e-mail) quebra em vez de atravessar a coluna do lado */
+.rz-fatos dd{overflow-wrap:anywhere}
+/* em lista, rótulo à esquerda e valor à direita (onde o cartão é estreito, como na conversa de boas-vindas) */
+.rz-fatos.rz-fatos--lista{grid-template-columns:1fr;gap:0}
+.rz-fatos--lista>div{display:grid;grid-template-columns:minmax(88px,30%) minmax(0,1fr);gap:var(--rz-3);align-items:baseline;padding:var(--rz-3) 0;border-top:1px solid var(--rz-linha)}
+.rz-fatos--lista>div:first-child{border-top:0;padding-top:0}
+.rz-fatos--lista>div:last-child{padding-bottom:0}
+.rz-fatos--lista dd{margin:0}
 .rz-chips--quebra{flex-wrap:wrap;overflow:visible}
 label.rz-chip:has(input:checked){background:var(--rz-grafite);border-color:var(--rz-grafite);color:#fff}
 label.rz-chip:has(input:focus-visible){box-shadow:var(--rz-foco)}

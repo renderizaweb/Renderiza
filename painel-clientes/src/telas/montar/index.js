@@ -141,7 +141,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
         sabe.instagram && ["Instagram", `@${sabe.instagram}`], sabe.google && ["Avaliações", sabe.google]].filter(Boolean);
       return `
       ${cabeca("É isso mesmo?", "É o que a gente já sabe do seu negócio. Se algo mudou, é só corrigir.")}
-      <dl class="rz-fatos rz-cartao rz-cartao-corpo">${fatos.map(([k, v]) => `<div><dt>${k}</dt><dd>${escapar(v)}</dd></div>`).join("")}</dl>
+      <dl class="rz-fatos rz-fatos--lista rz-cartao rz-cartao-corpo">${fatos.map(([k, v]) => `<div><dt>${k}</dt><dd>${escapar(v)}</dd></div>`).join("")}</dl>
       <div class="rz-acesso-acoes">
         <button class="rz-botao rz-botao--primario rz-botao--grande rz-botao--bloco" type="button" data-certo>${icone("ok", { tamanho: 18 })}Sim, está certo</button>
         <button class="rz-botao rz-botao--fantasma rz-botao--bloco" type="button" data-corrigir>Corrigir</button>
