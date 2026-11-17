@@ -1,21 +1,18 @@
 # Ricardo Motors (@rm.consultcar): ficha da demo
 
 - **Lead:** Ricardo Motors | RM Consult Car, indicação da Taise (Tata's Photo Art). Nicho: Automotivo.
-- **Direção:** loja própria de carros premium (não é portal), preto e dourado como o Instagram dele, estoque logo
-  abaixo do topo, página de cada carro com WhatsApp já com o carro na mensagem. A Webmotors continua para cliente
-  novo; o site é para quem já é dele (Instagram, indicação).
-- **Fontes:** página da loja na Webmotors (15 carros, salva em 17/11/2026), anúncios do BMW 330e e do Porsche Macan
-  (galeria, descrição e opcionais), Instagram (bio, destaques, posts de 2020, foto de perfil).
-- **Página feita à mão** (não pelo gerador): a fonte e o script de montagem ficaram na pasta de trabalho da sessão.
-  Passa no `validar.mjs`.
-- **Indicadores:** cada carro aberto conta como clique ("Ver BMW 330e", em Estoque) e a página do carro é uma
-  parte própria ("Página do carro"), com tempo e cliques. Testado com o `exemplos/visitas.js`.
-- **Ficou de fora:** avaliações do Google (ele não tem ficha no Google), preço do site (regra da casa).
+- **Direção (v2, 17/11/2026):** loja enxuta no padrão dos portais de carro (Webmotors, Porsche Finder): topo preto
+  com um carro em destaque, estoque logo abaixo com foto deslizável em cada card, página de cada carro com caixa de
+  preço e WhatsApp com o carro na mensagem. Sem a faixa da Renderiza no topo (a demo vai direto pelo WhatsApp).
+- **Fotos:** originais do servidor da Webmotors no tamanho em que foram enviadas (sem ampliar), até 8 por carro.
+  10 carros com galeria (anúncio salvo); 328i, Haval H9, X2, X1 e X3 só com a foto de capa.
+- **Fontes:** anúncios da Webmotors salvos (Drive), página da loja (15 carros, 17/11/2026), Instagram (foto do
+  Ricardo, depoimento de cliente de 2020). 8 carros marcados como blindados nos próprios anúncios.
+- **Indicadores:** cada carro aberto conta como clique ("Ver BMW 530e", em Estoque), filtros também; a página do
+  carro é uma parte própria ("Página do carro"), com tempo e cliques. Testado com o `exemplos/visitas.js`.
+- **Página feita à mão** (não pelo gerador); passa no `validar.mjs`.
 
 ## Conferir antes de mandar
 - **WhatsApp:** os botões usam o link da bio (`wa.me/message/G5X6UUN627ARL1`), que abre sem a mensagem pronta.
   Com o número dele, preencher `WA_NUM` no script e cada botão sai com o carro na mensagem.
 - **Estoque é de 17/11/2026:** carro vendido depois disso ainda aparece.
-- **"Já passaram por aqui":** fotos dos posts de 2020, recortadas sem a marca antiga "RN".
-- **Depoimento:** comentário real de cliente num post de 2020, sem o @.
-- **Sobre:** "16 anos de mercado" = 10 anos de revenda (post de 14/05/2020) + a consultoria desde 2020.
