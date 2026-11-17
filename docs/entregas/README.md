@@ -2,7 +2,8 @@
 
 Quando o cliente fecha **o site e o painel** juntos. A entrega só de site continua em [`docs/fechamento.md`](../fechamento.md);
 aqui fica o que muda quando o site conversa com o Painel Renderiza (Meu site, agenda online) e o que fomos aprendendo.
-Cada cliente tem o seu trilho nesta pasta (o primeiro: [`rafaela-damaceno.md`](rafaela-damaceno.md)).
+Cada cliente tem o seu trilho nesta pasta: [`rafaela-damaceno.md`](rafaela-damaceno.md) (o primeiro) e
+[`bia-maida.md`](bia-maida.md).
 
 Isto **não está cravado em pedra**: a Rafaela é a primeira. Cada sessão que andar num trilho anota o que aprendeu em
 "O que aprendemos" (abaixo) e ajusta o modelo, para o próximo cliente ser mais fácil.
@@ -57,6 +58,9 @@ B pode andar junto com C; D depende de C (e das migrações com o "pode" da Rend
 
 | Data | Cliente | Lição |
 |---|---|---|
+| 17/11/2026 | Bia | **Pedir as fotos em alta por categoria (uma pasta por aba do site) funciona:** as pastas viram as abas e a curadoria fica com ela. Vieram coisas que a demo não tinha (casamento, batizado): o site passou a falar delas. |
+| 17/11/2026 | Bia | **Foto em alta no site:** WebP com o lado maior em 2000 px dá uns 150 KB por foto e fica nítida na tela cheia. Com 84 fotos, o arquivo da demo passa de 18 MB (as fotos vão dentro), mas publicado cada foto é um arquivo e a página abre com uns 115 KB; a tela cheia precisa de `loading="lazy"`, senão baixa a categoria inteira de uma vez. |
+| 17/11/2026 | Bia | **Site feito à mão (sem o `gerar-fotografia.py`) não herda o que o painel precisa:** as marcações do Meu site e a ligação da agenda entram no modelo dela (Parada C). E a agenda dela é por data (eventos), não por horário de estúdio. |
 | 17/11/2026 | Rafaela | **Arquivo baixado de novo vira `index (1).html`.** No upload pelo GitHub, ele entra ao lado do `index.html` em vez de substituir, e o site continua o antigo. Antes de subir, renomear para o nome exato; depois, conferir no ar o tamanho do `index.html`. |
 | 16/11/2026 | Rafaela | **Quem edita o site precisa ver o site.** A primeira tela do Meu site (lista de partes, gaveta, "Salvar no rascunho", prévia em outra aba) confundiu até a Renderiza: não dava para saber a que cada parte se referia nem se a mudança tinha valido. O que resolveu: o site ao lado, mudando a cada tecla; clicar no site para abrir o campo; uma linha dizendo onde cada parte fica. E **mudar o gerador ou o script do site pede subir o site do cliente de novo**: combinar com o cliente quem sobe (a sessão pode não ter escrita no repositório dele). |
 | 16/11/2026 | Rafaela | **A prova no STG pede um site de verdade e o painel de verdade, não imitados.** O `virar-site` aceita `"painel": {"api"}` para apontar o site para o painel local (contra o STG); o domínio `localhost` no cadastro do site deixa o pedido passar. Dois cuidados: o STG do Supabase grátis **pausa** sem uso (reativa pela API, uns 4 minutos) e a API **finge que aceitou** pedido feito em menos de 3 segundos (contra robô): no teste, esperar antes de enviar, senão nada é gravado e o teste engana. O dono de teste com login de usuário (`…@acesso.renderizaweb.com.br`) não recebe o e-mail de pedido novo. |

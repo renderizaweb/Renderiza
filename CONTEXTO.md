@@ -214,6 +214,9 @@ cliente, ajustes, repositório, hospedagem, domínio, entrega). Abaixo, o que é
   `demos/rafaela-damaceno-fotografia/ficha.md`. **O trilho da entrega (site no repositório dela + painel), com o prompt da
   próxima sessão: `docs/entregas/rafaela-damaceno.md`** (o modelo para os próximos clientes: `docs/entregas/README.md`). Lição de ambiente: a sessão precisa abrir no ambiente com rede livre e as
   variáveis `PAINEL_*`; no Default, o Drive, o Instagram, o Google e o próprio site ficam bloqueados.
+- **Bia Maida fechou (17/11/2026): site + painel completo.** A demo virou o site dela (sem nada da Renderiza, com as 86
+  fotos em alta que ela mandou por categoria) para a validação; o trilho da entrega, no modelo da Rafaela, está em
+  `docs/entregas/bia-maida.md`.
 - **Bia Maida: versão 2 da demo, com foco em eventos** (12/11/2026, pedido do Kaue): a Bia gostou da demo e pediu o foco em
   eventos no lugar do estúdio, fotos novas (32, pelo WhatsApp) e a demo refeita. O site virou uma página feita à mão, com a
   mesma identidade e mais movimento: `ferramentas/demo/gerar-fotografia-eventos.py` + `ferramentas/demo/modelos/bia-maida-eventos.html`

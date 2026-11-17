@@ -8,9 +8,9 @@
 | WhatsApp | (11) 98719-1135 · celular do Perfil da Empresa no Google (+55 11 98719-1135), o mesmo das artes antigas ("Contato: (11) 987191135") |
 | Horário | Segunda Fechado; Terça a quinta 10h às 16h; Sexta a domingo Fechado |
 | Site | não tem: o Google aponta o Facebook (facebook.com/biamaidafotografia) (lote 2, 05/11/2026) |
-| Entregável | o site (`index.html`), na **versão 2, com foco em eventos** (12/11/2026), gerado por `ferramentas/demo/gerar-fotografia-eventos.py` (modelo `ferramentas/demo/modelos/bia-maida-eventos.html`, chave `eventos` do `demo.json`); e a página da campanha de Natal (`natal.html`), da versão 1, gerada por `ferramentas/demo/gerar-fotografia.py` |
-| Situação | versão 1 pronta em 05/11/2026; **versão 2 (eventos) feita em 12/11/2026**, a pedido da Bia · `/demo/bia-maida-fotografia` (a página de Natal saiu do ar em 12/11) |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199 (condição de lançamento), válida até 12/11/2026 (depois dessa data, o aviso some e fica só o valor): trocar no `demo.json` (`renderiza`) e gerar de novo (o site: `gerar-fotografia-eventos.py`, que lê os mesmos valores), ou no `window.RZ` das duas páginas |
+| Entregável | o site (`index.html`): desde 17/11/2026 **a versão final, sem nada da Renderiza**, para ela validar; gerado por `ferramentas/demo/gerar-fotografia-eventos.py` (modelo `ferramentas/demo/modelos/bia-maida-eventos.html`, chave `eventos` do `demo.json`). A página de Natal saiu do ar em 12/11 |
+| Situação | **fechou (site + painel completo), 17/11/2026** · versão final no ar para validar em `/demo/bia-maida-fotografia` · o trilho da entrega: [`docs/entregas/bia-maida.md`](../../docs/entregas/bia-maida.md) |
+| Oferta na demo | **nenhuma desde 17/11/2026** (ela fechou): a faixa, o preço, a pílula e a folha da Renderiza saíram do modelo. O bloco `renderiza` do `demo.json` é da versão 1 e não é usado pelo site |
 | Horários de exemplo | 13 livres de 24 (`horarios` no `demo.json`) |
 
 ## Direção da demo
@@ -112,3 +112,44 @@ vem, ela trabalha com **estúdios parceiros, com locação por hora**.
   ela confirmar que os clientes autorizam.
 - **Prazo:** o aviso de valor da faixa vai até 12/11/2026 (`renderiza.valido_ate`) e o `vale_ate` da demo no painel é da
   mesma data. Não mexi em nenhum dos dois.
+
+## Versão final para validar (17/11/2026)
+
+A Bia fechou. Ela mandou as fotos em alta no Drive (13/11), separadas nas três categorias do site, e a demo virou o site
+dela: sem nada da Renderiza, para ela dar a última validada. O que vem depois (repositório, painel, domínio) está no
+trilho: [`docs/entregas/bia-maida.md`](../../docs/entregas/bia-maida.md).
+
+### Fotos (todas as do site, menos a dela)
+- **86 do Drive dela**, em alta (até 5472 px): `eventos` 35, `ensaios externos` 20, `corporativo` 31. No `demo.json`
+  (`eventos.galerias`) cada uma tem o nome `<categoria>-<número do IMG>`: `e-` eventos, `x-` ensaios externos, `c-`
+  corporativo (`IMG_9999-1 (553).jpg` = `e-9999-553`).
+- **84 no site.** De fora: `c-7943-dup` ("Cópia de IMG_7943 duplicado(s)", a aplicação com a agulha de perto, a mesma que
+  já tinha ficado de fora na versão 2) e `c-8036` (quase igual à `c-8033`, o rapaz de camiseta encostado na mesa).
+- **No site:** WebP com o lado maior em 2000 px (o portfólio e a tela cheia); as cápsulas da abertura e do contato em
+  3:5 e os serviços em 4:5, recortados pelo gerador (o recorte está no `demo.json`, conferido sem cortar rosto); a 1ª
+  cápsula em JPEG (é a prévia do link). O respiro é `e-9999-553` (as meninas dançando no evento da empresa: a mesma
+  cena das crianças que o Kaue preferiu em 12/11).
+- **O que as fotos mostram, por pasta.** Eventos: casamento (`e-0381` a `e-1332`), aniversários infantis com fantasia de
+  herói (`e-1414` a `e-2357`), batizado na igreja (`e-2398`, `e-2510`) e uma menina de branco no altar (`e-2565`), chá de
+  bebê (`e-3702` a `e-4378`, as mesmas da versão 2 em alta, e `e-8863`, `e-8910`), confraternização com espumante
+  (`e-6667` a `e-6740`), avó e neta (`e-7525`, `e-7645`) e o dia das famílias numa empresa (`e-9999-*`). Ensaios
+  externos: famílias no parque, três casais de gestante (o do jardim é o da versão 2), um casal na estação, um menino
+  com origamis e duas gestantes em casa. Corporativo: a equipe e os atendimentos de uma clínica, retratos e equipes em
+  escritório, o médico da versão 2 e uma profissional com frutas (marca pessoal).
+- **Da versão 1 ficou só o retrato da Bia** com a câmera (`perfil.webp`, 760 px, do Instagram): nenhuma das fotos novas
+  mostra ela. Os cosméticos da versão 2 saíram (não vieram no Drive).
+
+### O que mudou no site
+- **Sem a camada da Renderiza:** faixa do topo, preço, prazo, pílula, folha, `window.RZ` e os links entre páginas.
+- **Portfólio montado pelo gerador** a partir da lista (`{{galeria:…}}` no modelo): linhas de altura parecida, cada foto
+  inteira na proporção dela, "Ver mais fotos" depois de duas linhas, a contagem em cada aba (Eventos 35, Ensaios
+  externos 20, Corporativo 29). A ordem das abas segue a abertura: Eventos, Ensaios externos, Corporativo.
+- **Casamento e batizado entraram** (vieram nas fotos dela): a abertura, o "quem fotografa" e a faixa que rola falam de
+  casamentos e batizados; serviço novo "Celebrações · Casamentos e batizados"; "Sua data" ganhou Casamento, Batizado e
+  Corporativo. "Marcas e produtos" virou "Marca pessoal · O seu trabalho em fotos".
+- A tela cheia só baixa cada foto quando ela chega perto (são até 35 por categoria).
+
+### Conferir com ela
+A lista está no trilho, em "Conferir com ela" (validação, foto dela, logo, autorização de imagem, textos nossos, até
+onde ela vai, o Perfil da Empresa no Google e as duas fotos de fora).
+

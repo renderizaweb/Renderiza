@@ -683,303 +683,189 @@
   ]
  },
  "eventos": {
-  "comentario": "Versão 2 do site (12/11/2026), com foco em eventos: é o index.html. Gerar com ferramentas/demo/gerar-fotografia-eventos.py (modelo ferramentas/demo/modelos/bia-maida-eventos.html). O resto deste arquivo (site, natal...) é da versão 1 e da página de Natal: NÃO rodar o gerar-fotografia.py nesta pasta, ele troca o index.html pela versão 1.",
+  "comentario": "Site da Bia (17/11/2026: a versão final, para ela validar; sem nada da Renderiza). É o index.html. Gerar com ferramentas/demo/gerar-fotografia-eventos.py (modelo ferramentas/demo/modelos/bia-maida-eventos.html). As fotos são as 86 que a Bia mandou em alta no Drive em 13/11 (pastas eventos, ensaios externos e corporativo), com o nome <categoria>-<número do IMG> (ficha.md). O resto deste arquivo (site, natal...) é da versão 1: NÃO rodar o gerar-fotografia.py nesta pasta.",
   "modelo": "bia-maida-eventos",
   "dados": {
    "titulo": "Bia Maida Fotografia | Eventos, ensaios externos e corporativo em São Paulo",
-   "descricao": "Bia Maida, fotógrafa há 15 anos em São Paulo: eventos (aniversários, chás de bebê e eventos de empresas), ensaios externos e fotografia corporativa. Nota 5,0 no Google, com 116 avaliações.",
-   "rz-pix": "R$ 399",
-   "rz-parcelado": "2x de R$ 199",
-   "rz-nota": "condição de lançamento",
-   "rz-valido-ate": "2026-11-12"
+   "descricao": "Bia Maida, fotógrafa há 15 anos em São Paulo: eventos (aniversários, chás de bebê, casamentos, batizados e eventos de empresas), ensaios externos e fotografia corporativa. Nota 5,0 no Google, com 116 avaliações."
   },
   "fotos": {
-   "g00": {
-    "arquivo": "f00.jpg",
-    "largura": 1280
-   },
-   "g31": {
-    "arquivo": "f31.jpg",
-    "largura": 1280
-   },
-   "g28": {
-    "arquivo": "f28.jpg",
-    "largura": 1280
-   },
-   "g15": {
-    "arquivo": "f15.jpg",
-    "largura": 1280
-   },
-   "g16": {
-    "arquivo": "f16.jpg",
-    "largura": 1280
-   },
-   "g13": {
-    "arquivo": "f13.jpg",
-    "largura": 1280
-   },
-   "g26": {
-    "arquivo": "f26.jpg",
-    "largura": 1280
-   },
-   "g27": {
-    "arquivo": "f27.jpg",
-    "largura": 1280
-   },
-   "g19": {
-    "arquivo": "f19.jpg",
-    "largura": 1280
-   },
-   "g20": {
-    "arquivo": "f20.jpg",
-    "largura": 1280
-   },
-   "g24": {
-    "arquivo": "f24.jpg",
-    "largura": 1280
-   },
-   "g25": {
-    "arquivo": "f25.jpg",
-    "largura": 1280
-   },
-   "g21": {
-    "arquivo": "f21.jpg",
-    "largura": 1280
-   },
-   "g23": {
-    "arquivo": "f23.jpg",
-    "largura": 1280
-   },
-   "g11": {
-    "arquivo": "f11.jpg",
-    "largura": 1280
-   },
-   "g07": {
-    "arquivo": "f07.jpg",
-    "largura": 1280
-   },
-   "g10": {
-    "arquivo": "f10.jpg",
-    "largura": 1280
-   },
-   "g01": {
-    "arquivo": "f01.jpg",
-    "largura": 960
-   },
-   "g29": {
-    "arquivo": "f29.jpg",
-    "largura": 960
-   },
-   "g30": {
-    "arquivo": "f30.jpg",
-    "largura": 960
-   },
-   "g14": {
-    "arquivo": "f14.jpg",
-    "largura": 960
-   },
-   "g17": {
-    "arquivo": "f17.jpg",
-    "largura": 960
-   },
-   "g18": {
-    "arquivo": "f18.jpg",
-    "largura": 960
-   },
-   "g02": {
-    "arquivo": "f02.jpg",
-    "largura": 960
-   },
-   "g03": {
-    "arquivo": "f03.jpg",
-    "largura": 960
-   },
-   "g05": {
-    "arquivo": "f05.jpg",
-    "largura": 960
-   },
-   "g22": {
-    "arquivo": "f22.jpg",
-    "largura": 960
-   },
-   "g08": {
-    "arquivo": "f08.jpg",
-    "largura": 960
-   },
-   "g09": {
-    "arquivo": "f09.jpg",
-    "largura": 960
-   },
-   "g12": {
-    "arquivo": "f12.jpg",
-    "largura": 960
-   },
-   "c1a": {
-    "arquivo": "f01.jpg",
+   "ca1": {
+    "arquivo": "e-2048.jpg",
     "corte": [
      0.05,
-     0,
+     0.0,
      0.95,
-     1
+     1.0
     ],
     "largura": 720,
     "formato": "jpeg",
     "qualidade": 84
    },
-   "c1b": {
-    "arquivo": "f00.jpg",
+   "ca2": {
+    "arquivo": "e-1332.jpg",
     "corte": [
-     0.34,
-     0,
-     0.74,
-     1
+     0.0,
+     0.0,
+     0.9,
+     1.0
     ],
-    "largura": 560
+    "largura": 640
    },
-   "c1c": {
-    "arquivo": "f14.jpg",
-    "corte": [
-     0.07,
-     0,
-     0.97,
-     1
-    ],
-    "largura": 560
-   },
-   "c2a": {
-    "arquivo": "f30.jpg",
+   "ca3": {
+    "arquivo": "e-3780.jpg",
     "corte": [
      0.05,
-     0,
+     0.0,
      0.95,
-     1
+     1.0
     ],
-    "largura": 560
+    "largura": 640
    },
-   "c2b": {
-    "arquivo": "f29.jpg",
+   "cb1": {
+    "arquivo": "x-1820.jpg",
     "corte": [
      0.05,
-     0,
+     0.0,
      0.95,
-     1
+     1.0
     ],
-    "largura": 560
+    "largura": 640
    },
-   "c2c": {
-    "arquivo": "f31.jpg",
+   "cb2": {
+    "arquivo": "x-1926.jpg",
     "corte": [
-     0.275,
-     0,
-     0.675,
-     1
+     0.1,
+     0.0,
+     1.0,
+     1.0
     ],
-    "largura": 560
+    "largura": 640
    },
-   "c3a": {
-    "arquivo": "f17.jpg",
-    "corte": [
-     0.05,
-     0,
-     0.95,
-     1
-    ],
-    "largura": 560
-   },
-   "c3b": {
-    "arquivo": "f18.jpg",
+   "cb3": {
+    "arquivo": "x-9598.jpg",
     "corte": [
      0.05,
-     0,
+     0.0,
      0.95,
-     1
+     1.0
     ],
-    "largura": 560
+    "largura": 640
    },
-   "c3c": {
-    "arquivo": "f03.jpg",
+   "cc1": {
+    "arquivo": "c-7357.jpg",
     "corte": [
      0.05,
-     0,
+     0.0,
      0.95,
-     1
+     1.0
     ],
-    "largura": 560
+    "largura": 640
+   },
+   "cc2": {
+    "arquivo": "c-9571.jpg",
+    "corte": [
+     0.1,
+     0.0,
+     1.0,
+     1.0
+    ],
+    "largura": 640
+   },
+   "cc3": {
+    "arquivo": "c-8033.jpg",
+    "corte": [
+     0.05,
+     0.0,
+     0.95,
+     1.0
+    ],
+    "largura": 640
    },
    "k1": {
-    "arquivo": "f00.jpg",
+    "arquivo": "e-1414.jpg",
     "corte": [
-     0.235,
      0,
-     0.765,
-     1
+     0.0334,
+     1,
+     0.8666
     ],
-    "largura": 760
+    "largura": 820
    },
    "k2": {
-    "arquivo": "f28.jpg",
+    "arquivo": "e-4378.jpg",
     "corte": [
-     0.24,
-     0,
-     0.77,
-     1
+     0.2833,
+     0.0,
+     0.8167,
+     1.0
     ],
-    "largura": 760
+    "largura": 820
    },
    "k3": {
-    "arquivo": "f13.jpg",
+    "arquivo": "e-0934.jpg",
     "corte": [
-     0.3,
-     0,
-     0.83,
-     1
+     0.2333,
+     0.0,
+     0.7667,
+     1.0
     ],
-    "largura": 760
+    "largura": 820
    },
    "k4": {
-    "arquivo": "f18.jpg",
+    "arquivo": "e-9999-620.jpg",
     "corte": [
-     0,
-     0.02,
-     1,
-     0.855
+     0.1833,
+     0.0,
+     0.7167,
+     1.0
     ],
-    "largura": 760
+    "largura": 820
    },
    "k5": {
-    "arquivo": "f22.jpg",
+    "arquivo": "x-0711.jpg",
     "corte": [
-     0,
-     0.1,
-     1,
-     0.933
+     0.0,
+     0.0833,
+     1.0,
+     0.9167
     ],
-    "largura": 760
+    "largura": 820
    },
    "k6": {
-    "arquivo": "f06.jpg",
+    "arquivo": "c-5669.jpg",
     "corte": [
-     0.15,
-     0,
-     0.68,
-     1
+     0.0,
+     0.0833,
+     1.0,
+     0.9167
     ],
-    "largura": 760
+    "largura": 820
+   },
+   "k7": {
+    "arquivo": "c-9604.jpg",
+    "corte": [
+     0.0,
+     0.0833,
+     1.0,
+     0.9167
+    ],
+    "largura": 820
    },
    "r1": {
-    "arquivo": "f15.jpg",
-    "largura": 1600,
-    "qualidade": 78
+    "arquivo": "e-9999-553.jpg",
+    "largura": 2400,
+    "qualidade": 76
    },
    "t1": {
-    "arquivo": "f08.jpg",
+    "arquivo": "x-1964.jpg",
     "corte": [
-     0.05,
-     0,
-     0.95,
-     1
+     0.0,
+     0.0,
+     0.9,
+     1.0
     ],
-    "largura": 680
+    "largura": 760
    },
    "perfil": {
     "arquivo": "perfil.webp",
@@ -993,6 +879,438 @@
     "arquivo": "favicon.png",
     "bruto": true
    }
+  },
+  "galeria_padrao": {
+   "lado": 2000,
+   "qualidade": 80
+  },
+  "galerias": {
+   "eventos": [
+    {
+     "f": "e-1772",
+     "alt": "Duas meninas fantasiadas de heroínas, abraçadas na festa",
+     "leg": "Aniversário"
+    },
+    {
+     "f": "e-2267",
+     "alt": "Menino fantasiado de herói em cima do banco, com o pai ao lado",
+     "leg": "Aniversário"
+    },
+    {
+     "f": "e-1104",
+     "alt": "Noivos sentados, rindo, no salão",
+     "leg": "Casamento"
+    },
+    {
+     "f": "e-4378",
+     "alt": "Casal abraçado com o cachorrinho no chá de bebê",
+     "leg": "Chá de bebê"
+    },
+    {
+     "f": "e-6740",
+     "alt": "Amigos brindando com taças de espumante",
+     "leg": "Celebração"
+    },
+    {
+     "f": "e-0934",
+     "alt": "Noivos se olhando, sorrindo, na festa",
+     "leg": "Casamento"
+    },
+    {
+     "f": "e-8863",
+     "alt": "Gestante de vestido branco, sorrindo entre os balões",
+     "leg": "Chá de bebê"
+    },
+    {
+     "f": "e-2398",
+     "alt": "Padre abençoando a família no batizado",
+     "leg": "Batizado"
+    },
+    {
+     "f": "e-2565",
+     "alt": "Menina de vestido branco diante do altar da igreja",
+     "leg": "Celebração"
+    },
+    {
+     "f": "e-2510",
+     "alt": "Família reunida diante do altar no batizado",
+     "leg": "Batizado"
+    },
+    {
+     "f": "e-0574",
+     "alt": "Noiva sorrindo na porta do carro, com o buquê",
+     "leg": "Casamento"
+    },
+    {
+     "f": "e-2048",
+     "alt": "Pai levantando a filha no colo, os dois rindo",
+     "leg": "Aniversário"
+    },
+    {
+     "f": "e-0812",
+     "alt": "Noivos de mãos dadas diante dos convidados",
+     "leg": "Casamento"
+    },
+    {
+     "f": "e-0922",
+     "alt": "Noivo beijando a mão da noiva",
+     "leg": "Casamento"
+    },
+    {
+     "f": "e-1332",
+     "alt": "Noivos se beijando ao lado do bolo de casamento",
+     "leg": "Casamento"
+    },
+    {
+     "f": "e-0381",
+     "alt": "Detalhe das mãos da noiva sobre o vestido bordado",
+     "leg": "Casamento"
+    },
+    {
+     "f": "e-0929",
+     "alt": "Detalhe das alianças nas mãos dos noivos",
+     "leg": "Casamento"
+    },
+    {
+     "f": "e-1414",
+     "alt": "Menina de máscara de heroína fazendo pose",
+     "leg": "Aniversário"
+    },
+    {
+     "f": "e-2357",
+     "alt": "Irmãos abraçados no tapete da festa",
+     "leg": "Aniversário"
+    },
+    {
+     "f": "e-1677",
+     "alt": "Menina de triciclo, com o pai torcendo atrás",
+     "leg": "Aniversário"
+    },
+    {
+     "f": "e-2254",
+     "alt": "Bebê sorrindo, sentado no deque de madeira",
+     "leg": "Aniversário"
+    },
+    {
+     "f": "e-3780",
+     "alt": "Gestante sorrindo entre os balões do chá de bebê",
+     "leg": "Chá de bebê"
+    },
+    {
+     "f": "e-3775",
+     "alt": "Gestante com o cachorrinho no colo, no chá de bebê",
+     "leg": "Chá de bebê"
+    },
+    {
+     "f": "e-3798",
+     "alt": "Gestante ao lado da mesa de doces do chá de bebê",
+     "leg": "Chá de bebê"
+    },
+    {
+     "f": "e-3702",
+     "alt": "Pirulitos de ursinho com o nome do bebê",
+     "leg": "Chá de bebê"
+    },
+    {
+     "f": "e-3705",
+     "alt": "Doces decorados do chá de bebê",
+     "leg": "Chá de bebê"
+    },
+    {
+     "f": "e-8910",
+     "alt": "Casal abraçado entre os balões brancos, com a mão dele na barriga",
+     "leg": "Chá de bebê"
+    },
+    {
+     "f": "e-6667",
+     "alt": "Abraço apertado entre amigos na festa",
+     "leg": "Celebração"
+    },
+    {
+     "f": "e-7525",
+     "alt": "Avó beijando a netinha no colo",
+     "leg": "Em família"
+    },
+    {
+     "f": "e-6702",
+     "alt": "Dois amigos rindo com as taças na mão",
+     "leg": "Celebração"
+    },
+    {
+     "f": "e-7645",
+     "alt": "Homem sorrindo com a bebê no colo",
+     "leg": "Em família"
+    },
+    {
+     "f": "e-9999-220",
+     "alt": "Apresentador com o microfone, animando as crianças",
+     "leg": "Evento de empresa"
+    },
+    {
+     "f": "e-9999-465",
+     "alt": "Menino desenhando na mesa de atividades",
+     "leg": "Evento de empresa"
+    },
+    {
+     "f": "e-9999-553",
+     "alt": "Meninas dançando e comemorando no evento da empresa",
+     "leg": "Evento de empresa"
+    },
+    {
+     "f": "e-9999-620",
+     "alt": "Crianças e famílias no evento da empresa",
+     "leg": "Evento de empresa"
+    }
+   ],
+   "externos": [
+    {
+     "f": "x-0572",
+     "alt": "Mãe abraçando os dois filhos no caminho do parque",
+     "leg": "Família"
+    },
+    {
+     "f": "x-1686",
+     "alt": "Mãe sorrindo com o bebê no colo, à beira do lago",
+     "leg": "Família"
+    },
+    {
+     "f": "x-0711",
+     "alt": "Mãe e irmão beijando a menina, um de cada lado",
+     "leg": "Família"
+    },
+    {
+     "f": "x-9591",
+     "alt": "Casal se olhando no jardim de flores brancas",
+     "leg": "Gestante"
+    },
+    {
+     "f": "x-6505",
+     "alt": "Casal abraçado na estação, sob as luzinhas",
+     "leg": "Casal"
+    },
+    {
+     "f": "x-2038",
+     "alt": "Casal abraçado, com as mãos na barriga, ao ar livre",
+     "leg": "Gestante"
+    },
+    {
+     "f": "x-1820",
+     "alt": "Pai e mãe beijando o bebê no parque",
+     "leg": "Família"
+    },
+    {
+     "f": "x-1926",
+     "alt": "Casal encostado na pedra, de testa colada",
+     "leg": "Gestante"
+    },
+    {
+     "f": "x-0594",
+     "alt": "Crianças correndo pelo caminho do parque, em direção à mãe",
+     "leg": "Família"
+    },
+    {
+     "f": "x-9610",
+     "alt": "Casal fazendo um coração com as mãos na barriga",
+     "leg": "Gestante"
+    },
+    {
+     "f": "x-1760",
+     "alt": "Mãe agachada esperando a filha no caminho do parque",
+     "leg": "Família"
+    },
+    {
+     "f": "x-1839",
+     "alt": "Mãe abraçando a filha entre as folhagens",
+     "leg": "Família"
+    },
+    {
+     "f": "x-6610",
+     "alt": "Casal sentado junto à janela, ela fazendo carinho no rosto dele",
+     "leg": "Casal"
+    },
+    {
+     "f": "x-9583",
+     "alt": "Pai beijando a barriga da gestante no jardim",
+     "leg": "Gestante"
+    },
+    {
+     "f": "x-9598",
+     "alt": "Casal abraçado no jardim",
+     "leg": "Gestante"
+    },
+    {
+     "f": "x-1964",
+     "alt": "Gestante de branco segurando a barriga, entre as árvores",
+     "leg": "Gestante"
+    },
+    {
+     "f": "x-5023",
+     "alt": "Menino rindo de braços abertos, diante do painel de origamis",
+     "leg": "Infantil"
+    },
+    {
+     "f": "x-5035",
+     "alt": "Menino sorrindo de braços abertos",
+     "leg": "Infantil"
+    },
+    {
+     "f": "x-3908",
+     "alt": "Gestante encostada na porta de vidro",
+     "leg": "Gestante"
+    },
+    {
+     "f": "x-3805",
+     "alt": "Mulher sorrindo, mostrando o teste de gravidez",
+     "leg": "Gestante"
+    }
+   ],
+   "corporativo": [
+    {
+     "f": "c-6545",
+     "alt": "Três colegas conversando junto à janela",
+     "leg": "Equipe"
+    },
+    {
+     "f": "c-7373",
+     "alt": "Retrato profissional, sentada, com a mão no queixo",
+     "leg": "Retrato profissional"
+    },
+    {
+     "f": "c-4588",
+     "alt": "Equipe da clínica reunida, com uma senhora sentada no centro",
+     "leg": "Equipe"
+    },
+    {
+     "f": "c-4613",
+     "alt": "Três colegas abraçadas, sorrindo",
+     "leg": "Equipe"
+    },
+    {
+     "f": "c-7341",
+     "alt": "Três profissionais lado a lado, com a cidade ao fundo",
+     "leg": "Equipe"
+    },
+    {
+     "f": "c-9540",
+     "alt": "Profissional escrevendo na agenda, sorrindo",
+     "leg": "Marca pessoal"
+    },
+    {
+     "f": "c-7081",
+     "alt": "Profissional sorrindo diante do notebook",
+     "leg": "Retrato profissional"
+    },
+    {
+     "f": "c-5967",
+     "alt": "Dois profissionais de braços cruzados no escritório",
+     "leg": "Retrato profissional"
+    },
+    {
+     "f": "c-7357",
+     "alt": "Profissional de braços cruzados junto à janela, com a cidade ao fundo",
+     "leg": "Retrato profissional"
+    },
+    {
+     "f": "c-5669",
+     "alt": "Equipe de cinco mulheres reunida no escritório",
+     "leg": "Equipe"
+    },
+    {
+     "f": "c-9604",
+     "alt": "Profissional sorrindo com uma fruta na frente do olho",
+     "leg": "Marca pessoal"
+    },
+    {
+     "f": "c-4410",
+     "alt": "Atendimento no couro cabeludo, na clínica",
+     "leg": "No atendimento"
+    },
+    {
+     "f": "c-5748",
+     "alt": "Equipe reunida em volta do notebook",
+     "leg": "Equipe"
+    },
+    {
+     "f": "c-6137",
+     "alt": "Duas profissionais conversando à mesa",
+     "leg": "No trabalho"
+    },
+    {
+     "f": "c-7345",
+     "alt": "Três profissionais conversando, com a cidade ao fundo",
+     "leg": "Equipe"
+    },
+    {
+     "f": "c-4623",
+     "alt": "Equipe da clínica reunida no consultório",
+     "leg": "Equipe"
+    },
+    {
+     "f": "c-4643",
+     "alt": "Equipe abraçada, rindo, no consultório",
+     "leg": "Equipe"
+    },
+    {
+     "f": "c-9571",
+     "alt": "Profissional sorrindo, sentada na poltrona",
+     "leg": "Marca pessoal"
+    },
+    {
+     "f": "c-7076",
+     "alt": "Profissional trabalhando no notebook, junto à janela",
+     "leg": "No trabalho"
+    },
+    {
+     "f": "c-4879",
+     "alt": "Profissional de óculos de proteção, com o aparelho de laser",
+     "leg": "No atendimento"
+    },
+    {
+     "f": "c-4491",
+     "alt": "Atendimento com o aparelho, visto por trás",
+     "leg": "No atendimento"
+    },
+    {
+     "f": "c-4779",
+     "alt": "Procedimento com o aparelho, visto de perto",
+     "leg": "No atendimento"
+    },
+    {
+     "f": "c-4914",
+     "alt": "Detalhe do aparelho de tratamento",
+     "leg": "No atendimento"
+    },
+    {
+     "f": "c-7939",
+     "alt": "Médico sorrindo durante o atendimento",
+     "leg": "No atendimento"
+    },
+    {
+     "f": "c-7966",
+     "alt": "Médico preparando a aplicação",
+     "leg": "No atendimento"
+    },
+    {
+     "f": "c-8033",
+     "alt": "Retrato profissional em pé, encostado na mesa",
+     "leg": "Retrato profissional"
+    },
+    {
+     "f": "c-8026",
+     "alt": "Retrato profissional sentado, com o celular na mão",
+     "leg": "Retrato profissional"
+    },
+    {
+     "f": "c-9576",
+     "alt": "Retrato de perto, com a mão nos cabelos",
+     "leg": "Marca pessoal"
+    },
+    {
+     "f": "c-9610",
+     "alt": "Profissional rindo e mostrando o kiwi",
+     "leg": "Marca pessoal"
+    }
+   ]
   }
  }
 }
