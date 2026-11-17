@@ -31,11 +31,15 @@ export const ASSUNTOS = [
     ["google", "Google Agenda", "Dá para trazer a agenda inteira do Google, num arquivo só."],
     ["sistema", "Outro sistema", "Exporte uma planilha de lá e traga de uma vez, daqui a pouco."],
     ["cabeca", "Na cabeça", "Comece pelas próximas: uma data e um nome por linha, rapidinho."]] },
-  { assunto: "pacotes", pergunta: "Você já tem pacotes com preço?", opcoes: [
-    ["com_preco", "Sim, com preço", "Eles entram nos orçamentos, nos contratos e no Financeiro."],
+  // os dias e horários (16/11/2026, com o primeiro site ligado: a agenda online e o site usam os da Agenda)
+  { assunto: "horarios", pergunta: "Os dias e horários de atendimento estão certos?", opcoes: [
+    ["certo", "Estão certos", "A agenda online e o site oferecem esses horários."],
+    ["ajustar", "Quero ajustar", "No fim, a gente te leva direto para os horários."]] },
+  { assunto: "pacotes", pergunta: { eventos: "Você já tem pacotes com preço?", fotografia: "Os seus ensaios já têm preço?" }, opcoes: [
+    ["com_preco", "Sim, com preço", "O primeiro passo no Início leva você a pôr os valores dos seus ensaios ou pacotes."],
     ["arquivo", "Tenho num PDF ou arte", "Daqui a pouco você manda o arquivo, e a IA cadastra os pacotes para você conferir."],
     ["nao", "Ainda não", "Você cadastra os primeiros em Serviços, quando quiser."]] },
-  { assunto: "contrato", pergunta: "E contrato, você usa?", opcoes: [
+  { assunto: "contrato", depois: true, pergunta: "E contrato, você usa?", opcoes: [
     ["modelo", "Tenho um modelo", "Você cola o seu texto no painel e marca os campos que se preenchem sozinhos."],
     ["quero", "Quero um modelo pronto", "Você monta o modelo no painel, com os campos que se preenchem sozinhos."],
     ["nao", "Não uso", "Tudo bem: quando quiser, o contrato vai por link e o cliente aceita no celular."]] },
@@ -101,6 +105,31 @@ export function confirmacoes({ conta, dados }) {
     instagram: d.instagram || "",
     tipos: Array.isArray(d.tipos) ? d.tipos.filter(Boolean).slice(0, 12) : [],
   };
+}
+
+const DIAS = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+const horaCurta = h => String(h || "").slice(0, 5).replace(/^0/, "").replace(/:00$/, "h").replace(":", "h");
+/**
+ * Os horários da Agenda numa frase ("Terça a sexta, das 8h às 17h · Sábado, das 8h às 15h"): os gerais (sem ensaio),
+ * os dias seguidos com o mesmo começo e fim juntos. Vazio quando não há horário.
+ */
+export function resumoDosHorarios(horarios = []) {
+  const porDia = {};
+  for (const h of horarios) {
+    if (h.servico_id) continue;
+    const d = (porDia[h.dia_semana] ||= { de: h.inicio, ate: h.fim || h.inicio });
+    if (h.inicio < d.de) d.de = h.inicio;
+    if ((h.fim || h.inicio) > d.ate) d.ate = h.fim || h.inicio;
+  }
+  const grupos = [];
+  for (const dia of [1, 2, 3, 4, 5, 6, 0]) {
+    const d = porDia[dia];
+    if (!d) continue;
+    const g = grupos[grupos.length - 1], chave = d.de + d.ate;
+    if (g && g.chave === chave && g.fim === (dia + 6) % 7) g.fim = dia;
+    else grupos.push({ chave, ini: dia, fim: dia, d });
+  }
+  return grupos.map(g => `${g.ini === g.fim ? DIAS[g.ini] : `${DIAS[g.ini]} a ${DIAS[g.fim].toLowerCase()}`}, ${g.d.de === g.d.ate ? `às ${horaCurta(g.d.de)}` : `das ${horaCurta(g.d.de)} às ${horaCurta(g.d.ate)}`}`).join(" · ");
 }
 
 /** Os tipos (ou ensaios) para marcar: os da demo já marcados, depois as sugestões do nicho; sem repetir. */

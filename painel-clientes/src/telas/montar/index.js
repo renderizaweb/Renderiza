@@ -17,7 +17,7 @@ import { escapar, erroNoCampo, avisoDoFormulario, ocupado } from "../../ui/formu
 import { mascaraTelefone, normalizarWhatsapp, whatsappValido, telefone } from "../../ui/formatos.js";
 import { campoTexto, CORES } from "../../ui/campos.js";
 import { linkDaRenderiza } from "../renderiza.js";
-import { perguntasDaConversa, perfilDasRespostas, ordemDoMenu, confirmacoes, tiposParaEscolher, assuntosDoNicho } from "./roteiro.js";
+import { perguntasDaConversa, perfilDasRespostas, ordemDoMenu, confirmacoes, tiposParaEscolher, assuntosDoNicho, resumoDosHorarios } from "./roteiro.js";
 
 export const VERSAO = 2; // 2: as 5 perguntas preparadas de uma vez (o progresso guardado da versão 1 é descartado)
 /** O check e a reação à vista antes da próxima pergunta entrar. */
@@ -69,15 +69,18 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
   if (aceite && !aceite.aceitou) return navegar("/", { substituir: true });
 
   const n = acharNicho(conta.nicho);
-  const [linha, dados, existentes] = await Promise.all([
+  const [linha, dados, existentes, horarios] = await Promise.all([
     banco.resultado(banco.tabela("contas").select("nome, whatsapp").eq("id", conta.conta_id).single()).catch(() => ({ nome: conta.nome, whatsapp: null })),
     banco.rpc("contexto_da_minha_conta", { p_conta: conta.conta_id }).catch(() => null),
     banco.resultado(banco.tabela(n.temTiposDeFesta ? "tipos_reserva" : "servicos").select("nome").eq("conta_id", conta.conta_id)).catch(() => []),
+    banco.resultado(banco.tabela("horarios").select("dia_semana, inicio, fim, servico_id").eq("conta_id", conta.conta_id)).catch(() => []),
   ]);
+  const resumoHorarios = resumoDosHorarios(horarios);
   const sabe = confirmacoes({ conta: { nome: linha.nome, whatsapp: linha.whatsapp }, dados });
   const estado = ler(conta.conta_id);
   const salvar = () => guardar(conta.conta_id, estado);
-  if (!estado.tipos) estado.tipos = tiposParaEscolher(sabe.tipos, n.sugestoes);
+  // a conta que já tem ensaios (ou tipos) não ganha sugestões: elas repetiam com outro nome ("Ensaio gestante" e "Gestante")
+  if (!estado.tipos) estado.tipos = tiposParaEscolher(sabe.tipos, existentes.length ? [] : n.sugestoes);
   const usuario = sessao.usuario() || {};
   const pessoa = sessao.pessoa ? sessao.pessoa() : null;
   const primeiroNome = String((pessoa && pessoa.nome) || (usuario.user_metadata && usuario.user_metadata.nome) || "").trim().split(/\s+/)[0];
@@ -176,7 +179,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
       const q = estado.perguntas[estado.respostas.length];
       return `
       ${trilho(estado.respostas.length)}
-      ${cabeca(escapar(q.pergunta))}
+      ${cabeca(escapar(q.pergunta), q.assunto === "horarios" ? escapar(resumoHorarios || "Ainda não há horário na Agenda.") : "")}
       <div class="rz-opcoes" role="group" aria-label="${escapar(q.pergunta)}">
         ${q.opcoes.map(o => `<button class="rz-opcao" type="button" data-resposta="${escapar(o.valor)}" aria-pressed="false">
           <span class="rz-opcao-texto"><b>${escapar(o.rotulo)}</b></span><span class="rz-opcao-marca">${icone("ok", { tamanho: 14 })}</span></button>`).join("")}
@@ -297,7 +300,8 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
       registrar("conversa_terminou");
       esquecer(conta.conta_id);
       await esperar(250);
-      navegar("/", { substituir: true });
+      // quem quer ajustar os dias e horários vai direto para eles (Serviços, aba Horários)
+      navegar(perfil.horarios === "ajustar" ? "/servicos?aba=horarios" : "/", { substituir: true });
     } catch (e) {
       avisoDoFormulario(aviso, e.message);
       falhou.hidden = false;

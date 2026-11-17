@@ -6,7 +6,9 @@ import { ASSUNTOS, assuntosDoNicho, perguntasDaConversa, perfilDasRespostas, ord
 import { TAREFAS } from "../supabase/functions/assistente/logica.js";
 
 test("o roteiro: 5 perguntas na conversa (as que mudam o painel na hora); as outras ficam para depois", () => {
-  assert.deepEqual(assuntosDoNicho("eventos").map(a => a.assunto), ["objetivo", "tamanho", "organiza", "pacotes", "contrato"]);
+  assert.deepEqual(assuntosDoNicho("eventos").map(a => a.assunto), ["objetivo", "tamanho", "organiza", "horarios", "pacotes"]);
+  assert.match(assuntosDoNicho("fotografia").find(a => a.assunto === "pacotes").pergunta, /ensaios/);
+  assert.ok(assuntosDoNicho("eventos", { todos: true }).some(a => a.assunto === "contrato"), "o contrato fica guardado para depois");
   assert.equal(assuntosDoNicho("fotografia").length, 5);
   assert.ok(assuntosDoNicho("eventos", { todos: true }).some(a => a.assunto === "porte"), "o porte fica guardado, só para eventos");
   assert.ok(!assuntosDoNicho("fotografia", { todos: true }).some(a => a.assunto === "porte"));
@@ -21,7 +23,7 @@ test("as perguntas da conversa: as da IA na ordem dela, completadas com as do ro
     { assunto: "pacotes", pergunta: "de novo", opcoes: [{ valor: "nao", rotulo: "x" }, { valor: "com_preco", rotulo: "y" }] },
   ];
   const lista = perguntasDaConversa("eventos", daIa);
-  assert.deepEqual(lista.map(p => p.assunto), ["pacotes", "objetivo", "tamanho", "organiza", "contrato"]);
+  assert.deepEqual(lista.map(p => p.assunto), ["pacotes", "objetivo", "tamanho", "organiza", "horarios"]);
   assert.equal(lista[0].opcoes[1].reacao, "A gente monta junto.");
   assert.deepEqual(perguntasDaConversa("eventos", null).map(p => p.assunto), assuntosDoNicho("eventos").map(p => p.assunto));
   assert.match(perguntasDaConversa("eventos", null)[0].opcoes[1].reacao, /começa pela Agenda/, "sem a IA, a reação é o que o painel faz com a resposta");
@@ -49,4 +51,14 @@ test("o que a demo sabe: o WhatsApp da conta vale mais que o da demo; os tipos d
   assert.deepEqual(confirmacoes({ conta: { nome: "X" }, dados: null }).tipos, []);
   const t = tiposParaEscolher(["Casamento", "15 anos"], [{ nome: "casamento", cor: "#111111" }, { nome: "Infantil", cor: "#222222" }]);
   assert.deepEqual(t.map(x => [x.nome, x.marcada]), [["Casamento", true], ["15 anos", true], ["Infantil", false]], "sem repetir o casamento");
+});
+
+test("os horários da Agenda numa frase: os dias seguidos juntos, só os gerais", async () => {
+  const { resumoDosHorarios } = await import("../src/telas/montar/roteiro.js");
+  const h = (d, i, f = null, s = null) => ({ dia_semana: d, inicio: i, fim: f, servico_id: s });
+  const semana = [2, 3, 4, 5].flatMap(d => [h(d, "08:00:00"), h(d, "17:00:00")]).concat([h(6, "08:00:00"), h(6, "15:00:00"), h(2, "09:00:00", null, "x")]);
+  assert.equal(resumoDosHorarios(semana), "Terça a sexta, das 8h às 17h · Sábado, das 8h às 15h");
+  assert.equal(resumoDosHorarios([h(0, "11:00", "17:00"), h(6, "11:00", "17:00")]), "Sábado a domingo, das 11h às 17h");
+  assert.equal(resumoDosHorarios([h(1, "09:30")]), "Segunda, às 9h30");
+  assert.equal(resumoDosHorarios([]), "");
 });

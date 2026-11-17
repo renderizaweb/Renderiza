@@ -33,6 +33,9 @@ export function passosDaConta(conta, feitos = {}) {
     (ligado("agenda") || ligado("atendimento")) && { id: "datas", titulo: "Trazer o que você já tem",
       texto: "Datas marcadas, clientes, pacotes e contrato: em foto, PDF ou planilha. A IA lê e você confere.", feito: !!feitos.reservas || !!feitos.trouxe,
       acao: { href: "/trazer", rotulo: "Trazer" }, extra: { importar: true, rotulo: "Digitar as datas" }, deNovo: "Trazer mais" },
+    // o site ligado ao painel (Meu site): o caminho para ele, até a primeira mudança
+    ligado("meu-site") && feitos.site && { id: "site", titulo: "Conhecer o seu site no painel", texto: "Mude textos e fotos vendo o site ao lado. Os pedidos da agenda do site caem no Atendimento.",
+      feito: !!feitos.siteMexido, acao: { href: "/meu-site", rotulo: "Abrir o Meu site" }, deNovo: "Abrir o Meu site" },
     ligado("atendimento") && { id: "pedido", titulo: "Anotar o primeiro pedido", texto: "O próximo cliente que chamar no WhatsApp já entra aqui.",
       feito: !!feitos.pedidos, acao: { href: "/atendimento?novo=pedido", rotulo: "Anotar pedido" }, deNovo: "Anotar outro" },
     // quem respondeu "só eu" na conversa de boas-vindas não precisa desse passo
@@ -281,7 +284,7 @@ export function abrirImportacao({ banco, conta }) {
 
 async function lerFeitos(banco, contaId, { comUsuario = false } = {}) {
   const existe = consulta => banco.resultado(consulta.limit(1)).then(l => l.length > 0).catch(() => false);
-  const [valores, servicos, reservas, pedidos, pessoas, convites, trouxe] = await Promise.all([
+  const [valores, servicos, reservas, pedidos, pessoas, convites, trouxe, site, siteMexido] = await Promise.all([
     existe(banco.tabela("servicos").select("id").eq("conta_id", contaId).not("valor", "is", null)),
     existe(banco.tabela("servicos").select("id").eq("conta_id", contaId)),
     existe(banco.tabela("reservas").select("id").eq("conta_id", contaId)),
@@ -289,9 +292,11 @@ async function lerFeitos(banco, contaId, { comUsuario = false } = {}) {
     banco.resultado(banco.tabela("pessoas").select("id").eq("conta_id", contaId).limit(2)).then(l => l.length > 1).catch(() => false),
     existe(banco.tabela("convites").select("id").eq("conta_id", contaId).is("aceito_em", null).is("cancelado_em", null)),
     existe(banco.tabela("importacoes").select("id").eq("conta_id", contaId).is("desfeita_em", null)),
+    existe(banco.tabela("sites").select("id").eq("conta_id", contaId).eq("situacao", "conectado")),
+    existe(banco.tabela("sites_versoes").select("id").eq("conta_id", contaId)),
   ]);
   const recuperacao = comUsuario ? await banco.rpc("meu_email_de_recuperacao").catch(() => null) : null;
-  return { valores, semServicos: !servicos, reservas, pedidos, equipe: pessoas || convites, trouxe, comUsuario, emailRecuperacao: !!(recuperacao && recuperacao.confirmado) };
+  return { valores, semServicos: !servicos, reservas, pedidos, equipe: pessoas || convites, trouxe, site, siteMexido, comUsuario, emailRecuperacao: !!(recuperacao && recuperacao.confirmado) };
 }
 
 /** O botão de um passo: importar, pôr o e-mail ou ir para a tela. Feito, o mesmo caminho com o rótulo de fazer de novo. */
