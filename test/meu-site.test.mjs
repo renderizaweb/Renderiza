@@ -238,11 +238,11 @@ test("texto entra como texto e imagem de fora não entra", comNavegador, async (
   await b.contexto.close();
 });
 
-test("resposta demorada (mais de 1,5 s): a página fica com a inicial; a próxima visita já abre com a publicada", comNavegador, async () => {
+test("resposta demorada (mais de 1,5 s): entra quando chegar; a próxima visita já abre com ela", comNavegador, async () => {
   const conteudo = publicado({ inicio: { textos: { titulo: "Versão *guardada.*" } } });
   const a = await abrir({ painel: { conteudo, atraso: 2200 } });
   await espera(2600);
-  assert.equal((await inicial(a.pagina)).titulo, ORIGINAL.titulo);
+  assert.equal(await textoDe(a.pagina, "#hero-heading"), "Versão <em>guardada.</em>", "quem publicou vê na hora, mesmo com o painel lento");
   const guardada = await a.pagina.evaluate(() => localStorage.getItem("rz-meu-site:villa-alecrim"));
   assert.ok(guardada && JSON.parse(guardada).conteudo.versao === 7, "a resposta foi para o navegador");
   // segunda visita com o painel fora do ar: abre com a guardada

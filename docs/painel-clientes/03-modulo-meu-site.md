@@ -76,14 +76,13 @@ código, os dados para o Google (endereço oficial, dados estruturados) e o dom�
 2. **O script vai no fim do `<head>`** do site do cliente, embutido pelo `virar-site.mjs` quando o `site.json` tem
    `"painel": { "codigo": "<código do site>" }`. Ele pede a versão publicada num endereço **da Renderiza** (nunca
    direto o do Supabase), `https://painel.renderizaweb.com.br/api/publico/site/<código>`.
-3. **Veio a resposta em até 1,5 s:** aplica só o que está nela, por cima da versão inicial. Texto entra como texto
+3. **Veio a resposta (a qualquer momento; até 17/11/2026 era só em até 1,5 s, e quem publicava não via a mudança):** aplica só o que está nela, por cima da versão inicial. Texto entra como texto
    (nunca como HTML), links só dos tipos permitidos, imagens só do endereço do painel. Um campo inválido descarta a
    versão inteira. **Erro, demora ou resposta inválida: não faz nada. "Não encontrado": volta à inicial** e esquece
    a guardada.
-4. **Guardada no navegador por 24 horas:** a última versão aparece logo nas visitas seguintes. A resposta que chega
-   depois de 1,5 s não muda a página aberta, mas fica guardada para a próxima visita. Se a do painel for diferente
+4. **Guardada no navegador por 24 horas:** a última versão aparece logo nas visitas seguintes. Se a do painel for diferente
    da guardada, a página volta à inicial e aplica a nova, sem sobrar nada da guardada.
-5. **Cache na rede de uns 60 segundos** (no endereço do painel): a maioria das visitas nem chega ao banco, e uma
+5. **Cache na rede de 20 segundos** (mais 10 servindo a anterior enquanto busca a nova; até 17/11/2026, 60 + 300) (no endereço do painel): a maioria das visitas nem chega ao banco, e uma
    publicação aparece em até 1 minuto.
 6. **Piscar na primeira visita:** o site abre com a versão inicial e troca pela publicada assim que a página termina
    de carregar. Nas visitas seguintes, a versão guardada entra no mesmo momento. **Validar no piloto**, no celular

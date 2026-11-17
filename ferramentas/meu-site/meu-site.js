@@ -1,6 +1,7 @@
 // Meu site (Painel Renderiza): o script que vai dentro do site do cliente e mostra, por cima da versão inicial, a
 // versão publicada no painel. Regras em docs/painel-clientes/03-modulo-meu-site.md:
-// - a versão inicial está no HTML e nunca depende do painel: erro, demora (1,5 s) ou "não encontrado" = fica ela;
+// - a versão inicial está no HTML e nunca depende do painel: erro ou "não encontrado" = fica ela; a do painel entra
+//   quando chegar (17/11/2026: com o corte de 1,5 s, quem publicava quase nunca via a mudança na hora);
 // - texto entra como texto (só *destaque* vira <em>, e só nos títulos), links só dos tipos permitidos, imagens só do
 //   endereço do painel;
 // - a última versão fica no navegador por até 24 horas, para aparecer logo nas visitas seguintes.
@@ -23,7 +24,6 @@
   "use strict";
   var ESQUEMA = 1;
   var API = "https://painel.renderizaweb.com.br/api/publico/site/";
-  var ESPERA = 1500; // ms: depois disso a página fica como está (a resposta ainda vai para o cache)
   var VALIDADE = 24 * 3600 * 1000; // ms: quanto a última versão vale no navegador
   var LIMITE = { texto: 600, rotulo: 60, alt: 200, mensagem: 500, destino: 300, itens: 60, endereco: 1000 };
   var ACOES = ["whatsapp", "telefone", "link", "secao", "rota", "instagram", "email"];
@@ -589,7 +589,7 @@
     var api = script.getAttribute("data-api") || API, origem;
     try { origem = new URL(api).origin; } catch (e) { return; }
     var previa = (global.location.search.match(/[?&]rz-previa=([A-Za-z0-9_-]{8,200})(?:&|$)/) || [])[1];
-    var chave = "rz-meu-site:" + codigo, aplicada = null, noPrazo = true;
+    var chave = "rz-meu-site:" + codigo, aplicada = null;
     var opcoes = { imagem: function (src) { try { return new URL(src).origin === origem ? src : null; } catch (e) { return null; } } };
     if (global.parent !== global && /[?&]rz-editor=1(?:&|$)/.test(global.location.search)) {
       var comecar = function () { ligarEditor(doc, origem, opcoes); };
@@ -615,19 +615,17 @@
       });
     };
     if (!previa) { var guardada = lerCache(chave); if (guardada) mostrar(guardada); }
-    setTimeout(function () { noPrazo = false; }, ESPERA);
     var ctrl = typeof global.AbortController === "function" ? new global.AbortController() : null;
     if (ctrl) setTimeout(function () { ctrl.abort(); }, 10000);
     var url = api + encodeURIComponent(codigo) + (previa ? "/previa?t=" + previa : "");
     global.fetch(url, { credentials: "omit", cache: previa ? "no-store" : "default", signal: ctrl ? ctrl.signal : undefined })
       .then(function (r) {
-        if (r.status === 404) { if (!previa) apagarCache(chave); if (noPrazo) mostrar(null); return; }
+        if (r.status === 404) { if (!previa) apagarCache(chave); mostrar(null); return; }
         if (!r.ok) return;
-        var naHora = noPrazo;
         return r.json().then(function (c) {
           if (!ehObjeto(c) || c.site !== codigo || validar(c).length) return;
           if (!previa) gravarCache(chave, c);
-          if (naHora || previa) mostrar(c);
+          mostrar(c); // mesmo atrasada: a mesma versão não reaplica (assinatura)
         });
       })
       .catch(function () { /* fora do ar, demorou ou bloqueado: fica a versão que está na tela */ });
