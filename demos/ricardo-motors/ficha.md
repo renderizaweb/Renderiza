@@ -4,6 +4,9 @@
 - **Direção (v2, 17/11/2026):** loja enxuta no padrão dos portais de carro (Webmotors, Porsche Finder): topo preto
   com um carro em destaque, estoque logo abaixo com foto deslizável em cada card, página de cada carro com caixa de
   preço e WhatsApp com o carro na mensagem. Sem a faixa da Renderiza no topo (a demo vai direto pelo WhatsApp).
+- **v3 (17/11/2026):** capa nova (texto curto à esquerda e vitrine de 4 carros com foto grande à direita; no
+  celular, foto limpa no topo e texto abaixo), fotos dos cards deslizam com o dedo, serviços em faixa deslizante no
+  celular e foto do Ricardo recortada nele e no logo RM.
 - **Fotos:** originais do servidor da Webmotors no tamanho em que foram enviadas (sem ampliar), até 8 por carro.
   10 carros com galeria (anúncio salvo); 328i, Haval H9, X2, X1 e X3 só com a foto de capa.
 - **Fontes:** anúncios da Webmotors salvos (Drive), página da loja (15 carros, 17/11/2026), Instagram (foto do
