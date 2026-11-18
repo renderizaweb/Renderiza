@@ -13,11 +13,11 @@ O painel é opcional: se ela desistir dele, o site continua de pé, perfeito e c
 
 | | |
 |---|---|
-| **Parada** | B · Revisão: a versão final está no ar para ela validar |
-| **Feito** | A demo virou o site dela (17/11): sem nada da Renderiza (faixa, preço, pílula, folha), com as **86 fotos em alta** que ela mandou no Drive em 13/11 (84 no site), três categorias iguais às pastas dela, serviços e "Sua data" com os tipos de evento das fotos. Testado no computador e no celular |
-| **Próxima ação** | (1) A Renderiza manda o link para ela validar (abaixo) e as perguntas de "Conferir com ela". (2) Enquanto isso: GitHub e Cloudflare dela (A1, A5), o domínio (E1) e a conta no Admin (D1) |
-| **Esperando a Renderiza** | a validação por escrito; o domínio; o repositório dela; o pagamento |
-| **Última atualização** | 18/11/2026 (no ar para validar) |
+| **Parada** | B (ela valida) com A e D andando juntas |
+| **Feito** | A versão final no ar para ela validar (18/11). **O site no repositório dela** (`biamaidafotografiadev-alt/biamaidafotografia`, `main`, `fa814c7`, 18/11), gerado pelo `virar-site` sem o painel (fica de pé sozinho). **A conta dela no Painel Renderiza, na produção** (18/11): "Bia Maida Fotografia", fotografia, código `bia-maida`, ativa e sem prazo, os 7 módulos, a demo no contexto com os tipos de hoje, a conversa de boas-vindas pendente e o convite do dono por link (usuário `biamaida`) |
+| **Próxima ação** | (1) Renderiza: Cloudflare Pages no repositório dela e mandar o endereço `….pages.dev` ao Claude. (2) Renderiza: no Admin, conta "Bia Maida Fotografia" → **Mandar o link** (WhatsApp dela); o link vale até 25/11 ("Link novo" renova). (3) Claude: o logo da conta (o `favicon.png` do site, quando houver o `pages.dev`) e a Parada C (Meu site e "Sua data" no painel) |
+| **Esperando a Renderiza** | a validação dela por escrito; o endereço do Cloudflare; o domínio no Registro.br (o DNS para o Cloudflare); o pagamento |
+| **Última atualização** | 18/11/2026 (repositório e conta no painel) |
 
 Para ela validar: https://www.renderizaweb.com.br/demo/bia-maida-fotografia (no ar até 20/11/2026 no Painel de
 prospecção; se a validação passar disso, estender no card do lead, seção Demo).
@@ -47,8 +47,8 @@ prospecção; se a validação passar disso, estender no card do lead, seção D
 | | Quem | O quê |
 |---|---|---|
 | A1 ✅ | Renderiza | GitHub dela (`biamaidafotografiadev-alt`), repositório **privado** `biamaidafotografiadev-alt/biamaidafotografia` (vazio em 18/11), a Kaue7almeida como colaboradora com escrita (conferido em 18/11 por um envio de ensaio, sem gravar nada; o Renderiza e o dela na mesma sessão, com o GitHub do claude.ai na Kaue7almeida) |
-| A2 | Claude | `demos/bia-maida-fotografia/site.json` (domínio, nome, cor `#1f5470`, ícone do monograma, dados para o Google: fotógrafa, São Paulo, sem endereço de estúdio) |
-| A3 | Claude | Gerar (`npm run site -- bia-maida-fotografia`), conferir (`scripts/conferir-site.mjs`), olhar no celular e no computador, subir para o repositório dela |
+| A2 ✅ | Claude | `demos/bia-maida-fotografia/site.json` (domínio `biamaidafotografia.com.br`, nome, cor `#1f5470`, o ícone do monograma, a prévia do link centrada na bebê e no pai, dados para o Google: fotógrafa em São Paulo, sem endereço de estúdio, nota 5,0 com 116 avaliações). Sem `"painel"` por enquanto: ele entra na Parada C |
+| A3 ✅ | Claude | Gerado (`npm run site -- bia-maida-fotografia`: 116 KB de página, 104 fotos em `img/`, 14 MB no total), conferência "tudo certo" (depois de corrigir o falso "todo" da conferência), o teste de uso inteiro no site gerado, servido como o Cloudflare serve. Subiu para a `main` dela em 18/11 (`fa814c7`) |
 | A4 | Renderiza | **Cloudflare Pages** na conta dela (fluxo "legacy Pages": Connect to Git, preset None, sem build, saída `/`). Mandar o endereço `….pages.dev` |
 | A5 | Claude | Conferir no ar: fotos, tela cheia, "Sua data", WhatsApp, prévia do link, cabeçalhos; a página "não encontrada" (pendente desde a Rafaela) |
 
@@ -78,9 +78,19 @@ feito no site cai no Atendimento; com o painel desligado, o site abre na versão
 ### D · A conta dela no painel (produção)
 **Chegou quando:** ela entra, vê o site dela no Meu site e a agenda montada.
 
-- D1 (Renderiza): a conta no Admin (fotografia), **todos os módulos** (como a Rafaela), o convite pelo WhatsApp.
-- D2 (Claude, com a Renderiza): os tipos de evento e de ensaio em Serviços, a agenda (dias de trabalho, folgas), o
-  logo, o WhatsApp; a demo ligada à conta (`contas_contexto`) e a conversa de boas-vindas pendente (como a Rafaela).
+- D1 ✅ (Claude, 18/11, a pedido da Renderiza): a conta na produção, no mesmo formato do "Criar conta" do Admin
+  (`src/admin/contas/nova.js`): "Bia Maida Fotografia", fotografia, código `bia-maida`, WhatsApp, cor `#1f5470`, ativa e
+  sem prazo, origem Renderiza, **os 7 módulos** (agenda online, agenda, clientes, contratos, financeiro, atendimento,
+  Meu site; como a Rafaela), a conversa de boas-vindas pendente (`ajustes.onboarding.pendente`), o contexto com a demo
+  (`contas_contexto`; os dados do catálogo eram da versão 1, com estúdio e Natal: foram com os de hoje, sem endereço,
+  com os tipos Aniversário, Chá de bebê, Casamento, Batizado, Evento de empresa, Ensaio externo e Corporativo, os
+  mesmos do "Sua data") e o **convite do dono por link** (usuário `biamaida`, `pela_renderiza`; o código foi sorteado
+  no banco e não passou pelo chat). **Falta a Renderiza mandar o link:** Admin → a conta → "Mandar o link".
+- **Serviços não foram criados à mão** (a Rafaela teve, porque a agenda do site dela precisava): a conversa de boas-vindas
+  cria os serviços a partir dos tipos que ela confirma (já vêm marcados do contexto), com a duração do nicho; preço e
+  duração ela ajusta em Serviços. Sem horários fixos: ela trabalha por data (ver C2).
+- D2 (Claude): o logo (o `favicon.png` do site dela, quando houver o `pages.dev`, como a Rafaela); conferir depois do
+  primeiro acesso dela que os serviços nasceram certos.
 - D3 (Claude, com o "pode"): o que a Parada C pedir na produção; o site cadastrado em `sites` (código, domínios,
   `conteudo_inicial` do `extrair.mjs`).
 
@@ -123,6 +133,8 @@ feito no site cai no Atendimento; com o painel desligado, o site abre na versão
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 18/11/2026 | D | **A conta dela no Painel Renderiza (produção)**, a pedido da Renderiza ("configurar todo o painel… igual à Rafaela"): conta, os 7 módulos, o contexto da demo com os dados de hoje, a conversa de boas-vindas pendente e o convite por link (`biamaida`, até 25/11). Lido antes, só leitura, o que a conta da Rafaela tem na produção (o modelo). Sem serviços nem horários à mão (vêm da conversa) e sem o site cadastrado (espera as marcações do Meu site, C1). | Claude, a pedido da Renderiza |
+| 18/11/2026 | A | **O site subiu para o repositório dela** (`main`, `fa814c7`), gerado pelo `virar-site` com o `site.json` novo (domínio `biamaidafotografia.com.br`). A conferência travava num falso "todo" ("todo mundo"): `TODO`/`FIXME` agora só contam em maiúsculas (com teste). Testado no site gerado, servido localmente: o teste de uso inteiro passou. | Claude, a pedido da Renderiza |
 | 18/11/2026 | A | **O repositório dela ligado à sessão:** `biamaidafotografiadev-alt/biamaidafotografia`, privado e vazio; a escrita conferida pela Kaue7almeida com um envio de ensaio (`--dry-run`, nada gravado). Falta o `site.json` com o domínio e subir o site gerado. | Claude, a pedido da Renderiza |
 | 18/11/2026 | B | **No ar para ela validar** (`378806f` na `main`; a Vercel publicou em uns 2 minutos). Conferido no endereço de verdade: o teste de uso inteiro no computador e no celular, a prévia do link (`capa.jpg`, a foto da abertura) e os links (só o WhatsApp, o Google e o Instagram dela). O envio tinha travado em 17/11: o claude.ai estava ligado ao GitHub de dev da Rafaela (a lição de 16/11 no README); resolvido trocando a conta logada no github.com antes de reconectar. A demo segue no ar até 20/11 no Painel de prospecção. | Claude, a pedido da Renderiza |
 | 17/11/2026 | B | **A demo virou o site dela, para a validação.** Fora tudo da Renderiza (faixa, preço, pílula, folha, `window.RZ`). As 86 fotos em alta do Drive (eventos 35, ensaios externos 20, corporativo 31): 84 no site, WebP com o lado maior em 2000 px, as três abas iguais às pastas dela, o portfólio montado pelo gerador (linhas de altura parecida, foto inteira, "Ver mais fotos" depois de duas linhas, legenda de cada foto na tela cheia, que só baixa a foto quando chega perto). Casamento, batizado e confraternização entraram (vieram nas fotos dela): serviço "Celebrações", e "Casamento", "Batizado" e "Corporativo" no "Sua data". Os cosméticos saíram (não vieram). Testado: uso de verdade no computador e no celular (39 conferências), sem JavaScript, movimento reduzido, larguras de 320 a 1920, a página publicada no servidor local (116 KB, 105 imagens à parte, prévia do link) e os 222 testes do repositório. | Claude, a pedido da Renderiza |
