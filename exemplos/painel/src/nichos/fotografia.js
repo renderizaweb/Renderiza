@@ -43,4 +43,6 @@ export default {
     { nome: "Acompanhamento do bebê", duracao: 45, cor: "#2f6f86" },
   ],
   horarioPadrao: { inicio: "09:00", duracao: 60 },
+  // o jeito da agenda online sem escolha da conta (Configurações): o horário de início, com a duração do ensaio
+  agendaPadrao: "horario",
 };
