@@ -62,6 +62,9 @@
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     }
   ],
+  "rewrites": [
+    { "source": "/exemplos/site-fotografia/exemplos/site-fotografia/:caminho*", "destination": "/exemplos/site-fotografia/:caminho*" }
+  ],
   "redirects": [
     { "source": "/eventos", "destination": "/como-funciona/eventos", "permanent": false }
   ]

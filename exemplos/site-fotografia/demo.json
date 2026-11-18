@@ -1,0 +1,506 @@
+{
+ "pasta": "site-fotografia",
+ "saida": "rascunhos/exemplos/ciranda/site-fotografia",
+ "unsplash": {
+  "ciranda-capa": "1602255680702-c47261041a97",
+  "ciranda-newborn": "1679919996303-1824ae520235",
+  "ciranda-gestante": "1702360681796-6aa6d4f569f9",
+  "ciranda-familia": "1770871821382-60ea99b0a941",
+  "ciranda-natal": "1514064982421-df8563d62bbf",
+  "nb-maos": "1537673156864-5d2c72de7824",
+  "nb-pais": "1543342384-1f1350e27861",
+  "nb-dormindo": "1544126592-807ade215a0b",
+  "nb-touca": "1546015720-b8b30df5aa27",
+  "nb-pes": "1555252333-9f8e92e65df9",
+  "bb-ursinho": "1522771930-78848d9293e8",
+  "fa-praia": "1475503572774-15a45e5d60b9",
+  "fa-retrato": "1478061653917-455ba7f4a541",
+  "fa-colo": "1484665754804-74b091211472",
+  "fa-beijo": "1530047625168-4b29bfbbe1fc",
+  "fa-cama": "1581952976147-5a2d15560349",
+  "fa-pai": "1609220136736-443140cffec6",
+  "in-forte": "1471286174890-9c112ffca5b4",
+  "in-fruta": "1491013516836-7db643ee125a",
+  "in-estudio": "1492725764893-90b379c2b6e7",
+  "in-tinta": "1503454537195-1dcabb73ffb9"
+ },
+ "marca": "Estúdio Ciranda",
+ "marca_completa": "Estúdio Ciranda",
+ "titulo_nome": "Estúdio Ciranda",
+ "titulo_script": "fotografia",
+ "dona": "Lia",
+ "quem_a": "a Lia",
+ "quem_da": "da Lia",
+ "quem_sou": "Sou a Lia, do Estúdio Ciranda",
+ "slogan": "Cada fase, guardada.",
+ "endereco_maps": "Vila Mariana, São Paulo - SP",
+ "verificado": "2026-11-18",
+ "whatsapp": "5511900000001",
+ "fone_link": "+5511900000001",
+ "instagram": "estudiociranda.exemplo",
+ "seguidores": "2.480",
+ "mensagem": "Olá, Lia! Vi o site e queria saber mais sobre os ensaios.",
+ "prova": [
+  "Desde 2016",
+  "fotografando famílias"
+ ],
+ "horario": {
+  "0": null,
+  "1": null,
+  "2": [
+   540,
+   1080
+  ],
+  "3": [
+   540,
+   1080
+  ],
+  "4": [
+   540,
+   1080
+  ],
+  "5": [
+   540,
+   1080
+  ],
+  "6": [
+   540,
+   960
+  ]
+ },
+ "cores": {
+  "fundo": "#fbf8f6",
+  "papel": "#ffffff",
+  "areia": "#f4ece8",
+  "linha": "#e8dcd6",
+  "tinta": "#2b2226",
+  "tinta2": "#6a5b60",
+  "rosa": "#c98a7a",
+  "acento": "#8a4a5f",
+  "acento_escuro": "#6b3446",
+  "cafe": "#3a2430"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Libre Baskerville",
+    "ital,wght@0,400;0,700;1,400"
+   ],
+   "sans": [
+    "Karla",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Petit Formal Script",
+    ""
+   ]
+  },
+  "titulo": "natural",
+  "fotos": "suave",
+  "eyebrow": "losango",
+  "jornada": "cartoes",
+  "natal_capa": "retrato",
+  "ornamento": "✦",
+  "script_escala": "0.62"
+ },
+ "marca_img": {
+  "simbolo": "rascunhos/exemplos/ciranda/marca/simbolo.png",
+  "logo": "rascunhos/exemplos/ciranda/marca/logo.png",
+  "logo_claro": "rascunhos/exemplos/ciranda/marca/logo-claro.png",
+  "favicon": "rascunhos/exemplos/ciranda/marca/favicon.png"
+ },
+ "fotos_saida": {
+  "formato": "jpeg",
+  "galeria": 1400,
+  "abertura": 1920,
+  "qualidade": 82
+ },
+ "meu_site": true,
+ "site": {
+  "titulo": "Estúdio Ciranda | Gestante, newborn e família na Vila Mariana (exemplo)",
+  "descricao": "Estúdio Ciranda, estúdio de fotografia fictício dos exemplos da Renderiza: gestante, newborn, o primeiro ano do bebê e família.",
+  "comentario": "Site de exemplo do Estúdio Ciranda (fictício), para os exemplos da Renderiza (/exemplos/site-fotografia e o vídeo do Meu site). Fotos livres do Unsplash. Gerado por ferramentas/exemplos/site-fotografia.mjs.",
+  "hero": {
+   "eyebrow": "Fotografia de família · São Paulo",
+   "frase": "Cada fase, guardada.",
+   "intro": "Gestante, newborn, o primeiro ano do bebê e a família toda, num estúdio claro na Vila Mariana.",
+   "rotulos": [
+    "Família",
+    "Newborn",
+    "Gestante"
+   ],
+   "especialidades": [
+    "Gestante",
+    "Newborn",
+    "Acompanhamento",
+    "Smash the cake",
+    "Família",
+    "Natal"
+   ],
+   "fotos": [
+    {
+     "arquivo": "rascunhos/exemplos/ciranda/ciranda-capa.jpg",
+     "f": "p",
+     "alt": "Mãe e pai erguendo a filha no campo, ao entardecer",
+     "c": [
+      0.45,
+      0.45
+     ]
+    },
+    {
+     "arquivo": "rascunhos/exemplos/ciranda/ciranda-newborn.jpg",
+     "f": "p",
+     "alt": "Recém-nascido dormindo de touca, no estúdio",
+     "c": [
+      0.5,
+      0.5
+     ]
+    },
+    {
+     "arquivo": "rascunhos/exemplos/ciranda/ciranda-gestante.jpg",
+     "f": "p",
+     "alt": "Casal de costas um para o outro na praia, a gestante segurando a barriga",
+     "c": [
+      0.5,
+      0.5
+     ]
+    }
+   ]
+  },
+  "portfolio": {
+   "eyebrow": "Portfólio",
+   "h2": "Momentos <em>para guardar.</em>",
+   "p": "Os ensaios mais recentes da Lia. Toque numa foto para ver em tela cheia.",
+   "nota": "Toque numa foto para ver em tela cheia; no celular, é só passar para o lado."
+  },
+  "galerias": [
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "fotos": [
+     {
+      "arquivo": "rascunhos/exemplos/ciranda/nb-maos.jpg",
+      "f": "l",
+      "alt": "Recém-nascido deitado na cama, com as mãos da mãe nas costas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "rascunhos/exemplos/ciranda/nb-pais.jpg",
+      "f": "p",
+      "alt": "Pai e mãe olhando o bebê no colo, perto da janela",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "rascunhos/exemplos/ciranda/nb-touca.jpg",
+      "f": "l",
+      "alt": "Bebê de touca de ursinho bocejando, com um bichinho de pelúcia",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "rascunhos/exemplos/ciranda/nb-dormindo.jpg",
+      "f": "l",
+      "alt": "Bebê dormindo enrolado na manta branca",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "rascunhos/exemplos/ciranda/nb-pes.jpg",
+      "f": "l",
+      "alt": "Os pezinhos do bebê na manta branca",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "rascunhos/exemplos/ciranda/bb-ursinho.jpg",
+      "f": "p",
+      "alt": "Bebê de macacão de ursinho sentado na cama",
+      "pos": "50% 45%"
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "fotos": [
+     {
+      "arquivo": "rascunhos/exemplos/ciranda/ciranda-familia.jpg",
+      "f": "p",
+      "alt": "Família de mãos dadas correndo no gramado",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "rascunhos/exemplos/ciranda/fa-beijo.jpg",
+      "f": "l",
+      "alt": "Mãe beijando o rosto do bebê",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "rascunhos/exemplos/ciranda/fa-cama.jpg",
+      "f": "l",
+      "alt": "Pai, mãe e as crianças sentados na cama",
+      "pos": "50% 45%"
+     },
+     {
+      "arquivo": "rascunhos/exemplos/ciranda/fa-pai.jpg",
+      "f": "l",
+      "alt": "Pai com os dois filhos nos ombros e no colo",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "rascunhos/exemplos/ciranda/fa-colo.jpg",
+      "f": "l",
+      "alt": "Mãe jogando a filha para o alto",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "rascunhos/exemplos/ciranda/fa-praia.jpg",
+      "f": "l",
+      "alt": "Família de mãos dadas na beira do mar",
+      "pos": "50% 60%"
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Infantil",
+    "fotos": [
+     {
+      "arquivo": "rascunhos/exemplos/ciranda/in-estudio.jpg",
+      "f": "l",
+      "alt": "Mãe erguendo a filha no estúdio de paredes coloridas",
+      "pos": "50% 50%"
+     },
+     {
+      "arquivo": "rascunhos/exemplos/ciranda/in-tinta.jpg",
+      "f": "p",
+      "alt": "Menina sorrindo com o rosto pintado de tinta",
+      "pos": "50% 35%"
+     },
+     {
+      "arquivo": "rascunhos/exemplos/ciranda/in-fruta.jpg",
+      "f": "l",
+      "alt": "Bebê de olhos azuis mordendo uma fruta",
+      "pos": "50% 40%"
+     },
+     {
+      "arquivo": "rascunhos/exemplos/ciranda/in-forte.jpg",
+      "f": "l",
+      "alt": "Menino de camiseta vermelha fazendo pose de forte",
+      "pos": "50% 35%"
+     }
+    ]
+   }
+  ],
+  "sobre": {
+   "foto": {
+    "arquivo": "rascunhos/exemplos/ciranda/fa-retrato.jpg",
+    "f": "l",
+    "alt": "Pai, mãe e o filho abraçados, sorrindo",
+    "c": [
+     0.5,
+     0.45
+    ]
+   },
+   "eyebrow": "Quem fotografa",
+   "h2": "A Lia <em>e o estúdio.</em>",
+   "p": [
+    "A Lia Moreno fotografa famílias desde 2016. O estúdio fica na Vila Mariana, com luz natural, figurinos e um cenário para cada fase."
+   ],
+   "citacao": "Foto boa é a que a família reconhece daqui a vinte anos.",
+   "citacao_quem": "Lia Moreno",
+   "p2": [
+    "Do ensaio gestante ao primeiro aninho, muita família volta a cada fase: a Duda cuida da agenda e a Lia, das fotos."
+   ],
+   "numeros": [
+    [
+     "2016",
+     "o primeiro ensaio"
+    ],
+    [
+     "6",
+     "tipos de ensaio no estúdio"
+    ]
+   ]
+  },
+  "jornada": {
+   "eyebrow": "Ensaios",
+   "h2": "Da espera <em>ao primeiro aninho.</em>",
+   "p": "Os ensaios do estúdio:",
+   "fonte": "",
+   "passos": [
+    {
+     "nome": "Gestante",
+     "sub": "A espera",
+     "p": "Do 7º ao 8º mês, no estúdio, com figurino."
+    },
+    {
+     "nome": "Newborn",
+     "sub": "A chegada",
+     "p": "Até 15 dias de vida, com calma e no tempo do bebê."
+    },
+    {
+     "nome": "Acompanhamento",
+     "sub": "O primeiro ano",
+     "p": "Um ensaio curto por mês, no primeiro ano."
+    },
+    {
+     "nome": "Smash the cake",
+     "sub": "O primeiro aninho",
+     "p": "Cenário temático e bolo, para o primeiro aniversário."
+    },
+    {
+     "nome": "Família",
+     "sub": "Todo mundo junto",
+     "p": "Pais, filhos e quem mais vier, no estúdio."
+    },
+    {
+     "nome": "Natal",
+     "sub": "Mini sessão",
+     "p": "30 minutos no cenário de Natal do estúdio."
+    }
+   ]
+  },
+  "natal_bloco": {
+   "eyebrow": "Natal 2026",
+   "h2": "Mini sessão <em>de Natal.</em>",
+   "p": "30 minutos no cenário de Natal do estúdio, com 10 fotos editadas. As vagas são poucas.",
+   "foto": {
+    "arquivo": "rascunhos/exemplos/ciranda/ciranda-natal.jpg",
+    "f": "l",
+    "alt": "Menino olhando a árvore de Natal acesa",
+    "c": [
+     0.75,
+     0.5
+    ]
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "avaliacoes": [],
+  "contato": {
+   "eyebrow": "Contato",
+   "h2": "Vamos marcar <em>o seu ensaio?</em>",
+   "p": "Datas e valores pelo WhatsApp. O estúdio fica na Vila Mariana, em São Paulo.",
+   "telefone": "(11) 90000-0001",
+   "endereco": [
+    "Estúdio na Vila Mariana",
+    "São Paulo · SP"
+   ]
+  }
+ },
+ "natal": {
+  "titulo": "Natal 2026 | Estúdio Ciranda (exemplo)",
+  "descricao": "A mini sessão de Natal 2026 do Estúdio Ciranda, estúdio fictício dos exemplos da Renderiza.",
+  "comentario": "Página de Natal do site de exemplo do Estúdio Ciranda (fictício).",
+  "link_site": "O site da Lia",
+  "hero": {
+   "eyebrow": "Natal 2026 · Vila Mariana",
+   "h1": "Mini sessão <em>de Natal.</em>",
+   "citacao": "O Natal passa rápido. A foto fica.",
+   "citacao_quem": "Lia Moreno",
+   "foto": {
+    "arquivo": "rascunhos/exemplos/ciranda/ciranda-natal.jpg",
+    "f": "l",
+    "alt": "Menino olhando a árvore de Natal acesa",
+    "c": [
+     0.75,
+     0.5
+    ]
+   },
+   "legenda": "Natal 2026 no estúdio"
+  },
+  "ensaio": {
+   "eyebrow": "O ensaio",
+   "h2": "30 minutos <em>na frente da árvore.</em>",
+   "p": "O cenário de Natal fica montado no estúdio de novembro a dezembro.",
+   "itens": [
+    "No estúdio, na Vila Mariana, em São Paulo.",
+    "30 minutos, com 10 fotos editadas.",
+    "Pijama, gorro ou a roupa que a família quiser."
+   ],
+   "legenda_fotos": "O cenário de Natal do estúdio"
+  },
+  "cenario": [
+   {
+    "arquivo": "rascunhos/exemplos/ciranda/ciranda-natal.jpg",
+    "f": "l",
+    "alt": "Menino olhando a árvore de Natal acesa",
+    "c": [
+     0.75,
+     0.5
+    ]
+   },
+   {
+    "arquivo": "rascunhos/exemplos/ciranda/fa-cama.jpg",
+    "f": "l",
+    "alt": "Pai, mãe e as crianças sentados na cama",
+    "c": [
+     0.5,
+     0.5
+    ]
+   }
+  ],
+  "galeria": {
+   "eyebrow": "O ano todo",
+   "h2": "Do bebê <em>à família toda.</em>",
+   "nome": "O ano todo",
+   "p": "Outros ensaios do estúdio da Lia.",
+   "fotos": [
+    {
+     "arquivo": "rascunhos/exemplos/ciranda/nb-maos.jpg",
+     "f": "l",
+     "alt": "Recém-nascido deitado na cama, com as mãos da mãe nas costas",
+     "pos": "50% 50%"
+    },
+    {
+     "arquivo": "rascunhos/exemplos/ciranda/fa-beijo.jpg",
+     "f": "l",
+     "alt": "Mãe beijando o rosto do bebê",
+     "pos": "50% 45%"
+    }
+   ]
+  },
+  "avaliacoes": [],
+  "avaliacoes_h2": "",
+  "agenda": {
+   "eyebrow": "Agenda de Natal",
+   "h2": "Escolha <em>o seu horário.</em>",
+   "p": "Toque num horário livre: o WhatsApp da Lia abre com a mensagem pronta, com o dia e a hora.",
+   "aviso": "Exemplo de como a agenda aparece: a Lia define os dias e os horários.",
+   "passos": [
+    [
+     "Escolha o horário",
+     "Os livres aparecem em destaque; os reservados ficam riscados."
+    ],
+    [
+     "A mensagem vai pronta",
+     "O WhatsApp da Lia abre com o dia e a hora escritos."
+    ]
+   ]
+  },
+  "final": {
+   "eyebrow": "Natal 2026 · Vila Mariana",
+   "h2": "Garanta o seu <em>Natal no estúdio.</em>",
+   "p": "Escolha um horário na agenda ou chame a Lia no WhatsApp para saber os valores."
+  }
+ },
+ "horarios": {
+  "horas": [
+   "9h",
+   "10h",
+   "11h",
+   "14h",
+   "15h"
+  ],
+  "mensagem": "Olá, Lia! Quero o horário de {data} ({semana}) às {hora} para a mini sessão de Natal.",
+  "dias": [
+   "2026-11-28",
+   "2026-12-05",
+   "2026-12-12",
+   "2026-12-19"
+  ],
+  "reservados": [
+   "2026-11-28 10h",
+   "2026-12-05 9h",
+   "2026-12-05 14h"
+  ],
+  "exemplo": "Horários de exemplo: a Lia define os dela"
+ }
+}

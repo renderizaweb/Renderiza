@@ -1,0 +1,1338 @@
+<!doctype html>
+<!-- Site de exemplo do Estúdio Ciranda (fictício), para os exemplos da Renderiza (/exemplos/site-fotografia e o vídeo do Meu site). Fotos livres do Unsplash. Gerado por ferramentas/exemplos/site-fotografia.mjs. -->
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Estúdio Ciranda, estúdio de fotografia fictício dos exemplos da Renderiza: gestante, newborn, o primeiro ano do bebê e família.">
+  <meta name="theme-color" content="#fbf8f6">
+  <title>Estúdio Ciranda | Gestante, newborn e família na Vila Mariana (exemplo)</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/exemplos/site-fotografia/favicon.png" type="image/png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Estúdio Ciranda">
+  <meta property="og:title" content="Estúdio Ciranda | Gestante, newborn e família na Vila Mariana (exemplo)">
+  <meta property="og:description" content="Estúdio Ciranda, estúdio de fotografia fictício dos exemplos da Renderiza: gestante, newborn, o primeiro ano do bebê e família.">
+  <meta property="og:image" content="https://www.renderizaweb.com.br/exemplos/site-fotografia/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <script>document.documentElement.classList.add("js");if(/[?&]video=1(&|$)/.test(location.search))document.documentElement.classList.add("modo-video");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Karla:wght@300;400;500;600&family=Petit+Formal+Script&display=swap" rel="stylesheet">
+  <style>
+:root{--fundo:#fbf8f6;--papel:#ffffff;--areia:#f4ece8;--linha:#e8dcd6;--tinta:#2b2226;--tinta-2:#6a5b60;--rosa:#c98a7a;--acento:#8a4a5f;--acento-escuro:#6b3446;--cafe:#3a2430;--claro:#f6eee6;
+--serif:"Cormorant Garamond",Georgia,serif;--sans:"Jost",system-ui,-apple-system,"Segoe UI",sans-serif;--script:"Allura","Brush Script MT",cursive;--container:min(1200px,calc(100% - 48px))}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:86px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--fundo);color:var(--tinta);font-family:var(--sans);font-weight:400;font-size:1.0625rem;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
+img{display:block;max-width:100%;height:auto}a{color:inherit}button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+[hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+:focus-visible{outline:2px solid var(--acento);outline-offset:3px}
+.container{width:var(--container);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.04;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--acento)}
+h2{font-size:clamp(2.35rem,4.6vw,3.7rem)}p{margin:0 0 1em}
+.eyebrow{display:flex;align-items:center;gap:12px;font-weight:500;font-size:.72rem;line-height:1.4;letter-spacing:.28em;text-transform:uppercase;color:var(--acento);margin:0 0 18px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.6}
+.secao{padding:clamp(76px,10vw,132px) 0}.secao--areia{background:var(--areia)}
+.cabeca{max-width:680px;margin:0 auto clamp(36px,5vw,56px);text-align:center}.cabeca .eyebrow{justify-content:center}.cabeca .eyebrow::after{content:"";width:28px;height:1px;background:currentColor;opacity:.6}
+.cabeca>p{color:var(--tinta-2);margin:18px auto 0;max-width:540px}
+.botao{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 28px;border-radius:999px;background:var(--acento);border:1px solid var(--acento);color:#fff;text-decoration:none;font-weight:500;font-size:.92rem;letter-spacing:.06em;transition:background .25s,color .25s,border-color .25s}
+.botao:hover{background:var(--acento-escuro);border-color:var(--acento-escuro)}.botao svg{width:20px;height:20px;flex:none}
+.botao--linha{background:transparent;color:var(--tinta);border-color:color-mix(in srgb,var(--tinta) 35%,transparent)}.botao--linha:hover{background:var(--tinta);border-color:var(--tinta);color:var(--fundo)}
+.link{display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
+.link svg{width:16px;height:16px}
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}.js .reveal.is-visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}}
+
+/* topo do site */
+.site-header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--fundo) 92%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
+.site-header.rolou{border-bottom-color:var(--linha)}
+.topo-in{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:78px;position:relative}
+.marca{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.marca img{width:48px;height:48px;flex:none}
+.marca-nome{display:grid;line-height:1;min-width:0}
+.marca-nome b{font-family:var(--serif);font-weight:500;font-size:1.06rem;letter-spacing:.24em;text-transform:uppercase;white-space:nowrap}
+.marca-nome i{font-family:var(--script);font-style:normal;font-size:1.45rem;line-height:.9;color:var(--rosa);margin:2px 0 0 1px}
+.nav{display:flex;align-items:center;gap:clamp(16px,2.2vw,30px)}
+.nav a{font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;white-space:nowrap;padding:6px 0;border-bottom:1px solid transparent}
+.nav a:hover{border-bottom-color:currentColor}
+.topo-cta{min-height:44px;padding:10px 20px;font-size:.82rem}
+.menu-botao{display:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--linha);place-items:center}
+.menu-botao span{display:block;width:18px;height:1.5px;background:var(--tinta);position:relative}.menu-botao span::before,.menu-botao span::after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:var(--tinta)}
+.menu-botao span::before{top:-6px}.menu-botao span::after{top:6px}
+.menu-mobile{position:absolute;top:100%;left:0;right:0;background:var(--papel);border-bottom:1px solid var(--linha);box-shadow:0 18px 40px #3a2b2314;padding:8px 24px 22px}
+.menu-mobile a{display:block;padding:14px 0;border-bottom:1px solid var(--linha);text-decoration:none;font-family:var(--serif);font-size:1.4rem}
+.menu-mobile .botao{margin-top:18px;width:100%;font-family:var(--sans);font-size:.92rem;border:0}
+@media(max-width:1060px){.nav,.topo-cta{display:none}.menu-botao{display:grid}}
+@media(min-width:1061px){.menu-mobile{display:none!important}}
+@media(max-width:520px){.topo-in{min-height:68px}.marca img{width:40px;height:40px}.marca-nome b{font-size:.9rem;letter-spacing:.18em}.marca-nome i{font-size:1.25rem}}
+
+/* abertura */
+.abertura{padding:clamp(28px,5vw,72px) 0 clamp(56px,7vw,96px)}
+.abertura-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(32px,5vw,80px);align-items:center}
+.abertura h1{font-size:clamp(3.1rem,6.4vw,5.6rem);font-weight:500;letter-spacing:.06em;text-transform:uppercase;line-height:.98}
+.abertura h1 .script{display:block;font-family:var(--script);font-weight:400;text-transform:none;letter-spacing:0;color:var(--rosa);font-size:.86em;line-height:.8;margin:.04em 0 0 .08em}
+.frase{font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.2;color:var(--tinta);margin:26px 0 14px}
+.abertura-intro{color:var(--tinta-2);max-width:470px}
+.abertura-acoes{display:flex;flex-wrap:wrap;align-items:center;gap:16px 26px;margin:30px 0 26px}
+.prova{display:flex;align-items:center;gap:12px;flex-wrap:wrap;color:var(--tinta-2);font-size:.92rem;text-decoration:none}
+.prova .estrelas{color:#c4935a;letter-spacing:2px}.prova b{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--tinta)}
+.mosaico{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:12px}
+.mosaico figure{margin:0;position:relative;overflow:hidden;background:var(--areia);min-height:0}
+.mosaico figure:first-child{grid-row:1/3;aspect-ratio:4/5}
+.mosaico img{width:100%;height:100%;object-fit:cover}.mosaico figure+figure img{position:absolute;inset:0}
+.mosaico figcaption{position:absolute;left:12px;bottom:12px;padding:5px 12px;border-radius:999px;background:#fffdf9e6;font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta)}
+.especialidades{border-block:1px solid var(--linha);padding:18px 16px;margin:0;text-align:center;font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,1.8vw,1.35rem);color:var(--tinta-2)}
+.especialidades span{white-space:nowrap}.especialidades i{font-style:normal;color:var(--rosa);margin:0 .7em;font-size:.7em;vertical-align:middle}
+@media(max-width:900px){.abertura-grid{grid-template-columns:1fr;gap:28px}.abertura-texto{display:contents}
+.abertura-topo{order:1}.mosaico{order:2}.abertura-baixo{order:3}.frase{margin:16px 0 0}.abertura-acoes{margin:0 0 22px}.abertura-intro{margin-bottom:22px}}
+@media(max-width:520px){.eyebrow{letter-spacing:.2em}.especialidades{font-size:.98rem;line-height:1.9}.especialidades i{margin:0 .45em}.abertura h1{font-size:clamp(2.5rem,11.6vw,3.3rem)}.mosaico{gap:8px}.mosaico figcaption{left:8px;bottom:8px;font-size:.58rem;padding:4px 9px;letter-spacing:.12em}.abertura-acoes .botao{width:100%}}
+
+/* portfólio: abas por categoria, grade e tela cheia */
+.abas{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:0 auto clamp(26px,4vw,40px)}
+.aba{min-height:46px;padding:10px 22px;border:1px solid var(--linha);border-radius:999px;font-size:.74rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;transition:background .2s,color .2s,border-color .2s}
+.aba small{font-size:.92em;opacity:.55;margin-left:6px;letter-spacing:0}
+.aba[aria-selected="true"]{background:var(--tinta);border-color:var(--tinta);color:var(--fundo)}
+.aba:hover:not([aria-selected="true"]){border-color:var(--tinta-2)}
+.js .paineis{display:grid}.js .painel{grid-area:1/1}.js .painel:not(.ativo){visibility:hidden;pointer-events:none}
+.painel-titulo{font-size:1.6rem;margin:36px 0 18px}.js .painel-titulo{display:none}
+.galeria{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:dense;gap:10px}
+.g-item{position:relative;display:block;width:100%;overflow:hidden;background:var(--areia);cursor:zoom-in}
+.g-item::before{content:"";display:block;padding-top:125%}.g-l{grid-column:span 2}.g-l::before{padding-top:66.6%}
+.g-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .4s}
+.g-item:hover img{transform:scale(1.035)}.g-item:focus-visible{outline-offset:-3px}
+.galeria-nota{text-align:center;color:var(--tinta-2);font-size:.9rem;margin:26px 0 0}
+@media(max-width:760px){.abas{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:6px}.aba{padding:10px 4px;letter-spacing:.06em;font-size:.7rem}.aba small{display:none}.galeria{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}}
+.lb{position:fixed;inset:0;z-index:200;background:#18120e;color:#f3ebe2;display:flex;flex-direction:column;visibility:hidden;opacity:0;pointer-events:none;transition:opacity .28s ease,visibility 0s linear .28s}
+.lb.aberto{visibility:visible;opacity:1;pointer-events:auto;transition:opacity .28s ease}
+.lb-topo{display:flex;align-items:center;gap:14px;padding:14px 14px 10px 20px;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase}
+.lb-cat{color:#d9b9a6}.lb-cont{opacity:.75;letter-spacing:.1em}
+.lb-fechar{margin-left:auto;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1px solid #ffffff2e}.lb-fechar svg{width:22px;height:22px}
+.lb-trilho{flex:1;min-height:0;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior:contain;scrollbar-width:none}
+.lb-trilho::-webkit-scrollbar{display:none}
+.lb-slide{flex:0 0 100%;height:100%;scroll-snap-align:center;scroll-snap-stop:always;display:flex;align-items:center;justify-content:center;padding:0 clamp(0px,5vw,80px) 14px}
+.lb-slide img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.lb-seta{position:absolute;top:50%;width:52px;height:52px;margin-top:-26px;border-radius:50%;display:grid;place-items:center;background:#ffffff14;color:#fff}
+.lb-seta svg{width:22px;height:22px}.lb-ant{left:18px}.lb-ant svg{transform:rotate(180deg)}.lb-prox{right:18px}.lb-seta:disabled{opacity:.25}
+.lb-dica{text-align:center;font-size:.76rem;letter-spacing:.06em;opacity:.6;padding:0 0 16px}
+@media(max-width:760px){.lb-seta{display:none}.lb-slide{padding:0 0 10px}}@media(min-width:761px){.lb-dica{display:none}}
+
+/* sobre */
+.sobre-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(36px,6vw,96px);align-items:center}
+.sobre-foto{position:relative;margin:0}.sobre-foto img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.sobre-foto::before{content:"";position:absolute;inset:-16px 16px 16px -16px;border:1px solid var(--rosa);opacity:.55;z-index:-1}
+.sobre-texto p{color:var(--tinta-2)}.sobre-texto h2{margin-bottom:26px}
+.citacao{margin:30px 0;padding:0 0 0 26px;border-left:1px solid var(--rosa);font-family:var(--serif);font-style:italic;font-size:clamp(1.35rem,2.1vw,1.7rem);line-height:1.32;color:var(--tinta)}
+.citacao footer{font-family:var(--sans);font-style:normal;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--acento);margin-top:14px}
+.numeros{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:34px 0 0;padding:0;list-style:none}
+.numeros li{border-top:1px solid var(--linha);padding-top:14px;font-size:.84rem;line-height:1.4;color:var(--tinta-2)}
+.numeros b{display:block;font-family:var(--serif);font-weight:500;font-size:2.1rem;line-height:1.1;color:var(--tinta)}
+@media(max-width:900px){.sobre-grid{grid-template-columns:1fr}.sobre-foto{max-width:460px;margin-left:16px}}
+@media(max-width:520px){.numeros{gap:12px}.numeros b{font-size:1.65rem}.numeros li{font-size:.78rem}}
+
+/* jornada */
+.jornada{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 clamp(24px,4vw,56px);counter-reset:passo}
+.jornada li{counter-increment:passo;border-top:1px solid var(--linha);padding:26px 0 34px}
+.jornada li::before{content:counter(passo,decimal-leading-zero);display:block;font-family:var(--serif);font-style:italic;color:var(--rosa);font-size:1.15rem;margin-bottom:10px}
+.jornada h3{font-size:1.75rem;margin-bottom:4px}.jornada .sub{font-family:var(--serif);font-style:italic;color:var(--acento);font-size:1.15rem;margin:0 0 12px}
+.jornada p{color:var(--tinta-2);font-size:.98rem;margin:0}
+.fonte{font-size:.8rem;color:var(--tinta-2);text-align:center;margin:18px 0 0;opacity:.85}
+@media(max-width:900px){.jornada{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.jornada{grid-template-columns:1fr}.jornada li{padding:22px 0 26px}}
+
+/* bloco e página de Natal */
+.natal{background:var(--cafe);color:var(--claro)}
+.natal .eyebrow{color:#e2b9a4}.natal h2 em{color:#e9b8a2}.natal p{color:#e2d6cb}
+.natal-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,6vw,88px);align-items:center}
+.natal-foto{margin:0}.natal-foto img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.natal-foto figcaption,.legenda{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;opacity:.7;margin-top:12px}
+.contador{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 12px;margin:26px 0 8px}
+.contador b{font-family:var(--serif);font-size:3rem;font-weight:500;line-height:1}
+.contador span{font-size:1rem}
+.exemplo{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px dashed currentColor;border-radius:999px;font-size:.76rem;letter-spacing:.04em;line-height:1.35;opacity:.9}
+.exemplo svg{width:14px;height:14px;flex:none}
+.proximos{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 28px;padding:0;list-style:none}
+.proximos a{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid #ffffff40;text-decoration:none;font-size:.86rem;transition:background .2s}
+.proximos a:hover,.proximos a.escolhido{background:#fff;color:var(--cafe)}.proximos small{opacity:.7}
+.natal .botao{background:#f3e7dc;border-color:#f3e7dc;color:var(--cafe)}.natal .botao:hover{background:#fff;border-color:#fff}
+@media(max-width:900px){.natal-grid{grid-template-columns:1fr}.natal-foto{order:-1}}
+.n-abertura{padding:clamp(28px,5vw,64px) 0 clamp(60px,8vw,104px)}
+.n-abertura-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,72px);align-items:center}
+.n-abertura h1{font-size:clamp(3rem,6.2vw,5.4rem)}
+.n-abertura .citacao{font-size:clamp(1.25rem,1.9vw,1.55rem);margin:26px 0}
+.n-abertura .foto img{width:100%;aspect-ratio:3/2;object-fit:cover}.n-abertura .foto{margin:0}
+@media(max-width:900px){.n-abertura-grid{grid-template-columns:1fr}.n-abertura .foto{order:-1}}
+.ensaio-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,88px);align-items:center}
+.itens{list-style:none;margin:26px 0 0;padding:0}
+.itens li{display:flex;gap:14px;align-items:flex-start;padding:15px 0;border-top:1px solid var(--linha)}
+.itens svg{width:18px;height:18px;flex:none;margin-top:5px;color:var(--acento)}
+.cenario{display:grid;grid-template-columns:1fr 1fr;gap:10px}.cenario figure{margin:0;overflow:hidden;background:var(--areia)}
+.cenario figure:first-child{grid-row:span 2}.cenario img{width:100%;height:100%;object-fit:cover}
+.cenario-legenda{grid-column:1/-1;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-2);margin:6px 0 0}
+@media(max-width:900px){.ensaio-grid{grid-template-columns:1fr}}
+.agenda-topo{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px 32px;margin-bottom:28px}
+.agenda-topo .contador{margin:0}.agenda-topo .contador b{color:var(--acento)}
+.agenda-aviso{flex-basis:100%;margin:0;color:var(--tinta-2);font-size:.95rem;max-width:760px}
+.grade-dias{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.dia{background:var(--papel);border:1px solid var(--linha);padding:18px 18px 14px;display:grid;grid-template-columns:auto 1fr;gap:4px 18px;align-items:start}
+.dia-nome{display:grid;justify-items:center;min-width:56px;line-height:1.1;padding-top:2px}
+.dia-nome b{font-family:var(--serif);font-weight:500;font-size:2.4rem;line-height:1}.dia-nome span{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}
+.dia-nome small{font-size:.7rem;color:var(--tinta-2);margin-top:2px}
+.dia-horas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.hora{display:grid;place-items:center;min-height:42px;border:1px solid var(--acento);color:var(--acento-escuro);text-decoration:none;font-weight:500;font-size:.92rem;border-radius:999px;transition:background .2s,color .2s}
+a.hora:hover,a.hora.escolhido{background:var(--acento);color:#fff}
+.hora.is-reservado{border-color:var(--linha);color:#a3958b;background:transparent;cursor:not-allowed;font-weight:400}.hora s{text-decoration-thickness:1px}
+.dia-resta{grid-column:2;margin:6px 0 0;font-size:.74rem;letter-spacing:.06em;color:var(--tinta-2)}
+.legenda-grade{display:flex;flex-wrap:wrap;gap:8px 22px;margin:18px 0 0;font-size:.82rem;color:var(--tinta-2)}
+.legenda-grade span{display:inline-flex;align-items:center;gap:8px}.legenda-grade i{width:22px;height:14px;border-radius:999px;border:1px solid var(--acento)}.legenda-grade i.r{border-color:var(--linha);background:repeating-linear-gradient(-45deg,transparent 0 3px,var(--linha) 3px 4px)}
+@media(max-width:1000px){.grade-dias{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.grade-dias{grid-template-columns:1fr}.dia{padding:14px}}
+.passos{list-style:none;margin:44px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;counter-reset:p}
+.passos li{counter-increment:p;padding:20px 0 0;border-top:1px solid var(--linha);color:var(--tinta-2);font-size:.96rem}
+.passos li::before{content:counter(p);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;border:1px solid var(--rosa);color:var(--acento);font-family:var(--serif);font-size:1.1rem;margin-bottom:12px}
+.passos b{display:block;color:var(--tinta);font-weight:500;margin-bottom:2px}
+@media(max-width:760px){.passos{grid-template-columns:1fr}}
+
+/* avaliações (cartões montados pelo runtime) */
+.avaliacoes-topo{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+.avaliacoes-topo h2{max-width:620px}
+.nota-google{display:flex;align-items:center;gap:16px;text-decoration:none}
+.nota-google>b{font-family:var(--serif);font-size:3.4rem;font-weight:500;line-height:1}
+.nota-google span{display:grid;line-height:1.35;font-size:.86rem;color:var(--tinta-2)}.nota-google .estrelas{color:#c4935a;letter-spacing:3px;font-size:1rem}
+.carousel{min-width:0}.carousel-track{list-style:none;padding:0;margin:0;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.carousel-track::-webkit-scrollbar{display:none}.carousel-track>li{scroll-snap-align:start;min-width:0;flex:0 0 calc((100% - 32px)/3);display:flex}
+.review-card{background:var(--papel);border:1px solid var(--linha);padding:28px 28px 24px;display:flex;flex-direction:column;width:100%}
+.review-card-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}
+.stars{color:#c4935a;letter-spacing:2px;font-size:.9rem}.review-tag{font-size:.64rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--acento);text-align:right}
+.review-card blockquote{margin:0 0 22px;font-family:var(--serif);font-style:italic;font-size:1.32rem;line-height:1.36;flex:1}
+.review-card blockquote.is-long{font-size:1.22rem}
+.review-person{display:flex;align-items:center;gap:12px;font-size:.86rem;border-top:1px solid var(--linha);padding-top:16px}
+.review-avatar{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--rosa);color:var(--acento);font-family:var(--serif);font-size:1rem;flex:none}
+.review-person strong{display:block;font-weight:500}.review-person a{color:var(--tinta-2);font-size:.78rem;text-decoration:none}
+.carousel-footer{display:flex;justify-content:flex-end;padding-top:24px}.carousel-controls{display:flex;gap:12px;align-items:center}
+.arrow-button{width:46px;height:46px;display:grid;place-content:center;border:1px solid var(--linha);border-radius:50%;background:var(--papel);font-size:1.15rem;transition:background .2s}
+.arrow-button:hover:not(:disabled){background:var(--areia)}.arrow-button:disabled{opacity:.3;cursor:default}
+.carousel-dots{display:flex;gap:2px}.carousel-dots button{width:22px;height:30px;display:grid;place-content:center}
+.carousel-dots button::after{content:"";width:6px;height:6px;border-radius:50%;background:#d6c7ba;transition:width .2s}.carousel-dots button[aria-current="true"]::after{width:18px;border-radius:999px;background:var(--acento)}
+@media(max-width:980px){.carousel-track>li{flex-basis:calc((100% - 16px)/2)}}@media(max-width:640px){.carousel-track>li{flex-basis:88%}.review-card{padding:22px 20px 18px}.review-card blockquote{font-size:1.2rem}.carousel-dots{display:none}}
+
+/* contato */
+.contato-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(32px,6vw,80px);align-items:stretch}
+.canais{list-style:none;margin:28px 0 30px;padding:0}
+.canais>li{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-top:1px solid var(--linha)}
+.canais svg{width:22px;height:22px;flex:none;color:var(--acento);margin-top:3px}
+.canais b{display:block;font-weight:500}.canais span,.canais a{color:var(--tinta-2);text-decoration:none;font-size:.96rem}
+.canais a:hover{color:var(--tinta)}
+.hours{list-style:none;margin:4px 0 0;padding:0;font-size:.92rem;color:var(--tinta-2)}.hours li{display:flex;justify-content:space-between;gap:18px;width:min(280px,100%);padding:2px 0}.hours li.is-today{color:var(--tinta);font-weight:500}
+.mapa{position:relative;min-height:380px;background:var(--papel);border:1px solid var(--linha)}.mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:sepia(.18) saturate(.85)}
+.mapa-alt{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:10px;padding:24px;text-align:center;text-decoration:none;color:var(--tinta-2)}
+.mapa-alt svg{width:34px;height:34px;color:var(--acento)}.mapa-alt b{font-family:var(--serif);font-weight:500;font-size:1.5rem;color:var(--tinta)}.mapa-alt span{font-size:.92rem}.mapa-alt .link{margin-top:8px;color:var(--tinta)}
+@media(max-width:900px){.contato-grid{grid-template-columns:1fr}.mapa{min-height:300px}}
+
+/* rodapé */
+.rodape{background:var(--cafe);color:#d9cdc2;padding:64px 0 34px;text-align:center}
+.rodape img{width:min(240px,62vw);margin:0 auto 18px}
+.rodape-frase{font-family:var(--serif);font-style:italic;font-size:1.45rem;color:#efe4d9;margin:0 0 22px}
+.rodape nav{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 26px;margin-bottom:30px}
+.rodape nav a{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none}
+.rodape small{display:block;font-size:.78rem;color:#a99b8f;line-height:1.6}
+.flutuante{position:fixed;right:18px;bottom:18px;z-index:70;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#2f7d55;color:#fff;box-shadow:0 12px 30px #1f4a3340}
+.flutuante svg{width:28px;height:28px}
+@media(max-width:520px){.flutuante{width:54px;height:54px;right:14px;bottom:14px}}
+
+/* Meu site: o preço do ensaio (vazio não aparece) */
+.jornada .preco{margin:14px 0 0;font-family:var(--serif);font-size:1.2rem;color:var(--acento-escuro)}.jornada .preco:empty{display:none}
+
+/* estilo desta demo */:root{--serif:"Libre Baskerville",Georgia,serif;--sans:"Karla",system-ui,-apple-system,"Segoe UI",sans-serif;--script:"Petit Formal Script","Brush Script MT",cursive;}
+
+.abertura h1{text-transform:none;letter-spacing:-.015em;font-weight:400;line-height:.94}
+.abertura h1 .script{margin:.1em 0 0 .32em}
+.marca-nome b{text-transform:none;letter-spacing:.01em;font-size:1.34rem;font-weight:500}
+@media(max-width:520px){.marca-nome b{font-size:1.12rem;letter-spacing:0}}
+
+.mosaico figure,.g-item,.sobre-foto img,.natal-foto img,.n-abertura .foto img,.cenario figure{border-radius:16px}
+.sobre-foto::before{border-radius:24px}.review-card,.dia{border-radius:16px}.mapa{border-radius:16px;overflow:hidden}
+
+.eyebrow::before,.cabeca .eyebrow::after,.abertura .eyebrow::after{width:6px;height:6px;transform:rotate(45deg);opacity:.8}
+
+.jornada{gap:18px}
+.jornada li{background:var(--papel);border:1px solid var(--linha);padding:30px 28px 32px}
+.jornada li::before{font-size:2.5rem;line-height:1;margin-bottom:16px}
+@media(max-width:560px){.jornada li{padding:24px 22px 26px}}
+
+@media(min-width:901px){.n-abertura-grid{grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr)}}
+.n-abertura .foto img{aspect-ratio:4/5}
+@media(max-width:900px){.n-abertura .foto{max-width:520px}}
+.abertura h1 .script{font-size:calc(.86em*0.62)}.marca-nome i{font-size:calc(1.45rem*0.62)}@media(max-width:520px){.marca-nome i{font-size:calc(1.25rem*0.62)}}
+</style>
+  <script>
+// Site de EXEMPLO (Estúdio Ciranda é fictício). O Meu site daqui lê a versão que você publicou na página do Meu site
+// de exemplo, guardada no seu navegador; os links do WhatsApp e do Instagram não abrem.
+(function () {
+  var CHAVE = "rz-exemplo-meu-site:estudio-ciranda", VERSOES = "rz-exemplo-meu-site:versoes", API = "https://www.renderizaweb.com.br/exemplos/site-fotografia/painel/site/estudio-ciranda", buscar = window.fetch;
+  window.fetch = function (u, o) {
+    var url = String(u && u.url || u);
+    var json = function (v) { return Promise.resolve(v ? new Response(v, { status: 200, headers: { "content-type": "application/json" } }) : new Response("{}", { status: 404 })); };
+    if (url === API) { var v = null; try { v = localStorage.getItem(CHAVE); } catch (e) { /* sem navegador */ } return json(v); }
+    if (url.indexOf(API + "/previa?t=") === 0) { // "Ver o rascunho no site": o rascunho que está no navegador
+      var r = null; try { r = (JSON.parse(localStorage.getItem(VERSOES)) || []).filter(function (x) { return x.estado === "rascunho"; })[0]; } catch (e) { /* sem rascunho */ }
+      return json(r ? JSON.stringify(Object.assign({}, r.conteudo, { esquema: 1, site: "estudio-ciranda", versao: r.numero, publicado_em: null })) : null);
+    }
+    return buscar.apply(this, arguments);
+  };
+  document.addEventListener("click", function (ev) {
+    var a = ev.target.closest && ev.target.closest("a[data-whatsapp], a[data-instagram], a[href*='wa.me'], a[href*='instagram.com']");
+    if (!a) return;
+    ev.preventDefault();
+    alert("Este é um site de exemplo: no site de verdade, este botão abre o WhatsApp (ou o Instagram) do estúdio.");
+  }, true);
+  // dentro do editor do Meu site (o quadro), sem o selo: lá a página já diz que é exemplo
+  if (/[?&]rz-editor=1/.test(location.search)) document.addEventListener("DOMContentLoaded", function () { var s = document.getElementById("rz-exemplo-selo"); if (s) s.remove(); });
+})();
+</script>
+  <script data-sem-visitas data-codigo="estudio-ciranda" data-api="https://www.renderizaweb.com.br/exemplos/site-fotografia/painel/site/">
+// Meu site (Painel Renderiza): o script que vai dentro do site do cliente e mostra, por cima da versão inicial, a
+// versão publicada no painel. Regras em docs/painel-clientes/03-modulo-meu-site.md:
+// - a versão inicial está no HTML e nunca depende do painel: erro ou "não encontrado" = fica ela; a do painel entra
+//   quando chegar (17/11/2026: com o corte de 1,5 s, quem publicava quase nunca via a mudança na hora);
+// - texto entra como texto (só *destaque* vira <em>, e só nos títulos), links só dos tipos permitidos, imagens só do
+//   endereço do painel;
+// - a última versão fica no navegador por até 24 horas, para aparecer logo nas visitas seguintes.
+// - dentro do editor do painel (o site num quadro, com ?rz-editor=1), mostra o rascunho que o painel manda a cada
+//   mudança e avisa em que parte a pessoa clicou; só aceita mensagem do endereço do painel e não grava nada;
+// - conta as visitas para os indicadores do painel, sem cookie e sem guardar nada no navegador (data-sem-visitas no
+//   <script> desliga): o tempo, as partes vistas e os botões clicados, por página aberta;
+// Entra no site pelo scripts/virar-site.mjs, num <script data-codigo="<código do site>"> no fim do <head>.
+// O mesmo arquivo é a biblioteca (validar, aplicar, extrair) do painel, dos testes e do scripts/versao-final.mjs.
+//
+// O que o site marca (os geradores em ferramentas/demo/ põem as marcações):
+//   data-site-secao="<seção>"          a seção (some com "visivel": false)
+//   data-site="<seção>.<campo>"        um texto
+//   data-site-botao="<seção>.<campo>"  um botão (o rótulo é o texto direto dentro dele, fora dos ícones e setas)
+//   data-site-img="<seção>.<campo>"    uma imagem
+//   data-site-lista="<seção>.<campo>"  uma lista: os filhos [data-site-item] são os itens, com os campos marcados por
+//                                      data-site-campo="<campo>" (texto ou imagem); data-site-runtime="avaliacoes" =
+//                                      a lista é montada pelo runtime das demos (DEMO_CLIENT.reviews)
+(function (global) {
+  "use strict";
+  var ESQUEMA = 1;
+  var API = "https://painel.renderizaweb.com.br/api/publico/site/";
+  var VALIDADE = 24 * 3600 * 1000; // ms: quanto a última versão vale no navegador
+  var LIMITE = { texto: 600, rotulo: 60, alt: 200, mensagem: 500, destino: 300, itens: 60, endereco: 1000 };
+  var ACOES = ["whatsapp", "telefone", "link", "secao", "rota", "instagram", "email"];
+  var NOME = /^[a-z0-9][a-z0-9-]{0,40}$/;
+  var INSTAGRAM = /^[A-Za-z0-9._]{1,30}$/;
+  var FONE = /^\d{12,13}$/; // com o 55: 5511900000000
+  var LINKS_DO_RUNTIME = ["data-whatsapp", "data-instagram", "data-maps", "data-directions", "data-phone", "data-reviews-link", "data-review-write"];
+
+  var ehObjeto = function (v) { return v !== null && typeof v === "object" && !Array.isArray(v); };
+  var todos = function (raiz, seletor) { return Array.prototype.slice.call(raiz.querySelectorAll(seletor)); };
+  // num item de lista, o campo pode ser o próprio item (<p data-site-item data-site-campo="texto">)
+  var noItem = function (item, seletor) { return (item.matches(seletor) ? [item] : []).concat(todos(item, seletor)); };
+  var cada = function (obj, fn) { if (ehObjeto(obj)) Object.keys(obj).forEach(function (k) { fn(k, obj[k]); }); };
+  var itensDe = function (lista) { return Array.prototype.filter.call(lista.children, function (n) { return n.hasAttribute("data-site-item"); }); };
+  // o rótulo de um botão: os textos diretos dele (o ícone e a seta ficam em elementos à parte, que não mudam)
+  var textosDe = function (el) { return Array.prototype.filter.call(el.childNodes, function (n) { return n.nodeType === 3 && n.nodeValue.trim(); }); };
+
+  function urlSegura(texto, soHttps) {
+    if (typeof texto !== "string" || texto.length > LIMITE.endereco || /[\s"<>]/.test(texto)) return false;
+    try {
+      var u = new URL(texto);
+      return u.protocol === "https:" || (!soHttps && u.protocol === "http:" && (u.hostname === "localhost" || u.hostname === "127.0.0.1"));
+    } catch (e) { return false; }
+  }
+
+  /** Os problemas do conteúdo (lista vazia = pode aplicar). O painel valida o mesmo antes de publicar. */
+  function validar(c) {
+    var erros = [];
+    var erro = function (onde, o) { erros.push(onde + ": " + o); };
+    var texto = function (onde, v, max) { if (typeof v !== "string") erro(onde, "não é texto"); else if (v.length > max) erro(onde, "passa de " + max + " caracteres"); };
+    var sim = function (onde, v) { if (v !== undefined && typeof v !== "boolean") erro(onde, "não é sim/não"); };
+    var nomes = function (onde, obj, fn) {
+      if (obj === undefined) return;
+      if (!ehObjeto(obj)) return erro(onde, "não é um objeto");
+      cada(obj, function (k, v) { if (!NOME.test(k)) erro(onde + "." + k, "nome inválido"); else fn(onde + "." + k, v); });
+    };
+    var imagem = function (onde, v) {
+      if (!ehObjeto(v)) return erro(onde, "não é um objeto");
+      // endereço do painel (o site só aceita os do painel) ou caminho do próprio site (/exemplos/site-fotografia/img/…, o da versão inicial)
+      if (v.src !== undefined && !urlSegura(v.src) && !/^\/[A-Za-z0-9._~\/-]{1,300}$/.test(v.src)) erro(onde + ".src", "endereço inválido");
+      if (v.alt !== undefined) texto(onde + ".alt", v.alt, LIMITE.alt);
+    };
+    var botao = function (onde, b) {
+      if (!ehObjeto(b)) return erro(onde, "não é um objeto");
+      if (b.rotulo !== undefined) texto(onde + ".rotulo", b.rotulo, LIMITE.rotulo);
+      sim(onde + ".visivel", b.visivel);
+      if (b.mensagem !== undefined) texto(onde + ".mensagem", b.mensagem, LIMITE.mensagem);
+      if (b.destino !== undefined) texto(onde + ".destino", b.destino, LIMITE.destino);
+      if (b.acao === undefined) return;
+      if (ACOES.indexOf(b.acao) < 0) return erro(onde + ".acao", "ação desconhecida");
+      var site = { whatsapp: "5500000000000", telefone: "5500000000000", instagram: "usuario", temSecao: function (id) { return NOME.test(id); } };
+      if (!destino(b, site)) erro(onde + ".destino", "destino inválido para " + b.acao);
+    };
+    if (!ehObjeto(c)) return ["o conteúdo não é um objeto"];
+    if (c.esquema !== ESQUEMA) erro("esquema", "tem que ser " + ESQUEMA);
+    nomes("secoes", c.secoes, function (onde, s) {
+      if (!ehObjeto(s)) return erro(onde, "não é um objeto");
+      sim(onde + ".visivel", s.visivel);
+      if (onde === "secoes.inicio" && s.visivel === false) erro(onde, "o início não some");
+      nomes(onde + ".textos", s.textos, function (o, v) { texto(o, v, LIMITE.texto); });
+      nomes(onde + ".botoes", s.botoes, botao);
+      nomes(onde + ".imagens", s.imagens, imagem);
+      nomes(onde + ".listas", s.listas, function (o, itens) {
+        if (!Array.isArray(itens)) return erro(o, "não é uma lista");
+        if (itens.length > LIMITE.itens) erro(o, "passa de " + LIMITE.itens + " itens");
+        itens.forEach(function (it, i) {
+          var oi = o + "[" + i + "]";
+          if (!ehObjeto(it)) return erro(oi, "não é um objeto");
+          if (it.de !== undefined && !(Number.isInteger(it.de) && it.de >= 0 && it.de < 200)) erro(oi + ".de", "não é a posição de um item");
+          sim(oi + ".visivel", it.visivel);
+          nomes(oi + ".textos", it.textos, function (ot, v) { texto(ot, v, LIMITE.texto); });
+          nomes(oi + ".imagens", it.imagens, imagem);
+        });
+      });
+    });
+    if (c.contato !== undefined) {
+      var k = c.contato;
+      if (!ehObjeto(k)) erro("contato", "não é um objeto");
+      else {
+        if (k.whatsapp !== undefined && !FONE.test(k.whatsapp)) erro("contato.whatsapp", "use só números, com o 55 e o DDD");
+        if (k.telefone !== undefined && !FONE.test(k.telefone)) erro("contato.telefone", "use só números, com o 55 e o DDD");
+        if (k.instagram !== undefined && !INSTAGRAM.test(k.instagram)) erro("contato.instagram", "nome de usuário inválido");
+        if (k.mensagem !== undefined) texto("contato.mensagem", k.mensagem, LIMITE.mensagem);
+      }
+    }
+    return erros;
+  }
+
+  /** "Festas *no verde.*" -> [["Festas ", false], ["no verde.", true]] */
+  function partes(texto) {
+    var out = [], re = /\*([^*]+)\*/g, i = 0, m;
+    while ((m = re.exec(texto))) {
+      if (m.index > i) out.push([texto.slice(i, m.index), false]);
+      out.push([m[1], true]);
+      i = re.lastIndex;
+    }
+    if (i < texto.length) out.push([texto.slice(i), false]);
+    return out;
+  }
+
+  /** O endereço de um botão, só dos tipos permitidos; null quando não dá. */
+  function destino(b, ctx) {
+    var d = typeof b.destino === "string" ? b.destino.trim() : "";
+    switch (b.acao) {
+      case "whatsapp":
+        var m = typeof b.mensagem === "string" ? b.mensagem : ctx.mensagem;
+        return ctx.whatsapp ? { href: "https://wa.me/" + ctx.whatsapp + (m ? "?text=" + encodeURIComponent(m) : ""), fora: true } : null;
+      case "telefone":
+        var t = d ? d.replace(/\D/g, "") : ctx.telefone;
+        return t && FONE.test(t) ? { href: "tel:+" + t } : null;
+      case "link":
+        return urlSegura(d, true) ? { href: d, fora: true } : null;
+      case "secao":
+        return ctx.temSecao(d) ? { href: "#" + d } : null;
+      case "rota":
+        return d && d.length <= LIMITE.destino ? { href: "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(d), fora: true } : null;
+      case "instagram":
+        var u = d ? d.replace(/^@/, "") : ctx.instagram;
+        return u && INSTAGRAM.test(u) ? { href: "https://www.instagram.com/" + u + "/", fora: true } : null;
+      case "email":
+        return /^[^\s@<>"]+@[^\s@<>"]+\.[A-Za-z]{2,}$/.test(d) ? { href: "mailto:" + d } : null;
+    }
+    return null;
+  }
+
+  function iniciais(nome) {
+    var p = String(nome).replace(/\(.*?\)/g, "").split(/\s+/).filter(function (x) { return x && /\p{L}/u.test(x[0]); });
+    return p.length ? (p[0][0] + (p.length > 1 ? p[p.length - 1][0] : "")).toUpperCase() : "";
+  }
+
+  /** (11) 90000-0000 a partir de 5511900000000 */
+  function foneLegivel(n) {
+    var m = String(n).match(/^55(\d{2})(\d{4,5})(\d{4})$/);
+    return m ? "(" + m[1] + ") " + m[2] + "-" + m[3] : "+" + n;
+  }
+
+  // ---------- os dados do runtime das demos (window.DEMO_CLIENT) ----------
+  // Na página aberta, lê o objeto; no HTML parado (versão final, extrair), lê o texto do <script>, no formato que o
+  // gerar.py escreve.
+  function scriptDoCliente(doc) {
+    return todos(doc, "script").filter(function (s) { return /window\.DEMO_CLIENT\s*=/.test(s.textContent); })[0] || null;
+  }
+
+  function lerCliente(doc) {
+    var w = doc.defaultView, cl = w && w.DEMO_CLIENT, out = {};
+    var zap = function (url) {
+      var m = String(url || "").match(/wa\.me\/(\d+)(?:\?text=([^"]*))?/);
+      if (!m) return;
+      out.whatsapp = m[1];
+      if (m[2] !== undefined) try { out.mensagem = decodeURIComponent(m[2]); } catch (e) { /* fica sem */ }
+    };
+    if (cl) {
+      zap(cl.whatsapp);
+      out.telefone = String(cl.phone || "").replace(/\D/g, "") || undefined;
+      out.instagram = (String(cl.instagram || "").match(/instagram\.com\/([^/?#]+)/) || [])[1];
+      out.avaliacoes = (cl.reviews || []).map(function (r) { return { nome: r.name, texto: r.quote, tag: r.tag || "" }; });
+      return out;
+    }
+    var s = scriptDoCliente(doc), t = s ? s.textContent : "";
+    var json = function (re) { var m = t.match(re); try { return m ? JSON.parse(m[1]) : undefined; } catch (e) { return undefined; } };
+    var num = (t.match(/whatsapp: "https:\/\/wa\.me\/(\d+)/) || [])[1];
+    if (num) { out.whatsapp = num; out.mensagem = json(/whatsapp: "[^"]*" \+ encodeURIComponent\(("(?:[^"\\]|\\.)*")\)/); }
+    out.telefone = (json(/\n\s*phone: ("(?:[^"\\]|\\.)*")/) || "").replace(/\D/g, "") || undefined;
+    out.instagram = (t.match(/instagram: "https:\/\/www\.instagram\.com\/([^/"]+)\/?"/) || [])[1];
+    var bloco = t.match(/\n\s*reviews: \[\n([\s\S]*?)\n\s*\],/);
+    out.avaliacoes = bloco ? bloco[1].split("\n").map(function (l) {
+      try { var r = JSON.parse(l.trim().replace(/,$/, "")); return { nome: r.name, texto: r.quote, tag: r.tag || "" }; } catch (e) { return null; }
+    }).filter(Boolean) : [];
+    return out;
+  }
+
+  var paraReview = function (a) { return { name: a.nome, initials: iniciais(a.nome), tag: a.tag || "", quote: a.texto }; };
+
+  /** Leva o contato e as avaliações para o DEMO_CLIENT (página aberta) ou para o texto do <script> (HTML parado). */
+  function gravarCliente(doc, ctx, avaliacoes, parado) {
+    var zap = "https://wa.me/" + ctx.whatsapp + "?text=";
+    if (!parado) {
+      var w = doc.defaultView, cl = w && w.DEMO_CLIENT;
+      if (!cl) return;
+      if (ctx.whatsapp) cl.whatsapp = zap + encodeURIComponent(ctx.mensagem || "");
+      if (ctx.telefone) cl.phone = "+" + ctx.telefone;
+      if (ctx.instagram) cl.instagram = "https://www.instagram.com/" + ctx.instagram + "/";
+      if (avaliacoes) cl.reviews = avaliacoes.map(paraReview);
+      var rt = w.DEMO_RUNTIME;
+      if (rt) { rt.links(); if (avaliacoes) rt.avaliacoes(); }
+      return;
+    }
+    var s = scriptDoCliente(doc);
+    if (!s) return;
+    var t = s.textContent;
+    var trocar = function (re, novo) { t = t.replace(re, function () { return novo; }); };
+    if (ctx.whatsapp) trocar(/whatsapp: "https:\/\/wa\.me\/[^"]*" \+ encodeURIComponent\("(?:[^"\\]|\\.)*"\),/, "whatsapp: " + JSON.stringify(zap) + " + encodeURIComponent(" + JSON.stringify(ctx.mensagem || "") + "),");
+    if (ctx.telefone) trocar(/\n(\s*)phone: "(?:[^"\\]|\\.)*",/, "\n  phone: " + JSON.stringify("+" + ctx.telefone) + ",");
+    if (ctx.instagram) trocar(/instagram: "https:\/\/www\.instagram\.com\/[^"]*",/, "instagram: " + JSON.stringify("https://www.instagram.com/" + ctx.instagram + "/") + ",");
+    if (avaliacoes) trocar(/\n(\s*)reviews: \[\n[\s\S]*?\n\s*\],/, "\n  reviews: [\n" + avaliacoes.map(function (a) { return "    " + JSON.stringify(paraReview(a)).replace(/</g, "\\u003c"); }).join(",\n") + "\n  ],");
+    s.textContent = t;
+  }
+
+  // ---------- aplicar ----------
+  function porTexto(el, valor) {
+    var titulo = /^H[1-6]$/.test(el.tagName), doc = el.ownerDocument;
+    while (el.firstChild) el.removeChild(el.firstChild);
+    partes(valor).forEach(function (p) {
+      if (p[1] && titulo) el.appendChild(doc.createElement("em")).appendChild(doc.createTextNode(p[0]));
+      else el.appendChild(doc.createTextNode(p[0]));
+    });
+    if (valor.trim() === "") el.hidden = true;
+  }
+
+  function porImagem(el, img, opcoes) {
+    if (img.src !== undefined) {
+      var src = opcoes.imagem(img.src);
+      if (!src) return;
+      el.setAttribute("src", src);
+      el.removeAttribute("srcset");
+    }
+    if (img.alt !== undefined) el.setAttribute("alt", img.alt);
+  }
+
+  function porBotao(el, b, ctx) {
+    if (b.visivel === false) { el.hidden = true; return; }
+    if (b.rotulo) {
+      var textos = textosDe(el);
+      if (textos.length) {
+        textos[0].nodeValue = textos[0].nodeValue.replace(/\S[\s\S]*\S|\S/, b.rotulo.replace(/\*/g, ""));
+        textos.slice(1).forEach(function (n) { el.removeChild(n); });
+      }
+    }
+    if (!b.acao) return;
+    var d = destino(b, ctx);
+    if (!d) return;
+    LINKS_DO_RUNTIME.forEach(function (a) { el.removeAttribute(a); });
+    el.setAttribute("href", d.href);
+    if (d.fora) { el.setAttribute("target", "_blank"); el.setAttribute("rel", "noopener noreferrer"); }
+    else { el.removeAttribute("target"); el.removeAttribute("rel"); }
+  }
+
+  function porLista(lista, itens, modelos, opcoes) {
+    var atuais = itensDe(lista);
+    if (!modelos.length || !atuais.length) return;
+    var depois = atuais[atuais.length - 1].nextSibling;
+    var novos = itens.filter(function (it) { return it.visivel !== false; }).map(function (it) {
+      var novo = (modelos[it.de] || modelos[0]).cloneNode(true);
+      cada(it.textos, function (campo, v) {
+        noItem(novo, '[data-site-campo="' + campo + '"]').forEach(function (e) { if (e.tagName !== "IMG") porTexto(e, v); });
+      });
+      cada(it.imagens, function (campo, img) { noItem(novo, 'img[data-site-campo="' + campo + '"]').forEach(function (e) { porImagem(e, img, opcoes); }); });
+      return novo;
+    });
+    atuais.forEach(function (n) { lista.removeChild(n); });
+    novos.forEach(function (n) { lista.insertBefore(n, depois); });
+  }
+
+  // Na página aberta, o conteúdo pode chegar mais de uma vez (o do navegador e depois o do painel): antes de aplicar,
+  // tudo volta à versão inicial, guardada na primeira vez.
+  var atributos = function (el) { return Array.prototype.map.call(el.attributes, function (a) { return [a.name, a.value]; }); };
+  function guardar(doc) {
+    if (doc.__meuSite) return doc.__meuSite;
+    var g = { atributos: [], html: [], listas: [], cliente: null };
+    todos(doc, "[data-site-secao],[data-site],[data-site-botao],[data-site-img],a[href^='#'],[data-phone]").forEach(function (el) {
+      g.atributos.push([el, atributos(el)]);
+      if (el.matches("[data-site],[data-site-botao],[data-phone]")) g.html.push([el, el.innerHTML]);
+    });
+    todos(doc, "[data-site-lista]").forEach(function (el) {
+      if (!el.hasAttribute("data-site-runtime")) g.listas.push([el, itensDe(el).map(function (n) { return n.cloneNode(true); })]);
+    });
+    var w = doc.defaultView, cl = w && w.DEMO_CLIENT;
+    if (cl) g.cliente = { whatsapp: cl.whatsapp, phone: cl.phone, instagram: cl.instagram, reviews: (cl.reviews || []).slice() };
+    doc.__meuSite = g;
+    return g;
+  }
+
+  function restaurar(doc, g) {
+    g.listas.forEach(function (par) {
+      var lista = par[0], atuais = itensDe(lista);
+      var depois = atuais.length ? atuais[atuais.length - 1].nextSibling : null;
+      atuais.forEach(function (n) { lista.removeChild(n); });
+      par[1].forEach(function (n) { lista.insertBefore(n.cloneNode(true), depois); });
+    });
+    g.atributos.forEach(function (par) {
+      var el = par[0];
+      atributos(el).forEach(function (a) { el.removeAttribute(a[0]); });
+      par[1].forEach(function (a) { el.setAttribute(a[0], a[1]); });
+    });
+    g.html.forEach(function (par) { if (par[0].innerHTML !== par[1]) par[0].innerHTML = par[1]; });
+    var w = doc.defaultView, cl = w && w.DEMO_CLIENT;
+    if (cl && g.cliente) {
+      Object.keys(g.cliente).forEach(function (k) { cl[k] = k === "reviews" ? g.cliente.reviews.slice() : g.cliente[k]; });
+      if (w.DEMO_RUNTIME) { w.DEMO_RUNTIME.links(); w.DEMO_RUNTIME.avaliacoes(); }
+    }
+  }
+
+  /**
+   * Aplica o conteúdo publicado sobre a versão inicial. opcoes.parado = HTML que não está aberto num navegador
+   * (versão final): o contato e as avaliações vão para o texto do <script> do DEMO_CLIENT. opcoes.imagem(src) devolve o
+   * endereço a usar ou null (padrão: nenhuma imagem de fora). Devolve false se o conteúdo for inválido.
+   */
+  function aplicar(doc, c, opcoes) {
+    opcoes = opcoes || {};
+    if (validar(c).length) return false;
+    var parado = !!opcoes.parado;
+    var op = { imagem: opcoes.imagem || function () { return null; } };
+    var g = parado ? null : guardar(doc);
+    if (g) restaurar(doc, g);
+    var cliente = lerCliente(doc), k = c.contato || {};
+    var ctx = {
+      whatsapp: k.whatsapp || cliente.whatsapp,
+      mensagem: k.mensagem !== undefined ? k.mensagem : cliente.mensagem,
+      telefone: k.telefone || cliente.telefone,
+      instagram: k.instagram || cliente.instagram,
+      temSecao: function (id) { return NOME.test(id) && !!doc.getElementById(id); },
+    };
+    var avaliacoes = null;
+    cada(c.secoes, function (nome, s) {
+      var secao = doc.querySelector('[data-site-secao="' + nome + '"]');
+      if (!secao) return;
+      if (s.visivel === false) {
+        secao.hidden = true;
+        if (secao.id) todos(doc, 'a[href="#' + secao.id + '"]').forEach(function (a) { a.hidden = true; });
+      }
+      cada(s.textos, function (campo, v) { todos(doc, '[data-site="' + nome + "." + campo + '"]').forEach(function (el) { porTexto(el, v); }); });
+      cada(s.imagens, function (campo, img) { todos(doc, 'img[data-site-img="' + nome + "." + campo + '"]').forEach(function (el) { porImagem(el, img, op); }); });
+      cada(s.listas, function (campo, itens) {
+        var lista = doc.querySelector('[data-site-lista="' + nome + "." + campo + '"]');
+        if (!lista) return;
+        if (lista.getAttribute("data-site-runtime") === "avaliacoes") {
+          avaliacoes = itens.filter(function (it) { return it.visivel !== false && it.textos && it.textos.nome && it.textos.texto; })
+            .map(function (it) { return { nome: it.textos.nome, texto: it.textos.texto, tag: it.textos.tag || "" }; });
+          return;
+        }
+        var modelos = g ? (g.listas.filter(function (p) { return p[0] === lista; })[0] || [null, []])[1] : itensDe(lista);
+        porLista(lista, itens, modelos, op);
+      });
+      cada(s.botoes, function (campo, b) { todos(doc, '[data-site-botao="' + nome + "." + campo + '"]').forEach(function (el) { porBotao(el, b, ctx); }); });
+    });
+    if (c.contato || avaliacoes) gravarCliente(doc, ctx, avaliacoes, parado);
+    if (k.telefone) todos(doc, "[data-phone]").forEach(function (el) { el.textContent = foneLegivel(k.telefone); });
+    var rt = !parado && doc.defaultView && doc.defaultView.DEMO_RUNTIME;
+    if (rt) rt.carrosseis();
+    return true;
+  }
+
+  /** Volta a página aberta à versão inicial (conta desconectada no meio da visita). */
+  function voltar(doc) { if (doc.__meuSite) restaurar(doc, doc.__meuSite); }
+
+  // ---------- extrair: o conteúdo inicial de um site, no mesmo formato (para a montagem no painel) ----------
+  function deTexto(el) {
+    return Array.prototype.map.call(el.childNodes, function (n) {
+      return n.nodeName === "EM" ? "*" + n.textContent + "*" : n.textContent;
+    }).join("").replace(/\s+/g, " ").trim();
+  }
+
+  function deBotao(el) {
+    var href = el.getAttribute("href") || "", b = { rotulo: textosDe(el).map(function (n) { return n.nodeValue; }).join(" ").replace(/\s+/g, " ").trim() };
+    if (el.hasAttribute("data-whatsapp")) b.acao = "whatsapp";
+    else if (el.hasAttribute("data-instagram")) b.acao = "instagram";
+    else if (el.hasAttribute("data-phone")) b.acao = "telefone";
+    else if (el.hasAttribute("data-directions") || el.hasAttribute("data-maps")) b.acao = "rota";
+    else if (/^#[a-z0-9-]+$/.test(href) && href.length > 1) { b.acao = "secao"; b.destino = href.slice(1); }
+    else if (/^https:\/\/wa\.me\//.test(href)) { b.acao = "whatsapp"; var m = href.match(/[?&]text=([^&]*)/); if (m) b.mensagem = decodeURIComponent(m[1]); }
+    else if (/^tel:/.test(href)) { b.acao = "telefone"; b.destino = href.replace(/\D/g, ""); }
+    else if (/^mailto:/.test(href)) { b.acao = "email"; b.destino = href.slice(7); }
+    else if (/^https:\/\//.test(href)) { b.acao = "link"; b.destino = href; }
+    if (el.hidden) b.visivel = false;
+    return b;
+  }
+
+  function extrair(doc) {
+    var c = { esquema: ESQUEMA, secoes: {} };
+    var secao = function (n) { return c.secoes[n] || (c.secoes[n] = { visivel: true }); };
+    var campo = function (chave, tipo) {
+      var p = chave.split("."), s = secao(p[0]);
+      return [s[tipo] || (s[tipo] = {}), p[1]];
+    };
+    var foraDeItem = function (el) { return !el.closest("[data-site-item]"); };
+    todos(doc, "[data-site-secao]").forEach(function (el) { secao(el.getAttribute("data-site-secao")).visivel = !el.hidden; });
+    todos(doc, "[data-site]").filter(foraDeItem).forEach(function (el) { var a = campo(el.getAttribute("data-site"), "textos"); a[0][a[1]] = deTexto(el); });
+    todos(doc, "[data-site-img]").filter(foraDeItem).forEach(function (el) {
+      var a = campo(el.getAttribute("data-site-img"), "imagens");
+      a[0][a[1]] = { src: el.getAttribute("src") || "", alt: el.getAttribute("alt") || "" };
+    });
+    todos(doc, "[data-site-botao]").filter(foraDeItem).forEach(function (el) { var a = campo(el.getAttribute("data-site-botao"), "botoes"); a[0][a[1]] = deBotao(el); });
+    var cliente = lerCliente(doc);
+    todos(doc, "[data-site-lista]").forEach(function (el) {
+      var a = campo(el.getAttribute("data-site-lista"), "listas");
+      if (el.getAttribute("data-site-runtime") === "avaliacoes") {
+        a[0][a[1]] = cliente.avaliacoes.map(function (r) { return { textos: { nome: r.nome, texto: r.texto, tag: r.tag } }; });
+        return;
+      }
+      a[0][a[1]] = itensDe(el).map(function (item, i) {
+        var it = { de: i };
+        noItem(item, "[data-site-campo]").forEach(function (e) {
+          var nome = e.getAttribute("data-site-campo");
+          if (e.tagName === "IMG") (it.imagens || (it.imagens = {}))[nome] = { src: e.getAttribute("src") || "", alt: e.getAttribute("alt") || "" };
+          else (it.textos || (it.textos = {}))[nome] = deTexto(e);
+        });
+        return it;
+      });
+    });
+    c.contato = {};
+    ["whatsapp", "mensagem", "telefone", "instagram"].forEach(function (k) { if (cliente[k] !== undefined) c.contato[k] = cliente[k]; });
+    // a ordem das seções na página: o banco (jsonb) guarda as chaves de "secoes" em outra ordem, e o editor lista por esta
+    c.ordem = Object.keys(c.secoes);
+    return c;
+  }
+
+  // ---------- o editor ao vivo (o site num quadro do painel, em /meu-site) ----------
+  // O painel manda { rz: "meu-site", tipo: "conteudo", conteudo } (o rascunho inteiro; sem conteúdo = a versão inicial)
+  // e { tipo: "foco", secao, grupo?, campo?, indice? } (rola até a parte e destaca). O site manda { tipo: "pronto" } e
+  // { tipo: "medidas" } (o tamanho de cada foto na página e as partes que têm âncora) e { tipo: "clique", secao,
+  // grupo?, campo?, indice?, subcampo? } quando a pessoa clica numa parte marcada.
+  var GRUPOS = [["data-site-botao", "botoes"], ["data-site-img", "imagens"], ["data-site", "textos"]];
+
+  function marcaDe(el) {
+    if (!el || !el.closest) return null;
+    var lista = el.closest("[data-site-lista]"), p, i;
+    if (lista) {
+      p = lista.getAttribute("data-site-lista").split(".");
+      var item = el.closest("[data-site-item]"), campo = el.closest("[data-site-campo]");
+      var m = { secao: p[0], grupo: "listas", campo: p[1] };
+      if (item && lista.contains(item)) { m.indice = itensDe(lista).indexOf(item); if (campo && item.contains(campo)) m.subcampo = campo.getAttribute("data-site-campo"); }
+      return m;
+    }
+    for (i = 0; i < GRUPOS.length; i++) {
+      var e = el.closest("[" + GRUPOS[i][0] + "]");
+      if (e) { p = e.getAttribute(GRUPOS[i][0]).split("."); return { secao: p[0], grupo: GRUPOS[i][1], campo: p[1] }; }
+    }
+    return null;
+  }
+
+  function alvoDe(doc, d) {
+    var chave = d.secao + "." + d.campo, visivel = function (e) { return e && e.getClientRects().length; }, achados = [];
+    if (d.grupo === "listas") {
+      var lista = doc.querySelector('[data-site-lista="' + chave + '"]');
+      if (lista) achados = [typeof d.indice === "number" ? itensDe(lista)[d.indice] : null, lista];
+    } else {
+      GRUPOS.forEach(function (g) { if (g[1] === d.grupo) achados = todos(doc, "[" + g[0] + '="' + chave + '"]'); });
+    }
+    return achados.filter(visivel)[0] || doc.querySelector('[data-site-secao="' + d.secao + '"]');
+  }
+
+  function medidas(doc) {
+    var imagens = {}, medir = function (chave, el) {
+      var r = el.getBoundingClientRect();
+      if (r.width > 8 && r.height > 8 && !imagens[chave]) imagens[chave] = [Math.round(r.width), Math.round(r.height)];
+    };
+    todos(doc, "img[data-site-img]").forEach(function (el) { medir(el.getAttribute("data-site-img"), el); });
+    todos(doc, "[data-site-lista]").forEach(function (lista) {
+      todos(lista, "img[data-site-campo]").forEach(function (el) { medir(lista.getAttribute("data-site-lista") + "." + el.getAttribute("data-site-campo"), el); });
+    });
+    var ancoras = todos(doc, "[data-site-secao][id]").map(function (el) { return { id: el.id, secao: el.getAttribute("data-site-secao") }; });
+    return { imagens: imagens, ancoras: ancoras };
+  }
+
+  function ligarEditor(doc, origem, opcoes) {
+    var w = doc.defaultView, focado = null, relogio = null;
+    var dizer = function (tipo, m) { m = m || {}; m.rz = "meu-site"; m.tipo = tipo; w.parent.postMessage(m, origem); };
+    var estilo = doc.createElement("style");
+    estilo.textContent = "[data-site],[data-site-botao],[data-site-img],[data-site-item],[data-site-lista][data-site-runtime]{cursor:pointer}" +
+      "[data-site]:hover,[data-site-botao]:hover,[data-site-img]:hover,[data-site-item]:hover{outline:2px dashed #2563eb;outline-offset:3px}" +
+      ".rz-ed-foco{outline:3px solid #2563eb!important;outline-offset:4px}";
+    doc.head.appendChild(estilo);
+    doc.addEventListener("click", function (ev) {
+      var m = marcaDe(ev.target);
+      if (m) { ev.preventDefault(); ev.stopPropagation(); dizer("clique", m); return; }
+      var a = ev.target.closest && ev.target.closest("a[href]");
+      if (a && a.getAttribute("href").charAt(0) !== "#") ev.preventDefault(); // no editor, ninguém sai da página
+    }, true);
+    w.addEventListener("message", function (ev) {
+      var d = ev.data;
+      if (ev.origin !== origem || !ehObjeto(d) || d.rz !== "meu-site") return;
+      try {
+        if (d.tipo === "conteudo") { if (d.conteudo) aplicar(doc, d.conteudo, opcoes); else voltar(doc); }
+        else if (d.tipo === "foco" && typeof d.secao === "string") {
+          var alvo = alvoDe(doc, d);
+          if (focado) focado.classList.remove("rz-ed-foco");
+          clearTimeout(relogio);
+          if (!alvo) return;
+          focado = alvo;
+          alvo.classList.add("rz-ed-foco");
+          // parte alta: o começo dela, logo abaixo do topo do site; parte pequena: no meio da tela
+          var r = alvo.getBoundingClientRect(), alto = w.innerHeight;
+          w.scrollTo({ top: Math.max(0, w.pageYOffset + (r.height > alto * 0.7 ? r.top - 96 : r.top - (alto - r.height) / 2)), behavior: "smooth" });
+          relogio = setTimeout(function () { alvo.classList.remove("rz-ed-foco"); }, 1800);
+        }
+      } catch (e) { /* o site fica como está */ }
+    });
+    dizer("pronto", medidas(doc));
+    w.addEventListener("load", function () { dizer("medidas", medidas(doc)); });
+  }
+
+  // ---------- os indicadores: visitas, tempo, partes vistas e botões clicados ----------
+  // Nada de cookie nem de guardar algo no navegador: um sorteio que só vale nesta página aberta, o caminho, celular ou
+  // computador, o site de onde a pessoa veio, os segundos em cada parte (a que está no meio da tela) e os cliques nos
+  // botões. Vai para o painel 2 segundos depois de abrir, a cada 30 segundos se mudou e quando a página some.
+  // Robô (navigator.webdriver) não conta. Quem é a pessoa, o painel não sabe (03, "Indicadores").
+  function contarVisitas(doc, url) {
+    var w = doc.defaultView, nav = w.navigator;
+    if (!nav || nav.webdriver || typeof nav.sendBeacon !== "function" || !w.crypto || !w.crypto.getRandomValues) return;
+    var LETRAS = "abcdefghijklmnopqrstuvwxyz0123456789", v = "", origem = "";
+    Array.prototype.forEach.call(w.crypto.getRandomValues(new Uint8Array(16)), function (b) { v += LETRAS[b % 36]; });
+    var semWww = function (h) { return String(h).toLowerCase().replace(/^www\./, ""); };
+    try { var de = semWww(new URL(doc.referrer).hostname); if (de && de !== semWww(w.location.hostname)) origem = de; } catch (e) { /* veio direto */ }
+    var total = 0, secoes = {}, cliques = {}, mandado = "", vezes = 0;
+    var mandar = function () {
+      var dados = { v: v, p: w.location.pathname, t: w.innerWidth < 760 ? "celular" : "computador", s: total, se: secoes, c: cliques };
+      if (origem) dados.o = origem;
+      var texto = JSON.stringify(dados);
+      if (texto === mandado || vezes >= 60) return;
+      mandado = texto; vezes += 1;
+      try { nav.sendBeacon(url, texto); } catch (e) { /* sem contagem desta vez */ }
+    };
+    var noMeio = function () {
+      var y = w.innerHeight / 2, achada = null;
+      todos(doc, "[data-site-secao],section[id]").forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.height && r.top <= y && r.bottom >= y) achada = el.getAttribute("data-site-secao") || el.id;
+      });
+      return achada;
+    };
+    w.setInterval(function () {
+      if (doc.visibilityState !== "visible" || total >= 14400) return;
+      total += 1;
+      var s = noMeio();
+      if (s) secoes[s] = (secoes[s] || 0) + 1;
+      if (total === 2 || total % 30 === 0) mandar();
+    }, 1000);
+    doc.addEventListener("click", function (ev) {
+      var el = ev.target.closest && ev.target.closest("[data-site-botao],[data-whatsapp],[data-instagram],a[href^='https://wa.me'],a[href^='tel:'],.ag-enviar");
+      if (!el) return;
+      var nome = el.getAttribute("data-site-botao") || (el.hasAttribute("data-instagram") ? "instagram"
+        : /^tel:/.test(el.getAttribute("href") || "") ? "telefone" : el.classList.contains("ag-enviar") ? "agenda" : "whatsapp");
+      cliques[nome] = (cliques[nome] || 0) + 1;
+    }, true);
+    doc.addEventListener("visibilitychange", function () { if (doc.visibilityState === "hidden") mandar(); });
+    w.addEventListener("pagehide", mandar);
+  }
+
+  // ---------- no site ----------
+  function lerCache(chave) {
+    try {
+      var g = JSON.parse(global.localStorage.getItem(chave));
+      if (g && Date.now() - g.em < VALIDADE && g.em <= Date.now() && !validar(g.conteudo).length) return g.conteudo;
+    } catch (e) { /* sem cache */ }
+    return null;
+  }
+  function gravarCache(chave, c) { try { global.localStorage.setItem(chave, JSON.stringify({ em: Date.now(), conteudo: c })); } catch (e) { /* cheio ou bloqueado */ } }
+  function apagarCache(chave) { try { global.localStorage.removeItem(chave); } catch (e) { /* nada */ } }
+
+  function marcarPrevia(doc) {
+    if (doc.getElementById("rz-previa")) return;
+    var p = doc.createElement("div");
+    p.id = "rz-previa";
+    p.textContent = "Prévia do rascunho (Meu site)";
+    p.setAttribute("style", "position:fixed;left:12px;bottom:12px;z-index:2147483647;padding:8px 12px;border-radius:8px;background:#1c1b19;color:#fff;font:600 13px/1.3 system-ui,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.25)");
+    doc.body.appendChild(p);
+  }
+
+  function iniciar(script) {
+    var doc = global.document;
+    var codigo = script && script.getAttribute("data-codigo");
+    if (!doc || !codigo || !NOME.test(codigo) || typeof global.fetch !== "function") return;
+    var api = script.getAttribute("data-api") || API, origem;
+    try { origem = new URL(api).origin; } catch (e) { return; }
+    var previa = (global.location.search.match(/[?&]rz-previa=([A-Za-z0-9_-]{8,200})(?:&|$)/) || [])[1];
+    var chave = "rz-meu-site:" + codigo, aplicada = null;
+    var opcoes = { imagem: function (src) { try { return new URL(src).origin === origem ? src : null; } catch (e) { return null; } } };
+    if (global.parent !== global && /[?&]rz-editor=1(?:&|$)/.test(global.location.search)) {
+      var comecar = function () { ligarEditor(doc, origem, opcoes); };
+      if (doc.readyState === "loading") doc.addEventListener("DOMContentLoaded", comecar); else comecar();
+      return;
+    }
+    var assinatura = function (c) { return c.versao + "|" + c.publicado_em; };
+    var pronto = new Promise(function (ok) {
+      if (doc.readyState === "loading") doc.addEventListener("DOMContentLoaded", function () { ok(); });
+      else ok();
+    });
+    if (!previa && !script.hasAttribute("data-sem-visitas")) {
+      pronto.then(function () { try { contarVisitas(doc, api + encodeURIComponent(codigo) + "/visita"); } catch (e) { /* o site segue sem contar */ } });
+    }
+    var mostrar = function (c) {
+      pronto.then(function () {
+        try {
+          if (!c) { if (aplicada !== null) { voltar(doc); aplicada = null; } return; }
+          if (assinatura(c) === aplicada) return;
+          if (aplicar(doc, c, opcoes)) aplicada = assinatura(c);
+          if (previa) marcarPrevia(doc);
+        } catch (e) { /* o site fica como está */ }
+      });
+    };
+    if (!previa) { var guardada = lerCache(chave); if (guardada) mostrar(guardada); }
+    var ctrl = typeof global.AbortController === "function" ? new global.AbortController() : null;
+    if (ctrl) setTimeout(function () { ctrl.abort(); }, 10000);
+    var url = api + encodeURIComponent(codigo) + (previa ? "/previa?t=" + previa : "");
+    global.fetch(url, { credentials: "omit", cache: previa ? "no-store" : "default", signal: ctrl ? ctrl.signal : undefined })
+      .then(function (r) {
+        if (r.status === 404) { if (!previa) apagarCache(chave); mostrar(null); return; }
+        if (!r.ok) return;
+        return r.json().then(function (c) {
+          if (!ehObjeto(c) || c.site !== codigo || validar(c).length) return;
+          if (!previa) gravarCache(chave, c);
+          mostrar(c); // mesmo atrasada: a mesma versão não reaplica (assinatura)
+        });
+      })
+      .catch(function () { /* fora do ar, demorou ou bloqueado: fica a versão que está na tela */ });
+  }
+
+  var api = { ESQUEMA: ESQUEMA, API: API, validar: validar, partes: partes, destino: destino, iniciais: iniciais, aplicar: aplicar, voltar: voltar, extrair: extrair, lerCliente: lerCliente, marcaDe: marcaDe };
+  if (typeof module === "object" && module && module.exports) module.exports = api;
+  else {
+    global.RZ_MEU_SITE = api;
+    try { iniciar(global.document && global.document.currentScript); } catch (e) { /* o site fica como está */ }
+  }
+})(this);
+  </script>
+</head>
+<body class="pagina-site">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="whats" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M20.5 11.5A8.5 8.5 0 0 1 7.3 19L3 20l1.2-4.1A8.5 8.5 0 1 1 20.5 11.5Z"/><path fill="none" stroke="currentColor" stroke-width="1.7" d="M8.5 7.5c0 4 2.5 6.5 6.5 6.5l1-2-2-1-1 1c-1.5-.5-2.5-1.5-3-3l1-1-1-2Z"/></symbol>
+  <symbol id="insta" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></symbol>
+  <symbol id="pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M12 21s-7-6.2-7-11.5a7 7 0 1 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+  <symbol id="relogio" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+  <symbol id="seta" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="fechar" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="brilho" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.2L12 19.5l-2.2-6.3L3.5 11l6.3-2.2Z"/></symbol>
+  <symbol id="etiqueta" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M3.5 12.2V4.5a1 1 0 0 1 1-1h7.7l8.3 8.3a1.5 1.5 0 0 1 0 2.1l-6.1 6.1a1.5 1.5 0 0 1-2.1 0Z"/><circle cx="8" cy="8" r="1.4"/></g></symbol>
+  <symbol id="mais" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></g></symbol>
+  <symbol id="cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+</svg>
+
+<header class="site-header" data-site-secao="cabecalho">
+  <div class="container topo-in">
+    <a class="marca" href="#inicio" aria-label="Estúdio Ciranda, início"><img src="/exemplos/site-fotografia/img/foto-9d7ce07c.webp" width="48" height="48" alt=""><span class="marca-nome"><b>Estúdio Ciranda</b><i>fotografia</i></span></a>
+    <nav class="nav" aria-label="Seções"><a href="#portfolio">Portfólio</a><a href="#sobre">A Lia</a><a href="#ensaios">Ensaios</a><a href="#natal">Natal 2026</a><a href="#contato">Contato</a></nav>
+    <a class="botao topo-cta" data-site-botao="cabecalho.botao" data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar no WhatsApp</a>
+    <button class="menu-botao" type="button" data-menu-button aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu"><span></span></button>
+    <nav class="menu-mobile" id="menu-mobile" aria-label="Menu" hidden><a href="#portfolio">Portfólio</a><a href="#sobre">A Lia</a><a href="#ensaios">Ensaios</a><a href="#natal">Natal 2026</a><a href="#contato">Contato</a><a class="botao" data-site-botao="cabecalho.botao" data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar no WhatsApp</a></nav>
+  </div>
+</header>
+<main id="inicio">
+<section class="abertura" data-site-secao="inicio" aria-labelledby="titulo-site">
+  <div class="container abertura-grid">
+    <div class="abertura-texto">
+      <div class="abertura-topo">
+        <p class="eyebrow" data-site="inicio.eyebrow">Fotografia de família · São Paulo</p>
+        <h1 id="titulo-site">Estúdio Ciranda <span class="script">fotografia</span></h1>
+        <p class="frase" data-site="inicio.frase">Cada fase, guardada.</p>
+      </div>
+      <div class="abertura-baixo">
+        <p class="abertura-intro" data-site="inicio.texto">Gestante, newborn, o primeiro ano do bebê e a família toda, num estúdio claro na Vila Mariana.</p>
+        <div class="abertura-acoes"><a data-site-botao="inicio.botao" class="botao" data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Agendar pelo WhatsApp</a><a class="link" data-site-botao="inicio.link" href="#portfolio">Ver o portfólio <svg aria-hidden="true"><use href="#seta"/></svg></a></div>
+        <a class="prova" href="#sobre"><b>Desde 2016</b><span>fotografando famílias</span></a>
+      </div>
+    </div>
+    <div class="mosaico">
+      <figure class="hero-photo"><img src="/exemplos/site-fotografia/img/mae-e-pai-erguendo-a-filha-no-campo-ao-entardece-a2368cef.jpg" width="1536" height="1920" alt="Mãe e pai erguendo a filha no campo, ao entardecer" fetchpriority="high" data-site-img="inicio.foto" data-k="f6b710426792"><figcaption data-site="inicio.rotulo">Família</figcaption></figure>
+      <figure><img src="/exemplos/site-fotografia/img/recem-nascido-dormindo-de-touca-no-estudio-dc942115.jpg" width="1120" height="1400" alt="Recém-nascido dormindo de touca, no estúdio" data-site-img="inicio.foto2" data-k="6a814c0740e5"><figcaption data-site="inicio.rotulo2">Newborn</figcaption></figure>
+      <figure><img src="/exemplos/site-fotografia/img/casal-de-costas-um-para-o-outro-na-praia-a-gesta-ef9bf6fe.jpg" width="1120" height="1400" alt="Casal de costas um para o outro na praia, a gestante segurando a barriga" data-site-img="inicio.foto3" data-k="4ba5356a585f"><figcaption data-site="inicio.rotulo3">Gestante</figcaption></figure>
+    </div>
+  </div>
+</section>
+<p class="especialidades"><span>Gestante</span> <i aria-hidden="true">✦</i> <span>Newborn</span> <i aria-hidden="true">✦</i> <span>Acompanhamento</span> <i aria-hidden="true">✦</i> <span>Smash the cake</span> <i aria-hidden="true">✦</i> <span>Família</span> <i aria-hidden="true">✦</i> <span>Natal</span></p>
+<section class="secao" id="portfolio" data-site-secao="portfolio" aria-labelledby="portfolio-titulo">
+  <div class="container">
+    <div class="cabeca reveal"><p class="eyebrow" data-site="portfolio.eyebrow">Portfólio</p><h2 id="portfolio-titulo" data-site="portfolio.titulo">Momentos <em>para guardar.</em></h2><p data-site="portfolio.texto">Os ensaios mais recentes da Lia. Toque numa foto para ver em tela cheia.</p></div>
+    <div class="abas" role="tablist" aria-label="Categorias do portfólio"><button class="aba" type="button" role="tab" id="aba-newborn" data-aba="newborn" aria-controls="painel-newborn" aria-selected="true">Newborn<small>6</small></button><button class="aba" type="button" role="tab" id="aba-familia" data-aba="familia" aria-controls="painel-familia" aria-selected="false">Família<small>6</small></button><button class="aba" type="button" role="tab" id="aba-infantil" data-aba="infantil" aria-controls="painel-infantil" aria-selected="false">Infantil<small>4</small></button></div>
+    <div class="paineis"><div class="painel ativo" id="painel-newborn" role="tabpanel" aria-labelledby="aba-newborn"><h3 class="painel-titulo">Newborn</h3><div class="galeria" data-nome="Newborn" data-site-lista="portfolio.newborn"><button class="g-item g-l" type="button" data-site-item aria-label="Abrir em tela cheia: Recém-nascido deitado na cama, com as mãos da mãe nas costas"><img src="/exemplos/site-fotografia/img/recem-nascido-deitado-na-cama-com-as-maos-da-mae-c4110449.jpg" width="1400" height="928" alt="Recém-nascido deitado na cama, com as mãos da mãe nas costas" loading="lazy" style="object-position:50% 50%" data-site-campo="foto" data-k="2da2a02f06c3"></button><button class="g-item g-p" type="button" data-site-item aria-label="Abrir em tela cheia: Pai e mãe olhando o bebê no colo, perto da janela"><img src="/exemplos/site-fotografia/img/pai-e-mae-olhando-o-bebe-no-colo-perto-da-janela-19adaf52.jpg" width="933" height="1400" alt="Pai e mãe olhando o bebê no colo, perto da janela" loading="lazy" style="object-position:50% 40%" data-site-campo="foto" data-k="97567f1f20c5"></button><button class="g-item g-l" type="button" data-site-item aria-label="Abrir em tela cheia: Bebê de touca de ursinho bocejando, com um bichinho de pelúcia"><img src="/exemplos/site-fotografia/img/bebe-de-touca-de-ursinho-bocejando-com-um-bichin-2b481ee2.jpg" width="1400" height="933" alt="Bebê de touca de ursinho bocejando, com um bichinho de pelúcia" loading="lazy" style="object-position:50% 50%" data-site-campo="foto" data-k="ecbadd2db9da"></button><button class="g-item g-l" type="button" data-site-item aria-label="Abrir em tela cheia: Bebê dormindo enrolado na manta branca"><img src="/exemplos/site-fotografia/img/bebe-dormindo-enrolado-na-manta-branca-f1fd7a57.jpg" width="1400" height="933" alt="Bebê dormindo enrolado na manta branca" loading="lazy" style="object-position:50% 50%" data-site-campo="foto" data-k="f18c51713346"></button><button class="g-item g-l" type="button" data-site-item aria-label="Abrir em tela cheia: Os pezinhos do bebê na manta branca"><img src="/exemplos/site-fotografia/img/os-pezinhos-do-bebe-na-manta-branca-b2323090.jpg" width="1400" height="933" alt="Os pezinhos do bebê na manta branca" loading="lazy" style="object-position:50% 50%" data-site-campo="foto" data-k="30c33366dd21"></button><button class="g-item g-p" type="button" data-site-item aria-label="Abrir em tela cheia: Bebê de macacão de ursinho sentado na cama"><img src="/exemplos/site-fotografia/img/bebe-de-macacao-de-ursinho-sentado-na-cama-e657f1e7.jpg" width="1050" height="1400" alt="Bebê de macacão de ursinho sentado na cama" loading="lazy" style="object-position:50% 45%" data-site-campo="foto" data-k="0691da42077c"></button></div></div><div class="painel" id="painel-familia" role="tabpanel" aria-labelledby="aba-familia" aria-hidden="true"><h3 class="painel-titulo">Família</h3><div class="galeria" data-nome="Família" data-site-lista="portfolio.familia"><button class="g-item g-p" type="button" data-site-item aria-label="Abrir em tela cheia: Família de mãos dadas correndo no gramado"><img src="/exemplos/site-fotografia/img/familia-de-maos-dadas-correndo-no-gramado-94a805fd.jpg" width="933" height="1400" alt="Família de mãos dadas correndo no gramado" loading="lazy" style="object-position:50% 45%" data-site-campo="foto" data-k="a8c1dd8e9779"></button><button class="g-item g-l" type="button" data-site-item aria-label="Abrir em tela cheia: Mãe beijando o rosto do bebê"><img src="/exemplos/site-fotografia/img/mae-beijando-o-rosto-do-bebe-4ef3d546.jpg" width="1400" height="933" alt="Mãe beijando o rosto do bebê" loading="lazy" style="object-position:50% 45%" data-site-campo="foto" data-k="dbb7b902573a"></button><button class="g-item g-l" type="button" data-site-item aria-label="Abrir em tela cheia: Pai, mãe e as crianças sentados na cama"><img src="/exemplos/site-fotografia/img/pai-mae-e-as-criancas-sentados-na-cama-f778239e.jpg" width="1400" height="933" alt="Pai, mãe e as crianças sentados na cama" loading="lazy" style="object-position:50% 45%" data-site-campo="foto" data-k="aa0a681f0567"></button><button class="g-item g-l" type="button" data-site-item aria-label="Abrir em tela cheia: Pai com os dois filhos nos ombros e no colo"><img src="/exemplos/site-fotografia/img/pai-com-os-dois-filhos-nos-ombros-e-no-colo-211f5c9a.jpg" width="1400" height="934" alt="Pai com os dois filhos nos ombros e no colo" loading="lazy" style="object-position:50% 40%" data-site-campo="foto" data-k="5c9394804783"></button><button class="g-item g-l" type="button" data-site-item aria-label="Abrir em tela cheia: Mãe jogando a filha para o alto"><img src="/exemplos/site-fotografia/img/mae-jogando-a-filha-para-o-alto-e925b9d2.jpg" width="1400" height="933" alt="Mãe jogando a filha para o alto" loading="lazy" style="object-position:50% 35%" data-site-campo="foto" data-k="dbf6d91a14dc"></button><button class="g-item g-l" type="button" data-site-item aria-label="Abrir em tela cheia: Família de mãos dadas na beira do mar"><img src="/exemplos/site-fotografia/img/familia-de-maos-dadas-na-beira-do-mar-6e1b99a1.jpg" width="1400" height="933" alt="Família de mãos dadas na beira do mar" loading="lazy" style="object-position:50% 60%" data-site-campo="foto" data-k="61dd07e6616d"></button></div></div><div class="painel" id="painel-infantil" role="tabpanel" aria-labelledby="aba-infantil" aria-hidden="true"><h3 class="painel-titulo">Infantil</h3><div class="galeria" data-nome="Infantil" data-site-lista="portfolio.infantil"><button class="g-item g-l" type="button" data-site-item aria-label="Abrir em tela cheia: Mãe erguendo a filha no estúdio de paredes coloridas"><img src="/exemplos/site-fotografia/img/mae-erguendo-a-filha-no-estudio-de-paredes-color-af6c6169.jpg" width="1400" height="933" alt="Mãe erguendo a filha no estúdio de paredes coloridas" loading="lazy" style="object-position:50% 50%" data-site-campo="foto" data-k="c5fb5f59a42e"></button><button class="g-item g-p" type="button" data-site-item aria-label="Abrir em tela cheia: Menina sorrindo com o rosto pintado de tinta"><img src="/exemplos/site-fotografia/img/menina-sorrindo-com-o-rosto-pintado-de-tinta-5b72a4a6.jpg" width="930" height="1400" alt="Menina sorrindo com o rosto pintado de tinta" loading="lazy" style="object-position:50% 35%" data-site-campo="foto" data-k="4566d6aac972"></button><button class="g-item g-l" type="button" data-site-item aria-label="Abrir em tela cheia: Bebê de olhos azuis mordendo uma fruta"><img src="/exemplos/site-fotografia/img/bebe-de-olhos-azuis-mordendo-uma-fruta-8821a697.jpg" width="1400" height="1120" alt="Bebê de olhos azuis mordendo uma fruta" loading="lazy" style="object-position:50% 40%" data-site-campo="foto" data-k="625d2f3e4942"></button><button class="g-item g-l" type="button" data-site-item aria-label="Abrir em tela cheia: Menino de camiseta vermelha fazendo pose de forte"><img src="/exemplos/site-fotografia/img/menino-de-camiseta-vermelha-fazendo-pose-de-fort-3e01441b.jpg" width="1400" height="935" alt="Menino de camiseta vermelha fazendo pose de forte" loading="lazy" style="object-position:50% 35%" data-site-campo="foto" data-k="4c3ef925b025"></button></div></div></div>
+    <p class="galeria-nota" data-site="portfolio.nota">Toque numa foto para ver em tela cheia; no celular, é só passar para o lado.</p>
+  </div>
+</section>
+<section class="secao secao--areia" id="sobre" data-site-secao="sobre" aria-labelledby="sobre-titulo">
+  <div class="container sobre-grid">
+    <figure class="sobre-foto reveal"><img src="/exemplos/site-fotografia/img/pai-mae-e-o-filho-abracados-sorrindo-e713a92b.jpg" width="1092" height="1365" alt="Pai, mãe e o filho abraçados, sorrindo" loading="lazy" data-site-img="sobre.foto" data-k="8fcc07d94131"></figure>
+    <div class="sobre-texto reveal" data-site-lista="sobre.paragrafos">
+      <p class="eyebrow" data-site="sobre.eyebrow">Quem fotografa</p><h2 id="sobre-titulo" data-site="sobre.titulo">A Lia <em>e o estúdio.</em></h2>
+      <p data-site="sobre.texto">A Lia Moreno fotografa famílias desde 2016. O estúdio fica na Vila Mariana, com luz natural, figurinos e um cenário para cada fase.</p>
+      <blockquote class="citacao"><span data-site="sobre.citacao">“Foto boa é a que a família reconhece daqui a vinte anos.”</span><footer data-site="sobre.autor">Lia Moreno</footer></blockquote>
+      <p data-site-item data-site-campo="texto">Do ensaio gestante ao primeiro aninho, muita família volta a cada fase: a Duda cuida da agenda e a Lia, das fotos.</p>
+      <ul class="numeros" data-site-lista="sobre.numeros"><li data-site-item><b data-site-campo="valor">2016</b><span data-site-campo="texto">o primeiro ensaio</span></li><li data-site-item><b data-site-campo="valor">6</b><span data-site-campo="texto">tipos de ensaio no estúdio</span></li></ul>
+    </div>
+  </div>
+</section>
+<section class="secao" id="ensaios" data-site-secao="ensaios" aria-labelledby="ensaios-titulo">
+  <div class="container">
+    <div class="cabeca reveal"><p class="eyebrow" data-site="ensaios.eyebrow">Ensaios</p><h2 id="ensaios-titulo" data-site="ensaios.titulo">Da espera <em>ao primeiro aninho.</em></h2><p data-site="ensaios.texto">Os ensaios do estúdio:</p></div>
+    <ol class="jornada reveal" data-site-lista="ensaios.itens"><li data-site-item><h3 data-site-campo="nome">Gestante</h3><p class="sub" data-site-campo="sub">A espera</p><p data-site-campo="texto">Do 7º ao 8º mês, no estúdio, com figurino.</p><p class="preco" data-site-campo="preco"></p></li><li data-site-item><h3 data-site-campo="nome">Newborn</h3><p class="sub" data-site-campo="sub">A chegada</p><p data-site-campo="texto">Até 15 dias de vida, com calma e no tempo do bebê.</p><p class="preco" data-site-campo="preco"></p></li><li data-site-item><h3 data-site-campo="nome">Acompanhamento</h3><p class="sub" data-site-campo="sub">O primeiro ano</p><p data-site-campo="texto">Um ensaio curto por mês, no primeiro ano.</p><p class="preco" data-site-campo="preco"></p></li><li data-site-item><h3 data-site-campo="nome">Smash the cake</h3><p class="sub" data-site-campo="sub">O primeiro aninho</p><p data-site-campo="texto">Cenário temático e bolo, para o primeiro aniversário.</p><p class="preco" data-site-campo="preco"></p></li><li data-site-item><h3 data-site-campo="nome">Família</h3><p class="sub" data-site-campo="sub">Todo mundo junto</p><p data-site-campo="texto">Pais, filhos e quem mais vier, no estúdio.</p><p class="preco" data-site-campo="preco"></p></li><li data-site-item><h3 data-site-campo="nome">Natal</h3><p class="sub" data-site-campo="sub">Mini sessão</p><p data-site-campo="texto">30 minutos no cenário de Natal do estúdio.</p><p class="preco" data-site-campo="preco"></p></li></ol>
+    
+  </div>
+</section>
+<section class="secao natal" id="natal" aria-labelledby="natal-titulo">
+  <div class="container natal-grid">
+    <div class="reveal">
+      <p class="eyebrow">Natal 2026</p><h2 id="natal-titulo">Mini sessão <em>de Natal.</em></h2>
+      <p style="margin-top:22px">30 minutos no cenário de Natal do estúdio, com 10 fotos editadas. As vagas são poucas.</p>
+      <p class="contador"><b data-restam>17</b> <span>de 20 horários livres</span></p>
+      <p class="exemplo"><svg aria-hidden="true"><use href="#cal"/></svg>Horários de exemplo: a Lia define os dela</p>
+      <ul class="proximos" aria-label="O primeiro horário livre de cada sábado"><li><a href="https://wa.me/5511900000001?text=Ol%C3%A1%2C%20Lia%21%20Quero%20o%20hor%C3%A1rio%20de%2028/11%20%28s%C3%A1bado%29%20%C3%A0s%209h%20para%20a%20mini%20sess%C3%A3o%20de%20Natal." target="_blank" rel="noopener noreferrer" data-hora="2026-11-28 9h">sáb 28/11 <small>·</small> 9h</a></li><li><a href="https://wa.me/5511900000001?text=Ol%C3%A1%2C%20Lia%21%20Quero%20o%20hor%C3%A1rio%20de%2005/12%20%28s%C3%A1bado%29%20%C3%A0s%2010h%20para%20a%20mini%20sess%C3%A3o%20de%20Natal." target="_blank" rel="noopener noreferrer" data-hora="2026-12-05 10h">sáb 5/12 <small>·</small> 10h</a></li><li><a href="https://wa.me/5511900000001?text=Ol%C3%A1%2C%20Lia%21%20Quero%20o%20hor%C3%A1rio%20de%2012/12%20%28s%C3%A1bado%29%20%C3%A0s%209h%20para%20a%20mini%20sess%C3%A3o%20de%20Natal." target="_blank" rel="noopener noreferrer" data-hora="2026-12-12 9h">sáb 12/12 <small>·</small> 9h</a></li><li><a href="https://wa.me/5511900000001?text=Ol%C3%A1%2C%20Lia%21%20Quero%20o%20hor%C3%A1rio%20de%2019/12%20%28s%C3%A1bado%29%20%C3%A0s%209h%20para%20a%20mini%20sess%C3%A3o%20de%20Natal." target="_blank" rel="noopener noreferrer" data-hora="2026-12-19 9h">sáb 19/12 <small>·</small> 9h</a></li></ul>
+      <a class="botao" href="/exemplos/site-fotografia/natal#horarios">Ver todos os horários <svg aria-hidden="true"><use href="#seta"/></svg></a>
+    </div>
+    <figure class="natal-foto reveal"><img src="/exemplos/site-fotografia/img/menino-olhando-a-arvore-de-natal-acesa-32ab960b.jpg" width="1400" height="933" alt="Menino olhando a árvore de Natal acesa" loading="lazy" data-k="496d81d885d9"><figcaption>Natal 2026 no estúdio</figcaption></figure>
+  </div>
+</section>
+<section class="secao secao--areia" id="contato" data-site-secao="contato" aria-labelledby="contato-titulo">
+  <div class="container contato-grid">
+    <div class="reveal">
+      <p class="eyebrow" data-site="contato.eyebrow">Contato</p><h2 id="contato-titulo" data-site="contato.titulo">Vamos marcar <em>o seu ensaio?</em></h2>
+      <p style="color:var(--tinta-2);margin-top:20px" data-site="contato.texto">Datas e valores pelo WhatsApp. O estúdio fica na Vila Mariana, em São Paulo.</p>
+      <ul class="canais">
+        <li><svg aria-hidden="true"><use href="#whats"/></svg><div><b>WhatsApp</b><a data-whatsapp href="#" data-site="contato.telefone">(11) 90000-0001</a></div></li>
+        <li><svg aria-hidden="true"><use href="#insta"/></svg><div><b>Instagram</b><a data-instagram href="#" target="_blank" rel="noopener noreferrer">@estudiociranda.exemplo · 2.480 seguidores</a></div></li>
+        <li><svg aria-hidden="true"><use href="#pin"/></svg><div><b>Estúdio</b><a data-directions href="#" target="_blank" rel="noopener noreferrer">Estúdio na Vila Mariana · São Paulo · SP</a></div></li>
+        <li><svg aria-hidden="true"><use href="#relogio"/></svg><div><b>Atendimento</b><ul class="hours"><li data-days="1"><span>Segunda</span><span>Fechado</span></li><li data-days="2,3,4,5"><span>Terça a sexta</span><span>9h às 18h</span></li><li data-days="6"><span>Sábado</span><span>9h às 16h</span></li><li data-days="0"><span>Domingo</span><span>Fechado</span></li></ul></div></li>
+      </ul>
+      <a data-site-botao="contato.botao" class="botao" data-whatsapp href="#"><svg aria-hidden="true"><use href="#whats"/></svg>Chamar a Lia no WhatsApp</a>
+    </div>
+    <div class="mapa reveal"><a class="mapa-alt" data-directions href="#" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#pin"/></svg><b>Estúdio da Lia</b><span>Estúdio na Vila Mariana · São Paulo · SP</span><span class="link">Como chegar <svg aria-hidden="true" style="width:16px;height:16px"><use href="#seta"/></svg></span></a><iframe data-map-embed title="Mapa do estúdio da Estúdio Ciranda" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </div>
+</section>
+</main>
+<footer class="rodape" data-site-secao="rodape">
+  <div class="container">
+    <img src="/exemplos/site-fotografia/img/estudio-ciranda-e8b270bf.webp" width="480" height="148" alt="Estúdio Ciranda" loading="lazy" data-k="f46ea2210eeb">
+    <p class="rodape-frase" data-site="rodape.slogan">Cada fase, guardada.</p>
+    <nav aria-label="Links"><a href="#portfolio">Portfólio</a><a href="#sobre">A Lia</a><a href="/exemplos/site-fotografia/natal">Natal 2026</a><a data-whatsapp href="#">WhatsApp</a><a data-instagram href="#" target="_blank" rel="noopener noreferrer">Instagram</a></nav>
+    <small>© <span data-year>2026</span> Estúdio Ciranda · Estúdio na Vila Mariana · São Paulo · SP</small>
+  </div>
+</footer>
+<a class="flutuante" data-whatsapp href="#" aria-label="Conversar com a Lia no WhatsApp"><svg aria-hidden="true"><use href="#whats"/></svg></a>
+<div class="lb" role="dialog" aria-modal="true" aria-label="Fotos em tela cheia" aria-hidden="true">
+  <div class="lb-topo"><span class="lb-cat"></span><span class="lb-cont"></span><button class="lb-fechar" type="button" aria-label="Fechar"><svg aria-hidden="true"><use href="#fechar"/></svg></button></div>
+  <div class="lb-trilho" tabindex="-1"></div>
+  <p class="lb-dica" style="margin:0">Passe para o lado para ver a próxima</p>
+  <button class="lb-seta lb-ant" type="button" aria-label="Foto anterior"><svg aria-hidden="true"><use href="#seta"/></svg></button>
+  <button class="lb-seta lb-prox" type="button" aria-label="Próxima foto"><svg aria-hidden="true"><use href="#seta"/></svg></button>
+</div>
+
+
+  <script>
+window.DEMO_CLIENT = {
+  brand: "Estúdio Ciranda",
+  whatsapp: "https://wa.me/5511900000001?text=" + encodeURIComponent("Olá, Lia! Vi o site e queria saber mais sobre os ensaios."),
+  phone: "+5511900000001",
+  instagram: "https://www.instagram.com/estudiociranda.exemplo/",
+  maps: "https://www.google.com/maps?q=Vila%20Mariana%2C%20S%C3%A3o%20Paulo%20-%20SP",
+  directions: "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent("Vila Mariana, São Paulo - SP"),
+  mapEmbed: "https://www.google.com/maps?q=" + encodeURIComponent("Vila Mariana, São Paulo - SP") + "&z=12&hl=pt-BR&output=embed",
+  reviewsUrl: "",
+  writeReviewUrl: "",
+  rating: "",
+  reviewTotal: "",
+  // Horário do Perfil da Empresa no Google (0 = domingo), em minutos desde 00h.
+  hours: { 0: null, 1: null, 2: [540, 1080], 3: [540, 1080], 4: [540, 1080], 5: [540, 1080], 6: [540, 960] },
+  reviews: [
+
+  ],
+  faces: {
+    oval: { title: "Rosto oval", text: "Combina com quase todos os formatos.", tags: ["Gatinho", "Aviador", "Quadrada"] },
+    redondo: { title: "Rosto redondo", text: "Armações retas, com cantos marcados.", tags: ["Retangular", "Quadrada"] },
+    quadrado: { title: "Rosto quadrado", text: "Formatos arredondados suavizam o rosto.", tags: ["Redonda", "Oval", "Aviador"] },
+    coracao: { title: "Rosto coração", text: "Armações leves em cima, mais marcadas embaixo.", tags: ["Redonda", "Aviador"] }
+  },
+  verifiedOn: "2026-11-18"
+};
+  </script>
+<script>
+(() => {
+  "use strict";
+  const client = window.DEMO_CLIENT;
+  if (!client) return;
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+  const escapeHTML = value => String(value).replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[char]));
+
+  // Links e dados centralizados no DEMO_CLIENT.
+  const links = () => {
+    $$("[data-rating]").forEach(el => el.textContent = client.rating);
+    $$("[data-review-total]").forEach(el => el.textContent = client.reviewTotal);
+    $$("[data-whatsapp]").forEach(el => { el.href = client.whatsapp; el.target = "_blank"; el.rel = "noopener noreferrer"; });
+    $$("[data-instagram]").forEach(el => el.href = client.instagram);
+    $$("[data-maps]").forEach(el => el.href = client.maps);
+    $$("[data-directions]").forEach(el => el.href = client.directions);
+    $$("[data-reviews-link]").forEach(el => el.href = client.reviewsUrl);
+    $$("[data-review-write]").forEach(el => el.href = client.writeReviewUrl);
+    $$("[data-phone]").forEach(el => el.href = "tel:" + client.phone);
+  };
+  links();
+  const year = $("[data-year]");
+  if (year) year.textContent = new Date().getFullYear();
+
+  // Mapa carregado só quando a seção se aproxima.
+  const map = $("[data-map-embed]");
+  if (map) {
+    const loadMap = () => { if (!map.src) map.src = client.mapEmbed; };
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(entries => { if (entries.some(e => e.isIntersecting)) { loadMap(); io.disconnect(); } }, { rootMargin: "600px" });
+      io.observe(map);
+    } else loadMap();
+  }
+
+  // Aberto agora? Calculado no fuso de São Paulo.
+  const dayNames = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
+  const fmt = m => Math.floor(m / 60) + "h" + (m % 60 ? String(m % 60).padStart(2, "0") : "");
+  const spNow = () => {
+    try {
+      const parts = new Intl.DateTimeFormat("en-US", { timeZone: "America/Sao_Paulo", weekday: "short", hour: "numeric", minute: "numeric", hourCycle: "h23" }).formatToParts(new Date());
+      const get = type => parts.find(p => p.type === type).value;
+      return { day: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(get("weekday")), minutes: Number(get("hour")) * 60 + Number(get("minute")) };
+    } catch (error) {
+      const d = new Date();
+      return { day: d.getDay(), minutes: d.getHours() * 60 + d.getMinutes() };
+    }
+  };
+  const updateStatus = () => {
+    const now = spNow();
+    // cada dia: [abre, fecha] ou, com pausa para o almoço, [abre, fecha, abre, fecha]
+    const faixas = h => { const out = []; for (let k = 0; h && k + 1 < h.length; k += 2) out.push([h[k], h[k + 1]]); return out; };
+    const agora = faixas(client.hours[now.day]).find(f => now.minutes >= f[0] && now.minutes < f[1]);
+    let open = false, label, detail;
+    if (agora) {
+      open = true; label = "Aberto agora"; detail = "fecha às " + fmt(agora[1]);
+    } else {
+      label = "Fechado agora";
+      for (let i = 0; i < 8; i++) {
+        const day = (now.day + i) % 7, prox = faixas(client.hours[day]).find(f => i > 0 || f[0] > now.minutes);
+        if (!prox) continue;
+        detail = "abre " + (i === 0 ? "hoje" : i === 1 ? "amanhã" : dayNames[day]) + " às " + fmt(prox[0]);
+        break;
+      }
+    }
+    $$("[data-open-status]").forEach(el => {
+      el.classList.toggle("is-open", open);
+      $("[data-status-label]", el).textContent = label;
+      $("[data-status-detail]", el).textContent = detail || "";
+    });
+    $$(".hours li").forEach(li => li.classList.toggle("is-today", li.dataset.days.split(",").map(Number).includes(now.day)));
+  };
+  if (client.hours) {
+    updateStatus();
+    setInterval(updateStatus, 60000);
+  }
+
+  // Avaliações.
+  const avaliacoes = () => $("[data-reviews]") && ($("[data-reviews]").innerHTML = client.reviews.map(r => {
+    const long = r.quote.length > 130 ? "is-long" : "";
+    return '<li><article class="review-card"><div class="review-card-top"><span class="stars" aria-label="Cinco estrelas">★★★★★</span><span class="review-tag">' + escapeHTML(r.tag) + '</span></div>' +
+      '<blockquote class="' + long + '">“' + escapeHTML(r.quote) + '”</blockquote>' +
+      '<div class="review-person"><span class="review-avatar" aria-hidden="true">' + escapeHTML(r.initials) + '</span><div><strong>' + escapeHTML(r.name) + '</strong><a href="' + escapeHTML(client.reviewsUrl) + '" target="_blank" rel="noopener noreferrer">Avaliação no Google ↗</a></div></div></article></li>';
+  }).join(""));
+  avaliacoes();
+
+  // Formato de rosto.
+  const tool = $("[data-face-tool]");
+  if (tool) {
+    const show = key => {
+      const face = client.faces[key];
+      $$("[data-face]", tool).forEach(b => b.setAttribute("aria-pressed", String(b.dataset.face === key)));
+      $("[data-face-title]", tool).textContent = face.title;
+      $("[data-face-text]", tool).textContent = face.text;
+      $("[data-face-tags]", tool).innerHTML = face.tags.map(t => "<span>" + escapeHTML(t) + "</span>").join("");
+    };
+    $$("[data-face]", tool).forEach(b => b.addEventListener("click", () => show(b.dataset.face)));
+    show("oval");
+  }
+
+  // Carrossel.
+  const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const medidas = [];
+  $$("[data-carousel]").forEach(root => {
+    const track = $(".carousel-track", root), prev = $("[data-prev]", root), next = $("[data-next]", root), dots = $("[data-dots]", root), status = $("[data-status]", root);
+    let stops = [0], active = 0, frame = 0;
+    const go = index => track.scrollTo({ left: stops[Math.max(0, Math.min(index, stops.length - 1))], behavior: motion.matches ? "auto" : "smooth" });
+    const update = () => {
+      frame = 0;
+      active = stops.reduce((best, point, i) => Math.abs(point - track.scrollLeft) < Math.abs(stops[best] - track.scrollLeft) ? i : best, 0);
+      prev.disabled = active === 0;
+      next.disabled = active === stops.length - 1;
+      Array.from(dots.children).forEach((dot, i) => dot.setAttribute("aria-current", String(i === active)));
+      const label = "Posição " + (active + 1) + " de " + stops.length;
+      if (status.textContent !== label) status.textContent = label;
+    };
+    const measure = () => {
+      const max = Math.max(0, track.scrollWidth - track.clientWidth);
+      const origin = track.firstElementChild ? track.firstElementChild.getBoundingClientRect().left + track.scrollLeft : 0;
+      stops = Array.from(track.children).map(item => Math.min(max, Math.max(0, item.getBoundingClientRect().left + track.scrollLeft - origin)));
+      stops = stops.filter((v, i, all) => i === 0 || Math.abs(v - all[i - 1]) > 3);
+      if (!stops.length) stops = [0];
+      dots.replaceChildren(...stops.map((_, i) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.setAttribute("aria-label", "Ir para a posição " + (i + 1));
+        b.setAttribute("aria-controls", track.id);
+        b.addEventListener("click", () => go(i));
+        return b;
+      }));
+      update();
+    };
+    prev.addEventListener("click", () => go(active - 1));
+    next.addEventListener("click", () => go(active + 1));
+    track.addEventListener("keydown", e => {
+      const keys = { ArrowRight: active + 1, ArrowLeft: active - 1, Home: 0, End: stops.length - 1 };
+      if (e.key in keys) { e.preventDefault(); go(keys[e.key]); }
+    });
+    track.addEventListener("scroll", () => { if (!frame) frame = requestAnimationFrame(update); }, { passive: true });
+    if ("ResizeObserver" in window) new ResizeObserver(measure).observe(track); else window.addEventListener("resize", measure);
+    measure();
+    medidas.push(measure);
+  });
+
+  // Animação de entrada.
+  const reveals = $$(".reveal");
+  if ("IntersectionObserver" in window && !motion.matches) {
+    const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); } }), { threshold: .12, rootMargin: "0px 0px -40px" });
+    reveals.forEach(el => io.observe(el));
+  } else reveals.forEach(el => el.classList.add("is-visible"));
+
+  // Menu mobile.
+  const menuButton = $("[data-menu-button]"), menu = $("#menu-mobile");
+  const closeMenu = () => { menu.hidden = true; menuButton.setAttribute("aria-expanded", "false"); menuButton.setAttribute("aria-label", "Abrir menu"); };
+  menuButton.addEventListener("click", () => {
+    const open = menuButton.getAttribute("aria-expanded") !== "true";
+    menu.hidden = !open;
+    menuButton.setAttribute("aria-expanded", String(open));
+    menuButton.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+  });
+  menu.addEventListener("click", e => { if (e.target.closest("a")) closeMenu(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !menu.hidden) { closeMenu(); menuButton.focus(); } });
+  document.addEventListener("click", e => { if (!menu.hidden && !e.target.closest(".site-header")) closeMenu(); });
+  window.matchMedia("(min-width: 981px)").addEventListener("change", e => { if (e.matches) closeMenu(); });
+
+  // O Meu site (Painel Renderiza) troca o conteúdo depois que a página abre e pede para refazer o que depende dele.
+  window.DEMO_RUNTIME = { links, avaliacoes, carrosseis: () => medidas.forEach(m => m()) };
+})();
+</script>
+
+<script>
+
+(() => {
+  "use strict";
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+
+  // Links entre o site e a página de Natal: no ar o endereço não tem ".html" (/demo/<pasta> e /demo/<pasta>/natal)
+  // e leva junto o ?c= do link do lead; aberto do computador (file://), vai para o arquivo.
+  if (location.protocol !== "file:") {
+    const base = location.pathname.replace(/\/(index|natal)(\.html)?$/, "").replace(/\/$/, "");
+    const q = location.search.replace(/([?&])video=1&?/, "$1").replace(/[?&]$/, "");
+    $$("a[data-pagina]").forEach(e => { const [pag, hash] = e.getAttribute("href").split("#"); e.href = base + (e.dataset.pagina === "natal" ? "/natal" : "") + q + (hash ? "#" + hash : ""); });
+  }
+
+  // ---------- topo ----------
+  const topo = $(".site-header");
+  if (topo) { const f = () => topo.classList.toggle("rolou", topo.getBoundingClientRect().top <= 0 && scrollY > 10); addEventListener("scroll", f, { passive: true }); f(); }
+
+  // ---------- abas do portfólio ----------
+  const abas = $$("[role=tab]");
+  const escolher = (aba, foco) => {
+    abas.forEach(a => {
+      const sim = a === aba, p = document.getElementById(a.getAttribute("aria-controls"));
+      a.setAttribute("aria-selected", String(sim)); a.tabIndex = sim ? 0 : -1;
+      if (p) { p.classList.toggle("ativo", sim); p.setAttribute("aria-hidden", String(!sim)); $$("button", p).forEach(b => b.tabIndex = sim ? 0 : -1); }
+    });
+    if (foco) aba.focus();
+  };
+  abas.forEach((a, i) => {
+    a.addEventListener("click", () => escolher(a));
+    a.addEventListener("keydown", e => {
+      const k = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: abas.length - 1 }[e.key];
+      if (k === undefined) return; e.preventDefault(); escolher(abas[(k + abas.length) % abas.length], true);
+    });
+  });
+  const ativa = abas.find(a => a.getAttribute("aria-selected") === "true"); if (ativa) escolher(ativa);
+
+  // ---------- tela cheia (toque abre; no celular passa para o lado; setas e teclado no computador) ----------
+  const lb = $(".lb");
+  if (lb) {
+    const trilho = $(".lb-trilho", lb), cat = $(".lb-cat", lb), cont = $(".lb-cont", lb), ant = $(".lb-ant", lb), prox = $(".lb-prox", lb), fecharB = $(".lb-fechar", lb);
+    let fotos = [], atual = 0, origem = null;
+    const montar = galeria => {
+      fotos = $$(".g-item img", galeria);
+      trilho.replaceChildren(...fotos.map((f, i) => {
+        const s = document.createElement("div"); s.className = "lb-slide"; s.setAttribute("role", "group"); s.setAttribute("aria-label", (i + 1) + " de " + fotos.length);
+        const im = document.createElement("img"); im.src = f.currentSrc || f.src; im.alt = f.alt; im.decoding = "async"; s.append(im); return s;
+      }));
+      cat.textContent = galeria.dataset.nome || "";
+    };
+    const largura = () => trilho.clientWidth || innerWidth;
+    const marcar = () => {
+      atual = Math.max(0, Math.min(fotos.length - 1, Math.round(trilho.scrollLeft / largura())));
+      cont.textContent = (atual + 1) + " / " + fotos.length; ant.disabled = atual === 0; prox.disabled = atual === fotos.length - 1;
+    };
+    const ir = (i, suave) => { trilho.scrollTo({ left: i * largura(), behavior: suave ? "smooth" : "auto" }); };
+    const abrirLb = (galeria, i, botao) => {
+      origem = botao; montar(galeria); trilho.style.scrollSnapType = ""; trilho.style.scrollBehavior = "";
+      lb.classList.add("aberto"); lb.setAttribute("aria-hidden", "false"); document.documentElement.style.overflow = "hidden";
+      ir(i, false); marcar(); fecharB.focus({ preventScroll: true });
+    };
+    const fecharLb = () => {
+      lb.classList.remove("aberto"); lb.setAttribute("aria-hidden", "true"); document.documentElement.style.overflow = "";
+      if (origem) origem.focus({ preventScroll: true });
+    };
+    $$(".galeria").forEach(g => g.addEventListener("click", e => { const b = e.target.closest(".g-item"); if (b) abrirLb(g, $$(".g-item", g).indexOf(b), b); }));
+    trilho.addEventListener("scroll", () => requestAnimationFrame(marcar), { passive: true });
+    ant.addEventListener("click", () => ir(atual - 1, true)); prox.addEventListener("click", () => ir(atual + 1, true));
+    fecharB.addEventListener("click", fecharLb);
+    document.addEventListener("keydown", e => {
+      if (!lb.classList.contains("aberto")) return;
+      if (e.key === "Escape") fecharLb(); else if (e.key === "ArrowRight") ir(atual + 1, true); else if (e.key === "ArrowLeft") ir(atual - 1, true);
+      else if (e.key === "Tab") { e.preventDefault(); (document.activeElement === fecharB ? (prox.disabled ? fecharB : prox) : fecharB).focus(); }
+    });
+    addEventListener("resize", () => { if (lb.classList.contains("aberto")) ir(atual, false); });
+    const primeira = $(".galeria"); if (primeira) montar(primeira); // já montado: o vídeo mede o passo das fotos
+  }
+
+  // No vídeo (?video=1) o toque só marca o horário: nada abre o WhatsApp durante a gravação.
+  if (document.documentElement.classList.contains("modo-video")) document.addEventListener("click", e => { if (e.target.closest('a[href^="https://wa.me"]')) e.preventDefault(); }, true);
+  // ---------- horários: o toque marca o escolhido (o link já abre o WhatsApp com a mensagem pronta) ----------
+  $$("a.hora, .proximos a").forEach(a => a.addEventListener("click", () => { $$(".escolhido").forEach(x => x.classList.remove("escolhido")); a.classList.add("escolhido"); }));
+})();
+
+</script>
+<a id="rz-exemplo-selo" href="/exemplos/fotografia" style="position:fixed;left:12px;bottom:12px;z-index:2147483000;padding:7px 12px;border-radius:999px;background:#1e2528;color:#fff;font:600 12px/1.2 system-ui,sans-serif;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.2)">Site de exemplo · Estúdio Ciranda é fictício</a>
+</body>
+</html>

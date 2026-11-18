@@ -47,6 +47,8 @@
 #     contato e mostrar/esconder seções). Sem a opção, a página sai idêntica.
 #   sobre.foto2: uma segunda foto, menor, sobre o canto da primeira. jornada.fonte vazio: sem a nota de fonte.
 #   natal.link_site: o rótulo do link de volta ao site na página de Natal (padrão: "O site da Ana").
+#   saida: a pasta (a partir da raiz do repositório) onde as páginas saem, no lugar de demos/<pasta>; para o site de
+#     exemplo (exemplos/site-fotografia/demo.json, montado por ferramentas/exemplos/site-fotografia.mjs).
 # No vídeo (gravar.mjs), a página aberta com ?video=1 esconde a camada da Renderiza (o vídeo não mostra preço).
 import base64, datetime, hashlib, html, io, json, os, re, sys, urllib.parse
 from PIL import Image, ImageOps
@@ -1865,7 +1867,7 @@ def gerar(caminho):
     google = G.ler_google(cfg.get('google_json'))
     horas = G.horario(google) or ({int(k): v for k, v in cfg['horario'].items()} if cfg.get('horario') else None)
     dias, total, livres = horarios(cfg) if cfg.get('horarios') else ([], 0, 0)
-    pasta = os.path.join(REPO, 'demos', cfg['pasta']); os.makedirs(pasta, exist_ok=True)
+    pasta = os.path.join(REPO, cfg['saida'] if cfg.get('saida') else os.path.join('demos', cfg['pasta'])); os.makedirs(pasta, exist_ok=True)
     F = Fotos(cfg, pasta)
     saidas = []
     global MEU_SITE
