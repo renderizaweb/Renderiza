@@ -13,11 +13,11 @@ O painel é opcional: se ela desistir dele, o site continua de pé, perfeito e c
 
 | | |
 |---|---|
-| **Parada** | B (ela valida) com A e D andando juntas |
-| **Feito** | A versão final no ar para ela validar (18/11). **O site no repositório dela** (`biamaidafotografiadev-alt/biamaidafotografia`, `main`, `fa814c7`, 18/11), gerado pelo `virar-site` sem o painel (fica de pé sozinho). **A conta dela no Painel Renderiza, na produção** (18/11): "Bia Maida Fotografia", fotografia, código `bia-maida`, ativa e sem prazo, os 7 módulos, a demo no contexto com os tipos de hoje, a conversa de boas-vindas pendente e o convite do dono por link (usuário `biamaida`) |
-| **Próxima ação** | (1) Renderiza: o domínio — Custom domains no projeto do Cloudflare, `biamaidafotografia.com.br` e `www.biamaidafotografia.com.br`; no Registro.br, os servidores DNS que o Cloudflare mostrar (DNSSEC desligado antes). (2) Renderiza: no Admin, conta "Bia Maida Fotografia" → **Mandar o link** (vale até 25/11; "Link novo" renova). (3) Claude: conferir o domínio no ar e a Parada C (Meu site e "Sua data" no painel) |
+| **Parada** | B (ela valida) com A, C e D andando juntas |
+| **Feito** | A versão final no ar para ela validar (18/11). **O site no repositório dela** (`biamaidafotografiadev-alt/biamaidafotografia`, `main`, `fa814c7`, 18/11), gerado pelo `virar-site` sem o painel (fica de pé sozinho). **A conta dela no Painel Renderiza, na produção** (18/11): "Bia Maida Fotografia", fotografia, código `bia-maida`, ativa e sem prazo, os 7 módulos, a demo no contexto com os tipos de hoje, a conversa de boas-vindas pendente e o convite do dono por link (usuário `biamaida`). **O Meu site ligado** (18/11): as marcações no modelo (C1), o site cadastrado no painel (`sites`, código `bia-maida`) e o site do repositório dela com o script do painel (`6d157fc`, no ar no Cloudflare Pages) |
+| **Próxima ação** | (1) Renderiza: o domínio — Custom domains no projeto do Cloudflare, `biamaidafotografia.com.br` e `www.biamaidafotografia.com.br`; no Registro.br, os servidores DNS que o Cloudflare mostrar (DNSSEC desligado antes). (2) Renderiza: no Admin, conta "Bia Maida Fotografia" → **Mandar o link** (vale até 25/11; "Link novo" renova). (3) Renderiza: decidir a C2 ("Sua data" no painel; pede uma migração, com o "pode"). (4) Claude: conferir o domínio no ar e pôr `biamaidafotografia.com.br` em primeiro nos domínios do site no painel |
 | **Esperando a Renderiza** | a validação dela por escrito; o domínio no Registro.br (o DNS para o Cloudflare); o pagamento |
-| **Última atualização** | 18/11/2026 (no ar no Cloudflare Pages) |
+| **Última atualização** | 18/11/2026 (o Meu site ligado) |
 
 Para ela validar: https://www.renderizaweb.com.br/demo/bia-maida-fotografia (no ar até 20/11/2026 no Painel de
 prospecção; se a validação passar disso, estender no card do lead, seção Demo).
@@ -70,9 +70,9 @@ feito no site cai no Atendimento; com o painel desligado, o site abre na versão
 
 | | O quê |
 |---|---|
-| C1 | **Meu site no modelo dela:** as marcações `data-site-*` no `bia-maida-eventos.html` (textos, botões, as fotos da abertura, do "quem fotografa", do respiro e do contato, as três galerias, os serviços, os depoimentos, o contato, mostrar/esconder). Igual pixel a pixel com e sem as marcações; conferir com `ferramentas/meu-site/extrair.mjs` e registrar no `03` ("O que cada site deixa editar"). A Rafaela é o exemplo (`gerar-fotografia.py` com `"meu_site": true`) |
+| C1 ✅ | **Meu site no modelo dela** (18/11; o mapa está no `03`, "O que cada site deixa editar"; o portfólio virou uma lista simples de fotos, montada em linhas no navegador, para dar para incluir, tirar e ordenar fotos): as marcações `data-site-*` no `bia-maida-eventos.html` (textos, botões, as fotos da abertura, do "quem fotografa", do respiro e do contato, as três galerias, os serviços, os depoimentos, o contato, mostrar/esconder). Igual pixel a pixel com e sem as marcações; conferir com `ferramentas/meu-site/extrair.mjs` e registrar no `03` ("O que cada site deixa editar"). A Rafaela é o exemplo (`gerar-fotografia.py` com `"meu_site": true`) |
 | C2 | **"Sua data" com o painel (decidir antes):** ela trabalha **por data** (eventos), não por horário de estúdio. Proposta: a conta dela no nicho fotografia; "Sua data" pergunta ao painel se o dia escolhido está livre (a agenda online de **eventos** já responde dia e turno) e manda o pedido para o Atendimento, com o tipo e o lugar; sem painel, o WhatsApp de hoje. Ver no `04` ("API pública") qual função serve a uma conta de fotografia sem horários de início; se precisar de função nova, migração pelo `scripts/migrar.mjs`, STG antes, com aviso em `missoes.md` |
-| C3 | **`virar-site` com o painel:** `"painel": {"codigo", "agenda": true}` no `site.json`, embutindo o script do Meu site e ligando "Sua data" ao painel (não a página `/agenda/` de eventos) |
+| C3 | **`virar-site` com o painel:** ✅ o Meu site (18/11: `"painel": {"codigo": "bia-maida"}` no `site.json`; o script no `<head>` e o `frame-ancestors` do painel no `_headers`). Falta, com a C2: `"agenda": true` no `site.json`, embutindo o script do Meu site e ligando "Sua data" ao painel (não a página `/agenda/` de eventos) |
 | C4 | **Prova no STG:** conta de teste dela, o site gerado apontando para o STG, o caminho inteiro com o Playwright (publicar, pedir, desligar), como em `test/rafaela-stg/` |
 
 ### D · A conta dela no painel (produção)
@@ -91,8 +91,11 @@ feito no site cai no Atendimento; com o painel desligado, o site abre na versão
   duração ela ajusta em Serviços. Sem horários fixos: ela trabalha por data (ver C2).
 - D2 (Claude): ✅ o logo (`https://biamaidafotografia.pages.dev/favicon.png`, 18/11, como a Rafaela; trocar quando ela mandar o logo dela); conferir depois do
   primeiro acesso dela que os serviços nasceram certos.
-- D3 (Claude, com o "pode"): o que a Parada C pedir na produção; o site cadastrado em `sites` (código, domínios,
-  `conteudo_inicial` do `extrair.mjs`).
+- D3 ✅ (Claude, 18/11, a pedido da Renderiza: "configure o que fala, meu site"): o site cadastrado em `sites` (código
+  `bia-maida`, `conectado`, domínios `biamaidafotografia.pages.dev`, `biamaidafotografia.com.br` e
+  `www.biamaidafotografia.com.br`, `conteudo_inicial` do `extrair.mjs` com as 11 seções). O editor abre o primeiro
+  domínio: quando o `.com.br` estiver no ar, pô-lo em primeiro. Nada publicado na produção (publicar muda o site dela
+  no ar): a edição foi provada com a biblioteca, no navegador. Falta, com a C2: o que "Sua data" pedir.
 
 ### E · No ar e entregue
 - E1 (Renderiza): o domínio **no CPF ou CNPJ dela**. Livres em 17/11 (RDAP): `biamaidafotografia.com.br`
@@ -133,6 +136,7 @@ feito no site cai no Atendimento; com o painel desligado, o site abre na versão
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 18/11/2026 | C, D | **O Meu site ligado**, a pedido da Renderiza ("configure o que fala, meu site"): as marcações no modelo (116, nas 11 seções; o portfólio virou uma lista simples de fotos, com as linhas montadas no navegador, e a página refaz linhas, "Ver mais fotos", faixa e serviço ativo quando o painel muda uma lista); igual pixel a pixel ao de antes no celular e com 0,1 px de diferença no computador. Provado com uma edição pesada (fotos incluídas, tiradas e reordenadas, serviço novo, seção escondida, WhatsApp trocado) e a volta ao original, no computador e no celular. O site cadastrado no painel (produção) e o site dela com o script (`6d157fc`): no ar, a API responde e não há erro no console. A conta conferida lado a lado com a da Rafaela (os mesmos 7 módulos, o site conectado). "Sua data" segue no WhatsApp até a C2. | Claude, a pedido da Renderiza |
 | 18/11/2026 | A | **No ar no Cloudflare Pages:** https://biamaidafotografia.pages.dev (a Renderiza ligou o repositório; publica a cada envio na `main` dela). Conferido no ar (teste de uso, cache das fotos, cabeçalhos, prévia, robots e sitemap). O logo da conta no painel aponta para o ícone do site. Falta o domínio. | Claude, a pedido da Renderiza |
 | 18/11/2026 | D | **A conta dela no Painel Renderiza (produção)**, a pedido da Renderiza ("configurar todo o painel… igual à Rafaela"): conta, os 7 módulos, o contexto da demo com os dados de hoje, a conversa de boas-vindas pendente e o convite por link (`biamaida`, até 25/11). Lido antes, só leitura, o que a conta da Rafaela tem na produção (o modelo). Sem serviços nem horários à mão (vêm da conversa) e sem o site cadastrado (espera as marcações do Meu site, C1). | Claude, a pedido da Renderiza |
 | 18/11/2026 | A | **O site subiu para o repositório dela** (`main`, `fa814c7`), gerado pelo `virar-site` com o `site.json` novo (domínio `biamaidafotografia.com.br`). A conferência travava num falso "todo" ("todo mundo"): `TODO`/`FIXME` agora só contam em maiúsculas (com teste). Testado no site gerado, servido localmente: o teste de uso inteiro passou. | Claude, a pedido da Renderiza |

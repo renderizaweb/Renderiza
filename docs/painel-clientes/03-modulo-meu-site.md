@@ -193,6 +193,29 @@ idêntica), desde 16/11/2026, na página inicial (a de Natal fica para depois). 
 
 Na tela cheia das galerias, o toque é lido na galeria (não em cada foto), para valer também nas fotos que o painel troca.
 
+No site de **fotógrafa de eventos** feito à mão (`gerar-fotografia-eventos.py` + `modelos/bia-maida-eventos.html`;
+o da Bia Maida, `docs/entregas/bia-maida.md`, desde 18/11/2026), as marcações vêm sempre no modelo:
+
+| Seção | Textos | Botões | Imagens | Listas |
+|---|---|---|---|---|
+| `cabecalho` | | `botao` | | |
+| `inicio` | `eyebrow`, `frase`, `texto`, `prova`, `rotulo`, `rotulo2`, `rotulo3` | `botao`, `link` | `foto`, `foto2`, `foto3` | |
+| `faixa` (a faixa que rola) | | | | `itens` (`texto`) |
+| `portfolio` | `eyebrow`, `titulo`, `texto`, `nota` | | | uma por aba (`eventos`, `externos`, `corporativo`): `foto`, `legenda` |
+| `respiro` (a foto larga) | `eyebrow`, `titulo` | | `foto` | |
+| `sobre` | `eyebrow`, `titulo`, `texto`, `texto2`, `citacao`, `autor` | | `foto` | `numeros` (`valor`, `texto`) |
+| `servicos` | `eyebrow`, `titulo`, `texto`, `dica` | | | `itens` (`nome`, `sub`, `texto`, `foto`) |
+| `depoimentos` | `eyebrow`, `titulo`, `total` | | | `avaliacoes` (`nome`, `texto`, `tag`) |
+| `data` ("Sua data") | `eyebrow`, `titulo`, `texto` | | | `passos` (`titulo`, `texto`) |
+| `contato` | `eyebrow`, `titulo`, `texto`, `telefone`, `instagram`, `google`, `onde` | `botao` | `foto` | |
+| `rodape` | `slogan` | | | |
+
+O portfólio é uma lista simples de fotos (cada uma um `button.g-item` filho direto da `.galeria`) e as linhas de
+altura parecida são montadas no navegador, na ordem da lista: é o que deixa incluir, tirar e ordenar fotos (o
+`porLista` troca os filhos diretos da lista, então uma lista agrupada em linhas quebraria). A página refaz as linhas,
+a conta do "Ver mais fotos", a faixa duplicada e a foto do serviço ativo quando o painel muda a lista
+(`MutationObserver`). Provado com uma edição pesada e a volta ao original, no computador e no celular.
+
 Ficam para depois:
 - **cores e ordem das seções:** a base das demos deriva as cores de duas, então trocar pede mexer no gerador;
 - **posição dos botões;**

@@ -83,18 +83,20 @@ def linhas(itens):
     return [[(itens[k], ars[k]) for k in linha] for linha in melhor(0, 0)[1]]
 
 def galeria(nome):
+    # Uma lista simples de fotos, na ordem das linhas acima: a página refaz as linhas no navegador, na ordem da lista
+    # (é o que deixa o Meu site incluir, tirar e ordenar fotos). Cada foto é um item do Meu site (data-site-item), com a
+    # foto e a legenda como campos.
     itens = cfg["galerias"][nome]
-    saida = []
+    botoes = []
     for linha in linhas(itens):
-        botoes = []
         for i, (item, ar) in enumerate(linha):
             img, (w, h), _ = foto(item["f"])
             classe = "g-l" if ar > 1.05 else "g-p"
             alt, leg = escape(item["alt"]), escape(item.get("leg", ""))
-            botoes.append(f'<button class="g-item {classe} reveal foto" type="button" style="--i:{i};--ar:{ar:.4f}" data-legenda="{leg}" '
-                          f'aria-label="Abrir em tela cheia: {alt}"><img src="{img}" width="{w}" height="{h}" alt="{alt}" loading="lazy" decoding="async"></button>')
-        saida.append('      <div class="linha">\n        ' + "\n        ".join(botoes) + "\n      </div>")
-    return "\n".join(saida)
+            botoes.append(f'<button class="g-item {classe} reveal foto" type="button" data-site-item style="--i:{i};--ar:{ar:.4f}" '
+                          f'aria-label="Abrir em tela cheia: {alt}"><img data-site-campo="foto" src="{img}" width="{w}" height="{h}" alt="{alt}" '
+                          f'loading="lazy" decoding="async"><span class="g-leg" data-site-campo="legenda">{leg}</span></button>')
+    return "      " + "\n      ".join(botoes)
 
 html = re.sub(r"\{\{galeria:([a-z0-9_-]+)\}\}", lambda m: galeria(m.group(1)), modelo)
 html = re.sub(r"\{\{n:([a-z0-9_-]+)\}\}", lambda m: str(len(cfg["galerias"][m.group(1)])), html)
