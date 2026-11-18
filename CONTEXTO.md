@@ -197,6 +197,11 @@ cliente, ajustes, repositório, hospedagem, domínio, entrega). Abaixo, o que é
 - **Vereadores** (10/11/2026, pedido do Kaue): nicho novo, indicação do Dr. Marcos (vereador Mateuzinho Silva, de
   Itapevi). Pesquisa, regras da lei eleitoral e da LGPD, base da landing e propostas além do site em
   `docs/nichos/vereadores.md`. Site de mandato nunca pede voto nem mostra número de urna fora da campanha.
+- **Meu site nos exemplos** (18/11/2026, pedido do Kaue: "as pessoas perguntam muito como atualizar o site depois"):
+  `/exemplos/meu-site-fotografia` é o Meu site **de verdade** (o código do painel, com um banco de mentira no navegador)
+  editando o site de exemplo do Estúdio Ciranda (`/exemplos/site-fotografia`, fictício, fotos livres do Unsplash). Em
+  `/exemplos/fotografia`, o card "Meu site" (vem em todo plano, não conta entre os 2 módulos), a linha no plano e a
+  pergunta "como eu atualizo?". Como refazer e o aviso para quem mexe no painel: README, "Exemplos de sistema".
 - **Vídeo "Site e painel" para fotógrafas** (09/11/2026, pedido do Kaue): 36 s para mandar no WhatsApp, em
   `/gravacao/exemplo-site-painel-fotografia.mp4` (`instagram/reels-site-painel.html`). Mostra só o que o painel tem de verdade:
   o Meu site (mudar, salvar no rascunho, publicar), a agenda do estúdio, a campanha de Natal, clientes e entregas, contratos,

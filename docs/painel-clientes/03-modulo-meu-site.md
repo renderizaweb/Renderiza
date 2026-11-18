@@ -289,6 +289,16 @@ Em 30/10/2026 a produção tem uma conta só, "Espaço de teste" (código `espac
 `contato@renderizaweb.com.br`), com o Meu site ligado e sem site: a Renderiza deixou o teste do Meu site na produção
 para depois das próximas missões.
 
+## Nos exemplos: o Meu site de verdade com um estúdio fictício (18/11/2026)
+
+`/exemplos/meu-site-fotografia` (link em `/exemplos/fotografia`) abre **este módulo de verdade**, com a casca, para quem
+ainda não é cliente testar: o código é uma cópia de `painel-clientes/src` em `exemplos/painel/src` (só o que a casca e o
+Meu site importam), o banco é de mentira, no navegador (`exemplos/painel/banco-de-exemplo.js`, com as regras de
+`sites_versoes`), e o site é o site de exemplo do Estúdio Ciranda (`/exemplos/site-fotografia`, com as marcações do
+gerador de fotografia). O que a pessoa muda e publica fica no navegador dela (o site do exemplo lê de lá; a foto enviada
+sai por um service worker). **Quem mudar um arquivo copiado roda `node ferramentas/exemplos/painel-de-verdade.mjs`**
+(aviso de 18/11 em `missoes.md`); o `test/meu-site-exemplo.test.mjs` confere a cópia e o caminho inteiro.
+
 ## Indicadores: as visitas do site (16/11/2026)
 
 A aba **Indicadores** do Meu site mostra, dos últimos 7, 30 ou 90 dias: as **visitas** (cada página aberta), os

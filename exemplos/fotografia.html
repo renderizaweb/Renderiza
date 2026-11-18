@@ -129,6 +129,8 @@ h2{font-size:clamp(30px,3.6vw,42px);line-height:1.08;letter-spacing:-.035em;font
 .mod-sel[aria-pressed=true] .mod-ok{background:var(--escuro);border-color:var(--escuro)}
 .mod-sel[aria-pressed=true] em.inc{background:var(--ok-claro);color:var(--ok)}
 .mod-sel[aria-pressed=true] em.ext{background:var(--ouro-claro);color:#7a5a17}
+.mod-sel.sempre{cursor:default;border-color:var(--escuro);background:#fbfaf7}.mod-sel.sempre .mod-ic{background:var(--escuro);color:#fff}.mod-sel.sempre em{background:var(--ok-claro);color:var(--ok)}.mod-sel.sempre .mod-ok{background:var(--escuro);border-color:var(--escuro)}
+.modulo .selo{align-self:flex-start;font-size:12px;font-weight:700;padding:3px 9px;border-radius:7px;background:var(--ok-claro);color:var(--ok)}
 .mod-info{position:absolute;top:8px;right:8px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:var(--suave);transition:background .15s,color .15s}
 .mod-info:hover,.mod-info:focus-visible{background:var(--fundo-2);color:var(--tinta)}
 .aviso-site{display:flex;gap:10px;align-items:flex-start;margin-top:12px;padding:12px 14px;border-radius:14px;background:var(--ouro-claro);color:#4c3d18;font-size:14.5px}
@@ -257,7 +259,7 @@ footer a{font-weight:600}
         <div class="seta" aria-hidden="true"><div><svg class="i" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>o pedido<br>de horário chega</div></div>
         <div class="lado"><small>O painel</small><b>O que você usa</b><span>O lugar onde você organiza o trabalho: agenda, clientes, contratos, sinais e entregas. Só entra quem tem senha.</span></div>
       </div>
-      <p class="juntos"><b>Os dois se conversam:</b> quando a cliente escolhe um horário pelo site, a pré-reserva aparece no painel. A agenda online é a ponte: ela fica no site e manda os pedidos para o painel. E quem faz o site com a Renderiza não paga a montagem do painel.</p>
+      <p class="juntos"><b>Os dois se conversam:</b> quando a cliente escolhe um horário pelo site, a pré-reserva aparece no painel. A agenda online é a ponte: ela fica no site e manda os pedidos para o painel. E pelo <a href="/exemplos/meu-site-fotografia">Meu site</a>, que vem em todo plano, você muda o próprio site pelo painel: um texto, um preço, uma foto. Quem faz o site com a Renderiza não paga a montagem do painel.</p>
     </div>
   </div>
 </section>
@@ -266,6 +268,8 @@ footer a{font-weight:600}
   <div class="cont">
     <div class="bloco-cab"><h2>Os módulos: <span>escolha o que você precisa</span></h2><p>O painel é dividido em partes, que a gente chama de módulos. Você escolhe quais quer usar. Veja cada um funcionando ou toque em Detalhes para saber o que ele inclui.</p></div>
     <div class="modulos">
+      <div class="modulo"><a href="/exemplos/meu-site-fotografia" tabindex="-1" aria-hidden="true"><figure><img src="/exemplos/img/f-t-meu-site.jpg" alt="Meu site: o preço do ensaio newborn mudado no painel e o site, ao lado, já mostrando" loading="lazy" width="1280" height="800"></figure></a>
+        <div class="txt"><span class="selo">Vem em todo plano</span><h3>Meu site</h3><p>Mude textos, preços e fotos do seu site pelo painel, quando quiser, e publique.</p><div class="links"><a class="ir" href="/exemplos/meu-site-fotografia">Testar agora →</a><button type="button" class="det" data-info="meu-site"><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>Detalhes</button></div></div></div>
       <div class="modulo"><a href="/exemplos/agenda-fotografia" tabindex="-1" aria-hidden="true"><figure><img src="/exemplos/img/f-t-agenda-online.jpg" alt="Agenda online: a cliente escolhe o ensaio, o dia e o horário" loading="lazy" width="1280" height="800"></figure></a>
         <div class="txt"><h3>Agenda online</h3><p>A cliente escolhe o ensaio e o horário pelo link da bio, a qualquer hora.</p><div class="links"><a class="ir" href="/exemplos/agenda-fotografia">Testar como cliente →</a><button type="button" class="det" data-info="agenda-online"><svg class="i" viewBox="0 0 24 24" style="width:16px;height:16px"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>Detalhes</button></div></div></div>
       <div class="modulo"><a href="/exemplos/painel-fotografia#campanha" tabindex="-1" aria-hidden="true"><figure><img src="/exemplos/img/f-t-campanha.jpg" alt="Campanha de Natal: os horários das mini sessões, com sinal pago, esperando o sinal e livres" loading="lazy" width="1280" height="800"></figure></a>
@@ -291,6 +295,7 @@ footer a{font-weight:600}
         <div class="grande"><b>R$ 49</b><span>por mês</span></div>
         <ul>
           <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>2 módulos à sua escolha</li>
+          <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>O Meu site, para mudar o seu site quando quiser (não conta entre os 2)</li>
           <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Até 5 pessoas (você, a assistente, quem edita), cada uma com a sua senha</li>
           <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Ajuda pelo WhatsApp quando precisar</li>
           <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Sem fidelidade: cancela quando quiser</li>
@@ -320,6 +325,7 @@ footer a{font-weight:600}
     <div class="bloco-cab"><h2>Perguntas <span>que todo mundo faz</span></h2></div>
     <div class="perguntas">
       <details><summary>Preciso ter site para usar o painel?</summary><p>Só para a agenda online, porque ela fica dentro do site e vem junto com o site da Renderiza. Os outros módulos funcionam sem site. E quem faz o site com a Renderiza não paga a montagem do painel.</p></details>
+      <details><summary>Depois que o site fica pronto, como eu atualizo?</summary><p>Pelo Meu site, que vem em todo plano do painel, sem custo a mais. Você muda um texto, um preço ou uma foto, vê o site mudando ao lado e publica: aparece no site em até 1 minuto. <a href="/exemplos/meu-site-fotografia">Teste aqui</a>. Se um dia cancelar o painel, o site continua no ar, com a versão que foi entregue.</p></details>
       <details><summary>Substitui a minha galeria de fotos?</summary><p>Não. O painel não guarda as fotos: ele guarda o link da galeria que você já usa e mostra em que pé está cada entrega (escolhendo as fotos, em edição, entregue) e o prazo.</p></details>
       <details><summary>Funciona para mini sessão de Natal?</summary><p>Funciona. Você diz os dias e os horários, a agenda online mostra quantos restam, e a cliente reserva sozinha. O horário fica separado até o sinal, e quem não conseguiu vai para a lista de espera.</p></details>
       <details><summary>O painel recebe o Pix?</summary><p>Não. O Pix continua caindo direto na sua conta. No painel você marca que o sinal chegou, e ele mostra o que falta receber e quem atrasou.</p></details>
@@ -348,6 +354,26 @@ footer a{font-weight:600}
   const ZAP = "5511988697165";
   // Os módulos: o que aparece na conta e na janela de Detalhes (o que faz e o que é bom saber).
   const MODULOS = [
+ {
+  "id": "meu-site",
+  "nome": "Meu site",
+  "curto": "Você muda o seu site",
+  "resumo": "Depois da entrega, o site continua com você: pelo painel você muda textos, preços e fotos e publica, sem pedir para ninguém.",
+  "faz": [
+   "Muda os textos, os botões, os preços dos ensaios e o contato",
+   "Troca fotos, mexe nas galerias e mostra ou esconde partes do site",
+   "Vê o site mudando ao lado enquanto mexe; só vai ao ar quando você publica"
+  ],
+  "saber": [
+   "Vem em todo plano: não conta entre os 2 módulos e não muda a mensalidade.",
+   "É para o site feito pela Renderiza. Se um dia cancelar o painel, o site continua no ar com a versão que foi entregue."
+  ],
+  "link": "/exemplos/meu-site-fotografia",
+  "linktxt": "Testar agora",
+  "site": false,
+  "sempre": true,
+  "icone": "<rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"2.5\"/><path d=\"M3 8.5h18M7.5 13.5l2.5 2.5 2.5-2.5M16 12v5\"/>"
+ },
  {
   "id": "agenda-online",
   "nome": "Agenda online",
@@ -473,6 +499,8 @@ footer a{font-weight:600}
 
   function desenhar() {
     $("#mods").innerHTML = MODULOS.map(m => {
+      if (m.sempre) return `<div class="mod"><div class="mod-sel sempre"><span class="mod-ic">${svg(m.icone)}</span><span class="mod-txt"><b>${esc(m.nome)}</b><small>${esc(m.curto)}</small><em>em todo plano</em></span><span class="mod-ok">${svg(OK, 13)}</span></div>
+        <button type="button" class="mod-info" data-info="${m.id}" aria-label="O que é ${esc(m.nome)}">${svg(INFO, 18)}</button></div>`;
       const [cl, txt] = etiqueta(m.id);
       return `<div class="mod"><button type="button" class="mod-sel" data-mod="${m.id}" aria-pressed="${marcados.includes(m.id)}"><span class="mod-ic">${svg(m.icone)}</span><span class="mod-txt"><b>${esc(m.nome)}</b><small>${esc(m.curto)}</small><em class="${cl}">${txt}</em></span><span class="mod-ok">${svg(OK, 13)}</span></button>
         <button type="button" class="mod-info" data-info="${m.id}" aria-label="O que é ${esc(m.nome)}">${svg(INFO, 18)}</button></div>`;
@@ -486,10 +514,10 @@ footer a{font-weight:600}
       : `por mês, com até ${PRECO.acessos} pessoas da equipe`;
     $("#aviso-site").hidden = !marcados.some(id => mod(id).site);
     const nomes = marcados.map(id => mod(id).nome);
-    const texto = `Oi! Vi o Painel Renderiza para fotografia e quero começar com ${nomes.length ? nomes.join(", ") : "os módulos que fizerem sentido"} (${reais(t)} por mês).`;
+    const texto = `Oi! Vi o Painel Renderiza para fotografia e quero começar com ${nomes.length ? nomes.join(", ") : "os módulos que fizerem sentido"} (${reais(t)} por mês), com o Meu site.`;
     $("#zap").href = "https://wa.me/" + ZAP + "?text=" + encodeURIComponent(texto);
   }
-  function alternar(id) { marcados = marcados.includes(id) ? marcados.filter(x => x !== id) : [...marcados, id]; desenhar(); }
+  function alternar(id) { if (mod(id).sempre) return; marcados = marcados.includes(id) ? marcados.filter(x => x !== id) : [...marcados, id]; desenhar(); }
 
   /* janela de detalhes */
   const veu = $("#info-veu"), janela = $("#info");
@@ -497,11 +525,11 @@ footer a{font-weight:600}
   function abrirInfo(id, origem) {
     const m = mod(id), dentro = marcados.includes(id);
     janela.innerHTML = `<button type="button" class="fechar" aria-label="Fechar">${svg('<path d="M18 6 6 18M6 6l12 12"/>')}</button>
-      <div class="info-topo"><span class="mod-ic">${svg(m.icone)}</span><div><h3 id="info-nome">${esc(m.nome)}</h3><small>${dentro ? "Está no seu plano" : "Módulo do Painel Renderiza"}</small></div></div>
+      <div class="info-topo"><span class="mod-ic">${svg(m.icone)}</span><div><h3 id="info-nome">${esc(m.nome)}</h3><small>${m.sempre ? "Vem em todo plano" : dentro ? "Está no seu plano" : "Módulo do Painel Renderiza"}</small></div></div>
       <p class="resumo-mod">${esc(m.resumo)}</p>
       <h4>O que dá para fazer</h4><ul>${m.faz.map(x => `<li>${svg(OK, 18)}<span>${esc(x)}</span></li>`).join("")}</ul>
       <div class="saber"><h4>Bom saber</h4><ul>${m.saber.map(x => `<li><span>${esc(x)}</span></li>`).join("")}</ul></div>
-      <div class="acoes-info"><a class="botao claro" href="${m.link}">${esc(m.linktxt)}</a><button type="button" class="botao escuro" data-alternar="${m.id}">${dentro ? "Tirar do plano" : "Colocar no plano"}</button></div>`;
+      <div class="acoes-info"><a class="botao claro" href="${m.link}">${esc(m.linktxt)}</a>${m.sempre ? "" : `<button type="button" class="botao escuro" data-alternar="${m.id}">${dentro ? "Tirar do plano" : "Colocar no plano"}</button>`}</div>`;
     voltarPara = origem || null;
     window.rzVisita("viu_detalhes", { m: id }, id);
     veu.classList.add("aberto"); document.body.style.overflow = "hidden";

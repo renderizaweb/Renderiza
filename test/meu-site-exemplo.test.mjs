@@ -10,26 +10,15 @@ import path from "node:path";
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import { diferencas } from "../ferramentas/exemplos/painel-de-verdade.mjs";
+import { ORIGEM, arquivo, servirComoRenderiza } from "../ferramentas/exemplos/servir.mjs";
 
 const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SITE = path.join(RAIZ, "exemplos", "site-fotografia");
-const ORIGEM = "https://www.renderizaweb.com.br";
 const lib = (() => { const m = { exports: {} }; new Function("module", fs.readFileSync(path.join(RAIZ, "ferramentas/meu-site/meu-site.js"), "utf8"))(m); return m.exports; })();
 
 let playwright = null;
 try { playwright = createRequire(import.meta.url)("playwright"); } catch { /* sem navegador */ }
 const comNavegador = { skip: playwright ? false : "sem o Playwright" };
-
-const TIPO = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".jpg": "image/jpeg", ".png": "image/png", ".svg": "image/svg+xml", ".woff2": "font/woff2", ".webp": "image/webp" };
-/** O arquivo que a Renderiza serve num caminho (como o montar-site.mjs e o vercel.json: cleanUrls e o rewrite das miniaturas). */
-function arquivo(caminho) {
-  const p = caminho.replace(/^\/exemplos\/site-fotografia\/exemplos\/site-fotografia\//, "/exemplos/site-fotografia/");
-  if (p.startsWith("/fontes/") || p === "/favicon.svg") return path.join(RAIZ, "site", "estatico", p);
-  let f = path.join(RAIZ, p);
-  if (fs.existsSync(f) && fs.statSync(f).isDirectory()) f = path.join(f, "index.html");
-  if (!fs.existsSync(f) && fs.existsSync(f + ".html")) f += ".html";
-  return f;
-}
 
 let navegador;
 before(async () => { if (playwright) navegador = await playwright.chromium.launch(); });
@@ -37,18 +26,8 @@ after(async () => { await navegador?.close(); });
 
 async function abrir(caminho = "/exemplos/meu-site-fotografia") {
   const ctx = await navegador.newContext({ viewport: { width: 1280, height: 860 } });
-  const erros = [], faltou = [];
-  await ctx.route("**/*", rota => {
-    const u = new URL(rota.request().url());
-    if (u.origin === ORIGEM) {
-      if (u.pathname.startsWith("/api/visita")) return rota.fulfill({ status: 204, body: "" });
-      const f = arquivo(u.pathname);
-      if (!f.startsWith(RAIZ) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { faltou.push(u.pathname); return rota.fulfill({ status: 404, body: "" }); }
-      return rota.fulfill({ status: 200, contentType: TIPO[path.extname(f)] || "application/octet-stream", body: fs.readFileSync(f) });
-    }
-    if (/fonts\.(googleapis|gstatic)\.com$/.test(u.hostname)) return rota.fulfill({ status: 200, contentType: "text/css", body: "" });
-    return rota.abort();
-  });
+  const erros = [];
+  const faltou = await servirComoRenderiza(ctx);
   const pagina = await ctx.newPage();
   pagina.on("pageerror", e => erros.push(e.message));
   ctx.on("page", p => p.on("pageerror", e => erros.push(e.message)));
@@ -124,4 +103,20 @@ test("no exemplo, a pessoa põe o preço, publica e o site mostra; a foto trocad
     assert.deepEqual(erros, []);
     assert.deepEqual(faltou.filter(f => !f.startsWith("/api/publico/imagens/")), []);
   } finally { await ctx.close(); }
+});
+
+test("a página /exemplos/fotografia mostra o Meu site: o card, os Detalhes, o plano e a pergunta", () => {
+  const html = fs.readFileSync(path.join(RAIZ, "exemplos", "fotografia.html"), "utf8");
+  assert.match(html, /<span class="selo">Vem em todo plano<\/span><h3>Meu site<\/h3>/);
+  assert.match(html, /<img src="\/exemplos\/img\/f-t-meu-site\.jpg"/);
+  assert.ok(fs.existsSync(path.join(RAIZ, "exemplos", "img", "f-t-meu-site.jpg")) && fs.existsSync(path.join(RAIZ, "exemplos", "img", "f-meu-site.jpg")));
+  assert.match(html, /"id": "meu-site"[\s\S]*?"saber": \[[^\]]*não conta entre os 2 módulos e não muda a mensalidade[^\]]*o site continua no ar com a versão que foi entregue/);
+  assert.match(html, /"sempre": true/);
+  assert.match(html, /O Meu site, para mudar o seu site quando quiser \(não conta entre os 2\)/);
+  assert.match(html, /<summary>Depois que o site fica pronto, como eu atualizo\?<\/summary>/);
+  const pagina = fs.readFileSync(path.join(RAIZ, "exemplos", "meu-site-fotografia.html"), "utf8");
+  // a tabela visitas só aceita exemplos, painel-eventos, agenda-online e demo: conta como o exemplo do painel
+  assert.match(pagina, /<script src="visitas\.js" data-pagina="painel-eventos"><\/script>/);
+  assert.match(pagina, /<meta name="robots" content="noindex, nofollow">/);
+  assert.match(pagina, /fict[íi]cio/i);
 });

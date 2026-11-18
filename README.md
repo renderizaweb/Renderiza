@@ -113,6 +113,15 @@ inventado, a **Villa Alecrim**:
   campanha). No banco, contam como as páginas de eventos (`exemplos`, `painel-eventos`, `agenda-online`), porque a
   tabela `visitas` só aceita essas. Nos leads com segmento Fotografia, o link do card é
   `renderizaweb.com.br/exemplos/fotografia?c=<código>`. As imagens `exemplos/img/f-*.jpg` são capturas das páginas.
+- **Meu site de exemplo (18/11/2026):** `/exemplos/meu-site-fotografia` é o **Meu site de verdade** (a casca e o módulo do
+  Painel Renderiza, cópia de `painel-clientes/src` em `exemplos/painel/src`, conferida por teste) sobre um banco de mentira
+  no navegador (`exemplos/painel/banco-de-exemplo.js`, dados em `exemplos/painel/dados-ciranda.js`), editando o **site de
+  exemplo do Estúdio Ciranda** (`/exemplos/site-fotografia`, feito pelo `gerar-fotografia.py` com as marcações do Meu site,
+  fotos livres do Unsplash, selo de exemplo). Mudar, publicar e trocar foto funcionam e ficam só no navegador de quem
+  testa (a foto, pelo `exemplos/sw-meu-site.js`). Em `/exemplos/fotografia`: o card "Meu site" (vem em todo plano), a
+  linha no plano, os Detalhes e a pergunta "como eu atualizo?". Refazer: `node ferramentas/exemplos/site-fotografia.mjs`
+  (o site), `node ferramentas/exemplos/painel-de-verdade.mjs` (a cópia do painel, sempre que ele mudar) e
+  `node ferramentas/exemplos/capturas-meu-site.mjs` (as imagens). Teste: `test/meu-site-exemplo.test.mjs`.
 - **Link por lead e quem abriu (22/10/2026):** cada lead tem um código curto (`leads.codigo`, 4 letras, nasce
   sozinho). Nos leads de eventos, o painel mostra o link `renderizaweb.com.br/exemplos?c=<código>` (botão
   **Copiar link do painel** no topo do lead e a seção **Painel Renderiza**). Quem abre esse link é contado:
