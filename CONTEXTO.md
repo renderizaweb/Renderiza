@@ -204,6 +204,13 @@ cliente, ajustes, repositório, hospedagem, domínio, entrega). Abaixo, o que é
   pergunta "como eu atualizo?". Como refazer e o aviso para quem mexe no painel: README, "Exemplos de sistema".
   O vídeo narrado do mesmo pedido (65 s, voz Antonio, telas capturadas do Meu site de verdade): `instagram/reels-meu-site.html`,
   no ar em `/gravacao/exemplo-meu-site.mp4` (720p, para o WhatsApp); a legenda para postar está em `instagram/legendas.md`.
+- **Planilha financeira sob medida: Vivian Piacenti** (18/11/2026, pedido do Kaue): ela recusou o Painel Renderiza e pediu uma
+  planilha do Excel que soma sozinha por mês (fixos pessoais, estúdio por tipo, foto extra, Uber/Shopee/Mercado Livre,
+  aniversários e ensaios). Feita e conferida no LibreOffice (`ferramentas/planilha/gerar-planilha.py`, a partir do
+  `demos/vivian-piacenti-fotografia/planilha.json`); a proposta, com a versão de teste e a dela liberada por código depois do
+  Pix, vai ao ar em `/proposta/vivian-piacenti-fotografia` (`ferramentas/planilha/gerar-pagina.mjs`). Valor sugerido R$ 120,
+  valor único (conferir com o Kaue antes de mandar). A pesquisa, as decisões, o passo a passo e a mensagem para ela:
+  `docs/produtos/planilha-financeira.md`. O código da planilha dela nunca vai para o git.
 - **Vídeo "Site e painel" para fotógrafas** (09/11/2026, pedido do Kaue): 36 s para mandar no WhatsApp, em
   `/gravacao/exemplo-site-painel-fotografia.mp4` (`instagram/reels-site-painel.html`). Mostra só o que o painel tem de verdade:
   o Meu site (mudar, salvar no rascunho, publicar), a agenda do estúdio, a campanha de Natal, clientes e entregas, contratos,

@@ -1,0 +1,80 @@
+{
+  "_sobre": "Planilha financeira do Estúdio Vivian Piacenti (pedido de 18/11/2026). Gerar: python3 -I ferramentas/planilha/gerar-planilha.py demos/vivian-piacenti-fotografia/planilha.json. Só nomes de categoria aqui, nunca valores dela.",
+  "nome": "Estúdio Vivian Piacenti",
+  "arquivo": "Planilha-Estudio-Vivian-Piacenti",
+  "cores": {
+    "acento": "#9b4f63",
+    "acento_escuro": "#7e3d4f",
+    "rosa": "#d4a1a6",
+    "areia": "#f4ece9",
+    "tinta": "#2f2627"
+  },
+  "tipos_de_ensaio": [
+    "Aniversário",
+    "Smash the cake",
+    "Acompanhamento mensal",
+    "Bebê / newborn",
+    "Gestante",
+    "Feminino",
+    "Família",
+    "Natal",
+    "Páscoa / Dia das Mães",
+    "Ensaio externo",
+    "Outros ensaios"
+  ],
+  "gastos_do_estudio": [
+    "Aluguel",
+    "Luz do estúdio",
+    "Internet e telefone",
+    "MEI (DAS)",
+    "Bexigas e balões",
+    "Cenários e decoração",
+    "Figurinos e acessórios",
+    "Bolo e doces (smash)",
+    "Equipamento e manutenção",
+    "Impressão e álbuns",
+    "Programas e assinaturas",
+    "Divulgação e anúncios",
+    "Ajudante / assistente",
+    "Outros do estúdio"
+  ],
+  "gastos_do_mes": [
+    "Uber / 99",
+    "Shopee",
+    "Mercado Livre",
+    "Mercado",
+    "iFood e delivery",
+    "Farmácia e saúde",
+    "Roupas e beleza",
+    "Lazer e passeios",
+    "Presentes",
+    "Outros"
+  ],
+  "como_pagou": [
+    "Pix",
+    "Débito",
+    "Crédito",
+    "Dinheiro",
+    "Boleto"
+  ],
+  "fixos_pessoais": [
+    "Colégio",
+    "Condomínio",
+    "Energia",
+    "Internet",
+    "Gás",
+    "Celular",
+    "Seguro de vida",
+    "Convênio odontológico"
+  ],
+  "pagina": {
+    "_sobre": "Textos da proposta em /proposta/vivian-piacenti-fotografia (ferramentas/planilha/gerar-pagina.mjs). Valor e o que vem junto: confirmar com o Kaue antes de publicar.",
+    "valor": "R$ 120",
+    "o_que_vem": [
+      "A sua planilha, limpa, com as suas contas fixas e os seus tipos de ensaio",
+      "Os ajustes que faltarem depois do teste (uma conta a mais, um tipo de gasto com outro nome…), antes da entrega",
+      "Funciona no Excel e no Google Planilhas, no computador e no celular"
+    ],
+    "online": ""
+  }
+}

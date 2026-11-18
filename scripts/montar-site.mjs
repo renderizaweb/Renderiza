@@ -152,7 +152,12 @@ export function arquivosPublicados() {
   // Propostas comerciais para um lead (propostas/<lead>.html → /proposta/<lead>): fora de /demo, então não saem do ar
   // quando a demo vence. Cada uma traz o próprio contador (data-sub="proposta") e o noindex.
   const propostas = join(RAIZ, "propostas");
-  if (existsSync(propostas)) for (const f of readdirSync(propostas)) if (f.endsWith(".html")) lista.push([join("proposta", f), join(propostas, f)]);
+  if (existsSync(propostas)) for (const e of readdirSync(propostas, { withFileTypes: true })) {
+    if (e.isFile() && e.name.endsWith(".html")) lista.push([join("proposta", e.name), join(propostas, e.name)]);
+    // Os arquivos de uma proposta (propostas/<lead>/: imagens, a planilha de teste e a cifrada da planilha financeira)
+    // vão para /proposta/<lead>/<arquivo>, ao lado da página: ela abre leve e baixa o resto só quando precisa.
+    else if (e.isDirectory()) for (const f of arquivosDe(join(propostas, e.name))) if (/\.(webp|jpg|png|svg|xlsx|bin)$/.test(f)) lista.push([join("proposta", e.name, f), join(propostas, e.name, f)]);
+  }
   // Contratos para assinar online (contratos/<lead>.html → /contrato/<lead>): o aceite grava no Supabase pela função
   // aceitar_termo_online (supabase/termos-online.sql), com a impressão digital do texto, o IP e o aparelho.
   const contratos = join(RAIZ, "contratos");

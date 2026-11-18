@@ -14,6 +14,7 @@ Um site só, publicado na Vercel:
 | `/flyer/<lead>.png` | Flyer de Stories (1080 × 1920) que vai de cortesia para a ótica; o painel baixa | quem tiver o link |
 | `/gravacao/<lead>.mp4` | Vídeo de apresentação da demo (MP4 vertical, ~30 s) para mandar no WhatsApp; o painel baixa | quem tiver o link |
 | `/exemplos` | Exemplos de sistema para mandar ao cliente (dados fictícios): painel de gestão e agenda online de um espaço de eventos, com vídeo | quem tiver o link |
+| `/proposta/<lead>` | Proposta comercial (`propostas/<lead>.html`), fora de `/demo` (não vence); os arquivos dela ficam em `propostas/<lead>/` (ex.: a planilha financeira da Vivian, `docs/produtos/planilha-financeira.md`) | quem tiver o link |
 
 - `site/`: o site público. Contatos, foto e trabalhos ficam em [`site/config.mjs`](site/config.mjs);
   como editar: [`site/README.md`](site/README.md).
