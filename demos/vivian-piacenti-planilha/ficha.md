@@ -25,7 +25,7 @@
 ## Conferir antes de mandar
 - O valor (R$ 120) e a frase "A planilha é sua, já com as suas contas" (no `planilha.json`, `pagina`).
 - Abrir a versão de teste no Excel e no Google Planilhas (aqui só no LibreOffice) e a página num celular.
-- No painel: a demo vale 7 dias a partir de 18/11; ao mandar o link, usar "7 dias a partir de hoje". Depois do Pix, "No ar
+- No painel: a demo está no ar até 25/11/2026; ao mandar o link, usar "7 dias a partir de hoje". Depois do Pix, "No ar
   sem prazo" (ela baixa a dela por esta página).
 - Depois do Pix: os nomes das contas como ela usa (Colégio da Isa? a Emily é da casa ou do estúdio?) e os tipos de ensaio
   que ela vende de verdade.

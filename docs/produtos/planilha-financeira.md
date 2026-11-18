@@ -130,11 +130,13 @@ Fontes: [Microsoft, incorporar pasta de trabalho do OneDrive](https://support.mi
    do Início no Google Planilhas; a data em português (com o Excel em inglês, "05/11" vira 11 de maio).
 2. **Publicar:** a demo vai ao ar quando o branch chegar na `main` (a Vercel publica sozinha).
 3. **O lead no painel:** `vivian-piacenti-planilha`, separado do lead do site (`vivian-piacenti-fotografia`, que não muda).
-   O insert está pronto em `rascunhos/planilha/vivian-piacenti-planilha/lead.sql` (fora do git: tem a conversa): Prontas
-   para trabalhar, `link_demo = /demo/vivian-piacenti-planilha`, R$ 120 em valor potencial, tag `planilha`, interesse
+   **Gravado em 18/11/2026** (o insert ficou em `rascunhos/planilha/vivian-piacenti-planilha/lead.sql`, fora do git: tem a
+   conversa). Observações começam com "SOLICITOU UMA PLANILHA FINANCEIRA PERSONALIZADA", e o card do site ganhou uma linha
+   apontando para o lead novo. Prontas para trabalhar, `link_demo = /demo/vivian-piacenti-planilha`, R$ 120 em valor potencial, tag `planilha`, interesse
    "Interessado" (ela pediu a planilha), o bloco `[WhatsApp · …]` nas Observações, a mensagem abaixo no "Copiar mensagem" e
-   um checklist próprio (mandar o link, perguntar do teste, gerar a dela, entregar e deixar sem prazo). O banco cria sozinho
-   o prazo de 7 dias; ao mandar o link, use "7 dias a partir de hoje". Atenção: quando o card for para Em andamento, o painel
+   um checklist próprio (mandar o link, perguntar do teste, gerar a dela, entregar e deixar sem prazo). O banco criou sozinho
+   o prazo (no ar até 25/11/2026); ao mandar o link, use "7 dias a partir de hoje". Quando ela abre, baixa o teste ou digita
+   o código, aparece na tela Atividade e no card. Atenção: quando o card for para Em andamento, o painel
    registra um primeiro contato, que entra no placar do ciclo como contato novo.
 4. **Mandar para ela** (sugestão, um link só; é a mesma do "Copiar mensagem" do card):
    > Oi, Vivian! Fiz a sua planilha do jeito que você pediu: ensaios e aniversários, fotos extras, os gastos do estúdio por

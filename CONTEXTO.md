@@ -209,8 +209,8 @@ cliente, ajustes, repositório, hospedagem, domínio, entrega). Abaixo, o que é
   aniversários e ensaios). Feita e conferida no LibreOffice (`ferramentas/planilha/gerar-planilha.py`, a partir do
   `demos/vivian-piacenti-planilha/planilha.json`). A proposta é uma demo como as outras, `/demo/vivian-piacenti-planilha`
   (`ferramentas/planilha/gerar-pagina.mjs`), com a versão de teste e a dela liberada por código depois do Pix, e um **lead
-  próprio**, `vivian-piacenti-planilha`, separado do lead do site (o insert está em `rascunhos/`, ainda não gravado no banco
-  em 18/11/2026). Valor sugerido R$ 120, valor único (conferir com o Kaue antes de mandar). A pesquisa, as decisões, o passo a passo e a mensagem para ela:
+  próprio**, `vivian-piacenti-planilha`, separado do lead do site (gravado em 18/11/2026, a pedido da sócia: "quero saber
+  que ela acessou"; o card do site ganhou uma linha apontando para ele). Valor sugerido R$ 120, valor único (conferir com o Kaue antes de mandar). A pesquisa, as decisões, o passo a passo e a mensagem para ela:
   `docs/produtos/planilha-financeira.md`. O código da planilha dela nunca vai para o git.
 - **Vídeo "Site e painel" para fotógrafas** (09/11/2026, pedido do Kaue): 36 s para mandar no WhatsApp, em
   `/gravacao/exemplo-site-painel-fotografia.mp4` (`instagram/reels-site-painel.html`). Mostra só o que o painel tem de verdade:
