@@ -284,8 +284,28 @@ html:not(.js) .faixa-rola{-webkit-mask-image:none;mask-image:none;padding-inline
 .passos li{counter-increment:p;padding:20px 0 0;border-top:1px solid #ffffff26;color:#cfc4ba;font-size:.96rem}
 .passos li::before{content:counter(p);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;border:1px solid #e2b9a4;color:#e9b8a2;font-family:var(--serif);font-size:1.1rem;margin-bottom:12px}
 .passos b{display:block;color:#fff;font-weight:500;margin-bottom:2px}
+/* "Sua data" ligada ao Painel Renderiza (o virar-site põe window.RZ_AGENDA_PAINEL): os turnos livres do dia, o contato e o pedido */
+.consulta [hidden]{display:none!important}
+.ag-bloco{display:grid;gap:12px;border:0;margin:0;padding:0;min-width:0}
+.ag-bloco .rotulo{margin:0}
+.campos.ag-bloco{gap:18px}
+.chip input:disabled{cursor:not-allowed}.chip input:disabled+span{opacity:.42;text-decoration:line-through;text-decoration-thickness:1px}
+.chip small{margin-left:8px;font-size:.78rem;opacity:.75;letter-spacing:.02em}.chip input:checked+span small{opacity:.8}
+.ag-aviso{margin:0;font-size:.9rem;color:#e2d6cb}.ag-aviso:empty{display:none}
+.ag-perto{display:flex;flex-wrap:wrap;gap:8px}
+.ag-perto button{min-height:40px;padding:6px 14px;border-radius:999px;border:1px dashed #ffffff59;background:transparent;color:var(--claro);font:inherit;font-size:.86rem;cursor:pointer;transition:border-color .25s,background .25s}
+.ag-perto button:hover{border-color:#e9b8a2;background:#ffffff0d}.ag-perto button:focus-visible{outline:2px solid #e9b8a2;outline-offset:3px}
+.ag-isca{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
+.ag-acoes{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.consulta .botao.ag-secundario{background:transparent;border-color:#ffffff59;color:var(--claro)}.consulta .botao.ag-secundario:hover{background:#ffffff14;border-color:#fff;box-shadow:none}
+.consulta button.botao{font:inherit;font-weight:500;font-size:.92rem;letter-spacing:.06em;cursor:pointer}.consulta button.botao:disabled{opacity:.6;cursor:progress;transform:none}
+.ag-erro{margin:0;padding:12px 16px;border-radius:14px;background:#5a2a2a66;border:1px solid #e9b8a266;color:#fbe9e0!important;font-size:.92rem}
+.ag-pronto{margin:30px 0 0;padding:26px 26px 24px;border-radius:22px;background:#ffffff0f;border:1px solid #ffffff26;display:grid;gap:14px;justify-items:start}
+.ag-pronto h3{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,2.6vw,1.9rem);color:#fff}
+.ag-pronto p{margin:0}.ag-pronto .ag-quando{color:#fff!important;font-weight:500}
+.ag-pronto button.ag-outra{background:none;border:0;padding:0;color:#e9b8a2;font:inherit;font-size:.86rem;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
 @media(max-width:900px){.consulta-grid{grid-template-columns:1fr}.passos{grid-template-columns:1fr}}
-@media(max-width:520px){.campos{grid-template-columns:1fr}.consulta .botao{width:100%}.chip span{padding:9px 15px}}
+@media(max-width:520px){.campos{grid-template-columns:1fr}.consulta .botao{width:100%}.chip span{padding:9px 15px}.ag-acoes{gap:12px}.ag-pronto{padding:22px 20px}}
 
 /* contato */
 .contato-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,6vw,96px);align-items:center}
@@ -432,7 +452,7 @@ html:not(.js) .faixa-rola{-webkit-mask-image:none;mask-image:none;padding-inline
     <div class="consulta-grid">
       <div class="reveal">
         <p class="eyebrow" data-site="data.eyebrow">Sua data</p><h2 id="data-titulo" data-site="data.titulo">Qual é a data <em>do seu evento?</em></h2>
-        <p style="margin-top:22px;max-width:520px" data-site="data.texto">Escolha o tipo de evento e o dia: a mensagem chega pronta no WhatsApp da Bia, e ela responde se a data está livre e com os valores.</p>
+        <p style="margin-top:22px;max-width:520px" data-site="data.texto">Escolha o tipo de evento e o dia. A Bia responde se a data está livre e com os valores.</p>
         <form class="consulta-form" data-consulta action="#" novalidate>
           <fieldset><legend class="rotulo">O que vai ser?</legend><div class="chips">
             <label class="chip"><input type="radio" name="tipo" value="aniversario" checked><span>Aniversário</span></label>
@@ -448,15 +468,32 @@ html:not(.js) .faixa-rola{-webkit-mask-image:none;mask-image:none;padding-inline
             <label class="campo"><span class="rotulo">Quando?</span><input type="date" name="dia"></label>
             <label class="campo"><span class="rotulo">Onde?</span><input type="text" name="onde" placeholder="Bairro ou cidade" autocomplete="off" maxlength="60"></label>
           </div>
-          <a class="botao" data-consulta-enviar href="https://wa.me/5511987191135" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#whats"/></svg>Consultar a data no WhatsApp</a>
+          <fieldset class="ag-bloco" data-ag-vagas hidden><legend class="rotulo" data-ag-rotulo>Qual turno?</legend><div class="chips" data-ag-opcoes></div><p class="ag-aviso" data-ag-aviso aria-live="polite"></p><div class="ag-perto" data-ag-perto hidden></div></fieldset>
+          <div class="campos ag-bloco" data-ag-contato hidden>
+            <label class="campo"><span class="rotulo">Seu nome</span><input type="text" name="nome" autocomplete="name" maxlength="120"></label>
+            <label class="campo"><span class="rotulo">Seu WhatsApp</span><input type="tel" name="whatsapp" autocomplete="tel" inputmode="tel" placeholder="(11) 90000-0000" maxlength="20"></label>
+          </div>
+          <input class="ag-isca" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <p class="ag-erro" data-ag-erro role="alert" hidden></p>
+          <div class="ag-acoes">
+            <button class="botao" type="submit" data-ag-pedir hidden>Pedir esta data</button>
+            <a class="botao" data-consulta-enviar href="https://wa.me/5511987191135" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#whats"/></svg><span data-ag-zap-rotulo>Consultar a data no WhatsApp</span></a>
+          </div>
         </form>
+        <div class="ag-pronto" data-ag-pronto role="status" tabindex="-1" hidden>
+          <h3>Pedido enviado!</h3>
+          <p class="ag-quando" data-ag-quando></p>
+          <p data-ag-separada>A data fica separada para você por 48 horas, enquanto a Bia confirma e manda os valores pelo WhatsApp.</p>
+          <a class="botao" data-ag-pronto-zap href="https://wa.me/5511987191135" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#whats"/></svg>Falar no WhatsApp</a>
+          <button class="ag-outra" type="button" data-ag-outra>Pedir outra data</button>
+        </div>
       </div>
       <div class="previa reveal" aria-label="Como a mensagem chega para a Bia">
-        <div class="previa-topo"><img src="{{img:simbolo}}" width="40" height="40" alt=""><div><b>Bia Maida Fotografia</b><span>WhatsApp</span></div></div>
-        <div class="previa-corpo"><p class="balao" data-consulta-previa aria-live="polite">Olá, Bia! Vi o seu site e queria saber mais sobre as fotos de um aniversário.</p><p class="previa-nota">A mensagem chega assim. Dá para mudar antes de enviar.</p></div>
+        <div class="previa-topo"><img src="{{img:simbolo}}" width="40" height="40" alt=""><div><b>Bia Maida Fotografia</b><span data-ag-canal>WhatsApp</span></div></div>
+        <div class="previa-corpo"><p class="balao" data-consulta-previa aria-live="polite">Olá, Bia! Vi o seu site e queria saber mais sobre as fotos de um aniversário.</p><p class="previa-nota" data-ag-nota>A mensagem chega assim. Dá para mudar antes de enviar.</p></div>
       </div>
     </div>
-    <ol class="passos reveal" data-site-lista="data.passos"><li data-site-item><b data-site-campo="titulo">Escolha o evento e a data</b><span data-site-campo="texto">O tipo de evento, o dia e o lugar.</span></li><li data-site-item><b data-site-campo="titulo">A mensagem vai pronta</b><span data-site-campo="texto">O WhatsApp da Bia abre com tudo escrito.</span></li><li data-site-item><b data-site-campo="titulo">A Bia confirma</b><span data-site-campo="texto">Ela responde com a disponibilidade e os valores.</span></li></ol>
+    <ol class="passos reveal" data-site-lista="data.passos"><li data-site-item><b data-site-campo="titulo">Escolha o evento e a data</b><span data-site-campo="texto">O tipo de evento, o dia e o lugar.</span></li><li data-site-item><b data-site-campo="titulo">O pedido vai pronto</b><span data-site-campo="texto">Pelo site ou pelo WhatsApp, com tudo escrito.</span></li><li data-site-item><b data-site-campo="titulo">A Bia confirma</b><span data-site-campo="texto">Ela responde com a disponibilidade e os valores.</span></li></ol>
   </div>
 </section>
 <section class="secao" id="contato" data-site-secao="contato" aria-labelledby="contato-titulo">
@@ -751,29 +788,226 @@ window.DEMO_CLIENT = {
   }
 
   // ---------- a data do evento: a mensagem do WhatsApp é escrita enquanto a pessoa escolhe ----------
+  // No site ligado ao Painel Renderiza (o virar-site põe window.RZ_AGENDA_PAINEL = { api, codigo }), a agenda online
+  // do painel diz os dias livres no jeito que a Bia escolheu lá (Configurações): por dia e turno (os turnos de cada
+  // dia) ou por horário (os horários de começo); o pedido vira pré-reserva no painel, com a data separada por 48 horas.
+  // O painel fora do ar, desligado ou sem resposta: tudo como sem ele, a mensagem pronta pelo WhatsApp.
   const form = $("[data-consulta]");
   if (form) {
     const dia = $("[name=dia]", form), onde = $("[name=onde]", form), enviar = $("[data-consulta-enviar]", form), previa = $("[data-consulta-previa]");
     const com = { aniversario: "um aniversário", cha: "um chá de bebê", casamento: "um casamento", batizado: "um batizado", empresa: "um evento de empresa", ensaio: "um ensaio externo", corporativo: "fotos corporativas", outro: "um evento" };
     const sem = { aniversario: "as fotos de um aniversário", cha: "as fotos de um chá de bebê", casamento: "as fotos de um casamento", batizado: "as fotos de um batizado", empresa: "as fotos de um evento de empresa", ensaio: "um ensaio externo", corporativo: "fotos corporativas", outro: "as fotos de um evento" };
     const semana = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado"];
-    try { dia.min = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo" }).format(new Date()); } catch (e) {}
+    const curto = ["dom", "seg", "ter", "qua", "qui", "sex", "sáb"];
+    const simples = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
+    // os tipos da página (o value de cada chip) pelo nome, para achar o jeito de escrever o tipo que vem do painel
+    const tipoDaPagina = {};
+    $$("[name=tipo]", form).forEach(i => { tipoDaPagina[simples(i.nextElementSibling.textContent)] = i.value; });
+    const hojeSP = () => { try { return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo" }).format(new Date()); } catch (e) { return new Date().toISOString().slice(0, 10); } };
+    const somar = (iso, n) => { const d = new Date(iso + "T12:00:00Z"); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };
+    const dow = iso => new Date(iso + "T12:00:00Z").getUTCDay();
+    const dataTexto = iso => iso.slice(8) + "/" + iso.slice(5, 7) + "/" + iso.slice(0, 4);
+    const horaTexto = h => Number(h.slice(0, 2)) + "h" + (h.slice(3, 5) === "00" ? "" : h.slice(3, 5));
+    dia.min = hojeSP();
+
+    // o painel (quando responde): P.modo "turno" ou "horario"; P.tipos do painel; P.dias[data] = vagas livres e ocupadas
+    const CFG = window.RZ_AGENDA_PAINEL || null;
+    const BASE = CFG && CFG.api && CFG.codigo ? CFG.api + "agenda/" + CFG.codigo : "";
+    // P.dias[fonte][data] = as vagas do dia; P.faixas[fonte] = os períodos que já vieram (dia sem vaga neles = não atende)
+    const P = { ligado: false, modo: "", tipos: [], dias: {}, faixas: {}, buscando: {}, vagas: [], comeco: Date.now() };
+    const escolhido = () => form.querySelector("[name=tipo]:checked");
+    const tipoAtual = () => { const i = escolhido(); return i ? { valor: i.value, nome: i.nextElementSibling.textContent.trim(), painel: i.dataset.painel || "" } : { valor: "outro", nome: "Outro", painel: "" }; };
+    const vagaAtual = () => { const i = form.querySelector("[name=vaga]:checked"); return i ? (P.vagas || []).find(v => v.chave === i.value) || null : null; };
+
     const texto = () => {
-      const tipo = (form.querySelector("[name=tipo]:checked") || {}).value || "outro";
+      const tipo = tipoAtual();
+      const chave = tipoDaPagina[simples(tipo.nome)] || (tipo.painel ? "" : tipo.valor);
+      const para = chave && com[chave] ? com[chave] : simples(tipo.nome) ? tipo.nome.toLowerCase() : com.outro;
+      const sobre = chave && sem[chave] ? sem[chave] : "as fotos de " + para;
       const lugar = onde.value.replace(/\s+/g, " ").trim();
       const em = lugar ? ", em " + lugar : "";
       const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dia.value);
-      if (!m) return "Olá, Bia! Vi o seu site e queria saber mais sobre " + sem[tipo] + em + ".";
-      return "Olá, Bia! Vi o seu site e queria saber se você tem agenda para " + com[tipo] + " no dia " + m[3] + "/" + m[2] + "/" + m[1] + " (" + semana[new Date(+m[1], m[2] - 1, +m[3]).getDay()] + ")" + em + ".";
+      if (!m) return "Olá, Bia! Vi o seu site e queria saber mais sobre " + sobre + em + ".";
+      const v = P.ligado ? vagaAtual() : null;
+      const quando = v ? ", " + v.frase : "";
+      return "Olá, Bia! Vi o seu site e queria saber se você tem agenda para " + para + " no dia " + m[3] + "/" + m[2] + "/" + m[1] + " (" + semana[new Date(+m[1], m[2] - 1, +m[3]).getDay()] + ")" + quando + em + ".";
     };
+    const numeroDaBia = () => String((window.DEMO_CLIENT || {}).phone || "").replace(/\D/g, ""); // o do Meu site, se ela trocar
     const atualizar = () => {
       const t = texto();
       if (previa.textContent !== t) { previa.textContent = t; previa.classList.remove("pulou"); void previa.offsetWidth; previa.classList.add("pulou"); }
-      const numero = String((window.DEMO_CLIENT || {}).phone || "").replace(/\D/g, ""); // o do Meu site, se ela trocar
-      enviar.href = "https://wa.me/" + numero + "?text=" + encodeURIComponent(t);
+      enviar.href = "https://wa.me/" + numeroDaBia() + "?text=" + encodeURIComponent(t);
     };
-    form.addEventListener("input", atualizar); form.addEventListener("change", atualizar);
-    form.addEventListener("submit", e => { e.preventDefault(); enviar.click(); });
+
+    // ---------- com o painel ----------
+    const vagasEl = $("[data-ag-vagas]", form), opcoes = $("[data-ag-opcoes]", form), aviso = $("[data-ag-aviso]", form), perto = $("[data-ag-perto]", form);
+    const contato = $("[data-ag-contato]", form), pedir = $("[data-ag-pedir]", form), erro = $("[data-ag-erro]", form);
+    const pronto = $("[data-ag-pronto]"), quandoEl = $("[data-ag-quando]"), prontoZap = $("[data-ag-pronto-zap]");
+    const perguntar = (q, ms) => new Promise(ok => {
+      let feito = false; const fim = v => { if (!feito) { feito = true; ok(v); } };
+      setTimeout(() => fim(null), ms || 6000);
+      fetch(BASE + "?" + q, { headers: { Accept: "application/json" } }).then(r => r.ok ? r.json() : null).then(fim, () => fim(null));
+    });
+    // as vagas de um dia, do jeito do painel: { chave, rotulo, extra, frase, livre, turno?, hora? }
+    const vagasDoDia = d => P.modo === "turno"
+      ? (d.turnos || []).map(x => ({ chave: "t:" + x.id, turno: x.id, pacote: x.pacote || "", livre: !!x.livre, rotulo: x.nome || horaTexto(x.inicio),
+          extra: x.fim ? horaTexto(x.inicio) + " às " + horaTexto(x.fim) : horaTexto(x.inicio),
+          frase: (x.nome ? x.nome.charAt(0).toLowerCase() + x.nome.slice(1) + " (" : "") + (x.fim ? horaTexto(x.inicio) + " às " + horaTexto(x.fim) : "às " + horaTexto(x.inicio)) + (x.nome ? ")" : "") }))
+      : (d.horarios || []).map(x => ({ chave: "h:" + x.hora, hora: x.hora, livre: !!x.livre, rotulo: horaTexto(x.hora), extra: "", frase: "às " + horaTexto(x.hora) }));
+    const guardar = (r, chave) => {
+      const m = P.dias[chave] = P.dias[chave] || {};
+      ((r && r.dias) || []).forEach(d => { m[d.data] = vagasDoDia(d); });
+      (P.faixas[chave] = P.faixas[chave] || []).push({ de: r.de, ate: r.ate });
+    };
+    // a fonte: no jeito por horário, os horários dependem do ensaio (a duração e os horários dele)
+    const fonte = () => P.modo === "horario" && tipoAtual().painel ? "s:" + tipoAtual().painel : "geral";
+    const periodo = de => "de=" + de + "&ate=" + somar(de, 61);
+    const carregarDe = (de, chave) => {
+      const k = chave + "|" + de; if (P.buscando[k]) return P.buscando[k];
+      const q = (P.modo === "horario" ? (chave.startsWith("s:") ? "servico=" + encodeURIComponent(chave.slice(2)) : "horarios=1") + "&" : "") + periodo(de);
+      P.buscando[k] = perguntar(q).then(r => { delete P.buscando[k]; if (r && Array.isArray(r.dias)) { guardar(r, chave); return true; } return false; });
+      return P.buscando[k];
+    };
+    const carregado = (iso, chave) => (P.faixas[chave] || []).some(f => f.de <= iso && iso <= f.ate);
+    const esquecer = (chave, iso) => { P.faixas[chave] = (P.faixas[chave] || []).filter(f => !(f.de <= iso && iso <= f.ate)); };
+    const livresDe = (iso, chave) => ((P.dias[chave] || {})[iso] || []).filter(v => v.livre && (!v.pacote || !tipoAtual().painel || v.pacote === tipoAtual().painel));
+
+    const mostrarErro = msg => { erro.textContent = msg || ""; erro.hidden = !msg; };
+    let pedido = 0; // para ignorar respostas velhas
+    const desenharVagas = () => {
+      if (!P.ligado) { atualizar(); return; }
+      const iso = dia.value, chave = fonte(), n = ++pedido;
+      perto.hidden = true; perto.replaceChildren();
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(iso) || iso < hojeSP()) {
+        vagasEl.hidden = true; P.vagas = []; opcoes.replaceChildren(); aviso.textContent = ""; atualizar(); return;
+      }
+      vagasEl.hidden = false;
+      if (!carregado(iso, chave)) {
+        P.vagas = []; opcoes.replaceChildren(); aviso.textContent = "Vendo a agenda da Bia…";
+        carregarDe(iso, chave).then(ok => {
+          if (n !== pedido) return;
+          if (ok) desenharVagas(); else aviso.textContent = "Não deu para ver a agenda agora. Mande pelo WhatsApp: a mensagem já vai pronta.";
+        });
+        atualizar(); return;
+      }
+      const todas = ((P.dias[chave] || {})[iso] || []).filter(v => !v.pacote || !tipoAtual().painel || v.pacote === tipoAtual().painel);
+      const antes = (vagaAtual() || {}).chave;
+      P.vagas = todas;
+      opcoes.replaceChildren(...todas.map(v => {
+        const l = document.createElement("label"); l.className = "chip";
+        const i = document.createElement("input"); i.type = "radio"; i.name = "vaga"; i.value = v.chave; i.disabled = !v.livre; i.checked = v.livre && v.chave === antes;
+        const s = document.createElement("span"); s.textContent = v.rotulo;
+        if (v.extra) { const sm = document.createElement("small"); sm.textContent = v.livre ? v.extra : "ocupado"; s.append(sm); } else if (!v.livre) { const sm = document.createElement("small"); sm.textContent = "ocupado"; s.append(sm); }
+        l.append(i, s); return l;
+      }));
+      const livres = todas.filter(v => v.livre);
+      if (livres.length === 1 && !vagaAtual()) opcoes.querySelector("input:not(:disabled)").checked = true;
+      if (!livres.length) {
+        aviso.textContent = todas.length ? "Esse dia já está ocupado na agenda da Bia." : "A Bia não tem " + (P.modo === "turno" ? "turno" : "horário") + " livre nesse dia.";
+        // os dias livres mais perto (dos que já vieram do painel)
+        const proximos = Object.keys(P.dias[chave] || {}).filter(d => d > iso && livresDe(d, chave).length).sort().slice(0, 5);
+        if (proximos.length) {
+          aviso.textContent += " Dias livres perto:";
+          perto.replaceChildren(...proximos.map(d => { const b = document.createElement("button"); b.type = "button"; b.dataset.dia = d; b.textContent = curto[dow(d)] + ", " + d.slice(8) + "/" + d.slice(5, 7); return b; }));
+          perto.hidden = false;
+        } else aviso.textContent += " Escolha outro dia ou chame no WhatsApp.";
+      } else aviso.textContent = "";
+      atualizar();
+    };
+    perto.addEventListener("click", e => { const b = e.target.closest("[data-dia]"); if (!b) return; dia.value = b.dataset.dia; desenharVagas(); const i = opcoes.querySelector("input:not(:disabled)"); if (i) i.focus(); });
+
+    const ligarPainel = r => {
+      P.ligado = true; P.modo = r.modo === "horario" ? "horario" : "turno";
+      // os tipos do painel (os serviços da agenda online) no lugar dos da página, mais "Outro"
+      P.tipos = (P.modo === "turno" ? r.pacotes : r.ensaios) || [];
+      if (P.tipos.length) {
+        const caixa = $(".chips", form);
+        const chip = (valor, nome, painel, marcado) => {
+          const l = document.createElement("label"); l.className = "chip";
+          const i = document.createElement("input"); i.type = "radio"; i.name = "tipo"; i.value = valor; i.checked = marcado; if (painel) i.dataset.painel = painel;
+          const s = document.createElement("span"); s.textContent = nome; l.append(i, s); return l;
+        };
+        caixa.replaceChildren(...P.tipos.map((x, k) => chip(tipoDaPagina[simples(x.nome)] || "painel-" + k, x.nome, x.id, k === 0)), chip("outro", "Outro", "", false));
+      }
+      guardar(r, "geral");
+      $("[data-ag-rotulo]", form).textContent = P.modo === "turno" ? "Qual turno?" : "Qual horário?";
+      contato.hidden = false; pedir.hidden = false;
+      enviar.classList.add("ag-secundario"); $("[data-ag-zap-rotulo]", enviar).textContent = "Prefiro falar no WhatsApp";
+      const canal = $("[data-ag-canal]"), nota = $("[data-ag-nota]");
+      if (canal) canal.textContent = "Pedido pelo site";
+      if (nota) nota.textContent = "O pedido chega assim para a Bia, e a data fica separada por 48 horas até ela confirmar.";
+      P.comeco = Date.now();
+      desenharVagas();
+    };
+    if (BASE) {
+      const de = hojeSP();
+      // sem nenhum dia de trabalho nos próximos dois meses (os turnos ou os horários ainda não foram postos no painel),
+      // fica o WhatsApp: o site não diz "sem data livre" por falta de cadastro
+      const atende = r => Array.isArray(r.dias) && r.dias.some(d => (d.turnos || d.horarios || []).length);
+      perguntar(periodo(de), 5000).then(r => {
+        if (r && r.modo !== "horario" && Array.isArray(r.dias)) { if (atende(r)) ligarPainel(r); return; }
+        // não é por turno: talvez por horário (a Bia pode trocar o jeito no painel)
+        return perguntar("horarios=1&" + periodo(de), 5000).then(h => { if (h && h.modo === "horario" && atende(h)) ligarPainel(h); });
+      });
+    }
+
+    const zap = v => { let n = String(v || "").replace(/\D/g, ""); if (n.length >= 12 && n.startsWith("55")) n = n.slice(2); return n; };
+    const ERROS = {
+      ocupada: "Alguém acabou de pedir esse %s. Escolha outro.",
+      limite: "Muitos pedidos agora. Mande pelo WhatsApp: a mensagem já vai pronta.",
+      fora: "A agenda do site está fora do ar agora. Mande pelo WhatsApp: a mensagem já vai pronta.",
+    };
+    const CAMPOS = { nome: "Confira o seu nome.", whatsapp: "Confira o WhatsApp, com o DDD.", data: "Escolha outro dia.", turno: "Escolha o turno de novo.", hora: "Escolha o horário de novo.", mensagem: "O texto ficou longo demais." };
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      if (!P.ligado) { enviar.click(); return; }
+      mostrarErro("");
+      const v = vagaAtual(), nome = $("[name=nome]", form).value.replace(/\s+/g, " ").trim(), whats = zap($("[name=whatsapp]", form).value);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(dia.value)) { mostrarErro("Escolha o dia."); dia.focus(); return; }
+      if (!v) { mostrarErro(P.modo === "turno" ? "Escolha o turno." : "Escolha o horário."); (opcoes.querySelector("input:not(:disabled)") || dia).focus(); return; }
+      if (nome.length < 2) { mostrarErro("Diga o seu nome."); $("[name=nome]", form).focus(); return; }
+      if (!/^\d{10,11}$/.test(whats)) { mostrarErro("Confira o WhatsApp, com o DDD."); $("[name=whatsapp]", form).focus(); return; }
+      const tipo = tipoAtual(), lugar = onde.value.replace(/\s+/g, " ").trim();
+      const corpo = { nome, whatsapp: whats, data: dia.value, mensagem: (tipo.nome || "Evento") + (lugar ? ", em " + lugar : "") + ".", website: $("[name=website]", form).value, tempo: Date.now() - P.comeco };
+      if (P.modo === "turno") { corpo.turno = v.turno; if (tipo.painel) corpo.pacote = tipo.painel; }
+      else { corpo.hora = v.hora; if (tipo.painel) corpo.servico = tipo.painel; }
+      pedir.disabled = true; pedir.textContent = "Enviando…";
+      const acabar = () => { pedir.disabled = false; pedir.textContent = "Pedir esta data"; };
+      fetch(BASE + "/pedido", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(corpo) })
+        .then(r => r.json().catch(() => ({})).then(j => ({ status: r.status, j })))
+        .then(({ status, j }) => {
+          acabar();
+          if (status === 201 && j.ok) {
+            quandoEl.textContent = tipo.nome + " · " + semana[dow(dia.value)] + ", " + dataTexto(dia.value) + " · " + v.rotulo + (v.extra ? " (" + v.extra + ")" : "") + (lugar ? " · " + lugar : "");
+            prontoZap.href = "https://wa.me/" + numeroDaBia() + "?text=" + encodeURIComponent("Olá, Bia! Acabei de pedir pelo site: " + texto().replace(/^Olá, Bia! Vi o seu site e queria saber se você tem agenda para /, "").replace(/^Olá, Bia! /, ""));
+            form.hidden = true; pronto.hidden = false; pronto.focus({ preventScroll: true });
+            // o cartão no lugar do formulário: trazer para a tela, abaixo do topo fixo
+            const topo = ($(".site-header") || {}).offsetHeight || 0, y = pronto.getBoundingClientRect().top;
+            if (y < topo + 8 || y > innerHeight * 0.6) scrollTo({ top: scrollY + y - topo - 16, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+            const chave = fonte(); if (P.dias[chave] && P.dias[chave][dia.value]) P.dias[chave][dia.value].forEach(x => { if (x.chave === v.chave) x.livre = false; });
+            return;
+          }
+          const motivo = j && j.erro;
+          if (motivo === "ocupada") {
+            mostrarErro(ERROS.ocupada.replace("%s", P.modo === "turno" ? "turno" : "horário"));
+            esquecer(fonte(), dia.value); // pergunta de novo ao painel como está esse dia
+            desenharVagas();
+          } else if (motivo === "dados" && j.campo && CAMPOS[j.campo]) mostrarErro(CAMPOS[j.campo]);
+          else mostrarErro(ERROS[motivo] || ERROS.fora);
+        }, () => { acabar(); mostrarErro(ERROS.fora); });
+    });
+    $("[data-ag-outra]").addEventListener("click", () => {
+      pronto.hidden = true; form.hidden = false;
+      const i = form.querySelector("[name=vaga]:checked"); if (i) i.checked = false;
+      desenharVagas(); dia.focus();
+    });
+
+    form.addEventListener("input", e => { if (e.target === dia) return; atualizar(); });
+    form.addEventListener("change", e => {
+      if (e.target === dia || (e.target.name === "tipo" && P.ligado)) { mostrarErro(""); desenharVagas(); return; }
+      if (e.target.name === "vaga") mostrarErro("");
+      atualizar();
+    });
     atualizar();
   }
 

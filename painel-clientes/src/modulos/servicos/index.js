@@ -2,6 +2,8 @@
 // que os módulos usam. Por nicho (05, "Os nomes que mudam por nicho"):
 //   eventos:    Pacotes · Tipos de festa · Adicionais · Horários (turnos) · Datas fechadas
 //   fotografia: Ensaios · Horários · Campanhas · Folgas · Adicionais
+// Os horários seguem o jeito da agenda online da conta (Configurações; src/nichos/index.js, modoDaAgenda): por horário,
+// cada linha é um começo (e pode ser só de um ensaio); por turno, começo, fim e nome. As campanhas são do jeito por horário.
 // Pacote, tipo e adicional não se apagam (as reservas apontam para eles): desativam. Horário e data fechada, sim.
 
 import { icone } from "../../ui/icones.js";
@@ -10,17 +12,18 @@ import { moeda, lerValor, horaDoTexto, dataCurta, lerData, lerHora, dia as diaDe
 import { abrirGaveta, confirmar } from "../../ui/gaveta.js";
 import { comEstados, vazio } from "../../ui/estados.js";
 import { campoTexto, campoArea, campoSelecao, interruptor, escolherCor, lerFormulario, linhas } from "../../ui/campos.js";
+import { modoDaAgenda } from "../../nichos/index.js";
 
 export const DIAS = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
 
-/** As abas do nicho, na ordem. */
-export function abasDoNicho(nicho) {
+/** As abas do nicho, na ordem. `modo`: o jeito da agenda da conta (sem campanhas no jeito por turno). */
+export function abasDoNicho(nicho, modo = nicho.agendaPadrao) {
   const p = nicho.palavras;
   const servicos = { id: "servicos", nome: p.servicos[0].toUpperCase() + p.servicos.slice(1), novo: `Novo ${p.servico}` };
   const adicionais = { id: "adicionais", nome: "Adicionais", novo: "Novo adicional" };
   const horarios = { id: "horarios", nome: "Horários", novo: "Novo horário" };
   return nicho.id === "fotografia"
-    ? [servicos, horarios, { id: "campanhas", nome: "Campanhas", novo: "Nova campanha" }, { id: "bloqueios", nome: "Folgas", novo: "Nova folga" }, adicionais]
+    ? [servicos, horarios, ...(modo === "horario" ? [{ id: "campanhas", nome: "Campanhas", novo: "Nova campanha" }] : []), { id: "bloqueios", nome: "Folgas", novo: "Nova folga" }, adicionais]
     : [servicos, { id: "tipos", nome: "Tipos de festa", novo: "Novo tipo de festa" }, adicionais, horarios, { id: "bloqueios", nome: "Datas fechadas", novo: "Nova data fechada" }];
 }
 
@@ -74,7 +77,8 @@ export function lerCampanha(dados, hoje) {
 const etiqueta = (texto, tipo = "") => `<span class="rz-etiqueta${tipo ? " rz-etiqueta--" + tipo : ""}">${escapar(texto)}</span>`;
 
 export async function montar(el, { banco, conta, nicho, pode, avisar }) {
-  const abas = abasDoNicho(nicho);
+  const porTurno = modoDaAgenda(conta, nicho) === "turno";
+  const abas = abasDoNicho(nicho, porTurno ? "turno" : "horario");
   const aba = abas.find(a => a.id === new URLSearchParams(location.search).get("aba")) || abas[0];
   const editaServicos = pode("servicos", "editar");
   const edita = aba.id === "bloqueios" || aba.id === "campanhas" ? editaServicos || pode("agenda", "editar") : editaServicos;
@@ -90,6 +94,7 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
     </header>
     <nav class="rz-abas" aria-label="Partes de Serviços">${abas.map(a => `<a href="/servicos?aba=${a.id}"${a.id === aba.id ? ' aria-current="page"' : ""}>${escapar(a.nome)}</a>`).join("")}</nav>
     ${!edita ? `<p class="rz-alerta" role="note">${icone("cadeado", { tamanho: 18 })}<span>Você só vê esta parte. Quem muda é o dono ou quem ele deixar.</span></p>` : ""}
+    ${aba.id === "horarios" ? `<p class="rz-texto-3 rz-nota-aba">${porTurno ? "A agenda online oferece o dia e o turno: cada turno tem começo, fim e nome." : "A agenda online oferece o horário de começo: cada linha é um começo."}${conta.dono ? ` <a href="/configuracoes">Mudar o jeito em Configurações</a>.` : ""}</p>` : ""}
     <div data-lista></div>`;
   const lista = el.querySelector("[data-lista]");
   el.querySelector(".rz-abas [aria-current=page]")?.scrollIntoView({ block: "nearest", inline: "center" });
@@ -164,23 +169,25 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
         servicos = await banco.resultado(banco.tabela("servicos").select("id, nome").eq("conta_id", conta.conta_id).eq("ativo", true).order("nome"));
         return banco.resultado(banco.tabela("horarios").select("*").eq("conta_id", conta.conta_id).order("dia_semana").order("inicio"));
       },
-      vazio: { titulo: "Nenhum horário ainda", texto: nicho.id === "fotografia" ? "Os dias e os horários em que você fotografa. A agenda online só oferece esses." : "Os dias e os turnos que o espaço aluga (de dia, à noite). A agenda online só oferece esses." },
+      vazio: { titulo: "Nenhum horário ainda", texto: porTurno && nicho.id === "fotografia" ? "Os dias e os turnos em que você trabalha (manhã, tarde, noite), com começo e fim. A agenda online só oferece esses." : nicho.id === "fotografia" ? "Os dias e os horários em que você fotografa. A agenda online só oferece esses." : "Os dias e os turnos que o espaço aluga (de dia, à noite). A agenda online só oferece esses." },
       agrupar: h => DIAS[h.dia_semana],
       linha: h => `<span class="rz-linha-texto"><b>${escapar(horaDoTexto(h.inicio))}${h.fim ? " às " + escapar(horaDoTexto(h.fim)) : ""}${h.nome ? " · " + escapar(h.nome) : ""}</b>
-        <small>${escapar(h.servico_id ? (servicos.find(s => s.id === h.servico_id) || {}).nome || "" : nicho.id === "fotografia" ? "Todos os ensaios sem horário próprio" : "")}</small></span>`,
+        <small>${escapar(h.servico_id ? (servicos.find(s => s.id === h.servico_id) || {}).nome || "" : !porTurno ? "Todos os ensaios sem horário próprio" : "")}</small></span>`,
       form: h => `${h.id ? campoSelecao({ id: "h-dia", nome: "dia_semana", rotulo: "Dia", valor: h.dia_semana, opcoes: DIAS.map((d, i) => ({ valor: i, rotulo: d })) })
           : `<fieldset class="rz-campo"><legend class="rz-rotulo">Dias</legend><div class="rz-chips rz-chips--quebra">${DIAS.map((d, i) => `<label class="rz-chip"><input type="checkbox" name="dias" value="${i}" class="rz-oculto">${d.slice(0, 3)}</label>`).join("")}</div><p class="rz-erro-campo" hidden></p></fieldset>`}
         <div class="rz-campos rz-campos--duas">
           ${campoTexto({ id: "h-ini", nome: "inicio", rotulo: "Começa", valor: (h.inicio || "").slice(0, 5), tipo: "time" })}
-          ${nicho.id === "eventos" ? campoTexto({ id: "h-fim", nome: "fim", rotulo: "Termina", valor: (h.fim || "").slice(0, 5), tipo: "time", ajuda: "Antes do começo = passa da meia-noite." }) : ""}
+          ${porTurno ? campoTexto({ id: "h-fim", nome: "fim", rotulo: "Termina", valor: (h.fim || "").slice(0, 5), tipo: "time", ajuda: "Antes do começo = passa da meia-noite." }) : ""}
         </div>
-        ${nicho.id === "eventos" ? campoTexto({ id: "h-nome", nome: "nome", rotulo: "Nome do turno", valor: h.nome || "", opcional: true, placeholder: "Ex.: À noite" })
+        ${porTurno ? campoTexto({ id: "h-nome", nome: "nome", rotulo: "Nome do turno", valor: h.nome || "", opcional: true, placeholder: nicho.id === "eventos" ? "Ex.: À noite" : "Ex.: Manhã" })
           : campoSelecao({ id: "h-serv", nome: "servico_id", rotulo: "Para qual ensaio", valor: h.servico_id || "", opcoes: [{ valor: "", rotulo: "Todos os ensaios sem horário próprio" }, ...servicos.map(s => ({ valor: s.id, rotulo: s.nome }))] })}`,
       ler: (d, h) => {
         const erros = {};
         const dias = h.id ? [Number(d.dia_semana)] : (d.dias || []).map(Number);
         if (!dias.length) erros.dias = "Escolha pelo menos um dia.";
         if (!d.inicio) erros.inicio = "Diga a hora.";
+        // por turno, fora dos eventos (onde sempre foi opcional): o turno precisa do fim, para segurar o período certo
+        if (porTurno && nicho.id !== "eventos" && d.inicio && !d.fim) erros.fim = "Diga até que horas vai o turno.";
         const base = { inicio: d.inicio, fim: d.fim || null, nome: d.nome || null, servico_id: d.servico_id || null };
         return { erros, linha: h.id ? { ...base, dia_semana: dias[0] } : dias.map(dia_semana => ({ ...base, dia_semana })) };
       },

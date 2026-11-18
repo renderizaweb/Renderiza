@@ -941,6 +941,7 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | `20261104120000_trazer_o_que_tem.sql` (trazer o que tem: o bucket privado `importacoes`, `pedidos_a_renderiza`, `importacoes`, o Admin · Onboarding com o que a conta trouxe) | 7F | `claude/painel-renderiza-roadmap-jfhmpp` | 04/11/2026 | 04/11/2026 |
 | `20261116013045_publico_agenda_fotografia.sql` (agenda online da fotografia: `publico_horarios`, `publico_pedido_horario`, `campanha_restam`; as de eventos não mudam) | Entrega Rafaela (C2) | `claude/rafaela-damaceno-demo-irwkqp` | 16/11/2026 | 16/11/2026 (com o "pode" da Renderiza) |
 | `20261117120000_folga_por_horario.sql` (fechar só um horário: `bloqueios.inicio`/`fim`; `periodo_livre` respeita) | Entrega Rafaela (Agenda) | `claude/eloquent-dijkstra-f6q81i` | 17/11/2026 | 17/11/2026 (com o "pode" da Renderiza) |
+| `20261118200000_jeito_da_agenda.sql` (o jeito da agenda online como escolha da conta, `contas.ajustes.agenda.modo`: `modo_da_agenda`; as quatro funções públicas da agenda só respondem no jeito delas e dizem o `modo`; sem escolha, o do nicho, como era) | Entrega Bia (C2) | `claude/serene-carson-tssomx` | 18/11/2026 | 18/11/2026 (com o "pode" da Renderiza: "pode subir para prd") |
 | `20261116040000_site_visitas.sql` (indicadores do Meu site: `sites_visitas`, `publico_visita`, `site_indicadores`; sem dado de pessoa) | Entrega Rafaela (indicadores) | `claude/eloquent-dijkstra-f6q81i` | 16/11/2026 | 16/11/2026 (com o "pode" da Renderiza) |
 
 ## Avisos entre sessões

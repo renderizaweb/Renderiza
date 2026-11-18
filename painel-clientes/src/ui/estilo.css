@@ -1089,6 +1089,8 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-dia--campanha .rz-dia-n::after{content:"";display:inline-block;width:6px;height:6px;margin-left:4px;border-radius:50%;background:var(--rz-destaque);vertical-align:middle}
 .rz-livres-acoes{display:flex;gap:var(--rz-1)}
 .rz-livres--fechados b,.rz-livres--fechados span{color:var(--rz-tinta-3)}
+.rz-livres li.rz-livres-ocupado{border-style:solid;background:var(--rz-gelo)}.rz-livres-ocupado b,.rz-livres-ocupado span{color:var(--rz-tinta-3)}
+.rz-nota-aba{margin:0 0 var(--rz-4)}
 .rz-hs-legenda{display:flex;flex-wrap:wrap;gap:var(--rz-2) var(--rz-4);margin:0 0 var(--rz-4);padding:0;list-style:none;font-size:var(--rz-t-sm);color:var(--rz-tinta-2)}
 .rz-hs-legenda li::before{content:"";display:inline-block;width:12px;height:12px;margin-right:6px;border-radius:4px;vertical-align:-2px;border:1px solid var(--rz-linha-forte)}
 .rz-hs-legenda [data-situacao=livre]::before,.rz-hs-slot[data-situacao=livre]{background:var(--rz-sucesso-fundo);border-color:color-mix(in srgb,var(--rz-sucesso) 35%,transparent)}

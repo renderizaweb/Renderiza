@@ -10,6 +10,7 @@ import { escapar, avisoDoFormulario, ocupado, erroNoCampo } from "../../ui/formu
 import { campoTexto, campoArea, campoSelecao, lerFormulario } from "../../ui/campos.js";
 import { dataLonga, dataCurta, instanteNoFuso, linkWhatsapp, normalizarWhatsapp, dia, hora, horaDoTexto, primeiroNome } from "../../ui/formatos.js";
 import { SITUACOES, itemDaReserva, faixa, quandoFoi, conflitos, bloqueioDoDia, horariosDoDia, linhaDaReserva } from "./logica.js";
+import { modoDaAgenda } from "../../nichos/index.js";
 
 export const COLUNAS_RESERVA = "id, cliente_id, pedido_id, servico_id, tipo_id, campanha_id, titulo, inicio, fim, convidados, situacao, responsavel_id, producao_id, observacoes, criado_em, "
   + "clientes(id, nome, whatsapp, email, instagram), tipos_reserva(nome, cor), servicos(nome, cor, duracao_min), campanhas(nome)";
@@ -188,9 +189,11 @@ async function verConflito(ctx, { inicio, fim, data, ignorar }) {
  * Reservar (ou editar) uma data. Nova: primeiro "Para quem?". `dia` e `hora`: o que veio do calendário ("Reservar
  * este dia", um horário livre da fotografia). Resolve com a reserva gravada (ou null).
  */
-export async function abrirFormReserva(ctx, { reserva = null, dia: diaInicial = "", hora: horaInicial = "", campanha = null } = {}) {
+export async function abrirFormReserva(ctx, { reserva = null, dia: diaInicial = "", hora: horaInicial = "", fim: fimInicial = "", campanha = null } = {}) {
   const { banco, conta, nicho, avisar, equipe, pessoa, fuso } = ctx;
   const eventos = nicho.id === "eventos";
+  // os atalhos de turno e o fim obrigatório seguem o jeito da agenda (Configurações), não o nicho
+  const porTurno = modoDaAgenda(conta, nicho) === "turno";
   let cliente = reserva ? reserva.clientes : await abrirParaQuem({ banco, conta, titulo: eventos ? "A festa é de quem?" : "O ensaio é de quem?" });
   if (!cliente) return null;
   const [tipos, horarios, adicionais, escolhidos, pacotes] = await Promise.all([
@@ -206,7 +209,7 @@ export async function abrirFormReserva(ctx, { reserva = null, dia: diaInicial = 
   const valores = reserva ? {
     data: it.dia, inicio: paraCampo(it.ini), fim: paraCampo(it.fim), tipo_id: reserva.tipo_id, servico_id: reserva.servico_id,
     convidados: reserva.convidados || "", titulo: reserva.titulo || "", responsavel_id: reserva.responsavel_id || "", producao_id: reserva.producao_id || "", observacoes: reserva.observacoes || "",
-  } : { data: diaInicial, inicio: horaInicial || (eventos ? nicho.horarioPadrao.inicio : ""), fim: eventos && !horaInicial ? nicho.horarioPadrao.fim : "", responsavel_id: (pessoa && pessoa.id) || "" };
+  } : { data: diaInicial, inicio: horaInicial || (eventos ? nicho.horarioPadrao.inicio : ""), fim: fimInicial || (eventos && !horaInicial ? nicho.horarioPadrao.fim : ""), responsavel_id: (pessoa && pessoa.id) || "" };
   const comAdicionais = new Set(escolhidos.map(x => x.adicional_id));
 
   return new Promise(resolver => {
@@ -221,7 +224,7 @@ export async function abrirFormReserva(ctx, { reserva = null, dia: diaInicial = 
           <div data-turnos></div>
           <div class="rz-campos rz-campos--duas">
             ${campoTexto({ id: "res-inicio", nome: "inicio", rotulo: "Começa", tipo: "time", valor: valores.inicio })}
-            ${campoTexto({ id: "res-fim", nome: "fim", rotulo: "Termina", tipo: "time", valor: valores.fim, opcional: !eventos })}
+            ${campoTexto({ id: "res-fim", nome: "fim", rotulo: "Termina", tipo: "time", valor: valores.fim, opcional: !(eventos || porTurno) })}
           </div>
           ${tipos.length ? campoSelecao({ id: "res-tipo", nome: eventos ? "tipo_id" : "servico_id", rotulo: eventos ? "Tipo de festa" : "Ensaio", valor: (eventos ? valores.tipo_id : valores.servico_id) || (campanha && campanha.servico_id) || "", opcoes: [{ valor: "", rotulo: "A definir" }, ...tipos.map(t => ({ valor: t.id, rotulo: t.nome }))] }) : ""}
           ${eventos && pacotes.length ? campoSelecao({ id: "res-pacote", nome: "servico_id", rotulo: "Pacote", valor: valores.servico_id || "", opcoes: [{ valor: "", rotulo: "A definir" }, ...pacotes.map(t => ({ valor: t.id, rotulo: t.nome }))] }) : ""}
@@ -248,10 +251,10 @@ export async function abrirFormReserva(ctx, { reserva = null, dia: diaInicial = 
     const botao = j.el.querySelector("[type=submit]");
     const textoDoBotao = botao.textContent;
 
-    // eventos: os turnos do dia da semana viram atalhos ("À noite", 19h às 2h)
+    // por turno: os turnos do dia da semana viram atalhos ("À noite", 19h às 2h)
     const desenharTurnos = () => {
       const alvo = form.querySelector("[data-turnos]");
-      const turnos = eventos && form.data.value ? horariosDoDia(horarios, form.data.value).filter(h => h.fim) : [];
+      const turnos = porTurno && form.data.value ? horariosDoDia(horarios, form.data.value).filter(h => h.fim) : [];
       alvo.innerHTML = turnos.length ? `<div class="rz-chips rz-chips--quebra" role="group" aria-label="Turnos">${turnos.map(t => `<button class="rz-chip" type="button" data-turno="${t.inicio.slice(0, 5)}-${t.fim.slice(0, 5)}">${escapar(t.nome || "Turno")} · ${horaDoTexto(t.inicio)} às ${horaDoTexto(t.fim)}</button>`).join("")}</div>` : "";
     };
     desenharTurnos();
@@ -263,10 +266,10 @@ export async function abrirFormReserva(ctx, { reserva = null, dia: diaInicial = 
       form.inicio.value = a; form.fim.value = b;
       aceitouConflito = false; botao.textContent = textoDoBotao;
     });
-    // fotografia: escolher o ensaio sugere o fim pela duração
+    // por horário (fotografia): escolher o ensaio sugere o fim pela duração
     const tipo = form.querySelector("#res-tipo");
     const sugerirFim = () => {
-      if (eventos || !tipo || !form.inicio.value) return;
+      if (eventos || porTurno || !tipo || !form.inicio.value) return;
       const s = tipos.find(x => x.id === tipo.value);
       if (!s || !s.duracao_min) return;
       const [h, m] = form.inicio.value.split(":").map(Number);
@@ -282,8 +285,8 @@ export async function abrirFormReserva(ctx, { reserva = null, dia: diaInicial = 
       const d = lerFormulario(form);
       erroNoCampo(form.data, d.data ? "" : "Escolha a data.");
       erroNoCampo(form.inicio, d.inicio ? "" : "Diga a hora.");
-      if (eventos) erroNoCampo(form.fim, d.fim ? "" : "Diga até que horas.");
-      if (!d.data || !d.inicio || (eventos && !d.fim)) return;
+      if (eventos || porTurno) erroNoCampo(form.fim, d.fim ? "" : "Diga até que horas.");
+      if (!d.data || !d.inicio || ((eventos || porTurno) && !d.fim)) return;
       const linha = linhaDaReserva({ ...d, situacao: d.situacao || (reserva && reserva.situacao) }, { contaId: conta.conta_id, cliente, idNicho: nicho.id, fuso });
       if (campanha && !reserva) linha.campanha_id = campanha.id;
       avisoDoFormulario(aviso, "");

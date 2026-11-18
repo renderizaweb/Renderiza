@@ -17,7 +17,8 @@
 //   o cliente edita pelo Painel Renderiza e, sem o painel, o site mostra o que está no index.html (03 do painel);
 // - com "painel": { "agenda": true }, entra a agenda online em /agenda/ (ferramentas/demo/agenda-online/), com um
 //   link na seção "Consulte a sua data": os dias livres e a pré-reserva vêm do painel; sem ele, vira WhatsApp.
-//   Site que já tem a agenda dele (a fotografia: window.AGENDA, do gerar-fotografia.py) não ganha /agenda/: a agenda
+//   Site que já tem a agenda dele (a fotografia: window.AGENDA, do gerar-fotografia.py; ou uma página que já lê o
+//   window.RZ_AGENDA_PAINEL, como o "Sua data" da Bia, modelos/bia-maida-eventos.html) não ganha /agenda/: a agenda
 //   de cada página passa a perguntar ao painel (window.RZ_AGENDA_PAINEL) e, sem resposta, fica como está.
 //
 // - com "paginas": ["natal"] no site.json, as outras páginas da demo vão junto (natal.html, servida em /natal): os links
@@ -182,7 +183,7 @@ function comMeuSite(pagina) {
 }
 // A agenda que o próprio site já tem (fotografia): só o endereço do painel, antes do fim do <head>.
 const API_PADRAO = 'https://painel.renderizaweb.com.br/api/publico/';
-const temAgendaPropria = pagina => pagina.includes('window.AGENDA = ');
+const temAgendaPropria = pagina => pagina.includes('window.AGENDA = ') || pagina.includes('window.RZ_AGENDA_PAINEL');
 function comAgendaPropria(pagina) {
   const { codigo, api = API_PADRAO } = conf.painel;
   const dados = JSON.stringify({ api, codigo }).replace(/</g, '\\u003c');
