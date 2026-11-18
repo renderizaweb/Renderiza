@@ -14,14 +14,14 @@
 //   node ferramentas/planilha/gerar-pagina.mjs <pasta> --codigo ABCD-2345 com este código
 //   node ferramentas/planilha/gerar-pagina.mjs <pasta> --sem-a-dela       tira a cifrada (volta a "sendo preparada")
 // O código nunca vai para o git: fica só em rascunhos/planilha/<pasta>/codigo.txt e no WhatsApp do cliente.
-// Textos e valor: "pagina" em demos/<pasta>/planilha.json (sem "valor", a página sai sem o bloco de investimento); a foto da
+// Textos e valor: "pagina" em demos/<pasta>/planilha.json ("itens", "valor", "frase_valor"; sem "valor", sai sem o bloco); a foto da
 // prévia do link vem da demo do site do mesmo cliente ("demo_do_site"). Como funciona e o porquê:
 // docs/produtos/planilha-financeira.md.
 
 import { createHash, webcrypto } from "node:crypto";
 import { copyFileSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
-import { fileURLToPath, pathToFileURL } from "node:url";
+import { fileURLToPath } from "node:url";
 
 const RAIZ = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const ITERACOES = 600000;
@@ -70,256 +70,107 @@ function tamanhoWebp(arquivo) {
   return [1200, 800];
 }
 
-export function pagina({ pasta, cfg, imagens, teste, cifrada, whatsapp, capa }) {
+export function pagina({ pasta, cfg, imagens, teste, cifrada, capa }) {
   const p = cfg.pagina || {};
-  const base = `/demo/${pasta}`;
   const dados = nome => `data:image/webp;base64,${imagens[nome].b64}`;
-  // Com a versão de celular (<nome>-cel.webp), a tela estreita recebe o recorte feito para ela.
-  const img = (nome, alt, primeira = false) => {
-    const { w, h } = imagens[nome];
-    const cel = imagens[nome + "-cel"];
-    const fonte = cel ? `<source media="(max-width: 700px)" srcset="${dados(nome + "-cel")}" width="${cel.w}" height="${cel.h}">` : "";
-    return `<a class="foto" href="${dados(nome)}" target="_blank" rel="noopener"><picture>${fonte}<img src="${dados(nome)}" width="${w}" height="${h}" alt="${esc(alt)}"${primeira ? ' fetchpriority="high"' : ' loading="lazy"'}></picture></a>`;
+  // A coluna é estreita em qualquer tela: vai o recorte sem a rosquinha (<nome>-cel.webp), quando existe.
+  const img = (nome, alt) => {
+    const usar = imagens[nome + "-cel"] ? nome + "-cel" : nome;
+    const { w, h } = imagens[usar];
+    return `<img src="${dados(usar)}" width="${w}" height="${h}" alt="${esc(alt)}" fetchpriority="high">`;
   };
-  const textoWa = encodeURIComponent("Oi! Vi a proposta da planilha financeira e queria tirar uma dúvida.");
-  const pedidos = [
-    ["que vai somando sozinho, por mês", "O <b>Início</b> mostra o mês que você escolher: quanto entrou, quanto saiu e quanto sobrou. O <b>Resumo do ano</b> põe os 12 meses lado a lado."],
-    ["espaço para aniversários, ensaios", "Aba <b>Ensaios</b>: uma linha por ensaio, com o tipo (aniversário, smash the cake, acompanhamento mensal, gestante, Natal…). Você vê quanto rendeu cada tipo."],
-    ["aba de foto extra", "Aba <b>Fotos extras</b>: o cliente, quantas fotos e o valor. O Início conta quantas você vendeu no mês."],
-    ["gastos estúdio por nicho: aluguel, bexigas, cenários, luz", "Aba <b>Estúdio</b>, com 14 tipos de gasto e espaço para criar os seus. O Resumo separa tipo por tipo."],
-    ["gastos fixos pessoais", "Aba <b>Fixos pessoais</b>, como a sua de hoje: uma conta por linha, os meses lado a lado e o dia em que vence. Cabem 30 contas."],
-    ["gastos mensais como Uber, Shopee, Mercado Livre", "Aba <b>Gastos do mês</b>: Uber, Shopee, Mercado Livre, mercado, iFood, farmácia e o que mais você quiser."],
-    ["escrever o que é cada gasto e cada valor", "Em todas as abas: <b>o que foi</b>, com as suas palavras, e o <b>valor</b>."],
-    ["mais linhas pras coisas", "<b>2.000 linhas</b> em cada aba de lançamento. Dá para anos."],
-  ];
-  const vem = (p.o_que_vem || []).map(t => `<li>${esc(t)}</li>`).join("");
-  const online = p.online ? `<a class="bt bt-linha" href="${esc(p.online)}" target="_blank" rel="noopener" data-rz-alvo="testar-online">Testar no navegador, sem baixar</a>` : "";
+  const itens = p.itens || [];
+  const online = p.online ? `<a class="bt bt-linha" href="${esc(p.online)}" target="_blank" rel="noopener" data-rz-alvo="testar-online">Testar sem baixar</a>` : "";
   return `<!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sua planilha financeira · ${esc(cfg.nome)}</title>
-<meta name="description" content="Proposta da Renderiza: a planilha financeira do ${esc(cfg.nome)}, que soma sozinha, mês a mês. Teste antes de decidir.">
+<title>Planilha financeira · ${esc(cfg.nome)}</title>
+<meta name="description" content="A planilha financeira do ${esc(cfg.nome)}: soma sozinha, mês a mês.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="${cfg.cores.acento}">
+<meta name="theme-color" content="#fbf8f7">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Sua planilha financeira · ${esc(cfg.nome)}">
-<meta property="og:description" content="Tudo o que entra e sai do estúdio e da casa, somando sozinho, mês a mês. Teste antes de decidir.">
-${capa ? `<meta property="og:image" content="${capa}">\n` : ""}<meta property="og:url" content="https://www.renderizaweb.com.br${base}">
+<meta property="og:title" content="Planilha financeira · ${esc(cfg.nome)}">
+<meta property="og:description" content="Soma sozinha, mês a mês. Baixe a versão de teste.">
+${capa ? `<meta property="og:image" content="${capa}">\n` : ""}<meta property="og:url" content="https://www.renderizaweb.com.br/demo/${pasta}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<!-- Gerada por ferramentas/planilha/gerar-pagina.mjs (não editar à mão): demo/proposta da planilha financeira, ${new Date().toISOString().slice(0, 10)}.
+<link rel="preload" href="/fontes/geist.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Gerada por ferramentas/planilha/gerar-pagina.mjs (não editar à mão), ${new Date().toISOString().slice(0, 10)}.
      O contador conta as visitas no lead com link_demo = /demo/${pasta}. -->
 <script src="/exemplos/visitas.js" data-pagina="demo" data-demo="${pasta}" defer></script>
 <style>
-:root{--fundo:#fbf8f7;--papel:#fffefd;--areia:${cfg.cores.areia};--linha:#e8ddd9;--tinta:${cfg.cores.tinta};--tinta-2:#6a5b5d;
-  --rosa:${cfg.cores.rosa};--acento:${cfg.cores.acento};--escuro:${cfg.cores.acento_escuro};--verde:#2f6b47;
-  --titulo:"Cormorant Garamond",Georgia,serif;--raio:18px;--sombra:0 1px 2px rgba(47,38,39,.05),0 18px 40px -26px rgba(47,38,39,.35)}
+@font-face{font-family:"Geist";font-style:normal;font-weight:100 900;font-display:swap;src:url(/fontes/geist.woff2) format("woff2")}
+:root{--fundo:#fbf8f7;--cartao:#fff;--tinta:#231c1d;--suave:#6f6365;--linha:#ece4e1;--acento:${cfg.cores.acento};--escuro:${cfg.cores.acento_escuro}}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%}
-body{font-family:Jost,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--fundo);color:var(--tinta);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{font-family:Geist,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--fundo);color:var(--tinta);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
 img{display:block;max-width:100%;height:auto}
-a{color:inherit}
-b{font-weight:600}
-:focus-visible{outline:3px solid var(--rosa);outline-offset:3px;border-radius:6px}
-.cx{width:min(1060px,100% - 32px);margin-inline:auto}
-/* Títulos na itálica 500: na reta (400 a 600) do Google Fonts, o Chromium põe o acento de "mês", "Você" e "Está" fora do lugar
-   (conferido em 18/11/2026; a demo dela tem o mesmo no "Quem está"). A itálica 500 sai certa. */
-h1,h2{font-family:var(--titulo);font-style:italic;font-weight:500;letter-spacing:-.005em;line-height:1.08;color:var(--escuro)}
-h1{font-size:clamp(36px,8.4vw,58px)}
-h2{font-size:clamp(30px,6.6vw,44px)}
-h3{font-size:18px;font-weight:600}
-.kicker{font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--acento)}
-.sub{color:var(--tinta-2);max-width:620px;margin-top:14px}
-section{padding:64px 0}
-.bt{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;font:inherit;font-weight:600;font-size:16px;text-decoration:none;border:0;cursor:pointer;text-align:center}
-.bt svg{width:20px;height:20px;flex:none}
-.bt-cheio{background:var(--acento);color:#fff}
-.bt-cheio:hover{background:var(--escuro)}
-.bt-linha{background:var(--papel);color:var(--escuro);border:1.5px solid var(--rosa)}
-.bt:disabled{opacity:.65;cursor:default}
-.botoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.nota{font-size:14px;color:var(--tinta-2);margin-top:14px}
-
-.topo{position:sticky;top:0;z-index:20;background:rgba(251,248,247,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--linha)}
-.topo .cx{display:flex;align-items:center;gap:12px;height:60px}
-.topo .marca{font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:13px;color:var(--escuro)}
-.topo small{color:var(--tinta-2);font-size:13px}
-.topo .bt{margin-left:auto;min-height:40px;padding:0 16px;font-size:14px}
-@media (max-width:420px){.topo small{display:none}}
-
-.capa{padding:44px 0 56px;background:radial-gradient(80% 70% at 100% 0,#f6e3e5 0,rgba(246,227,229,0) 70%)}
-.capa .cx{display:grid;gap:34px;align-items:center}
-.script{font-family:Allura,cursive;font-size:clamp(34px,8vw,44px);color:var(--acento);line-height:1;margin:10px 0 6px}
-.capa .foto{border-radius:var(--raio);overflow:hidden;box-shadow:var(--sombra);border:1px solid var(--linha);background:#fff}
-figure figcaption{font-size:13.5px;color:var(--tinta-2);margin-top:10px}
-@media (min-width:880px){.capa .cx{grid-template-columns:1fr 1.05fr}}
-
-.pedidos{display:grid;gap:14px;margin-top:30px}
-@media (min-width:720px){.pedidos{grid-template-columns:1fr 1fr}}
-.pedido{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:20px 20px 22px}
-.pedido q{display:block;font-family:var(--titulo);font-style:italic;font-size:22px;line-height:1.2;color:var(--escuro);quotes:"“" "”"}
-.pedido p{margin-top:10px;color:var(--tinta-2);font-size:15.5px}
-.pedido p::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--verde);margin-right:9px;vertical-align:1px}
-
-.passos{display:grid;gap:34px;margin-top:34px;counter-reset:passo}
-.passo{display:grid;gap:16px}
-.passo h3{display:flex;align-items:center;gap:12px;font-size:20px}
-.passo h3::before{counter-increment:passo;content:counter(passo);display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:50%;background:var(--acento);color:#fff;font-size:15px}
-.passo p{color:var(--tinta-2);max-width:640px}
-.passo .foto{border-radius:14px;overflow:hidden;border:1px solid var(--linha);background:#fff;box-shadow:var(--sombra)}
-.foto{display:block}
-.rolar{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px}
-.rolar .foto{width:max-content}
-.rolar .foto img{max-width:none;width:880px}
-@media (max-width:700px){.rolar .foto img.resumo{width:640px}}
-@media (min-width:880px){.rolar .foto{width:auto}.rolar .foto img{width:100%}}
-.dica{font-size:13px;color:var(--tinta-2);margin-top:6px}
-@media (min-width:880px){.dica{display:none}}
-
-.cartao{background:var(--areia);border-radius:var(--raio);padding:30px 24px}
-.cartao h2{font-size:clamp(26px,5.6vw,36px)}
-.cartao p{margin-top:12px;max-width:700px}
-
-.teste{display:grid;gap:26px}
-.teste ul{list-style:none;display:grid;gap:10px;margin-top:20px}
-.teste li{padding-left:28px;position:relative}
-.teste li::before{content:"";position:absolute;left:4px;top:.62em;width:10px;height:10px;border-radius:3px;background:var(--rosa)}
-
-.valor{background:var(--papel);border:1px solid var(--linha);border-radius:24px;padding:34px 24px;box-shadow:var(--sombra)}
-.valor .preco{font-family:var(--titulo);font-weight:600;font-size:clamp(46px,11vw,64px);color:var(--escuro);line-height:1;margin-top:12px}
-.valor .preco small{font-family:Jost,sans-serif;font-size:16px;font-weight:500;color:var(--tinta-2);margin-left:8px;letter-spacing:0}
-.valor ul{list-style:none;display:grid;gap:12px;margin:22px 0 4px}
-.valor li{padding-left:30px;position:relative}
-.valor li::before{content:"✓";position:absolute;left:2px;top:0;color:var(--verde);font-weight:600}
-
-.sua{background:var(--escuro);color:#fff;border-radius:24px;padding:34px 24px}
-.sua h2{color:#fff}
-.sua p{color:#f3dfe2;margin-top:10px}
-.sua form{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
-.sua input{flex:1 1 220px;min-height:52px;border-radius:999px;border:0;padding:0 22px;font:inherit;font-size:18px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta);background:#fff}
-.sua input::placeholder{letter-spacing:.02em;text-transform:none;color:#9b8f91}
-.sua .bt{background:var(--rosa);color:var(--tinta)}
-.sua [data-aviso]{min-height:1.6em;margin-top:14px;font-weight:500;color:#fff}
-
-footer{padding:40px 0 56px;color:var(--tinta-2);font-size:14px;border-top:1px solid var(--linha);margin-top:30px}
-footer .cx{display:grid;gap:8px}
-footer a{color:var(--escuro);font-weight:600}
+:focus-visible{outline:3px solid var(--acento);outline-offset:3px;border-radius:8px}
+main{width:min(560px,100% - 32px);margin:0 auto;padding:28px 0 8px}
+.marca{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acento)}
+h1{font-size:clamp(32px,9vw,42px);line-height:1.1;letter-spacing:-.03em;font-weight:700;margin-top:18px}
+h2{font-size:20px;letter-spacing:-.01em;font-weight:650}
+.sub{color:var(--suave);margin-top:10px}
+.tela{margin-top:24px;border-radius:16px;overflow:hidden;border:1px solid var(--linha);background:#fff;box-shadow:0 18px 40px -28px rgba(35,28,29,.45)}
+.legenda{font-size:13px;color:var(--suave);margin-top:8px}
+.bt{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:54px;margin-top:22px;border-radius:14px;border:0;font:inherit;font-weight:600;text-decoration:none;cursor:pointer;background:var(--acento);color:#fff}
+.bt:hover{background:var(--escuro)}
+.bt svg{width:20px;height:20px}
+.bt-linha{background:var(--cartao);color:var(--escuro);border:1.5px solid var(--linha);margin-top:10px}
+.bt:disabled{opacity:.6;cursor:default}
+.nota{font-size:14px;color:var(--suave);margin-top:10px;text-align:center}
+section{margin-top:44px}
+.itens{list-style:none;margin-top:10px}
+.itens li{padding:7px 0 7px 22px;position:relative}
+.itens li::before{content:"";position:absolute;left:2px;top:.95em;width:8px;height:8px;border-radius:50%;background:var(--acento)}
+.valor{background:var(--cartao);border:1px solid var(--linha);border-radius:16px;padding:22px 20px}
+.preco{font-size:40px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.preco small{font-size:15px;font-weight:500;color:var(--suave);letter-spacing:0;margin-left:6px}
+.valor p+p{margin-top:8px;color:var(--suave)}
+form{display:grid;gap:10px;margin-top:14px}
+input{min-height:54px;border-radius:14px;border:1.5px solid var(--linha);background:#fff;padding:0 16px;font:inherit;font-size:18px;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta)}
+input::placeholder{letter-spacing:0;text-transform:none;color:#a99c9e}
+form .bt{margin-top:0;background:var(--tinta)}
+[data-aviso]{min-height:1.5em;margin-top:10px;font-size:15px;color:var(--escuro)}
+footer{width:min(560px,100% - 32px);margin:48px auto 0;padding:20px 0 40px;border-top:1px solid var(--linha);font-size:13px;color:var(--suave)}
 </style>
 </head>
 <body>
-<header class="topo"><div class="cx">
-  <span class="marca">Renderiza</span><small>proposta · planilha financeira</small>
-  <a class="bt bt-cheio" href="#teste">Testar</a>
-</div></header>
-
 <main>
-<section class="capa" id="inicio" aria-label="Início"><div class="cx">
-  <div>
-    <p class="kicker">Planilha financeira sob medida</p>
-    <p class="script">${esc(cfg.nome)}</p>
-    <h1>Tudo o que entra e sai, somando sozinho, mês a mês.</h1>
-    <p class="sub">Do jeito que você pediu: os ensaios e aniversários, as fotos extras, os gastos do estúdio por tipo, os fixos da casa e os gastos do mês. Em cada linha, você escreve o que foi e o valor. O resto a planilha faz.</p>
-    <div class="botoes">
-      <a class="bt bt-cheio" href="#teste">Quero testar</a>
-      <a class="bt bt-linha" href="#como-funciona">Ver como funciona</a>
-    </div>
-    <p class="nota">No Excel ou no Google Planilhas, no computador ou no celular. Sem login e sem mensalidade.</p>
-  </div>
-  <figure>${img("inicio", "A primeira aba da planilha: o mês com entrou, saiu e sobrou em números grandes", true)}
-    <figcaption>A primeira aba: o mês em números grandes. Os valores são de exemplo, inventados.</figcaption></figure>
-</div></section>
+<section id="inicio" aria-label="Início" style="margin-top:0">
+  <p class="marca">Renderiza · para o ${esc(cfg.nome)}</p>
+  <h1>Sua planilha financeira</h1>
+  <p class="sub">Você anota cada ensaio e cada gasto. Ela soma sozinha, mês a mês.</p>
+  <a class="bt" href="/demo/${pasta}/${esc(teste.nome)}?v=${teste.v}" download="${esc(teste.nome)}" data-rz-alvo="baixar-teste"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>Baixar a versão de teste</a>
+  ${online}
+  <p class="nota">Abre no Excel ou no Google Planilhas.</p>
+  <div class="tela">${img("inicio", "A primeira aba: quanto entrou, quanto saiu e quanto sobrou no mês")}</div>
+  <p class="legenda">Valores de exemplo.</p>
+</section>
 
-<section id="pedidos" aria-label="O que você pediu" style="padding-top:20px"><div class="cx">
-  <p class="kicker">O que você pediu</p>
-  <h2>Você pediu. Está aqui.</h2>
-  <div class="pedidos">
-${pedidos.map(([q, r]) => `    <div class="pedido"><q>${esc(q)}</q><p>${r}</p></div>`).join("\n")}
-  </div>
-</div></section>
-
-<section id="como-funciona" aria-label="Como funciona" style="padding-top:20px"><div class="cx">
-  <p class="kicker">Como funciona</p>
-  <h2>Você lança. A planilha soma.</h2>
-  <div class="passos">
-    <div class="passo">
-      <h3>Uma linha para cada coisa</h3>
-      <p>A data, o que foi, o tipo (escolhido na setinha) e o valor. Esqueceu a data? A célula fica vermelha para avisar, e o Início mostra quantas linhas ficaram de fora das contas.</p>
-      <div class="rolar">${img("ensaios", "A aba Ensaios: data, cliente, tipo de ensaio, valor e observação")}</div>
-      <p class="dica">Arraste para o lado para ver a imagem inteira.</p>
-    </div>
-    <div class="passo">
-      <h3>O Resumo do ano se preenche sozinho</h3>
-      <p>Cada tipo de ensaio e cada tipo de gasto, mês a mês: quanto rendeu o Natal, quanto foi em bexigas, quanto o estúdio deu depois de pagar as contas dele. O tracinho quer dizer zero.</p>
-      <div class="rolar">${img("resumo", "O Resumo do ano: entrou, saiu, sobrou e cada tipo de ensaio, mês a mês").replace("<img ", '<img class="resumo" ')}</div>
-      <p class="dica">Arraste para o lado para ver até o total do ano. No celular, a imagem mostra de agosto em diante.</p>
-    </div>
-    <div class="passo">
-      <h3>E o gráfico mostra o ano</h3>
-      <p>Os meses bons e os apertados, lado a lado. No exemplo, outubro ficou no vermelho por causa do cenário de Natal, e novembro pagou a conta.</p>
-      ${img("grafico", "Gráfico com o que entrou, saiu e sobrou em cada mês")}
-    </div>
-  </div>
-</div></section>
-
-<section id="cartao" aria-label="Cartão de crédito" style="padding-top:10px"><div class="cx">
-  <div class="cartao">
-    <p class="kicker">Um detalhe que faz diferença</p>
-    <h2>O cartão de crédito não é um gasto. É um jeito de pagar.</h2>
-    <p>Quando o cartão entra como uma linha de gasto, a compra some lá dentro: não dá para saber se foi bexiga, consulta ou Shopee. Aqui, cada compra vai para o tipo dela, e você marca “Crédito” em <b>Como pagou</b>. A planilha mostra quanto foi no cartão no mês, para você conferir com a fatura, sem contar nada duas vezes.</p>
-  </div>
-</div></section>
-
-<section id="teste" aria-label="Teste antes" style="padding-top:10px"><div class="cx teste">
-  <div>
-    <p class="kicker">Teste antes de decidir</p>
-    <h2>Baixe, abra e mexa à vontade.</h2>
-    <p class="sub">A versão de teste vem com dados de exemplo (inventados) para você ver tudo funcionando. Troque valores, apague, escreva: é para mexer.</p>
-    <div class="botoes">
-      <a class="bt bt-cheio" href="${base}/${esc(teste.nome)}?v=${teste.v}" download="${esc(teste.nome)}" data-rz-alvo="baixar-teste"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>Baixar a versão de teste</a>
-      ${online}
-    </div>
-    <ul>
-      <li><b>No celular:</b> toque em Baixar e abra com o app Excel ou o Planilhas Google.</li>
-      <li><b>No computador:</b> abra com o Excel (ou envie para o Google Drive e abra com o Planilhas).</li>
-      <li><b>Para ver outro mês:</b> na primeira aba, troque o mês na setinha.</li>
-      <li>A versão de teste tem 60 linhas por aba. A sua vem com 2.000.</li>
-    </ul>
-  </div>
-</div></section>
-
-${p.valor ? `<section id="investimento" aria-label="Investimento" style="padding-top:10px"><div class="cx">
+<section id="tem" aria-label="O que tem">
+  <h2>O que tem nela</h2>
+  <ul class="itens">${itens.map(t => `<li>${esc(t)}</li>`).join("")}</ul>
+</section>
+${p.valor ? `
+<section id="valor" aria-label="Valor">
   <div class="valor">
-    <p class="kicker">Investimento</p>
-    <p class="preco">${esc(p.valor || "")}<small>valor único</small></p>
-    <p class="sub">A planilha é sua: sem mensalidade, sem login, sem depender da gente para usar.</p>
-    <ul>${vem}</ul>
-    <p class="nota">Gostou? É só responder a nossa mensagem no WhatsApp. Depois do Pix, você recebe a sua planilha pelo WhatsApp e um código para baixar aqui quando quiser.</p>
+    <p class="preco">${esc(p.valor)}<small>valor único</small></p>
+    <p>${esc(p.frase_valor || "")}</p>
   </div>
-</div></section>` : ""}
-
-<section id="sua" aria-label="Baixar a sua" style="padding-top:10px"><div class="cx">
-  <div class="sua">
-    <p class="kicker" style="color:var(--rosa)">Sua planilha</p>
-    <h2>Já recebeu o código?</h2>
-    <p>Digite aqui o código que a gente mandou no WhatsApp para baixar a sua planilha.</p>
-    <form data-liberar${cifrada ? ` data-cifrada="${base}/planilha.bin?v=${cifrada.v}"` : ""} data-nome="${esc(cfg.arquivo)}.xlsx" autocomplete="off">
-      <label for="codigo" style="position:absolute;left:-9999px">Código</label>
-      <input id="codigo" name="codigo" inputmode="text" autocapitalize="characters" spellcheck="false" placeholder="Ex.: ABCD-2345" maxlength="14">
-      <button class="bt" type="submit" data-rz-alvo="liberar-planilha">Baixar a minha planilha</button>
-    </form>
-    <p data-aviso role="status" aria-live="polite"></p>
-  </div>
-</div></section>
+</section>
+` : ""}
+<section id="sua" aria-label="Baixar a sua">
+  <h2>Já tem o código?</h2>
+  <form data-liberar${cifrada ? ` data-cifrada="/demo/${pasta}/planilha.bin?v=${cifrada.v}"` : ""} data-nome="${esc(cfg.arquivo)}.xlsx" autocomplete="off">
+    <label for="codigo" style="position:absolute;left:-9999px">Código</label>
+    <input id="codigo" name="codigo" inputmode="text" autocapitalize="characters" spellcheck="false" placeholder="Digite o código" maxlength="14">
+    <button class="bt" type="submit" data-rz-alvo="liberar-planilha">Baixar a minha</button>
+  </form>
+  <p data-aviso role="status" aria-live="polite"></p>
+</section>
 </main>
-
-<footer><div class="cx">
-  <p>Feita sob medida pela <b>Renderiza</b> · renderizaweb.com.br</p>
-  <p>Dúvida? <a href="https://wa.me/${whatsapp}?text=${textoWa}">Fale com a gente no WhatsApp</a>.</p>
-  <p>As imagens mostram dados de exemplo, inventados.</p>
-</div></footer>
+<footer>Renderiza · renderizaweb.com.br</footer>
 
 <script>
 (function () {
@@ -331,9 +182,9 @@ ${p.valor ? `<section id="investimento" aria-label="Investimento" style="padding
   f.addEventListener("submit", function (ev) {
     ev.preventDefault();
     var codigo = campo.value.toUpperCase().replace(/[^A-Z0-9]/g, "");
-    if (!codigo) { aviso.textContent = "Digite o código que a gente mandou no WhatsApp."; campo.focus(); return; }
-    if (!f.dataset.cifrada) { aviso.textContent = "A sua planilha ainda está sendo preparada. Assim que ficar pronta, a gente te manda o código."; return; }
-    if (!(window.crypto && crypto.subtle && window.TextEncoder)) { aviso.textContent = "Este navegador não consegue abrir. Peça a planilha pelo WhatsApp."; return; }
+    if (!codigo) { aviso.textContent = "Digite o código que mandamos no WhatsApp."; campo.focus(); return; }
+    if (!f.dataset.cifrada) { aviso.textContent = "A sua ainda está sendo preparada. Mandamos o código quando ficar pronta."; return; }
+    if (!(window.crypto && crypto.subtle && window.TextEncoder)) { aviso.textContent = "Este navegador não abre. Peça a planilha pelo WhatsApp."; return; }
     botao.disabled = true; botao.textContent = "Abrindo…"; aviso.textContent = "";
     fetch(f.dataset.cifrada).then(function (r) { if (!r.ok) throw new Error("rede"); return r.arrayBuffer(); }).then(function (buf) {
       var b = new Uint8Array(buf), iter = new DataView(buf).getUint32(4);
@@ -347,10 +198,10 @@ ${p.valor ? `<section id="investimento" aria-label="Investimento" style="padding
       var a = document.createElement("a");
       a.href = url; a.download = f.dataset.nome; document.body.appendChild(a); a.click(); a.remove();
       setTimeout(function () { URL.revokeObjectURL(url); }, 60000);
-      aviso.textContent = "Pronto! A sua planilha foi baixada. No celular, ela fica em Downloads.";
+      aviso.textContent = "Pronto! Está em Downloads.";
       conta("baixou a dela");
     }).catch(function (e) {
-      aviso.textContent = e && e.message === "codigo" ? "Esse código não confere. Confira as letras e os números (pode ser com ou sem o tracinho)." : "Não deu para abrir agora. Tente de novo ou peça a planilha pelo WhatsApp.";
+      aviso.textContent = e && e.message === "codigo" ? "Código não confere. Confira as letras e os números." : "Não deu para abrir agora. Tente de novo.";
       conta(e && e.message === "codigo" ? "código errado" : "erro ao abrir");
     }).then(function () { botao.disabled = false; botao.textContent = rotulo; });
   });
@@ -373,7 +224,7 @@ async function main() {
   const saida = join(RAIZ, "demos", pasta);
   mkdirSync(saida, { recursive: true });
   const imagens = {};
-  for (const nome of ["inicio", "ensaios", "resumo", "grafico", "inicio-cel", "resumo-cel"]) {
+  for (const nome of ["inicio", "inicio-cel"]) { // a página mostra só o Início
     const origem = join(rasc, "img", nome + ".webp");
     if (!existsSync(origem)) {
       if (nome.endsWith("-cel")) continue;
@@ -400,10 +251,9 @@ async function main() {
     console.log(`Código da planilha dela: ${dado}  (guardado em rascunhos/planilha/${pasta}/codigo.txt; mande pelo WhatsApp, nunca pelo git)`);
   }
   const cifrada = existsSync(bin) ? { v: versao(bin) } : null;
-  const { default: site } = await import(pathToFileURL(join(RAIZ, "site", "config.mjs")).href);
   const site_ = cfg.demo_do_site;
   const capa = site_ && existsSync(join(RAIZ, "demos", site_, "index.html")) ? `https://www.renderizaweb.com.br/demo/${site_}/capa.jpg` : "";
-  const html = pagina({ pasta, cfg, imagens, teste, cifrada, whatsapp: site.contato.whatsapp, capa });
+  const html = pagina({ pasta, cfg, imagens, teste, cifrada, capa });
   writeFileSync(join(saida, "index.html"), html);
   console.log(`demos/${pasta}/index.html (${Math.round(html.length / 1024)} KB; no ar, as fotos saem da página) → /demo/${pasta}${cifrada ? " · com a planilha dela (cifrada)" : " · a dela ainda não está na página"}`);
 }

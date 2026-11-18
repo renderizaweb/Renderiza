@@ -737,7 +737,7 @@ def libreoffice(caminho, formato, pasta):
 
 
 def imagens(caminho, pasta_saida):
-    """As imagens da página da proposta (WebP), recortadas das páginas que o LibreOffice imprime da versão de teste."""
+    """A imagem da página da proposta (WebP): a primeira aba da versão de teste, como o LibreOffice imprime."""
     import subprocess
     import tempfile
     from PIL import Image
@@ -754,9 +754,6 @@ def imagens(caminho, pasta_saida):
     k = dpi / 70  # os recortes foram medidos a 70 dpi
     recortes = {  # nome: (primeira linha da página, página seguinte?, caixa a 70 dpi)
         "inicio": ("Planilha financeira", 0, (30, 30, 522, 440)),
-        "resumo": ("Resumo de", 0, (25, 35, 792, 340)),
-        "grafico": ("Resumo de", 2, (25, 50, 575, 196)),
-        "ensaios": ("Ensaios e aniversários", 0, (25, 35, 665, 300)),
     }
     os.makedirs(pasta_saida, exist_ok=True)
     feitas = []
@@ -768,30 +765,8 @@ def imagens(caminho, pasta_saida):
         destino = os.path.join(pasta_saida, nome + ".webp")
         im.save(destino, "WEBP", quality=88, method=6)
         feitas.append((destino, im.size))
-        # versões para o celular: o Início sem a rosquinha; o Resumo com a coluna dos nomes colada aos últimos meses
-        if nome == "inicio":
-            cel = im.crop((0, 0, int(im.size[0] * 0.62), im.size[1]))
-        elif nome == "resumo":
-            w, h = im.size
-            y0, y1 = int(h * 0.32), int(h * 0.62)
-            bordas = []
-            for x in range(w):  # as linhas verticais da tabela: escuras em quase toda a faixa
-                if sum(1 for y in range(y0, y1, 3) if sum(im.getpixel((x, y))) < 700) > (y1 - y0) / 3 * 0.8:
-                    if not bordas or x - bordas[-1][-1] > 2:
-                        bordas.append([x])
-                    else:
-                        bordas[-1].append(x)
-            bordas = [b[0] for b in bordas]
-            if len(bordas) < 14:
-                continue
-            topo = int(h * 0.135)  # do cabeçalho dos meses para baixo
-            rot = im.crop((0, topo, bordas[1], h))
-            fim = im.crop((bordas[8], topo, w, h))  # de agosto ao total do ano
-            cel = Image.new("RGB", (rot.size[0] + fim.size[0], rot.size[1]), "white")
-            cel.paste(rot, (0, 0))
-            cel.paste(fim, (rot.size[0], 0))
-        else:
-            continue
+        # o recorte que a página usa: a primeira aba sem a rosquinha (a coluna da página é estreita)
+        cel = im.crop((0, 0, int(im.size[0] * 0.62), im.size[1]))
         destino = os.path.join(pasta_saida, nome + "-cel.webp")
         cel.save(destino, "WEBP", quality=88, method=6)
         feitas.append((destino, cel.size))

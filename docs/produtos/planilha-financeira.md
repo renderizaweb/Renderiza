@@ -94,25 +94,23 @@ Fontes: [Microsoft, incorporar pasta de trabalho do OneDrive](https://support.mi
 
 ## A demo (`/demo/vivian-piacenti-planilha`)
 
-- Gerada por `ferramentas/planilha/gerar-pagina.mjs` a partir do `demos/vivian-piacenti-planilha/planilha.json` (textos em
-  `"pagina"`). Como toda demo, é um `index.html` com as imagens dentro, e o build as separa em `/demo/<pasta>/f/` (no ar, a
-  página tem 20 KB; as imagens, WebP com um recorte para celular, carregam quando aparecem). Os arquivos para baixar ficam
-  ao lado, na pasta da demo: o build passou a publicar `.xlsx` e `.bin` de uma pasta de demo em `/demo/<pasta>/<arquivo>`
-  (`scripts/montar-site.mjs`; a trava das demos não segura arquivo, só a página).
+- **Curta de propósito** (pedido do Kaue, 18/11/2026: a primeira versão tinha texto demais e letra estranha). Uma coluna, a
+  fonte do site da Renderiza (Geist) e nada mais: título, "Baixar a versão de teste", a imagem da primeira aba, "O que tem
+  nela" (6 linhas), o valor e "Já tem o código?". No ar, a página tem 9 KB.
+- Gerada por `ferramentas/planilha/gerar-pagina.mjs` a partir do `demos/vivian-piacenti-planilha/planilha.json`: os textos
+  ficam em `"pagina"` (`itens`, `valor`, `frase_valor`; sem `valor`, o bloco some). A imagem vai dentro da página e o build
+  a separa em `/demo/<pasta>/f/`. Os arquivos para baixar ficam na pasta da demo, e o build publica `.xlsx` e `.bin` de uma
+  pasta de demo em `/demo/<pasta>/<arquivo>` (`scripts/montar-site.mjs`; a trava das demos não segura arquivo, só a página).
 - A prévia do link no WhatsApp usa a foto do topo da demo do site dela (`"demo_do_site"`: `/demo/vivian-piacenti-fotografia/capa.jpg`).
-- Partes: capa com o Início; "Você pediu. Está aqui." (as frases dela, uma a uma, com onde está cada coisa); como funciona
-  (Ensaios, Resumo, gráfico); o cartão de crédito; teste (baixar); investimento (R$ 120, valor único; sem `"valor"`, o bloco
-  some); "Já recebeu o código?"; rodapé com o WhatsApp da Renderiza.
 - **O código:** a planilha dela vai cifrada (`planilha.bin`, AES-GCM com chave tirada do código por PBKDF2, 600 mil voltas).
   A página decifra no navegador de quem digita o código certo: sem servidor, sem banco. O código (8 letras e números, sem
   0/O e 1/I/L) aceita minúsculas e com ou sem tracinho. **Nunca vai para o git**: fica em
-  `rascunhos/planilha/<pasta>/codigo.txt` e vai para ela pelo WhatsApp. Sem a cifrada, a página responde "a sua ainda está
-  sendo preparada". O contador registra "baixar-teste", "liberar-planilha", "baixou a dela" e "código errado".
-- Testado com o navegador (celular Pixel 7 e computador): a página não passa da largura do celular; o teste baixa idêntico
-  ao original; código vazio, errado e certo dão o aviso certo; com o código certo, a planilha dela baixa idêntica byte a byte.
-- **Títulos em itálico:** na Cormorant Garamond reta, o navegador põe o acento de "mês", "Você", "Está" fora do lugar. A
-  itálica sai certa. **A demo dela tem o mesmo defeito** no título "Quem está atrás da câmera" (o "está"): vale olhar num
-  celular de verdade e, se aparecer, corrigir nas demos de fotógrafa que usam essa fonte.
+  `rascunhos/planilha/<pasta>/codigo.txt` e vai para ela pelo WhatsApp. Sem a cifrada, a página responde que a dela ainda
+  está sendo preparada. O contador registra "baixar-teste", "liberar-planilha", "baixou a dela" e "código errado".
+- Testado com o navegador (celular Pixel 7 e computador): não passa da largura do celular, o teste baixa idêntico ao
+  original e o código dá o aviso certo (vazio, errado e certo; com o certo, a dela baixa idêntica byte a byte).
+- **Fonte das demos de fotógrafa:** na Cormorant Garamond reta, o navegador põe o acento de "mês", "Você", "Está" fora do
+  lugar. A demo do site dela tem isso no título "Quem está atrás da câmera": vale olhar num celular de verdade.
 
 ## Valor
 
@@ -122,8 +120,8 @@ Fontes: [Microsoft, incorporar pasta de trabalho do OneDrive](https://support.mi
   Não achei planilha pronta para fotógrafa brasileira que cubra ensaios e estúdio.
 - **R$ 120 está abaixo do mercado**, mas faz sentido: já foi falado com ela, abre a relação (ela recusou o painel) e o custo
   de fazer para outra fotógrafa é trocar o `planilha.json` (nome, cores, categorias) e gerar de novo.
-- Na página está "R$ 120, valor único" e o que vem junto (`"o_que_vem"` no `planilha.json`). **Conferir com o Kaue antes de
-  mandar**, principalmente "os ajustes que faltarem depois do teste, antes da entrega".
+- Na página está "R$ 120, valor único" e "A planilha é sua, já com as suas contas" (`"pagina"` no `planilha.json`).
+  **Conferir com o Kaue antes de mandar.**
 
 ## Passo a passo
 

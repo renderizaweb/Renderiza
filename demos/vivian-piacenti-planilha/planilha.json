@@ -69,13 +69,17 @@
     "Convênio odontológico"
   ],
   "pagina": {
-    "_sobre": "Textos da demo/proposta (ferramentas/planilha/gerar-pagina.mjs). Valor e o que vem junto: confirmar com o Kaue antes de mandar.",
-    "valor": "R$ 120",
-    "o_que_vem": [
-      "A sua planilha, limpa, com as suas contas fixas e os seus tipos de ensaio",
-      "Os ajustes que faltarem depois do teste (uma conta a mais, um tipo de gasto com outro nome…), antes da entrega",
-      "Funciona no Excel e no Google Planilhas, no computador e no celular"
+    "_sobre": "Textos da demo/proposta (ferramentas/planilha/gerar-pagina.mjs). Curtos de propósito (pedido do Kaue, 18/11/2026). Valor: confirmar com o Kaue antes de mandar.",
+    "itens": [
+      "Ensaios e aniversários",
+      "Fotos extras",
+      "Gastos do estúdio: aluguel, bexigas, cenários, luz…",
+      "Contas fixas da casa",
+      "Uber, Shopee, Mercado Livre",
+      "Resumo do mês e do ano, sozinho"
     ],
+    "valor": "R$ 120",
+    "frase_valor": "A planilha é sua, já com as suas contas. Gostou? É só responder nossa mensagem.",
     "online": ""
   }
 }

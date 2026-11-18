@@ -23,7 +23,7 @@
 - Os arquivos gerados e o código ficam em `rascunhos/planilha/vivian-piacenti-planilha/` (fora do git).
 
 ## Conferir antes de mandar
-- O valor e "os ajustes que faltarem depois do teste, antes da entrega" (no `planilha.json`, `pagina`).
+- O valor (R$ 120) e a frase "A planilha é sua, já com as suas contas" (no `planilha.json`, `pagina`).
 - Abrir a versão de teste no Excel e no Google Planilhas (aqui só no LibreOffice) e a página num celular.
 - No painel: a demo vale 7 dias a partir de 18/11; ao mandar o link, usar "7 dias a partir de hoje". Depois do Pix, "No ar
   sem prazo" (ela baixa a dela por esta página).
