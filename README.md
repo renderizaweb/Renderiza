@@ -14,7 +14,6 @@ Um site só, publicado na Vercel:
 | `/flyer/<lead>.png` | Flyer de Stories (1080 × 1920) que vai de cortesia para a ótica; o painel baixa | quem tiver o link |
 | `/gravacao/<lead>.mp4` | Vídeo de apresentação da demo (MP4 vertical, ~30 s) para mandar no WhatsApp; o painel baixa | quem tiver o link |
 | `/exemplos` | Exemplos de sistema para mandar ao cliente (dados fictícios): painel de gestão e agenda online de um espaço de eventos, com vídeo | quem tiver o link |
-| `/proposta/<lead>` | Proposta comercial (`propostas/<lead>.html`), fora de `/demo` (não vence); os arquivos dela ficam em `propostas/<lead>/` (ex.: a planilha financeira da Vivian, `docs/produtos/planilha-financeira.md`) | quem tiver o link |
 
 - `site/`: o site público. Contatos, foto e trabalhos ficam em [`site/config.mjs`](site/config.mjs);
   como editar: [`site/README.md`](site/README.md).
@@ -342,6 +341,7 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Leila Bomfim Fotografia (fotógrafa)](demos/leila-bomfim-fotografia) | Jardim Ouro Preto, Taboão da Serra | site + página de Natal (`/natal`, “Memórias de Natal”) | pronta · 05/11/2026 (fotógrafos lote 2 · reserva 4) |
 | [Estúdio Faro Fotografia (fotógrafa)](demos/faro-fotografia) | Parque Residencial Oratório, São Paulo | site + página de Natal (`/natal`, “Natal Encantado”) | pronta · 05/11/2026 (fotógrafos lote 2 · reserva 5) |
 | [Rafaela Damaceno Estúdio Fotográfico (fotógrafa, cliente)](demos/rafaela-damaceno-fotografia) | Centro, Franco da Rocha | site + página de Natal (`/natal`), com a marca dela, a agenda de verdade e sem a oferta da Renderiza | proposta final · 14/11/2026 (fechou site e painel; esperando ela validar para o site ir ao ar ligado ao Painel Renderiza) |
+| [Estúdio Vivian Piacenti · planilha financeira](demos/vivian-piacenti-planilha) | Limão, São Paulo | proposta da planilha financeira sob medida: versão de teste para baixar e a dela liberada por código (`docs/produtos/planilha-financeira.md`) | pronta · 18/11/2026 (lead próprio, separado do site) |
 | [Lislley Peace Fotografia (fotógrafa)](demos/lislley-peace-fotografia) | Ribeirão Pires, ABC | site + página de Natal (`/natal`, “O Natal mais encantador do ano”) | pronta · 06/11/2026 (fotógrafos lote 3 · nº 2) |
 | [Aimee Longman Fotografia (fotógrafa)](demos/aimee-longman-fotografia) | Alphaville Conde II, Barueri | site + página de Natal (`/natal`, “A sensação gostosa dos Natais da infância”) | pronta · 06/11/2026 (fotógrafos lote 3 · nº 3) |
 | [Estúdio Mandaluz Fotografia (fotógrafa)](demos/mandaluz-fotografia) | Portal das Alamedas, Franco da Rocha | site + página de Natal (`/natal`, “Confeitaria, diversão e tempo juntos”) | pronta · 06/11/2026 (fotógrafos lote 3 · nº 4) |

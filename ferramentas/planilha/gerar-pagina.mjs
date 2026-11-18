@@ -1,9 +1,11 @@
 #!/usr/bin/env node
-// Página da proposta da planilha financeira: propostas/<pasta>.html → /proposta/<pasta> (scripts/montar-site.mjs), fora de
-// /demo (não sai do ar quando a demo vence), com o contador de visitas no lead da demo (data-sub="planilha"). Os arquivos
-// ficam ao lado, em propostas/<pasta>/ → /proposta/<pasta>/: as imagens, a versão de teste e, depois do Pix, a planilha
-// dela cifrada com um código (AES-GCM; a chave sai do código por PBKDF2). A página só decifra no navegador de quem digita
-// o código certo: sem servidor, sem banco e sem a planilha dela à vista no repositório.
+// Demo/proposta da planilha financeira: demos/<pasta>/index.html → /demo/<pasta>, como qualquer demo (scripts/montar-site.mjs):
+// o lead do painel com link_demo = /demo/<pasta> ganha o contador (tela Atividade), o prazo de 7 dias (seção Demo),
+// "Copiar link da demo" e a prévia com foto no WhatsApp. As imagens vão dentro da página (o build as separa em
+// /demo/<pasta>/f/); os dois arquivos para baixar ficam ao lado e o build os publica como estão: a versão de teste
+// (<arquivo>-TESTE.xlsx) e, depois do Pix, a planilha do cliente cifrada com um código (planilha.bin; AES-GCM, chave tirada
+// do código por PBKDF2). A página só decifra no navegador de quem digita o código certo: sem servidor, sem banco e sem a
+// planilha do cliente à vista no repositório.
 //
 // Antes: python3 -I ferramentas/planilha/gerar-planilha.py demos/<pasta>/planilha.json --conferir --imagens
 // Uso:
@@ -11,8 +13,10 @@
 //   node ferramentas/planilha/gerar-pagina.mjs <pasta> --codigo           também cifra a dela, com um código novo (aparece aqui)
 //   node ferramentas/planilha/gerar-pagina.mjs <pasta> --codigo ABCD-2345 com este código
 //   node ferramentas/planilha/gerar-pagina.mjs <pasta> --sem-a-dela       tira a cifrada (volta a "sendo preparada")
-// O código nunca vai para o git: fica só em rascunhos/planilha/codigo-<pasta>.txt e no WhatsApp da cliente.
-// Textos e valor: "pagina" em demos/<pasta>/planilha.json (sem "valor", a página sai sem o bloco de investimento). Como funciona e o porquê: docs/produtos/planilha-financeira.md.
+// O código nunca vai para o git: fica só em rascunhos/planilha/<pasta>/codigo.txt e no WhatsApp do cliente.
+// Textos e valor: "pagina" em demos/<pasta>/planilha.json (sem "valor", a página sai sem o bloco de investimento); a foto da
+// prévia do link vem da demo do site do mesmo cliente ("demo_do_site"). Como funciona e o porquê:
+// docs/produtos/planilha-financeira.md.
 
 import { createHash, webcrypto } from "node:crypto";
 import { copyFileSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
@@ -68,13 +72,14 @@ function tamanhoWebp(arquivo) {
 
 export function pagina({ pasta, cfg, imagens, teste, cifrada, whatsapp, capa }) {
   const p = cfg.pagina || {};
-  const base = `/proposta/${pasta}`;
+  const base = `/demo/${pasta}`;
+  const dados = nome => `data:image/webp;base64,${imagens[nome].b64}`;
   // Com a versão de celular (<nome>-cel.webp), a tela estreita recebe o recorte feito para ela.
   const img = (nome, alt, primeira = false) => {
-    const [w, h] = imagens[nome];
+    const { w, h } = imagens[nome];
     const cel = imagens[nome + "-cel"];
-    const fonte = cel ? `<source media="(max-width: 700px)" srcset="${base}/${nome}-cel.webp?v=${imagens[nome + "-cel:v"]}" width="${cel[0]}" height="${cel[1]}">` : "";
-    return `<a class="foto" href="${base}/${nome}.webp?v=${imagens[nome + ":v"]}" target="_blank" rel="noopener"><picture>${fonte}<img src="${base}/${nome}.webp?v=${imagens[nome + ":v"]}" width="${w}" height="${h}" alt="${esc(alt)}"${primeira ? ' fetchpriority="high"' : ' loading="lazy"'}></picture></a>`;
+    const fonte = cel ? `<source media="(max-width: 700px)" srcset="${dados(nome + "-cel")}" width="${cel.w}" height="${cel.h}">` : "";
+    return `<a class="foto" href="${dados(nome)}" target="_blank" rel="noopener"><picture>${fonte}<img src="${dados(nome)}" width="${w}" height="${h}" alt="${esc(alt)}"${primeira ? ' fetchpriority="high"' : ' loading="lazy"'}></picture></a>`;
   };
   const textoWa = encodeURIComponent("Oi! Vi a proposta da planilha financeira e queria tirar uma dúvida.");
   const pedidos = [
@@ -105,9 +110,9 @@ ${capa ? `<meta property="og:image" content="${capa}">\n` : ""}<meta property="o
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<!-- Gerada por ferramentas/planilha/gerar-pagina.mjs (não editar à mão): proposta da planilha financeira, ${new Date().toISOString().slice(0, 10)}.
-     O contador conta as visitas no lead da demo, com data-sub="planilha". -->
-<script src="/exemplos/visitas.js" data-pagina="demo" data-demo="${pasta}" data-sub="planilha" defer></script>
+<!-- Gerada por ferramentas/planilha/gerar-pagina.mjs (não editar à mão): demo/proposta da planilha financeira, ${new Date().toISOString().slice(0, 10)}.
+     O contador conta as visitas no lead com link_demo = /demo/${pasta}. -->
+<script src="/exemplos/visitas.js" data-pagina="demo" data-demo="${pasta}" defer></script>
 <style>
 :root{--fundo:#fbf8f7;--papel:#fffefd;--areia:${cfg.cores.areia};--linha:#e8ddd9;--tinta:${cfg.cores.tinta};--tinta-2:#6a5b5d;
   --rosa:${cfg.cores.rosa};--acento:${cfg.cores.acento};--escuro:${cfg.cores.acento_escuro};--verde:#2f6b47;
@@ -364,8 +369,8 @@ async function main() {
     process.exit(1);
   }
   const cfg = JSON.parse(readFileSync(join(RAIZ, "demos", pasta, "planilha.json"), "utf8"));
-  const rasc = join(RAIZ, "rascunhos", "planilha");
-  const saida = join(RAIZ, "propostas", pasta);
+  const rasc = join(RAIZ, "rascunhos", "planilha", pasta);
+  const saida = join(RAIZ, "demos", pasta);
   mkdirSync(saida, { recursive: true });
   const imagens = {};
   for (const nome of ["inicio", "ensaios", "resumo", "grafico", "inicio-cel", "resumo-cel"]) {
@@ -374,9 +379,8 @@ async function main() {
       if (nome.endsWith("-cel")) continue;
       throw new Error(`Falta ${origem}: rode antes o gerar-planilha.py com --imagens.`);
     }
-    copyFileSync(origem, join(saida, nome + ".webp"));
-    imagens[nome] = tamanhoWebp(origem);
-    imagens[nome + ":v"] = versao(origem);
+    const [w, h] = tamanhoWebp(origem);
+    imagens[nome] = { w, h, b64: readFileSync(origem).toString("base64") };
   }
   const nomeTeste = cfg.arquivo + "-TESTE.xlsx";
   copyFileSync(join(rasc, nomeTeste), join(saida, nomeTeste));
@@ -392,15 +396,16 @@ async function main() {
     const pacote = await cifrar(final, dado);
     if (!(await decifrar(pacote, dado)).equals(final)) throw new Error("A cifrada não volta igual: nada foi gravado.");
     writeFileSync(bin, pacote);
-    writeFileSync(join(rasc, `codigo-${pasta}.txt`), dado + "\n");
-    console.log(`Código da planilha dela: ${dado}  (guardado em rascunhos/planilha/codigo-${pasta}.txt; mande pelo WhatsApp, nunca pelo git)`);
+    writeFileSync(join(rasc, "codigo.txt"), dado + "\n");
+    console.log(`Código da planilha dela: ${dado}  (guardado em rascunhos/planilha/${pasta}/codigo.txt; mande pelo WhatsApp, nunca pelo git)`);
   }
   const cifrada = existsSync(bin) ? { v: versao(bin) } : null;
   const { default: site } = await import(pathToFileURL(join(RAIZ, "site", "config.mjs")).href);
-  const capa = existsSync(join(RAIZ, "demos", pasta, "index.html")) ? `https://www.renderizaweb.com.br/demo/${pasta}/capa.jpg` : "";
+  const site_ = cfg.demo_do_site;
+  const capa = site_ && existsSync(join(RAIZ, "demos", site_, "index.html")) ? `https://www.renderizaweb.com.br/demo/${site_}/capa.jpg` : "";
   const html = pagina({ pasta, cfg, imagens, teste, cifrada, whatsapp: site.contato.whatsapp, capa });
-  writeFileSync(join(RAIZ, "propostas", pasta + ".html"), html);
-  console.log(`propostas/${pasta}.html (${Math.round(html.length / 1024)} KB) → /proposta/${pasta}${cifrada ? " · com a planilha dela (cifrada)" : " · a dela ainda não está na página"}`);
+  writeFileSync(join(saida, "index.html"), html);
+  console.log(`demos/${pasta}/index.html (${Math.round(html.length / 1024)} KB; no ar, as fotos saem da página) → /demo/${pasta}${cifrada ? " · com a planilha dela (cifrada)" : " · a dela ainda não está na página"}`);
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await main();

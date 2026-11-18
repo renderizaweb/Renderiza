@@ -11,9 +11,10 @@ que já está feito.
   lançamentos de exemplo.
 - **O melhor formato é o `.xlsx` sem macro.** Abre igual no Excel e no Google Planilhas, no computador e no celular (o app
   Excel é grátis no celular). Macro não roda no celular e o Excel bloqueia macro em arquivo baixado da internet.
-- **Na Renderiza:** a página `/proposta/vivian-piacenti-fotografia` mostra como funciona, baixa a **versão de teste**
-  (com dados inventados) e, depois do Pix, libera **a dela** com um código. Fica fora de `/demo` (não vence), não aparece
-  no Google e conta as visitas no lead dela (tela Atividade, "planilha").
+- **Na Renderiza:** a demo `/demo/vivian-piacenti-planilha` mostra como funciona, baixa a **versão de teste** (com dados
+  inventados) e, depois do Pix, libera **a dela** com um código. É uma demo como as outras: com o lead
+  `vivian-piacenti-planilha` no painel, ganha a tela Atividade (quem abriu, baixou o teste, digitou o código), o prazo de 7
+  dias, "Copiar link da demo", "Copiar mensagem" e a prévia com a foto do estúdio dela no WhatsApp.
 - **Valor:** R$ 120, valor único (o que o Kaue sugeriu). Está abaixo do mercado (abaixo); vale porque a base serve para
   outras fotógrafas.
 
@@ -82,7 +83,7 @@ Decisões e o porquê:
 
 | Jeito | Para ela | Para nós | Veredito |
 |---|---|---|---|
-| **Baixar o arquivo de teste** (na página da proposta) | Toca, abre no Excel ou no Planilhas, mexe à vontade | Nada a mais | **Feito.** É o arquivo de verdade |
+| **Baixar o arquivo de teste** (na demo/proposta) | Toca, abre no Excel ou no Planilhas, mexe à vontade | Nada a mais | **Feito.** É o arquivo de verdade |
 | Google Planilhas por link | Abre sem baixar, mas pede conta do Google | Subir no Drive do Kaue, converter, compartilhar | Opcional: o link vai em `"online"` no `planilha.json` |
 | Excel na web embutido (OneDrive, "deixar digitar") | Digita no navegador, nada fica salvo | Conta Microsoft; há relatos de quadro em branco | Opcional, mesmo campo `"online"`; testar antes |
 | Refazer a planilha como página web | Funciona no navegador | Muito trabalho, e o que ela testa não é o arquivo que leva (e é o que o Painel já faz) | Não recomendo |
@@ -91,19 +92,21 @@ Fontes: [Microsoft, incorporar pasta de trabalho do OneDrive](https://support.mi
 [relato de quadro em branco](https://techcommunity.microsoft.com/discussions/onedriveforbusiness/onedrive-no-longer-creating-functional-iframe-sharing-links/4549101/replies/4550294),
 [digitação não salva](https://learn.microsoft.com/en-us/answers/questions/5112085/embed-excel-file-using-onedrive).
 
-## A página (`/proposta/vivian-piacenti-fotografia`)
+## A demo (`/demo/vivian-piacenti-planilha`)
 
-- Gerada por `ferramentas/planilha/gerar-pagina.mjs` a partir do `demos/vivian-piacenti-fotografia/planilha.json` (textos em
-  `"pagina"`). Arquivos ao lado em `propostas/vivian-piacenti-fotografia/` (imagens, versão de teste e, depois, a cifrada):
-  o build passou a publicar a pasta de uma proposta em `/proposta/<lead>/` (`scripts/montar-site.mjs`), com noindex
-  (`vercel.json`). A página tem 20 KB; as imagens (WebP, com um recorte para celular) carregam quando aparecem.
+- Gerada por `ferramentas/planilha/gerar-pagina.mjs` a partir do `demos/vivian-piacenti-planilha/planilha.json` (textos em
+  `"pagina"`). Como toda demo, é um `index.html` com as imagens dentro, e o build as separa em `/demo/<pasta>/f/` (no ar, a
+  página tem 20 KB; as imagens, WebP com um recorte para celular, carregam quando aparecem). Os arquivos para baixar ficam
+  ao lado, na pasta da demo: o build passou a publicar `.xlsx` e `.bin` de uma pasta de demo em `/demo/<pasta>/<arquivo>`
+  (`scripts/montar-site.mjs`; a trava das demos não segura arquivo, só a página).
+- A prévia do link no WhatsApp usa a foto do topo da demo do site dela (`"demo_do_site"`: `/demo/vivian-piacenti-fotografia/capa.jpg`).
 - Partes: capa com o Início; "Você pediu. Está aqui." (as frases dela, uma a uma, com onde está cada coisa); como funciona
   (Ensaios, Resumo, gráfico); o cartão de crédito; teste (baixar); investimento (R$ 120, valor único; sem `"valor"`, o bloco
   some); "Já recebeu o código?"; rodapé com o WhatsApp da Renderiza.
 - **O código:** a planilha dela vai cifrada (`planilha.bin`, AES-GCM com chave tirada do código por PBKDF2, 600 mil voltas).
   A página decifra no navegador de quem digita o código certo: sem servidor, sem banco. O código (8 letras e números, sem
   0/O e 1/I/L) aceita minúsculas e com ou sem tracinho. **Nunca vai para o git**: fica em
-  `rascunhos/planilha/codigo-<pasta>.txt` e vai para ela pelo WhatsApp. Sem a cifrada, a página responde "a sua ainda está
+  `rascunhos/planilha/<pasta>/codigo.txt` e vai para ela pelo WhatsApp. Sem a cifrada, a página responde "a sua ainda está
   sendo preparada". O contador registra "baixar-teste", "liberar-planilha", "baixou a dela" e "código errado".
 - Testado com o navegador (celular Pixel 7 e computador): a página não passa da largura do celular; o teste baixa idêntico
   ao original; código vazio, errado e certo dão o aviso certo; com o código certo, a planilha dela baixa idêntica byte a byte.
@@ -127,23 +130,31 @@ Fontes: [Microsoft, incorporar pasta de trabalho do OneDrive](https://support.mi
 1. **Antes de mandar o link:** abrir a versão de teste no Excel e no Google Planilhas (aqui só deu para conferir no
    LibreOffice) e a página num celular de verdade. Pontos de atenção: as setinhas, a proteção das abas e os links "→ aba"
    do Início no Google Planilhas; a data em português (com o Excel em inglês, "05/11" vira 11 de maio).
-2. **Publicar:** a página vai ao ar quando o branch chegar na `main` (a Vercel publica sozinha).
-3. **Mandar para ela** (sugestão, um link só):
+2. **Publicar:** a demo vai ao ar quando o branch chegar na `main` (a Vercel publica sozinha).
+3. **O lead no painel:** `vivian-piacenti-planilha`, separado do lead do site (`vivian-piacenti-fotografia`, que não muda).
+   O insert está pronto em `rascunhos/planilha/vivian-piacenti-planilha/lead.sql` (fora do git: tem a conversa): Prontas
+   para trabalhar, `link_demo = /demo/vivian-piacenti-planilha`, R$ 120 em valor potencial, tag `planilha`, interesse
+   "Interessado" (ela pediu a planilha), o bloco `[WhatsApp · …]` nas Observações, a mensagem abaixo no "Copiar mensagem" e
+   um checklist próprio (mandar o link, perguntar do teste, gerar a dela, entregar e deixar sem prazo). O banco cria sozinho
+   o prazo de 7 dias; ao mandar o link, use "7 dias a partir de hoje". Atenção: quando o card for para Em andamento, o painel
+   registra um primeiro contato, que entra no placar do ciclo como contato novo.
+4. **Mandar para ela** (sugestão, um link só; é a mesma do "Copiar mensagem" do card):
    > Oi, Vivian! Fiz a sua planilha do jeito que você pediu: ensaios e aniversários, fotos extras, os gastos do estúdio por
    > tipo (aluguel, bexigas, cenários, luz…), os fixos da casa e os gastos do mês (Uber, Shopee, Mercado Livre). Ela soma
    > tudo sozinha, mês a mês. Montei uma página para você ver como funciona e baixar a versão de teste, com dados de exemplo
-   > para mexer à vontade: https://www.renderizaweb.com.br/proposta/vivian-piacenti-fotografia
+   > para mexer à vontade: https://www.renderizaweb.com.br/demo/vivian-piacenti-planilha
    > Se gostar, a sua sai por R$ 120, valor único, já com as suas contas. O que faltar, me fala que eu acrescento.
-4. **Ela aprovou e pagou:** pedir os nomes como ela usa (as contas fixas, por exemplo "Colégio da Isa"; a Emily é da casa
+5. **Ela aprovou e pagou:** pedir os nomes como ela usa (as contas fixas, por exemplo "Colégio da Isa"; a Emily é da casa
    ou do estúdio?; os tipos de ensaio que ela vende de verdade). Pôr no `planilha.json` e gerar:
    ```
-   python3 -I ferramentas/planilha/gerar-planilha.py demos/vivian-piacenti-fotografia/planilha.json --conferir --imagens
-   node ferramentas/planilha/gerar-pagina.mjs vivian-piacenti-fotografia --codigo
+   python3 -I ferramentas/planilha/gerar-planilha.py demos/vivian-piacenti-planilha/planilha.json --conferir --imagens
+   node ferramentas/planilha/gerar-pagina.mjs vivian-piacenti-planilha --codigo
    ```
-   O segundo comando mostra o código. Commit da `planilha.bin` e da página, publicar, mandar **o arquivo**
-   (`rascunhos/planilha/Planilha-Estudio-Vivian-Piacenti.xlsx`) e **o código** pelo WhatsApp. Nomes pessoais ficam só no
+   O segundo comando mostra o código. Commit da `planilha.bin` e da página, publicar, deixar a demo **no ar sem prazo** no
+   painel, mandar **o arquivo** (`rascunhos/planilha/vivian-piacenti-planilha/Planilha-Estudio-Vivian-Piacenti.xlsx`) e
+   **o código** pelo WhatsApp, e fechar o card como ganho (R$ 120). Nomes pessoais ficam só no
    `planilha.json` (nomes de conta, nunca valores) e na cifrada.
-5. **Janeiro:** a de 2027 (`--ano 2027 --mes 1`), se combinado.
+6. **Janeiro:** a de 2027 (`--ano 2027 --mes 1`), se combinado.
 
 ## Para depois (sem decidir)
 

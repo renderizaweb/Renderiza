@@ -7,8 +7,8 @@ pessoais, gastos do estúdio por tipo (aluguel, bexigas, cenários, luz), aba de
 O porquê de cada decisão: docs/produtos/planilha-financeira.md.
 
 Uso:
-  python3 -I ferramentas/planilha/gerar-planilha.py demos/vivian-piacenti-fotografia/planilha.json
-      gera as duas versões em rascunhos/planilha/:
+  python3 -I ferramentas/planilha/gerar-planilha.py demos/vivian-piacenti-planilha/planilha.json
+      gera as duas versões em rascunhos/planilha/<pasta>/:
         <arquivo>-TESTE.xlsx  com dados de exemplo (inventados), poucas linhas e a faixa "versão de teste"
         <arquivo>.xlsx        a dela: limpa, com 2.000 linhas em cada aba de lançamentos
   --ano 2027 --mes 1      ano e mês que a planilha abre mostrando (padrão: hoje)
@@ -856,12 +856,13 @@ def main():
     hoje = dt.date.today()
     ap.add_argument("--ano", type=int, default=hoje.year)
     ap.add_argument("--mes", type=int, default=hoje.month)
-    ap.add_argument("--saida", default="rascunhos/planilha")
+    ap.add_argument("--saida", default=None, help="padrão: rascunhos/planilha/<pasta da config>")
     ap.add_argument("--conferir", action="store_true")
     ap.add_argument("--imagens", action="store_true", help="gera as imagens da página da proposta em <saida>/img")
     a = ap.parse_args()
     with open(a.config, encoding="utf-8") as f:
         cfg = json.load(f)
+    a.saida = a.saida or os.path.join("rascunhos", "planilha", os.path.basename(os.path.dirname(os.path.abspath(a.config))))
     os.makedirs(a.saida, exist_ok=True)
     teste = os.path.join(a.saida, cfg["arquivo"] + "-TESTE.xlsx")
     final = os.path.join(a.saida, cfg["arquivo"] + ".xlsx")

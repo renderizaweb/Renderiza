@@ -1,7 +1,8 @@
 {
-  "_sobre": "Planilha financeira do Estúdio Vivian Piacenti (pedido de 18/11/2026). Gerar: python3 -I ferramentas/planilha/gerar-planilha.py demos/vivian-piacenti-fotografia/planilha.json. Só nomes de categoria aqui, nunca valores dela.",
+  "_sobre": "Planilha financeira do Estúdio Vivian Piacenti (pedido de 18/11/2026). A demo/proposta é /demo/vivian-piacenti-planilha (lead vivian-piacenti-planilha no painel). Gerar: docs/produtos/planilha-financeira.md, \"Passo a passo\". Só nomes de categoria e de conta aqui, nunca valores dela.",
   "nome": "Estúdio Vivian Piacenti",
   "arquivo": "Planilha-Estudio-Vivian-Piacenti",
+  "demo_do_site": "vivian-piacenti-fotografia",
   "cores": {
     "acento": "#9b4f63",
     "acento_escuro": "#7e3d4f",
@@ -68,7 +69,7 @@
     "Convênio odontológico"
   ],
   "pagina": {
-    "_sobre": "Textos da proposta em /proposta/vivian-piacenti-fotografia (ferramentas/planilha/gerar-pagina.mjs). Valor e o que vem junto: confirmar com o Kaue antes de publicar.",
+    "_sobre": "Textos da demo/proposta (ferramentas/planilha/gerar-pagina.mjs). Valor e o que vem junto: confirmar com o Kaue antes de mandar.",
     "valor": "R$ 120",
     "o_que_vem": [
       "A sua planilha, limpa, com as suas contas fixas e os seus tipos de ensaio",
