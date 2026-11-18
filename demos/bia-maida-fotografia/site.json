@@ -35,6 +35,7 @@
     }
   ],
   "painel": {
-    "codigo": "bia-maida"
+    "codigo": "bia-maida",
+    "agenda": true
   }
 }

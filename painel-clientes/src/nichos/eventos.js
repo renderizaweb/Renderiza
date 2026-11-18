@@ -44,4 +44,6 @@ export default {
   ],
   // Data já marcada que entra pela importação sem horário: uma festa à noite.
   horarioPadrao: { inicio: "19:00", fim: "03:00" },
+  // o jeito da agenda online sem escolha da conta (Configurações): o dia e o turno
+  agendaPadrao: "turno",
 };

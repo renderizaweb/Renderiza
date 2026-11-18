@@ -3,7 +3,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { modulosDaGrade, acessosDoFormulario, resumoDosAcessos, vistoEm } from "../src/modulos/equipe/index.js";
 import { abasDoNicho, lerServico, lerCampanha } from "../src/modulos/servicos/index.js";
-import { nicho } from "../src/nichos/index.js";
+import { nicho, modoDaAgenda } from "../src/nichos/index.js";
+import { JEITOS } from "../src/modulos/configuracoes/index.js";
 
 const conta = { nicho: "eventos", modulos: ["agenda-online", "agenda", "financeiro"] };
 
@@ -33,6 +34,22 @@ test("serviços: as abas mudam pelo nicho", () => {
   assert.deepEqual(abasDoNicho(nicho("fotografia")).map(a => a.id), ["servicos", "horarios", "campanhas", "bloqueios", "adicionais"]);
   assert.equal(abasDoNicho(nicho("fotografia"))[0].novo, "Novo tipo de ensaio");
   assert.equal(abasDoNicho(nicho("eventos")).find(a => a.id === "bloqueios").nome, "Datas fechadas");
+});
+
+test("o jeito da agenda: a escolha da conta, senão o do nicho (a regra do banco, modo_da_agenda)", () => {
+  assert.equal(modoDaAgenda({ nicho: "fotografia", ajustes: {} }), "horario");
+  assert.equal(modoDaAgenda({ nicho: "eventos", ajustes: null }), "turno");
+  assert.equal(modoDaAgenda({ nicho: "fotografia", ajustes: { agenda: { modo: "turno" } } }), "turno");
+  assert.equal(modoDaAgenda({ nicho: "eventos", ajustes: { agenda: { modo: "horario" } } }), "horario");
+  assert.equal(modoDaAgenda({ nicho: "eventos", ajustes: { agenda: { modo: "qualquer" } } }), "turno", "valor que não existe: o do nicho");
+  assert.equal(modoDaAgenda(null), "turno", "sem conta: o do nicho padrão (eventos)");
+  assert.deepEqual(JEITOS.map(j => j.id), ["horario", "turno"]);
+});
+
+test("serviços: no jeito por turno, a fotografia fica sem campanhas (são do jeito por horário)", () => {
+  assert.deepEqual(abasDoNicho(nicho("fotografia"), "turno").map(a => a.id), ["servicos", "horarios", "bloqueios", "adicionais"]);
+  assert.deepEqual(abasDoNicho(nicho("fotografia"), "horario").map(a => a.id), abasDoNicho(nicho("fotografia")).map(a => a.id));
+  assert.deepEqual(abasDoNicho(nicho("eventos"), "horario").map(a => a.id), abasDoNicho(nicho("eventos")).map(a => a.id));
 });
 
 test("serviços: pacote e ensaio lidos do formulário", () => {

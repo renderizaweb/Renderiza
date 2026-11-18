@@ -4,6 +4,9 @@
 // oferece "Reservar este dia". No computador, o mês e o painel do dia, lado a lado.
 // A reserva mora em reserva.js; os compromissos, em compromisso.js; as campanhas (fotografia), em campanhas.js; as
 // regras sem tela, em logica.js. Quem só vê não tem botões (o banco também não deixa).
+// O que é horário ou turno segue o jeito da agenda da conta (Configurações; 18/11/2026), não o nicho: por horário, os
+// horários livres do dia, a semana de horários, a jornada e as campanhas; por turno, os turnos do dia e "Reservar este
+// dia". As palavras (ensaio, festa, reunião, visita) seguem o nicho.
 
 import { icone } from "../../ui/icones.js";
 import { escapar } from "../../ui/formulario.js";
@@ -14,9 +17,10 @@ import { dia, dataLonga, somarDias, instanteNoFuso, horaDoTexto, nomeCurto } fro
 import {
   DIAS_DA_SEMANA, gradeDoMes, semana, primeiroDoMes, somarMeses, nomeDoMes, itemDaReserva, itemDoCompromisso,
   itensDoDia, filtrarItens, bloqueioDoDia, horariosDoDia, horariosLivres, faixa, quandoFoi, seguraHorario,
-  fechadosDoDia, horariosDoDiaComSituacao, gerarHorarios, jornadaDaSemana,
+  fechadosDoDia, horariosDoDiaComSituacao, gerarHorarios, jornadaDaSemana, conflitos, fimDoTurno,
 } from "./logica.js";
 import { COLUNAS_RESERVA, etiquetaDaSituacao, abrirReserva, abrirFormReserva } from "./reserva.js";
+import { modoDaAgenda } from "../../nichos/index.js";
 import { COLUNAS_COMPROMISSO, abrirCompromisso, abrirFormCompromisso } from "./compromisso.js";
 
 const DIA = /^\d{4}-\d{2}-\d{2}$/;
@@ -29,14 +33,16 @@ export async function montar(el, contexto) {
   const hoje = dia(new Date(), fuso);
   const params = new URLSearchParams(location.search);
   const fotografia = nicho.id === "fotografia";
+  const porHorario = modoDaAgenda(conta, nicho) === "horario";
+  const comCampanhas = nicho.temCampanhas && porHorario;
   const temAgendaOnline = (conta.modulos || []).includes("agenda-online");
-  const aba = fotografia && params.get("aba") === "campanhas" ? "campanhas" : "agenda";
+  const aba = comCampanhas && params.get("aba") === "campanhas" ? "campanhas" : "agenda";
   let diaSel = DIA.test(params.get("dia") || "") ? params.get("dia") : hoje;
   let mes = primeiroDoMes(diaSel);
   let vistaCelular = "mes"; // como o exemplo validado (cara-dos-exemplos.md, A1): o mês, com o dia embaixo
   // fotografia: "mes" ou "horarios" (a semana com cada horário e a situação dele; 17/11/2026), no celular e no computador
   let vista = "mes";
-  const mexeNosHorarios = fotografia && pode("servicos", "editar"); // a regra do banco: os horários são de Serviços
+  const mexeNosHorarios = porHorario && pode("servicos", "editar"); // a regra do banco: os horários são de Serviços
   const duracao = nicho.horarioPadrao.duracao;
   const filtro = { pessoa: null, escondidas: [], canceladas: false };
   let dados = { reservas: [], compromissos: [], bloqueios: [], horarios: [], campanhas: [], de: "", ate: "" };
@@ -46,14 +52,14 @@ export async function montar(el, contexto) {
   el.innerHTML = `
     <header class="rz-cabeca">
       <div class="rz-cabeca-titulos"><h1 class="rz-titulo-1">${escapar(nomeDoModulo)}</h1>
-        <p class="rz-texto-2">${fotografia ? "Os ensaios por horário. Em \"Semana\", cada horário com a situação dele: livre, marcado ou fechado." : "Festas, visitas, degustações e reuniões. Toque num dia ou numa festa."}</p></div>
+        <p class="rz-texto-2">${porHorario ? "Os ensaios por horário. Em \"Semana\", cada horário com a situação dele: livre, marcado ou fechado." : fotografia ? "Os trabalhos por dia e turno. Toque num dia para ver os turnos e reservar." : "Festas, visitas, degustações e reuniões. Toque num dia ou numa festa."}</p></div>
       <div class="rz-cabeca-acoes">
         ${mexeNosHorarios ? `<button class="rz-botao" type="button" data-jornada>${icone("relogio", { tamanho: 18 })}Meus horários de trabalho</button>` : ""}
         ${marca ? `<button class="rz-botao" type="button" data-compromisso>${icone("relogio", { tamanho: 18 })}${fotografia ? "Marcar reunião" : "Marcar visita"}</button>` : ""}
         ${edita ? `<button class="rz-botao rz-botao--primario" type="button" data-reservar>${icone("adicionar", { tamanho: 18 })}${escapar(nicho.palavras.novaReserva)}</button>` : ""}
       </div>
     </header>
-    ${fotografia ? `<nav class="rz-abas" aria-label="Partes da agenda"><a href="/agenda"${aba === "agenda" ? ' aria-current="page"' : ""}>Agenda</a><a href="/agenda?aba=campanhas"${aba === "campanhas" ? ' aria-current="page"' : ""}>Campanhas</a></nav>` : ""}
+    ${comCampanhas ? `<nav class="rz-abas" aria-label="Partes da agenda"><a href="/agenda"${aba === "agenda" ? ' aria-current="page"' : ""}>Agenda</a><a href="/agenda?aba=campanhas"${aba === "campanhas" ? ' aria-current="page"' : ""}>Campanhas</a></nav>` : ""}
     ${!edita ? `<p class="rz-alerta" role="note">${icone("cadeado", { tamanho: 18 })}<span>Você só vê a agenda. Quem muda é o dono ou quem ele deixar.</span></p>` : ""}
     <div data-corpo></div>`;
   const corpo = el.querySelector("[data-corpo]");
@@ -80,7 +86,7 @@ export async function montar(el, contexto) {
         <div class="rz-mes-dias">${gradeDoMes(mes).map(d => {
           const lista = itensDoDia(todos, d);
           const bloq = bloqueioDoDia(dados.bloqueios, d);
-          const extra = fotografia ? doMes(d, bloq) : null;
+          const extra = porHorario ? doMes(d, bloq) : null;
           const classes = ["rz-dia", d.slice(0, 7) !== mes.slice(0, 7) && "rz-dia--fora", d === hoje && "rz-dia--hoje", bloq && "rz-dia--fechado", extra && extra.semTrabalho && "rz-dia--sem-trabalho", extra && extra.campanha && "rz-dia--campanha"].filter(Boolean).join(" ");
           return `<button type="button" role="gridcell" class="${classes}" data-dia="${d}" aria-pressed="${d === diaSel}" aria-label="${escapar(rotuloDoDia(d, lista, bloq))}">
             <span class="rz-dia-n">${Number(d.slice(8))}</span>
@@ -133,7 +139,7 @@ export async function montar(el, contexto) {
       }).join("")}</div>`;
   }
 
-  const seletorDeVista = () => fotografia ? `<div class="rz-segmentos" role="group" aria-label="Ver"><button type="button" data-ver="mes" aria-pressed="${vista === "mes"}">Mês</button><button type="button" data-ver="horarios" aria-pressed="${vista === "horarios"}">Semana</button></div>` : "";
+  const seletorDeVista = () => porHorario ? `<div class="rz-segmentos" role="group" aria-label="Ver"><button type="button" data-ver="mes" aria-pressed="${vista === "mes"}">Mês</button><button type="button" data-ver="horarios" aria-pressed="${vista === "horarios"}">Semana</button></div>` : "";
 
   function semanaHtml() {
     const todos = itens();
@@ -154,13 +160,20 @@ export async function montar(el, contexto) {
     const bloq = bloqueioDoDia(dados.bloqueios, diaSel);
     const reservasDoDia = dados.reservas.filter(r => dia(new Date(r.inicio), fuso) === diaSel && seguraHorario(r));
     let livres = [];
-    if (fotografia && diaSel >= hoje) {
+    if (porHorario && diaSel >= hoje) {
       const campanha = dados.campanhas.find(c => (c.dias || []).includes(diaSel)) || null;
       livres = horariosLivres({ d: diaSel, horarios: dados.horarios, campanha, reservas: dados.reservas, bloqueios: dados.bloqueios, duracao: nicho.horarioPadrao.duracao, fuso });
     }
-    const turnos = !fotografia ? horariosDoDia(dados.horarios, diaSel) : [];
-    const diaLivre = !fotografia && diaSel >= hoje && !bloq && !reservasDoDia.length && turnos.length;
-    const campanhaDoDia = fotografia ? dados.campanhas.find(c => (c.dias || []).includes(diaSel)) : null;
+    const turnos = !porHorario ? horariosDoDia(dados.horarios, diaSel) : [];
+    // fotografia por turno (18/11/2026): cada turno do dia, livre ou ocupado, com "Marcar" (os eventos seguem como eram)
+    const turnosDoDia = !porHorario && fotografia && diaSel >= hoje && !bloq ? turnos.filter(t => t.fim).map(t => {
+      const f = fimDoTurno(diaSel, t.inicio, t.fim);
+      const comeca = instanteNoFuso(diaSel, t.inicio.slice(0, 5), fuso), termina = instanteNoFuso(f.dia, f.hora, fuso);
+      const ocupado = conflitos(dados.reservas, { inicio: comeca.toISOString(), fim: termina.toISOString() }).length > 0;
+      return { nome: t.nome || "Turno", ini: t.inicio.slice(0, 5), fim: t.fim.slice(0, 5), ocupado, passou: comeca.getTime() <= Date.now() };
+    }) : [];
+    const diaLivre = !porHorario && !turnosDoDia.length && diaSel >= hoje && !bloq && !reservasDoDia.length && turnos.length;
+    const campanhaDoDia = comCampanhas ? dados.campanhas.find(c => (c.dias || []).includes(diaSel)) : null;
     return `<section class="rz-cartao rz-painel-dia" aria-labelledby="painel-dia-titulo">
         <div class="rz-painel-dia-cabeca"><h2 class="rz-titulo-3" id="painel-dia-titulo">${escapar(dataLonga(instanteNoFuso(diaSel, "12:00", fuso), fuso))}</h2><span class="rz-texto-3">${escapar(quandoFoi(diaSel, hoje))}</span></div>
         ${bloq ? `<p class="rz-alerta rz-alerta--aviso">${icone("cadeado", { tamanho: 18 })}<span>Data fechada${bloq.motivo ? `: ${escapar(bloq.motivo)}` : ""}.</span></p>` : ""}
@@ -172,10 +185,11 @@ export async function montar(el, contexto) {
             <span class="rz-linha-fim">${it.situacao ? etiquetaDaSituacao(it.situacao) : `<span class="rz-etiqueta rz-etiqueta--info">${escapar(it.sub)}</span>`}</span></button></li>`).join("")}</ul>`
           : `<p class="rz-texto-2">${bloq ? "" : diaSel < hoje ? "Nada marcado neste dia." : "Nada marcado ainda."}</p>`}
         ${livres.length ? `<ul class="rz-livres">${livres.map(h => `<li><b>${escapar(horaDoTexto(h))}</b><span>Horário livre${temAgendaOnline ? ": aparece na agenda online" : ""}</span>${edita ? `<span class="rz-livres-acoes"><button class="rz-botao rz-botao--pequeno rz-botao--fantasma" type="button" data-fechar-hora="${diaSel}|${h}">Fechar</button><button class="rz-botao rz-botao--pequeno" type="button" data-marcar-hora="${h}">Marcar</button></span>` : ""}</li>`).join("")}</ul>` : ""}
-        ${fotografia && fechadosDoDia(dados.bloqueios, diaSel).length ? `<ul class="rz-livres rz-livres--fechados">${fechadosDoDia(dados.bloqueios, diaSel).map(b => `<li><b>${escapar(horaDoTexto(b.inicio.slice(0, 5)))}</b><span>Fechado${b.motivo ? `: ${escapar(b.motivo)}` : ""}</span>${edita && diaSel >= hoje ? `<button class="rz-botao rz-botao--pequeno" type="button" data-reabrir="${escapar(b.id)}">Reabrir</button>` : ""}</li>`).join("")}</ul>` : ""}
+        ${turnosDoDia.length ? `<ul class="rz-livres">${turnosDoDia.map(t => `<li${t.ocupado || t.passou ? ' class="rz-livres-ocupado"' : ""}><b>${escapar(t.nome)}</b><span>${escapar(horaDoTexto(t.ini))} às ${escapar(horaDoTexto(t.fim))} · ${t.ocupado ? "Ocupado" : t.passou ? "Já passou" : temAgendaOnline ? "Livre · no site" : "Livre"}</span>${edita && !t.ocupado && !t.passou ? `<span class="rz-livres-acoes"><button class="rz-botao rz-botao--pequeno" type="button" data-marcar-turno="${t.ini}-${t.fim}">Marcar</button></span>` : ""}</li>`).join("")}</ul>` : ""}
+        ${porHorario && fechadosDoDia(dados.bloqueios, diaSel).length ? `<ul class="rz-livres rz-livres--fechados">${fechadosDoDia(dados.bloqueios, diaSel).map(b => `<li><b>${escapar(horaDoTexto(b.inicio.slice(0, 5)))}</b><span>Fechado${b.motivo ? `: ${escapar(b.motivo)}` : ""}</span>${edita && diaSel >= hoje ? `<button class="rz-botao rz-botao--pequeno" type="button" data-reabrir="${escapar(b.id)}">Reabrir</button>` : ""}</li>`).join("")}</ul>` : ""}
         ${fotografia && edita && diaSel >= hoje ? (bloq ? `<button class="rz-botao rz-botao--bloco" type="button" data-reabrir="${escapar(bloq.id)}">Reabrir este dia</button>` : `<button class="rz-botao rz-botao--fantasma rz-botao--bloco" type="button" data-fechar-dia="${diaSel}">${icone("cadeado", { tamanho: 18 })}Fechar este dia (folga)</button>`) : ""}
         ${diaLivre && temAgendaOnline ? `<p class="rz-alerta rz-alerta--sucesso">${icone("estrela", { tamanho: 18 })}<span>Dia livre: já aparece na agenda online para o cliente pedir.</span></p>` : ""}
-        ${edita && !bloq && diaSel >= hoje && !lista.some(i => i.tipo === "reserva" && i.situacao !== "cancelada") && !fotografia ? `<button class="rz-botao rz-botao--primario rz-botao--bloco" type="button" data-reservar-dia>${icone("adicionar", { tamanho: 18 })}Reservar este dia</button>` : ""}
+        ${edita && !bloq && diaSel >= hoje && !lista.some(i => i.tipo === "reserva" && i.situacao !== "cancelada") && !porHorario && !turnosDoDia.length ? `<button class="rz-botao rz-botao--primario rz-botao--bloco" type="button" data-reservar-dia>${icone("adicionar", { tamanho: 18 })}Reservar este dia</button>` : ""}
       </section>`;
   }
 
@@ -192,7 +206,7 @@ export async function montar(el, contexto) {
   const corDe = c => `<span class="rz-cor${c.compromisso ? " rz-ponto-compromisso" : ""}"${c.cor ? ` style="--cor:${escapar(c.cor)}"` : ""}></span>`;
 
   function desenhar() {
-    if (fotografia && vista === "horarios") { corpo.innerHTML = horariosDaSemanaHtml(); return; }
+    if (porHorario && vista === "horarios") { corpo.innerHTML = horariosDaSemanaHtml(); return; }
     const legenda = categorias();
     corpo.innerHTML = `
       <div class="rz-agenda-barra">
@@ -200,7 +214,7 @@ export async function montar(el, contexto) {
           <b>${escapar(nomeDoMes(mes))}</b>
           <button class="rz-botao rz-botao--fantasma rz-botao--pequeno rz-girar" type="button" data-mes="1" aria-label="Próximo mês">${icone("voltar", { tamanho: 18 })}</button></div>
         <button class="rz-chip" type="button" data-hoje>Hoje</button>
-        ${seletorDeVista()}${fotografia ? "" : `<div class="rz-segmentos rz-so-celular" role="group" aria-label="Ver"><button type="button" data-vista="semana" aria-pressed="${vistaCelular === "semana"}">Semana</button><button type="button" data-vista="mes" aria-pressed="${vistaCelular === "mes"}">Mês</button></div>`}
+        ${seletorDeVista()}${porHorario ? "" : `<div class="rz-segmentos rz-so-celular" role="group" aria-label="Ver"><button type="button" data-vista="semana" aria-pressed="${vistaCelular === "semana"}">Semana</button><button type="button" data-vista="mes" aria-pressed="${vistaCelular === "mes"}">Mês</button></div>`}
         <button class="rz-botao rz-botao--pequeno" type="button" data-filtrar aria-pressed="${filtroAtivo()}">${icone("filtro", { tamanho: 16 })}Filtrar${filtroAtivo() ? " ·" : ""}</button>
       </div>
       ${legenda.length ? `<ul class="rz-legenda" aria-label="O que cada cor quer dizer">${legenda.map(c => `<li${filtro.escondidas.includes(c.id) ? ' data-escondida="true"' : ""}>${corDe(c)}${escapar(c.nome)}</li>`).join("")}</ul>` : ""}
@@ -229,7 +243,7 @@ export async function montar(el, contexto) {
       banco.resultado(banco.tabela("bloqueios").select("id, de, ate, inicio, fim, motivo").eq("conta_id", conta.conta_id).lte("de", ate).gte("ate", de)),
       primeiraVez ? Promise.all([
         banco.resultado(banco.tabela("horarios").select("dia_semana, inicio, fim, nome, servico_id").eq("conta_id", conta.conta_id)).catch(() => []),
-        fotografia ? banco.resultado(banco.tabela("campanhas").select("id, nome, dias, horarios, vagas, servico_id").eq("conta_id", conta.conta_id).eq("ativa", true)).catch(() => []) : [],
+        comCampanhas ? banco.resultado(banco.tabela("campanhas").select("id, nome, dias, horarios, vagas, servico_id").eq("conta_id", conta.conta_id).eq("ativa", true)).catch(() => []) : [],
         banco.resultado(banco.tabela("pessoas").select("id, nome, cor").eq("conta_id", conta.conta_id).eq("ativa", true).order("nome")).catch(() => []),
       ]) : null,
     ]);
@@ -390,6 +404,8 @@ export async function montar(el, contexto) {
     if (ra) return reabrir(ra.dataset.reabrir);
     if (alvo.closest("[data-reservar]")) return abrirFormReserva(ctx, { dia: diaSel >= hoje ? diaSel : "" });
     if (alvo.closest("[data-reservar-dia]")) return abrirFormReserva(ctx, { dia: diaSel });
+    const turno = alvo.closest("[data-marcar-turno]");
+    if (turno) { const [ini, fim] = turno.dataset.marcarTurno.split("-"); return abrirFormReserva(ctx, { dia: diaSel, hora: ini, fim }); }
     if (alvo.closest("[data-compromisso]")) return abrirFormCompromisso(ctx, { dia: diaSel >= hoje ? diaSel : "", tipo: fotografia ? "reuniao" : "visita" });
     const hora = alvo.closest("[data-marcar-hora]");
     if (hora) return abrirFormReserva(ctx, { dia: diaSel, hora: hora.dataset.marcarHora, campanha: dados.campanhas.find(c => (c.dias || []).includes(diaSel)) || null });

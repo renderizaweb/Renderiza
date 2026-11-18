@@ -126,7 +126,7 @@ aparecem abaixo. O comentário de cada tabela no banco (`comment on table`) diz 
 
 | Tabela | Para quê | Campos principais |
 |---|---|---|
-| `contas` | o negócio cliente | nome, nicho (`eventos`, `fotografia`), código público (`codigo`, curto; a Renderiza troca), logo (caminho no Storage), cores, WhatsApp, fuso, situação (`teste`, `ativa`, `desligada`, `cancelada`), teste até (7 dias da criação), ativa até (opcional), origem (`cadastro` ou `renderiza`), limite de pessoas (5), ajustes (o que o painel guarda da conta: ordem do menu, primeiros passos escondidos). O dono muda nome, logo, cores, WhatsApp, fuso e ajustes; o resto é da Renderiza |
+| `contas` | o negócio cliente | nome, nicho (`eventos`, `fotografia`), código público (`codigo`, curto; a Renderiza troca), logo (caminho no Storage), cores, WhatsApp, fuso, situação (`teste`, `ativa`, `desligada`, `cancelada`), teste até (7 dias da criação), ativa até (opcional), origem (`cadastro` ou `renderiza`), limite de pessoas (5), ajustes (o que o painel guarda da conta: ordem do menu, primeiros passos escondidos, o Pix, `agenda.modo`: o jeito da agenda online, `horario` ou `turno`; sem ele, o do nicho). O dono muda nome, logo, cores, WhatsApp, fuso e ajustes; o resto é da Renderiza |
 | `modulos` | o catálogo de módulos (o mesmo para todas as contas) | id (`agenda-online`, `agenda`, `clientes`, `contratos`, `financeiro`, `atendimento`, `meu-site`), nome, preço, liberado no teste (a Renderiza muda no Admin), ordem. Os da base (Início, Serviços, Equipe, Configurações) não entram aqui |
 | `contas_modulos` | o que está ligado em cada conta | conta, módulo, ligado, desde, quem ligou (no cadastro, os que a pessoa escolheu) |
 | `pessoas` | quem entra na conta | conta, usuário (`auth.users`), nome, e-mail, papel ("Comercial"), cor, dono (sim/não), acessos (`{ "agenda": "editar", "financeiro": null, … }`), ativa (tirar o acesso = `false`), visto em, preferências (de cada pessoa) |
@@ -232,7 +232,7 @@ Todas pedem login e conferem a conta e o acesso por dentro.
 
 Só estas, cada uma devolvendo o mínimo: `publico_disponibilidade(código, de, até)`, `publico_pedido(código, dados)`
 (acha ou cria o cliente pelo WhatsApp e cria o pedido), `publico_horarios(código, de, até, ensaio, campanha)` e
-`publico_pedido_horario(código, dados)` (as mesmas, por horário, para a fotografia), `publico_site(código)`, `publico_previa(código, token)`,
+`publico_pedido_horario(código, dados)` (as mesmas, por horário; cada par só responde no jeito da agenda da conta, ver abaixo), `publico_site(código)`, `publico_previa(código, token)`,
 `publico_contrato(código)` e `publico_aceitar_contrato(código, nome, …)`. Nenhuma devolve nome, telefone ou valor
 de cliente final, a não ser o contrato para quem tem o código dele.
 
@@ -260,9 +260,21 @@ vale para **toda** função de `public`, inclusive as auxiliares e as de gatilho
   embaralhado de quem pediu, para o limite; apagado depois de 1 dia) e `pedidos_avisos` (pedido já avisado por e-mail).
 - `aviso_do_pedido(pedido)`: só a chave secreta (a função `avisar-pedido`); ver `04`.
 
+**O jeito da agenda online é escolha da conta (18/11/2026, entrega da Bia, Parada C2, migração
+`…200000_jeito_da_agenda`):** `contas.ajustes.agenda.modo`, `horario` ou `turno`, que o dono escolhe em Configurações
+("Agenda online": por horário ou por dia e turno). Sem escolha (ou com outro valor), o do nicho, como sempre foi:
+fotografia por horário, eventos por turno. `modo_da_agenda(conta)` (fechada ao visitante) é a regra; o painel tem a
+mesma em `src/nichos/index.js` (`modoDaAgenda`). As funções de turno (`publico_disponibilidade`, `publico_pedido`)
+só respondem no jeito `turno`, e as de horário (`publico_horarios`, `publico_pedido_horario`) só no `horario`; as
+respostas trazem `modo`. Uma fotógrafa de eventos (a Bia) usa a de turno: os tipos de trabalho dela vão como pacotes
+(os serviços da agenda online) e o turno vira a pré-reserva de começo a fim. No painel, o que é horário ou turno segue
+o jeito (os Horários em Serviços, a Agenda do dia, os atalhos da reserva; as campanhas são do jeito por horário); as
+palavras seguem o nicho.
+
 **Feito (16/11/2026, entrega da Rafaela, Parada C2, migração `…013045_publico_agenda_fotografia`; só no
 banco local até o STG):** a agenda online da fotografia, por horário. As de eventos não mudaram.
-- `publico_horarios(código, de, até, ensaio?, campanha?)`: só para conta de **fotografia** (as outras: nada). Os
+- `publico_horarios(código, de, até, ensaio?, campanha?)`: só para conta no jeito **por horário** (até 18/11/2026, só
+  fotografia; as outras: nada). Os
   horários de início de cada dia (`horarios` do dia da semana: os do ensaio, se ele tem horários próprios; senão os
   do estúdio, sem serviço) e se cada um está livre: ainda não passou, sem bloqueio no dia e sem reserva que segure
   [início, início + duração do ensaio). Com a campanha: só os dias e horários dela, com a duração do ensaio dela, e

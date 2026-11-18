@@ -17,6 +17,18 @@ export function nomeDoModulo(idNicho, modulo, nomePadrao) {
   return (m && m.nome) || nomePadrao;
 }
 
+/**
+ * O jeito da agenda online da conta (Configurações, contas.ajustes.agenda.modo; 18/11/2026): "horario" (a pessoa
+ * escolhe o horário de início; os horários são começos, com a duração do ensaio, e há campanhas) ou "turno" (escolhe
+ * o dia e o turno; os horários têm começo, fim e nome: manhã, tarde, noite). Sem escolha, o do nicho. A mesma regra do
+ * banco (modo_da_agenda, migração 20261118200000), que decide o que o site recebe.
+ */
+export const MODOS_DA_AGENDA = ["horario", "turno"];
+export function modoDaAgenda(conta, n = nicho(conta && conta.nicho)) {
+  const m = conta && conta.ajustes && conta.ajustes.agenda && conta.ajustes.agenda.modo;
+  return MODOS_DA_AGENDA.includes(m) ? m : n.agendaPadrao;
+}
+
 const semAcento = s => String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
 /**

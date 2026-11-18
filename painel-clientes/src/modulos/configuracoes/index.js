@@ -1,4 +1,5 @@
-// Configurações do negócio (só o dono): nome, WhatsApp, fuso e logo. O plano (situação, prazos, módulos, código
+// Configurações do negócio (só o dono): nome, WhatsApp, fuso e logo; o Pix; o jeito da agenda online (18/11/2026:
+// por horário ou por dia e turno, em contas.ajustes.agenda.modo; o site e a Agenda seguem). O plano (situação, prazos, módulos, código
 // público) é da Renderiza e aparece só para consulta; mudar, pelo WhatsApp. O logo vira WebP no próprio aparelho
 // antes de subir (06: só imagem, tamanho máximo; o original não é guardado).
 
@@ -7,7 +8,7 @@ import { escapar, erroNoCampo, avisoDoFormulario, ocupado } from "../../ui/formu
 import { telefone, whatsappValido, normalizarWhatsapp, dataNumerica, iniciais } from "../../ui/formatos.js";
 import { campoTexto, campoSelecao, lerFormulario } from "../../ui/campos.js";
 import { comEstados } from "../../ui/estados.js";
-import { nicho as nichoDe } from "../../nichos/index.js";
+import { nicho as nichoDe, modoDaAgenda } from "../../nichos/index.js";
 import { linkDaRenderiza } from "../../telas/renderiza.js";
 import { exportarTudo } from "../../telas/exportar.js";
 
@@ -16,6 +17,12 @@ export const FUSOS = [
   { valor: "America/Manaus", rotulo: "Amazonas, Mato Grosso, Rondônia, Roraima (1 h a menos)" },
   { valor: "America/Rio_Branco", rotulo: "Acre (2 h a menos)" },
   { valor: "America/Noronha", rotulo: "Fernando de Noronha (1 h a mais)" },
+];
+
+/** Os jeitos da agenda online (src/nichos/index.js, modoDaAgenda). */
+export const JEITOS = [
+  { id: "horario", nome: "Por horário", texto: "O cliente escolhe o dia e o horário de começo (9h, 10h…). Cada serviço dura o tempo dele. Para ensaios com hora marcada; tem campanhas." },
+  { id: "turno", nome: "Por dia e turno", texto: "O cliente escolhe o dia e o turno (manhã, tarde, noite), com começo e fim. Para eventos e trabalhos no local do cliente." },
 ];
 
 const SITUACAO = { teste: "Teste grátis", ativa: "Ativa", desligada: "Desligada", cancelada: "Cancelada" };
@@ -40,6 +47,7 @@ export async function montar(el, { banco, conta, avisar, sessao, navegar }) {
   const corpo = el.querySelector("[data-corpo]");
 
   const carregar = () => banco.resultado(banco.tabela("contas").select("id, nome, nicho, codigo, logo, whatsapp, fuso, situacao, teste_ate, ativa_ate, origem, limite_pessoas, ajustes").eq("id", conta.conta_id).single());
+  const temAgenda = (conta.modulos || []).some(m => m === "agenda" || m === "agenda-online");
   const desenhar = c => {
     corpo.innerHTML = `
       <section class="rz-secao">
@@ -71,6 +79,19 @@ export async function montar(el, { banco, conta, avisar, sessao, navegar }) {
           <div><button class="rz-botao" type="submit">Salvar o Pix</button></div>
         </form>
       </section>
+      ${temAgenda ? `<section class="rz-secao">
+        <h2 class="rz-titulo-3">Agenda online</h2>
+        <form class="rz-cartao rz-cartao-corpo rz-pilha" id="form-agenda" novalidate>
+          <div role="alert" hidden></div>
+          <fieldset class="rz-campo"><legend class="rz-rotulo">Como o cliente escolhe no site</legend>
+            <div class="rz-opcoes">${JEITOS.map(j => `<label class="rz-opcao"><input type="radio" name="modo" value="${j.id}"${j.id === modoDaAgenda(c, n) ? " checked" : ""}>
+              <span class="rz-opcao-texto"><b>${escapar(j.nome)}${j.id === n.agendaPadrao ? ` <span class="rz-etiqueta">Padrão</span>` : ""}</b><small>${escapar(j.texto)}</small></span>
+              <span class="rz-opcao-marca">${icone("ok", { tamanho: 14 })}</span></label>`).join("")}</div>
+          </fieldset>
+          <p class="rz-texto-3">Os horários ficam em <a href="/servicos?aba=horarios">Serviços, Horários</a>. Trocou o jeito? Confira lá: por horário, cada linha é um começo; por turno, cada turno tem começo, fim e nome.</p>
+          <div><button class="rz-botao" type="submit">Salvar</button></div>
+        </form>
+      </section>` : ""}
       <section class="rz-secao">
         <h2 class="rz-titulo-3">Seus dados</h2>
         <div class="rz-cartao rz-cartao-corpo rz-exportar">
@@ -139,6 +160,27 @@ export async function montar(el, { banco, conta, avisar, sessao, navegar }) {
       } catch (e) {
         ocupado(botao, false);
         avisoDoFormulario(formPix.querySelector("[role=alert]"), e.message);
+      }
+    });
+    // o jeito da agenda online: em contas.ajustes.agenda.modo, sem apagar os outros ajustes
+    const formAgenda = corpo.querySelector("#form-agenda");
+    formAgenda?.addEventListener("submit", async ev => {
+      ev.preventDefault();
+      const modo = lerFormulario(formAgenda).modo;
+      if (!JEITOS.some(j => j.id === modo)) return;
+      const antes = c.ajustes || {};
+      const ajustes = { ...antes, agenda: { ...(antes.agenda || {}), modo } };
+      const botao = formAgenda.querySelector("[type=submit]");
+      ocupado(botao, true, "Salvando…");
+      try {
+        await banco.resultado(banco.tabela("contas").update({ ajustes }).eq("id", c.id));
+        c.ajustes = ajustes;
+        ocupado(botao, false);
+        avisar(modo === "turno" ? "Pronto: a agenda online oferece o dia e o turno." : "Pronto: a agenda online oferece o horário de início.");
+        await sessao.carregarContas(); // a Agenda e Serviços passam a seguir o jeito novo
+      } catch (e) {
+        ocupado(botao, false);
+        avisoDoFormulario(formAgenda.querySelector("[role=alert]"), e.message);
       }
     });
     corpo.querySelector("[data-arquivo]").addEventListener("change", async ev => {
