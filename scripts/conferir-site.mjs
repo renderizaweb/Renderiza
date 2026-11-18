@@ -11,7 +11,9 @@ import { fileURLToPath } from 'node:url';
 
 const ARQUIVOS = ['index.html', 'README.md', 'robots.txt', 'sitemap.xml', 'vercel.json', '_headers', 'favicon.svg'];
 // Texto que só existe enquanto falta alguma coisa do cliente. Procurado no texto visível e nos alt das fotos.
-const PROVISORIO = /espa[çc]o reservado|lorem ipsum|\bplaceholder\b|\bTODO\b|\bFIXME\b|\ba definir\b|XXXX|\[(?:nome|foto|telefone|texto)[^\]]*\]/i;
+const PROVISORIO = /espa[çc]o reservado|lorem ipsum|\bplaceholder\b|\ba definir\b|XXXX|\[(?:nome|foto|telefone|texto)[^\]]*\]/i;
+// TODO e FIXME só em maiúsculas: em português, "todo" é palavra comum ("todo mundo", "todo o suporte").
+const MARCADOR = /\bTODO\b|\bFIXME\b/;
 // Pode ser de verdade ("em breve, nova unidade"), mas vale olhar.
 const TALVEZ_PROVISORIO = /\bem breve\b|\bem constru[çc][ãa]o\b/i;
 
@@ -33,7 +35,7 @@ export function conferirHtml(html, { dominio, existe = () => true } = {}) {
   if (/renderizaweb\.com\.br\/demo|href="\/demo\//.test(html)) problemas.push('Ficou link para a demo (/demo/…).');
   if (/<meta[^>]+name="robots"[^>]+noindex/i.test(html)) problemas.push('A página pede para o Google não indexar (noindex).');
   const texto = textoVisivel(html);
-  const provisorio = texto.match(PROVISORIO);
+  const provisorio = texto.match(PROVISORIO) || texto.match(MARCADOR);
   if (provisorio) problemas.push(`Texto provisório na página: "${provisorio[0]}" (falta algo do cliente?).`);
   const faltando = [...new Set([...html.matchAll(/\ssrc="\/?(img\/[^"?#]+)"/g)].map(m => m[1]))].filter(f => !existe(f));
   if (faltando.length) problemas.push(`Foto que não existe em img/: ${faltando.join(', ')}.`);
