@@ -46,7 +46,7 @@ prospecção; se a validação passar disso, estender no card do lead, seção D
 
 | | Quem | O quê |
 |---|---|---|
-| A1 | Renderiza | GitHub dela (ou um Gmail de dev + GitHub), repositório **privado** vazio, a conta GitHub da Renderiza como colaboradora (Write) e o app do Claude instalado só nele. Mandar `usuario/repositorio` ao Claude |
+| A1 ✅ | Renderiza | GitHub dela (`biamaidafotografiadev-alt`), repositório **privado** `biamaidafotografiadev-alt/biamaidafotografia` (vazio em 18/11), a Kaue7almeida como colaboradora com escrita (conferido em 18/11 por um envio de ensaio, sem gravar nada; o Renderiza e o dela na mesma sessão, com o GitHub do claude.ai na Kaue7almeida) |
 | A2 | Claude | `demos/bia-maida-fotografia/site.json` (domínio, nome, cor `#1f5470`, ícone do monograma, dados para o Google: fotógrafa, São Paulo, sem endereço de estúdio) |
 | A3 | Claude | Gerar (`npm run site -- bia-maida-fotografia`), conferir (`scripts/conferir-site.mjs`), olhar no celular e no computador, subir para o repositório dela |
 | A4 | Renderiza | **Cloudflare Pages** na conta dela (fluxo "legacy Pages": Connect to Git, preset None, sem build, saída `/`). Mandar o endereço `….pages.dev` |
@@ -123,6 +123,7 @@ feito no site cai no Atendimento; com o painel desligado, o site abre na versão
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 18/11/2026 | A | **O repositório dela ligado à sessão:** `biamaidafotografiadev-alt/biamaidafotografia`, privado e vazio; a escrita conferida pela Kaue7almeida com um envio de ensaio (`--dry-run`, nada gravado). Falta o `site.json` com o domínio e subir o site gerado. | Claude, a pedido da Renderiza |
 | 18/11/2026 | B | **No ar para ela validar** (`378806f` na `main`; a Vercel publicou em uns 2 minutos). Conferido no endereço de verdade: o teste de uso inteiro no computador e no celular, a prévia do link (`capa.jpg`, a foto da abertura) e os links (só o WhatsApp, o Google e o Instagram dela). O envio tinha travado em 17/11: o claude.ai estava ligado ao GitHub de dev da Rafaela (a lição de 16/11 no README); resolvido trocando a conta logada no github.com antes de reconectar. A demo segue no ar até 20/11 no Painel de prospecção. | Claude, a pedido da Renderiza |
 | 17/11/2026 | B | **A demo virou o site dela, para a validação.** Fora tudo da Renderiza (faixa, preço, pílula, folha, `window.RZ`). As 86 fotos em alta do Drive (eventos 35, ensaios externos 20, corporativo 31): 84 no site, WebP com o lado maior em 2000 px, as três abas iguais às pastas dela, o portfólio montado pelo gerador (linhas de altura parecida, foto inteira, "Ver mais fotos" depois de duas linhas, legenda de cada foto na tela cheia, que só baixa a foto quando chega perto). Casamento, batizado e confraternização entraram (vieram nas fotos dela): serviço "Celebrações", e "Casamento", "Batizado" e "Corporativo" no "Sua data". Os cosméticos saíram (não vieram). Testado: uso de verdade no computador e no celular (39 conferências), sem JavaScript, movimento reduzido, larguras de 320 a 1920, a página publicada no servidor local (116 KB, 105 imagens à parte, prévia do link) e os 222 testes do repositório. | Claude, a pedido da Renderiza |
 | 17/11/2026 | — | **A Bia fechou** (site + painel completo). Trilho aberto. | Renderiza |
