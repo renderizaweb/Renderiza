@@ -437,3 +437,13 @@ Para quem chega pelo celular, o site é a primeira visita ao seu espaço. Se ele
 Comenta PRÉVIA que a gente monta a prévia do site do seu espaço, sem compromisso.
 
 Comentário para fixar: "Quando foi a última vez que você mexeu no site do seu espaço?"
+
+### "Meu site" (`reels-meu-site`, para quem tem ou vai ter o site; também para mandar no WhatsApp)
+
+O Estúdio Ciranda é fictício. As telas, não: são do Meu site de verdade.
+
+"E depois que o site ficar pronto, como eu mudo um preço?" Pelo painel. No Meu site você escolhe a parte, muda o texto, o preço ou a foto, vê o site mudando ao lado e publica: em até um minuto está no ar. Vem em todo plano do Painel Renderiza, sem pagar a mais. E se um dia cancelar, o site continua no ar, do jeito que foi entregue.
+
+Comenta SITE que a gente te manda o exemplo para testar.
+
+Comentário para fixar: "O que você mudaria primeiro no seu site?"

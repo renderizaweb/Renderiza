@@ -58,7 +58,7 @@ try {
   await p.locator("button[data-secao=ensaios]").waitFor();
   await p.waitForTimeout(1500);
   await tirar("ed-1");
-  posicoes["ed-1"] = { partes: await caixa(p.locator(".rz-ms-partes, ol, ul").filter({ has: p.locator("button[data-secao]") }).first()), quadro: await caixa(p.locator("iframe[data-quadro]")) };
+  posicoes["ed-1"] = { ensaios: await caixa(p.locator("button[data-secao=ensaios]")), partes: await caixa(p.locator(".rz-ms-partes, ol, ul").filter({ has: p.locator("button[data-secao]") }).first()), quadro: await caixa(p.locator("iframe[data-quadro]")) };
 
   await p.locator("button[data-secao=ensaios]").click();
   await p.locator("li[data-item] summary", { hasText: "Newborn" }).click();
@@ -93,12 +93,12 @@ try {
   await foto.scrollIntoViewIfNeeded();
   await p.waitForTimeout(1000);
   await tirar("ed-8");
-  posicoes["ed-8"] = { foto: await caixa(foto), quadro: await caixa(p.locator("iframe[data-quadro]")) };
+  posicoes["ed-8"] = { foto: await caixa(foto), trocar: await caixa(foto.locator("label").first()), quadro: await caixa(p.locator("iframe[data-quadro]")) };
   await foto.locator("input[type=file]").setInputFiles(FOTO_NOVA);
   await quadro.locator("img[src*='/api/publico/imagens/']").first().waitFor();
   await p.waitForTimeout(1500);
   await tirar("ed-9");
-  posicoes["ed-9"] = { foto: await caixa(foto), quadro: await caixa(p.locator("iframe[data-quadro]")) };
+  posicoes["ed-9"] = { foto: await caixa(foto), publicar: await caixa(p.locator("[data-publicar]")), quadro: await caixa(p.locator("iframe[data-quadro]")) };
 
   // publicar
   await p.locator("[data-publicar]").click();
