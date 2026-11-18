@@ -17,7 +17,7 @@ O painel é opcional: se ela desistir dele, o site continua de pé, perfeito e c
 | **Feito** | A demo virou o site dela (17/11): sem nada da Renderiza (faixa, preço, pílula, folha), com as **86 fotos em alta** que ela mandou no Drive em 13/11 (84 no site), três categorias iguais às pastas dela, serviços e "Sua data" com os tipos de evento das fotos. Testado no computador e no celular |
 | **Próxima ação** | (1) A Renderiza manda o link para ela validar (abaixo) e as perguntas de "Conferir com ela". (2) Enquanto isso: GitHub e Cloudflare dela (A1, A5), o domínio (E1) e a conta no Admin (D1) |
 | **Esperando a Renderiza** | a validação por escrito; o domínio; o repositório dela; o pagamento |
-| **Última atualização** | 17/11/2026 |
+| **Última atualização** | 18/11/2026 (no ar para validar) |
 
 Para ela validar: https://www.renderizaweb.com.br/demo/bia-maida-fotografia (no ar até 20/11/2026 no Painel de
 prospecção; se a validação passar disso, estender no card do lead, seção Demo).
@@ -123,6 +123,7 @@ feito no site cai no Atendimento; com o painel desligado, o site abre na versão
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 18/11/2026 | B | **No ar para ela validar** (`378806f` na `main`; a Vercel publicou em uns 2 minutos). Conferido no endereço de verdade: o teste de uso inteiro no computador e no celular, a prévia do link (`capa.jpg`, a foto da abertura) e os links (só o WhatsApp, o Google e o Instagram dela). O envio tinha travado em 17/11: o claude.ai estava ligado ao GitHub de dev da Rafaela (a lição de 16/11 no README); resolvido trocando a conta logada no github.com antes de reconectar. A demo segue no ar até 20/11 no Painel de prospecção. | Claude, a pedido da Renderiza |
 | 17/11/2026 | B | **A demo virou o site dela, para a validação.** Fora tudo da Renderiza (faixa, preço, pílula, folha, `window.RZ`). As 86 fotos em alta do Drive (eventos 35, ensaios externos 20, corporativo 31): 84 no site, WebP com o lado maior em 2000 px, as três abas iguais às pastas dela, o portfólio montado pelo gerador (linhas de altura parecida, foto inteira, "Ver mais fotos" depois de duas linhas, legenda de cada foto na tela cheia, que só baixa a foto quando chega perto). Casamento, batizado e confraternização entraram (vieram nas fotos dela): serviço "Celebrações", e "Casamento", "Batizado" e "Corporativo" no "Sua data". Os cosméticos saíram (não vieram). Testado: uso de verdade no computador e no celular (39 conferências), sem JavaScript, movimento reduzido, larguras de 320 a 1920, a página publicada no servidor local (116 KB, 105 imagens à parte, prévia do link) e os 222 testes do repositório. | Claude, a pedido da Renderiza |
 | 17/11/2026 | — | **A Bia fechou** (site + painel completo). Trilho aberto. | Renderiza |
 | 12/11/2026 | demo | Versão 2 (eventos), ajustes pela mensagem dela (estúdio fecha em dezembro; eventos, ensaios externos e corporativo) e do Kaue ("Serviços", "Ver mais fotos"). | Claude |
