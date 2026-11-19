@@ -197,6 +197,21 @@ cliente, ajustes, repositório, hospedagem, domínio, entrega). Abaixo, o que é
 - **Vereadores** (10/11/2026, pedido do Kaue): nicho novo, indicação do Dr. Marcos (vereador Mateuzinho Silva, de
   Itapevi). Pesquisa, regras da lei eleitoral e da LGPD, base da landing e propostas além do site em
   `docs/nichos/vereadores.md`. Site de mandato nunca pede voto nem mostra número de urna fora da campanha.
+- **Meu site nos exemplos** (18/11/2026, pedido do Kaue: "as pessoas perguntam muito como atualizar o site depois"):
+  `/exemplos/meu-site-fotografia` é o Meu site **de verdade** (o código do painel, com um banco de mentira no navegador)
+  editando o site de exemplo do Estúdio Ciranda (`/exemplos/site-fotografia`, fictício, fotos livres do Unsplash). Em
+  `/exemplos/fotografia`, o card "Meu site" (vem em todo plano, não conta entre os 2 módulos), a linha no plano e a
+  pergunta "como eu atualizo?". Como refazer e o aviso para quem mexe no painel: README, "Exemplos de sistema".
+  O vídeo narrado do mesmo pedido (65 s, voz Antonio, telas capturadas do Meu site de verdade): `instagram/reels-meu-site.html`,
+  no ar em `/gravacao/exemplo-meu-site.mp4` (720p, para o WhatsApp); a legenda para postar está em `instagram/legendas.md`.
+- **Planilha financeira sob medida: Vivian Piacenti** (18/11/2026, pedido do Kaue): ela recusou o Painel Renderiza e pediu uma
+  planilha do Excel que soma sozinha por mês (fixos pessoais, estúdio por tipo, foto extra, Uber/Shopee/Mercado Livre,
+  aniversários e ensaios). Feita e conferida no LibreOffice (`ferramentas/planilha/gerar-planilha.py`, a partir do
+  `demos/vivian-piacenti-planilha/planilha.json`). A proposta é uma demo como as outras, `/demo/vivian-piacenti-planilha`
+  (`ferramentas/planilha/gerar-pagina.mjs`), com a versão de teste e a dela liberada por código depois do Pix, e um **lead
+  próprio**, `vivian-piacenti-planilha`, separado do lead do site (gravado em 18/11/2026, a pedido da sócia: "quero saber
+  que ela acessou"; o card do site ganhou uma linha apontando para ele). Valor sugerido R$ 120, valor único (conferir com o Kaue antes de mandar). A pesquisa, as decisões, o passo a passo e a mensagem para ela:
+  `docs/produtos/planilha-financeira.md`. O código da planilha dela nunca vai para o git.
 - **Vídeo "Site e painel" para fotógrafas** (09/11/2026, pedido do Kaue): 36 s para mandar no WhatsApp, em
   `/gravacao/exemplo-site-painel-fotografia.mp4` (`instagram/reels-site-painel.html`). Mostra só o que o painel tem de verdade:
   o Meu site (mudar, salvar no rascunho, publicar), a agenda do estúdio, a campanha de Natal, clientes e entregas, contratos,

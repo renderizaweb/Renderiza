@@ -6,7 +6,8 @@
 //                                visitas e, se tiver oferta com prazo (site/ofertas.mjs), a faixa e o card de valor
 //   /demo/<ótica>/capa.jpg     → a foto do topo da demo: é a imagem da prévia no WhatsApp
 //   /demo/<ótica>/f/<hash>.jpg → as fotos da demo, tiradas de dentro do HTML com os mesmos bytes (scripts/fotos-da-demo.mjs)
-//   /demo/<ótica>/<arquivo>    → outros .html da pasta da ótica (ex.: artes-instagram)
+//   /demo/<ótica>/<arquivo>    → outros .html da pasta da ótica (ex.: artes-instagram) e os .xlsx/.bin para baixar
+//                                (a planilha financeira, ferramentas/planilha/)
 //   /flyer/<lead>.png          → flyers/<lead>.png (flyer de Stories que o painel baixa; só o PNG vai ao ar)
 //   /gravacao/<lead>.mp4       → gravacoes/<lead>.mp4 (vídeo de apresentação da demo; só o MP4 vai ao ar)
 //   /como-funciona/<nicho>     → página de venda do nicho (site/como-funciona.mjs + site/nichos/<nicho>.mjs)
@@ -131,6 +132,9 @@ export function arquivosPublicados() {
     if (!otica.isDirectory()) continue;
     const fotosDaPasta = new Map(); // a mesma foto em duas páginas da demo (site e Natal) vira um arquivo só
     for (const f of readdirSync(join(RAIZ, "demos", otica.name))) {
+      // Arquivo para baixar da demo (a planilha financeira: a versão de teste e a do cliente, cifrada com o código):
+      // vai como está para /demo/<pasta>/<arquivo>. A trava (middleware.js) não segura arquivo, só a página.
+      if (/\.(xlsx|bin)$/.test(f)) { lista.push([join("demo", otica.name, f), join(RAIZ, "demos", otica.name, f)]); continue; }
       if (!f.endsWith(".html")) continue;
       const { html, fotos, capa } = paginaDaDemo(join(RAIZ, "demos", otica.name, f), otica.name);
       for (const [nome, foto] of fotos) fotosDaPasta.set(nome, foto);

@@ -104,12 +104,13 @@ somar(harm, drone(hz("A1"), C["abre"][1] + 1.0), 0.0, 1.0)
 for t in grade(*C["google"], BEAT / 2): somar(bat, chimbal(), t, 0.35)
 for t in grade(*C["google"], BEAT / 2): somar(grave, sub(hz("A1"), BEAT / 2 * 0.9), t, 0.55)
 somar(harm, drone(hz("A2"), C["google"][1] - C["google"][0] + 0.5), C["google"][0], 0.5)
-# insta: bumbo reto, palma, chimbal em semicolcheias; corta em "Nada."
-nada = next(f for f in fr if f["id"] == "nada")["ini"]
-for t in grade(C["insta"][0], nada, BEAT): somar(bat, bumbo(), t, 0.9)
-for t in grade(C["insta"][0], nada, 2 * BEAT): somar(bat, palma(), t + BEAT, 0.45)
-for k, t in enumerate(grade(C["insta"][0], nada, BEAT / 4)): somar(bat, chimbal(), t, 0.22 + 0.12 * (k % 2 == 0))
-for t in grade(C["insta"][0], nada, BEAT / 2): somar(grave, sub(hz("A1") if acorde(t) == "Am" else hz(ACORDES[acorde(t)][0]), BEAT / 2 * 0.85), t, 0.6)
+# insta: bumbo reto, palma, chimbal em semicolcheias; corta em "Nada." (opcional: o Reels do Meu site não usa)
+if "insta" in C:
+    nada = next(f for f in fr if f["id"] == "nada")["ini"]
+    for t in grade(C["insta"][0], nada, BEAT): somar(bat, bumbo(), t, 0.9)
+    for t in grade(C["insta"][0], nada, 2 * BEAT): somar(bat, palma(), t + BEAT, 0.45)
+    for k, t in enumerate(grade(C["insta"][0], nada, BEAT / 4)): somar(bat, chimbal(), t, 0.22 + 0.12 * (k % 2 == 0))
+    for t in grade(C["insta"][0], nada, BEAT / 2): somar(grave, sub(hz("A1") if acorde(t) == "Am" else hz(ACORDES[acorde(t)][0]), BEAT / 2 * 0.85), t, 0.6)
 # volta: a batida abafada (filtrada depois)
 abaf = np.zeros(N)
 for t in (grade(*C["volta"], BEAT) if "volta" in C else []): somar(abaf, bumbo(0.8), t, 0.9)

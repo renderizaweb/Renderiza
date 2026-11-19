@@ -1,0 +1,26 @@
+{
+ "_sobre": "Narração do Reels \"Meu site\" (18/11/2026, pedido do Kaue: as pessoas perguntam muito como atualizar o site depois da entrega). Alvo: quem está fechando ou já tem o site e quer saber se vai depender de alguém para mudar um preço ou uma foto. Mensagem: assinando o Painel Renderiza, pelo Meu site (vem em todo plano, sem pagar a mais) a pessoa muda o próprio site quando precisar: escolhe a parte, muda, vê o site mudando ao lado, publica, e em até um minuto está no ar; se cancelar, o site continua no ar como foi entregue. Todas as telas são capturas do Meu site de verdade (instagram/telas-meu-site.mjs), com o Estúdio Ciranda, fictício.",
+ "motor": "edge",
+ "voz": "pt-BR-AntonioNeural",
+ "ritmo": "+10%",
+ "inicio": 0.2,
+ "frases": [
+  { "id": "abre", "cena": "entrega", "texto": "O site do estúdio ficou *pronto.*", "pausa": 0.35, "impacto": true },
+  { "id": "pergunta", "cena": "duvida", "texto": "Aí vem a pergunta que todo mundo faz: e quando eu precisar mudar alguma *coisa?*", "pausa": 0.3 },
+  { "id": "exemplos", "cena": "lista", "texto": "O preço do newborn. A foto da capa. Um ensaio *novo.*", "pausa": 0.35 },
+  { "id": "voce", "cena": "painel", "texto": "No Painel Renderiza, quem muda é *você,* pelo Meu site.", "pausa": 0.25, "impacto": true },
+  { "id": "lado", "cena": "painel", "texto": "De um lado, as partes do site. Do outro, o seu site de *verdade.*", "pausa": 0.3 },
+  { "id": "parte", "cena": "parte", "texto": "Escolhe a parte: os *ensaios.*", "pausa": 0.2 },
+  { "id": "preco", "cena": "preco", "texto": "Escreve o preço do newborn, e o site muda na *hora.*", "pausa": 0.3 },
+  { "id": "rascunho", "cena": "rascunho", "texto": "Fica no rascunho. Só você *vê.*", "pausa": 0.3 },
+  { "id": "foto", "cena": "foto", "texto": "Quer a foto do último ensaio na capa? Escolhe a foto, e *pronto.*", "pausa": 0.3 },
+  { "id": "publicar", "cena": "publicar", "texto": "Ficou bom? *Publicar.*", "pausa": 0.3, "impacto": true },
+  { "id": "minuto", "cena": "noar", "texto": "Em até um minuto, quem abre o seu site já vê a foto nova e o preço *novo.*", "pausa": 0.35 },
+  { "id": "tudo", "cena": "tudo", "texto": "Texto, preço, foto, galeria, depoimento: quando você *precisar.*", "pausa": 0.3 },
+  { "id": "plano", "cena": "plano", "texto": "E o Meu site vem em todo plano do painel, sem pagar a *mais.*", "pausa": 0.3 },
+  { "id": "cancelar", "cena": "plano", "texto": "Se um dia cancelar, o site continua no ar, do jeito que foi *entregue.*", "pausa": 0.4 },
+  { "id": "moral", "cena": "marca", "texto": "Site entregue não precisa ficar *parado.*", "pausa": 0.3 },
+  { "id": "marca", "cena": "marca", "texto": "Com a *Renderiza,* você muda o seu site pelo painel, sem depender de *ninguém.*", "pausa": 0.3 },
+  { "id": "cta", "cena": "cta", "texto": "Comenta *SITE* que a gente te manda o exemplo para *testar.*", "pausa": 0.2 }
+ ]
+}
