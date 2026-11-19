@@ -11,7 +11,8 @@ import { escapar, ocupado } from "../../ui/formulario.js";
 import { campoTexto, campoSelecao, campoArea, interruptor, lerFormulario } from "../../ui/campos.js";
 import { dataNumerica, dia, telefone, linkWhatsapp, moeda, instanteNoFuso, lerValor } from "../../ui/formatos.js";
 import { nicho } from "../../nichos/index.js";
-import { estadoDaConta, ultimoAcesso, prazoAte, nomeDoMes, usandoAgora, INCLUIDOS } from "../logica.js";
+import { MODULOS } from "../../modulos/index.js";
+import { estadoDaConta, ultimoAcesso, prazoAte, nomeDoMes, usandoAgora, INCLUIDOS, resumoDoUso } from "../logica.js";
 import { abrirPagamento } from "../pagamentos/pagamento.js";
 import { entrarParaAjudar, exportarAPedido } from "../suporte.js";
 import { usuarioDoEmail } from "../../sessao.js";
@@ -53,14 +54,17 @@ export async function abrirConta(c, ctx) {
   const { banco, avisar, catalogo } = ctx;
   const n = nicho(c.nicho);
   const e = estadoDaConta(c);
-  const [convites, pagamentos, suportes, contexto, iaUso, iaConta] = await Promise.all([
+  const [convites, pagamentos, suportes, contexto, iaUso, iaConta, uso] = await Promise.all([
     banco.resultado(banco.tabela("convites").select("id, email, nome, dono, acessos, usuario, link_codigo, link_usado_em, expira_em, aceito_em, cancelado_em").eq("conta_id", c.id).is("aceito_em", null).is("cancelado_em", null).order("criado_em", { ascending: false })).catch(() => []),
     banco.resultado(banco.tabela("pagamentos").select("id, mes, valor, pago_em, observacao").eq("conta_id", c.id).order("mes", { ascending: false }).limit(6)).catch(() => []),
     banco.resultado(banco.tabela("acessos_suporte").select("id, motivo, nivel, inicio, fim").eq("conta_id", c.id).order("inicio", { ascending: false }).limit(5)).catch(() => []),
     banco.resultado(banco.tabela("contas_contexto").select("demo, conversa, demos(nome)").eq("conta_id", c.id).maybeSingle()).catch(() => null),
     banco.resultado(banco.tabela("ia_uso").select("custo_usd").eq("conta_id", c.id)).catch(() => []),
     banco.resultado(banco.tabela("ia_contas").select("teto_usd").eq("conta_id", c.id).maybeSingle()).catch(() => null),
+    banco.rpc("admin_uso", { p_dias: 30 }).catch(() => null), // o uso do painel (19/11/2026); sem a migração, nada muda
   ]);
+  const usoDe = p => (uso && uso.pessoas.find(u => u.pessoa_id === p.id)) || null;
+  const nomeDoModulo = id => (MODULOS.find(m => m.id === id) || { nome: id }).nome;
   // a IA do onboarding (Missão 7, bloco D; D46): o gasto em dólar e o teto da conta (sem linha: US$ 3)
   const dolar = v => `US$ ${Number(v).toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
   const iaGasto = iaUso.reduce((s, x) => s + Number(x.custo_usd || 0), 0);
@@ -101,7 +105,7 @@ export async function abrirConta(c, ctx) {
         </section>
 
         <section class="rz-pilha-p"><h3 class="rz-titulo-3">Pessoas</h3>
-          <ul class="rz-linhas rz-cartao">${c.pessoas.map(p => `<li class="rz-com-acao"><div class="rz-linha rz-linha--fixa"><span class="rz-linha-texto"><b>${escapar(p.nome)}${p.dono ? " · dono" : ""}</b><small>${escapar([quem(p.email), p.ativa ? (usandoAgora(p.visto_em) ? "usando agora" : ultimoAcesso([p.visto_em])) : "sem acesso"].filter(Boolean).join(" · "))}</small></span></div>
+          <ul class="rz-linhas rz-cartao">${c.pessoas.map(p => `<li class="rz-com-acao"><div class="rz-linha rz-linha--fixa"><span class="rz-linha-texto"><b>${escapar(p.nome)}${p.dono ? " · dono" : ""}</b><small>${escapar([quem(p.email), p.ativa ? (usandoAgora(p.visto_em) ? "usando agora" : ultimoAcesso([p.visto_em])) : "sem acesso"].filter(Boolean).join(" · "))}</small>${p.ativa && usoDe(p) ? `<small>${escapar("30 dias: " + resumoDoUso(usoDe(p), nomeDoModulo))}</small>` : ""}</span></div>
               ${p.ativa && usuarioDoEmail(p.email) ? `<button class="rz-botao rz-botao--pequeno" type="button" data-senha-nova="${escapar(p.id)}">${icone("cadeado", { tamanho: 16 })}Link para senha nova</button>` : ""}</li>`).join("")
             || `<li><div class="rz-linha rz-linha--fixa"><span class="rz-linha-texto"><small>Ninguém entrou ainda.</small></span></div></li>`}</ul>
           ${convites.map(x => `<div class="rz-pilha-p"><p class="rz-texto-3">${x.usuario ? "Link esperando" : "Convite esperando"}: ${escapar(x.nome || quem(x.email))} (${escapar(quem(x.email))}${x.dono ? ", dono" : ""}, ${x.link_usado_em ? "link já usado" : `vence ${escapar(dataNumerica(new Date(x.expira_em)))}`})</p>

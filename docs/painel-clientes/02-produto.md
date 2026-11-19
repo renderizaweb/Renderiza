@@ -95,7 +95,7 @@ Pedido de 28/10/2026: ao entrar, quem é da equipe Renderiza tem também o Admin
 |---|---|
 | **Contas** | todas as contas, com a situação (teste, ativa, desligada), o nicho, desde quando, os cadastros novos para aprovar; aprovar, dar prazo, desligar, religar; criar uma conta à mão |
 | **Módulos** | ligar e desligar os módulos de cada conta |
-| **Pessoas e acessos** | quem entrou, quando e em qual conta; quem está usando agora; entrar numa conta para ajudar (sempre registrado) |
+| **Pessoas e acessos** | quem entrou, quando e em qual conta; quem está usando agora; **o uso do painel** (19/11/2026): por pessoa, em 7, 30 ou 90 dias, as entradas, o tempo com o painel aberto e em uso, os dias com uso e as partes mais usadas, e os convites que esperam a senha (também na gaveta da conta, 30 dias); entrar numa conta para ajudar (sempre registrado) |
 | **Pagamentos** | o Pix de cada mês registrado à mão: quem pagou e quem não pagou |
 | **Indicadores** | quantas contas, cadastros por semana, pessoas ativas, uso de cada módulo, pedidos que vieram dos sites. **Só números**: nada de nome ou contato dos clientes dos clientes |
 
