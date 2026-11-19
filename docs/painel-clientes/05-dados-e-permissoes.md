@@ -185,6 +185,7 @@ aparecem abaixo. O comentário de cada tabela no banco (`comment on table`) diz 
 |---|---|
 | `equipe_renderiza` | quem entra no Admin (a Renderiza cadastra direto no banco) |
 | `entradas` | cada entrada numa conta (`registrar_entrada`): quem, conta, quando, aparelho (para "quem loga, quem está acessando"); no máximo uma a cada 30 minutos por pessoa e conta |
+| `uso_diario` | o uso do painel (migração `…004809_uso_do_painel`, 19/11/2026): minutos com o painel à vista e em uso, por pessoa, conta, dia (no fuso da conta) e módulo. Só `registrar_uso` grava (o app manda um sinal por minuto, `src/uso.js`; no máximo um por minuto por pessoa e conta; a Renderiza em suporte não conta; também atualiza o `visto_em`) e só `admin_uso(dias)` lê, já somado, para a equipe Renderiza. Sem política nenhuma, de propósito. 400 dias |
 | `registros_de_acesso` | Marco Civil, art. 15 (30/10/2026): quem, conta, quando e o IP de cada entrada, gravados por `registrar_entrada` junto com a entrada; **ninguém lê pela API** (RLS sem política; só o dono do banco, para ordem judicial); sem chave estrangeira, para não sumir antes do prazo; apagados depois de 6 meses |
 | `pagamentos` | o Pix de cada mês, registrado à mão: conta, mês de referência (dia 1), valor, pago em, observação, quem registrou |
 | `acessos_suporte` | cada vez que a Renderiza entrou numa conta para ajudar: quem, por quê, nível, de quando até quando |
