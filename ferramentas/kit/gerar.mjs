@@ -21,10 +21,18 @@ const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", ".
 const esc = t => String(t ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const fam = n => n.replace(/ /g, "+");
 
-/** A foto tratada da demo (pelo data-k que o gerador põe em cada uma), gravada em rascunhos/kit/<pasta>/<k>.jpg. */
-export function fotoDaDemo(pasta, k) {
+/**
+ * A foto tratada da demo, gravada em rascunhos/kit/<pasta>/<k>.jpg: pelo data-k que o gerador põe em cada uma
+ * (`da_demo`) ou, na demo feita à mão sem data-k (a da Bia, gerar-fotografia-eventos.py), pelo texto exato do alt
+ * (`alt`).
+ */
+const reEsc = s => String(s).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+export function fotoDaDemo(pasta, k, alt = "") {
   const html = fs.readFileSync(path.join(RAIZ, "demos", pasta, "index.html"), "utf8");
-  const m = new RegExp(`<img\\b[^>]*data-k="${k}[0-9a-f]*"[^>]*>`).exec(html) || new RegExp(`<img\\b[^>]*src="data:image/[^"]+"[^>]*data-k="${k}`).exec(html);
+  if (alt) k = "alt-" + alt.normalize("NFD").replace(/[^a-zA-Z0-9]+/g, "-").replace(/^-|-$/g, "").toLowerCase().slice(0, 48);
+  const m = alt
+    ? new RegExp(`<img\\b[^>]*src="data:image/[^"]+"[^>]*alt="${reEsc(alt)}"[^>]*>`).exec(html)
+    : new RegExp(`<img\\b[^>]*data-k="${k}[0-9a-f]*"[^>]*>`).exec(html) || new RegExp(`<img\\b[^>]*src="data:image/[^"]+"[^>]*data-k="${k}`).exec(html);
   const src = m && /src="data:image\/(\w+);base64,([^"]+)"/.exec(m[0]);
   if (!src) throw new Error(`kit: não achei a foto ${k} na demo ${pasta}`);
   const dir = path.join(RAIZ, "rascunhos", "kit", pasta);
@@ -42,7 +50,7 @@ function artes(cfg) {
     if (!p) continue;
     const nome = `${cfg.pasta}-kit-${peca}`;
     const json = path.join(RAIZ, "flyers", nome + ".json");
-    const arte = { ...cfg.arte, ...p, formato, foto: { arquivo: fotoDaDemo(cfg.pasta, p.foto.da_demo), pos: p.foto.pos } };
+    const arte = { ...cfg.arte, ...p, formato, foto: { arquivo: fotoDaDemo(cfg.pasta, p.foto.da_demo, p.foto.alt), pos: p.foto.pos } };
     fs.writeFileSync(json, JSON.stringify({ _sobre: `Arte do kit de divulgação (${peca}), gerada por ferramentas/kit/gerar.mjs a partir de demos/${cfg.pasta}/kit.json.`, ...arte }, null, 1));
     const r = spawnSync("node", [path.join(RAIZ, "ferramentas", "flyer", "gerar.mjs"), json], { encoding: "utf8" });
     if (r.status !== 0) throw new Error(r.stdout + r.stderr);

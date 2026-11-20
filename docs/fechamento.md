@@ -110,7 +110,8 @@ na tela (mesmo sem baixar), deu play, viu até o fim, baixou cada peça e copiou
    `ferramentas/video/gravar.mjs` (url do site no ar, `assinatura` com o @ dele, `legenda_baixo: 170`; modelo:
    `gravacoes/rafaela-damaceno-site.json`). Ensaio (`--ensaio`), conferir os quadros, gravar.
 2. **O kit** (`demos/<pasta>/kit.json`; modelo: o da Rafaela): as cores e as fontes do site dele, o vídeo, o flyer de
-   Stories e a arte do feed (as fotos saem da demo pelo `data-k`; o gerador de flyer avisa se o texto encosta no botão)
+   Stories e a arte do feed (as fotos saem da demo pelo `data-k`, ou pelo texto exato do `alt` na demo feita à mão
+   sem `data-k`, como a da Bia: `"foto": {"alt": "…"}`; o gerador de flyer avisa se o texto encosta no botão)
    e os textos prontos: legenda, bio do Instagram, Status do WhatsApp e o pedido de avaliação no Google (com o link de
    avaliar do perfil dele, o mesmo do site). Sem domínio no ar ainda: o endereço que já funciona, e "link na bio".
 3. `node ferramentas/kit/gerar.mjs demos/<pasta>/kit.json` → as artes em `flyers/` e a página `demos/<pasta>/kit.html`,

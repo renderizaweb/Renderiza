@@ -1,0 +1,87 @@
+{
+ "_sobre": "Kit de divulgação da Bia Maida (cliente que fechou, 20/11/2026): o que a Renderiza prepara para ela divulgar o site novo. Gera demos/bia-maida-fotografia/kit.html (no ar em /kit/bia-maida-fotografia, com o contador) e as artes em flyers/ (/flyer/...). A demo dela é feita à mão (sem data-k): as fotos vêm pelo alt. Como fazer para outro cliente: docs/fechamento.md, \"Kit de divulgação\".",
+ "pasta": "bia-maida-fotografia",
+ "para": "Bia",
+ "arquivos": "Bia-Maida",
+ "site": "https://biamaidafotografia.com.br",
+ "fontes": {
+  "titulo": "Literata",
+  "texto": "Outfit"
+ },
+ "cores": {
+  "fundo": "#f9f7f4",
+  "papel": "#ffffff",
+  "linha": "#e2ddd5",
+  "tinta": "#26292c",
+  "tinta2": "#5f6366",
+  "acento": "#1f5470",
+  "acento2": "#173f55",
+  "areia": "#f0ede8"
+ },
+ "video": "bia-maida-site.mp4",
+ "arte": {
+  "marca": "Bia Maida",
+  "local": "Fotografia · São Paulo",
+  "fontes": {
+   "titulo": "Literata",
+   "texto": "Outfit"
+  },
+  "cores": {
+   "fundo": "#1b2a33",
+   "fundo2": "#0f1a20",
+   "acento": "#e0b39b",
+   "tinta_acento": "#1b2a33",
+   "claro": "#f6eee6"
+  },
+  "selo": {
+   "nota": "5,0",
+   "total": "116"
+  },
+  "cta": "Conheça o meu site",
+  "cta_icone": "link",
+  "site": "biamaidafotografia.com.br",
+  "instagram": "@biamaidafotografia",
+  "tamanho_titulo": 88
+ },
+ "stories": {
+  "foto": {
+   "alt": "Gestante sorrindo entre os balões do chá de bebê",
+   "pos": "50% 30%"
+  },
+  "titulo": "Meu site novo<br><em>está no ar.</em>",
+  "texto": "O portfólio dos eventos, os ensaios e a consulta da sua data, num lugar só."
+ },
+ "post": {
+  "foto": {
+   "alt": "Noivos se olhando, sorrindo, na festa de casamento",
+   "pos": "50% 35%"
+  },
+  "titulo": "Meu site novo<br><em>está no ar.</em>",
+  "texto": "Portfólio, serviços e a sua data num lugar só.",
+  "tamanho_titulo": 80
+ },
+ "textos": [
+  {
+   "id": "legenda",
+   "titulo": "Legenda para o post e o Reels",
+   "texto": "Meu site novo está no ar! ✨\nOs eventos, os ensaios externos e o corporativo num portfólio só, e você já consulta a data do seu evento por lá.\nO link está na bio. 🤍"
+  },
+  {
+   "id": "bio",
+   "titulo": "Bio do Instagram",
+   "onde": "No Instagram: Editar perfil → Bio. O endereço do site vai em Links.",
+   "texto": "Fotógrafa de eventos, ensaios e corporativo 📸\nSão Paulo · há 15 anos registrando histórias\nConsulte a sua data pelo site 👇"
+  },
+  {
+   "id": "status",
+   "titulo": "Status e mensagem no WhatsApp",
+   "texto": "Meu site novo está no ar! ✨ Veja o portfólio e consulte a data do seu evento: https://biamaidafotografia.com.br"
+  },
+  {
+   "id": "avaliacao",
+   "titulo": "Pedir avaliação no Google",
+   "onde": "Para mandar no WhatsApp a quem você já fotografou.",
+   "texto": "Oi! Foi muito especial fotografar vocês 🤍 Se puder, deixa uma avaliação no Google? Ajuda outras famílias a me conhecerem: https://www.google.com/maps/place/Bia+Maida+Fotografia/@-23.5888803,-46.5440096,17z/data=!4m8!3m7!1s0x94ce5de16127178b:0x9367a1fbea3437dd!8m2!3d-23.5888803!4d-46.5440096!9m1!1b1!16s%2Fg%2F11sjt5dz4m?hl=pt-BR"
+  }
+ ]
+}
