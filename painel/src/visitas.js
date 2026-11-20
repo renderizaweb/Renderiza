@@ -20,7 +20,7 @@ const MODULOS = { "agenda-online": "Agenda online", agenda: "Agenda da equipe", 
 const TELAS = { inicio: "a visão geral", agenda: "a agenda", clientes: "os clientes", contratos: "os contratos", financeiro: "o financeiro", atendimento: "o atendimento", equipe: "a equipe e acessos", campanha: "a campanha de Natal" };
 const PAGINAS = { exemplos: "a página do painel", "painel-eventos": "o exemplo do painel", "agenda-online": "a agenda online de exemplo", demo: "a demo do site" };
 /** Outras páginas de uma demo (detalhe.sub do "abriu"). */
-const SUBPAGINAS = { natal: "a página de Natal da demo", video: "a página do vídeo do site", "artes-instagram": "as artes para Instagram da demo", proposta: "a proposta comercial", contrato: "o contrato para assinar" };
+const SUBPAGINAS = { natal: "a página de Natal da demo", video: "a página do vídeo do site", kit: "o kit de divulgação", "artes-instagram": "as artes para Instagram da demo", proposta: "a proposta comercial", contrato: "o contrato para assinar" };
 const LUGARES = { exemplos: "Página do Painel Renderiza", "painel-eventos": "Exemplo do painel", "agenda-online": "Agenda online de exemplo" };
 /** Onde foi: "Página do Painel Renderiza", "Demo otica-nina"… */
 export const lugarDe = v => (daDemo(v) ? "Demo " + (v.demo || "") : LUGARES[v.pagina] || v.pagina).trim();
@@ -94,10 +94,15 @@ const CLIQUES = { aviso_painel: "Foi ver o painel do estúdio (agenda online)", 
   // a página do vídeo de divulgação do site, para o cliente baixar e postar (/demo/<pasta>/video; 20/11/2026)
   "video-play": "Deu play no vídeo do site", "video-fim": "Assistiu o vídeo do site até o fim", "video-baixar": "Baixou o vídeo do site",
   "video-copiou-link": "Copiou o endereço do site (para a figurinha Link)", "video-copiou-legenda": "Copiou a legenda pronta", "video-ver-site": "Abriu o site pela página do vídeo",
+  // o kit de divulgação de quem fechou (/kit/<pasta>; ferramentas/kit/gerar.mjs, 20/11/2026)
+  "kit-viu-video": "Viu o vídeo na tela (kit)", "kit-play": "Deu play no vídeo (kit)", "kit-fim": "Assistiu o vídeo até o fim (kit)", "kit-baixou-video": "Baixou o vídeo (kit)",
+  "kit-viu-flyer": "Viu o flyer de Stories (kit)", "kit-baixou-flyer": "Baixou o flyer de Stories (kit)", "kit-viu-post": "Viu a arte do feed (kit)", "kit-baixou-post": "Baixou a arte do feed (kit)",
+  "kit-copiou-link": "Copiou o endereço do site (kit)", "kit-copiou-legenda": "Copiou a legenda (kit)", "kit-copiou-bio": "Copiou a bio do Instagram (kit)",
+  "kit-copiou-status": "Copiou o texto do Status (kit)", "kit-copiou-avaliacao": "Copiou o pedido de avaliação no Google (kit)", "kit-ver-site": "Abriu o site pelo kit",
   "contrato-assinado": "Assinou o contrato online", "contrato-avisar": "Avisou vocês no WhatsApp que assinou", "contrato-imprimir": "Salvou o contrato assinado em PDF" };
 /** Passos que mostram interesse de verdade (para o resumo). */
 const FORTES = new Set(["viu_precos", "clicou_whatsapp", "viu_detalhes", "abriu_exemplo", "pediu_reserva"]);
-const CLIQUES_FORTES = new Set(["video-baixar", "video-fim", "aviso_painel", "reabrir", "faixa", "valor", "oferta", "instagram", "rota", "mapa", "avaliacoes", "telefone",
+const CLIQUES_FORTES = new Set(["kit-play", "kit-fim", "kit-baixou-video", "kit-baixou-flyer", "kit-baixou-post", "video-baixar", "video-fim", "aviso_painel", "reabrir", "faixa", "valor", "oferta", "instagram", "rota", "mapa", "avaliacoes", "telefone",
   "proposta-seguir-topo", "proposta-seguir-capa", "proposta-seguir-investimento", "proposta-seguir-planos", "proposta-seguir-fim", "contrato-assinado"]);
 const forte = v => FORTES.has(v.evento) || (v.evento === "clicou" && CLIQUES_FORTES.has(alvoDoClique(v.detalhe))) || (v.evento === "abriu" && !!(v.detalhe || {}).fora);
 
@@ -189,7 +194,8 @@ const juntar = l => (l.length < 2 ? l.join("") : l.slice(0, -1).join(", ") + " e
 const ALVOS = { reabrir: "reabriu por 1 hora", instagram: "abriu o Instagram", facebook: "abriu o Facebook", tiktok: "abriu o TikTok", rota: "pediu a rota até a loja", mapa: "abriu o mapa",
   avaliacoes: "foi ver as avaliações", avaliar: "foi avaliar no Google", telefone: "tocou para ligar", email: "tocou no e-mail",
   oferta: "clicou na oferta da Renderiza", aviso_painel: "foi ver o painel do estúdio",
-  "video-baixar": "baixou o vídeo", "video-fim": "viu o vídeo até o fim", "video-copiou-legenda": "copiou a legenda" };
+  "video-baixar": "baixou o vídeo", "video-fim": "viu o vídeo até o fim", "video-copiou-legenda": "copiou a legenda",
+  "kit-play": "deu play no vídeo", "kit-baixou-video": "baixou o vídeo", "kit-baixou-flyer": "baixou o flyer", "kit-baixou-post": "baixou a arte do feed" };
 const ABERTURAS = { demo: "abriu a demo", exemplos: "abriu o link do painel", "painel-eventos": "viu o exemplo do painel", "agenda-online": "abriu a agenda online" };
 // O que pode sair da frase quando ela fica longa (o resto continua nos detalhes).
 const MENOS_IMPORTANTE = ["botoes", "menu", "telas", "fim", "aviso", "clicou:mapa", "clicou:email", "clicou:facebook", "clicou:tiktok"];

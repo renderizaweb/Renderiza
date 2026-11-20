@@ -1,0 +1,32 @@
+{
+ "_sobre": "Arte do kit de divulgação (stories), gerada por ferramentas/kit/gerar.mjs a partir de demos/rafaela-damaceno-fotografia/kit.json.",
+ "marca": "Rafaela Damaceno",
+ "local": "Estúdio fotográfico · Franco da Rocha",
+ "fontes": {
+  "titulo": "Cormorant Garamond",
+  "texto": "Jost"
+ },
+ "cores": {
+  "fundo": "#4b3d36",
+  "fundo2": "#2a201b",
+  "acento": "#e3c3ab",
+  "tinta_acento": "#2a201b",
+  "claro": "#fffaf6"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "26"
+ },
+ "cta": "Conheça o nosso site",
+ "cta_icone": "link",
+ "site": "estudiorafaeladamaceno.pages.dev",
+ "instagram": "@rafaeladamacenofotografia",
+ "tamanho_titulo": 92,
+ "foto": {
+  "arquivo": "/home/user/Renderiza/rascunhos/kit/rafaela-damaceno-fotografia/54925f019932.jpg",
+  "pos": "50% 45%"
+ },
+ "titulo": "Nosso site novo<br><em>está no ar.</em>",
+ "texto": "O portfólio por ensaio, os ensaios do estúdio e a agenda para pedir o seu horário.",
+ "formato": "stories"
+}

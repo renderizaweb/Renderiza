@@ -2,103 +2,13 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>O vídeo do seu site · Rafaela Damaceno</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit de divulgação · Rafaela Damaceno</title>
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#4b3d36">
-<meta property="og:title" content="O vídeo do seu site está pronto">
-<meta property="og:description" content="Para postar nos Stories: o seu site rolando no celular, com as suas fotos, os ensaios e a agenda.">
-<!-- Página para a Rafaela (cliente) baixar o vídeo de divulgação do site dela (gravacoes/rafaela-damaceno-site.json,
-     20/11/2026). Não é gerada pelo gerar-fotografia.py: é a página do vídeo, à parte. O build põe o contador de visitas
-     (data-sub="video"): o card dela no Painel de prospecção mostra quando ela abriu esta página, deu play, viu até o
-     fim, baixou o vídeo e copiou o link ou a legenda. -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root{--fundo:#f9f6f2;--papel:#fff;--linha:#e5e0dd;--tinta:#4b3d36;--tinta2:#766a62;--acento:#a7674b;--acento2:#8a5139;--areia:#f1ece6}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:"Jost",system-ui,sans-serif;font-weight:400;font-size:17px;line-height:1.55;color:var(--tinta);background:var(--fundo);-webkit-font-smoothing:antialiased}
-main{width:min(560px,100% - 32px);margin:0 auto;padding:40px 0 56px}
-.eyebrow{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento)}
-h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:clamp(2.2rem,8vw,2.9rem);line-height:1.05;margin:10px 0 14px}
-h1 em{font-style:italic;color:var(--acento)}
-h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:1.7rem;line-height:1.1;margin-bottom:12px}
-p{color:var(--tinta2)}
-.video{margin:26px auto 18px;width:min(340px,100%);aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:#2a201b;box-shadow:0 30px 60px -28px rgba(75,61,54,.55)}
-.video video{display:block;width:100%;height:100%;object-fit:cover}
-.botao{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:56px;padding:14px 22px;border-radius:999px;border:0;background:var(--acento);color:#fff;font:500 1.05rem "Jost",sans-serif;text-decoration:none;cursor:pointer}
-.botao:hover{background:var(--acento2)}
-.botao--linha{background:transparent;color:var(--acento2);border:1.5px solid color-mix(in srgb,var(--acento) 55%,transparent)}
-.botao--linha:hover{background:var(--areia)}
-.botao svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-.bloco{margin-top:34px;padding:24px;border-radius:20px;background:var(--papel);border:1px solid var(--linha)}
-ol{list-style:none;counter-reset:p;display:grid;gap:12px;margin:4px 0 18px}
-ol li{counter-increment:p;display:flex;gap:12px;color:var(--tinta2)}
-ol li::before{content:counter(p);flex:none;width:28px;height:28px;border-radius:50%;background:var(--areia);color:var(--acento2);display:grid;place-items:center;font-size:.9rem;font-weight:500}
-.legenda{white-space:pre-line;padding:16px 18px;border-radius:14px;background:var(--areia);color:var(--tinta);margin-bottom:14px}
-.feito{display:none;margin-top:8px;font-size:.9rem;color:#1f7a4d;text-align:center}
-.feito.ok{display:block}
-.rodape{margin-top:40px;text-align:center;font-size:.85rem;color:var(--tinta2)}
-.rodape a{color:var(--acento2)}
-</style>
+<!-- A página do vídeo (20/11/2026) virou parte do kit de divulgação (/kit/rafaela-damaceno-fotografia): quem tiver
+     o link antigo cai no kit, no vídeo. -->
+<meta http-equiv="refresh" content="0; url=/kit/rafaela-damaceno-fotografia#video-t">
+<script>location.replace("/kit/rafaela-damaceno-fotografia#video-t");</script>
 </head>
-<body>
-<main>
-  <section aria-label="Vídeo">
-  <p class="eyebrow">Para a Rafaela</p>
-  <h1>O vídeo do seu site <em>está pronto.</em></h1>
-  <p>O seu site rolando no celular, com as suas fotos, os ensaios e a agenda. É só baixar e postar nos Stories, no Status ou no Reels.</p>
-
-  <div class="video"><video id="video" src="/gravacao/rafaela-damaceno-site.mp4#t=0.5" controls playsinline preload="metadata"></video></div>
-  <a class="botao" id="baixar" data-rz-alvo="video-baixar" href="/gravacao/rafaela-damaceno-site.mp4" download="Rafaela-Damaceno-site.mp4">
-    <svg viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>Baixar o vídeo</a>
-  </section>
-
-  <section class="bloco" aria-labelledby="stories-t">
-    <h2 id="stories-t">Para postar nos Stories</h2>
-    <ol>
-      <li><span>Baixe o vídeo (o botão logo acima).</span></li>
-      <li><span>No Instagram, abra os Stories e escolha o vídeo na galeria.</span></li>
-      <li><span>Toque na figurinha <b>Link</b> e cole o endereço do site.</span></li>
-    </ol>
-    <button class="botao botao--linha" type="button" id="copiar-link" data-rz-alvo="video-copiou-link">
-      <svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>Copiar o endereço do site</button>
-    <p class="feito" id="feito-link">Copiado. É só colar na figurinha Link.</p>
-  </section>
-
-  <section class="bloco" aria-labelledby="legenda-t">
-    <h2 id="legenda-t">Legenda pronta</h2>
-    <p style="margin-bottom:12px">Para o Reels, o feed ou o Status do WhatsApp:</p>
-    <p class="legenda" id="legenda">Nosso site novo está no ar! ✨
-Portfólio por ensaio, os ensaios do estúdio e a agenda para pedir o seu horário.
-O link está na bio.</p>
-    <button class="botao botao--linha" type="button" id="copiar-legenda" data-rz-alvo="video-copiou-legenda">
-      <svg viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>Copiar a legenda</button>
-    <p class="feito" id="feito-legenda">Copiado.</p>
-  </section>
-
-  <p class="rodape"><a href="https://estudiorafaeladamaceno.pages.dev" target="_blank" rel="noopener" id="ver-site" data-rz-alvo="video-ver-site">Ver o seu site</a> · feito pela Renderiza</p>
-</main>
-<script>
-(function () {
-  "use strict";
-  // Cada passo vai para o contador de visitas (exemplos/visitas.js, posto pelo build) como um clique com o alvo: os
-  // botões pelo data-rz-alvo (o contador lê sozinho); o play e o "até o fim", daqui. O painel mostra "Baixou o vídeo
-  // do site", "Assistiu o vídeo do site até o fim" etc. no card da Rafaela.
-  var SITE = "https://estudiorafaeladamaceno.pages.dev";
-  var contar = function (alvo, umaVez) { try { if (window.rzVisita) window.rzVisita("clicou", { alvo: alvo }, umaVez ? alvo : undefined); } catch (e) { /* o contador nunca atrapalha */ } };
-  var video = document.getElementById("video");
-  video.addEventListener("play", function () { contar("video-play", true); });
-  video.addEventListener("ended", function () { contar("video-fim", true); });
-  function copiar(texto, botao, aviso, alvo) {
-    var feito = function () { document.getElementById(aviso).classList.add("ok"); };
-    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(texto).then(feito, feito);
-    else feito();
-  }
-  document.getElementById("copiar-link").addEventListener("click", function () { copiar(SITE, this, "feito-link", "video-copiou-link"); });
-  document.getElementById("copiar-legenda").addEventListener("click", function () { copiar(document.getElementById("legenda").textContent.trim(), this, "feito-legenda", "video-copiou-legenda"); });
-})();
-</script>
-</body>
+<body><p><a href="/kit/rafaela-damaceno-fotografia#video-t">Abrir o kit de divulgação</a></p></body>
 </html>

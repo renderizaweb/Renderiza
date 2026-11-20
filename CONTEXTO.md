@@ -212,6 +212,10 @@ cliente, ajustes, repositório, hospedagem, domínio, entrega). Abaixo, o que é
   próprio**, `vivian-piacenti-planilha`, separado do lead do site (gravado em 18/11/2026, a pedido da sócia: "quero saber
   que ela acessou"; o card do site ganhou uma linha apontando para ele). Valor sugerido R$ 120, valor único (conferir com o Kaue antes de mandar). A pesquisa, as decisões, o passo a passo e a mensagem para ela:
   `docs/produtos/planilha-financeira.md`. O código da planilha dela nunca vai para o git.
+- **Kit de divulgação de quem fecha** (20/11/2026, pedido do Kaue): quando o cliente fecha e o site vai ao ar, a
+  Renderiza prepara o material para ele divulgar o site (o vídeo do site rolando, o flyer de Stories, a arte do feed e os
+  textos prontos), numa página só dele em `/kit/<pasta>`, com o contador no card do lead (abriu, viu, deu play, baixou,
+  copiou). Passo 9b do `docs/fechamento.md`; gerador `ferramentas/kit/gerar.mjs`; o primeiro é o da Rafaela.
 - **Vídeo "Site e painel" para fotógrafas** (09/11/2026, pedido do Kaue): 36 s para mandar no WhatsApp, em
   `/gravacao/exemplo-site-painel-fotografia.mp4` (`instagram/reels-site-painel.html`). Mostra só o que o painel tem de verdade:
   o Meu site (mudar, salvar no rascunho, publicar), a agenda do estúdio, a campanha de Natal, clientes e entregas, contratos,

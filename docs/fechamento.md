@@ -99,6 +99,26 @@ Os dois servem o mesmo repositório sem mudar nada (o gerador já põe `vercel.j
 - [ ] Passar os acessos (fora do chat): e-mail e senha do Gmail de dev, se foi criado. Lembrar que o domínio renova
   todo ano no Registro.br (o aviso chega no e-mail dele).
 
+## 9b. Kit de divulgação (Claude prepara, Kaue manda)
+
+Pedido do Kaue em 20/11/2026: quem fecha ganha o material para divulgar o site novo, pronto para baixar ou copiar,
+numa página só dele, com a marca e a assinatura dele (nada da Renderiza nas peças). Não é para vender: é para ele usar
+se quiser. A página tem o contador: o card do lead no Painel de prospecção mostra quando ele abriu o kit, viu o vídeo
+na tela (mesmo sem baixar), deu play, viu até o fim, baixou cada peça e copiou cada texto.
+
+1. **O vídeo** (~30 s, Stories e Reels): `gravacoes/<pasta>-site.json` no modo "site que já está no ar" do
+   `ferramentas/video/gravar.mjs` (url do site no ar, `assinatura` com o @ dele, `legenda_baixo: 170`; modelo:
+   `gravacoes/rafaela-damaceno-site.json`). Ensaio (`--ensaio`), conferir os quadros, gravar.
+2. **O kit** (`demos/<pasta>/kit.json`; modelo: o da Rafaela): as cores e as fontes do site dele, o vídeo, o flyer de
+   Stories e a arte do feed (as fotos saem da demo pelo `data-k`; o gerador de flyer avisa se o texto encosta no botão)
+   e os textos prontos: legenda, bio do Instagram, Status do WhatsApp e o pedido de avaliação no Google (com o link de
+   avaliar do perfil dele, o mesmo do site). Sem domínio no ar ainda: o endereço que já funciona, e "link na bio".
+3. `node ferramentas/kit/gerar.mjs demos/<pasta>/kit.json` → as artes em `flyers/` e a página `demos/<pasta>/kit.html`,
+   no ar em **`/kit/<pasta>`** (fora de `/demo`: não sai do ar quando a demo é desligada, no passo 10).
+4. O Kaue manda o link: "Preparamos os materiais de divulgação do seu site, caso queira usar: <link>". Depois, olha o
+   card do lead (visitas e Atividade).
+5. O domínio entrou no ar depois? Trocar o endereço no `kit.json` (e no vídeo, se ele aparecer) e gerar de novo.
+
 ## 10. Fechar na Renderiza (Claude, com o ok do Kaue)
 
 - [ ] Painel: interação "Site no ar em &lt;domínio&gt;"; próxima ação: pedir depoimento/avaliação daqui a 15 dias.
@@ -122,5 +142,5 @@ Os dois servem o mesmo repositório sem mudar nada (o gerador já põe `vercel.j
 | No ar | https://… desde …/…/… |
 
 - [ ] 1 painel · [ ] 2 levantamento · [ ] 3 ajustes · [ ] 4 site.json · [ ] 5 gerar e conferir · [ ] 6 repositório
-- [ ] 7 hospedagem e domínio · [ ] 8 conferência no ar · [ ] 9 entrega · [ ] 10 fechar na Renderiza
+- [ ] 7 hospedagem e domínio · [ ] 8 conferência no ar · [ ] 9 entrega · [ ] 9b kit de divulgação · [ ] 10 fechar na Renderiza
 ```

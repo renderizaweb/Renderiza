@@ -214,6 +214,10 @@ test("demo com mais de uma página (fotógrafa: site + campanha de Natal): a out
   assert.equal(textoDoPasso({ evento: "clicou", pagina: "demo", detalhe: { alvo: "video-baixar" } }), "Baixou o vídeo do site");
   assert.equal(textoDoPasso({ evento: "clicou", pagina: "demo", detalhe: { alvo: "video-fim" } }), "Assistiu o vídeo do site até o fim");
   assert.equal(textoDoPasso({ evento: "clicou", pagina: "demo", detalhe: { alvo: "video-copiou-legenda" } }), "Copiou a legenda pronta");
+  // o kit de divulgação (/demo/<pasta>/kit)
+  assert.equal(textoDoPasso({ evento: "abriu", pagina: "demo", detalhe: { sub: "kit" } }), "Abriu o kit de divulgação");
+  assert.equal(textoDoPasso({ evento: "clicou", pagina: "demo", detalhe: { alvo: "kit-viu-video" } }), "Viu o vídeo na tela (kit)");
+  assert.equal(textoDoPasso({ evento: "clicou", pagina: "demo", detalhe: { alvo: "kit-baixou-flyer" } }), "Baixou o flyer de Stories (kit)");
 });
 
 test("demo: o clique na oferta da Renderiza (valor e prazo) é separado do WhatsApp da loja e conta como interesse", () => {
