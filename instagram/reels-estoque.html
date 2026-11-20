@@ -1,24 +1,26 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8">
 <title>Reels: Estoque (Ricardo Motors)</title>
-<!-- Vídeo curto (1080 × 1920, 30 quadros/s, ~31 s), sem voz, para mandar ao Ricardo Motors no WhatsApp (20/11/2026, pedido
-     do Kaue): como o estoque funciona na Renderiza. O site dele é a vitrine; no Painel Renderiza, o Meu site cuida do
-     visual e o Estoque cuida dos carros; chegou carro, foto, dados e preço, e ele está no site; vendeu, um toque e ele
-     sai (docs/painel-clientes/12-modulo-estoque.md). Nada é desenhado: o painel e o site são capturas do Estoque em
+<!-- Vídeo curto (1080 × 1920, 30 quadros/s, 38 s), sem voz, para mandar ao Ricardo Motors no WhatsApp (20/11/2026, pedido
+     do Kaue): como o estoque funciona na Renderiza. O site dele e o Painel Renderiza em duas colunas (cada um com o seu
+     papel); o painel como um sol com os módulos, o foco no Meu site (o visual) e no Estoque (os carros); chegou carro,
+     foto, dados e preço, e ele aparece no site (de novo as duas colunas); vendeu, um toque e ele sai
+     (docs/painel-clientes/12-modulo-estoque.md). Nada da tela é desenhado: o painel e o site são capturas do Estoque em
      protótipo com os carros dele (instagram/telas-estoque.mjs). O carro novo é um exemplo, e o celular leva a etiqueta.
-     Trilha original (ferramentas/video/musica.py, clima sóbrio). Sem animação de CSS: window.quadro(t) desenha o
-     instante t (s). Gravar: node instagram/gerar.mjs reels-estoque [--ensaio] -->
+     Tudo na grade de 120 bpm (b(n) = n tempos), com a trilha pulsante (ferramentas/video/trilha-pulso.py, pelo "pulso"):
+     o drop cai no foco do Meu site e do Estoque. Sem animação de CSS: window.quadro(t) desenha o instante t (s).
+     Gravar: node instagram/gerar.mjs reels-estoque [--ensaio] -->
 <link rel="stylesheet" href="marca.css">
 <link rel="stylesheet" href="historia.css">
 <style>
 :root{--ouro:#e3c78c;--ouro-forte:#c9a45f}
 #palco{background:radial-gradient(70% 46% at 50% 58%,#3b3122 0%,#18150f 62%,#0d0d0e 100%)}
-/* o celular: as capturas (412 × 812, em 2×) embaixo da barra de status */
-#cel{left:320px;top:0;transform-origin:50% 50%;opacity:0;z-index:24}
-#cel .status{background:#fff}
-#tela{position:absolute;left:0;top:60px;width:412px;height:812px;overflow:hidden;background:#f4f3f0}
-#tela img{position:absolute;left:0;top:0;width:412px;opacity:0}
-#tela .cap{height:812px}
+/* os celulares: as capturas (412 × 812, em 2×) embaixo da barra de status */
+.fone{top:0;transform-origin:50% 50%;opacity:0;z-index:24}
+.fone .status{background:#fff}
+.tc{position:absolute;left:0;top:60px;width:412px;height:812px;overflow:hidden;background:#f4f3f0}
+.tc img{position:absolute;left:0;top:0;width:412px;opacity:0}
+.tc .cap{height:812px}
 #pagina{will-change:transform}
 #cabeca{z-index:3}
 .anel{position:absolute;z-index:6;border-radius:16px;box-shadow:0 0 0 4px var(--ouro-forte),0 0 0 11px rgba(201,164,95,.25);opacity:0}
@@ -28,12 +30,34 @@
 .leg b{display:block;font-size:76px;font-weight:800;letter-spacing:-.045em;line-height:1.02}
 .leg b em{font-style:normal;color:var(--ouro)}
 .leg span{display:block;margin-top:20px;font-size:38px;font-weight:550;letter-spacing:-.02em;color:#cfc7b8}
-.pilula{position:absolute;left:0;top:0;z-index:36;display:flex;align-items:center;gap:16px;padding:18px 30px 18px 18px;border-radius:999px;background:#f6f2ea;color:#1e2528;font-size:36px;font-weight:750;letter-spacing:-.025em;white-space:nowrap;box-shadow:0 26px 60px -18px rgba(0,0,0,.65);opacity:0}
-.pilula i{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:#1e2528;color:var(--ouro);flex:none}
-.pilula i svg{width:32px;height:32px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.pilula small{font-size:30px;font-weight:600;color:#6c726f}
-#no-ar{background:#1f7a4d;color:#fff;padding:18px 32px}
+/* duas colunas: os rótulos, a ponte e as pílulas */
+.rotulo{position:absolute;left:0;top:0;z-index:33;width:420px;text-align:center;opacity:0;color:#f6f2ea}
+.rotulo b{display:block;font-size:44px;font-weight:800;letter-spacing:-.035em}
+.rotulo b em{font-style:normal;color:var(--ouro)}
+.rotulo small{display:block;margin-top:8px;font-size:29px;font-weight:600;color:#bdb4a4}
+#ponte{position:absolute;left:0;top:0;z-index:34;width:108px;height:108px;margin:-54px 0 0 -54px;border-radius:50%;background:var(--ouro-forte);color:#17120a;display:grid;place-items:center;box-shadow:0 18px 40px -12px rgba(0,0,0,.6);opacity:0}
+#ponte svg{width:54px;height:54px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+#ponte::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:3px solid var(--ouro-forte);opacity:var(--onda,0);transform:scale(var(--onda-s,1))}
+.pilula{position:absolute;left:0;top:0;z-index:36;display:flex;align-items:center;gap:16px;padding:18px 32px 18px 20px;border-radius:999px;background:#f6f2ea;color:#1e2528;font-size:36px;font-weight:750;letter-spacing:-.025em;white-space:nowrap;box-shadow:0 26px 60px -18px rgba(0,0,0,.65);opacity:0}
+.pilula i{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#1e2528;color:var(--ouro);flex:none}
+.pilula i svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+#no-ar{background:#1f7a4d;color:#fff}
 #no-ar i{background:rgba(255,255,255,.18);color:#fff}
+/* o sol: o Painel Renderiza no centro e os módulos em volta */
+#sol{position:absolute;inset:0;z-index:28;opacity:0;transform-origin:809px 1349px}
+#sol svg.raios{position:absolute;inset:0;width:1080px;height:1920px}
+#sol .raios line{stroke:rgba(227,199,140,.38);stroke-width:3;stroke-linecap:round}
+#nucleo{position:absolute;left:540px;top:1080px;width:270px;height:270px;margin:-135px 0 0 -135px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  background:radial-gradient(circle at 50% 35%,#3a3020 0%,#1a1712 70%);border:2px solid rgba(227,199,140,.55);box-shadow:0 0 0 14px rgba(227,199,140,.07),0 30px 70px -20px rgba(0,0,0,.8);color:#f6f2ea}
+#nucleo .simbolo{width:76px;height:76px;color:#e8855e}
+#nucleo b{font-size:34px;font-weight:800;letter-spacing:-.03em;line-height:1}
+#nucleo small{font-size:26px;font-weight:650;color:var(--ouro);letter-spacing:-.01em}
+.no{position:absolute;left:0;top:0;width:200px;margin-left:-100px;display:flex;flex-direction:column;align-items:center;gap:12px;opacity:0}
+.no i{width:124px;height:124px;border-radius:50%;display:grid;place-items:center;background:#1c1a16;border:2px solid rgba(227,199,140,.5);color:var(--ouro);box-shadow:0 20px 40px -16px rgba(0,0,0,.7)}
+.no i svg{width:54px;height:54px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.no b{font-size:31px;font-weight:750;letter-spacing:-.02em;color:#f1ece2;white-space:nowrap}
+.no.foco i{background:linear-gradient(150deg,#e3c78c,#a8833f);color:#17120a;border-color:transparent;box-shadow:0 0 0 calc(var(--brilho,0) * 14px) rgba(227,199,140,.22),0 24px 50px -16px rgba(0,0,0,.8)}
+.no.foco b{color:var(--ouro)}
 /* abertura e fechamento */
 #abre{position:absolute;inset:0;z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#f6f2ea}
 #abre img{width:300px;height:auto;opacity:0}
@@ -52,9 +76,10 @@
 </style></head><body>
 <div class="reels" id="palco">
   <div id="abre"><img id="logo" src="telas-estoque/logo-ricardo.png" alt="Ricardo Motors"><b id="a1">Os seus carros,<br><em>no seu site.</em></b><span id="a2">Com o Painel Renderiza.</span></div>
+  <div id="sol"></div>
   <div class="fone" id="cel"><span class="exemplo claro">exemplo</span><div class="visor">
-    <div id="cel-status"></div>
-    <div id="tela">
+    <div class="cel-status"></div>
+    <div class="tc">
       <img id="pagina" src="telas-estoque/site-pagina.jpg" alt="">
       <img id="cabeca" src="telas-estoque/site-cabeca.jpg" alt="">
       <img class="cap" id="site-novo" src="telas-estoque/site-novo.jpg" alt="">
@@ -66,13 +91,19 @@
       <img class="cap" id="pn-salvo" src="telas-estoque/pn-salvo.jpg" alt="">
       <img class="cap" id="pn-acoes" src="telas-estoque/pn-acoes.jpg" alt="">
       <img class="cap" id="pn-vendido" src="telas-estoque/pn-vendido.jpg" alt="">
-      <span class="anel" id="an1"></span><span class="anel" id="an2"></span><span id="dedo"></span>
+      <span class="anel" id="an1"></span><span id="dedo"></span>
     </div>
   </div></div>
-  <div id="legs"></div>
-  <div class="pilula" id="p-meu"><i><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18"/></svg></i><span>Meu site <small>· o visual</small></span></div>
-  <div class="pilula" id="p-est"><i><svg viewBox="0 0 24 24"><path d="M3.5 7.5 12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5 12 12l8.5-4.5M12 12v9"/></svg></i><span>Estoque <small>· os carros</small></span></div>
+  <div class="fone" id="celA"><span class="exemplo claro">exemplo</span><div class="visor">
+    <div class="cel-status"></div>
+    <div class="tc"><img class="cap" id="a-lista" src="telas-estoque/pn-lista.jpg" alt=""><img class="cap" id="a-salvo" src="telas-estoque/pn-salvo.jpg" alt=""></div>
+  </div></div>
+  <div class="rotulo" id="lbA"><b>Painel <em>Renderiza</em></b><small>Você cuida de tudo</small></div>
+  <div class="rotulo" id="lbB"><b>O seu <em>site</em></b><small>O cliente vê</small></div>
+  <div id="ponte"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+  <div class="pilula" id="p-muda"><i><svg viewBox="0 0 24 24"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg></i><span>Mudou no painel, muda no site.</span></div>
   <div class="pilula" id="no-ar"><i><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></i><span>No site na hora</span></div>
+  <div id="legs"></div>
   <div id="fim"><small>Painel Renderiza</small><span class="l l1" id="f1">Meu site cuida <em>do visual.</em></span><span class="l" id="f2">Estoque cuida <em>dos carros.</em></span>
     <div class="marca-r" id="f3"><span class="simbolo"></span><b>renderiza</b></div><p id="f4">Você atualiza. O site muda na hora.</p></div>
   <div class="vinheta"></div>
@@ -80,45 +111,116 @@
 <script type="module">
 import { fase, ease, sai, volta, lerp, pulso, em, barra } from "./historia.mjs";
 
-const $ = s => document.querySelector(s);
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const P = await (await fetch("telas-estoque/posicoes.json")).json();
-$("#cel-status").innerHTML = barra("9:41");
-const DUR = 31.2, CEL = { cx: 540, cy: 1160, s: 1.45 };
+document.querySelectorAll(".cel-status").forEach(el => { el.innerHTML = barra("9:41"); });
+const BPM = 120, b = n => (n * 60) / BPM, DUR = b(76);
 
-// ---------- tempos (s) ----------
+// ---------- tempos (s), na grade de 120 bpm ----------
 const T = {
-  logo: 0.25, titulo: 0.9, sub: 1.6, abreSai: 3.2,
-  site: 3.6, rola: 4.7, rolaFim: 7.3,
-  painel: 8.4, meu: 8.9, est: 9.6,
-  tapMais: 12.9, novo: 13.15, tapFoto: 14.1, foto: 14.45, dados: 15.9, preco: 17.2, tapSalvar: 18.55, salvo: 18.85,
-  noSite: 20.2, noAr: 20.6,
-  volta: 23.6, tapAcoes: 24.15, acoes: 24.45, tapVendido: 25.55, vendido: 25.85,
-  fim: 27.6,
+  logo: b(0.5), titulo: b(1.75), sub: b(3), abreSai: b(7.2),
+  site: b(8), rola: b(10), rolaFim: b(14.8),
+  split: b(16), ponte: b(17.5), muda: b(19),
+  sol: b(24), destaque: b(30), zoom: b(33.2),
+  painel: b(34), tapMais: b(38) - 0.1, novo: b(38) + 0.15, tapFoto: b(40) - 0.05, foto: b(40) + 0.3, dados: b(43), preco: b(46),
+  tapSalvar: b(49) - 0.05, salvo: b(49) + 0.25,
+  noSite: b(52), noAr: b(52.8),
+  volta: b(59), tapAcoes: b(60), acoes: b(60.6), tapVendido: b(63) - 0.05, vendido: b(63) + 0.25,
+  fim: b(68),
 };
 // as frases: [entra, sai, linha, linha de apoio]
 const FRASES = [
-  [T.site + 0.2, T.painel - 0.15, "Este é <em>o seu site.</em>", "A vitrine com os carros do pátio."],
-  [T.painel + 0.1, T.tapMais - 0.25, "No painel, cada coisa<br><em>no seu lugar.</em>", ""],
-  [T.tapMais - 0.15, T.foto - 0.15, "Chegou <em>carro novo?</em>", "Toque no +."],
-  [T.foto - 0.05, T.preco + 0.95, "Foto, dados <em>e preço.</em>", "Do celular, no próprio pátio."],
-  [T.preco + 1.0, T.noSite - 0.15, "Salvar e <em>mostrar no site.</em>", ""],
-  [T.noSite + 0.05, T.volta - 0.15, "Pronto: já está <em>no site.</em>", "Em destaque, com foto e preço."],
-  [T.volta + 0.05, T.fim - 0.2, "Vendeu? <em>Um toque.</em>", "E ele sai do site."],
+  [T.site + 0.15, T.split - 0.15, "Este é <em>o seu site.</em>", "A vitrine com os carros do pátio."],
+  [T.split + 0.15, T.sol - 0.15, "O site <em>e o painel.</em>", "Cada um com o seu papel."],
+  [T.sol + 0.1, T.destaque - 0.1, "No Painel Renderiza,<br><em>tudo num lugar só.</em>", ""],
+  [T.destaque + 0.05, T.painel - 0.15, "Inclusive o <em>Meu site</em><br>e o <em>Estoque.</em>", ""],
+  [T.painel + 0.15, T.tapMais - 0.2, "Este é <em>o Estoque.</em>", "Os carros do seu site, todos aqui."],
+  [T.tapMais - 0.1, T.foto - 0.15, "Chegou <em>carro novo?</em>", "Toque no +."],
+  [T.foto - 0.05, T.preco + 1.0, "Foto, dados <em>e preço.</em>", "Do celular, no próprio pátio."],
+  [T.preco + 1.05, T.noSite - 0.15, "Salvar e <em>mostrar no site.</em>", ""],
+  [T.noSite + 0.1, T.volta - 0.15, "Pronto: já está <em>no site.</em>", "Salvou no painel, apareceu no site."],
+  [T.volta + 0.1, T.fim - 0.2, "Vendeu? <em>Um toque.</em>", "E ele sai do site."],
 ];
 $("#legs").innerHTML = FRASES.map((f, i) => `<div class="leg" id="l${i}"><b>${f[2]}</b>${f[3] ? `<span>${f[3]}</span>` : ""}</div>`).join("");
 
 const opa = (el, o) => { el.style.opacity = Math.max(0, Math.min(1, o)).toFixed(3); };
-function aparece(el, t, t0, t1, { x = null, y = 0, d = 26 } = {}) {
-  const a = fase(t, t0 - 0.05, t0 + 0.35), b = fase(t, t1 - 0.3, t1);
+function aparece(el, t, t0, t1, { x = 0, y = 0, d = 26 } = {}) {
+  const a = fase(t, t0 - 0.05, t0 + 0.35), z = fase(t, t1 - 0.3, t1);
   const s = a > 0 ? lerp(0.86, 1, volta(a)) : 0.86;
-  el.style.transform = `translate(${x == null ? 0 : x}px,${(y + (1 - sai(a)) * d - b * 18).toFixed(1)}px) scale(${s.toFixed(3)})`;
-  opa(el, Math.min(1, a * 2.5) * (1 - b));
+  el.style.transform = `translate(${x.toFixed ? x.toFixed(1) : x}px,${(y + (1 - sai(a)) * d - z * 18).toFixed(1)}px) scale(${s.toFixed(3)})`;
+  opa(el, Math.min(1, a * 2.5) * (1 - z));
+}
+// posição por quadros-chave: [t, cx, cy, escala, opacidade], com a curva suave entre um e outro
+function porChave(chaves, t) {
+  if (t <= chaves[0][0]) return chaves[0].slice(1);
+  for (let k = 1; k < chaves.length; k++) {
+    const [t1, ...b1] = chaves[k], [t0, ...a0] = chaves[k - 1];
+    if (t <= t1) { const x = ease(fase(t, t0, t1)); return a0.map((v, i) => lerp(v, b1[i], x)); }
+  }
+  return chaves[chaves.length - 1].slice(1);
+}
+const colocar = (el, [cx, cy, s, o]) => { el.style.left = (cx - 220).toFixed(1) + "px"; el.style.top = (cy - 450).toFixed(1) + "px"; el.style.transform = `scale(${s.toFixed(4)})`; opa(el, o); };
+
+// ---------- o sol ----------
+const NOS = [
+  ["Atendimento", '<path d="M21 12a8 8 0 0 1-11.8 7L4 20l1.1-4.6A8 8 0 1 1 21 12Z"/>'],
+  ["Agenda", '<rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/>'],
+  ["Clientes", '<circle cx="9" cy="8.5" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.6a3.5 3.5 0 0 1 0 7.8M21.5 20a6.5 6.5 0 0 0-4-6"/>'],
+  ["Estoque", '<path d="M3.5 7.5 12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5 12 12l8.5-4.5M12 12v9"/>', true],
+  ["Financeiro", '<rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18M16 15h2"/>'],
+  ["Meu site", '<rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/>', true],
+  ["Contratos", '<path d="M6.5 3.5h8l4 4v12a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1v-15a1 1 0 0 1 1-1Z"/><path d="M14.5 3.5v4h4M8.5 12h7M8.5 15.5h4"/>'],
+  ["Equipe", '<circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/>'],
+];
+const SOL = { cx: 540, cy: 1080, r: 380 };
+const posNo = i => { const a = (-90 + i * 45) * Math.PI / 180; return [SOL.cx + SOL.r * Math.cos(a), SOL.cy + SOL.r * Math.sin(a)]; };
+$("#sol").innerHTML = `<svg class="raios" viewBox="0 0 1080 1920">${NOS.map((_, i) => { const [x, y] = posNo(i); return `<line id="r${i}" x1="${SOL.cx}" y1="${SOL.cy}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}"/>`; }).join("")}</svg>
+  <div id="nucleo"><span class="simbolo"></span><b>Painel</b><small>Renderiza</small></div>
+  ${NOS.map(([nome, d, foco], i) => `<div class="no${foco ? " foco-alvo" : ""}" id="n${i}"><i><svg viewBox="0 0 24 24">${d}</svg></i><b>${nome}</b></div>`).join("")}`;
+const EST = posNo(3); // o Estoque: dele sai o celular do painel
+function qSol(t) {
+  const sol = $("#sol"), ent = fase(t, T.sol - 0.1, T.sol + 0.4), zoom = ease(fase(t, T.zoom, T.painel + 0.25));
+  opa(sol, Math.min(1, ent * 2.5) * (1 - fase(t, T.zoom + 0.15, T.painel + 0.2)));
+  sol.style.transform = `scale(${lerp(1, 2.3, zoom).toFixed(4)})`;
+  if (t < T.sol - 0.1 || t > T.painel + 0.4) return;
+  const nuc = $("#nucleo"), np = fase(t, T.sol, T.sol + 0.45);
+  nuc.style.transform = `scale(${((np > 0 ? lerp(0.6, 1, volta(np)) : 0.6) * (1 + 0.06 * pulso(t, T.destaque, 0.45))).toFixed(3)})`;
+  const destaca = ease(fase(t, T.destaque, T.destaque + 0.4));
+  NOS.forEach(([, , foco], i) => {
+    const t0 = T.sol + 0.25 + i * 0.13, [x, y] = posNo(i);
+    const linha = $("#r" + i), r = sai(fase(t, t0 - 0.15, t0 + 0.3));
+    linha.setAttribute("x2", lerp(SOL.cx, x, r).toFixed(1)); linha.setAttribute("y2", lerp(SOL.cy, y, r).toFixed(1));
+    linha.style.opacity = (foco ? 1 : 1 - 0.75 * destaca).toFixed(3);
+    const el = $("#n" + i), a = fase(t, t0, t0 + 0.4);
+    const s = (a > 0 ? lerp(0.5, 1, volta(a)) : 0.5) * (foco ? 1 + 0.28 * destaca : 1 - 0.12 * destaca);
+    el.classList.toggle("foco", foco && destaca > 0.05);
+    el.style.setProperty("--brilho", (foco ? destaca * (0.6 + 0.4 * Math.sin(t * 6)) : 0).toFixed(3));
+    el.style.transform = `translate(${x.toFixed(1)}px,${(y - 62).toFixed(1)}px) scale(${s.toFixed(3)})`;
+    opa(el, Math.min(1, a * 2.5) * (foco ? 1 : 1 - 0.72 * destaca));
+  });
 }
 
-// ---------- o celular e a tela ----------
+// ---------- os celulares ----------
+const CENTRO = [540, 1160, 1.45, 1], DIR = [785, 1165, 0.86, 1], ESQ = [295, 1165, 0.86, 1];
+const CEL = [
+  [T.site - 0.3, 540, 2160, 1.45, 0], [T.site + 0.45, ...CENTRO],
+  [T.split, ...CENTRO], [T.split + 0.6, ...DIR],
+  [T.sol - 0.25, ...DIR], [T.sol + 0.25, 785, 1165, 0.7, 0],
+  [T.zoom + 0.1, EST[0], EST[1], 0.2, 0], [T.painel + 0.35, ...CENTRO],
+  [T.noSite - 0.05, ...CENTRO], [T.noSite + 0.55, ...DIR],
+  [T.volta - 0.3, ...DIR], [T.volta + 0.3, ...CENTRO],
+  [T.fim - 0.25, ...CENTRO], [T.fim + 0.35, 540, 2260, 1.36, 0],
+];
+const CEL_A = [
+  [T.split, -260, 1165, 0.86, 0], [T.split + 0.6, ...ESQ],
+  [T.sol - 0.25, ...ESQ], [T.sol + 0.25, 295, 1165, 0.7, 0],
+  [T.noSite - 0.05, -260, 1165, 0.86, 0], [T.noSite + 0.55, ...ESQ],
+  [T.volta - 0.3, ...ESQ], [T.volta + 0.25, -260, 1165, 0.86, 0],
+];
 const TELAS = ["site-novo", "pn-lista", "pn-novo", "pn-foto", "pn-dados", "pn-preco", "pn-salvo", "pn-acoes", "pn-vendido"];
+const INICIO = { site: T.site, "pn-lista": T.zoom - 0.3, "pn-novo": T.novo, "pn-foto": T.foto, "pn-dados": T.dados, "pn-preco": T.preco, "pn-salvo": T.salvo, "site-novo": T.noSite, "pn-acoes": T.acoes, "pn-vendido": T.vendido };
 function telaDe(t) {
-  if (t < T.painel) return "site";
+  if (t < T.zoom - 0.3) return "site";
   if (t < T.novo) return "pn-lista";
   if (t < T.foto) return "pn-novo";
   if (t < T.dados) return "pn-foto";
@@ -130,85 +232,100 @@ function telaDe(t) {
   if (t < T.vendido) return "pn-acoes";
   return "pn-vendido";
 }
-const ORDEM = ["site", "pn-lista", "pn-novo", "pn-foto", "pn-dados", "pn-preco", "pn-salvo", "site-novo", "pn-salvo2", "pn-acoes", "pn-vendido"];
-const INICIO = { site: T.site, "pn-lista": T.painel, "pn-novo": T.novo, "pn-foto": T.foto, "pn-dados": T.dados, "pn-preco": T.preco, "pn-salvo": T.salvo, "site-novo": T.noSite, "pn-acoes": T.acoes, "pn-vendido": T.vendido };
-function qTela(t) {
-  const atual = telaDe(t), troca = t < T.volta ? INICIO[atual] : atual === "pn-salvo" ? T.volta : INICIO[atual];
-  const x = fase(t, troca, troca + 0.28); // a tela nova entra por cima da anterior
-  const anterior = telaDe(troca - 0.01);
-  for (const id of TELAS) opa($("#" + id), id === atual ? (atual === "site" ? 0 : x) : id === anterior && x < 1 ? 1 : 0);
-  // o site: a página rolando até a vitrine, com o topo fixo por cima
+function qCelulares(t) {
+  colocar($("#cel"), porChave(CEL, t));
+  colocar($("#celA"), porChave(CEL_A, t));
+  opa($("#a-lista"), t < T.sol ? 1 : 0); opa($("#a-salvo"), t >= T.sol ? 1 : 0);
+  // a tela do celular principal: a nova entra por cima da anterior
+  const atual = telaDe(t), troca = atual === "pn-salvo" && t >= T.volta ? T.volta : INICIO[atual];
+  const x = fase(t, troca, troca + 0.28), anterior = telaDe(troca - 0.01);
+  for (const id of TELAS) opa($("#" + id), id === atual ? x : id === anterior && x < 1 ? 1 : 0);
   const site = atual === "site" ? 1 : anterior === "site" && x < 1 ? 1 : 0;
   opa($("#pagina"), site); opa($("#cabeca"), site);
   const rola = (P.estoque - 22) * ease(fase(t, T.rola, T.rolaFim)) + 60 * fase(t, T.site, T.rola);
   $("#pagina").style.transform = `translateY(${(-rola).toFixed(1)}px)`;
-  // os toques e os anéis (em px da captura; a tela começa 60 px abaixo, depois da barra de status)
+  // os toques e os anéis (em px da captura)
   const dedo = $("#dedo"); opa(dedo, 0);
-  const tocar = (t0, b) => {
+  const tocar = (t0, c) => {
     const p = fase(t, t0 - 0.4, t0 + 0.35);
     if (p <= 0 || p >= 1) return false;
-    dedo.style.left = b.x + b.w / 2 + "px"; dedo.style.top = b.y + b.h / 2 + "px";
+    dedo.style.left = c.x + c.w / 2 + "px"; dedo.style.top = c.y + c.h / 2 + "px";
     dedo.style.transform = `scale(${(1 - 0.24 * pulso(t, t0 - 0.05, 0.3)).toFixed(3)})`;
     opa(dedo, Math.min(1, p * 5) * Math.min(1, (1 - p) * 4));
     return true;
   };
   tocar(T.tapMais, P.mais) || tocar(T.tapFoto, P.adicionarFotos) || tocar(T.tapSalvar, P.salvar) || tocar(T.tapAcoes, P.acoesCayenne) || tocar(T.tapVendido, P.vendido);
-  const anel = (el, b, t0, t1, folga = 6) => {
+  const an = $("#an1"); opa(an, 0);
+  const anel = (c, t0, t1, folga = 6) => {
     const a = fase(t, t0, t0 + 0.3), z = fase(t, t1 - 0.25, t1);
-    el.style.left = b.x - folga + "px"; el.style.top = b.y - folga + "px"; el.style.width = b.w + folga * 2 + "px"; el.style.height = b.h + folga * 2 + "px";
-    el.style.transform = `scale(${(a > 0 ? lerp(1.15, 1, sai(a)) : 1.15).toFixed(3)})`;
-    opa(el, Math.min(1, a * 2) * (1 - z));
+    an.style.left = c.x - folga + "px"; an.style.top = c.y - folga + "px"; an.style.width = c.w + folga * 2 + "px"; an.style.height = c.h + folga * 2 + "px";
+    an.style.transform = `scale(${(a > 0 ? lerp(1.15, 1, sai(a)) : 1.15).toFixed(3)})`;
+    opa(an, Math.min(1, a * 2) * (1 - z));
   };
-  opa($("#an1"), 0); opa($("#an2"), 0);
-  if (em(t, T.meu, T.tapMais - 0.3)) { anel($("#an1"), P.barraMeuSite, T.meu, T.tapMais - 0.3); anel($("#an2"), P.barraEstoque, T.est, T.tapMais - 0.3); }
-  else if (em(t, T.noAr - 0.2, T.volta)) anel($("#an1"), P.cardNovo, T.noAr - 0.2, T.volta, 4);
-}
-function qCel(t) {
-  const ent = sai(fase(t, T.site - 0.25, T.site + 0.45)), sa = ease(fase(t, T.fim - 0.25, T.fim + 0.35));
-  const el = $("#cel");
-  const y = CEL.cy - 450 + (1 - ent) * 1000 + sa * 1100;
-  el.style.top = y.toFixed(1) + "px";
-  el.style.transform = `scale(${(CEL.s * (1 - 0.06 * sa)).toFixed(4)})`;
-  opa(el, ent * (1 - sa));
+  if (em(t, T.painel + 0.4, T.tapMais - 0.3)) anel(P.barraEstoque, T.painel + 0.4, T.tapMais - 0.3);
+  else if (em(t, T.noAr - 0.2, T.volta - 0.2)) anel(P.cardNovo, T.noAr - 0.2, T.volta - 0.2, 4);
 }
 
-// ---------- abertura, pílulas e fechamento ----------
+// ---------- as duas colunas: rótulos, ponte e pílulas ----------
+function qColunas(t) {
+  const fora1 = T.sol - 0.1, fora2 = T.volta - 0.15;
+  const vez = em(t, T.split, fora1 + 0.3) ? [T.split + 0.45, fora1] : em(t, T.noSite, fora2 + 0.3) ? [T.noSite + 0.5, fora2] : null;
+  for (const el of [$("#lbA"), $("#lbB"), $("#ponte"), $("#p-muda"), $("#no-ar")]) opa(el, 0);
+  if (!vez) return;
+  const [t0, t1] = vez;
+  aparece($("#lbA"), t, t0, t1, { x: ESQ[0] - 210, y: 610 });
+  aparece($("#lbB"), t, t0 + 0.12, t1, { x: DIR[0] - 210, y: 610 });
+  const p = $("#ponte"), a = fase(t, t0 + 0.3, t0 + 0.65), z = fase(t, t1 - 0.25, t1);
+  p.style.left = "540px"; p.style.top = "1165px";
+  p.style.transform = `scale(${((a > 0 ? lerp(0.4, 1, volta(a)) : 0.4) * (1 + 0.08 * Math.sin(t * 7))).toFixed(3)})`;
+  opa(p, Math.min(1, a * 2.5) * (1 - z));
+  const onda = (t * 1.6) % 1; p.style.setProperty("--onda", ((1 - onda) * 0.8 * (1 - z)).toFixed(3)); p.style.setProperty("--onda-s", lerp(1, 1.6, onda).toFixed(3));
+  const pil = t < T.sol ? $("#p-muda") : $("#no-ar"), tp = t < T.sol ? T.muda : T.noAr;
+  aparece(pil, t, tp, t1, { x: 540 - pil.offsetWidth / 2, y: 1615 });
+}
+
+// ---------- abertura, frases e fechamento ----------
 function qAbre(t) {
-  const sa = ease(fase(t, T.abreSai, T.site + 0.1));
-  const logo = $("#logo"), a = fase(t, T.logo, T.logo + 0.6);
+  const sa = ease(fase(t, T.abreSai, T.site + 0.1)), logo = $("#logo"), a = fase(t, T.logo, T.logo + 0.6);
   logo.style.transform = `translateY(${((1 - sai(a)) * 30 - sa * 60).toFixed(1)}px) scale(${lerp(0.94, 1, sai(a)).toFixed(3)})`;
   opa(logo, sai(a) * (1 - sa));
   aparece($("#a1"), t, T.titulo, T.abreSai + 0.4);
   aparece($("#a2"), t, T.sub, T.abreSai + 0.4);
 }
-function qPilulas(t) {
-  const meu = $("#p-meu"), est = $("#p-est");
-  const x0 = 540 - (meu.offsetWidth + est.offsetWidth + 24) / 2; // as duas lado a lado, entre a frase e o celular
-  aparece(meu, t, T.meu, T.tapMais - 0.25, { x: x0, y: 318 });
-  aparece(est, t, T.est, T.tapMais - 0.25, { x: x0 + meu.offsetWidth + 24, y: 318 });
-  const ar = $("#no-ar");
-  aparece(ar, t, T.noAr, T.volta - 0.1, { x: 540 - ar.offsetWidth / 2, y: 1700 });
+function qFrases(t) {
+  FRASES.forEach((f, i) => aparece($("#l" + i), t, f[0], f[1], { y: f[2].includes("<br>") ? 118 : 150 }));
 }
 function qFim(t) {
-  const fim = $("#fim"), a = fase(t, T.fim, T.fim + 0.3);
-  opa(fim, a);
+  opa($("#fim"), fase(t, T.fim, T.fim + 0.3));
   aparece($("#f1"), t, T.fim + 0.15, 99);
   aparece($("#f2"), t, T.fim + 0.75, 99);
   aparece($("#f3"), t, T.fim + 1.45, 99);
   aparece($("#f4"), t, T.fim + 1.95, 99);
 }
-function qFrases(t) {
-  FRASES.forEach((f, i) => { const el = $("#l" + i); aparece(el, t, f[0], f[1], { y: i === 1 ? 118 : 150 }); });
-}
 
-window.quadro = t => { qAbre(t); qCel(t); qTela(t); qFrases(t); qPilulas(t); qFim(t); };
-window.preparar = async () => {
-  await Promise.all([...document.images].map(i => (i.complete ? i.decode().catch(() => {}) : new Promise(r => { i.onload = i.onerror = r; }))));
-  await document.fonts.ready;
-  window.quadro(0);
-  return { duracao: DUR, entrada: T.site, fechamento: T.fim, clima: "sobrio",
-    ensaio: [1.4, 2.6, 4.2, 7.6, 9.9, 12.95, 14.8, 16.4, 18.0, 18.6, 19.4, 21.5, 24.2, 24.9, 26.4, 28.6, 30.4] };
-};
+window.quadro = t => { qAbre(t); qSol(t); qCelulares(t); qColunas(t); qFrases(t); qFim(t); };
+window.preparar = () => ({
+  duracao: DUR, bpm: BPM, tom: 0,
+  // as partes da trilha pulsante: o drop cai no foco do Meu site e do Estoque
+  pulso: [
+    { id: "abertura", cena: "abre", ini: 0, fim: T.site, impacto: true },
+    { id: "site", cena: "google", ini: T.site, fim: T.split },
+    { id: "colunas", cena: "insta", ini: T.split, fim: T.sol - b(1), impacto: true },
+    { id: "nada", cena: "insta", ini: T.sol - b(1), fim: T.sol }, // a batida corta um tempo antes do sol
+    { id: "sol", cena: "ese", ini: T.sol, fim: T.destaque },
+    { id: "foco", cena: "site", ini: T.destaque, fim: T.painel, impacto: true },
+    { id: "estoque", cena: "site", ini: T.painel, fim: T.noSite },
+    { id: "no-site", cena: "site", ini: T.noSite, fim: T.volta, impacto: true },
+    { id: "vendido", cena: "site", ini: T.volta, fim: T.fim },
+    { id: "fim", cena: "cta", ini: T.fim, fim: DUR },
+  ],
+  sons: [
+    { t: T.tapMais, tipo: "toque", ganho: 0.8 }, { t: T.tapFoto, tipo: "toque", ganho: 0.7 }, { t: T.tapSalvar, tipo: "toque", ganho: 0.85 },
+    { t: T.salvo + 0.05, tipo: "ding", ganho: 0.45 }, { t: T.noAr, tipo: "ding", ganho: 0.55 },
+    { t: T.tapAcoes, tipo: "toque", ganho: 0.7 }, { t: T.tapVendido, tipo: "toque", ganho: 0.85 }, { t: T.vendido + 0.05, tipo: "ding", ganho: 0.45 },
+  ],
+  ensaio: [2.4, 6.8, 9.6, 11.2, 13.4, 15.6, 16.7, 18.0, 19.4, 21.0, 23.4, 24.5, 26.6, 28.0, 30.5, 32.0, 35.5, 37.6],
+});
 window.quadro(0);
 // pronto para gravar: as capturas e as fontes carregadas (o gerar.mjs espera por window.pronto)
 await Promise.all([...document.images].map(i => (i.complete ? i.decode().catch(() => {}) : new Promise(r => { i.onload = i.onerror = r; }))));
