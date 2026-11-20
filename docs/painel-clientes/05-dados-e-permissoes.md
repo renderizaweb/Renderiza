@@ -126,7 +126,7 @@ aparecem abaixo. O comentário de cada tabela no banco (`comment on table`) diz 
 
 | Tabela | Para quê | Campos principais |
 |---|---|---|
-| `contas` | o negócio cliente | nome, nicho (`eventos`, `fotografia`), código público (`codigo`, curto; a Renderiza troca), logo (caminho no Storage), cores, WhatsApp, fuso, situação (`teste`, `ativa`, `desligada`, `cancelada`), teste até (7 dias da criação), ativa até (opcional), origem (`cadastro` ou `renderiza`), limite de pessoas (5), ajustes (o que o painel guarda da conta: ordem do menu, primeiros passos escondidos, o Pix, `agenda.modo`: o jeito da agenda online, `horario` ou `turno`; sem ele, o do nicho). O dono muda nome, logo, cores, WhatsApp, fuso e ajustes; o resto é da Renderiza |
+| `contas` | o negócio cliente | nome, nicho (`eventos`, `fotografia`), código público (`codigo`, curto; a Renderiza troca), logo (caminho no Storage), cores, WhatsApp, fuso, situação (`teste`, `ativa`, `desligada`, `cancelada`), teste até (7 dias da criação), ativa até (opcional), origem (`cadastro` ou `renderiza`), limite de pessoas (5), ajustes (o que o painel guarda da conta: ordem do menu, primeiros passos escondidos, o Pix, `agenda.modo`: o jeito da agenda online, `horario` ou `turno`; sem ele, o do nicho; `agenda.site`: `false` = a agenda não aparece no site, que manda consultar pelo WhatsApp; a conta criada pelo Admin nasce com `false`, e sem o valor fica ligada). O dono muda nome, logo, cores, WhatsApp, fuso e ajustes; o resto é da Renderiza |
 | `modulos` | o catálogo de módulos (o mesmo para todas as contas) | id (`agenda-online`, `agenda`, `clientes`, `contratos`, `financeiro`, `atendimento`, `meu-site`), nome, preço, liberado no teste (a Renderiza muda no Admin), ordem. Os da base (Início, Serviços, Equipe, Configurações) não entram aqui |
 | `contas_modulos` | o que está ligado em cada conta | conta, módulo, ligado, desde, quem ligou (no cadastro, os que a pessoa escolheu) |
 | `pessoas` | quem entra na conta | conta, usuário (`auth.users`), nome, e-mail, papel ("Comercial"), cor, dono (sim/não), acessos (`{ "agenda": "editar", "financeiro": null, … }`), ativa (tirar o acesso = `false`), visto em, preferências (de cada pessoa) |
@@ -271,6 +271,12 @@ respostas trazem `modo`. Uma fotógrafa de eventos (a Bia) usa a de turno: os ti
 (os serviços da agenda online) e o turno vira a pré-reserva de começo a fim. No painel, o que é horário ou turno segue
 o jeito (os Horários em Serviços, a Agenda do dia, os atalhos da reserva; as campanhas são do jeito por horário); as
 palavras seguem o nicho.
+
+**A agenda do site com chave da dona (20/11/2026, migração `…190000_agenda_no_site`):** `contas.ajustes.agenda.site =
+false` desliga as quatro funções da agenda (`conta_do_site` não acha a conta para `agenda-online`) e o site volta ao
+WhatsApp. A conta criada pelo Admin nasce assim, porque os horários ainda não são os de verdade; a dona liga em
+Configurações ("Mostrar a agenda no site"), e o Início mostra o passo "Mostrar a sua agenda no site" até ela ligar.
+Sem o valor, ligada: as contas de antes não mudaram.
 
 **Feito (16/11/2026, entrega da Rafaela, Parada C2, migração `…013045_publico_agenda_fotografia`; só no
 banco local até o STG):** a agenda online da fotografia, por horário. As de eventos não mudaram.

@@ -3,7 +3,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { modulosDaGrade, acessosDoFormulario, resumoDosAcessos, vistoEm } from "../src/modulos/equipe/index.js";
 import { abasDoNicho, lerServico, lerCampanha } from "../src/modulos/servicos/index.js";
-import { nicho, modoDaAgenda } from "../src/nichos/index.js";
+import { nicho, modoDaAgenda, agendaNoSite } from "../src/nichos/index.js";
+import { passosDaConta } from "../src/modulos/inicio/primeiros-passos.js";
 import { JEITOS } from "../src/modulos/configuracoes/index.js";
 
 const conta = { nicho: "eventos", modulos: ["agenda-online", "agenda", "financeiro"] };
@@ -44,6 +45,18 @@ test("o jeito da agenda: a escolha da conta, senão o do nicho (a regra do banco
   assert.equal(modoDaAgenda({ nicho: "eventos", ajustes: { agenda: { modo: "qualquer" } } }), "turno", "valor que não existe: o do nicho");
   assert.equal(modoDaAgenda(null), "turno", "sem conta: o do nicho padrão (eventos)");
   assert.deepEqual(JEITOS.map(j => j.id), ["horario", "turno"]);
+});
+
+test("a agenda no site: só false desliga (a regra do banco, conta_do_site); a conta nova ganha o passo de ligar", () => {
+  assert.equal(agendaNoSite({ ajustes: {} }), true, "sem o valor: ligada, como sempre");
+  assert.equal(agendaNoSite({ ajustes: { agenda: { modo: "turno" } } }), true);
+  assert.equal(agendaNoSite({ ajustes: { agenda: { site: true } } }), true);
+  assert.equal(agendaNoSite({ ajustes: { agenda: { site: false } } }), false);
+  const conta = ajustes => ({ nicho: "fotografia", modulos: ["agenda-online", "meu-site", "atendimento"], ajustes });
+  const passo = ajustes => passosDaConta(conta(ajustes), { site: true }).find(p => p.id === "agenda-site");
+  assert.equal(passo({}), undefined, "a conta de antes (sem o valor) não ganha o passo");
+  assert.deepEqual([passo({ agenda: { site: false } }).feito, passo({ agenda: { site: true } }).feito], [false, true]);
+  assert.equal(passosDaConta({ ...conta({ agenda: { site: false } }), modulos: ["meu-site"] }, { site: true }).some(p => p.id === "agenda-site"), false, "sem a agenda online, sem o passo");
 });
 
 test("serviços: no jeito por turno, a fotografia fica sem campanhas (são do jeito por horário)", () => {

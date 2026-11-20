@@ -20,7 +20,7 @@ import {
   fechadosDoDia, horariosDoDiaComSituacao, gerarHorarios, jornadaDaSemana, conflitos, fimDoTurno,
 } from "./logica.js";
 import { COLUNAS_RESERVA, etiquetaDaSituacao, abrirReserva, abrirFormReserva } from "./reserva.js";
-import { modoDaAgenda } from "../../nichos/index.js";
+import { modoDaAgenda, agendaNoSite } from "../../nichos/index.js";
 import { COLUNAS_COMPROMISSO, abrirCompromisso, abrirFormCompromisso } from "./compromisso.js";
 
 const DIA = /^\d{4}-\d{2}-\d{2}$/;
@@ -35,7 +35,7 @@ export async function montar(el, contexto) {
   const fotografia = nicho.id === "fotografia";
   const porHorario = modoDaAgenda(conta, nicho) === "horario";
   const comCampanhas = nicho.temCampanhas && porHorario;
-  const temAgendaOnline = (conta.modulos || []).includes("agenda-online");
+  const temAgendaOnline = (conta.modulos || []).includes("agenda-online") && agendaNoSite(conta); // "aparece no site"
   const aba = comCampanhas && params.get("aba") === "campanhas" ? "campanhas" : "agenda";
   let diaSel = DIA.test(params.get("dia") || "") ? params.get("dia") : hoje;
   let mes = primeiroDoMes(diaSel);

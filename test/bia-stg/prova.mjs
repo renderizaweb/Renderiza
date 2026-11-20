@@ -293,6 +293,36 @@ async function semPainel(s) {
   assert.deepEqual(s.erros, []);
 }
 
+test("a agenda desligada no site (como nasce a conta nova): o site fica no WhatsApp até a dona ligar em Configurações", so, async () => {
+  await banco.sql(`update public.contas set ajustes = jsonb_set(ajustes, '{agenda,site}', 'false') where codigo = ${q(CODIGO)}`);
+  await new Promise(r => setTimeout(r, 21000)); // o cache curto da agenda na rede
+  const s = await abrirSite();
+  await semPainel(s);
+  await s.ctx.close();
+
+  const { pagina, ctx } = await abrirPainel();
+  await pagina.goto(`${painel.url}/configuracoes`, { waitUntil: "networkidle" });
+  const chave = pagina.locator("#form-agenda [name=site]");
+  assert.equal(await chave.isChecked(), false, "a chave aparece desligada");
+  await chave.scrollIntoViewIfNeeded();
+  await foto(pagina, "9-agenda-desligada");
+  await chave.check();
+  await pagina.locator("#form-agenda [type=submit]").click();
+  await pagina.waitForFunction(() => /dia e o turno/.test(document.querySelector(".rz-aviso:last-of-type")?.textContent || ""), null, { timeout: 15000 });
+  const [{ site }] = await banco.sql(`select ajustes #>> '{agenda,site}' as site from public.contas where codigo = ${q(CODIGO)}`);
+  assert.equal(site, "true", "a dona ligou");
+  await ctx.close();
+
+  await new Promise(r => setTimeout(r, 21000));
+  const s2 = await abrirSite();
+  await s2.form.locator("[data-ag-pedir]").waitFor({ state: "visible", timeout: 12000 });
+  await escolherDia(s2.pagina, DIA);
+  await s2.form.locator("[data-ag-opcoes] .chip").first().waitFor();
+  assert.equal(await s2.form.locator("[data-ag-rotulo]").textContent(), "Qual turno?", "ligada, os turnos voltam ao site");
+  assert.deepEqual(s2.erros, []);
+  await s2.ctx.close();
+});
+
 test("a conta sem nenhum turno cadastrado: o \"Sua data\" fica no WhatsApp (não diz que não há data)", so, async () => {
   const [{ guardados }] = await banco.sql(`select json_agg(json_build_object('d', dia_semana, 'i', inicio, 'f', fim, 'n', nome)) as guardados from public.horarios where conta_id = ${daConta}`);
   await banco.sql(`delete from public.horarios where conta_id = ${daConta}`);

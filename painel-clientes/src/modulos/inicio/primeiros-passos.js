@@ -36,6 +36,10 @@ export function passosDaConta(conta, feitos = {}) {
     // o site ligado ao painel (Meu site): o caminho para ele, até a primeira mudança
     ligado("meu-site") && feitos.site && { id: "site", titulo: "Conhecer o seu site no painel", texto: "Mude textos e fotos vendo o site ao lado. Os pedidos da agenda do site caem no Atendimento.",
       feito: !!feitos.siteMexido, acao: { href: "/meu-site", rotulo: "Abrir o Meu site" }, deNovo: "Abrir o Meu site" },
+    // a agenda do site, nas contas que nasceram com ela desligada (20/11/2026): ligar quando conferir os horários
+    ligado("agenda-online") && feitos.site && conta.ajustes && conta.ajustes.agenda && typeof conta.ajustes.agenda.site === "boolean" && {
+      id: "agenda-site", titulo: "Mostrar a sua agenda no site", texto: "Hoje o site manda consultar a data pelo WhatsApp. Confira os seus horários e ligue: os clientes passam a pedir a data pelo site.",
+      feito: conta.ajustes.agenda.site === true, acao: { href: "/configuracoes", rotulo: "Ligar" }, deNovo: "Ver a agenda online" },
     ligado("atendimento") && { id: "pedido", titulo: "Anotar o primeiro pedido", texto: "O próximo cliente que chamar no WhatsApp já entra aqui.",
       feito: !!feitos.pedidos, acao: { href: "/atendimento?novo=pedido", rotulo: "Anotar pedido" }, deNovo: "Anotar outro" },
     // quem respondeu "só eu" na conversa de boas-vindas não precisa desse passo

@@ -1,14 +1,15 @@
 // Configurações do negócio (só o dono): nome, WhatsApp, fuso e logo; o Pix; o jeito da agenda online (18/11/2026:
-// por horário ou por dia e turno, em contas.ajustes.agenda.modo; o site e a Agenda seguem). O plano (situação, prazos, módulos, código
+// por horário ou por dia e turno, em contas.ajustes.agenda.modo; o site e a Agenda seguem) e se ela aparece no site
+// (contas.ajustes.agenda.site, 20/11/2026: desligada, o site manda consultar a data pelo WhatsApp). O plano (situação, prazos, módulos, código
 // público) é da Renderiza e aparece só para consulta; mudar, pelo WhatsApp. O logo vira WebP no próprio aparelho
 // antes de subir (06: só imagem, tamanho máximo; o original não é guardado).
 
 import { icone } from "../../ui/icones.js";
 import { escapar, erroNoCampo, avisoDoFormulario, ocupado } from "../../ui/formulario.js";
 import { telefone, whatsappValido, normalizarWhatsapp, dataNumerica, iniciais } from "../../ui/formatos.js";
-import { campoTexto, campoSelecao, lerFormulario } from "../../ui/campos.js";
+import { campoTexto, campoSelecao, interruptor, lerFormulario } from "../../ui/campos.js";
 import { comEstados } from "../../ui/estados.js";
-import { nicho as nichoDe, modoDaAgenda } from "../../nichos/index.js";
+import { nicho as nichoDe, modoDaAgenda, agendaNoSite } from "../../nichos/index.js";
 import { linkDaRenderiza } from "../../telas/renderiza.js";
 import { exportarTudo } from "../../telas/exportar.js";
 
@@ -48,6 +49,7 @@ export async function montar(el, { banco, conta, avisar, sessao, navegar }) {
 
   const carregar = () => banco.resultado(banco.tabela("contas").select("id, nome, nicho, codigo, logo, whatsapp, fuso, situacao, teste_ate, ativa_ate, origem, limite_pessoas, ajustes").eq("id", conta.conta_id).single());
   const temAgenda = (conta.modulos || []).some(m => m === "agenda" || m === "agenda-online");
+  const temAgendaOnline = (conta.modulos || []).includes("agenda-online");
   const desenhar = c => {
     corpo.innerHTML = `
       <section class="rz-secao">
@@ -88,6 +90,8 @@ export async function montar(el, { banco, conta, avisar, sessao, navegar }) {
               <span class="rz-opcao-texto"><b>${escapar(j.nome)}${j.id === n.agendaPadrao ? ` <span class="rz-etiqueta">Padrão</span>` : ""}</b><small>${escapar(j.texto)}</small></span>
               <span class="rz-opcao-marca">${icone("ok", { tamanho: 14 })}</span></label>`).join("")}</div>
           </fieldset>
+          ${temAgendaOnline ? interruptor({ nome: "site", rotulo: "Mostrar a agenda no site", marcado: agendaNoSite(c),
+            ajuda: "Ligada, o cliente vê os dias livres e pede pelo site. Desligada, o site manda consultar a data pelo WhatsApp: deixe assim até conferir os seus horários." }) : ""}
           <p class="rz-texto-3">Os horários ficam em <a href="/servicos?aba=horarios">Serviços, Horários</a>. Trocou o jeito? Confira lá: por horário, cada linha é um começo; por turno, cada turno tem começo, fim e nome.</p>
           <div><button class="rz-botao" type="submit">Salvar</button></div>
         </form>
@@ -166,17 +170,17 @@ export async function montar(el, { banco, conta, avisar, sessao, navegar }) {
     const formAgenda = corpo.querySelector("#form-agenda");
     formAgenda?.addEventListener("submit", async ev => {
       ev.preventDefault();
-      const modo = lerFormulario(formAgenda).modo;
+      const d = lerFormulario(formAgenda), modo = d.modo;
       if (!JEITOS.some(j => j.id === modo)) return;
       const antes = c.ajustes || {};
-      const ajustes = { ...antes, agenda: { ...(antes.agenda || {}), modo } };
+      const ajustes = { ...antes, agenda: { ...(antes.agenda || {}), modo, ...(temAgendaOnline ? { site: d.site === true } : {}) } };
       const botao = formAgenda.querySelector("[type=submit]");
       ocupado(botao, true, "Salvando…");
       try {
         await banco.resultado(banco.tabela("contas").update({ ajustes }).eq("id", c.id));
         c.ajustes = ajustes;
         ocupado(botao, false);
-        avisar(modo === "turno" ? "Pronto: a agenda online oferece o dia e o turno." : "Pronto: a agenda online oferece o horário de início.");
+        avisar(temAgendaOnline && d.site !== true ? "Pronto: o site manda consultar a data pelo WhatsApp." : modo === "turno" ? "Pronto: a agenda online oferece o dia e o turno." : "Pronto: a agenda online oferece o horário de início.");
         await sessao.carregarContas(); // a Agenda e Serviços passam a seguir o jeito novo
       } catch (e) {
         ocupado(botao, false);

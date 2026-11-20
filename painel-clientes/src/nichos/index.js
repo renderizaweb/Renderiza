@@ -29,6 +29,13 @@ export function modoDaAgenda(conta, n = nicho(conta && conta.nicho)) {
   return MODOS_DA_AGENDA.includes(m) ? m : n.agendaPadrao;
 }
 
+/**
+ * A agenda online está ligada no site? (contas.ajustes.agenda.site, 20/11/2026: as contas novas nascem com false, e a
+ * dona liga em Configurações quando conferir os horários; sem o valor, ligada, como sempre.) Desligada, o site manda
+ * consultar a data pelo WhatsApp. A mesma regra do banco (conta_do_site, migração 20261120190000).
+ */
+export const agendaNoSite = conta => !(conta && conta.ajustes && conta.ajustes.agenda && conta.ajustes.agenda.site === false);
+
 const semAcento = s => String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
 /**

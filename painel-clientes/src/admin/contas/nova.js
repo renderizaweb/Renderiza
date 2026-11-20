@@ -113,7 +113,8 @@ export function abrirNovaConta(ctx) {
         nome: d.nome.trim(), nicho: d.nicho, codigo: d.codigo, whatsapp: normalizarWhatsapp(d.whatsapp) || null,
         situacao: "ativa", origem: "renderiza", ativa_ate: prazoAte(d.prazo, dia(new Date())),
         // o dono começa pela conversa de boas-vindas (/montar; Missão 7, bloco E)
-        ajustes: { onboarding: { pendente: true } },
+        // a agenda do site nasce desligada (20/11/2026): a dona liga em Configurações quando conferir os horários
+        ajustes: { onboarding: { pendente: true }, agenda: { site: false } },
       }).select("id, nome").single());
       await banco.resultado(banco.tabela("contas_modulos").insert(modulos.map(m => ({ conta_id: conta.id, modulo_id: m }))));
       const daDemo = demos.find(v => v.pasta === d.demo);
