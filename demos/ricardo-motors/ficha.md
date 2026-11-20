@@ -22,6 +22,11 @@
 - **Vídeo do Estoque:** `/gravacao/ricardo-motors-estoque.mp4` (38 s, sem voz, trilha pulsante original; `instagram/reels-estoque.html`
   com as capturas de `instagram/telas-estoque.mjs`). O Porsche 911 que entra no estoque no vídeo é um exemplo.
 
+- **Proposta do Estoque (20/11/2026):** `/proposta/ricardo-motors` (`propostas/ricardo-motors.html`, não sai do ar com a
+  demo): o vídeo, o site pronto e as duas formas de manter o estoque (por fora: Vercel Pro US$ 20 + Supabase Pro US$ 25,
+  ≈ R$ 250/mês; ou o Painel Renderiza, R$ 49/mês, com o Meu site e o Estoque). Nas Atividades: "Abriu a proposta
+  comercial", o play, a metade e o fim do vídeo, "viu o card com o valor", o tempo em cada parte e o WhatsApp.
+
 ## Conferir antes de mandar
 - **WhatsApp:** os botões usam o link da bio (`wa.me/message/G5X6UUN627ARL1`), que abre sem a mensagem pronta.
   Com o número dele, preencher `WA_NUM` no script e cada botão sai com o carro na mensagem.
