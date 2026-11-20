@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels: Estoque (Ricardo Motors)</title>
+<!-- Vídeo curto (1080 × 1920, 30 quadros/s, ~31 s), sem voz, para mandar ao Ricardo Motors no WhatsApp (20/11/2026, pedido
+     do Kaue): como o estoque funciona na Renderiza. O site dele é a vitrine; no Painel Renderiza, o Meu site cuida do
+     visual e o Estoque cuida dos carros; chegou carro, foto, dados e preço, e ele está no site; vendeu, um toque e ele
+     sai (docs/painel-clientes/12-modulo-estoque.md). Nada é desenhado: o painel e o site são capturas do Estoque em
+     protótipo com os carros dele (instagram/telas-estoque.mjs). O carro novo é um exemplo, e o celular leva a etiqueta.
+     Trilha original (ferramentas/video/musica.py, clima sóbrio). Sem animação de CSS: window.quadro(t) desenha o
+     instante t (s). Gravar: node instagram/gerar.mjs reels-estoque [--ensaio] -->
+<link rel="stylesheet" href="marca.css">
+<link rel="stylesheet" href="historia.css">
+<style>
+:root{--ouro:#e3c78c;--ouro-forte:#c9a45f}
+#palco{background:radial-gradient(70% 46% at 50% 58%,#3b3122 0%,#18150f 62%,#0d0d0e 100%)}
+/* o celular: as capturas (412 × 812, em 2×) embaixo da barra de status */
+#cel{left:320px;top:0;transform-origin:50% 50%;opacity:0;z-index:24}
+#cel .status{background:#fff}
+#tela{position:absolute;left:0;top:60px;width:412px;height:812px;overflow:hidden;background:#f4f3f0}
+#tela img{position:absolute;left:0;top:0;width:412px;opacity:0}
+#tela .cap{height:812px}
+#pagina{will-change:transform}
+#cabeca{z-index:3}
+.anel{position:absolute;z-index:6;border-radius:16px;box-shadow:0 0 0 4px var(--ouro-forte),0 0 0 11px rgba(201,164,95,.25);opacity:0}
+#dedo{position:absolute;z-index:8;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(30,37,40,.2);border:4px solid rgba(255,255,255,.95);box-shadow:0 6px 18px rgba(0,0,0,.35);opacity:0}
+/* as frases */
+.leg{position:absolute;left:60px;right:60px;top:0;z-index:35;text-align:center;opacity:0;color:#f6f2ea}
+.leg b{display:block;font-size:76px;font-weight:800;letter-spacing:-.045em;line-height:1.02}
+.leg b em{font-style:normal;color:var(--ouro)}
+.leg span{display:block;margin-top:20px;font-size:38px;font-weight:550;letter-spacing:-.02em;color:#cfc7b8}
+.pilula{position:absolute;left:0;top:0;z-index:36;display:flex;align-items:center;gap:16px;padding:18px 30px 18px 18px;border-radius:999px;background:#f6f2ea;color:#1e2528;font-size:36px;font-weight:750;letter-spacing:-.025em;white-space:nowrap;box-shadow:0 26px 60px -18px rgba(0,0,0,.65);opacity:0}
+.pilula i{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:#1e2528;color:var(--ouro);flex:none}
+.pilula i svg{width:32px;height:32px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pilula small{font-size:30px;font-weight:600;color:#6c726f}
+#no-ar{background:#1f7a4d;color:#fff;padding:18px 32px}
+#no-ar i{background:rgba(255,255,255,.18);color:#fff}
+/* abertura e fechamento */
+#abre{position:absolute;inset:0;z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#f6f2ea}
+#abre img{width:300px;height:auto;opacity:0}
+#abre b{display:block;margin-top:70px;font-size:96px;font-weight:800;letter-spacing:-.05em;line-height:1;opacity:0}
+#abre b em{font-style:normal;color:var(--ouro)}
+#abre span{display:block;margin-top:34px;font-size:40px;font-weight:600;color:#cfc7b8;letter-spacing:-.02em;opacity:0}
+#fim{position:absolute;inset:0;z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#f6f2ea;opacity:0}
+#fim small{font-size:30px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#a99f8e}
+#fim .l{display:block;font-size:74px;font-weight:800;letter-spacing:-.045em;line-height:1.08;opacity:0}
+#fim .l em{font-style:normal;color:var(--ouro)}
+#fim .l1{margin-top:34px}
+#fim .marca-r{display:flex;align-items:center;gap:22px;margin-top:110px;opacity:0}
+#fim .marca-r .simbolo{width:92px;height:92px;color:#e8855e}
+#fim .marca-r b{font-size:64px;font-weight:800;letter-spacing:-.04em}
+#fim p{margin-top:28px;font-size:36px;font-weight:550;color:#cfc7b8;opacity:0}
+</style></head><body>
+<div class="reels" id="palco">
+  <div id="abre"><img id="logo" src="telas-estoque/logo-ricardo.png" alt="Ricardo Motors"><b id="a1">Os seus carros,<br><em>no seu site.</em></b><span id="a2">Com o Painel Renderiza.</span></div>
+  <div class="fone" id="cel"><span class="exemplo claro">exemplo</span><div class="visor">
+    <div id="cel-status"></div>
+    <div id="tela">
+      <img id="pagina" src="telas-estoque/site-pagina.jpg" alt="">
+      <img id="cabeca" src="telas-estoque/site-cabeca.jpg" alt="">
+      <img class="cap" id="site-novo" src="telas-estoque/site-novo.jpg" alt="">
+      <img class="cap" id="pn-lista" src="telas-estoque/pn-lista.jpg" alt="">
+      <img class="cap" id="pn-novo" src="telas-estoque/pn-novo.jpg" alt="">
+      <img class="cap" id="pn-foto" src="telas-estoque/pn-foto.jpg" alt="">
+      <img class="cap" id="pn-dados" src="telas-estoque/pn-dados.jpg" alt="">
+      <img class="cap" id="pn-preco" src="telas-estoque/pn-preco.jpg" alt="">
+      <img class="cap" id="pn-salvo" src="telas-estoque/pn-salvo.jpg" alt="">
+      <img class="cap" id="pn-acoes" src="telas-estoque/pn-acoes.jpg" alt="">
+      <img class="cap" id="pn-vendido" src="telas-estoque/pn-vendido.jpg" alt="">
+      <span class="anel" id="an1"></span><span class="anel" id="an2"></span><span id="dedo"></span>
+    </div>
+  </div></div>
+  <div id="legs"></div>
+  <div class="pilula" id="p-meu"><i><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18"/></svg></i><span>Meu site <small>· o visual</small></span></div>
+  <div class="pilula" id="p-est"><i><svg viewBox="0 0 24 24"><path d="M3.5 7.5 12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5 12 12l8.5-4.5M12 12v9"/></svg></i><span>Estoque <small>· os carros</small></span></div>
+  <div class="pilula" id="no-ar"><i><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></i><span>No site na hora</span></div>
+  <div id="fim"><small>Painel Renderiza</small><span class="l l1" id="f1">Meu site cuida <em>do visual.</em></span><span class="l" id="f2">Estoque cuida <em>dos carros.</em></span>
+    <div class="marca-r" id="f3"><span class="simbolo"></span><b>renderiza</b></div><p id="f4">Você atualiza. O site muda na hora.</p></div>
+  <div class="vinheta"></div>
+</div>
+<script type="module">
+import { fase, ease, sai, volta, lerp, pulso, em, barra } from "./historia.mjs";
+
+const $ = s => document.querySelector(s);
+const P = await (await fetch("telas-estoque/posicoes.json")).json();
+$("#cel-status").innerHTML = barra("9:41");
+const DUR = 31.2, CEL = { cx: 540, cy: 1160, s: 1.45 };
+
+// ---------- tempos (s) ----------
+const T = {
+  logo: 0.25, titulo: 0.9, sub: 1.6, abreSai: 3.2,
+  site: 3.6, rola: 4.7, rolaFim: 7.3,
+  painel: 8.4, meu: 8.9, est: 9.6,
+  tapMais: 12.9, novo: 13.15, tapFoto: 14.1, foto: 14.45, dados: 15.9, preco: 17.2, tapSalvar: 18.55, salvo: 18.85,
+  noSite: 20.2, noAr: 20.6,
+  volta: 23.6, tapAcoes: 24.15, acoes: 24.45, tapVendido: 25.55, vendido: 25.85,
+  fim: 27.6,
+};
+// as frases: [entra, sai, linha, linha de apoio]
+const FRASES = [
+  [T.site + 0.2, T.painel - 0.15, "Este é <em>o seu site.</em>", "A vitrine com os carros do pátio."],
+  [T.painel + 0.1, T.tapMais - 0.25, "No painel, cada coisa<br><em>no seu lugar.</em>", ""],
+  [T.tapMais - 0.15, T.foto - 0.15, "Chegou <em>carro novo?</em>", "Toque no +."],
+  [T.foto - 0.05, T.preco + 0.95, "Foto, dados <em>e preço.</em>", "Do celular, no próprio pátio."],
+  [T.preco + 1.0, T.noSite - 0.15, "Salvar e <em>mostrar no site.</em>", ""],
+  [T.noSite + 0.05, T.volta - 0.15, "Pronto: já está <em>no site.</em>", "Em destaque, com foto e preço."],
+  [T.volta + 0.05, T.fim - 0.2, "Vendeu? <em>Um toque.</em>", "E ele sai do site."],
+];
+$("#legs").innerHTML = FRASES.map((f, i) => `<div class="leg" id="l${i}"><b>${f[2]}</b>${f[3] ? `<span>${f[3]}</span>` : ""}</div>`).join("");
+
+const opa = (el, o) => { el.style.opacity = Math.max(0, Math.min(1, o)).toFixed(3); };
+function aparece(el, t, t0, t1, { x = null, y = 0, d = 26 } = {}) {
+  const a = fase(t, t0 - 0.05, t0 + 0.35), b = fase(t, t1 - 0.3, t1);
+  const s = a > 0 ? lerp(0.86, 1, volta(a)) : 0.86;
+  el.style.transform = `translate(${x == null ? 0 : x}px,${(y + (1 - sai(a)) * d - b * 18).toFixed(1)}px) scale(${s.toFixed(3)})`;
+  opa(el, Math.min(1, a * 2.5) * (1 - b));
+}
+
+// ---------- o celular e a tela ----------
+const TELAS = ["site-novo", "pn-lista", "pn-novo", "pn-foto", "pn-dados", "pn-preco", "pn-salvo", "pn-acoes", "pn-vendido"];
+function telaDe(t) {
+  if (t < T.painel) return "site";
+  if (t < T.novo) return "pn-lista";
+  if (t < T.foto) return "pn-novo";
+  if (t < T.dados) return "pn-foto";
+  if (t < T.preco) return "pn-dados";
+  if (t < T.salvo) return "pn-preco";
+  if (t < T.noSite) return "pn-salvo";
+  if (t < T.volta) return "site-novo";
+  if (t < T.acoes) return "pn-salvo";
+  if (t < T.vendido) return "pn-acoes";
+  return "pn-vendido";
+}
+const ORDEM = ["site", "pn-lista", "pn-novo", "pn-foto", "pn-dados", "pn-preco", "pn-salvo", "site-novo", "pn-salvo2", "pn-acoes", "pn-vendido"];
+const INICIO = { site: T.site, "pn-lista": T.painel, "pn-novo": T.novo, "pn-foto": T.foto, "pn-dados": T.dados, "pn-preco": T.preco, "pn-salvo": T.salvo, "site-novo": T.noSite, "pn-acoes": T.acoes, "pn-vendido": T.vendido };
+function qTela(t) {
+  const atual = telaDe(t), troca = t < T.volta ? INICIO[atual] : atual === "pn-salvo" ? T.volta : INICIO[atual];
+  const x = fase(t, troca, troca + 0.28); // a tela nova entra por cima da anterior
+  const anterior = telaDe(troca - 0.01);
+  for (const id of TELAS) opa($("#" + id), id === atual ? (atual === "site" ? 0 : x) : id === anterior && x < 1 ? 1 : 0);
+  // o site: a página rolando até a vitrine, com o topo fixo por cima
+  const site = atual === "site" ? 1 : anterior === "site" && x < 1 ? 1 : 0;
+  opa($("#pagina"), site); opa($("#cabeca"), site);
+  const rola = (P.estoque - 22) * ease(fase(t, T.rola, T.rolaFim)) + 60 * fase(t, T.site, T.rola);
+  $("#pagina").style.transform = `translateY(${(-rola).toFixed(1)}px)`;
+  // os toques e os anéis (em px da captura; a tela começa 60 px abaixo, depois da barra de status)
+  const dedo = $("#dedo"); opa(dedo, 0);
+  const tocar = (t0, b) => {
+    const p = fase(t, t0 - 0.4, t0 + 0.35);
+    if (p <= 0 || p >= 1) return false;
+    dedo.style.left = b.x + b.w / 2 + "px"; dedo.style.top = b.y + b.h / 2 + "px";
+    dedo.style.transform = `scale(${(1 - 0.24 * pulso(t, t0 - 0.05, 0.3)).toFixed(3)})`;
+    opa(dedo, Math.min(1, p * 5) * Math.min(1, (1 - p) * 4));
+    return true;
+  };
+  tocar(T.tapMais, P.mais) || tocar(T.tapFoto, P.adicionarFotos) || tocar(T.tapSalvar, P.salvar) || tocar(T.tapAcoes, P.acoesCayenne) || tocar(T.tapVendido, P.vendido);
+  const anel = (el, b, t0, t1, folga = 6) => {
+    const a = fase(t, t0, t0 + 0.3), z = fase(t, t1 - 0.25, t1);
+    el.style.left = b.x - folga + "px"; el.style.top = b.y - folga + "px"; el.style.width = b.w + folga * 2 + "px"; el.style.height = b.h + folga * 2 + "px";
+    el.style.transform = `scale(${(a > 0 ? lerp(1.15, 1, sai(a)) : 1.15).toFixed(3)})`;
+    opa(el, Math.min(1, a * 2) * (1 - z));
+  };
+  opa($("#an1"), 0); opa($("#an2"), 0);
+  if (em(t, T.meu, T.tapMais - 0.3)) { anel($("#an1"), P.barraMeuSite, T.meu, T.tapMais - 0.3); anel($("#an2"), P.barraEstoque, T.est, T.tapMais - 0.3); }
+  else if (em(t, T.noAr - 0.2, T.volta)) anel($("#an1"), P.cardNovo, T.noAr - 0.2, T.volta, 4);
+}
+function qCel(t) {
+  const ent = sai(fase(t, T.site - 0.25, T.site + 0.45)), sa = ease(fase(t, T.fim - 0.25, T.fim + 0.35));
+  const el = $("#cel");
+  const y = CEL.cy - 450 + (1 - ent) * 1000 + sa * 1100;
+  el.style.top = y.toFixed(1) + "px";
+  el.style.transform = `scale(${(CEL.s * (1 - 0.06 * sa)).toFixed(4)})`;
+  opa(el, ent * (1 - sa));
+}
+
+// ---------- abertura, pílulas e fechamento ----------
+function qAbre(t) {
+  const sa = ease(fase(t, T.abreSai, T.site + 0.1));
+  const logo = $("#logo"), a = fase(t, T.logo, T.logo + 0.6);
+  logo.style.transform = `translateY(${((1 - sai(a)) * 30 - sa * 60).toFixed(1)}px) scale(${lerp(0.94, 1, sai(a)).toFixed(3)})`;
+  opa(logo, sai(a) * (1 - sa));
+  aparece($("#a1"), t, T.titulo, T.abreSai + 0.4);
+  aparece($("#a2"), t, T.sub, T.abreSai + 0.4);
+}
+function qPilulas(t) {
+  const meu = $("#p-meu"), est = $("#p-est");
+  const x0 = 540 - (meu.offsetWidth + est.offsetWidth + 24) / 2; // as duas lado a lado, entre a frase e o celular
+  aparece(meu, t, T.meu, T.tapMais - 0.25, { x: x0, y: 318 });
+  aparece(est, t, T.est, T.tapMais - 0.25, { x: x0 + meu.offsetWidth + 24, y: 318 });
+  const ar = $("#no-ar");
+  aparece(ar, t, T.noAr, T.volta - 0.1, { x: 540 - ar.offsetWidth / 2, y: 1700 });
+}
+function qFim(t) {
+  const fim = $("#fim"), a = fase(t, T.fim, T.fim + 0.3);
+  opa(fim, a);
+  aparece($("#f1"), t, T.fim + 0.15, 99);
+  aparece($("#f2"), t, T.fim + 0.75, 99);
+  aparece($("#f3"), t, T.fim + 1.45, 99);
+  aparece($("#f4"), t, T.fim + 1.95, 99);
+}
+function qFrases(t) {
+  FRASES.forEach((f, i) => { const el = $("#l" + i); aparece(el, t, f[0], f[1], { y: i === 1 ? 118 : 150 }); });
+}
+
+window.quadro = t => { qAbre(t); qCel(t); qTela(t); qFrases(t); qPilulas(t); qFim(t); };
+window.preparar = async () => {
+  await Promise.all([...document.images].map(i => (i.complete ? i.decode().catch(() => {}) : new Promise(r => { i.onload = i.onerror = r; }))));
+  await document.fonts.ready;
+  window.quadro(0);
+  return { duracao: DUR, entrada: T.site, fechamento: T.fim, clima: "sobrio",
+    ensaio: [1.4, 2.6, 4.2, 7.6, 9.9, 12.95, 14.8, 16.4, 18.0, 18.6, 19.4, 21.5, 24.2, 24.9, 26.4, 28.6, 30.4] };
+};
+window.quadro(0);
+// pronto para gravar: as capturas e as fontes carregadas (o gerar.mjs espera por window.pronto)
+await Promise.all([...document.images].map(i => (i.complete ? i.decode().catch(() => {}) : new Promise(r => { i.onload = i.onerror = r; }))));
+await document.fonts.ready;
+window.quadro(0);
+window.pronto = true;
+</script>
+</body></html>

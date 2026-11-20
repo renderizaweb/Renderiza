@@ -107,6 +107,7 @@ svg.i{width:20px;height:20px;flex:none}
 .pe{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}
 .preco{font-size:24px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .wa-mini{position:relative;z-index:2;width:42px;height:42px;border-radius:10px;display:grid;place-items:center;background:#e9f8ef;color:var(--verde);transition:background .2s,color .2s}.wa-mini:hover{background:var(--verde);color:#fff}
+.card.novo{animation:novo 1.1s ease 3}@keyframes novo{50%{box-shadow:0 0 0 3px #d9b878,0 20px 44px -14px rgba(184,145,74,.7)}}
 .vazio{grid-column:1/-1;text-align:center;padding:50px 0;color:var(--mu)}
 .encomenda{margin-top:24px;display:flex;align-items:center;justify-content:space-between;gap:14px 24px;flex-wrap:wrap;background:#fff;border-radius:var(--r);box-shadow:var(--sombra);padding:22px 24px}
 .encomenda b{font-size:18px}.encomenda p{margin:4px 0 0;color:var(--mu)}
@@ -272,9 +273,9 @@ const WA_BIO="https://wa.me/message/G5X6UUN627ARL1";
 const wa=m=>WA_NUM?`https://wa.me/${WA_NUM}?text=${encodeURIComponent(m)}`:WA_BIO;
 window.DEMO_CLIENT={whatsapp:WA_NUM?`https://wa.me/${WA_NUM}`:WA_BIO,instagram:"https://www.instagram.com/rm.consultcar/",reviews:[]};
 const $=s=>document.querySelector(s),$$=(s,el=document)=>[...el.querySelectorAll(s)];
-const brl=n=>"R$ "+n.toLocaleString("pt-BR"),kmf=n=>n.toLocaleString("pt-BR")+" km";
+const brl=n=>n?"R$ "+n.toLocaleString("pt-BR"):"Sob consulta",kmf=n=>n.toLocaleString("pt-BR")+" km";
 const nome=c=>`${c.marca} ${c.modelo}`;
-const fts=c=>c.f.map(n=>IMG[n]);
+const fts=c=>c.f.map(n=>IMG[n]||n);
 const comb=c=>(c.combustivel=="Gasolina e elétrico"?"Híbrido":c.combustivel)||(/H[ÍI]BRIDO|HYBRID|PHEV/.test(c.versao)?"Híbrido":/DIESEL/.test(c.versao)?"Diesel":/FLEX/.test(c.versao)?"Flex":"Gasolina");
 const msg=c=>`Olá, Ricardo! Tenho interesse no ${nome(c)} ${c.ano} (${brl(c.preco)}) que vi no seu site.`;
 const ligarWa=(el=document)=>$$("[data-wa]",el).forEach(a=>{a.href=wa(a.dataset.wa);a.target="_blank";a.rel="noopener";a.setAttribute("data-whatsapp","")});
@@ -341,19 +342,33 @@ const hb=$(".hamb"),mm=$("#menu-mobile");hb.onclick=()=>{mm.hidden=!mm.hidden;hb
 const bar=$("#barra");addEventListener("scroll",()=>{const r=bar.getBoundingClientRect();bar.classList.toggle("colada",r.top<=70&&r.bottom>0)},{passive:true});
 $$("[data-total]").forEach(e=>e.textContent=CARROS.length);$$("[data-blind]").forEach(e=>e.textContent=CARROS.filter(c=>c.tags.includes("Blindado")).length);
 const MOV=!matchMedia("(prefers-reduced-motion: reduce)").matches;
+const CARROS0=CARROS.slice();
 const HERO=[["81662220",null],["82333708","h2"],["77408515","h3"],["81200148","h4"]];
-const sl=$("#slides");HERO.slice(1).forEach(([id,k])=>{const im=new Image();im.src=IMG[k];im.alt=nome(CARROS.find(c=>c.id===id));im.decoding="async";sl.appendChild(im)});
+const sl=$("#slides");HERO.slice(1).forEach(([id,k])=>{const im=new Image();im.src=IMG[k];im.alt=nome(CARROS0.find(c=>c.id===id));im.decoding="async";sl.appendChild(im)});
 const himgs=$$("#slides img");
-$("#destaques").innerHTML=`<span class="k">Em destaque</span>`+HERO.map(([id],i)=>{const c=CARROS.find(x=>x.id===id);return `<button class="dq${i?"":" on"}" data-i="${i}" aria-label="Destaque: ${nome(c)}"><img src="${himgs[i].src}" alt=""><span><b>${nome(c)}</b><small>${c.ano} · ${brl(c.preco)}</small></span><span class="bp"><i></i></span></button>`}).join("");
+$("#destaques").innerHTML=`<span class="k">Em destaque</span>`+HERO.map(([id],i)=>{const c=CARROS0.find(x=>x.id===id);return `<button class="dq${i?"":" on"}" data-i="${i}" aria-label="Destaque: ${nome(c)}"><img src="${himgs[i].src}" alt=""><span><b>${nome(c)}</b><small>${c.ano} · ${brl(c.preco)}</small></span><span class="bp"><i></i></span></button>`}).join("");
 $("#pontos-capa").innerHTML=HERO.map((_,i)=>`<i class="${i?"":"on"}"></i>`).join("");
 let hi=0,ht;
-function heroIr(i){hi=(i+HERO.length)%HERO.length;const c=CARROS.find(x=>x.id===HERO[hi][0]);
+function heroIr(i){hi=(i+HERO.length)%HERO.length;const c=CARROS0.find(x=>x.id===HERO[hi][0]);
  himgs.forEach((im,k)=>im.classList.toggle("on",k===hi));$$(".dq").forEach((b,k)=>b.classList.toggle("on",k===hi));$$("#pontos-capa i").forEach((d,k)=>d.classList.toggle("on",k===hi));
  const v=$("#ver-capa");v.dataset.abre=c.id;v.setAttribute("aria-label","Ver "+nome(c));$("#vc-txt").innerHTML=`<b>${nome(c)}</b> · ${brl(c.preco)}`;
  clearTimeout(ht);if(MOV)ht=setTimeout(()=>heroIr(hi+1),6500)}
 $("#destaques").onclick=e=>{const b=e.target.closest(".dq");if(b)heroIr(+b.dataset.i)};
 let hx=null;sl.addEventListener("touchstart",e=>hx=e.touches[0].clientX,{passive:true});sl.addEventListener("touchend",e=>{if(hx===null)return;const d=e.changedTouches[0].clientX-hx;if(Math.abs(d)>40)heroIr(hi+(d<0?1:-1));hx=null});
 sl.addEventListener("click",()=>$("#ver-capa").click());
+// Estoque do painel (docs/painel-clientes/12-modulo-estoque.md): dentro do painel de exemplo (?rz-estoque=exemplo), o site
+// recebe a lista do módulo Estoque por mensagem e refaz a vitrine; na Fase 1, pede a mesma lista à API do painel.
+if(/[?&]rz-estoque=exemplo/.test(location.search)&&parent!==window){
+ const doPainel=i=>{const c=i.campos||{},tags=[...(i.selos||[])];if(c.combustivel==="Híbrido"&&!tags.includes("Híbrido"))tags.push("Híbrido");if(c.combustivel==="Diesel"&&!tags.includes("Diesel"))tags.push("Diesel");if(i.situacao==="reservado")tags.unshift("Reservado");
+  return {id:i.id,marca:c.marca||"",modelo:c.modelo||"",versao:String(c.versao||"").toUpperCase(),ano:c.ano_fab&&c.ano_modelo?c.ano_fab+"/"+c.ano_modelo:String(c.ano_modelo||c.ano_fab||""),km:Number(c.km)||0,preco:i.preco||0,tipo:c.carroceria||"",
+   combustivel:c.combustivel,cambio:c.cambio,cor:c.cor,placa:c.placa,ipva:c.ipva,licenciado:c.licenciado,troca:c.troca,revisoes:c.revisoes,unico:c.unico_dono,garantia:c.garantia,descricao:i.descricao,opcionais:c.opcionais||[],tags,f:i.fotos||[]}};
+ addEventListener("message",e=>{if(e.origin!==location.origin||e.source!==parent||!e.data||e.data.tipo!=="rz-estoque")return;
+  CARROS.splice(0,CARROS.length,...e.data.itens.map(doPainel));chips();grade();
+  $$("[data-total]").forEach(x=>x.textContent=CARROS.length);$$("[data-blind]").forEach(x=>x.textContent=CARROS.filter(c=>c.tags.includes("Blindado")).length);
+  if(e.data.foco){filtrar("todos");$("#ordem").value="rel";grade();const b=document.querySelector(`#grade [data-abre="${e.data.foco}"]`);
+   if(b){const card=b.closest(".card");scrollTo({top:document.getElementById("estoque").offsetTop-60,behavior:"smooth"});card.classList.add("novo");setTimeout(()=>card.classList.toggle("novo",false),3400)}}});
+ parent.postMessage({tipo:"rz-estoque-pronto"},location.origin);
+}
 heroIr(0);
 chips();grade();ligarWa();rota();
 </script>

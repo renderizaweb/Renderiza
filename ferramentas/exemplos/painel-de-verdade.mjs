@@ -17,7 +17,9 @@ const ORIGEM = path.join(RAIZ, "painel-clientes");
 const DESTINO = path.join(RAIZ, "exemplos", "painel");
 // O que a página do exemplo importa (e o que o Meu site carrega na hora: a validação e os indicadores).
 const ENTRADAS = ["src/adaptadores/supabase.js", "src/sessao.js", "src/telas/casca.js", "src/ui/aviso.js", "src/nichos/index.js",
-  "src/modulos/meu-site/index.js", "src/modulos/meu-site/indicadores.js", "src/modulos/meu-site/meu-site.js", "src/ui/estilo.css"];
+  "src/modulos/meu-site/index.js", "src/modulos/meu-site/indicadores.js", "src/modulos/meu-site/meu-site.js", "src/ui/estilo.css",
+  // o Estoque em protótipo (exemplos/estoque; docs/painel-clientes/12-modulo-estoque.md) usa também os chips de filtro
+  "src/ui/filtros.js"];
 const FONTE = ["url(/src/ui/fontes/geist.woff2)", "url(/fontes/geist.woff2)"];
 
 /** Os arquivos a copiar: as entradas e tudo o que elas importam de forma fixa (import ... from "./..."). */

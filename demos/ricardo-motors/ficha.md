@@ -15,6 +15,13 @@
   carro é uma parte própria ("Página do carro"), com tempo e cliques. Testado com o `exemplos/visitas.js`.
 - **Página feita à mão** (não pelo gerador); passa no `validar.mjs`.
 
+- **Painel de exemplo do Estoque (20/11/2026):** `/demo/ricardo-motors/painel` (`painel.html`): a casca do Painel
+  Renderiza com o módulo Estoque em protótipo (`exemplos/estoque`, docs/painel-clientes/12-modulo-estoque.md) e os 15
+  carros dele; o site ao lado recebe a lista na hora (`?rz-estoque=exemplo`, só dentro do painel). O que ele mudar fica
+  no navegador dele. Sai do ar junto com a demo.
+- **Vídeo do Estoque:** `/gravacao/ricardo-motors-estoque.mp4` (31 s, sem voz, trilha original; `instagram/reels-estoque.html`
+  com as capturas de `instagram/telas-estoque.mjs`). O Porsche 911 que entra no estoque no vídeo é um exemplo.
+
 ## Conferir antes de mandar
 - **WhatsApp:** os botões usam o link da bio (`wa.me/message/G5X6UUN627ARL1`), que abre sem a mensagem pronta.
   Com o número dele, preencher `WA_NUM` no script e cada botão sai com o carro na mensagem.
