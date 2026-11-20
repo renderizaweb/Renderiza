@@ -209,6 +209,11 @@ test("demo com mais de uma página (fotógrafa: site + campanha de Natal): a out
   assert.doesNotMatch(comContador(html, "ana-carolina-fotografia", "Nome Estranho!"), /data-sub/);
   assert.equal(textoDoPasso({ evento: "abriu", pagina: "demo", detalhe: { sub: "natal" } }), "Abriu a página de Natal da demo");
   assert.equal(textoDoPasso({ evento: "abriu", pagina: "demo", detalhe: { sub: "pascoa" } }), 'Abriu a página "pascoa" da demo');
+  // a página do vídeo de divulgação do site (/demo/<pasta>/video): abriu, play, até o fim, baixou, copiou
+  assert.equal(textoDoPasso({ evento: "abriu", pagina: "demo", detalhe: { sub: "video" } }), "Abriu a página do vídeo do site");
+  assert.equal(textoDoPasso({ evento: "clicou", pagina: "demo", detalhe: { alvo: "video-baixar" } }), "Baixou o vídeo do site");
+  assert.equal(textoDoPasso({ evento: "clicou", pagina: "demo", detalhe: { alvo: "video-fim" } }), "Assistiu o vídeo do site até o fim");
+  assert.equal(textoDoPasso({ evento: "clicou", pagina: "demo", detalhe: { alvo: "video-copiou-legenda" } }), "Copiou a legenda pronta");
 });
 
 test("demo: o clique na oferta da Renderiza (valor e prazo) é separado do WhatsApp da loja e conta como interesse", () => {
