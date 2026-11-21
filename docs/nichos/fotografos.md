@@ -378,6 +378,104 @@ Art, Ray Barbosa (tema escuro), Mariana Lima e Thayuane Rosa. **Fotógrafa nova 
 - **Peso:** os 20 portfólios somam cerca de 440 MB de HTML no repositório (as fotos ficam dentro do HTML; no ar saem
   para `/demo/<pasta>/f/`). Se o repositório pesar, a saída é guardar só as fotos tratadas fora do HTML.
 
+## 11. Lote 4: o estudo de quem esquentou (21/11/2026)
+
+Pedido do Kaue (21/11/2026): só fotógrafos, de qualquer especialidade, em São Paulo, com os critérios revistos a partir
+dos perfis de quem mais gostou da demo. A lista do lote está em **`docs/nichos/fotografos-lote4.md`**.
+
+**Base:** os 70 leads de fotografia dos lotes 1 a 3 no painel (primeiro contato de 04 a 17/11/2026) e as visitas
+contadas de 22/10 a 20/11. Ficaram fora o Paulo Braga (Petrolina, veio pelo Instagram) e o 2º card da Vivian (a
+planilha). As nossas visitas saem pela regra do painel (`painel/src/visitas.js`: navegador com o painel aberto ou o mesmo
+IP de uma visita nossa): das 292 aberturas de fotografia, 163 são das clientes. O Instagram foi relido em 21/11 pelo embed
+público, e a página na Alboom testada pelo endereço `<nome>.alboompro.com` (com prova: o telefone, o @ ou a cidade).
+
+**Quem esquentou** (tempo das clientes na demo e no Painel Renderiza):
+- **Quentes (9):** as que fecharam (Rafaela Damaceno e Bia Maida), a que está em conversa (Tata's) e as que ficaram 5
+  min ou mais: Mandaluz, Ana Carolina, Thamirys Costa, Valéria Duarte, Silvia Olarindo e Marília Rovaris.
+- **Mornas (25):** de 1,5 a 5 min, ou marcadas como interessadas no painel.
+- **Frias:** 13 abriram e saíram logo; **23 nunca abriram o link** (33%).
+
+### O que as quentes têm em comum
+
+| Sinal | Quentes com o sinal | Quentes sem o sinal |
+|---|---|---|
+| Página na Alboom com o telefone ou o @ dela | 5 de 18 (28%) | 4 de 52 (8%) |
+| Site morto (domínio vencido ou Alboom desligado) | 3 de 11 (27%) | 6 de 59 (10%) |
+| O Google aponta **só o Instagram** como site | 1 de 32 (3%) | 8 de 38 (21%) |
+| Até 3 mil seguidores | 4 de 12 (33%) | 5 de 58 (9%) |
+| 10+ avaliações no Google por mil seguidores | 5 de 22 (23%) | 4 de 48 (8%) |
+| Equipe, sócia ou casal nas avaliações | 1 de 23 (4%) | 8 de 47 (17%) |
+| 6 posts em até 10 dias (lido em 21/11) | 5 de 19 (26%) | 4 de 51 (8%) |
+| Natal 2026 anunciado | 5 de 47 (11%) | 4 de 23 (17%) |
+| 85+ pontos no ranking antigo | 4 de 26 (15%) | 5 de 44 (11%) |
+
+1. **O que esquentou foi o painel, não o site.** As duas que fecharam passaram pelo Painel Renderiza antes de decidir:
+   a Bia em 11/11 (agenda, campanha, clientes, contratos, financeiro e atendimento; fechou em 17/11) e a Rafaela em 13/11
+   (agenda online, financeiro, atendimento e clientes, e clicou no WhatsApp; fechou em 14/11). A Ana Carolina, a mais
+   quente das que não fecharam, passou por todas as telas, e o motivo da perda no painel é "não tem interesse pela landing
+   page (voltar a vender o painel)". A Yasmim: "sem interesse no site (enviar o painel em janeiro)". A Vivian pediu uma
+   planilha financeira. Das 9 quentes, 6 abriram o link do painel; das outras 61, só 5. **A fotógrafa quente quer
+   organizar o negócio:** agenda, contratos, clientes e dinheiro.
+2. **Elas voltam várias vezes e repassam o link.** Antes de fechar, a Rafaela abriu 6 vezes em 4 dias (25 min) e a Bia 18
+   vezes em 6 dias (23 min); o link da Rafaela abriu em 4 aparelhos e o da Bia em 6.
+3. **Quem já tentou ter um site esquenta; quem acha que o Instagram basta, não.** Página na Alboom com os dados dela, site
+   morto, Facebook ou Linktree no Google: ela já quis uma vitrine fora do Instagram. Quando o Google aponta só o Instagram,
+   foi 1 quente em 32 (a Tata's).
+4. **Perfil médio-pequeno no Instagram e forte no Google.** As quentes têm, na mediana, 14 avaliações por mil seguidores
+   (as outras, de 6 a 9). A cliente delas vem da indicação e do Google, e a dona fotografa mais do que posta.
+5. **Ela sozinha.** Equipe, sócia ou casal aparecem em 23 das 70, e só uma virou quente (a Thamirys).
+6. **Posta com frequência:** 6 posts em até 10 dias. O sinal foi lido agora, depois das conversas: é indicação, não prova.
+7. **O Natal não esquentou ninguém**, e o ranking antigo não previu quem ia gostar (85+ pontos: 15% de quentes; abaixo:
+   11%).
+8. **Especialidade não importa:** eventos, 15 anos ou corporativo aparecem em 3 das 9 quentes (Rafaela, Bia e Thamirys)
+   e em 20 das 70, a mesma proporção. Confirma o "sem preferência" do Kaue.
+9. **Região:** das 9, 4 são da capital, 2 de Franco da Rocha (dos 4 leads de Franco da Rocha e Francisco Morato), 1 do
+   ABC, 1 de Suzano e 1 sem endereço público. Nenhuma das 12 da região oeste (Osasco, Barueri, Carapicuíba, Santana de Parnaíba, Taboão, Embu e
+   Itapecerica) esquentou. É pouca gente para virar regra: ficou só como observação.
+10. **Um terço nunca abriu o link**, e nada no perfil explica (equipe, Natal, site, região). O mais provável é a mensagem não
+    chegar à dona. Por isso o celular e o nome da dona nas avaliações pesam mais neste lote.
+
+**A prova da régua nova:** aplicada aos 70 leads antigos (sem fotos e sem avaliações), as 20 primeiras teriam 6 das 9
+quentes e 12 de quentes ou mornas. O ranking antigo pôs 3 quentes nas 20 primeiras.
+
+**Cuidados com a leitura:** 9 quentes é pouco (são indícios, não lei). O formato da demo mudou no meio (site + página de
+Natal até 06/11, portfólio v4 em 17/11), e a turma de 17/11 teve menos dias para abrir.
+
+### O gancho do Natal (21/11/2026)
+
+O Natal não separou quem esquentou de quem não esquentou, e a temporada está no fim: as agendas fecham entre 13 e 20/12, e
+quem receber a demo agora tem duas ou três semanas de vagas. **Sugestão: não abrir a conversa pelo Natal.** Se ela ainda
+vende horários, a página de Natal entra como bônus ("ainda dá tempo de pôr o seu Natal no ar"). O gancho que esquentou foi
+outro: a agenda e o negócio organizados. Para quem recebe em dezembro: "comece 2027 com a agenda, os contratos e os
+clientes num lugar só". A decisão é do Kaue.
+
+### A régua do lote 4
+
+**Corte (passa ou não passa):**
+- Grande São Paulo; aberta no Google; nota 4,8+ com 15 a 250 avaliações; celular (no Google, num `wa.me`, nas legendas
+  ou na página da Alboom).
+- Fotógrafa de qualquer especialidade (família, gestante, newborn, infantil, eventos, 15 anos, corporativo, casamento).
+  Fora: impressão, 3x4, cabine, aluguel de estúdio, curso, produtora, empresa com vários fotógrafos e várias unidades.
+- **Sem site próprio funcionando** (conferido no DNS e nos domínios óbvios, com e sem www). Página grátis em subdomínio
+  (Alboom, 46graus, Adobe Portfolio, Canva, Wix, Google Sites) **passa**: é o sinal mais forte.
+- Instagram de 1 mil a 15 mil seguidores, com post nos últimos 30 dias, fotos reais com gente (folha, nota 3,5+) e o @
+  conferido (local dos posts, telefone nas legendas ou o @ na página dela).
+
+**Pontos (até 100):**
+
+| Bloco | Como conta | Até |
+|---|---|---|
+| Vitrine além do Instagram | site morto ou página de portfólio dela (Alboom, 46graus, Wix) 25 · Facebook, Linktree ou WhatsApp no Google 12 · sem link 8 · só o Instagram 0 | 25 |
+| Ela atende e decide | o nome dela nas avaliações 10 · sem equipe, sócia ou casal 10 | 20 |
+| Tamanho no Instagram | até 3 mil 15 · 3 a 6 mil 10 · 6 a 10 mil 5 · 10 a 15 mil 0 | 15 |
+| Google forte para o tamanho | avaliações por mil seguidores: 15+ 15 · 8+ 10 · 4+ 5 | 15 |
+| Ritmo | 6 posts em até 10 dias 10 · em até 20 dias 5 | 10 |
+| Negócio organizado | vende por agenda, vagas ou pacotes nas legendas 5 · dois ou mais tipos de ensaio ou serviço 5 | 10 |
+| Fotos | nota da folha 4,5+ 5 · 4+ 3 | 5 |
+
+O Natal não dá ponto (vai só no alerta, com as datas que ela publicou). Os scripts estão em
+`ferramentas/prospeccao/fotografos/` (README, "Lote 4").
+
 ## 12. Lote 4: os portfólios de 1 a 5 (23/11/2026)
 
 Pedido do Kaue (23/11/2026): o lote 4 foi dividido em duas sessões pelas pastas do Drive "lote 22 do 11". Esta fez 5
