@@ -9,18 +9,35 @@ e 34 cidades) → 9.788 lugares → 3.777 fotógrafos (pela categoria) → **1.2
 avaliações, fora as exclusões pelo nome e quem já está no painel) → 764 sem site próprio funcionando (472 saíram já
 pelo site do card e 43 pelos detalhes) → 591 com o @ achado → **233 no corte do Instagram** (1 mil a 15 mil seguidores,
 post nos últimos 30 dias) → **233 olhados na folha** → 112 com fotos 3,5+ → avaliações do Google (114 lugares),
-domínios óbvios com e sem www e a página da Alboom (112) → 95 no ranking → **as 20 abaixo e as próximas 20 (21 a 40)**, com a fila no fim.
+domínios óbvios com e sem www e a página da Alboom (112) → 95 no ranking → **as 40 abaixo**, mais 14 @ recuperados pela página da Alboom e pelo domínio morto, com a fila no fim.
 
 **Os pontos** seguem a régua nova (até 100): vitrine além do Instagram 25, ela atende e decide 20, tamanho no Instagram
 15, Google forte para o tamanho 15, ritmo de posts 10, negócio organizado 10, fotos 5. O Natal não dá ponto.
 
-**As 20, em resumo:** 14 com página grátis de portfólio que o Google aponta ou que o teste achou (Alboom, 46graus, Wix);
-4 com site morto ou congelado (Angélica, Rafaela Rodrigues, Domway e Bárbara Soares); a Luana Rodrigues comprou o domínio e
-não fez o site; a Ingoma só tem o Facebook e a Nathy, nenhum link. 17 atendem sozinhas pelo que as avaliações mostram;
-mediana de 2,3 mil seguidores (de 1,1 mil a 8,1 mil) e de 17 avaliações por mil seguidores; 12 vendem ou mostram o Natal
-2026 nos últimos posts.
+**As 40, em resumo:** 29 têm vitrine além do Instagram (18 com página grátis de portfólio, como Alboom, 46graus, Adobe
+Portfolio, Canva ou Wix; 8 com site morto ou congelado; 3 com Facebook ou Linktree), 7 têm só o Instagram no Google e 4
+nenhum link. 36 atendem sozinhas pelo que as avaliações mostram; mediana de 2,3 mil seguidores e de 17 avaliações por mil
+seguidores; 23 vendem ou mostram o Natal 2026 nos últimos posts.
 
-## As 20
+## As 40, na ordem de trabalho
+
+Ajuste de 21/11/2026, com o pedido de "os melhores leads possíveis": as 40 conferidas (as 20 primeiras e as 20 da fila)
+ficaram numa lista só, **em ordem de pontos**, para trabalhar de cima para baixo. Duas trocas: **saíram a Leles e a
+Refllexos** (casal, 16 e 17 avaliações: só um dos três sinais fortes do estudo) e **entraram a Daph Prado e a Laís
+Figueiredo**, que estavam sem @ na primeira busca e foram achadas pela página da Alboom com o telefone do Google (as duas
+com site morto).
+
+**A força de cada uma**, pelos três sinais que mais separaram as quentes no estudo (vitrine além do Instagram, ela atende
+sozinha e 8+ avaliações no Google por mil seguidores): **22 têm os três** (nºs 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 18, 19, 21, 22, 23, 24, 35, 37) e 18
+têm dois. Nenhuma tem só um. As que têm dois perdem quase sempre na vitrine: o Google aponta só o Instagram ou nenhum link
+(no estudo, 1 quente em 32), ou é casal ou equipe (Fb.2, Rafaela Rodrigues, Domway e Rapha Barbosa).
+
+**Saíram da fila antes de entrar, por motivo concreto:** Karen Garcia (sem celular no Google nem na página dela), Karen
+Telini (sem post desde 23/10), Vanessa Corrêa (o @ achado pelo nome marca Rio das Ostras, o mesmo @ errado do lote 2),
+Studio Ribz (equipe e uma avaliação reclamando do pós-ensaio), Ingrid Bernardelli e Rita Photography (só avaliações de 5
+a 8 anos atrás), Atelier Fialho (Cachoeirinha, no Rio Grande do Sul), CFA Estúdio (José Bonifácio, interior), Jéssica
+Ferreira (DDD 51, parada) e Photometria (site próprio no ar, na Alboom, e equipe). Desempate em 60 pontos: entrou o Mike
+Daveson (18 avaliações por mil seguidores) e a Pollyanna (13 mil seguidores, 1,4 por mil) ficou na fila.
 
 ### 1. Camila Camargo Fotografia · [@camilacamargofotografia](https://www.instagram.com/camilacamargofotografia/) · 95 pontos
 
@@ -32,7 +49,17 @@ mediana de 2,3 mil seguidores (de 1,1 mil a 8,1 mil) e de 17 avaliações por mi
 - **Alerta:** Vargem Grande Paulista fica no limite oeste da Grande SP; o @ veio do nome e foi confirmado pelo telefone do Google nas legendas
 - **Pontos:** vitrine 25, dona 20, tamanho 10, Google 15, ritmo 10, negócio 10, fotos 5
 
-### 2. Nina Oliveira Photography · [@ninaoliveiraphoto](https://www.instagram.com/ninaoliveiraphoto/) · 90 pontos
+### 2. Daph Prado Foto e Filme · [@prado.daph](https://www.instagram.com/prado.daph/) · 95 pontos
+
+- **Onde:** Jardim Yoneda · Biritiba Mirim (posts em Biritiba e no Pico do Urubu, em Mogi) · **Especialidade:** casamento, casal, família e infantil
+- **Instagram:** 2,6 mil seguidores, último post em 21/11 (posta todo dia) · **Natal:** mostra o Natal 2026 (20/11)
+- **Site:** **morto**: o Google aponta daphpradofotografia.com.br, registrado mas sem servidor (o DNS não tem endereço); o teste achou a página dela na Alboom, com o telefone, o @ e a cidade
+- **WhatsApp:** (11) 97131-5092, celular do Google · **Google:** nota 5,0 em 69 avaliações · **Dona:** Daph
+- **Por que:** site morto, página na Alboom, 27 avaliações por mil seguidores, sozinha; faz vídeos falando com a cliente ("Preciso mesmo de uma fotógrafa?", "E se chover no dia do meu ensaio?") e tira dúvidas sobre pacotes: pensa no negócio, como as que esquentaram
+- **Alerta:** Biritiba Mirim fica no extremo leste da Grande SP; o @ não saiu na primeira busca: veio da página da Alboom com o telefone do Google; muitos quadros de vídeo na folha (3,5)
+- **Pontos:** vitrine 25, dona 20, tamanho 15, Google 15, ritmo 10, negócio 10, fotos 0
+
+### 3. Nina Oliveira Photography · [@ninaoliveiraphoto](https://www.instagram.com/ninaoliveiraphoto/) · 90 pontos
 
 - **Onde:** Santo Amaro · São Paulo (zona sul) · **Especialidade:** gestante, newborn, smash e família
 - **Instagram:** 2,3 mil seguidores, último post em 16/11 · **Natal:** vende: "Especial de Natal 2026 · últimos horários disponíveis" (25/10 a 03/11)
@@ -42,7 +69,7 @@ mediana de 2,3 mil seguidores (de 1,1 mil a 8,1 mil) e de 17 avaliações por mi
 - **Alerta:** posta menos que as outras (6 posts em 31 dias)
 - **Pontos:** vitrine 25, dona 20, tamanho 15, Google 15, ritmo 0, negócio 10, fotos 5
 
-### 3. Breve Instante Fotografia · [@breveinstantefotografia](https://www.instagram.com/breveinstantefotografia/) · 90 pontos
+### 4. Breve Instante Fotografia · [@breveinstantefotografia](https://www.instagram.com/breveinstantefotografia/) · 90 pontos
 
 - **Onde:** Jardim Monte Alegre · Taboão da Serra · **Especialidade:** família no estúdio, casamento, aniversário e festa (até bodas de 50 anos)
 - **Instagram:** 1,5 mil seguidores, último post em 19/11 · **Natal:** não divulgou nos últimos posts
@@ -52,192 +79,7 @@ mediana de 2,3 mil seguidores (de 1,1 mil a 8,1 mil) e de 17 avaliações por mi
 - **Alerta:** o Google aponta só o Instagram (sinal fraco no estudo); a página da Alboom compensa. Sem Natal divulgado
 - **Pontos:** vitrine 25, dona 20, tamanho 15, Google 15, ritmo 5, negócio 5, fotos 5
 
-### 4. Angélica Andrade Fotografia · [@angelicaandradefotografia](https://www.instagram.com/angelicaandradefotografia/) · 88 pontos
-
-- **Onde:** zona norte · São Paulo (sem endereço no Google; os posts marcam a Av. Parada Pinto) · **Especialidade:** gestante, newborn, infantil e festa de aniversário
-- **Instagram:** 2,3 mil seguidores, último post em 19/11 · **Natal:** vende: "Ensaios de Natal 2026", com o WhatsApp na legenda (03 e 17/11)
-- **Site:** **morto**: o Google aponta angelicaandradefotografia.albom.com.br, que não existe (DNS); o teste achou a página dela na Alboom, com o @
-- **WhatsApp:** (11) 95858-7843, celular do Google e das legendas · **Google:** nota 5,0 em 96 avaliações · **Dona:** Angélica ("o trabalho da Angélica")
-- **Por que:** site morto, 96 avaliações para 2,3 mil seguidores (42 por mil), sozinha, vende pelo WhatsApp
-- **Alerta:** sem endereço no Google; duas capas de vídeo borradas na folha
-- **Pontos:** vitrine 25, dona 20, tamanho 15, Google 15, ritmo 0, negócio 10, fotos 3
-
-### 5. Andressa Borelli Fotografia · [@andressaborellifotografia](https://www.instagram.com/andressaborellifotografia/) · 88 pontos
-
-- **Onde:** Vila Sônia do Taboão · Taboão da Serra · **Especialidade:** gestante, newborn, família e infantil
-- **Instagram:** 1,1 mil seguidores, último post em 17/11 · **Natal:** mostra: "Um Natal para recordar" (16/11)
-- **Site:** nenhum próprio: o Google aponta a página dela na Alboom (andressaborelli.alboompro.com), com o @ e o WhatsApp
-- **WhatsApp:** (11) 96137-5428, o da página da Alboom; o Google mostra o fixo (11) 4787-7673 · **Google:** nota 5,0 em 57 avaliações · **Dona:** Andressa
-- **Por que:** 57 avaliações para 1,1 mil seguidores (52 por mil), sozinha; as avaliações elogiam o cuidado com bebê (jaleco, máscara, estúdio climatizado)
-- **Alerta:** o celular não está no Google (usar o da Alboom); uma avaliação elogia a maquiadora (parceira, não sócia)
-- **Pontos:** vitrine 25, dona 20, tamanho 15, Google 15, ritmo 0, negócio 10, fotos 3
-
-### 6. Fb.2 Fotografia · [@fb.2fotografia](https://www.instagram.com/fb.2fotografia/) · 85 pontos
-
-- **Onde:** Jardim da Luz · Embu das Artes (os posts marcam Taboão da Serra) · **Especialidade:** aniversário infantil, festa, 15 anos e estúdio
-- **Instagram:** 1,7 mil seguidores, último post em 19/11 (posta todo dia) · **Natal:** não divulgou
-- **Site:** nenhum próprio: o Google aponta uma página grátis na 46graus (fb2fotografia.46graus.com) e o teste achou outra na Alboom, com o @ e o telefone
-- **WhatsApp:** (11) 95344-1075, celular do Google, das legendas e do wa.me · **Google:** nota 5,0 em 67 avaliações · **Dono:** Adeilton, com a esposa Alice
-- **Por que:** duas páginas grátis de portfólio, 67 avaliações para 1,7 mil seguidores (39 por mil), vende festa por agenda: o perfil de eventos da Bia
-- **Alerta:** **casal** ("a Alice trabalha em conjunto com seu esposo"): no estudo, casal e equipe esfriaram; fotos de festa medianas (folha 3,5)
-- **Pontos:** vitrine 25, dona 10, tamanho 15, Google 15, ritmo 10, negócio 10, fotos 0
-
-### 7. Thayna Sapelly Fotografia · [@thaynasapellyfotografia](https://www.instagram.com/thaynasapellyfotografia/) · 83 pontos
-
-- **Onde:** Parque Primavera · Guarulhos · **Especialidade:** gestante, newborn, smash, família e feminino
-- **Instagram:** 7,3 mil seguidores, último post em 09/11 · **Natal:** vende: "Restam poucas vagas para o ensaio de Natal" (06 a 09/11)
-- **Site:** nenhum no Google; o teste achou a página dela na Alboom, com o @, o telefone e a cidade
-- **WhatsApp:** (11) 96299-3358, celular do Google; (11) 98342-2410 nas legendas · **Google:** nota 5,0 em 226 avaliações · **Dona:** Thayná (todas as avaliações lidas citam a Thayná)
-- **Por que:** 226 avaliações (31 por mil), sozinha, vende por vagas, estúdio "de fácil acesso"
-- **Alerta:** dois celulares (Google e legendas); perfil maior (7 mil)
-- **Pontos:** vitrine 25, dona 20, tamanho 5, Google 15, ritmo 5, negócio 10, fotos 3
-
-### 8. Bianca Cabral Fotografia · [@bianca.cabralfotografia](https://www.instagram.com/bianca.cabralfotografia/) · 83 pontos
-
-- **Onde:** Jardim Germânia · São Paulo (zona sul) · **Especialidade:** família, infantil, aniversário e casamento
-- **Instagram:** 5,1 mil seguidores, último post em 15/11 · **Natal:** vende o "Especial de Natal 2026 · Um lar de histórias" (05 a 12/11)
-- **Site:** nenhum próprio: o Google aponta a página dela na Alboom (biancafotografia.alboompro.com); biancacabral.com.br é de outra Bianca (loja)
-- **WhatsApp:** (11) 98178-7502, celular do Google e das legendas · **Google:** nota 5,0 em 98 avaliações · **Dona:** Bianca ("a Bia")
-- **Por que:** página na Alboom, 98 avaliações, sozinha; monta o próprio cenário ("visualizar o cenário no espaço vazio, criar, inventar")
-- **Alerta:** nenhum
-- **Pontos:** vitrine 25, dona 20, tamanho 10, Google 15, ritmo 0, negócio 10, fotos 3
-
-### 9. Estúdio Luana Rodrigues Fotografia · [@luana_rodriguesfotografia](https://www.instagram.com/luana_rodriguesfotografia/) · 83 pontos
-
-- **Onde:** Vila Boa Vista · Santo André · **Especialidade:** gestante, parto e família
-- **Instagram:** 1,8 mil seguidores, último post em 11/11 · **Natal:** vende o "Natal Aldrora" (24/10 a 05/11)
-- **Site:** o Google aponta a página dela na Alboom; e **studioluanarodrigues.com.br está no ar só com a página padrão do WordPress** ("Welcome to WordPress"): ela comprou o domínio e não fez o site
-- **WhatsApp:** (11) 91878-0040, celular do Google · **Google:** nota 5,0 em 27 avaliações · **Dona:** Luana ("a Lu")
-- **Por que:** o domínio comprado sem site é o sinal mais claro de quem quer um site; página na Alboom, perfil pequeno, sozinha
-- **Alerta:** há outra Luana Rodrigues fotógrafa (@luanarodrigues_fotografia, 5 mil): o @ certo é o que a página da Alboom do Google aponta, e os posts marcam Santo André
-- **Pontos:** vitrine 25, dona 20, tamanho 15, Google 15, ritmo 0, negócio 5, fotos 3
-
-### 10. Estúdio Rafaela Arena · [@fotografarafaelaarena](https://www.instagram.com/fotografarafaelaarena/) · 80 pontos
-
-- **Onde:** Oswaldo Cruz · São Caetano do Sul · **Especialidade:** família, pré-wedding e corporativo
-- **Instagram:** 2 mil seguidores, último post em 16/11 · **Natal:** vende: "As vagas estão acabando! Me chama para agendar", com agenda pelo link da bio (08 a 16/11)
-- **Site:** nenhum próprio: o Google aponta a página dela na Alboom (rafaelaarenamathias.alboompro.com), com o WhatsApp
-- **WhatsApp:** (11) 96217-0475, celular do Google e da Alboom · **Google:** nota 5,0 em 21 avaliações · **Dona:** Rafaela ("a Rafa")
-- **Por que:** página na Alboom, sozinha, agenda por link; fotos de família no Natal alegres e reais (folha 4,5)
-- **Alerta:** a página da Alboom aponta um @ antigo (@rafaelaarena_ph), que não abre; o @ atual marca "Rafaela Arena Photography" nos posts. 21 avaliações
-- **Pontos:** vitrine 25, dona 20, tamanho 15, Google 10, ritmo 0, negócio 5, fotos 5
-
-### 11. Bianca Maia Fotógrafa · [@biancamaiafotografa](https://www.instagram.com/biancamaiafotografa/) · 80 pontos
-
-- **Onde:** Jardim Nova Cajamar · Cajamar · **Especialidade:** família, aniversário, feminino e casamento
-- **Instagram:** 1,5 mil seguidores, último post em 11/11 · **Natal:** vende: "Nosso Natal a todo vapor! Agende o seu horário" (09/11)
-- **Site:** o Google aponta um site grátis da Wix (byannkamayaa5.wixsite.com/meusite); o teste achou a página dela na Alboom, com o @ e o telefone
-- **WhatsApp:** (11) 96088-6650, celular do Google e da Alboom · **Google:** nota 4,9 em 18 avaliações · **Dona:** Bianca
-- **Por que:** já tentou ter site (Wix grátis) e tem página na Alboom; perfil pequeno; sozinha
-- **Alerta:** 18 avaliações e nota 4,9; posts também em Jundiaí; biancamaia.com é de outra Bianca; muitas artes de Natal (folha 3,5)
-- **Pontos:** vitrine 25, dona 20, tamanho 15, Google 10, ritmo 0, negócio 10, fotos 0
-
-### 12. Estúdio Ingoma · [@estudio.ingoma](https://www.instagram.com/estudio.ingoma/) · 77 pontos
-
-- **Onde:** Tatuapé · São Paulo (zona leste) · **Especialidade:** newborn e família (também em casa)
-- **Instagram:** 3 mil seguidores, último post em 19/11 (posta todo dia) · **Natal:** não divulgou
-- **Site:** o Google aponta o Facebook
-- **WhatsApp:** (11) 96561-1559, celular do Google · **Google:** nota 5,0 em 51 avaliações · **Dona:** Fernanda ("a Fê")
-- **Por que:** as fotos mais bonitas da folha (newborn e família reais, 4,5), sozinha, posta todo dia
-- **Alerta:** perfil com logo; as legendas vêm vazias; as avaliações são de 3 a 4 anos atrás; o @ veio do nome (único: "Estúdio Ingoma")
-- **Pontos:** vitrine 12, dona 20, tamanho 15, Google 15, ritmo 10, negócio 0, fotos 5
-
-### 13. Nathy Mascarenhas Fotografia · [@nathymascarenhasfotografia](https://www.instagram.com/nathymascarenhasfotografia/) · 76 pontos
-
-- **Onde:** Centro · Itapecerica da Serra · **Especialidade:** gestante, newborn, família, aniversário e 15 anos
-- **Instagram:** 1,4 mil seguidores, último post em 18/11 (posta todo dia) · **Natal:** não divulgou
-- **Site:** nenhum
-- **WhatsApp:** (11) 96151-9606, celular do Google · **Google:** nota 5,0 em 119 avaliações · **Dona:** Nathaly ("a Nath")
-- **Por que:** 119 avaliações para 1,4 mil seguidores (88 por mil, a maior da lista): a cliente dela vem da indicação e do Google, como a da Bia e a da Rafaela; sozinha
-- **Alerta:** perfil com logo; nenhum link no Google (sinal médio no estudo)
-- **Pontos:** vitrine 8, dona 20, tamanho 15, Google 15, ritmo 10, negócio 5, fotos 3
-
-### 14. Rafaela Rodrigues Fotografia · [@rafaelarodriguesfotografia](https://www.instagram.com/rafaelarodriguesfotografia/) · 75 pontos
-
-- **Onde:** Cidade São Francisco · São Paulo (zona oeste; o perfil diz "Fotógrafa em Osasco e SP") · **Especialidade:** newborn, mês a mês, família, gestante e parto
-- **Instagram:** 8,1 mil seguidores, último post em 20/11 · **Natal:** mostra o Natal 2026 (17 e 20/11)
-- **Site:** **morto**: o Google aponta rafaelarodriguesfotografia.com.br, que não existe (DNS)
-- **WhatsApp:** (11) 95978-9374, celular do Google · **Google:** nota 5,0 em 247 avaliações · **Dona:** Rafaela ("a Rafa")
-- **Por que:** site morto, 247 avaliações (31 por mil), fotos muito bonitas (4,5), clientes que voltam ("já estamos indo para o nosso terceiro ensaio")
-- **Alerta:** **tem equipe** ("ela e toda a equipe"); 8 mil seguidores
-- **Pontos:** vitrine 25, dona 10, tamanho 5, Google 15, ritmo 10, negócio 5, fotos 5
-
-### 15. Jaqueline Rosa Fotografia · [@jaquelinerosa.fotografia](https://www.instagram.com/jaquelinerosa.fotografia/) · 75 pontos
-
-- **Onde:** São Paulo (sem endereço no Google; os posts marcam "São Paulo Capital") · **Especialidade:** gestante, newborn, parto e família
-- **Instagram:** 6 mil seguidores, último post em 13/11 · **Natal:** não nos últimos posts (uma avaliação cita ensaios de Natal de outros anos)
-- **Site:** nenhum próprio: o Google aponta a página dela na Alboom, com o @
-- **WhatsApp:** (11) 97258-0993, celular do Google · **Google:** nota 5,0 em 88 avaliações · **Dona:** Jaqueline ("a Jaque")
-- **Por que:** a mais organizada nas avaliações ("trabalha com contrato, pagamento seguro, já tem cadastro na maternidade"): o perfil de quem quer o painel; famílias que voltam há 7 anos; fotos lindas (4,5)
-- **Alerta:** sem endereço no Google; 6 mil seguidores
-- **Pontos:** vitrine 25, dona 20, tamanho 5, Google 10, ritmo 5, negócio 5, fotos 5
-
-### 16. Lunna Fotografias · [@lunnafotografia](https://www.instagram.com/lunnafotografia/) · 75 pontos
-
-- **Onde:** Jardim Belval · Barueri · **Especialidade:** aniversário, 15 anos, família e casamento
-- **Instagram:** 2,2 mil seguidores, último post em 18/11 · **Natal:** não divulgou
-- **Site:** nenhum próprio: o Google aponta a página dela na Alboom, com o @ e o telefone
-- **WhatsApp:** (11) 94040-7078, celular do Google · **Google:** nota 5,0 em 26 avaliações · **Dona:** "a Su" (o nome completo não confirmei)
-- **Por que:** página na Alboom, perfil pequeno, sozinha, faz evento e ensaio (como a Bia)
-- **Alerta:** só 89 posts; fotos medianas (folha 3,5)
-- **Pontos:** vitrine 25, dona 20, tamanho 15, Google 10, ritmo 0, negócio 5, fotos 0
-
-### 17. Domway Fotografia · [@domwayfotografia](https://www.instagram.com/domwayfotografia/) · 73 pontos
-
-- **Onde:** Chácara do Solar II (Fazendinha) · Santana de Parnaíba · **Especialidade:** casamento, pré-wedding, família e festa
-- **Instagram:** 1,7 mil seguidores, último post em 19/11 · **Natal:** não divulgou
-- **Site:** **morto**: o Google aponta domwayfotografia.com.br, que não existe (DNS)
-- **WhatsApp:** (11) 93433-6204, celular do Google · **Google:** nota 5,0 em 16 avaliações · **Dona:** Adriely
-- **Por que:** site morto e perfil pequeno
-- **Alerta:** **duas fotógrafas** ("as meninas"); 16 avaliações
-- **Pontos:** vitrine 25, dona 10, tamanho 15, Google 10, ritmo 5, negócio 5, fotos 3
-
-### 18. Bárbara Soares Fotografia · [@barbarasoaresfotografia](https://www.instagram.com/barbarasoaresfotografia/) · 70 pontos
-
-- **Onde:** Vila Guilherme · Santa Isabel · **Especialidade:** 15 anos, aniversário, casamento, formatura e ensaio individual
-- **Instagram:** 4,6 mil seguidores, último post em 17/11 · **Natal:** não divulgou
-- **Site:** **congelado**: o Google aponta a página dela na Alboom, que mostra "Website congelado" (conferido no navegador)
-- **WhatsApp:** (11) 99783-5037, celular do Google · **Google:** nota 4,9 em 67 avaliações · **Dona:** Bárbara
-- **Por que:** o site congelado é o sinal que a Rafaela, a Ana Carolina e a Thamirys tinham (Alboom ou site morto); sozinha
-- **Alerta:** Santa Isabel fica no extremo leste da Grande SP; posta devagar; fotos medianas (folha 3,5); studiobarbarasoares.com é de outra pessoa
-- **Pontos:** vitrine 25, dona 20, tamanho 10, Google 10, ritmo 0, negócio 5, fotos 0
-
-### 19. Luana Jomara Fotografia · [@luanajomarafotografia](https://www.instagram.com/luanajomarafotografia/) · 70 pontos
-
-- **Onde:** Centro · Diadema · **Especialidade:** família, batizado, casamento civil e ensaio profissional
-- **Instagram:** 6,2 mil seguidores, último post em 21/11 · **Natal:** vende a campanha "Presente no Presente" ("Diadema, o Natal está chegando!", 11 a 13/11)
-- **Site:** nenhum próprio: o Google aponta a página dela na Alboom, com o @, o telefone e a cidade
-- **WhatsApp:** (11) 91942-9882; o link do Google já abre o WhatsApp com "Vim pelo Google! Quero agendar meu horário" · **Google:** nota 5,0 em 73 avaliações · **Dona:** Luana
-- **Por que:** organiza a entrada dos clientes (o link do Google com mensagem pronta mostra de onde veio o cliente), página na Alboom, sozinha, campanha de Natal
-- **Alerta:** 6 mil seguidores; muitas artes (folha 3,5)
-- **Pontos:** vitrine 25, dona 20, tamanho 5, Google 10, ritmo 0, negócio 10, fotos 0
-
-### 20. Adriana Damoia Fotografia · [@adrianadamoia.fotografia](https://www.instagram.com/adrianadamoia.fotografia/) · 70 pontos
-
-- **Onde:** Vila Maria Luiza · Francisco Morato · **Especialidade:** ensaio feminino, corporativo, infantil e noiva
-- **Instagram:** 8,1 mil seguidores, último post em 19/11 · **Natal:** mostra: "Um encanto chamado Natal" (19/11)
-- **Site:** nenhum próprio: o Google aponta a página dela na Alboom, com o @, o telefone e a cidade
-- **WhatsApp:** (11) 98059-8185, celular do Google · **Google:** nota 5,0 em 114 avaliações · **Dona:** Adriana
-- **Por que:** página na Alboom, 114 avaliações, sozinha, estúdio próprio, vizinha de Franco da Rocha (onde estão a Rafaela Damaceno e a Mandaluz)
-- **Alerta:** 8 mil seguidores; o forte é feminino e autoestima: o portfólio precisa de páginas de feminino e corporativo
-- **Pontos:** vitrine 25, dona 20, tamanho 5, Google 10, ritmo 5, negócio 5, fotos 0
-
-## As próximas 20 (21 a 40), conferidas em 21/11/2026
-
-Pedido do Kaue no mesmo dia: mais 20 para trabalhar as 40 na semana. Saíram da fila com o mesmo rigor das 20 primeiras:
-avaliações lidas à mão, @ provado (página do site, telefone, local dos posts ou nome igual ao do Google), celular, cidade
-e site morto conferido. **São mais fracas que as 20 primeiras no sinal principal do estudo:** só 10 têm vitrine além do
-Instagram (5 com página grátis de portfólio, 3 com site morto ou congelado, 2 com Linktree), e em 7 o Google aponta só o
-Instagram. Em troca, 17 atendem sozinhas e a mediana é de 16 avaliações por mil seguidores (Google forte).
-
-**Saíram da fila antes de entrar, por motivo concreto:** Karen Garcia (sem celular no Google nem na página dela), Karen
-Telini (sem post desde 23/10), Vanessa Corrêa (o @ achado pelo nome marca Rio das Ostras, o mesmo @ errado do lote 2),
-Studio Ribz (equipe e uma avaliação reclamando do pós-ensaio), Ingrid Bernardelli e Rita Photography (só avaliações de 5
-a 8 anos atrás), Atelier Fialho (é de Cachoeirinha, no Rio Grande do Sul), CFA Estúdio (José Bonifácio, interior) e
-Jéssica Ferreira (DDD 51, parada). Desempate em 60 pontos: entrou o Mike Daveson (18 avaliações por mil seguidores) e a
-Pollyanna (13 mil seguidores, 1,4 por mil) ficou na fila.
-
-### 21. Fotógrafo em Santana de Parnaíba (Joel) · [@fotografoemsantanadeparnaiba](https://www.instagram.com/fotografoemsantanadeparnaiba/) · 90 pontos
+### 5. Fotógrafo em Santana de Parnaíba (Joel) · [@fotografoemsantanadeparnaiba](https://www.instagram.com/fotografoemsantanadeparnaiba/) · 90 pontos
 
 - **Onde:** Colinas da Anhanguera · Santana de Parnaíba · **Especialidade:** casamento civil, pré-wedding e família
 - **Instagram:** 1,9 mil seguidores, último post em 20/11 · **Natal:** não divulgou
@@ -247,7 +89,187 @@ Pollyanna (13 mil seguidores, 1,4 por mil) ficou na fila.
 - **Alerta:** a foto do perfil é de um casal de clientes (não é sócia); homem e foco em casamento
 - **Pontos:** vitrine 25, dona 20, tamanho 15, Google 15, ritmo 5, negócio 10, fotos 0
 
-### 22. Tarsis Dantas · [@tarsisdantasfotografia](https://www.instagram.com/tarsisdantasfotografia/) · 70 pontos
+### 6. Angélica Andrade Fotografia · [@angelicaandradefotografia](https://www.instagram.com/angelicaandradefotografia/) · 88 pontos
+
+- **Onde:** zona norte · São Paulo (sem endereço no Google; os posts marcam a Av. Parada Pinto) · **Especialidade:** gestante, newborn, infantil e festa de aniversário
+- **Instagram:** 2,3 mil seguidores, último post em 19/11 · **Natal:** vende: "Ensaios de Natal 2026", com o WhatsApp na legenda (03 e 17/11)
+- **Site:** **morto**: o Google aponta angelicaandradefotografia.albom.com.br, que não existe (DNS); o teste achou a página dela na Alboom, com o @
+- **WhatsApp:** (11) 95858-7843, celular do Google e das legendas · **Google:** nota 5,0 em 96 avaliações · **Dona:** Angélica ("o trabalho da Angélica")
+- **Por que:** site morto, 96 avaliações para 2,3 mil seguidores (42 por mil), sozinha, vende pelo WhatsApp
+- **Alerta:** sem endereço no Google; duas capas de vídeo borradas na folha
+- **Pontos:** vitrine 25, dona 20, tamanho 15, Google 15, ritmo 0, negócio 10, fotos 3
+
+### 7. Andressa Borelli Fotografia · [@andressaborellifotografia](https://www.instagram.com/andressaborellifotografia/) · 88 pontos
+
+- **Onde:** Vila Sônia do Taboão · Taboão da Serra · **Especialidade:** gestante, newborn, família e infantil
+- **Instagram:** 1,1 mil seguidores, último post em 17/11 · **Natal:** mostra: "Um Natal para recordar" (16/11)
+- **Site:** nenhum próprio: o Google aponta a página dela na Alboom (andressaborelli.alboompro.com), com o @ e o WhatsApp
+- **WhatsApp:** (11) 96137-5428, o da página da Alboom; o Google mostra o fixo (11) 4787-7673 · **Google:** nota 5,0 em 57 avaliações · **Dona:** Andressa
+- **Por que:** 57 avaliações para 1,1 mil seguidores (52 por mil), sozinha; as avaliações elogiam o cuidado com bebê (jaleco, máscara, estúdio climatizado)
+- **Alerta:** o celular não está no Google (usar o da Alboom); uma avaliação elogia a maquiadora (parceira, não sócia)
+- **Pontos:** vitrine 25, dona 20, tamanho 15, Google 15, ritmo 0, negócio 10, fotos 3
+
+### 8. Fb.2 Fotografia · [@fb.2fotografia](https://www.instagram.com/fb.2fotografia/) · 85 pontos
+
+- **Onde:** Jardim da Luz · Embu das Artes (os posts marcam Taboão da Serra) · **Especialidade:** aniversário infantil, festa, 15 anos e estúdio
+- **Instagram:** 1,7 mil seguidores, último post em 19/11 (posta todo dia) · **Natal:** não divulgou
+- **Site:** nenhum próprio: o Google aponta uma página grátis na 46graus (fb2fotografia.46graus.com) e o teste achou outra na Alboom, com o @ e o telefone
+- **WhatsApp:** (11) 95344-1075, celular do Google, das legendas e do wa.me · **Google:** nota 5,0 em 67 avaliações · **Dono:** Adeilton, com a esposa Alice
+- **Por que:** duas páginas grátis de portfólio, 67 avaliações para 1,7 mil seguidores (39 por mil), vende festa por agenda: o perfil de eventos da Bia
+- **Alerta:** **casal** ("a Alice trabalha em conjunto com seu esposo"): no estudo, casal e equipe esfriaram; fotos de festa medianas (folha 3,5)
+- **Pontos:** vitrine 25, dona 10, tamanho 15, Google 15, ritmo 10, negócio 10, fotos 0
+
+### 9. Thayna Sapelly Fotografia · [@thaynasapellyfotografia](https://www.instagram.com/thaynasapellyfotografia/) · 83 pontos
+
+- **Onde:** Parque Primavera · Guarulhos · **Especialidade:** gestante, newborn, smash, família e feminino
+- **Instagram:** 7,3 mil seguidores, último post em 09/11 · **Natal:** vende: "Restam poucas vagas para o ensaio de Natal" (06 a 09/11)
+- **Site:** nenhum no Google; o teste achou a página dela na Alboom, com o @, o telefone e a cidade
+- **WhatsApp:** (11) 96299-3358, celular do Google; (11) 98342-2410 nas legendas · **Google:** nota 5,0 em 226 avaliações · **Dona:** Thayná (todas as avaliações lidas citam a Thayná)
+- **Por que:** 226 avaliações (31 por mil), sozinha, vende por vagas, estúdio "de fácil acesso"
+- **Alerta:** dois celulares (Google e legendas); perfil maior (7 mil)
+- **Pontos:** vitrine 25, dona 20, tamanho 5, Google 15, ritmo 5, negócio 10, fotos 3
+
+### 10. Bianca Cabral Fotografia · [@bianca.cabralfotografia](https://www.instagram.com/bianca.cabralfotografia/) · 83 pontos
+
+- **Onde:** Jardim Germânia · São Paulo (zona sul) · **Especialidade:** família, infantil, aniversário e casamento
+- **Instagram:** 5,1 mil seguidores, último post em 15/11 · **Natal:** vende o "Especial de Natal 2026 · Um lar de histórias" (05 a 12/11)
+- **Site:** nenhum próprio: o Google aponta a página dela na Alboom (biancafotografia.alboompro.com); biancacabral.com.br é de outra Bianca (loja)
+- **WhatsApp:** (11) 98178-7502, celular do Google e das legendas · **Google:** nota 5,0 em 98 avaliações · **Dona:** Bianca ("a Bia")
+- **Por que:** página na Alboom, 98 avaliações, sozinha; monta o próprio cenário ("visualizar o cenário no espaço vazio, criar, inventar")
+- **Alerta:** nenhum
+- **Pontos:** vitrine 25, dona 20, tamanho 10, Google 15, ritmo 0, negócio 10, fotos 3
+
+### 11. Estúdio Luana Rodrigues Fotografia · [@luana_rodriguesfotografia](https://www.instagram.com/luana_rodriguesfotografia/) · 83 pontos
+
+- **Onde:** Vila Boa Vista · Santo André · **Especialidade:** gestante, parto e família
+- **Instagram:** 1,8 mil seguidores, último post em 11/11 · **Natal:** vende o "Natal Aldrora" (24/10 a 05/11)
+- **Site:** o Google aponta a página dela na Alboom; e **studioluanarodrigues.com.br está no ar só com a página padrão do WordPress** ("Welcome to WordPress"): ela comprou o domínio e não fez o site
+- **WhatsApp:** (11) 91878-0040, celular do Google · **Google:** nota 5,0 em 27 avaliações · **Dona:** Luana ("a Lu")
+- **Por que:** o domínio comprado sem site é o sinal mais claro de quem quer um site; página na Alboom, perfil pequeno, sozinha
+- **Alerta:** há outra Luana Rodrigues fotógrafa (@luanarodrigues_fotografia, 5 mil): o @ certo é o que a página da Alboom do Google aponta, e os posts marcam Santo André
+- **Pontos:** vitrine 25, dona 20, tamanho 15, Google 15, ritmo 0, negócio 5, fotos 3
+
+### 12. Estúdio Rafaela Arena · [@fotografarafaelaarena](https://www.instagram.com/fotografarafaelaarena/) · 80 pontos
+
+- **Onde:** Oswaldo Cruz · São Caetano do Sul · **Especialidade:** família, pré-wedding e corporativo
+- **Instagram:** 2 mil seguidores, último post em 16/11 · **Natal:** vende: "As vagas estão acabando! Me chama para agendar", com agenda pelo link da bio (08 a 16/11)
+- **Site:** nenhum próprio: o Google aponta a página dela na Alboom (rafaelaarenamathias.alboompro.com), com o WhatsApp
+- **WhatsApp:** (11) 96217-0475, celular do Google e da Alboom · **Google:** nota 5,0 em 21 avaliações · **Dona:** Rafaela ("a Rafa")
+- **Por que:** página na Alboom, sozinha, agenda por link; fotos de família no Natal alegres e reais (folha 4,5)
+- **Alerta:** a página da Alboom aponta um @ antigo (@rafaelaarena_ph), que não abre; o @ atual marca "Rafaela Arena Photography" nos posts. 21 avaliações
+- **Pontos:** vitrine 25, dona 20, tamanho 15, Google 10, ritmo 0, negócio 5, fotos 5
+
+### 13. Bianca Maia Fotógrafa · [@biancamaiafotografa](https://www.instagram.com/biancamaiafotografa/) · 80 pontos
+
+- **Onde:** Jardim Nova Cajamar · Cajamar · **Especialidade:** família, aniversário, feminino e casamento
+- **Instagram:** 1,5 mil seguidores, último post em 11/11 · **Natal:** vende: "Nosso Natal a todo vapor! Agende o seu horário" (09/11)
+- **Site:** o Google aponta um site grátis da Wix (byannkamayaa5.wixsite.com/meusite); o teste achou a página dela na Alboom, com o @ e o telefone
+- **WhatsApp:** (11) 96088-6650, celular do Google e da Alboom · **Google:** nota 4,9 em 18 avaliações · **Dona:** Bianca
+- **Por que:** já tentou ter site (Wix grátis) e tem página na Alboom; perfil pequeno; sozinha
+- **Alerta:** 18 avaliações e nota 4,9; posts também em Jundiaí; biancamaia.com é de outra Bianca; muitas artes de Natal (folha 3,5)
+- **Pontos:** vitrine 25, dona 20, tamanho 15, Google 10, ritmo 0, negócio 10, fotos 0
+
+### 14. Laís Figueiredo Fotografia · [@estudiolaisfigueiredo](https://www.instagram.com/estudiolaisfigueiredo/) · 78 pontos
+
+- **Onde:** Bela Vista · Osasco · **Especialidade:** infantil (smash e aniversário com cenário montado por ela) e família
+- **Instagram:** 3,5 mil seguidores, último post em 15/11 · **Natal:** mostra o Natal 2026 (15/11)
+- **Site:** **morto**: laisfigueiredofotografia.com.br é um Wix desconectado ("Reconnect Your Domain", conferido no navegador); o teste achou a página dela na Alboom, com o telefone, o @ e a cidade
+- **WhatsApp:** (11) 98493-9587, celular do Google · **Google:** nota 4,9 em 34 avaliações · **Dona:** Laís
+- **Por que:** site morto, página na Alboom, sozinha, responde orçamento; clientes que voltam (aos 6 meses, 1 e 2 anos); "ser fotógrafa infantil é também ser decoradora, montadora"
+- **Alerta:** 1 das 5 avaliações lidas é negativa (cenário e preço); o @ veio da página da Alboom com o telefone do Google
+- **Pontos:** vitrine 25, dona 20, tamanho 10, Google 10, ritmo 0, negócio 10, fotos 3
+
+### 15. Estúdio Ingoma · [@estudio.ingoma](https://www.instagram.com/estudio.ingoma/) · 77 pontos
+
+- **Onde:** Tatuapé · São Paulo (zona leste) · **Especialidade:** newborn e família (também em casa)
+- **Instagram:** 3 mil seguidores, último post em 19/11 (posta todo dia) · **Natal:** não divulgou
+- **Site:** o Google aponta o Facebook
+- **WhatsApp:** (11) 96561-1559, celular do Google · **Google:** nota 5,0 em 51 avaliações · **Dona:** Fernanda ("a Fê")
+- **Por que:** as fotos mais bonitas da folha (newborn e família reais, 4,5), sozinha, posta todo dia
+- **Alerta:** perfil com logo; as legendas vêm vazias; as avaliações são de 3 a 4 anos atrás; o @ veio do nome (único: "Estúdio Ingoma")
+- **Pontos:** vitrine 12, dona 20, tamanho 15, Google 15, ritmo 10, negócio 0, fotos 5
+
+### 16. Nathy Mascarenhas Fotografia · [@nathymascarenhasfotografia](https://www.instagram.com/nathymascarenhasfotografia/) · 76 pontos
+
+- **Onde:** Centro · Itapecerica da Serra · **Especialidade:** gestante, newborn, família, aniversário e 15 anos
+- **Instagram:** 1,4 mil seguidores, último post em 18/11 (posta todo dia) · **Natal:** não divulgou
+- **Site:** nenhum
+- **WhatsApp:** (11) 96151-9606, celular do Google · **Google:** nota 5,0 em 119 avaliações · **Dona:** Nathaly ("a Nath")
+- **Por que:** 119 avaliações para 1,4 mil seguidores (88 por mil, a maior da lista): a cliente dela vem da indicação e do Google, como a da Bia e a da Rafaela; sozinha
+- **Alerta:** perfil com logo; nenhum link no Google (sinal médio no estudo)
+- **Pontos:** vitrine 8, dona 20, tamanho 15, Google 15, ritmo 10, negócio 5, fotos 3
+
+### 17. Rafaela Rodrigues Fotografia · [@rafaelarodriguesfotografia](https://www.instagram.com/rafaelarodriguesfotografia/) · 75 pontos
+
+- **Onde:** Cidade São Francisco · São Paulo (zona oeste; o perfil diz "Fotógrafa em Osasco e SP") · **Especialidade:** newborn, mês a mês, família, gestante e parto
+- **Instagram:** 8,1 mil seguidores, último post em 20/11 · **Natal:** mostra o Natal 2026 (17 e 20/11)
+- **Site:** **morto**: o Google aponta rafaelarodriguesfotografia.com.br, que não existe (DNS)
+- **WhatsApp:** (11) 95978-9374, celular do Google · **Google:** nota 5,0 em 247 avaliações · **Dona:** Rafaela ("a Rafa")
+- **Por que:** site morto, 247 avaliações (31 por mil), fotos muito bonitas (4,5), clientes que voltam ("já estamos indo para o nosso terceiro ensaio")
+- **Alerta:** **tem equipe** ("ela e toda a equipe"); 8 mil seguidores
+- **Pontos:** vitrine 25, dona 10, tamanho 5, Google 15, ritmo 10, negócio 5, fotos 5
+
+### 18. Jaqueline Rosa Fotografia · [@jaquelinerosa.fotografia](https://www.instagram.com/jaquelinerosa.fotografia/) · 75 pontos
+
+- **Onde:** São Paulo (sem endereço no Google; os posts marcam "São Paulo Capital") · **Especialidade:** gestante, newborn, parto e família
+- **Instagram:** 6 mil seguidores, último post em 13/11 · **Natal:** não nos últimos posts (uma avaliação cita ensaios de Natal de outros anos)
+- **Site:** nenhum próprio: o Google aponta a página dela na Alboom, com o @
+- **WhatsApp:** (11) 97258-0993, celular do Google · **Google:** nota 5,0 em 88 avaliações · **Dona:** Jaqueline ("a Jaque")
+- **Por que:** a mais organizada nas avaliações ("trabalha com contrato, pagamento seguro, já tem cadastro na maternidade"): o perfil de quem quer o painel; famílias que voltam há 7 anos; fotos lindas (4,5)
+- **Alerta:** sem endereço no Google; 6 mil seguidores
+- **Pontos:** vitrine 25, dona 20, tamanho 5, Google 10, ritmo 5, negócio 5, fotos 5
+
+### 19. Lunna Fotografias · [@lunnafotografia](https://www.instagram.com/lunnafotografia/) · 75 pontos
+
+- **Onde:** Jardim Belval · Barueri · **Especialidade:** aniversário, 15 anos, família e casamento
+- **Instagram:** 2,2 mil seguidores, último post em 18/11 · **Natal:** não divulgou
+- **Site:** nenhum próprio: o Google aponta a página dela na Alboom, com o @ e o telefone
+- **WhatsApp:** (11) 94040-7078, celular do Google · **Google:** nota 5,0 em 26 avaliações · **Dona:** "a Su" (o nome completo não confirmei)
+- **Por que:** página na Alboom, perfil pequeno, sozinha, faz evento e ensaio (como a Bia)
+- **Alerta:** só 89 posts; fotos medianas (folha 3,5)
+- **Pontos:** vitrine 25, dona 20, tamanho 15, Google 10, ritmo 0, negócio 5, fotos 0
+
+### 20. Domway Fotografia · [@domwayfotografia](https://www.instagram.com/domwayfotografia/) · 73 pontos
+
+- **Onde:** Chácara do Solar II (Fazendinha) · Santana de Parnaíba · **Especialidade:** casamento, pré-wedding, família e festa
+- **Instagram:** 1,7 mil seguidores, último post em 19/11 · **Natal:** não divulgou
+- **Site:** **morto**: o Google aponta domwayfotografia.com.br, que não existe (DNS)
+- **WhatsApp:** (11) 93433-6204, celular do Google · **Google:** nota 5,0 em 16 avaliações · **Dona:** Adriely
+- **Por que:** site morto e perfil pequeno
+- **Alerta:** **duas fotógrafas** ("as meninas"); 16 avaliações
+- **Pontos:** vitrine 25, dona 10, tamanho 15, Google 10, ritmo 5, negócio 5, fotos 3
+
+### 21. Bárbara Soares Fotografia · [@barbarasoaresfotografia](https://www.instagram.com/barbarasoaresfotografia/) · 70 pontos
+
+- **Onde:** Vila Guilherme · Santa Isabel · **Especialidade:** 15 anos, aniversário, casamento, formatura e ensaio individual
+- **Instagram:** 4,6 mil seguidores, último post em 17/11 · **Natal:** não divulgou
+- **Site:** **congelado**: o Google aponta a página dela na Alboom, que mostra "Website congelado" (conferido no navegador)
+- **WhatsApp:** (11) 99783-5037, celular do Google · **Google:** nota 4,9 em 67 avaliações · **Dona:** Bárbara
+- **Por que:** o site congelado é o sinal que a Rafaela, a Ana Carolina e a Thamirys tinham (Alboom ou site morto); sozinha
+- **Alerta:** Santa Isabel fica no extremo leste da Grande SP; posta devagar; fotos medianas (folha 3,5); studiobarbarasoares.com é de outra pessoa
+- **Pontos:** vitrine 25, dona 20, tamanho 10, Google 10, ritmo 0, negócio 5, fotos 0
+
+### 22. Luana Jomara Fotografia · [@luanajomarafotografia](https://www.instagram.com/luanajomarafotografia/) · 70 pontos
+
+- **Onde:** Centro · Diadema · **Especialidade:** família, batizado, casamento civil e ensaio profissional
+- **Instagram:** 6,2 mil seguidores, último post em 21/11 · **Natal:** vende a campanha "Presente no Presente" ("Diadema, o Natal está chegando!", 11 a 13/11)
+- **Site:** nenhum próprio: o Google aponta a página dela na Alboom, com o @, o telefone e a cidade
+- **WhatsApp:** (11) 91942-9882; o link do Google já abre o WhatsApp com "Vim pelo Google! Quero agendar meu horário" · **Google:** nota 5,0 em 73 avaliações · **Dona:** Luana
+- **Por que:** organiza a entrada dos clientes (o link do Google com mensagem pronta mostra de onde veio o cliente), página na Alboom, sozinha, campanha de Natal
+- **Alerta:** 6 mil seguidores; muitas artes (folha 3,5)
+- **Pontos:** vitrine 25, dona 20, tamanho 5, Google 10, ritmo 0, negócio 10, fotos 0
+
+### 23. Adriana Damoia Fotografia · [@adrianadamoia.fotografia](https://www.instagram.com/adrianadamoia.fotografia/) · 70 pontos
+
+- **Onde:** Vila Maria Luiza · Francisco Morato · **Especialidade:** ensaio feminino, corporativo, infantil e noiva
+- **Instagram:** 8,1 mil seguidores, último post em 19/11 · **Natal:** mostra: "Um encanto chamado Natal" (19/11)
+- **Site:** nenhum próprio: o Google aponta a página dela na Alboom, com o @, o telefone e a cidade
+- **WhatsApp:** (11) 98059-8185, celular do Google · **Google:** nota 5,0 em 114 avaliações · **Dona:** Adriana
+- **Por que:** página na Alboom, 114 avaliações, sozinha, estúdio próprio, vizinha de Franco da Rocha (onde estão a Rafaela Damaceno e a Mandaluz)
+- **Alerta:** 8 mil seguidores; o forte é feminino e autoestima: o portfólio precisa de páginas de feminino e corporativo
+- **Pontos:** vitrine 25, dona 20, tamanho 5, Google 10, ritmo 5, negócio 5, fotos 0
+
+### 24. Tarsis Dantas · [@tarsisdantasfotografia](https://www.instagram.com/tarsisdantasfotografia/) · 70 pontos
 
 - **Onde:** São Paulo (sem endereço no Google; achada nas buscas de Itaquera e Vila Prudente; posts no Cartório de Santana) · **Especialidade:** casamento civil e pré-wedding
 - **Instagram:** 7 mil seguidores, último post em 19/11 · **Natal:** não divulgou
@@ -257,17 +279,7 @@ Pollyanna (13 mil seguidores, 1,4 por mil) ficou na fila.
 - **Alerta:** sem endereço e sem telefone no Google; selfies e casamento (folha 3,5)
 - **Pontos:** vitrine 25, dona 20, tamanho 5, Google 10, ritmo 10, negócio 0, fotos 0
 
-### 23. Leles Fotografia · [@lelesfotografia](https://www.instagram.com/lelesfotografia/) · 70 pontos
-
-- **Onde:** Jardim Iracema · São Paulo (zona oeste) · **Especialidade:** casamento, 15 anos e retrato
-- **Instagram:** 3 mil seguidores, último post em 19/11 · **Natal:** não divulgou
-- **Site:** **congelado**: lelesfotografia.com.br mostra a página "Website congelado" da Alboom (conferido no navegador)
-- **WhatsApp:** (11) 95333-2915, celular do Google · **Google:** nota 5,0 em 16 avaliações · **Dona:** Gleice, com o marido Jamil
-- **Por que:** site congelado, o sinal mais forte do estudo
-- **Alerta:** **casal** (Gleice e Jamil) e "produtora" de foto e filme; 16 avaliações
-- **Pontos:** vitrine 25, dona 10, tamanho 15, Google 5, ritmo 10, negócio 5, fotos 0
-
-### 24. Nina Queen Fotografia · [@ninaqueenfotografia](https://www.instagram.com/ninaqueenfotografia/) · 70 pontos
+### 25. Nina Queen Fotografia · [@ninaqueenfotografia](https://www.instagram.com/ninaqueenfotografia/) · 70 pontos
 
 - **Onde:** Santa Terezinha · São Bernardo do Campo · **Especialidade:** gestante, newborn, família e infantil
 - **Instagram:** 2,3 mil seguidores, último post em 20/11 · **Natal:** mostra o Natal 2026 em cenário ("todos os Natais da Antônia foram registrados aqui", 14 e 16/11)
@@ -277,7 +289,7 @@ Pollyanna (13 mil seguidores, 1,4 por mil) ficou na fila.
 - **Alerta:** o Google aponta só o Instagram; perfil com logo; muitas artes (folha 3,5)
 - **Pontos:** vitrine 0, dona 20, tamanho 15, Google 15, ritmo 10, negócio 10, fotos 0
 
-### 25. Bel Lima Fotografia · [@bellimafotografia](https://www.instagram.com/bellimafotografia/) · 68 pontos
+### 26. Bel Lima Fotografia · [@bellimafotografia](https://www.instagram.com/bellimafotografia/) · 68 pontos
 
 - **Onde:** Cidade Soberana · Guarulhos · **Especialidade:** gestante, newborn, família, smash e aniversário
 - **Instagram:** 1,3 mil seguidores, último post em 13/11 · **Natal:** mostra o Natal em família (12 e 13/11)
@@ -287,7 +299,7 @@ Pollyanna (13 mil seguidores, 1,4 por mil) ficou na fila.
 - **Alerta:** avaliações de 3 anos atrás; sem nenhum link no Google
 - **Pontos:** vitrine 8, dona 20, tamanho 15, Google 10, ritmo 5, negócio 5, fotos 5
 
-### 26. Nicolly Souza Fotógrafa · [@nicfotografa](https://www.instagram.com/nicfotografa/) · 68 pontos
+### 27. Nicolly Souza Fotógrafa · [@nicfotografa](https://www.instagram.com/nicfotografa/) · 68 pontos
 
 - **Onde:** Jardim Almanara · São Paulo (zona norte) · **Especialidade:** família, Natal, aniversário, chá revelação e casamento
 - **Instagram:** 2 mil seguidores, último post em 20/11 · **Natal:** vende: "Fotos em família no Natal que vocês queriam? Temos!" (20/11)
@@ -297,7 +309,7 @@ Pollyanna (13 mil seguidores, 1,4 por mil) ficou na fila.
 - **Alerta:** o Google aponta só o Instagram
 - **Pontos:** vitrine 0, dona 20, tamanho 15, Google 15, ritmo 5, negócio 10, fotos 3
 
-### 27. Adriana Félix Fotografia · [@adrianafelixfotografia](https://www.instagram.com/adrianafelixfotografia/) · 68 pontos
+### 28. Adriana Félix Fotografia · [@adrianafelixfotografia](https://www.instagram.com/adrianafelixfotografia/) · 68 pontos
 
 - **Onde:** Vila Formosa · São Paulo (zona leste) · **Especialidade:** aniversário infantil, família e corporativo
 - **Instagram:** 1,9 mil seguidores, último post em 19/11 · **Natal:** não divulgou
@@ -307,7 +319,7 @@ Pollyanna (13 mil seguidores, 1,4 por mil) ficou na fila.
 - **Alerta:** muitas artes com texto (folha 3,5); o @ veio do nome, confirmado pelo nome do perfil e a hashtag dela
 - **Pontos:** vitrine 8, dona 20, tamanho 15, Google 15, ritmo 0, negócio 10, fotos 0
 
-### 28. Sakurai Fotografia (Marina) · [@sakurai_fotografia](https://www.instagram.com/sakurai_fotografia/) · 65 pontos
+### 29. Sakurai Fotografia (Marina) · [@sakurai_fotografia](https://www.instagram.com/sakurai_fotografia/) · 65 pontos
 
 - **Onde:** Jardim do Mar · São Bernardo do Campo · **Especialidade:** família e Natal (também casamento)
 - **Instagram:** 7,3 mil seguidores, último post em 20/11 · **Natal:** mostra: "Natal em família", "Ensaio de Natal. Obrigada por mais um ano" (18 e 19/11)
@@ -317,7 +329,7 @@ Pollyanna (13 mil seguidores, 1,4 por mil) ficou na fila.
 - **Alerta:** 18 avaliações para 7,3 mil seguidores (Google fraco para o tamanho); avaliações de 3 a 4 anos atrás
 - **Pontos:** vitrine 25, dona 20, tamanho 5, Google 0, ritmo 10, negócio 0, fotos 5
 
-### 29. As Fotos de Daniela · [@asfotosdedaniela](https://www.instagram.com/asfotosdedaniela/) · 65 pontos
+### 30. As Fotos de Daniela · [@asfotosdedaniela](https://www.instagram.com/asfotosdedaniela/) · 65 pontos
 
 - **Onde:** sem endereço no Google (achada nas buscas de Mauá e Ribeirão Pires) · **Especialidade:** gestante, família, casal, Natal e festa
 - **Instagram:** 3,5 mil seguidores, último post em 17/11 · **Natal:** vende: "agendamento com algumas vagas restantes" (17/11)
@@ -327,7 +339,7 @@ Pollyanna (13 mil seguidores, 1,4 por mil) ficou na fila.
 - **Alerta:** sem endereço (confirmar a cidade); o Google aponta só o Instagram
 - **Pontos:** vitrine 0, dona 20, tamanho 10, Google 10, ritmo 10, negócio 10, fotos 5
 
-### 30. Rapha Barbosa · [@raphabarbosa_fotografia](https://www.instagram.com/raphabarbosa_fotografia/) · 65 pontos
+### 31. Rapha Barbosa · [@raphabarbosa_fotografia](https://www.instagram.com/raphabarbosa_fotografia/) · 65 pontos
 
 - **Onde:** sem endereço no Google (casamentos no litoral norte: Maresias, Ubatuba) · **Especialidade:** casamento e pré-wedding
 - **Instagram:** 2,2 mil seguidores, último post em 05/11 · **Natal:** não divulgou
@@ -337,7 +349,7 @@ Pollyanna (13 mil seguidores, 1,4 por mil) ficou na fila.
 - **Alerta:** **casal** ("o Rapha e a Talytta"); sem endereço; só casamento. O @ veio do nome: o nome do perfil é igual ao do Google
 - **Pontos:** vitrine 25, dona 10, tamanho 15, Google 15, ritmo 0, negócio 0, fotos 0
 
-### 31. Bruna Paixão Fotografia · [@brunapaixaofotografia](https://www.instagram.com/brunapaixaofotografia/) · 65 pontos
+### 32. Bruna Paixão Fotografia · [@brunapaixaofotografia](https://www.instagram.com/brunapaixaofotografia/) · 65 pontos
 
 - **Onde:** Centro · Diadema · **Especialidade:** newborn, família, Natal, feminino e retrato profissional
 - **Instagram:** 11,7 mil seguidores, último post em 19/11 · **Natal:** vende: "Cenário exclusivo com pijamas para toda a família" (16/11)
@@ -347,7 +359,7 @@ Pollyanna (13 mil seguidores, 1,4 por mil) ficou na fila.
 - **Alerta:** perfil grande (11,7 mil) para 51 avaliações
 - **Pontos:** vitrine 25, dona 20, tamanho 0, Google 5, ritmo 10, negócio 5, fotos 0
 
-### 32. Mayumi Fotografia · [@mayumifotografia](https://www.instagram.com/mayumifotografia/) · 65 pontos
+### 33. Mayumi Fotografia · [@mayumifotografia](https://www.instagram.com/mayumifotografia/) · 65 pontos
 
 - **Onde:** sem endereço no Google (achada na busca de Itaquaquecetuba) · **Especialidade:** casamento, gestante e bebê
 - **Instagram:** 3,7 mil seguidores, último post em 12/11 · **Natal:** não divulgou
@@ -356,16 +368,6 @@ Pollyanna (13 mil seguidores, 1,4 por mil) ficou na fila.
 - **Por que:** site morto e página na Alboom; "virou a fotógrafa da família" (casamento, gestante, 1º aniversário)
 - **Alerta:** avaliações de 2 a 4 anos atrás; sem endereço (confirmar a cidade)
 - **Pontos:** vitrine 25, dona 20, tamanho 10, Google 5, ritmo 0, negócio 5, fotos 0
-
-### 33. Refllexos Estúdio · [@refllexos](https://www.instagram.com/refllexos/) · 63 pontos
-
-- **Onde:** Condomínio Nova América (Office Park, Av. das Nações Unidas) · São Paulo (zona sul) · **Especialidade:** família, smash, gestante e Natal
-- **Instagram:** 3,9 mil seguidores, último post em 18/11 · **Natal:** não nos últimos posts (as avaliações citam Natal e Páscoa)
-- **Site:** nenhum próprio: o Google aponta a página deles na Alboom, com o @ e o mesmo celular
-- **WhatsApp:** (11) 94738-4944, celular do Google e da Alboom · **Google:** nota 5,0 em 17 avaliações · **Donos:** casal (o nome não aparece nas avaliações)
-- **Por que:** página na Alboom, fotos reais (folha 4,0), famílias que voltam a cada fase
-- **Alerta:** **casal** ("eles", "a equipe"); 17 avaliações
-- **Pontos:** vitrine 25, dona 0, tamanho 10, Google 5, ritmo 10, negócio 10, fotos 3
 
 ### 34. Estúdio Joice Peixoto · [@joicepeixotofotografia](https://www.instagram.com/joicepeixotofotografia/) · 63 pontos
 
@@ -444,7 +446,7 @@ perfis: conferir antes de entrar num lote. Primeiro a Lika, com o **@ a confirma
 Laranjeiras, site da Wix desconectado, avaliações de parto e gestante que citam a Lika) tem 80 pontos, mas o @ achado pelo
 nome só mostra casamento e pré-wedding em Paraibuna.
 
-[@lika.fotografia](https://www.instagram.com/lika.fotografia/) (80), [@pollyannafotografia](https://www.instagram.com/pollyannafotografia/) (60), [@alexandrebrittofotografia](https://www.instagram.com/alexandrebrittofotografia/) (60), [@tamy.araujo1](https://www.instagram.com/tamy.araujo1/) (58), [@onix.fotografia](https://www.instagram.com/onix.fotografia/) (58), [@palomaalcantarafotografia](https://www.instagram.com/palomaalcantarafotografia/) (58), [@cbfotografiaa](https://www.instagram.com/cbfotografiaa/) (58), [@elisrezendefotografia](https://www.instagram.com/elisrezendefotografia/) (56), [@leiafalcaofotografias](https://www.instagram.com/leiafalcaofotografias/) (55), [@jelenfotografias](https://www.instagram.com/jelenfotografias/) (55), [@renatadarinfotografa](https://www.instagram.com/renatadarinfotografa/) (55), [@tatianyfelixfotografia](https://www.instagram.com/tatianyfelixfotografia/) (55), [@heloizanevesfotografia](https://www.instagram.com/heloizanevesfotografia/) (55), [@duprafotografia](https://www.instagram.com/duprafotografia/) (52), [@reacoesfotografia](https://www.instagram.com/reacoesfotografia/) (51), [@carolinedistefanofotografia](https://www.instagram.com/carolinedistefanofotografia/) (50), e as de menos de 50 pontos que estão no ranking da pasta de trabalho.
+[@lika.fotografia](https://www.instagram.com/lika.fotografia/) (80), [@lelesfotografia](https://www.instagram.com/lelesfotografia/) (70, casal, site congelado), [@refllexos](https://www.instagram.com/refllexos/) (63, casal), [@pollyannafotografia](https://www.instagram.com/pollyannafotografia/) (60), [@alexandrebrittofotografia](https://www.instagram.com/alexandrebrittofotografia/) (60), [@tamy.araujo1](https://www.instagram.com/tamy.araujo1/) (58), [@onix.fotografia](https://www.instagram.com/onix.fotografia/) (58), [@palomaalcantarafotografia](https://www.instagram.com/palomaalcantarafotografia/) (58), [@cbfotografiaa](https://www.instagram.com/cbfotografiaa/) (58), [@elisrezendefotografia](https://www.instagram.com/elisrezendefotografia/) (56), [@leiafalcaofotografias](https://www.instagram.com/leiafalcaofotografias/) (55), [@jelenfotografias](https://www.instagram.com/jelenfotografias/) (55), [@renatadarinfotografa](https://www.instagram.com/renatadarinfotografa/) (55), [@tatianyfelixfotografia](https://www.instagram.com/tatianyfelixfotografia/) (55), [@heloizanevesfotografia](https://www.instagram.com/heloizanevesfotografia/) (55), [@duprafotografia](https://www.instagram.com/duprafotografia/) (52), [@reacoesfotografia](https://www.instagram.com/reacoesfotografia/) (51), [@carolinedistefanofotografia](https://www.instagram.com/carolinedistefanofotografia/) (50), e as de menos de 50 pontos que estão no ranking da pasta de trabalho.
 
 ## Para olhar no navegador: Instagram com a incorporação desligada
 
@@ -488,3 +490,7 @@ site dela aponta outro @); a Casa 43 (casa cultural).
   cortar endereço fora de SP e DDD diferente de 11.
 - **30 Instagram têm a incorporação desligada:** o embed público volta vazio e, sem login, não há outro jeito honesto de
   ler daqui. Ficaram na lista "Para olhar no navegador".
+- **Quem fica sem @ na primeira busca pode ser das melhores:** dos 173 lugares sem @, 46 tinham site morto e 14 página
+  grátis, os sinais mais fortes. `recupera.py` procura a página na Alboom pelo nome e pelo domínio morto (só vale com o
+  telefone do Google na página) e testa o @ igual ao domínio; achou 14, e duas entraram nas 40 (Daph Prado e Laís
+  Figueiredo). Rodar sempre, antes do corte.

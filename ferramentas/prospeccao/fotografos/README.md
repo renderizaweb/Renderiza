@@ -38,7 +38,9 @@ pasta de trabalho estes scripts, mais `../ler_sinais.py`, `../sinais.mjs`, `../.
 3. `checa_site.py` com o site do card; `reclass.py` separa a **página grátis em subdomínio** (Alboom, 46graus, Adobe
    Portfolio, Canva, Wix, Google Sites), que **passa**. Detalhes (`maps-lugar2.mjs`) só de quem não tem site funcionando;
    depois `etapa_site.py` confere o site dos detalhes e grava `site.jsonl`.
-4. `ig_foto.py site.jsonl ig.jsonl` (FILAS=6) e `ig_site.py` (segunda passada: o @ que está na página do site).
+4. `ig_foto.py site.jsonl ig.jsonl` (FILAS=6), `ig_site.py` (segunda passada: o @ que está na página do site) e
+   `recupera.py` (terceira: a página na Alboom pelo nome ou pelo domínio morto, só com o telefone do Google na página, e o
+   @ igual ao domínio; grava `rec.jsonl`, que entra no lugar de quem estava sem @).
 5. `juntar4.py ig.jsonl fin.json AAAA-MM-DD` (1 mil a 15 mil, post em 30 dias, sinais do estudo e a pré-nota) e
    `folhas4.py fin.json <prefixo>` (só quem ainda não tem nota em `notas.jsonl`). **Olhe as folhas** e grave a nota.
 6. `pendentes.py` separa as aprovadas (3,5+) sem avaliações lidas (`sin*.jsonl`, para o `sinais.mjs`) e sem domínios

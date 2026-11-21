@@ -380,7 +380,7 @@ Art, Ray Barbosa (tema escuro), Mariana Lima e Thayuane Rosa. **Fotógrafa nova 
 
 ## 11. Lote 4: o estudo de quem esquentou (21/11/2026)
 
-Pedido do Kaue (21/11/2026): só fotógrafos, de qualquer especialidade, em São Paulo, com os critérios revistos a partir
+Pedido de 21/11/2026: só fotógrafos, de qualquer especialidade, em São Paulo, com os critérios revistos a partir
 dos perfis de quem mais gostou da demo. A lista do lote está em **`docs/nichos/fotografos-lote4.md`**.
 
 **Base:** os 70 leads de fotografia dos lotes 1 a 3 no painel (primeiro contato de 04 a 17/11/2026) e as visitas
