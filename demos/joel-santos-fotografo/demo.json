@@ -1,0 +1,484 @@
+{
+ "pasta": "joel-santos-fotografo",
+ "marca": "Joel Santos Fotografia",
+ "marca_completa": "Joel Santos Fotografia",
+ "dona": "Joel",
+ "titulo_nome": "Joel Santos",
+ "titulo_script": "fotografia",
+ "quem_a": "o Joel",
+ "quem_da": "do Joel",
+ "google": {
+  "coords": "-23.4274946,-46.8292097",
+  "fid": "0x94cf078120e55037:0x1a00b3a33c3bb70f",
+  "gid": "/g/11f5dckyz8"
+ },
+ "google_nome": "Fotógrafo em Santana de Parnaíba",
+ "endereco_maps": "Av. Cândido Portinari, 905a - Colinas da Anhanguera, Santana de Parnaíba - SP, 06537-001",
+ "google_nota": "4,9",
+ "google_total": "131",
+ "verificado": "2026-11-23",
+ "whatsapp": "5511913310830",
+ "fone_link": "+5511913310830",
+ "instagram": "fotografoemsantanadeparnaiba",
+ "seguidores": "1,9 mil",
+ "mensagem": "Olá, Joel! Vi o portfólio e queria saber das datas para o meu casamento.",
+ "cores": {
+  "fundo": "#f8f6f1",
+  "papel": "#ffffff",
+  "areia": "#eeebe1",
+  "linha": "#e0dccf",
+  "tinta": "#22231e",
+  "tinta2": "#5f6157",
+  "rosa": "#d9d6c3",
+  "acento": "#6b7445",
+  "acento_escuro": "#545c35",
+  "cafe": "#1f201b"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Libre Caslon Display",
+    ""
+   ],
+   "sans": [
+    "Hanken Grotesk",
+    "wght@300..600"
+   ],
+   "script": [
+    "Herr Von Muellerhoff",
+    ""
+   ]
+  }
+ },
+ "renderiza": {
+  "ola": "Joel",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "parcelado no crédito",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-30",
+  "msg_garantir": "Olá! Sou o Joel, da Joel Santos Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou parcelado no crédito).",
+  "msg_negociar": "Olá! Sou o Joel, da Joel Santos Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "msg_duvida": "Olá! Sou o Joel, da Joel Santos Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida.",
+  "codigo": "er8b"
+ },
+ "portfolio": {
+  "versao": 4,
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py), lote 4 de fotógrafos (23/11/2026). Fotos dos ORIGINAIS: drive/ = a grade dele salva no Drive \"lote 22 do 11\" (posts de 15 a 22/04/2026); posts/<código>/ = carrosséis pelo embed público (os de abril de 2026 e as capas dos 6 posts de 23/11/2026). \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "olho": "Fotógrafo de casamento · Santana de Parnaíba, SP",
+  "titulo": "Casamentos acontecem uma única vez.",
+  "linha": "Casamentos, casamentos civis, mini weddings e pré-weddings, com emoção e direção, em Santana de Parnaíba, Cajamar, Jundiaí, Barueri e região.",
+  "local": "Santana de Parnaíba",
+  "onde": "Em Santana de Parnaíba, Cajamar, Jundiaí, Barueri e região. Datas pelo WhatsApp.",
+  "tira": [
+   "casamento:0",
+   "pre-wedding:0",
+   "civil:1",
+   "pre-wedding:1",
+   "casamento:2",
+   "civil:3",
+   "pre-wedding:2"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "alleson maia",
+    "tag": "Casamento",
+    "texto": "As fotos do nosso casamento ficaram simplesmente incríveis! O Joel foi extremamente profissional, prestativo e dedicado em todos os momentos. Conseguiu registrar cada detalhe com muito carinho e atenção."
+   },
+   {
+    "nome": "Dyy",
+    "tag": "Pré-wedding",
+    "texto": "Fotografar com o Joel foi maravilhoso. Um profissional super atencioso, com um olhar afiado e muito gentil ao dar instruções. Meu ensaio de pré-wedding ficou do jeitinho que sonhei."
+   },
+   {
+    "nome": "Jaine Machado",
+    "tag": "Casamento",
+    "texto": "Que profissional incrível!!! Joel é um fotógrafo que consegue deixar as pessoas à vontade para que as fotos fiquem espontâneas e lindas. Agradecemos todo o trabalho impecável na cobertura do dia mais importante de nossas vidas."
+   },
+   {
+    "nome": "Duda Rocha",
+    "tag": "Casamentos e noivados",
+    "texto": "Muito atencioso, animado! Gostamos muito do seu trabalho! Obrigada por todo esforço e atenção. As fotos ficaram lindas!"
+   },
+   {
+    "nome": "Francielle Souza",
+    "tag": "Fotografia",
+    "texto": "Indico, pois é um ótimo profissional, amamos as fotos e fez nosso dia se tornar mais especial. Indicarei sempre."
+   }
+  ],
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "Joel Santos, fotógrafo de casamento.",
+   "p": [
+    "Fotografa casamentos e eventos reais em Santana de Parnaíba e região: o religioso, o civil, o mini wedding e o ensaio pré-wedding, com emoção e direção.",
+    "Cada casamento recebe atenção exclusiva, sem produção em massa: do planejamento das fotos ao ensaio pré-wedding e ao grande dia."
+   ],
+   "citacao": "Você não está apenas contratando um fotógrafo… Você está escolhendo como sua história será lembrada.",
+   "citacao_quem": "Joel Santos, no Instagram",
+   "fotos": [
+    {
+     "arq": "drive/671023658_18004310423912587_5868742129797591145_n.jpg",
+     "alt": "Câmera antiga no chão, com o casal ao fundo, num ensaio do Joel"
+    },
+    {
+     "arq": "posts/DXU8Yj2lXtS/DXU8Yj2lXtS_05.jpg",
+     "alt": "Casal de mãos dadas no coreto, num ensaio do Joel"
+    }
+   ],
+   "numeros": [
+    [
+     "131",
+     "avaliações no Google"
+    ],
+    [
+     "1,9 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "contato": {
+   "titulo": "Conversamos?",
+   "p": "Mande uma mensagem para saber como garantir a data do seu casamento no calendário. O Joel atende em Santana de Parnaíba, Cajamar, Jundiaí, Barueri e região.",
+   "endereco": [
+    "Colinas da Anhanguera",
+    "Santana de Parnaíba, SP"
+   ],
+   "telefone": "(11) 91331-0830",
+   "rota": false
+  },
+  "ensaios": [
+   {
+    "id": "casamento",
+    "nome": "Casamento",
+    "chamada": "Fotografia de casamento",
+    "pedido": "a fotografia do casamento",
+    "frase": "Seu casamento acontece uma vez.",
+    "texto": "Do making of da noiva à saída da igreja: a cerimônia, a família, os padrinhos, os detalhes e os noivos.",
+    "citacao": "Enquanto a música toca, as lágrimas rolam e a vida acontece, nós capturamos cada segundo que importa.",
+    "citacao_quem": "Joel Santos, no Instagram",
+    "onde": "Na igreja, no espaço da festa ou ao ar livre, em Santana de Parnaíba, Cajamar, Jundiaí, Barueri e região. Datas pelo WhatsApp.",
+    "depo": {
+     "nome": "alleson maia",
+     "texto": "As fotos do nosso casamento ficaram simplesmente incríveis! O Joel foi extremamente profissional, prestativo e dedicado em todos os momentos. Conseguiu registrar cada detalhe com muito carinho e atenção, superando nossas expectativas. Além do resultado final impecável, a forma como conduziu o trabalho trouxe muita tranquilidade para nós no dia."
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     6,
+     7,
+     9
+    ],
+    "fotos": [
+     {
+      "arq": "posts/DXM2bXflVVL/DXM2bXflVVL_01.jpg",
+      "alt": "Noiva sorrindo com o buquê"
+     },
+     {
+      "arq": "posts/DgENPZrB9P7/DgENPZrB9P7_00.jpg",
+      "alt": "Beijo dos noivos debaixo do arco de flores"
+     },
+     {
+      "arq": "drive/670234529_18004302266912587_4008556672451673410_n.jpg",
+      "alt": "Beijo dos noivos no altar"
+     },
+     {
+      "arq": "posts/DgENBWchbwS/DgENBWchbwS_00.jpg",
+      "alt": "Cerimônia ao ar livre, com o tapete vermelho e os padrinhos"
+     },
+     {
+      "arq": "posts/DgENVokB9hn/DgENVokB9hn_00.jpg",
+      "alt": "Saída dos noivos debaixo de pétalas"
+     },
+     {
+      "arq": "posts/DgEL79dhoBr/DgEL79dhoBr_00.jpg",
+      "alt": "Noivos se beijando no carro antigo"
+     },
+     {
+      "arq": "posts/DXM2bXflVVL/DXM2bXflVVL_02.jpg",
+      "alt": "Noivo esperando no altar"
+     },
+     {
+      "arq": "posts/DXM2bXflVVL/DXM2bXflVVL_03.jpg",
+      "alt": "Troca das alianças, com o terço nas mãos"
+     },
+     {
+      "arq": "posts/DXM2tnxFfcd/DXM2tnxFfcd_01.jpg",
+      "alt": "Noivos se beijando no corredor da igreja"
+     },
+     {
+      "arq": "drive/670555607_18004302764912587_2781881095137927589_n.jpg",
+      "alt": "Noivos se beijando debaixo do véu"
+     },
+     {
+      "arq": "drive/670881438_18004302413912587_5855872570547814559_n.jpg",
+      "alt": "Saída da igreja debaixo de pétalas"
+     },
+     {
+      "arq": "drive/670482839_18004220030912587_5283799499902829551_n.jpg",
+      "alt": "Noiva debaixo do véu, no making of"
+     },
+     {
+      "arq": "posts/DXLLh8YFbjr/DXLLh8YFbjr_01.jpg",
+      "alt": "Noiva olhando o vestido, no making of"
+     },
+     {
+      "arq": "posts/DXM3AjNFXIj/DXM3AjNFXIj_01.jpg",
+      "alt": "Noivos mostrando as alianças, rindo"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Cerimônia",
+      "preco": "R$ 1.800",
+      "itens": [
+       "Cerimônia e retratos dos noivos",
+       "Até 3 horas",
+       "200 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 3.200",
+      "itens": [
+       "Making of, cerimônia e festa",
+       "Até 8 horas",
+       "500 fotos editadas",
+       "Ensaio pré-wedding"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 4.800",
+      "itens": [
+       "Tudo do Completo",
+       "Planejamento das fotos",
+       "Álbum impresso 30x30"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "civil",
+    "nome": "Civil e mini wedding",
+    "curto": "Civil",
+    "chamada": "Casamento civil e mini wedding",
+    "pedido": "a fotografia do casamento civil",
+    "frase": "Cada momento é irrepetível.",
+    "texto": "A cerimônia pequena, num lugar especial: os noivos, a família e os detalhes, do sim ao brinde.",
+    "onde": "No cartório, no restaurante ou no espaço que vocês escolherem, em Santana de Parnaíba e região. Datas pelo WhatsApp.",
+    "depo": {
+     "nome": "Jaine Machado",
+     "texto": "Que profissional incrível!!! Joel é um fotógrafo que consegue deixar as pessoas à vontade para que as fotos fiquem espontâneas e lindas. Agradecemos todo o trabalho impecável na cobertura do dia mais importante de nossas vidas."
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "posts/DXK97e5FYGg/DXK97e5FYGg_01.jpg",
+      "alt": "Beijo dos noivos debaixo do arco de flores"
+     },
+     {
+      "arq": "posts/DXLHM0SlUhQ/DXLHM0SlUhQ_03.jpg",
+      "alt": "Noiva com o buquê rosa, encostada na árvore"
+     },
+     {
+      "arq": "drive/670934778_18004216469912587_3067940629520370153_n.jpg",
+      "alt": "Noivo tocando violão para a noiva"
+     },
+     {
+      "arq": "posts/DXLHjEalSs4/DXLHjEalSs4_02.jpg",
+      "alt": "Noivos com o violão, no meio do verde"
+     },
+     {
+      "arq": "posts/DXK-dhAFSYA/DXK-dhAFSYA_04.jpg",
+      "alt": "Noivos com o buquê, no bosque"
+     },
+     {
+      "arq": "posts/DXK-dhAFSYA/DXK-dhAFSYA_02.jpg",
+      "alt": "Noivos com a família, no bosque"
+     },
+     {
+      "arq": "posts/DXLHbHflble/DXLHbHflble_01.jpg",
+      "alt": "Noivos na estufa de vidro"
+     },
+     {
+      "arq": "posts/DXLHM0SlUhQ/DXLHM0SlUhQ_01.jpg",
+      "alt": "Noiva de ombros de fora, olhando para trás"
+     },
+     {
+      "arq": "posts/DXLHjEalSs4/DXLHjEalSs4_05.jpg",
+      "alt": "Noivos no caminho entre as árvores"
+     },
+     {
+      "arq": "posts/DXLHwDuFYNE/DXLHwDuFYNE_03.jpg",
+      "alt": "Mesa posta para a recepção"
+     },
+     {
+      "arq": "posts/DXLHM0SlUhQ/DXLHM0SlUhQ_04.jpg",
+      "alt": "Noiva na escada de madeira"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Civil",
+      "preco": "R$ 900",
+      "itens": [
+       "Cerimônia no cartório",
+       "Até 1h30",
+       "100 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Mini wedding",
+      "preco": "R$ 1.600",
+      "itens": [
+       "Cerimônia e recepção",
+       "Até 4 horas",
+       "250 fotos editadas",
+       "Retratos dos noivos e da família"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 2.400",
+      "itens": [
+       "Making of, cerimônia e recepção",
+       "Todas as fotos editadas",
+       "Ensaio pré-wedding"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "pre-wedding",
+    "nome": "Pré-wedding",
+    "chamada": "Ensaio pré-wedding",
+    "pedido": "o ensaio pré-wedding",
+    "frase": "Fotos naturais, elegantes e inesquecíveis.",
+    "texto": "Ao ar livre, nos lugares mais bonitos da região, com direção do começo ao fim: as poses, o lugar e o melhor da luz.",
+    "onde": "Ao ar livre, no lugar que combinar com vocês, em Santana de Parnaíba e região. Datas pelo WhatsApp.",
+    "depo": {
+     "nome": "Dyy",
+     "texto": "Fotografar com o Joel foi maravilhoso. Um profissional super atencioso, com um olhar afiado e muito gentil ao dar instruções. Meu ensaio de pré-wedding ficou do jeitinho que sonhei, recomendo de olhos fechados! Não vejo a hora de chegar na cerimônia."
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     7,
+     8
+    ],
+    "fotos": [
+     {
+      "arq": "drive/671743462_18005083646912587_7608602424995555135_n.jpg",
+      "alt": "Casal com o guarda-chuva e o brilho no ar"
+     },
+     {
+      "arq": "posts/DXU9QtplasW/DXU9QtplasW_02.jpg",
+      "alt": "Casal abraçado no campo, ela de vestido branco"
+     },
+     {
+      "arq": "posts/DXcrlD1FehI/DXcrlD1FehI_01.jpg",
+      "alt": "Beijo do casal com os balões de coração"
+     },
+     {
+      "arq": "drive/673824921_18005082908912587_1136635424696357665_n.jpg",
+      "alt": "Ela nos ombros dele, no campo"
+     },
+     {
+      "arq": "posts/DXcrTW-FXMX/DXcrTW-FXMX_01.jpg",
+      "alt": "Casal na locomotiva antiga"
+     },
+     {
+      "arq": "drive/671871753_18004714994912587_1588585692075397815_n.jpg",
+      "alt": "Ele carregando a noiva debaixo da pérgola"
+     },
+     {
+      "arq": "posts/DXU9mwzlUOs/DXU9mwzlUOs_03.jpg",
+      "alt": "Casal na escada do coreto"
+     },
+     {
+      "arq": "posts/DXRySoMlcYH/DXRySoMlcYH_01.jpg",
+      "alt": "Beijo do casal na locomotiva"
+     },
+     {
+      "arq": "posts/DXNWpoDFfmI/DXNWpoDFfmI_09.jpg",
+      "alt": "Beijo do casal na porta antiga"
+     },
+     {
+      "arq": "posts/DXNAEbMFd1-/DXNAEbMFd1-_01.jpg",
+      "alt": "Ela de verde, com a câmera antiga na estrada"
+     },
+     {
+      "arq": "posts/DXNAEbMFd1-/DXNAEbMFd1-_04.jpg",
+      "alt": "Ele carregando a noiva nas costas, no campo"
+     },
+     {
+      "arq": "posts/DXLKdt3lWZr/DXLKdt3lWZr_01.jpg",
+      "alt": "Casal de branco, nariz com nariz"
+     },
+     {
+      "arq": "posts/DXU8CMVFauI/DXU8CMVFauI_02.jpg",
+      "alt": "Casal deitado na grama"
+     },
+     {
+      "arq": "posts/DXM_0YSlane/DXM_0YSlane_05.jpg",
+      "alt": "Casal abraçado diante da vista da cidade"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 450",
+      "itens": [
+       "1 hora de ensaio",
+       "30 fotos editadas",
+       "1 locação"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 650",
+      "itens": [
+       "2 horas de ensaio",
+       "60 fotos editadas",
+       "2 locações",
+       "Troca de roupa"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 900",
+      "itens": [
+       "3 horas de ensaio",
+       "Todas as fotos editadas",
+       "Direção de looks e locação"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}
