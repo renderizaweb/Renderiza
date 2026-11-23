@@ -377,3 +377,42 @@ Art, Ray Barbosa (tema escuro), Mariana Lima e Thayuane Rosa. **Fotógrafa nova 
 - **Tema escuro** sai sozinho quando o fundo do estúdio é escuro (Ray).
 - **Peso:** os 20 portfólios somam cerca de 440 MB de HTML no repositório (as fotos ficam dentro do HTML; no ar saem
   para `/demo/<pasta>/f/`). Se o repositório pesar, a saída é guardar só as fotos tratadas fora do HTML.
+
+## 12. Lote 4: os portfólios de 1 a 5 (23/11/2026)
+
+Pedido do Kaue (23/11/2026): o lote 4 foi dividido em duas sessões pelas pastas do Drive "lote 22 do 11". Esta fez 5
+(as outras 5 pastas, Andressa Borelli, Angélica Andrade, Bianca Cabral, Fb.2 e Thayná Sapelly, ficaram com a outra
+sessão). Todas no portfólio v4, cadastradas no painel e movidas para Prontas para trabalhar ao publicar:
+
+| Lead | Lote 4 | Páginas | Fotos |
+|---|---|---|---|
+| [Camila Camargo](/demo/camila-camargo-fotografia) (`camila-camargo-fotografia`) | nº 1 | newborn, acompanhamento, smash e aniversário, gestante, família | 52 |
+| [Daph Prado Foto e Filme](/demo/daph-prado-fotografia) (`daph-prado-fotografia`) | fora da lista (pedido do Kaue), 95 pontos pela régua | casamento, casal e pré-wedding, 15 anos, família, individual | 62 |
+| [Nina Oliveira Photography](/demo/nina-oliveira-photography) (`nina-oliveira-photography`) | nº 2 | newborn, gestante, bebês e crianças, família, Natal 2026 (no fim) | 52 |
+| [Breve Instante](/demo/breve-instante-fotografia) (`breve-instante-fotografia`) | nº 3 | família, irmãos, mãe e filhos, eventos | 41 |
+| [Joel Santos Fotografia](/demo/joel-santos-fotografo) (`joel-santos-fotografo`) | nº 21 | casamento, civil e mini wedding, pré-wedding | 39 |
+
+**A oferta nova (decisão do Kaue, 23/11):** "R$ 399 no Pix ou parcelado no crédito", pagamento único, sem mensalidade
+(sai o "2x de R$ 199"), promoção de uma semana até 30/11/2026 (`renderiza.parcelado` = "parcelado no crédito";
+`demos.vale_ate` igual). O `conferir-portfolio.cjs` agora confere a faixa pela oferta do `window.RZ` da própria página.
+
+**O Natal não abre a conversa** (seção 11, confirmado pelo Kaue): página de Natal só para quem vende o Natal 2026 com
+5+ fotos limpas, e sempre como o último ensaio, fora da tira e do título da vitrine (só a Nina teve).
+
+**O que este lote ensinou:**
+- **O Google mostra só 5 avaliações sem login.** Rolar o painel, trocar a ordem ("Mais recentes") e a busca do Google
+  (captcha) não trazem mais. As páginas usam as 5, lidas inteiras; ensaio sem avaliação que fale dele fica sem depoimento.
+- **As galerias da Alboom são a melhor fonte de originais** quando a página tem prova (o telefone ou o @): de 1200 a
+  2000 px, por ensaio, com o nome do álbum (Daph: casamento, 15 anos no Museu do Ipiranga, pré-weddings; Nina: newborn
+  e gestante). As fotos ficam em `storage.alboom.ninja/sites/<site>/albuns/<álbum>/` e baixam direto.
+- **A página salva no Drive pode ser antiga:** a da Breve Instante era a grade de 2019 e 2020. O portfólio usou os
+  carrosséis de novembro de 2026 pelo embed e a grade só onde faltava (os eventos).
+- **Foto da fotógrafa dentro de uma arte:** quando a única foto dela está num post de apresentação com texto, um
+  recorte (`box`) sem o texto resolve (Breve Instante). Sem foto dela, o "quem fotografa" mostra o trabalho e a ficha avisa.
+- **Fotógrafo homem (Joel):** `quem_a` "o Joel", `quem_da` "do Joel", "Sou o Joel" nas mensagens; o gerador não tem
+  texto no feminino. Quem fotografa casamento sem estúdio: só o bairro e a cidade no contato e `contato.rota: false`.
+- **Nota abaixo de 5,0:** o gerador já mostra só as estrelas e o número; nos `numeros` do "quem fotografa", também sem a nota.
+- **Domínio sem site:** o Google da Daph aponta daphpradofotografia.com.br, registrado e sem endereço de site (DNS na
+  Hostinger, mudou em 19/11). Passa na régua (como a Luana Rodrigues), mas a ficha manda conferir se ela está montando um site.
+- **Tirar da página:** fotos com nome de criança no cenário ou nas letras da mesa, marca de produto (copo de café),
+  carros estacionados atrás do noivo e gestante de lingerie, sutiã ou tule transparente.
