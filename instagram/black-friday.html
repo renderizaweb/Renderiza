@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Black Friday da Renderiza</title>
+<!-- Arte geral da Black Friday (1 imagem 1080 × 1350), para mandar no WhatsApp a quem abriu a demo (pedido do Kaue,
+     23/11/2026). Uma arte só para todos os nichos: nada de demo nem foto de lead. A oferta é a de 23/11 (R$ 399 no Pix
+     ou parcelado no crédito, pagamento único, até 30/11), com o domínio de 1 ano incluso citado de leve.
+     node instagram/gerar.mjs black-friday -->
+<link rel="stylesheet" href="marca.css">
+<style>
+.bf{--terra:#b25134;--terra-clara:#e8855e;--apoio:#b9bfc1;--claro:#f1eee9;--fio:#343e42;background:var(--escuro);color:var(--claro)}
+
+/* o símbolo grande, recortado à direita, só um tom acima do fundo */
+.bf .marca-dagua{position:absolute;right:-250px;top:150px;width:760px;height:760px;color:#232b2e;opacity:1}
+.bf .marca-dagua svg{width:100%;height:100%}
+
+.bf .cabeca{position:absolute;left:84px;right:84px;top:76px;display:flex;justify-content:space-between;align-items:center}
+.bf .cabeca .marca{font-size:34px;color:var(--claro)}
+.bf .cabeca .simbolo{width:40px;height:40px}
+.prazo{display:inline-flex;align-items:center;gap:12px;height:56px;padding:0 24px;border-radius:999px;box-shadow:inset 0 0 0 2px var(--terra-clara);color:var(--terra-clara);font-size:25px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.prazo i{width:10px;height:10px;border-radius:50%;background:var(--terra-clara)}
+
+.bf h1{position:absolute;left:78px;top:196px;font-size:212px;line-height:.9;letter-spacing:-.055em;font-weight:700;color:var(--claro)}
+.bf h1 em{font-style:normal;color:var(--terra-clara)}
+
+.oferta{position:absolute;left:84px;right:84px;top:640px}
+.oferta .lide{font-size:40px;font-weight:500;line-height:1.2;letter-spacing:-.02em;color:var(--apoio)}
+.oferta .lide b{font-weight:600;color:var(--claro)}
+.preco{display:flex;align-items:flex-end;gap:30px;margin-top:20px}
+.preco strong{font-size:176px;line-height:.86;font-weight:700;letter-spacing:-.05em;color:var(--claro);white-space:nowrap}
+.preco strong small{font-size:.5em;letter-spacing:-.03em;margin-right:10px;vertical-align:.62em}
+.preco span{padding-bottom:6px;font-size:31px;line-height:1.28;font-weight:500;letter-spacing:-.01em;color:var(--apoio)}
+.preco span b{display:block;font-weight:600;color:var(--claro)}
+/* o domínio: uma linha discreta logo abaixo do preço */
+.dominio{display:flex;align-items:center;gap:14px;margin-top:26px;font-size:28px;font-weight:500;letter-spacing:-.01em;color:var(--apoio)}
+.dominio svg{width:28px;height:28px;color:var(--terra-clara)}
+.dominio b{font-weight:600;color:var(--claro)}
+
+.inclui{position:absolute;left:84px;right:84px;top:990px;padding-top:30px;border-top:2px solid var(--fio);display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.inclui li{list-style:none;display:flex;flex-direction:column;gap:8px}
+.inclui svg{width:34px;height:34px;color:var(--terra-clara)}
+.inclui b{font-size:27px;font-weight:600;letter-spacing:-.015em;line-height:1.15;color:var(--claro)}
+.inclui span{font-size:22px;font-weight:500;line-height:1.3;color:var(--apoio)}
+
+.pe{position:absolute;left:84px;right:84px;bottom:62px;display:flex;justify-content:space-between;align-items:center}
+.botao{display:inline-flex;align-items:center;gap:14px;height:72px;padding:0 34px;border-radius:999px;background:var(--terra-clara);color:var(--escuro);font-size:30px;font-weight:700;letter-spacing:-.02em}
+.botao svg{width:32px;height:32px}
+.site{font-size:26px;font-weight:500;color:var(--apoio);letter-spacing:-.005em}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="certo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.6"/><path d="m7.6 12.3 3 3 5.8-6.2"/></g></symbol>
+</svg>
+<section class="slide bf">
+  <span class="marca-dagua simbolo"></span>
+  <div class="cabeca">
+    <span class="marca"><span class="simbolo"></span>renderiza</span>
+    <span class="prazo"><i></i>Até 30/11</span>
+  </div>
+
+  <h1>Black<br>Friday<em>.</em></h1>
+
+  <div class="oferta">
+    <p class="lide">O site do seu negócio, <b>pronto</b>, por</p>
+    <div class="preco">
+      <strong><small>R$</small>399</strong>
+      <span><b>no Pix ou<br>parcelado no crédito</b>pagamento único,<br>sem mensalidade</span>
+    </div>
+    <p class="dominio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9.4"/><path d="M2.8 12h18.4M12 2.6c2.6 2.6 3.9 5.7 3.9 9.4s-1.3 6.8-3.9 9.4c-2.6-2.6-3.9-5.7-3.9-9.4S9.4 5.2 12 2.6Z"/></svg><span>Com o <b>domínio de 1 ano</b> incluso</span></p>
+  </div>
+
+  <ul class="inclui">
+    <li><svg><use href="#certo"/></svg><b>Pronto para anúncio</b><span>Pixel da Meta e Google Analytics</span></li>
+    <li><svg><use href="#certo"/></svg><b>Kit de divulgação</b><span>Textos prontos para o Instagram e o WhatsApp</span></li>
+    <li><svg><use href="#certo"/></svg><b>No seu nome</b><span>O site é 100% seu</span></li>
+  </ul>
+
+  <div class="pe">
+    <span class="botao"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2A9.8 9.8 0 0 0 3.6 17l-1.4 4.8 5-1.3A9.8 9.8 0 1 0 12 2.2Zm0 17.9a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.1 8.1 0 1 1 12 20.1Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>É só responder esta mensagem</span>
+    <span class="site">renderizaweb.com.br</span>
+  </div>
+</section>
+<script type="module">
+await document.fonts.ready;
+window.pronto = true;
+</script>
+</body></html>
