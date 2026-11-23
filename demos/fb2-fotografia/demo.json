@@ -1,0 +1,341 @@
+{
+ "pasta": "fb2-fotografia",
+ "marca": "Fb.2 Fotografia",
+ "marca_completa": "Fb.2 Fotografia",
+ "dona": "Adeilton",
+ "titulo_nome": "Fb.2",
+ "titulo_script": "fotografia",
+ "quem_a": "o Adeilton e a Alice",
+ "quem_da": "do Adeilton e da Alice",
+ "google": {
+  "coords": "-23.6702844,-46.8128671",
+  "fid": "0x94ce55c6eb0bccfd:0xe775a99e6d543c25",
+  "gid": "/g/11vy_2kcw1"
+ },
+ "google_nome": "Fb.2fotografia",
+ "endereco_maps": "R. Nonoai, 127 - Jardim da Luz, Embu das Artes - SP, 06824-170",
+ "google_nota": "5,0",
+ "google_total": "67",
+ "verificado": "2026-11-23",
+ "whatsapp": "5511953441075",
+ "fone_link": "+5511953441075",
+ "instagram": "fb.2fotografia",
+ "seguidores": "1,7 mil",
+ "mensagem": "Olá! Vi o portfólio da Fb.2 Fotografia e queria saber mais sobre as festas e os ensaios.",
+ "cores": {
+  "fundo": "#f9f9fb",
+  "papel": "#ffffff",
+  "areia": "#eef1f6",
+  "linha": "#dde2ec",
+  "tinta": "#1f2430",
+  "tinta2": "#5a6170",
+  "rosa": "#f2d38a",
+  "acento": "#2d4a7a",
+  "acento_escuro": "#223a61",
+  "cafe": "#1b2130"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Gloock",
+    ""
+   ],
+   "sans": [
+    "Plus Jakarta Sans",
+    "wght@300..600"
+   ],
+   "script": [
+    "Rouge Script",
+    ""
+   ]
+  }
+ },
+ "renderiza": {
+  "ola": "Adeilton",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-30",
+  "msg_garantir": "Olá! Sou o Adeilton, da Fb.2 Fotografia. Vi o portfólio que a Renderiza montou para nós e quero garantir o nosso (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou o Adeilton, da Fb.2 Fotografia. Vi o portfólio que a Renderiza montou para nós e queria conversar sobre o valor.",
+  "msg_duvida": "Olá! Sou o Adeilton, da Fb.2 Fotografia. Vi o portfólio que a Renderiza montou para nós e queria tirar uma dúvida.",
+  "codigo": "frna"
+ },
+ "portfolio": {
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py), feito com a skill demo-portfolio-fotografa. Originais: posts/ = os carrosséis de 17 a 19/11/2026 (aniversários de 1 ano do Benício e do Paulo Henrique, 15 anos da Sophia) lidos pelo embed público, 1440 px; drive/ = a foto do perfil (a grade salva no Drive é quase toda de reels); google/ = Perfil da Empresa. Pacotes e valores são EXEMPLOS (a demo mostra o selo).",
+  "_dela": {
+   "titulo": "o quadro na parede do estúdio, na foto do perfil do Adeilton"
+  },
+  "versao": 4,
+  "local": "Embu das Artes e região",
+  "olho": "Fotografia de festas · Embu das Artes, SP",
+  "titulo": "Fotografia é sobre pessoas.",
+  "linha": "Festas de aniversário, 15 anos, casamentos e ensaios. Em Embu das Artes, Taboão da Serra e região.",
+  "onde": "No salão ou no buffet da festa, em Embu das Artes, Taboão da Serra e região. Datas pelo WhatsApp.",
+  "tira": [
+   "aniversario:0",
+   "quinze-anos:0",
+   "aniversario:1",
+   "quinze-anos:1",
+   "aniversario:2",
+   "quinze-anos:3",
+   "aniversario:4",
+   "aniversario:3"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Renata Santana Vieira",
+    "tag": "Festa",
+    "texto": "Primeiro que ele já chegou veio até nos, muito atencioso, prestativo, dando sugestões de como fazermos as fotos, meus convidados adoraram ele tbm"
+   },
+   {
+    "nome": "Andresa Silva",
+    "tag": "Festa de 5 anos",
+    "texto": "…fiz a festa de 5 anos da minha filha e amei o resultado das fotos a Alice trabalha em conjunto com seu esposo… além de tudo são super pontual…"
+   },
+   {
+    "nome": "Raessa Moreira Oliveira",
+    "tag": "Evento",
+    "texto": "Fotógrafo excelente, nos recebeu super bem no studio particular e foi super profissional no dia do evento. Interagiu com a bebê e a deixou confortável para fazer as fotos."
+   },
+   {
+    "nome": "Eli Sousa",
+    "tag": "Festa",
+    "texto": "Profissional, cuidadoso, detalhista, preço acessível e fotos de qualidade."
+   }
+  ],
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "Adeilton e Alice.",
+   "p": [
+    "A Fb.2 Fotografia é do Adeilton e da Alice, casados e fotógrafos desde 2023.",
+    "Fotografam festas infantis, 15 anos, casamentos e batizados, e fazem ensaios no estúdio deles, o Fb.2 Studio, no Jardim da Luz, em Embu das Artes."
+   ],
+   "citacao": "Fazer parte da sua história nos motiva dia a dia.",
+   "citacao_quem": "Adeilton e Alice",
+   "fotos": [
+    {
+     "arq": "drive/Instagram_files/813832240_18009017519974728_3354340797739243238_n.jpg",
+     "alt": "Adeilton com a câmera, no estúdio"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 67 avaliações no Google"
+    ],
+    [
+     "1,7 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "contato": {
+   "titulo": "Agende a sua festa.",
+   "p": "Datas e valores pelo WhatsApp. O estúdio fica no Jardim da Luz, em Embu das Artes; nas festas, eles vão até o local.",
+   "endereco": [
+    "R. Nonoai, 127",
+    "Jardim da Luz · Embu das Artes, SP"
+   ],
+   "telefone": "(11) 95344-1075"
+  },
+  "ensaios": [
+   {
+    "id": "aniversario",
+    "nome": "Festa infantil",
+    "curto": "Festa infantil",
+    "chamada": "Festa de aniversário",
+    "pedido": "a cobertura da festa de aniversário",
+    "frase": "A festa inteira: o bolo, a família e as brincadeiras.",
+    "texto": "Cobertura da festa do começo ao fim: a decoração, o parabéns, os convidados e as crianças brincando.",
+    "depo": {
+     "nome": "Pyettra Figueiredo",
+     "texto": "Quero agradecer imensamente a ele, que fotografo o aniversário de 1 aninho da minha filha. Ele foi super atencioso do começo ao fim…"
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "posts/Df5NPWFJX48/Df5NPWFJX48_00.jpg",
+      "alt": "Bebê de azul batendo palminhas no banco"
+     },
+     {
+      "arq": "posts/Df7hAczJRzM/Df7hAczJRzM_11.jpg",
+      "alt": "Bebê sorrindo diante do número 1 iluminado"
+     },
+     {
+      "arq": "posts/Df5NPWFJX48/Df5NPWFJX48_01.jpg",
+      "alt": "Mãe beijando o bebê no colo"
+     },
+     {
+      "arq": "posts/Df7hAczJRzM/Df7hAczJRzM_14.jpg",
+      "alt": "Pais com o bebê na hora do parabéns"
+     },
+     {
+      "arq": "posts/Df5NPWFJX48/Df5NPWFJX48_07.jpg",
+      "alt": "Bebê rindo na piscina de bolinhas"
+     },
+     {
+      "arq": "posts/Df7hAczJRzM/Df7hAczJRzM_09.jpg",
+      "alt": "Moça dando risada com o bebê no colo"
+     },
+     {
+      "arq": "posts/Df5NPWFJX48/Df5NPWFJX48_03.jpg",
+      "alt": "Pai erguendo o bebê, com a mãe ao lado"
+     },
+     {
+      "arq": "posts/Df7hAczJRzM/Df7hAczJRzM_04.jpg",
+      "alt": "Dois meninos brincando no jogo de mesa"
+     },
+     {
+      "arq": "posts/Df5NPWFJX48/Df5NPWFJX48_05.jpg",
+      "alt": "Bebê no brinquedo de balanço verde, com a mãe"
+     },
+     {
+      "arq": "posts/Df7hAczJRzM/Df7hAczJRzM_02.jpg",
+      "alt": "Bebê no carrinho de brinquedo, segurando o volante"
+     },
+     {
+      "arq": "google/fotos/g00.jpg",
+      "alt": "Família com o filho diante da decoração da festa"
+     },
+     {
+      "arq": "google/fotos/g02.jpg",
+      "alt": "Mesa do bolo com decoração de borboletas"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Até 3 horas",
+      "preco": "R$ 690",
+      "itens": [
+       "3 horas de festa",
+       "Todas as fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Festa completa",
+      "preco": "R$ 990",
+      "itens": [
+       "5 horas de festa",
+       "Fotos e vídeo curto",
+       "Galeria online"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Ensaio e festa",
+      "preco": "R$ 1.290",
+      "itens": [
+       "Ensaio no estúdio antes",
+       "Cobertura da festa",
+       "Álbum 20x30"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "quinze-anos",
+    "nome": "15 anos",
+    "chamada": "Ensaio de 15 anos",
+    "pedido": "o ensaio de 15 anos",
+    "frase": "Vestido, coroa e o XV iluminado.",
+    "texto": "A debutante no local escolhido: escadas, luzes e o XV iluminado. Também fazem a cobertura da festa.",
+    "depo": {
+     "nome": "Eli Sousa",
+     "texto": "Profissional, cuidadoso, detalhista, preço acessível e fotos de qualidade. Ficou tudo muito lindo!"
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "posts/Df2m8xspX3V/Df2m8xspX3V_01.jpg",
+      "alt": "Debutante sorrindo, apoiada no X iluminado"
+     },
+     {
+      "arq": "posts/Df2ovSLpQyN/Df2ovSLpQyN_06.jpg",
+      "alt": "Debutante de coroa ao lado do espelho"
+     },
+     {
+      "arq": "posts/Df2m8xspX3V/Df2m8xspX3V_00.jpg",
+      "alt": "Debutante de vestido azul ao lado das letras XV"
+     },
+     {
+      "arq": "posts/Df2ovSLpQyN/Df2ovSLpQyN_02.jpg",
+      "alt": "Debutante sob o lustre, vista de baixo"
+     },
+     {
+      "arq": "posts/Df2ovSLpQyN/Df2ovSLpQyN_04.jpg",
+      "alt": "Debutante olhando por cima do ombro, na escada"
+     },
+     {
+      "arq": "posts/Df2ovSLpQyN/Df2ovSLpQyN_00.jpg",
+      "alt": "A escada iluminada, com a debutante no meio"
+     },
+     {
+      "arq": "posts/Df2ovSLpQyN/Df2ovSLpQyN_05.jpg",
+      "alt": "Debutante em preto e branco"
+     },
+     {
+      "arq": "posts/Df2ovSLpQyN/Df2ovSLpQyN_03.jpg",
+      "alt": "Debutante de vestido longo na escada"
+     },
+     {
+      "arq": "posts/Df2m8xspX3V/Df2m8xspX3V_02.jpg",
+      "alt": "Debutante com as mãos no rosto, atrás do XV"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Ensaio",
+      "preco": "R$ 490",
+      "itens": [
+       "1h30 de ensaio",
+       "30 fotos editadas",
+       "1 local"
+      ]
+     },
+     {
+      "nome": "Ensaio e festa",
+      "preco": "R$ 1.490",
+      "itens": [
+       "Ensaio antes da festa",
+       "Cobertura da festa",
+       "Galeria online"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Festa",
+      "preco": "R$ 990",
+      "itens": [
+       "5 horas de festa",
+       "Todas as fotos editadas",
+       "Galeria online"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}
