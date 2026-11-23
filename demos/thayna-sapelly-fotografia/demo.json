@@ -1,0 +1,342 @@
+{
+ "pasta": "thayna-sapelly-fotografia",
+ "marca": "Thayna Sapelly Fotografia",
+ "marca_completa": "Thayna Sapelly Fotografia",
+ "dona": "Thayná",
+ "titulo_nome": "Thayna Sapelly",
+ "titulo_script": "fotografia",
+ "quem_a": "a Thayná",
+ "quem_da": "da Thayná",
+ "google": {
+  "coords": "-23.4064235,-46.4878747",
+  "fid": "0x94ce8bebce3c4d97:0xdf2358d6dd13834",
+  "gid": "/g/11q91201rn"
+ },
+ "google_nome": "Thayna Sapelly Fotografia",
+ "endereco_maps": "Rua Andrômeda, 765 - Parque Primavera, Guarulhos - SP, 07145-100",
+ "google_nota": "5,0",
+ "google_total": "226",
+ "verificado": "2026-11-21",
+ "whatsapp": "5511983422410",
+ "fone_link": "+5511983422410",
+ "instagram": "thaynasapellyfotografia",
+ "seguidores": "7,3 mil",
+ "mensagem": "Olá! Vi o portfólio da Thayná e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fcf9f9",
+  "papel": "#ffffff",
+  "areia": "#f6eeef",
+  "linha": "#eadcdf",
+  "tinta": "#2a2225",
+  "tinta2": "#665b5f",
+  "rosa": "#f1c9d3",
+  "acento": "#7a2e45",
+  "acento_escuro": "#63253a",
+  "cafe": "#261c20"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Marcellus",
+    ""
+   ],
+   "sans": [
+    "Raleway",
+    "wght@300..600"
+   ],
+   "script": [
+    "Monsieur La Doulaise",
+    ""
+   ]
+  }
+ },
+ "renderiza": {
+  "ola": "Thayná",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-30",
+  "msg_garantir": "Olá! Sou a Thayná, da Thayna Sapelly Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Thayná, da Thayna Sapelly Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "msg_duvida": "Olá! Sou a Thayná, da Thayna Sapelly Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida.",
+  "codigo": "ysfz"
+ },
+ "portfolio": {
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py), feito com a skill demo-portfolio-fotografa. Originais: posts/ = o carrossel do Natal 2026 (DfaeHsLIJrT, 06/11/2026, até 3300x4096) pelo embed público; alboom/ = as galerias de gestante da página dela na Alboom (thaynasapellyfotografia.alboompro.com, 1200x1800, publicadas em abr/2024); drive/ = a grade salva (2020 e 2021) e a foto do perfil. Pacotes e valores são EXEMPLOS (a demo mostra o selo).",
+  "versao": 4,
+  "local": "Guarulhos",
+  "olho": "Estúdio fotográfico · Guarulhos, SP",
+  "titulo": "Gestantes, bebês e famílias em Guarulhos.",
+  "linha": "Ensaios de gestante, newborn, smash, família e Natal no estúdio do Parque Primavera.",
+  "tira": [
+   "gestante:0",
+   "natal:0",
+   "gestante:1",
+   "natal:1",
+   "gestante:2",
+   "natal:2",
+   "gestante:3",
+   "natal:3"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Ketelyn Karina",
+    "tag": "Ensaio com o filho",
+    "texto": "Levei meu filho autista e ela foi super paciente em tudo do começo ao fim…"
+   },
+   {
+    "nome": "Geciene Sousa",
+    "tag": "Ensaio",
+    "texto": "…ela nos ajuda com as poses durante o ensaio isso ajuda muito para que as fotos fiquem ainda mais lindas."
+   },
+   {
+    "nome": "Luciana Ramos Guilherme",
+    "tag": "Gestante e newborn",
+    "texto": "Fiz o e saio gestante e ensaio newborn com ela e amamos muito atenciosa e simpática e o local do estúdio é de fácil acesso..."
+   }
+  ],
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "Thayná Sapelly.",
+   "p": [
+    "A Thayná fotografa desde 2015. Começou em eventos, fotografando casamentos, e em 2017 abriu o primeiro estúdio.",
+    "Hoje fotografa gestantes, recém-nascidos, bebês e famílias no estúdio do Parque Primavera, em Guarulhos. Para o Natal deste ano, reformou o estúdio para receber o cenário."
+   ],
+   "citacao": "Em um mundo de mulheres cheias de fotos lindas, eu quero ser a fotógrafa delas.",
+   "citacao_quem": "Thayná Sapelly, no Instagram",
+   "fotos": [
+    {
+     "arq": "drive/Instagram_files/457734936_524409563501212_2046542745698004811_n.jpg",
+     "alt": "Thayná com a câmera, a foto do perfil dela"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 226 avaliações no Google"
+    ],
+    [
+     "7,3 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "contato": {
+   "titulo": "Agende o seu ensaio.",
+   "p": "Datas e valores pelo WhatsApp. O estúdio fica no Parque Primavera, em Guarulhos.",
+   "endereco": [
+    "Rua Andrômeda, 765",
+    "Parque Primavera · Guarulhos, SP"
+   ],
+   "telefone": "(11) 98342-2410"
+  },
+  "ensaios": [
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "chamada": "Ensaio gestante",
+    "pedido": "o ensaio gestante",
+    "frase": "Vestido longo, jeans e camisa branca.",
+    "texto": "No estúdio, com fundo claro, cenário de flores ou o balanço de argola. Sozinha, com o parceiro, com os filhos ou com o pet.",
+    "quando": "Costuma ser feito entre a 28ª e a 34ª semana, quando a barriga já aparece bem. Vale reservar antes.",
+    "depo": {
+     "nome": "Luciana Ramos Guilherme",
+     "texto": "Fiz o e saio gestante e ensaio newborn com ela e amamos muito atenciosa e simpática e o local do estúdio é de fácil acesso..."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "alboom/1327466-luana-gestante/_mg_2221.jpg",
+      "alt": "Filho ajoelhado beijando a barriga da mãe, de vestido branco"
+     },
+     {
+      "arq": "alboom/1327452-meire-gestante/_mg_3448-editar.jpg",
+      "alt": "Gestante de vestido azul de renda no balanço de argola"
+     },
+     {
+      "arq": "alboom/1327448-tamires-gestante/_mg_3175-editar.jpg",
+      "alt": "Casal abraçado diante do cenário de folhagens"
+     },
+     {
+      "arq": "alboom/1327453-lais-gestante/_mg_6196-editar.jpg",
+      "alt": "Gestante de camisa branca amarrada e jeans"
+     },
+     {
+      "arq": "alboom/1327452-meire-gestante/img_1732-editar.jpg",
+      "alt": "Gestante de vestido preto longo, sentada"
+     },
+     {
+      "arq": "alboom/1327466-luana-gestante/_mg_2270.jpg",
+      "alt": "Gestante de vestido branco com flor no ombro"
+     },
+     {
+      "arq": "alboom/1327448-tamires-gestante/_mg_3153-editar.jpg",
+      "alt": "Gestante de blusa de babado, com as mãos na barriga"
+     },
+     {
+      "arq": "alboom/1327452-meire-gestante/_mg_3611-editar.jpg",
+      "alt": "Gestante de vermelho com o marido e o cachorro"
+     },
+     {
+      "arq": "alboom/1327453-lais-gestante/_mg_6169-editar.jpg",
+      "alt": "Gestante de camisa branca sentada no cubo"
+     },
+     {
+      "arq": "alboom/1327466-luana-gestante/_mg_1850-editar.jpg",
+      "alt": "Gestante de vestido preto com o cachorrinho no colo"
+     },
+     {
+      "arq": "alboom/1327448-tamires-gestante/img_3191-editar.jpg",
+      "alt": "Gestante sorrindo no balanço de flores"
+     },
+     {
+      "arq": "alboom/1327452-meire-gestante/_mg_3482-editar.jpg",
+      "alt": "Gestante de azul no aro de flores, com borboletas"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 390",
+      "itens": [
+       "1 hora de ensaio",
+       "15 fotos editadas",
+       "1 look",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 590",
+      "itens": [
+       "1h30 de ensaio",
+       "30 fotos editadas",
+       "2 looks",
+       "Parceiro e filhos juntos"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 890",
+      "itens": [
+       "2 horas de ensaio",
+       "Todas as fotos editadas",
+       "3 looks",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "curto": "Natal",
+    "chamada": "Ensaio de Natal",
+    "pedido": "o ensaio de Natal",
+    "frase": "Este ano, o estúdio foi reformado para o cenário.",
+    "texto": "Árvore, cavalos de carrossel, cortinas vermelhas e ursos de pelúcia. Para a criança sozinha ou com a família toda.",
+    "quando": "A temporada de Natal 2026 já começou. No dia 7 de novembro, ela avisou que restavam poucas vagas.",
+    "depo": {
+     "nome": "Ketelyn Karina",
+     "texto": "Muito atenciosa e calma, amei as fotos. Levei meu filho autista e ela foi super paciente em tudo do começo ao fim…"
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "posts/DfaeHsLIJrT/DfaeHsLIJrT_06.jpg",
+      "alt": "Pais erguendo a bebê no cenário de Natal"
+     },
+     {
+      "arq": "posts/DfaeHsLIJrT/DfaeHsLIJrT_03.jpg",
+      "alt": "Bebê na cadeirinha ao lado do urso de pelúcia"
+     },
+     {
+      "arq": "posts/DfaeHsLIJrT/DfaeHsLIJrT_00.jpg",
+      "alt": "Família sentada ao pé da árvore de Natal"
+     },
+     {
+      "arq": "posts/DfaeHsLIJrT/DfaeHsLIJrT_04.jpg",
+      "alt": "Mãe segurando a bebê no cavalo de carrossel"
+     },
+     {
+      "arq": "posts/DfaeHsLIJrT/DfaeHsLIJrT_07.jpg",
+      "alt": "Bebê engatinhando entre os ursos"
+     },
+     {
+      "arq": "posts/DfaeHsLIJrT/DfaeHsLIJrT_01.jpg",
+      "alt": "Família em pé diante do carrossel"
+     },
+     {
+      "arq": "posts/DfaeHsLIJrT/DfaeHsLIJrT_02.jpg",
+      "alt": "Pais brincando com a bebê no cenário de Natal"
+     },
+     {
+      "arq": "posts/DfaeHsLIJrT/DfaeHsLIJrT_05.jpg",
+      "alt": "Bebê em pé ao lado do cavalo de carrossel"
+     },
+     {
+      "arq": "drive/Instagram_files/652739749_18167867506407882_5867200514422608513_n.jpg",
+      "alt": "Menina de vestido vermelho num cenário de Natal de outro ano"
+     },
+     {
+      "arq": "drive/Instagram_files/659795722_18435938284188242_2750166632676421846_n.jpg",
+      "alt": "Mãe e filho trocando presente num cenário de Natal de outro ano"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 290",
+      "itens": [
+       "30 minutos no cenário",
+       "10 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 450",
+      "itens": [
+       "45 minutos no cenário",
+       "20 fotos editadas",
+       "Criança e família juntas",
+       "Galeria online"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 650",
+      "itens": [
+       "1 hora no cenário",
+       "30 fotos editadas",
+       "3 fotos impressas 15x21"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}
