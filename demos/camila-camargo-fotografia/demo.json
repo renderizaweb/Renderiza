@@ -1,0 +1,639 @@
+{
+ "pasta": "camila-camargo-fotografia",
+ "marca": "Camila Camargo Fotografia",
+ "marca_completa": "Camila Camargo Fotografia",
+ "dona": "Camila",
+ "titulo_nome": "Camila Camargo",
+ "titulo_script": "fotografia",
+ "quem_a": "a Camila",
+ "quem_da": "da Camila",
+ "google": {
+  "coords": "-23.6155096,-47.0047865",
+  "fid": "0x94cf097c33c9bfeb:0x8d61a737aee1a571",
+  "gid": "/g/11mv49lr8x"
+ },
+ "google_nome": "Camila Camargo Fotografia",
+ "endereco_maps": "R. José Manuel de Almeida, 318 - Jardim Europa, Vargem Grande Paulista - SP, 06730-000",
+ "google_nota": "5,0",
+ "google_total": "129",
+ "verificado": "2026-11-23",
+ "whatsapp": "5511992132883",
+ "fone_link": "+5511992132883",
+ "instagram": "camilacamargofotografia",
+ "seguidores": "3,9 mil",
+ "mensagem": "Olá, Camila! Vi o portfólio e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fcf9f7",
+  "papel": "#ffffff",
+  "areia": "#f6eeea",
+  "linha": "#ecdfd9",
+  "tinta": "#2e2a2b",
+  "tinta2": "#6b6264",
+  "rosa": "#f1d4d2",
+  "acento": "#b9667a",
+  "acento_escuro": "#9a4f62",
+  "cafe": "#2a2326"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Cormorant Infant",
+    "ital,wght@0,400..600;1,400..600"
+   ],
+   "sans": [
+    "Albert Sans",
+    "wght@300..600"
+   ],
+   "script": [
+    "Alex Brush",
+    ""
+   ]
+  }
+ },
+ "renderiza": {
+  "ola": "Camila",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "parcelado no crédito",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-30",
+  "msg_garantir": "Olá! Sou a Camila, da Camila Camargo Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou parcelado no crédito).",
+  "msg_negociar": "Olá! Sou a Camila, da Camila Camargo Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "msg_duvida": "Olá! Sou a Camila, da Camila Camargo Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida.",
+  "codigo": "zbbr"
+ },
+ "portfolio": {
+  "versao": 4,
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py), lote 4 de fotógrafos (23/11/2026). Fotos dos ORIGINAIS (drive/ = a grade dela salva no Drive \"lote 22 do 11\"; posts/<código>/ = carrosséis pelo embed público), escolhidas uma a uma na folha de contato. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "olho": "Estúdio fotográfico · Jardim Europa, Vargem Grande Paulista",
+  "titulo": "Momentos únicos em memórias inesquecíveis.",
+  "linha": "Newborn, acompanhamento do bebê, smash the cake, gestantes e famílias, no estúdio da Camila em Vargem Grande Paulista.",
+  "local": "Vargem Grande Paulista",
+  "onde": "No estúdio da Camila, no Jardim Europa, em Vargem Grande Paulista. Datas pelo WhatsApp.",
+  "tira": [
+   "newborn:0",
+   "acompanhamento:0",
+   "smash:0",
+   "gestante:0",
+   "familia:0",
+   "newborn:1",
+   "gestante:1"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Nathalia Piva",
+    "tag": "Gestante",
+    "texto": "Mais do que registrar uma gestação, você conseguiu guardar em imagens todo o amor, a espera, a ansiedade e a emoção dessa fase tão única da nossa vida."
+   },
+   {
+    "nome": "Verônica Gonçalves Pinheiro",
+    "tag": "Ensaio",
+    "texto": "A Camila é uma fofa e uma profissional maravilhosa! Nós amamos cada detalhe do ensaio e, principalmente, o carinho e a leveza com que ela conduziu tudo."
+   },
+   {
+    "nome": "Lílian Dantas",
+    "tag": "Aniversário de 2 anos",
+    "texto": "Foi nossa primeira vez em seu estúdio, ensaio de 2 anos do Benício. Foi um pouco difícil, mas ela com toda calma, paciência e profissionalismo deu muito certo."
+   },
+   {
+    "nome": "Tatah Teles",
+    "tag": "Ensaio infantil",
+    "texto": "Nossa filha estava chatinha no dia do ensaio e ela com toda paciência cuidou de cada detalhe, se reprogramou nos horários pra que desse tudo certo, e realmente deu tudo certo."
+   },
+   {
+    "nome": "Carla Viviane Alves",
+    "tag": "Ensaio",
+    "texto": "Durante o ensaio, me senti muito à vontade, e ela conseguiu capturar momentos espontâneos e cheios de sentimento. O resultado ficou simplesmente incrível."
+   }
+  ],
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "Camila Camargo, a tia Cá.",
+   "p": [
+    "Fotógrafa materno-infantil, formada em fotografia, com estúdio no Jardim Europa, em Vargem Grande Paulista. Ganhou a primeira câmera aos 14 anos, teve a primeira cliente em 2018 e, desde o primeiro workshop de newborn, em 2019, nunca parou de estudar os bebês e a fotografia.",
+    "No estúdio, fotografa newborn, o acompanhamento do bebê mês a mês, smash the cake, gestantes e famílias."
+   ],
+   "citacao": "Aqui tem amor, tem coração, tem dedicação, tem sonhos, tem memórias e tem alguém que ama muito o que faz!",
+   "citacao_quem": "Camila Camargo, no Instagram",
+   "fotos": [
+    {
+     "arq": "drive/470221202_18295197214227270_7723323150032010359_n.jpg",
+     "alt": "Camila Camargo com a câmera, no estúdio"
+    },
+    {
+     "arq": "posts/C3bTmhrJ77Y/C3bTmhrJ77Y_01.jpg",
+     "alt": "Camila no estúdio, com a câmera e a luz"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 129 avaliações no Google"
+    ],
+    [
+     "+ de 7",
+     "anos registrando momentos"
+    ]
+   ]
+  },
+  "contato": {
+   "titulo": "Vamos marcar o seu ensaio?",
+   "p": "Datas e valores pelo WhatsApp. O estúdio fica no Jardim Europa, em Vargem Grande Paulista. Será uma honra fazer parte da sua história.",
+   "endereco": [
+    "R. José Manuel de Almeida, 318",
+    "Jardim Europa · Vargem Grande Paulista, SP"
+   ],
+   "telefone": "(11) 99213-2883"
+  },
+  "ensaios": [
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "chamada": "Ensaio newborn",
+    "pedido": "o ensaio newborn",
+    "frase": "Seu bebê só será recém-nascido por alguns dias.",
+    "texto": "No estúdio, no tempo do bebê: as mantas, os cestos e as caminhas, e a primeira foto oficial da família.",
+    "citacao": "Os detalhes mudam numa velocidade gigantesca e eu tenho certeza que você vai querer lembrar de todos, para mostrar pra ele no futuro o quanto ele foi pequeno.",
+    "citacao_quem": "Camila Camargo, no Instagram",
+    "quando": "De 5 a 15 dias de vida: o corpinho do bebê ainda está maleável para as poses, sem desconforto, ele dorme a maior parte do tempo e as cólicas ainda não começaram.",
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     8
+    ],
+    "fotos": [
+     {
+      "arq": "drive/470217683_18295197982227270_838132530599967665_n.jpg",
+      "alt": "Recém-nascida enrolada na manta rosa, como uma tulipa"
+     },
+     {
+      "arq": "drive/470139543_18295200403227270_3734450560736403691_n.jpg",
+      "alt": "Recém-nascida dormindo no cesto de madeira, de asinhas"
+     },
+     {
+      "arq": "drive/470139287_18295196368227270_3564710068695560704_n.jpg",
+      "alt": "Recém-nascido dormindo na banheirinha, com os patinhos"
+     },
+     {
+      "arq": "drive/658368831_18100746145742094_6258363008072746101_n.jpg",
+      "alt": "Pais com o recém-nascido, contra a luz"
+     },
+     {
+      "arq": "drive/470219322_18295198312227270_4933643742236455845_n.jpg",
+      "alt": "Pais olhando o recém-nascido no colo"
+     },
+     {
+      "arq": "drive/655726096_18107555710837424_3391486414829742389_n.webp",
+      "alt": "Pais e a irmã com a recém-nascida no colo"
+     },
+     {
+      "arq": "drive/655500341_18092799980040328_2680432994180712030_n.jpg",
+      "alt": "Recém-nascida na caminha de madeira"
+     },
+     {
+      "arq": "posts/C3-gkfNurs8/C3-gkfNurs8_02.jpg",
+      "alt": "Recém-nascido de boina, no divã"
+     },
+     {
+      "arq": "posts/C5lZoEnOvnW/C5lZoEnOvnW_03.jpg",
+      "alt": "Recém-nascida dormindo no sofazinho, de laço branco"
+     },
+     {
+      "arq": "drive/470187062_18295195531227270_4462567865060751345_n.jpg",
+      "alt": "Irmãos com o recém-nascido entre eles"
+     },
+     {
+      "arq": "drive/470212224_18295195684227270_5867797880246998717_n.jpg",
+      "alt": "Recém-nascida de azul, no divã"
+     },
+     {
+      "arq": "drive/654100016_18095042489107416_8459611908274056315_n.webp",
+      "alt": "Recém-nascido de touca de ursinho, no cesto"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 490",
+      "itens": [
+       "Até 3 horas, no tempo do bebê",
+       "15 fotos editadas",
+       "Cenários e acessórios",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 690",
+      "itens": [
+       "25 fotos editadas",
+       "2 cenários",
+       "Fotos com os pais e os irmãos",
+       "Galeria online"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 990",
+      "itens": [
+       "40 fotos editadas",
+       "Todos os cenários",
+       "Fotos com a família",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "acompanhamento",
+    "nome": "Acompanhamento",
+    "curto": "Mês a mês",
+    "chamada": "Acompanhamento do bebê",
+    "pedido": "o acompanhamento do bebê",
+    "frase": "Quem aguenta essas carinhas?",
+    "texto": "Um ensaio por mês, cada um num cenário: Páscoa, praia, fazendinha, sereia, flores. Para registrar o crescimento do bebê.",
+    "quando": "Mês a mês, no mesversário do bebê.",
+    "depo": {
+     "nome": "Tatah Teles",
+     "texto": "O trabalho incrível da Camila nos superou, nossa filha estava chatinha no dia do ensaio e ela com toda paciência cuidou de cada detalhe, se reprogramou nos horários pra que desse tudo certo, e realmente deu tudo certo no final. Ficamos encantados com cada foto."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "posts/C0Kiz1EpViX/C0Kiz1EpViX_04.jpg",
+      "alt": "Bebê rindo na poltroninha, no fundo rosa"
+     },
+     {
+      "arq": "posts/Df1_iDUEZ9R/Df1_iDUEZ9R_02.jpg",
+      "alt": "Bebê de vestido amarelo, rindo, no cenário da Bela"
+     },
+     {
+      "arq": "posts/C8Pd5xNpAWQ/C8Pd5xNpAWQ_01.jpg",
+      "alt": "Bebê sorrindo no cenário de flores"
+     },
+     {
+      "arq": "drive/432866241_18262457956227270_3453000078012004757_n.jpg",
+      "alt": "Bebê sorrindo no cenário de Páscoa"
+     },
+     {
+      "arq": "posts/C5JF3cOOBQW/C5JF3cOOBQW_03.jpg",
+      "alt": "Bebê de orelhinhas de coelho"
+     },
+     {
+      "arq": "drive/429853575_18259954492227270_7895990013797618972_n.jpg",
+      "alt": "Bebê na poltroninha, no cenário da fazendinha"
+     },
+     {
+      "arq": "posts/C3BWMMLJoiJ/C3BWMMLJoiJ_01.jpg",
+      "alt": "Bebê no cenário de praia"
+     },
+     {
+      "arq": "drive/470196208_18295193482227270_4000856080788157818_n.jpg",
+      "alt": "Bebê na poltroninha, no cenário da Minnie"
+     },
+     {
+      "arq": "posts/CzGqoapOkdd/CzGqoapOkdd_02.jpg",
+      "alt": "Bebê de sereia, no cenário do fundo do mar"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Mês avulso",
+      "preco": "R$ 190",
+      "itens": [
+       "1 cenário temático",
+       "10 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Trimestral",
+      "preco": "R$ 690",
+      "itens": [
+       "4 ensaios no primeiro ano",
+       "Cenário temático em cada um",
+       "10 fotos por ensaio"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Plano 12 meses",
+      "preco": "R$ 1.790",
+      "itens": [
+       "Um ensaio por mês",
+       "Cenário novo a cada mês",
+       "Smash the cake de 1 ano incluso"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "smash",
+    "nome": "Smash e aniversário",
+    "curto": "Smash",
+    "chamada": "Smash the cake e aniversário",
+    "pedido": "o smash the cake",
+    "frase": "Uma verdadeira diversão, com o tema que a mamãe quiser.",
+    "texto": "O cenário no tema escolhido, o bolo para a bagunça e o banho na banheira no fim. E os ensaios de aniversário, como o de 2 anos.",
+    "quando": "Um mês antes do aniversário.",
+    "depo": {
+     "nome": "Lílian Dantas",
+     "texto": "Camila é uma profissional maravilhosa, foi nossa primeira vez em seu estúdio, ensaio de 2 anos do Benício. Foi um pouco difícil, mas ela com toda calma, paciência e profissionalismo deu muito certo. E as fotos ficaram maravilhosas!"
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     2,
+     3,
+     4,
+     6,
+     7,
+     9,
+     10
+    ],
+    "fotos": [
+     {
+      "arq": "posts/DfxDYgyFoFw/DfxDYgyFoFw_03.jpg",
+      "alt": "Menino de 2 anos com o balão do número 2"
+     },
+     {
+      "arq": "posts/DfxDYgyFoFw/DfxDYgyFoFw_02.jpg",
+      "alt": "Menino de 2 anos no cenário da Patrulha Canina"
+     },
+     {
+      "arq": "posts/DfxDYgyFoFw/DfxDYgyFoFw_00.jpg",
+      "alt": "Pais com o filho no ensaio de 2 anos"
+     },
+     {
+      "arq": "drive/653547399_18034235087592161_339859841633256389_n.jpg",
+      "alt": "Menina de vestido rosa no cenário do primeiro aninho"
+     },
+     {
+      "arq": "posts/C7FdCgiJPX2/C7FdCgiJPX2_04.jpg",
+      "alt": "Menina com o bolo do smash"
+     },
+     {
+      "arq": "posts/C7FdCgiJPX2/C7FdCgiJPX2_08.jpg",
+      "alt": "Menina na banheira, depois do bolo"
+     },
+     {
+      "arq": "posts/C14stS5u2t3/C14stS5u2t3_02.jpg",
+      "alt": "Menino com o bolo, no cenário de balões"
+     },
+     {
+      "arq": "posts/C0SJrrIp3ut/C0SJrrIp3ut_02.jpg",
+      "alt": "Irmãs no cenário do primeiro aninho"
+     },
+     {
+      "arq": "posts/C0SJrrIp3ut/C0SJrrIp3ut_04.jpg",
+      "alt": "Menina com o bolo, no cenário rosa e lilás"
+     },
+     {
+      "arq": "posts/C0SJrrIp3ut/C0SJrrIp3ut_07.jpg",
+      "alt": "Menina rindo na banheira, depois do bolo"
+     },
+     {
+      "arq": "posts/Cyg9yVBJ-Vm/Cyg9yVBJ-Vm_04.jpg",
+      "alt": "Menina com o bolo, no cenário da floresta"
+     },
+     {
+      "arq": "posts/Cw6HHO-pkxR/Cw6HHO-pkxR_02.jpg",
+      "alt": "Menina de lilás no cenário de balões"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 350",
+      "itens": [
+       "Cenário temático",
+       "Bolo para o smash",
+       "15 fotos editadas"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 500",
+      "itens": [
+       "Cenário no tema escolhido",
+       "Bolo e banho no fim",
+       "25 fotos editadas",
+       "Fotos com a família"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 700",
+      "itens": [
+       "Tudo do Completo",
+       "40 fotos editadas",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "chamada": "Ensaio gestante",
+    "pedido": "o ensaio gestante",
+    "frase": "A espera mais linda da vida!",
+    "texto": "No estúdio, sozinha, com o parceiro ou com os filhos.",
+    "quando": "Entre a 27ª e a 34ª semana, quando a barriga está mais aparente e a gestante mais disposta, sem a chance de o bebê apressadinho nascer antes.",
+    "depo": {
+     "nome": "Nathalia Piva",
+     "texto": "Mais do que registrar uma gestação, você conseguiu guardar em imagens todo o amor, a espera, a ansiedade e a emoção dessa fase tão única da nossa vida. Cada detalhe foi pensado com tanto carinho, desde o cuidado em me deixar à vontade até a forma delicada de conduzir cada foto."
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "drive/432760188_18260409625227270_1962986027098122180_n.jpg",
+      "alt": "Gestante de vestido branco, no estúdio"
+     },
+     {
+      "arq": "posts/C4dVze4uW4B/C4dVze4uW4B_07.jpg",
+      "alt": "Casal abraçado no ensaio gestante"
+     },
+     {
+      "arq": "drive/654556468_18060997073378368_8984322444923412601_n.jpg",
+      "alt": "Gestante de vestido preto, no fundo cinza"
+     },
+     {
+      "arq": "posts/C4dVze4uW4B/C4dVze4uW4B_04.jpg",
+      "alt": "Gestante de vestido branco, de corpo inteiro"
+     },
+     {
+      "arq": "posts/C4dVze4uW4B/C4dVze4uW4B_03.jpg",
+      "alt": "Gestante com os dois filhos"
+     },
+     {
+      "arq": "posts/C4dVze4uW4B/C4dVze4uW4B_01.jpg",
+      "alt": "Gestante com o marido e os filhos"
+     },
+     {
+      "arq": "posts/C8w0gA8Rqjk/C8w0gA8Rqjk_02.jpg",
+      "alt": "Casal no ensaio gestante, no fundo cinza"
+     },
+     {
+      "arq": "drive/470149039_18295194793227270_8295309207014883505_n.jpg",
+      "alt": "Gestante de vermelho, no estúdio"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 390",
+      "itens": [
+       "1 hora de ensaio",
+       "15 fotos editadas",
+       "1 look",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 590",
+      "itens": [
+       "1h30 de ensaio",
+       "30 fotos editadas",
+       "2 looks",
+       "Parceiro e filhos juntos"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 890",
+      "itens": [
+       "2 horas de ensaio",
+       "Todas as fotos editadas",
+       "3 looks",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "chamada": "Ensaio de família",
+    "pedido": "o ensaio de família",
+    "frase": "Amor e mais amor.",
+    "texto": "Pais, filhos e irmãos juntos, nos cenários claros do estúdio.",
+    "citacao": "Sou imensamente grata por cada família e história que tenho o privilégio de fotografar.",
+    "citacao_quem": "Camila Camargo, no Instagram",
+    "depo": {
+     "nome": "Carla Viviane Alves",
+     "texto": "Tive uma experiência maravilhosa com a Camila! Desde o primeiro contato, ela foi super atenciosa, paciente e profissional. Durante o ensaio, me senti muito à vontade, e ela conseguiu capturar momentos espontâneos e cheios de sentimento."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     7,
+     8
+    ],
+    "fotos": [
+     {
+      "arq": "posts/Df16WoXFmWl/Df16WoXFmWl_00.jpg",
+      "alt": "Pais com o filho no colo, no estúdio"
+     },
+     {
+      "arq": "posts/Df16WoXFmWl/Df16WoXFmWl_02.jpg",
+      "alt": "Pais abraçando o filho"
+     },
+     {
+      "arq": "posts/C1F8qOqpDBU/C1F8qOqpDBU_04.jpg",
+      "alt": "Família na cama do cenário de estrelas"
+     },
+     {
+      "arq": "drive/470196307_18295189744227270_7991332676796795170_n.jpg",
+      "alt": "Família lendo um livro na cama"
+     },
+     {
+      "arq": "posts/C0_8lLcOsiU/C0_8lLcOsiU_04.jpg",
+      "alt": "Pais com os filhos, no cenário claro"
+     },
+     {
+      "arq": "drive/470207641_18295185265227270_4133503144018511416_n.jpg",
+      "alt": "Família de branco na cama"
+     },
+     {
+      "arq": "posts/Cz6YCptugN6/Cz6YCptugN6_02.jpg",
+      "alt": "Mãe com os filhos na cama"
+     },
+     {
+      "arq": "posts/Cz6YCptugN6/Cz6YCptugN6_06.jpg",
+      "alt": "Família deitada no tapete, perto da árvore"
+     },
+     {
+      "arq": "posts/C0_8lLcOsiU/C0_8lLcOsiU_07.jpg",
+      "alt": "Irmãos deitados na cabaninha"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 320",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 470",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Até 6 pessoas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 670",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

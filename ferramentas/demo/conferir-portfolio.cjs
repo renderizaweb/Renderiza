@@ -142,7 +142,9 @@ const medir = () => {
         await p.click('.rz-abrir'); if (!(await p.locator('#rz-mais').isVisible())) return 'a faixa não abriu';
         const links = await p.evaluate(() => [...document.querySelectorAll('[data-rz-garantir],[data-rz-negociar]')].map(a => decodeURIComponent(a.href)));
         if (!links.length || !links.every(l => /wa\.me\/5511988697165\?text=/.test(l) && /portfólio/.test(l))) return 'botões da oferta: ' + (links[0] || 'nenhum').slice(0, 140);
-        if (!(await p.evaluate(() => /R\$ 399 no Pix ou 2x de R\$ 199/.test(document.querySelector('.rz-faixa').innerText) && /pagamento único/.test(document.querySelector('.rz-faixa').innerText) && /sem mensalidade/.test(document.querySelector('.rz-faixa').innerText)))) return 'a faixa não mostra a oferta inteira';
+        // A oferta é a do window.RZ da própria página (R$ 399 no Pix ou 2x de R$ 199 nas antigas; R$ 399 no Pix ou
+        // parcelado no crédito a partir do lote 4, 23/11/2026): a faixa tem que mostrar o valor, a forma e o pagamento único.
+        if (!(await p.evaluate(() => { const t = document.querySelector('.rz-faixa').innerText, R = window.RZ || {}; return !!R.precoPix && !!R.parcelado && t.includes(R.precoPix + ' no Pix ou ' + R.parcelado) && /pagamento único/.test(t) && /sem mensalidade/.test(t); }))) return 'a faixa não mostra a oferta inteira';
         await p.click('.rz-abrir'); await p.mouse.wheel(0, 1800); await p.waitForTimeout(700);
         if (!(await p.evaluate(() => document.querySelector('.rz-pilula').classList.contains('visivel')))) return 'a pílula não apareceu';
         await p.click('.rz-pilula'); if (!(await p.locator('#rz-folha').isVisible())) return 'a folha da pílula não abriu';
