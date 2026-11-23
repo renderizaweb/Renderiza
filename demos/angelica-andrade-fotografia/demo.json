@@ -1,0 +1,540 @@
+{
+ "pasta": "angelica-andrade-fotografia",
+ "marca": "Angélica Andrade Fotografia",
+ "marca_completa": "Angélica Andrade Fotografia",
+ "dona": "Angélica",
+ "titulo_nome": "Angélica Andrade",
+ "titulo_script": "fotografia",
+ "quem_a": "a Angélica",
+ "quem_da": "da Angélica",
+ "google": {
+  "coords": "-23.6824124,-46.5952992",
+  "fid": "0x94cef73f027501c5:0x14f31cafae8a12bc",
+  "gid": "/g/11tmwyr0br"
+ },
+ "google_nome": "Angélica Andrade Fotografia Gestante e Newborn Zona Norte /São Paulo",
+ "endereco_maps": "",
+ "google_nota": "5,0",
+ "google_total": "96",
+ "verificado": "2026-11-21",
+ "whatsapp": "5511958587843",
+ "fone_link": "+5511958587843",
+ "instagram": "angelicaandradefotografia",
+ "seguidores": "2,3 mil",
+ "mensagem": "Olá! Vi o portfólio da Angélica e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fdf9fb",
+  "papel": "#ffffff",
+  "areia": "#f8eef3",
+  "linha": "#ecdbe4",
+  "tinta": "#2b2229",
+  "tinta2": "#685b64",
+  "rosa": "#f3c9da",
+  "acento": "#a24a77",
+  "acento_escuro": "#843b61",
+  "cafe": "#281d25"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Cormorant Infant",
+    "ital,wght@0,400..600;1,400..600"
+   ],
+   "sans": [
+    "Urbanist",
+    "wght@300..600"
+   ],
+   "script": [
+    "Alex Brush",
+    ""
+   ]
+  }
+ },
+ "renderiza": {
+  "ola": "Angélica",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "2x de R$ 199",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-30",
+  "msg_garantir": "Olá! Sou a Angélica, da Angélica Andrade Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_negociar": "Olá! Sou a Angélica, da Angélica Andrade Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "msg_duvida": "Olá! Sou a Angélica, da Angélica Andrade Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida.",
+  "codigo": "g7rh"
+ },
+ "portfolio": {
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py), feito com a skill demo-portfolio-fotografa. Originais: drive/ = a grade dela salva no Drive (posts de jan a abr/2024, 2048 px); posts/ = o carrossel do Natal 2026 (Df12byKJUQz, 17/11/2026) lido pelo embed público; google/ = Perfil da Empresa. Dois quadros do reel de Natal (DfSk62MBkHr, 03/11/2026, 720x1280, nítidos e sem texto) entram no Natal: são as únicas fotos em pé do cenário 2026. Pacotes e valores são EXEMPLOS (a demo mostra o selo).",
+  "_dela": {
+   "titulo": "página dela na Alboom (\"levanta a bandeira de que foto bonita é feita com segurança\")"
+  },
+  "versao": 4,
+  "local": "Zona Norte de São Paulo",
+  "olho": "Fotógrafa materna infantil · Zona Norte, SP",
+  "titulo": "Foto bonita é feita com segurança.",
+  "linha": "Newborn, mês a mês, ensaios infantis com cenário temático, Natal e aniversário. No estúdio, na zona norte de São Paulo.",
+  "onde": "No estúdio da Angélica, na zona norte de São Paulo. Datas pelo WhatsApp.",
+  "tira": [
+   "infantil:0",
+   "natal:0",
+   "newborn:1",
+   "aniversario:0",
+   "newborn:0",
+   "infantil:1",
+   "natal:1",
+   "aniversario:1"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Taynara Medeiros",
+    "tag": "Gestante, parto e newborn",
+    "texto": "Fiz o de gestante, fiz o do parto e agora o newborn tudo com essa maravilhosa… muito profissional, caprichosa…"
+   },
+   {
+    "nome": "Cibele Lima",
+    "tag": "Bebê",
+    "texto": "Estúdio maravilhoso e figurinos lindos para os bebês! Saí maravilhada com meu pequeno!"
+   },
+   {
+    "nome": "Roberta Gasparini",
+    "tag": "Festa de aniversário",
+    "texto": "Ela foi extremamente atenciosa, carinhosa e profissional, respeitando o tempo e os momentos do meu pequeno, o que fez toda a diferença no resultado."
+   },
+   {
+    "nome": "Alessandra Crispim",
+    "tag": "Estúdio",
+    "texto": "Um lugar super aconchegante, espaçoso e sem contar com o trabalho da Angélica simplesmente impecável! Dá pra ver o amor em cada foto e vídeo."
+   }
+  ],
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "Angélica Andrade.",
+   "p": [
+    "A Angélica ganhou a primeira câmera aos 12 anos. Com o nascimento dos três filhos, decidiu se especializar em fotografia.",
+    "Hoje fotografa recém-nascidos, bebês no acompanhamento mês a mês, crianças, gestantes e famílias no estúdio dela, na zona norte de São Paulo. Também fotografa festas de aniversário."
+   ],
+   "citacao": "Com o nascimento dos meus três filhos a vontade de fotografar foi cada vez mais tomando espaço na minha vida.",
+   "citacao_quem": "Angélica Andrade",
+   "fotos": [
+    {
+     "arq": "drive/Instagram_files/479740446_606470535678023_2735584934740285951_n.jpg",
+     "alt": "Angélica Andrade, a foto do perfil dela no Instagram"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 96 avaliações no Google"
+    ],
+    [
+     "2,3 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "contato": {
+   "titulo": "Agende o seu ensaio.",
+   "p": "Datas e valores pelo WhatsApp. O estúdio fica na zona norte de São Paulo.",
+   "endereco": [
+    "Zona Norte",
+    "São Paulo, SP"
+   ],
+   "telefone": "(11) 95858-7843",
+   "rota": false
+  },
+  "ensaios": [
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "curto": "Natal",
+    "chamada": "Ensaio de Natal",
+    "pedido": "o ensaio de Natal",
+    "frase": "O cenário deste ano já está montado.",
+    "texto": "No estúdio, entre a árvore, os ursos de pelúcia, a lambreta vermelha e o telefone antigo. Para a criança sozinha ou junto com a mãe.",
+    "quando": "Os ensaios de Natal 2026 já começaram: as primeiras fotos do cenário saíram em novembro. Os horários são marcados pelo WhatsApp.",
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "posts/Df12byKJUQz/Df12byKJUQz_00.jpg",
+      "alt": "Mãe e bebê abraçados no cenário de Natal"
+     },
+     {
+      "arq": "posts/Df12byKJUQz/Df12byKJUQz_07.jpg",
+      "alt": "Mãe deitada no tapete com o bebê sentado"
+     },
+     {
+      "arq": "posts/DfSk62MBkHr/DfSk62MBkHr_quadro05.png",
+      "alt": "Menina de vestido verde com o cavalinho dourado, no cenário de Natal"
+     },
+     {
+      "arq": "posts/Df12byKJUQz/Df12byKJUQz_01.jpg",
+      "alt": "Bebê engatinhando entre os ursos de pelúcia"
+     },
+     {
+      "arq": "posts/Df12byKJUQz/Df12byKJUQz_02.jpg",
+      "alt": "Mãe e bebê com o telefone vermelho antigo"
+     },
+     {
+      "arq": "posts/Df12byKJUQz/Df12byKJUQz_04.jpg",
+      "alt": "Bebê sentado no pufe, com a mãe atrás"
+     },
+     {
+      "arq": "posts/DfSk62MBkHr/DfSk62MBkHr_quadro17.png",
+      "alt": "Bebê rindo na poltrona branca, entre almofadas vermelhas"
+     },
+     {
+      "arq": "posts/Df12byKJUQz/Df12byKJUQz_03.jpg",
+      "alt": "Bebê com o fone do telefone vermelho"
+     },
+     {
+      "arq": "posts/Df12byKJUQz/Df12byKJUQz_05.jpg",
+      "alt": "Bebê na lambreta vermelha, com a mãe atrás"
+     },
+     {
+      "arq": "posts/Df12byKJUQz/Df12byKJUQz_08.jpg",
+      "alt": "Mãe e bebê rindo, deitados no tapete"
+     },
+     {
+      "arq": "google/fotos/g01.jpg",
+      "alt": "Menina na máquina de escrever, num cenário de Natal de outro ano"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 290",
+      "itens": [
+       "30 minutos no cenário",
+       "10 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 450",
+      "itens": [
+       "45 minutos no cenário",
+       "20 fotos editadas",
+       "Criança e família juntas",
+       "Galeria online"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 650",
+      "itens": [
+       "1 hora no cenário",
+       "30 fotos editadas",
+       "3 fotos impressas 15x21"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "chamada": "Ensaio newborn",
+    "pedido": "o ensaio newborn",
+    "frase": "Os primeiros dias, com figurino e cenário.",
+    "texto": "No estúdio, com mantas, asas, a banheira e cenários temáticos, como o Boss e o de verão.",
+    "quando": "Costuma ser feito nos primeiros 15 dias de vida. Por isso a reserva é feita ainda na gestação.",
+    "depo": {
+     "nome": "Taynara Medeiros",
+     "texto": "Fiz o de gestante, fiz o do parto e agora o newborn tudo com essa maravilhosa… muito profissional, caprichosa…"
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "drive/Instagram_files/489029648_1174187024718239_3341851892154628862_n.jpg",
+      "alt": "Recém-nascida dormindo no fundo rosa, com asinhas"
+     },
+     {
+      "arq": "drive/Instagram_files/488977478_1174194458050829_2298739676504540116_n.jpg",
+      "alt": "Recém-nascido de óculos e paletó na poltrona, no cenário Boss"
+     },
+     {
+      "arq": "drive/Instagram_files/489295479_1174186774718264_6952696526804086849_n.jpg",
+      "alt": "Recém-nascida na banheira, sobre o tapete rosa"
+     },
+     {
+      "arq": "drive/Instagram_files/489531137_1174194431384165_8917623488617075210_n.jpg",
+      "alt": "Recém-nascido apoiado nas mãos, com asas na manta azul"
+     },
+     {
+      "arq": "drive/Instagram_files/489372881_1174667014670240_5873794965505776289_n.jpg",
+      "alt": "Recém-nascido de boina e óculos redondos, de olhos abertos"
+     },
+     {
+      "arq": "drive/Instagram_files/489888197_1176017707868504_372559195719666567_n.jpg",
+      "alt": "Recém-nascida de tiara de flores e saia de tule"
+     },
+     {
+      "arq": "drive/Instagram_files/488683990_1172547534882188_7889578048265116800_n.jpg",
+      "alt": "Recém-nascido de óculos escuros no cenário de verão"
+     },
+     {
+      "arq": "drive/Instagram_files/489923905_1176018034535138_7591891008814348632_n.jpg",
+      "alt": "Recém-nascida dormindo na banheira branca"
+     },
+     {
+      "arq": "google/fotos/g00.jpg",
+      "alt": "Recém-nascida enrolada na manta cinza, no caixote de madeira"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 490",
+      "itens": [
+       "Até 3 horas, no tempo do bebê",
+       "15 fotos editadas",
+       "Figurinos e acessórios",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 690",
+      "itens": [
+       "25 fotos editadas",
+       "2 cenários",
+       "Fotos com os pais",
+       "Galeria online"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 990",
+      "itens": [
+       "40 fotos editadas",
+       "Cenário temático",
+       "Fotos com a família",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Infantil",
+    "chamada": "Ensaio infantil",
+    "pedido": "o ensaio infantil",
+    "frase": "Cenários de Páscoa, Carnaval e outras datas.",
+    "texto": "Bebês e crianças, com figurino e cenário montados no estúdio. No primeiro ano, tem o acompanhamento mês a mês.",
+    "depo": {
+     "nome": "Cibele Lima",
+     "texto": "Estúdio maravilhoso e figurinos lindos para os bebês! Saí maravilhada com meu pequeno!"
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "drive/Instagram_files/489000166_1173417698128505_8989923403321264279_n.jpg",
+      "alt": "Bebê de vestido de princesa, sentada entre confetes"
+     },
+     {
+      "arq": "drive/Instagram_files/489796627_1175379434598998_2286446744577565186_n.jpg",
+      "alt": "Menina de vestido florido no banquinho, no cenário de Páscoa"
+     },
+     {
+      "arq": "drive/Instagram_files/489625699_1173417851461823_2468570803858915674_n.jpg",
+      "alt": "Bebê de fada na cadeira, no ensaio de 6 meses"
+     },
+     {
+      "arq": "drive/Instagram_files/434730315_888144766655801_1281257193288450855_n.jpg",
+      "alt": "Bebê de touca de coelho no carrinho de madeira"
+     },
+     {
+      "arq": "drive/Instagram_files/489780543_1175660091237599_8416262518471188814_n.jpg",
+      "alt": "Menina abraçando o coelho de pelúcia"
+     },
+     {
+      "arq": "drive/Instagram_files/489673802_1173418008128474_3752128564079390529_n.jpg",
+      "alt": "Bebê de vestido de princesa dando risada"
+     },
+     {
+      "arq": "drive/Instagram_files/489542844_1175660347904240_2658089128988710472_n.jpg",
+      "alt": "Bebê no carrinho branco com um coelho de pelúcia"
+     },
+     {
+      "arq": "drive/Instagram_files/489624625_1175660314570910_8948251256220656543_n.jpg",
+      "alt": "Menino com bigodes de coelho pintados no rosto"
+     },
+     {
+      "arq": "drive/Instagram_files/489420945_1175313944605547_7711608796740487237_n.jpg",
+      "alt": "Menina de orelhas de coelho floridas"
+     },
+     {
+      "arq": "drive/Instagram_files/490133683_1175379494598992_7515070627462426812_n.jpg",
+      "alt": "Menina sorrindo ao lado do ovo de chocolate gigante"
+     },
+     {
+      "arq": "drive/Instagram_files/489957290_1175660317904243_7155271337670080823_n.jpg",
+      "alt": "Bebê no carrinho em forma de cenoura"
+     },
+     {
+      "arq": "drive/Instagram_files/489560766_1175660324570909_6578847513613111408_n.jpg",
+      "alt": "Menina de vestido vermelho no cenário de Páscoa"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Ensaio temático",
+      "preco": "R$ 290",
+      "itens": [
+       "1 cenário",
+       "15 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Mês a mês",
+      "preco": "R$ 1.290",
+      "itens": [
+       "1 ensaio por mês no primeiro ano",
+       "10 fotos por ensaio",
+       "Galeria online"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Smash the cake",
+      "preco": "R$ 450",
+      "itens": [
+       "Cenário do tema escolhido",
+       "25 fotos editadas",
+       "Galeria online"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "aniversario",
+    "nome": "Aniversário",
+    "chamada": "Ensaio de aniversário",
+    "pedido": "o ensaio de aniversário",
+    "frase": "Aos 23, aos 35, aos 43.",
+    "texto": "No estúdio, com balões, o número da idade e fundo claro ou escuro.",
+    "depo": {
+     "nome": "Alessandra Crispim",
+     "texto": "Um lugar super aconchegante, espaçoso e sem contar com o trabalho da Angélica simplesmente impecável! Dá pra ver o amor em cada foto e vídeo."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "drive/Instagram_files/488928484_1173720884764853_3794491379195691133_n.jpg",
+      "alt": "Mulher de vestido preto entre confetes e balões dourados"
+     },
+     {
+      "arq": "drive/Instagram_files/489209498_1173507288119546_6644346712566702556_n.jpg",
+      "alt": "Mulher de vestido vermelho com um sparkler aceso"
+     },
+     {
+      "arq": "drive/Instagram_files/489630787_1173417754795166_2628671793863915212_n.jpg",
+      "alt": "Mulher com os balões de número 23"
+     },
+     {
+      "arq": "drive/Instagram_files/489320621_1173720714764870_824262479637444086_n.jpg",
+      "alt": "Mulher de vestido brilhante com os balões de número 43"
+     },
+     {
+      "arq": "drive/Instagram_files/489304018_1173417758128499_5927044638975203151_n.jpg",
+      "alt": "Mulher agachada entre balões rosa e globos espelhados"
+     },
+     {
+      "arq": "drive/Instagram_files/489573716_1175660521237556_6014237637248418432_n.jpg",
+      "alt": "Mulher com um globo espelhado, diante do número 27"
+     },
+     {
+      "arq": "drive/Instagram_files/489452552_1173720811431527_5400143109811113192_n.jpg",
+      "alt": "Mulher de blazer preto com um buquê de flores"
+     },
+     {
+      "arq": "drive/Instagram_files/489641555_1175557771247831_3627050889607765048_n.jpg",
+      "alt": "Mulher de costas, de luvas vermelhas, entre balões de coração"
+     },
+     {
+      "arq": "drive/Instagram_files/489656495_1175396774597264_5477054353737930571_n.jpg",
+      "alt": "Mulher de branco no banquinho, diante do número 27"
+     },
+     {
+      "arq": "drive/Instagram_files/488904785_1173507331452875_9151166133732038477_n.jpg",
+      "alt": "Mulher no fundo preto com o bolo de 35 anos"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 290",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "1 look"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 450",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "2 looks",
+       "Balões e número"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 690",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "3 looks",
+       "Fundo claro e escuro"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}
