@@ -42,7 +42,7 @@ diferentes: cada uma mexe só no seu "Mexe em" e as duas seguem o Contrato v1.
 | | O quê | Para |
 |---|---|---|
 | R1 | Criar o repositório do site (privado), com a conta da Renderiza no GitHub como colaboradora e o app do Claude instalado nele; abrir a sessão com ele selecionado (**com o Kaue, 24/11**) | 2B |
-| R2 | O domínio (**ainda não decidido**; até lá, o site fica no `<projeto>.pages.dev`) | 3C |
+| R2 | O domínio (**ainda não decidido**; até lá, o site fica no `<projeto>.pages.dev`). Achado em 24/11 (consulta pública do Registro.br): `ricardomotors.com.br` está registrado desde 30/10/2026 (vence em 30/10/2027) no nome de "Ricardo Motors", CNPJ 59.838.940/0001-05, com o DNS já no Cloudflare e um contato técnico pessoa física. Falta o Ricardo confirmar se o CNPJ é dele e quem tem o acesso (Registro.br e Cloudflare). O e-mail que ele mandou é do registro da **marca** no INPI (processo 942976223, em exame de mérito), não do domínio. `ricardomotors.com` estava livre. | 3C |
 | R3 | O "pode" para a migração na produção, a função `assistente` (se a 1D mudar) e a conta dele | 3A |
 
 **Decidido com a Renderiza (24/11):** os 15 carros da demo entram como à venda (ele tira do ar o que não tiver); o
