@@ -28,8 +28,8 @@ proponha o ajuste e registre no diário.
 | Parada | Situação | Sessão / branch | Atualizada |
 |---|---|---|---|
 | 0 · Investigação e contrato | **feita** | `estoque-plano` (na `main`) | 24/11/2026 |
-| 1 · O Estoque e o nicho automotivo no painel (STG) | **em andamento**: 1A feita; 1B e 1C nesta sessão | `main` (sessão do plano) | 24/11/2026 |
-| 2 · O site dele, ligado ao painel | livre: a 2A pode começar já; a 2B espera o **R1**; a 2C, a 1A e a 1C | | |
+| 1 · O Estoque e o nicho automotivo no painel (STG) | **feita** (1A a 1E; a 1C sem a prévia do site ao lado, que fica para a 2C) | `main` (sessão do plano) | 24/11/2026 |
+| 2 · O site dele, ligado ao painel | 2A **feita**; a 2B espera o **R1** (o repositório); a 2C depois da 2B | `main` (sessão do plano) | 24/11/2026 |
 | 3 · Produção e entrega | esperando 1, 2 e o **R3** | | |
 
 **Situação:** `livre` · `em andamento` · `feita` · `travada` (diga por quê no diário). **Pegou uma parada ou uma
@@ -165,6 +165,8 @@ entrou pelo suporte, conferiu e tem a mensagem pronta para mandar ao Ricardo, co
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 24/11/2026 | 2 | **2A feita.** `ferramentas/estoque/estoque.js` (pede no `<head>`, 6 s, confere o contrato, guarda 60 s na sessão, entrega a `window.rzEstoque`; 404 depois de uma lista mostrada chama `rzEstoque(null)`; a prévia por `postMessage` só da origem da API); `"painel": {"estoque": true}` no `virar-site`; a conferência acusa `data-site-*` dentro de `[data-estoque]`. `test/estoque-site.test.mjs` (4 testes, sem rede). Os testes da raiz que falham aqui são os mesmos da `main` limpa (as demos fora do checkout parcial deste ambiente). | Claude |
+| 24/11/2026 | 1 | **Parada 1 feita (1B a 1E).** O nicho automotivo no painel inteiro (`src/nichos/automotivo.js`: "loja", o tema grafite e dourado, o ícone; cadastro, tela de entrar, Admin e tema saem da lista de nichos; Serviços só com nome e descrição; o Início com o resumo do Estoque e "Pôr os carros no estoque"). O módulo `src/modulos/estoque/` (a tela do protótipo sobre o banco: fotos em duas medidas, 1600 e 640 px, enviadas ao subir; vendido com Desfazer; excluir com confirmação apaga as fotos; "só vê" travado; `?novo=item` e o "+" do topo). O onboarding da loja (perguntas de revenda, o Estoque primeiro no menu, os serviços marcados; a função `assistente` no STG, versão 16). O fluxo `test/fluxos/estoque.fluxo.mjs` (10 passos, verde no STG) e 256 testes verdes. Falta da 1C: a prévia do site ao lado (entra na 2C, com o site dele). | Claude |
 | 24/11/2026 | 1 | **1A feita.** Migração `20261124190000_estoque` no STG (local verde, com o teste `093`: RLS, isolamento, fotos, vendido, a função pública); a rota `GET /api/publico/estoque/<código>` com testes sem rede; a semente `garagem-aurora.mjs stg` (5 carros; o site recebe 3, na ordem). Medido daqui ao STG: ~200 ms por pedido sem cache. As funções do painel passam a rodar em São Paulo (`gru1`), ao lado do banco. | Claude |
 | 24/11/2026 | 1 | Trilho enxugado para 3 paradas (a pedido), com o onboarding do automotivo (1D) e as respostas da Renderiza (os 15 carros à venda, o WhatsApp da demo, a conta ativa e parada, o domínio depois). Começa a 1A. | Claude |
 | 24/11/2026 | 0 | Proposta aceita. Investigação do painel e das entregas da Rafaela e da Bia; o **Contrato v1** no `12`; trilho escrito. | Claude, a pedido da Renderiza |

@@ -164,7 +164,9 @@ o local, o STG e a produção funcionam igual, e o site só mostra foto da API.
   Ele pede a API (espera até 6 s), confere a resposta (versão 1, lista, foto só do endereço da API), guarda por 60 s
   na sessão do navegador e chama `window.rzEstoque(itens, { esquema, atualizado_em })`, que o site define: refaz a
   vitrine, os filtros, a contagem e a capa com os destaques, e esconde o aviso. Erro, demora ou resposta inválida: o
-  script não chama nada e o site fica com a versão de reserva.
+  script não chama nada e o site fica com a versão de reserva. Se uma lista já foi mostrada (da sessão) e o painel
+  responde 404, o script chama `window.rzEstoque(null)`: o site volta à reserva. O bloco no `<head>` é
+  `<script data-estoque="<código>">` (com `data-api` só em teste).
 - **Prévia no painel** (opcional): com `?rz-estoque=previa`, dentro de um quadro do painel, o script aceita
   `{ tipo: "rz-estoque", itens }` por `postMessage`, só da origem da API, e responde `rz-estoque-pronto` (como o
   protótipo).
@@ -178,7 +180,7 @@ trocada pela do banco; a mesma interface: `listar`, `salvar`, `mudar`, `remover`
 | Fase | O que entra | Onde |
 |---|---|---|
 | **0 · Protótipo** (feita, 20/11/2026: o painel do Ricardo em `/demo/ricardo-motors/painel` e o vídeo em `/gravacao/ricardo-motors-estoque.mp4`) | a tela do módulo com o painel de verdade (casca, estilo, gaveta, campos) sobre dados guardados no navegador; o esquema automotivo e o de ótica; o site do Ricardo ouvindo o protótipo ao vivo; o vídeo para o Ricardo | `exemplos/estoque/` (o módulo, sem dados de cliente) e `demos/ricardo-motors/painel.html` (o painel dele, dentro da demo) |
-| **1 · Banco, API e módulo** (em andamento desde 24/11: a Parada 1 do [trilho do Ricardo](../entregas/ricardo-motors.md), com o nicho automotivo no painel inteiro e o onboarding dele) | o contrato v1 acima: migração, RLS, Storage, `publico_estoque`, a rota, o módulo em `src/modulos/estoque/` e o nicho automotivo | STG, depois produção com o "pode" |
+| **1 · Banco, API e módulo** (feita no STG em 24/11, na `main`; a produção na Parada 3: a Parada 1 do [trilho do Ricardo](../entregas/ricardo-motors.md), com o nicho automotivo no painel inteiro e o onboarding dele) | o contrato v1 acima: migração, RLS, Storage, `publico_estoque`, a rota, o módulo em `src/modulos/estoque/` e o nicho automotivo | STG, depois produção com o "pode" |
 | **2 · Piloto automotivo** (paradas 2 e 3 do trilho) | o site do Ricardo no repositório dele, com a versão de reserva sem preço e o script do estoque; a conta dele com Meu site e Estoque; o estoque de hoje cadastrado por nós | o domínio dele |
 | **3 · Ótica e indicadores** | o esquema de ótica ligado à vitrine de armações do `gerar.py`; a aba Indicadores por item; importar de planilha (CSV, já há `ui/csv.js`) | — |
 | **Depois** | importar da Webmotors ou de integradores (XML), variações (loja), mais de um site por conta | só com decisão no `07` |
