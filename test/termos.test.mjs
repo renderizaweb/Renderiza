@@ -153,12 +153,12 @@ test("Ricardo Motors: o termo revisado em 24/11 (domínio adiantado e as condiç
   assert.deepEqual(t.opcoes.map(o => o.id), ["com-painel", "so-site"]);
   assert.match(t.texto, /Não inclui:\n\n- Ligação automática com a Webmotors ou com outro portal\.\n- Manutenção/);
   assert.match(t.texto, /o domínio escolhido pelo Contratante é registrado pela Renderiza no nome do Contratante/);
-  assert.match(t.texto, /\*\*Domínio:\*\* registrado no seu nome; o 1º ano \(R\$ 40,00\) é pago à parte, antes do registro\./);
-  assert.match(t.texto, /\*\*Do preço do site, nada é pago antes da entrega:\*\*/);
+  assert.match(t.texto, /\*\*Domínio:\*\* registrado no seu nome, com o 1º ano incluído no preço\./);
+  assert.match(t.texto, /\*\*R\$ 40,00 são adiantados\*\* em até 2 dias úteis depois da assinatura, para registrar o domínio \(cláusula 5\); \*\*o restante, R\$ 359,00, só na aprovação:\*\*/);
   assert.match(t.texto, /# 9\. Condições deste projeto\n\n1\. Com o Painel Renderiza, os carros, os preços e as fotos do site vêm do módulo Estoque/);
   assert.match(t.texto, /o site mostra a versão de reserva: os carros do dia da entrega, sem preço/);
   assert.match(t.texto, /os módulos combinados são: Meu site e Estoque\. A primeira mensalidade vence 30 dias após a entrega\./);
-  assert.match(t.texto, /\*\*Valor:\*\* R\$ 399,00, por Pix, só na aprovação do site\./);
+  assert.match(t.texto, /\*\*Valor:\*\* R\$ 399,00, por Pix: R\$ 40,00 na assinatura, para registrar o domínio, e R\$ 359,00 na aprovação do site\./);
   const falta = pendencias(t.texto);
   assert.deepEqual(falta, [], "preenchido no card: nada falta");
 });
@@ -200,12 +200,14 @@ test("1ª mensalidade do painel: só aparece se preenchida", () => {
   assert.equal(montarTermoDoSite(COMPLETO).texto.includes("primeira mensalidade"), false);
 });
 
-test("domínio adiantado: a Renderiza registra no nome do cliente, o 1º ano é pago à parte e volta se ele desistir antes do registro", () => {
-  const d = montarTermoDoSite({ ...COMPLETO, pagamento: "entrega", dominio_situacao: "registrar_adiantado", dominio_valor: "40" }).texto;
-  assert.match(d, /registrado pela Renderiza no nome do Contratante, com os dados informados na assinatura \(CPF ou CNPJ\)/);
-  assert.match(d, /O primeiro ano, \*\*R\$ 40,00\*\* \(o valor do registro\), é pago pelo Contratante à parte do preço do site, antes do registro; se ele desistir antes do registro, esse valor volta/);
-  assert.equal(/Nada é pago antes da entrega/.test(d), false, "o domínio é pago antes: o 'nada antes' vale para o preço do site");
-  assert.equal(/O preço inclui o registro do domínio/.test(d), false);
-  assert.deepEqual(pendencias(montarTermoDoSite({ ...COMPLETO, dominio_situacao: "registrar_adiantado", dominio_valor: "" }).texto), ["valor do domínio"]);
+test("domínio adiantado: o 1º ano está DENTRO do preço; essa parte é adiantada na assinatura e o restante vai na aprovação", () => {
+  const d = montarTermoDoSite({ ...COMPLETO, valor: "399", pagamento: "entrega", dominio_situacao: "registrar_adiantado", dominio_valor: "40" }).texto;
+  assert.match(d, /registrado pela Renderiza no nome do Contratante, com os dados informados na assinatura \(CPF ou CNPJ\), e o primeiro ano está incluído no preço \(é o adiantamento de R\$ 40,00/);
+  assert.match(d, /\*\*R\$ 40,00 são adiantados\*\*.*\*\*o restante, R\$ 359,00, só na aprovação:\*\*/);
+  assert.equal(/Nada é pago antes da entrega/.test(d), false, "há um adiantamento: o 'nada antes' sai");
+  assert.match(d, /sem nenhum custo; o que tiver pago volta em até 10 dias/, "nos 7 dias, o adiantamento volta (e o domínio registrado continua dele)");
+  assert.match(d, /o custo é só o adiantamento do domínio, que fica com ele; se já tiver mandado, o Contratante paga metade do preço \(R\$ 199,50\), já contado o adiantamento/);
+  assert.deepEqual(pendencias(montarTermoDoSite({ ...COMPLETO, pagamento: "entrega", dominio_situacao: "registrar_adiantado", dominio_valor: "" }).texto), ["valor do adiantamento"]);
+  assert.equal(/adiantad/.test(montarTermoDoSite({ ...COMPLETO, pagamento: "integral", dominio_situacao: "registrar_adiantado" }).texto.split("# 5.")[0].split("# 4.")[1]), false, "pago na assinatura: não há adiantamento à parte");
   assert.equal(camposDoSite({}).dominio_valor, "40");
 });

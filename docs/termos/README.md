@@ -58,9 +58,10 @@ Enxuto de propósito (24/11/2026): o termo garante a entrega de forma genérica 
   - **o cliente já tem** (o padrão): uma linha só, dizendo que o domínio continua dele (conta, pagamentos e
     renovação). Sem valor, sem Registro.br;
   - **a Renderiza registra** no nome dele, com o 1º ano incluído no preço; a renovação, a partir do 2º ano, é dele;
-  - **a Renderiza registra, e o cliente adianta o 1º ano** (24/11/2026, o caso da Ricardo): no nome dele, com os dados
-    da assinatura; o 1º ano (campo "1º ano do domínio", padrão R$ 40, o valor do Registro.br) é pago à parte do preço
-    do site, antes do registro, e volta se ele desistir antes; o "nada antes" passa a valer só para o preço do site;
+  - **a Renderiza registra, com o 1º ano incluído e adiantado** (24/11/2026, o caso da Ricardo): no nome dele, com os
+    dados da assinatura; o 1º ano está **dentro do preço**, e essa parte (campo "Adiantamento para o domínio", padrão
+    R$ 40) é paga na assinatura, para o registro; o restante vai na aprovação. Registrado, o domínio é dele;
+    cancelando depois dos 7 dias e antes da versão para aprovação, o custo é só o adiantamento;
   - **o cliente registra e paga.**
 - **Garantia** contra defeitos (padrão 30 dias), que não reduz a garantia da lei.
 - **Limites:** conteúdo e preços são do cliente; sem garantia de vendas ou de Google; serviços de terceiros fora; teto
@@ -96,8 +97,8 @@ que o Kaue preencheu no card em 24/11/2026 (R$ 399,00 na aprovação, 5 dias út
 Estoque, a 1ª mensalidade 30 dias após a entrega), revisada no mesmo dia com o que mudou na entrega
 ([`docs/entregas/ricardo-motors.md`](../entregas/ricardo-motors.md)):
 
-- **Domínio:** o `ricardomotors.com.br` é de outra empresa; a Renderiza registra um `.com.br` novo no nome dele, e ele
-  adianta o 1º ano (R$ 40) à parte do site.
+- **Domínio:** o `ricardomotors.com.br` é de outra empresa; a Renderiza registra um `.com.br` novo no nome dele. O total
+  continua R$ 399,00: R$ 40,00 adiantados na assinatura (o domínio) e R$ 359,00 na aprovação.
 - **Condições deste projeto:** com o painel, os carros, os preços e as fotos vêm do Estoque, e ele os mantém em dia
   (o que aparece no site vale como oferta dele); sem o painel, o site mostra a versão de reserva (os carros do dia da
   entrega, sem preço, com o aviso do WhatsApp), e mudar essa vitrine é alteração orçada.

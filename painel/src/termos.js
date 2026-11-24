@@ -44,7 +44,7 @@ export const HOSPEDAGENS = [
 export const DOMINIOS = [
   { id: "cliente_tem", nome: "O cliente já tem domínio (sem custo, só aponta)" },
   { id: "registrar_incluido", nome: "A Renderiza registra no nome dele, 1º ano incluído" },
-  { id: "registrar_adiantado", nome: "A Renderiza registra no nome dele; o cliente adianta o 1º ano, à parte" },
+  { id: "registrar_adiantado", nome: "A Renderiza registra no nome dele; 1º ano incluído no preço e adiantado na assinatura" },
   { id: "registrar_cliente", nome: "O cliente registra e paga" },
 ];
 export const PAINEL = [
@@ -69,7 +69,7 @@ export const CAMPOS_DO_SITE = [
   { id: "prazo", rotulo: "Prazo (dias úteis)", tipo: "numero", dica: "Contados do material completo" },
   { id: "garantia", rotulo: "Garantia (dias corridos)", tipo: "numero", dica: "Contra defeitos, depois da entrega" },
   { id: "dominio_situacao", rotulo: "Domínio", tipo: "opcoes", opcoes: DOMINIOS },
-  { id: "dominio_valor", rotulo: "1º ano do domínio (adiantado)", tipo: "valor", dica: "O valor do Registro.br, pago pelo cliente antes do registro. Ex.: 40", so: c => c.dominio_situacao === "registrar_adiantado" },
+  { id: "dominio_valor", rotulo: "Adiantamento para o domínio (parte do preço)", tipo: "valor", dica: "Pago na assinatura para registrar o domínio; o restante do preço vai na aprovação. Ex.: 40", so: c => c.dominio_situacao === "registrar_adiantado" },
   { id: "dominio", rotulo: "Endereço do domínio (opcional)", tipo: "texto", dica: "Ex.: ricardomotors.com.br (vazio: o que o cliente tiver ou escolher)" },
   { id: "hospedagem", rotulo: "Hospedagem", tipo: "opcoes", opcoes: HOSPEDAGENS },
   { id: "painel", rotulo: "Painel Renderiza", tipo: "opcoes", opcoes: PAINEL },
@@ -165,17 +165,22 @@ export function montarTermoDoSite(campos = {}) {
   const metade = valor ? Math.round(valor * 50) / 100 : 0;
   const METADE = valor ? reais(metade) : "metade do preço";
   const antecipado = c.pagamento === "integral" || c.pagamento === "metade" || c.pagamento === "outro"; // pode ter pago antes da entrega
-  // o domínio adiantado (o 1º ano, à parte do preço do site): o "nada antes" passa a valer para o preço do site
-  const adiantaDominio = dom === "registrar_adiantado";
+  // O domínio adiantado (24/11/2026): o 1º ano do domínio está INCLUÍDO no preço, e essa parte é adiantada na
+  // assinatura, para o registro; o restante, na aprovação. Só faz diferença com o pagamento "na aprovação".
   const valorDoDominio = lerReais(c.dominio_valor);
-  const VALOR_DO_DOMINIO = valorDoDominio ? reais(valorDoDominio) : pendente("valor do domínio");
+  const VALOR_DO_DOMINIO = valorDoDominio ? reais(valorDoDominio) : pendente("valor do adiantamento");
+  const adiantaDominio = dom === "registrar_adiantado" && c.pagamento === "entrega";
+  const restante = valor && valorDoDominio && valorDoDominio < valor ? Math.round((valor - valorDoDominio) * 100) / 100 : null;
+  const RESTANTE = restante ? reais(restante) : "o restante";
   const comoPaga = {
-    entrega: (adiantaDominio ? "**Do preço do site, nada é pago antes da entrega:**" : "**Nada é pago antes da entrega:**") + " a Renderiza mostra o site pronto num endereço de prévia; aprovado, o Contratante paga em até 2 dias úteis, e a Renderiza publica o site no domínio dele e passa os acessos.",
+    entrega: adiantaDominio
+      ? `**${VALOR_DO_DOMINIO} são adiantados** em até 2 dias úteis depois da assinatura, para registrar o domínio (${cl("onde")}); **o restante, ${RESTANTE}, só na aprovação:** a Renderiza mostra o site pronto num endereço de prévia; aprovado, o Contratante paga em até 2 dias úteis, e a Renderiza publica o site no domínio dele e passa os acessos.`
+      : "**Nada é pago antes da entrega:** a Renderiza mostra o site pronto num endereço de prévia; aprovado, o Contratante paga em até 2 dias úteis, e a Renderiza publica o site no domínio dele e passa os acessos.",
     integral: "O pagamento é em parcela única, em até 2 dias úteis depois da assinatura.",
     metade: `O pagamento é em duas parcelas: ${METADE} em até 2 dias úteis depois da assinatura e o restante na aprovação, antes da publicação.`,
     outro: `O pagamento é ${limpo(c.pagamento_outro).replace(/\.$/, "") || pendente("forma de pagamento")}.`,
   }[c.pagamento];
-  const pagamentoCurto = { entrega: adiantaDominio ? "por Pix, só na aprovação do site" : "por Pix, só na aprovação (nada antes)", integral: "por Pix, na assinatura", metade: "por Pix, metade na assinatura e metade na aprovação",
+  const pagamentoCurto = { entrega: adiantaDominio ? `por Pix: ${VALOR_DO_DOMINIO} na assinatura, para registrar o domínio, e ${RESTANTE} na aprovação do site` : "por Pix, só na aprovação (nada antes)", integral: "por Pix, na assinatura", metade: "por Pix, metade na assinatura e metade na aprovação",
     outro: limpo(c.pagamento_outro) || pendente("forma de pagamento") }[c.pagamento];
   const contaDoPrazo = c.pagamento === "integral" ? " e do pagamento" : c.pagamento === "metade" ? " e da primeira parcela" : "";
   const tipo = {
@@ -187,7 +192,7 @@ export function montarTermoDoSite(campos = {}) {
   const clausulaDoDominio = {
     cliente_tem: `**Domínio:** o site é publicado n${oDominio}, que continua sob a responsabilidade dele (a conta, os pagamentos e a renovação). Ele dá o acesso necessário para apontar o domínio para o site.`,
     registrar_incluido: `**Domínio:** ${oDominio} é registrado no nome do Contratante, com o primeiro ano incluído no preço. A partir do segundo ano, a renovação é dele, direto com o registro de domínios, e a Renderiza não responde por domínio vencido ou perdido por falta de renovação.`,
-    registrar_adiantado: `**Domínio:** ${oDominio} é registrado pela Renderiza no nome do Contratante, com os dados informados na assinatura (CPF ou CNPJ). O primeiro ano, **${VALOR_DO_DOMINIO}** (o valor do registro), é pago pelo Contratante à parte do preço do site, antes do registro; se ele desistir antes do registro, esse valor volta, e registrado, o domínio é dele. A partir do segundo ano, a renovação é dele, direto com o registro de domínios, e a Renderiza não responde por domínio vencido ou perdido por falta de renovação.`,
+    registrar_adiantado: `**Domínio:** ${oDominio} é registrado pela Renderiza no nome do Contratante, com os dados informados na assinatura (CPF ou CNPJ), e o primeiro ano está incluído no preço${adiantaDominio ? ` (é o adiantamento de ${VALOR_DO_DOMINIO}, ${cl("preco")})` : ""}. Registrado, o domínio é do Contratante, mesmo que este termo seja cancelado. A partir do segundo ano, a renovação é dele, direto com o registro de domínios, e a Renderiza não responde por domínio vencido ou perdido por falta de renovação.`,
     registrar_cliente: `**Domínio:** ${oDominio} é registrado e pago pelo Contratante, no nome dele, assim como a renovação anual. A Renderiza não responde por domínio vencido ou perdido por falta de renovação.`,
   }[dom];
 
@@ -199,12 +204,13 @@ export function montarTermoDoSite(campos = {}) {
   bloco(...lista([
     `**O que você recebe:** o ${projeto}, pronto e publicado no seu domínio${referencia ? `, seguindo ${referencia}` : ""}.`,
     `**Valor:** ${VALOR}, ${pagamentoCurto}.`,
-    ...(adiantaDominio ? [`**Domínio:** registrado no seu nome; o 1º ano (${VALOR_DO_DOMINIO}) é pago à parte, antes do registro.`] : []),
+    ...(dom === "registrar_adiantado" ? ["**Domínio:** registrado no seu nome, com o 1º ano incluído no preço."] : []),
     `**Prazo:** até ${PRAZO} dias úteis depois do material completo.`,
     "**Tudo fica no seu nome:** o código, a hospedagem e o domínio.",
     `**Depois da entrega:** sem manutenção incluída e ${GARANTIA} dias de garantia contra defeitos.`,
     ...(comPainel ? [`**Painel Renderiza${c.painel === "opcional" ? " (opcional)" : ""}:** assinatura à parte${precoDoPainel(c) ? `, ${precoDoPainel(c)}` : ""}, com os módulos que você escolher.`] : []),
     c.cancelamento === "sem_custo" ? "**Desistência:** a qualquer momento antes de aprovar o site, sem custo."
+      : adiantaDominio ? "**Desistência:** até 7 dias depois de assinar, sem custo. Depois, e antes de aprovar o site: só o adiantamento do domínio, se a versão para aprovação ainda não foi enviada; se já foi, metade do preço."
       : "**Desistência:** até 7 dias depois de assinar, sem custo. Depois, e antes de aprovar o site: sem custo se a versão para aprovação ainda não foi enviada; se já foi, metade do preço.",
   ]));
   bloco("O resumo ajuda a ler; o que vale são as cláusulas abaixo.");
@@ -275,10 +281,14 @@ export function montarTermoDoSite(campos = {}) {
 
   bloco(`# ${n.desistencia}. Desistência e cancelamento`);
   const devolve = antecipado ? " O que tiver pago além disso volta em até 10 dias." : "";
+  const custoAntes = adiantaDominio
+    ? (c.cancelamento === "sem_custo" ? "O custo é só o adiantamento do domínio, que fica com ele."
+      : `Se a Renderiza ainda não tiver mandado a versão para aprovação (${cl("prazo")}), o custo é só o adiantamento do domínio, que fica com ele; se já tiver mandado, o Contratante paga metade do preço (${METADE}), já contado o adiantamento, pelo trabalho feito.`)
+    : c.cancelamento === "sem_custo" ? "Não há custo."
+      : `Se a Renderiza ainda não tiver mandado a versão para aprovação (${cl("prazo")}), não há custo; se já tiver mandado, o Contratante paga metade do preço (${METADE}) pelo trabalho feito.`;
   bloco(...lista([
-    `**Nos 7 dias depois da assinatura:** o Contratante pode desistir deste termo sem dar motivo e sem nenhum custo${antecipado ? "; o que tiver pago volta em até 10 dias" : ""}.`,
-    `**Depois disso e antes de aprovar o site:** pode cancelar avisando por escrito. ${c.cancelamento === "sem_custo" ? "Não há custo."
-      : `Se a Renderiza ainda não tiver mandado a versão para aprovação (${cl("prazo")}), não há custo; se já tiver mandado, o Contratante paga metade do preço (${METADE}) pelo trabalho feito.`}${devolve} Cancelado, o site não é entregue nem publicado.`,
+    `**Nos 7 dias depois da assinatura:** o Contratante pode desistir deste termo sem dar motivo e sem nenhum custo${antecipado || adiantaDominio ? "; o que tiver pago volta em até 10 dias" : ""}.`,
+    `**Depois disso e antes de aprovar o site:** pode cancelar avisando por escrito. ${custoAntes}${devolve} Cancelado, o site não é entregue nem publicado.`,
     "**Depois da aprovação**, o preço é devido por inteiro.",
     "Se o Contratante não mandar o material ou não responder por mais de 30 dias, a Renderiza pode encerrar o termo, com a mesma regra do item 2. Qualquer parte também pode encerrar por descumprimento grave da outra, não corrigido em 10 dias depois do aviso.",
   ], true));
