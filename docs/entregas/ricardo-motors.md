@@ -41,7 +41,7 @@ diferentes: cada uma mexe só no seu "Mexe em" e as duas seguem o Contrato v1.
 
 | | O quê | Para |
 |---|---|---|
-| R1 | Criar o repositório do site (privado), com a conta da Renderiza no GitHub como colaboradora e o app do Claude instalado nele; abrir a sessão com ele selecionado (**com o Kaue, 24/11**) | 2B |
+| R1 | **Criado em 24/11:** `ricardomotorsdev-hue/ricardomotors` (vazio), com a Kaue7almeida como colaboradora. A sessão clona, mas o push é recusado: **falta instalar o app do Claude na conta `ricardomotorsdev-hue`** (só nesse repositório). O site já está gerado e commitado no clone local; com o app, é só o push (ou rodar de novo `node demos/ricardo-motors/entrega.mjs <pasta>` numa pasta fora do clone e copiar para dentro: o `virar-site` limpa a pasta de saída, inclusive o `.git`). | 2B |
 | R2 | O domínio (**ainda não decidido**; até lá, o site fica no `<projeto>.pages.dev`). **O `ricardomotors.com.br` não é dele** (consulta pública em 24/11): é da RICARDO MOTORS LTDA, CNPJ 59.838.940/0001-05, uma revenda de usados em Rio do Sul/SC (ativa desde 03/2025), com site no ar nesse domínio (Next.js, atrás do Cloudflare, telefone (47) e endereço de Rio do Sul). Registrado em 30/10/2026, vence em 30/10/2027. A marca dele no INPI (processo 942976223, em exame de mérito) não dá o domínio. Caminho (24/11): um `.com.br` novo no **Registro.br, pago pela Renderiza, com o CPF ou CNPJ dele como titular** (o domínio é dele). Sugeridos, livres em 24/11: `rmconsultcar.com.br` (o recomendado: igual ao Instagram) e `ricardomotorssp.com.br`. O termo dele diz "domínio: cliente tem"; isso mudou. | 3C |
 | R3 | ~~O "pode" para a produção~~ **Dado em 24/11** ("pode subir tudo para produção") | 3A |
 
