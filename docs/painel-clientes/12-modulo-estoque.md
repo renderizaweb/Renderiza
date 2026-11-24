@@ -118,11 +118,12 @@ mudar algo aqui muda este documento no mesmo commit e deixa um aviso em `missoes
 | `campos` | `jsonb` objeto, até 20 KB (os campos do nicho: marca, modelo, ano…) |
 | `selos` | `text[]`, até 8, cada um com até 30 letras |
 | `descricao` | `text`, até 4000 letras, padrão vazio |
-| `fotos` | `jsonb` lista de até 15 `{ "arquivo": "<conta>/estoque-<item>-<aleatório>.webp", "w": 1600, "h": 1067 }`; a primeira é a capa |
+| `fotos` | `jsonb` lista de até 15 `{ "arquivo": "<conta>/estoque-<aleatório>.webp", "mini": "<conta>/estoque-<aleatório>-m.webp", "w": 1600, "h": 1067 }`; a primeira é a capa. O painel faz as duas no navegador: a grande (lado maior 1600 px) e a pequena (640 px, para o card) |
 | `codigo_interno` | `text` opcional, até 40 (placa, referência); **nunca sai na API** |
 | `vendido_em` | o banco põe quando vira `vendido` e tira quando sai |
 | `criado_em`, `atualizado_em`, `criado_por`, `atualizado_por` | como nas outras tabelas (`05`) |
 
+- **Índice** por `(conta_id, situacao)`: a função pública lê só disponível e reservado da conta.
 - **RLS:** ver com `pode(conta, 'estoque', 'ver')`; criar, mudar e apagar com `pode(conta, 'estoque', 'editar')`.
   Teste de isolamento (uma conta não vê nem muda o item da outra), como em toda tabela nova.
 - **Catálogo:** `modulos` ganha `('estoque', 'Estoque', 14.99, 8)`. O Admin liga e desliga como os outros.
@@ -143,11 +144,12 @@ servindo a anterior) e `404 {"erro":"fora"}` quando a função devolve `null`.
                "quantidade": 1, "selos": ["Blindado"], "descricao": "…",
                "campos": { "marca": "Porsche", "modelo": "Cayenne", "ano_fab": 2019, "km": 21000 },
                "fotos": [ { "url": "https://painel.renderizaweb.com.br/api/publico/imagens/<conta>/estoque-….webp",
+                            "mini": "https://painel.renderizaweb.com.br/api/publico/imagens/<conta>/estoque-…-m.webp",
                             "w": 1600, "h": 1067 } ] } ] }
 ```
 
 Só `disponivel` e `reservado`, na ordem destaque, `ordem` e mais novo; até 300 itens. Nunca: `codigo_interno`,
-quem mexeu, itens ocultos ou vendidos. A função devolve o `arquivo`; a rota monta a `url` com o endereço dela mesma
+quem mexeu, itens ocultos ou vendidos. A função devolve o `arquivo` e a `mini`; a rota monta as duas `url` com o endereço dela mesma
 (por isso o STG e o local funcionam igual).
 
 **3. No site**
@@ -175,8 +177,8 @@ trocada pela do banco; a mesma interface: `listar`, `salvar`, `mudar`, `remover`
 | Fase | O que entra | Onde |
 |---|---|---|
 | **0 · Protótipo** (feita, 20/11/2026: o painel do Ricardo em `/demo/ricardo-motors/painel` e o vídeo em `/gravacao/ricardo-motors-estoque.mp4`) | a tela do módulo com o painel de verdade (casca, estilo, gaveta, campos) sobre dados guardados no navegador; o esquema automotivo e o de ótica; o site do Ricardo ouvindo o protótipo ao vivo; o vídeo para o Ricardo | `exemplos/estoque/` (o módulo, sem dados de cliente) e `demos/ricardo-motors/painel.html` (o painel dele, dentro da demo) |
-| **1 · Banco, API e módulo** (em andamento desde 24/11: paradas 1 e 2 do [trilho do Ricardo](../entregas/ricardo-motors.md)) | o contrato v1 acima: migração, RLS, Storage, `publico_estoque`, a rota, o módulo em `src/modulos/estoque/` e o nicho automotivo | STG, depois produção com o "pode" |
-| **2 · Piloto automotivo** (paradas 3 a 6 do trilho) | o site do Ricardo no repositório dele, com a versão de reserva sem preço e o script do estoque; a conta dele com Meu site e Estoque; o estoque de hoje cadastrado por nós | o domínio dele |
+| **1 · Banco, API e módulo** (em andamento desde 24/11: a Parada 1 do [trilho do Ricardo](../entregas/ricardo-motors.md), com o nicho automotivo no painel inteiro e o onboarding dele) | o contrato v1 acima: migração, RLS, Storage, `publico_estoque`, a rota, o módulo em `src/modulos/estoque/` e o nicho automotivo | STG, depois produção com o "pode" |
+| **2 · Piloto automotivo** (paradas 2 e 3 do trilho) | o site do Ricardo no repositório dele, com a versão de reserva sem preço e o script do estoque; a conta dele com Meu site e Estoque; o estoque de hoje cadastrado por nós | o domínio dele |
 | **3 · Ótica e indicadores** | o esquema de ótica ligado à vitrine de armações do `gerar.py`; a aba Indicadores por item; importar de planilha (CSV, já há `ui/csv.js`) | — |
 | **Depois** | importar da Webmotors ou de integradores (XML), variações (loja), mais de um site por conta | só com decisão no `07` |
 

@@ -3,238 +3,191 @@
 **Cliente:** Ricardo Neves, Ricardo Motors (RM Consult Car, @rm.consultcar), revenda de carros premium e blindados
 em São Paulo. Usa o celular e o computador. **Fechou em 24/11/2026:** o site (termo
 [`termos/clientes/ricardo-motors.json`](../../termos/clientes/ricardo-motors.json): R$ 399, 5 dias úteis, Cloudflare
-Pages, o domínio é dele) e o Painel Renderiza com **2 módulos, Meu site e Estoque** (R$ 49 por mês, a partir de 30
-dias depois da entrega).
+Pages) e o Painel Renderiza com **2 módulos, Meu site e Estoque** (R$ 49 por mês, a partir de 30 dias depois da
+entrega).
 
 **O que foi prometido (a proposta, `/proposta/ricardo-motors`):**
 
 1. O site dele no ar, igual à demo aprovada (`/demo/ricardo-motors`).
 2. No painel, o **Estoque**, como no vídeo: criar um carro (fotos, dados, preço, descrição), mudar, marcar vendido,
    reservar, destacar, tirar do ar e pôr de novo. Salvou, está no site.
-3. No painel, o **Meu site** para o resto do site (textos, fotos, contato). **O Meu site não mexe no estoque:** o
-   estoque chega ao site por outra rota da API.
+3. O **Meu site** para o resto do site (textos, fotos, contato). **O Meu site não mexe no estoque:** o estoque chega
+   ao site por outra rota da API.
 4. **Sem o painel, o site não mostra preço:** fica a lista do dia da entrega, sem valor, com "confirme a
    disponibilidade pelo WhatsApp". Com o painel respondendo, os carros e os preços vêm de lá.
-5. Tudo feito para servir a outros clientes depois (o estoque por nicho: carros agora, ótica depois).
+5. Tudo serve aos próximos clientes: o nicho **automotivo** entra no painel inteiro (cadastro, onboarding, palavras),
+   ao lado de eventos e fotografia, e o estoque é por nicho (carros agora, ótica depois).
 
-Este trilho segue o modelo de [`README.md`](README.md) (paradas A a E), com o módulo Estoque no meio: a Parada 3 é a
-A e a B do modelo; a 4 é a C; a 5 é a D; a 6 é a E. O desenho do módulo e o **Contrato v1** (a tabela, a API, o site)
-estão em [`12-modulo-estoque.md`](../painel-clientes/12-modulo-estoque.md). Não é cravado em pedra: se algo não fizer
-sentido, proponha o ajuste e registre no diário.
+O desenho do módulo e o **Contrato v1** (a tabela, a API, o site) estão em
+[`12-modulo-estoque.md`](../painel-clientes/12-modulo-estoque.md). As paradas do modelo ([`README.md`](README.md), A a
+E) estão juntas aqui: a 2 é a A, a B e a C; a 3 é a D e a E. Não é cravado em pedra: se algo não fizer sentido,
+proponha o ajuste e registre no diário.
 
 ## Onde o trem está
 
 | Parada | Situação | Sessão / branch | Atualizada |
 |---|---|---|---|
 | 0 · Investigação e contrato | **feita** | `estoque-plano` (na `main`) | 24/11/2026 |
-| 1 · Estoque no banco e na API (STG) | livre: pode começar já | | |
-| 2 · Estoque no painel | livre: 2A e 2B podem começar já; 2C em diante depois da 1A no STG | | |
-| 3 · O site no repositório dele | esperando **R1** (o repositório); 3B e 3C podem começar já, no `renderizaweb/Renderiza` | | |
-| 4 · A ponte provada no STG | esperando 1, 2 e 3 | | |
-| 5 · A conta dele na produção | esperando 4 e **R3** (o "pode") | | |
-| 6 · No ar e entregue | esperando 5 e **R2** (Cloudflare e domínio) | | |
+| 1 · O Estoque e o nicho automotivo no painel (STG) | **em andamento** (1A) | `main` (sessão do plano) | 24/11/2026 |
+| 2 · O site dele, ligado ao painel | livre: a 2A pode começar já; a 2B espera o **R1**; a 2C, a 1A e a 1C | | |
+| 3 · Produção e entrega | esperando 1, 2 e o **R3** | | |
 
-**Situação:** `livre` · `em andamento` · `feita` · `travada` (diga por quê no diário). **Pegou uma parada (ou uma
-tarefa)?** No primeiro commit, mude **só a linha dela** nesta tabela: `em andamento`, a branch e a data. Nunca pegue
-uma linha `em andamento` de outra sessão sem a Renderiza pedir.
+**Situação:** `livre` · `em andamento` · `feita` · `travada` (diga por quê no diário). **Pegou uma parada ou uma
+tarefa?** No primeiro commit, mude **só a linha dela** aqui: `em andamento` (com a tarefa), a branch e a data. Nunca
+pegue o que está `em andamento` em outra sessão sem a Renderiza pedir. 1 e 2 andam ao mesmo tempo, em sessões
+diferentes: cada uma mexe só no seu "Mexe em" e as duas seguem o Contrato v1.
 
 **Esperando a Renderiza (Kaue):**
 
-| | O quê | Para qual parada |
+| | O quê | Para |
 |---|---|---|
-| R1 | Criar o repositório do site (privado), com a conta da Renderiza no GitHub como colaboradora e o app do Claude instalado nele; depois abrir a sessão com ele selecionado | 3 |
-| R2 | O domínio dele (qual é? está no CPF/CNPJ dele?) e o projeto no Cloudflare Pages ligado ao repositório (a sessão guia, como na Rafaela) | 6 |
-| R3 | O "pode" para a migração do Estoque na produção e para criar a conta dele | 5 |
-| R4 | Responder as "Perguntas em aberto" (abaixo); nenhuma trava as paradas 1 a 4 | 5 e 6 |
+| R1 | Criar o repositório do site (privado), com a conta da Renderiza no GitHub como colaboradora e o app do Claude instalado nele; abrir a sessão com ele selecionado (**com o Kaue, 24/11**) | 2B |
+| R2 | O domínio (**ainda não decidido**; até lá, o site fica no `<projeto>.pages.dev`) | 3C |
+| R3 | O "pode" para a migração na produção, a função `assistente` (se a 1D mudar) e a conta dele | 3A |
+
+**Decidido com a Renderiza (24/11):** os 15 carros da demo entram como à venda (ele tira do ar o que não tiver); o
+WhatsApp é o que já está na demo (o link da bio; se ele trocar, avisa); a conta dele **nasce ativa e parada**: o
+usuário criado, a senha ele cria depois pelo link, e até lá a Renderiza entra na conta pelo suporte do Admin para
+configurar e validar; o Estoque é um dos 2 módulos; vendido sai do site na hora; reservado aparece com a etiqueta.
 
 ## O que já existe (não refazer)
 
 | O quê | Onde | Para quê aqui |
 |---|---|---|
-| O protótipo do Estoque: lista, chips, busca, ações de um toque, gaveta com fotos (reduzidas a 1600 px WebP), campos do nicho, preço, selos, prévia | `exemplos/estoque/` (`modulo.js`, `esquemas.js`, `loja-local.js`, `nicho-automotivo.js`, `estoque.css`) | vira o módulo de verdade (Parada 2): troca a loja do navegador pela do banco |
-| O painel do Ricardo em protótipo (a casca de verdade com o Estoque) | `demos/ricardo-motors/painel.html` | a referência do que ele viu e aprovou |
-| A demo (a proposta aceita), feita à mão, com os 15 carros e as fotos dentro do HTML | `demos/ricardo-motors/index.html`, `ficha.md` | a origem do site (Parada 3); o `doPainel` dela já traduz um item do painel para a vitrine |
-| O vídeo e a proposta | `gravacoes/ricardo-motors-estoque.mp4`, `propostas/ricardo-motors.html` | o que foi prometido |
-| O Meu site inteiro (script no site, API, editor ao vivo, indicadores) | `ferramentas/meu-site/meu-site.js`, `painel-clientes/api/publico/site/`, `src/modulos/meu-site/`, `03` | a Parada 3 só põe as marcações; nada muda nele |
-| O caminho da imagem pública, o bucket `site-imagens`, o `conta_do_site`, o cache de 20 s | `painel-clientes/api/publico/imagens/`, migrações `…110300`, `…135228` | o Estoque usa os mesmos, sem rota nova de imagem |
-| O `virar-site` (fotos para `img/`, `_headers`, `"painel": {"codigo", "api"}`) e a conferência | `scripts/virar-site.mjs`, `scripts/conferir-site.mjs` | ganha a opção `"estoque": true` (3C) |
-| O Admin: conta nova (o nicho sai da lista de `src/nichos/`), módulos, site, convite por link, suporte | `painel-clientes/src/admin/` | cria a conta de teste (4A) e a dele (5B) sem código novo |
+| O protótipo do Estoque: lista, chips, busca, ações de um toque, gaveta com fotos (reduzidas no navegador), campos do nicho, preço, selos, prévia | `exemplos/estoque/` (`modulo.js`, `esquemas.js`, `loja-local.js`, `nicho-automotivo.js`, `estoque.css`) | vira o módulo de verdade (1C): troca a loja do navegador pela do banco |
+| O painel do Ricardo em protótipo e o vídeo | `demos/ricardo-motors/painel.html`, `gravacoes/ricardo-motors-estoque.mp4` | o que ele viu e aprovou |
+| A demo (a proposta aceita), feita à mão, com os 15 carros e as fotos dentro do HTML | `demos/ricardo-motors/index.html`, `ficha.md` | a origem do site (2B); o `doPainel` dela já traduz um item do painel para a vitrine |
+| O Meu site inteiro (script no site, API, editor ao vivo, indicadores) | `ferramentas/meu-site/meu-site.js`, `painel-clientes/api/publico/site/`, `src/modulos/meu-site/`, `03` | a 2B só põe as marcações; nada muda nele |
+| A imagem pública, o bucket `site-imagens`, o `conta_do_site`, o cache de 20 s | `painel-clientes/api/publico/imagens/`, migrações `…110300`, `…135228` | o Estoque usa os mesmos, sem rota nova de imagem |
+| O `virar-site` (fotos para `img/`, `_headers`, `"painel": {"codigo", "api"}`) e a conferência | `scripts/virar-site.mjs`, `scripts/conferir-site.mjs` | ganha a opção `"estoque": true` (2A) |
+| O Admin: conta nova (o nicho sai de `src/nichos/`), módulos, site, convite por link, suporte | `painel-clientes/src/admin/` | cria a conta de teste (2C) e a dele (3B) sem código novo |
 
-**O que a investigação achou (24/11) e que muda o plano:**
+**O que a investigação achou (24/11):**
 
-- `contas.nicho` e `demos.nicho` só aceitam `eventos` e `fotografia` (migrações `…110000` e `…240000`): a migração
-  do Estoque abre `automotivo`. Sem isso, a conta dele não nasce.
-- O Admin monta a lista de nichos de `src/nichos/` sozinho, mas a lista de demos por nicho em
-  `src/admin/contas/nova.js` tem `["eventos", "fotografia"]` escrito à mão (2A).
-- `exemplos/painel/src` é uma **cópia** de `painel-clientes/src` (casca, Meu site): mexeu na casca ou nos nichos,
-  rode `node ferramentas/exemplos/painel-de-verdade.mjs` e o `test/meu-site-exemplo.test.mjs` (aviso de 18/11).
-- A demo leva o rastreio da prospecção (`exemplos/visitas.js`) e as fotos em base64 (26 MB); o `virar-site` tira as
-  fotos para `img/`, e a conferência acusa o rastreio que sobrar.
-- O código do Estoque pode ir para a `main` antes da produção: sem a linha `estoque` no catálogo da produção,
-  nenhuma conta tem o módulo e ninguém o vê. Até a 5A, o Admin da produção mostra "Automotivo" na conta nova, mas o
-  banco recusa (esperado).
+- `contas.nicho` e `demos.nicho` só aceitam `eventos` e `fotografia`: a migração da 1A abre `automotivo`.
+- `["eventos", "fotografia"]` está escrito à mão em várias telas (`telas/comecar.js`, `telas/acesso.js`,
+  `admin/contas/nova.js`, o tema em `app.js`) e no roteiro da IA (`supabase/functions/assistente/logica.js`): a 1B e a
+  1D trocam pela lista de `src/nichos/`.
+- `exemplos/painel/src` é uma **cópia** de `painel-clientes/src`: mexeu na casca ou nos nichos, rode
+  `node ferramentas/exemplos/painel-de-verdade.mjs` e o `test/meu-site-exemplo.test.mjs` (aviso de 18/11).
+- A demo leva o rastreio da prospecção e as fotos em base64 (26 MB): o `virar-site` tira as fotos para `img/`, e a
+  conferência acusa o rastreio que sobrar.
+- O código do Estoque pode ir para a `main` antes da produção: sem a linha `estoque` no catálogo da produção, nenhuma
+  conta tem o módulo. Até a 3A, o Admin da produção mostra "Automotivo" na conta nova, mas o banco recusa (esperado).
 
 ## O mapa
 
 ```
-                 ┌── 1 · banco e API no STG ───────────────┐
- 0 · contrato ✅ ─┼── 2 · Estoque no painel (2A, 2B já) ────┼── 4 · ponte no STG ── 5 · produção ── 6 · no ar
-                 └── 3 · o site dele (3B, 3C já; 3A com R1) ┘        (todos)         (R3 "pode")   (R2 domínio)
+ 0 · contrato ✅ ──┬── 1 · Estoque e automotivo no painel (STG) ──┐
+                   └── 2 · o site dele (2A já; 2B com o R1) ───────┴── 2C · a ponte no STG ── 3 · produção e entrega
 ```
 
-1, 2 e 3 andam **ao mesmo tempo, em sessões diferentes**: cada uma mexe só nos seus arquivos ("Mexe em") e todas
-seguem o Contrato v1. Dentro da 2, a 2C em diante precisa da 1A aplicada no STG.
+## A rapidez e a UX (vale para todas as tarefas)
+
+- **A rota:** uma chamada ao banco (`publico_estoque`, com índice por conta e situação), resposta só com o que o site
+  mostra, cache de 20 s na rede servindo a anterior enquanto busca. O site pede a API **no `<head>`**, antes do resto
+  carregar, e guarda a resposta na sessão do navegador: trocar de página não pede de novo.
+- **As fotos:** duas por envio, feitas no navegador do painel: a grande (1600 px, a página do carro) e a pequena
+  (640 px, o card e a capa). O site nunca baixa a grande para mostrar um card. Cache de 1 ano (o nome muda a cada
+  envio).
+- **Sem pulo na tela:** a vitrine de reserva já tem o tamanho certo; quando a lista do painel chega, troca sem
+  piscar, e quem já estava rolando não perde o lugar.
+- **No painel:** salvou, fechou; o item aparece na lista na hora (o envio das fotos mostra o andamento); vendido
+  com "Desfazer"; tudo funciona com o dedo no celular, no pátio.
 
 ---
 
 ## Parada 0 · Investigação e contrato ✅
 
-**Chegou quando:** o contrato entre banco, painel e site está escrito e cada parada sabe o que pode mexer.
+Feita em 24/11: o painel lido (login, módulos, `pode()`, Meu site, API pública, Storage, Admin, nichos), os trilhos
+da Rafaela e da Bia, o **Contrato v1** no `12`, este trilho, o aviso em `missoes.md` e as lições no `README`.
 
-| ID | Quem | O quê | Mexe em |
-|---|---|---|---|
-| 0A ✅ | Claude | Leu o painel (login, módulos, `pode()`, Meu site, API pública, Storage, Admin) e os trilhos da Rafaela e da Bia | — |
-| 0B ✅ | Claude | O **Contrato v1** no `12` e as decisões de 24/11 | `docs/painel-clientes/12-modulo-estoque.md` |
-| 0C ✅ | Claude | Este trilho, o aviso em `missoes.md` e a lição no `README` | `docs/entregas/`, `docs/painel-clientes/missoes.md` |
+## Parada 1 · O Estoque e o nicho automotivo no painel (STG)
 
-## Parada 1 · Estoque no banco e na API (STG)
+**Chegou quando:** no `localhost:5180` contra o STG, o dono da Garagem Aurora (fictícia, automotiva) entra, passa
+pelo onboarding com perguntas de revenda, cria um carro com foto, muda o preço, marca vendido (e desfaz), reserva,
+destaca, oculta e mostra de novo, no celular e no computador; quem "só vê" não tem os botões; e
+`GET /api/publico/estoque/garagem-aurora` mostra cada mudança. `npm test` e `npm run fluxos` verdes; tudo na `main`.
 
-**Chegou quando:** no STG, `GET /api/publico/estoque/garagem-aurora` (no `localhost:5180`) devolve os carros de
-teste no formato do contrato; ocultar um faz ele sumir; desligar o módulo dá 404; os testes do banco e da pasta
-estão verdes.
+**Mexe em** (dentro de `painel-clientes/`): uma migração nova, um teste do banco, `supabase/semente/` (só a Garagem
+Aurora), `api/publico/estoque/`, `src/modulos/estoque/` (nova), `src/nichos/automotivo.js` (novo), as telas que têm os
+nichos escritos à mão (`telas/comecar.js`, `telas/acesso.js`, `telas/montar/roteiro.js`, `admin/contas/nova.js`,
+`app.js`), `supabase/functions/assistente/logica.js`, os testes novos. **Arquivos comuns, com aviso em `missoes.md`:**
+`src/modulos/index.js`, `src/nichos/index.js`, `src/telas/casca.js`. Fora da pasta: o `05` e o `04` (as linhas do
+Estoque), "Migrações aplicadas" e `exemplos/painel/src` (só pela `painel-de-verdade.mjs`).
 
-**Mexe em** (dentro de `painel-clientes/`): uma migração nova em `supabase/migrations/`, um teste novo em
-`supabase/testes/`, `supabase/semente/` (só a revenda fictícia), `api/publico/estoque/`, `test/publico-estoque.test.mjs`
-e, se ele não achar a rota sozinho, `scripts/servidor.mjs`. Fora dela: as linhas do Estoque no `05` (tabela) e no
-`04` (API pública), e a tabela "Migrações aplicadas" de `missoes.md`.
-
-| ID | Quem | O quê |
+| ID | O quê | Depende de |
 |---|---|---|
-| 1A | Claude | **A migração** do Contrato v1, item 1: `estoque_itens`, RLS, `modulos` com `estoque`, `automotivo` em `contas.nicho` e `demos.nicho`, as políticas do `site-imagens` para `estoque-*`, `publico_estoque`. Antes, ler o `08` (regras do banco) e conferir como as `publico_*` são liberadas ao visitante (`…150000`). Testar no banco local (RLS e isolamento), aplicar no STG pelo `scripts/migrar.mjs` e registrar em "Migrações aplicadas" no mesmo push. |
-| 1B | Claude | **A rota** `api/publico/estoque/[codigo]/index.js`, no molde da `site/[codigo]/index.js` (`tratar()` testável sem rede, CORS, cache de 20 s, 404), montando a `url` das fotos a partir do `arquivo`. Testes sem rede: resposta boa, 404, código inválido, método errado, nada de `codigo_interno`. |
-| 1C | Claude | **A semente do STG:** a revenda fictícia "Garagem Aurora" (automotivo; site `garagem-aurora` com o domínio `localhost`; Meu site e Estoque ligados) com 4 carros fictícios (um oculto, um reservado, um vendido) e um usuário dono de teste (a senha fica fora do repositório). Nunca dado real. |
-| 1D | Claude | **Conferir no STG** o "chegou quando" e escrever o resultado no diário. |
+| 1A | **Banco e rota.** A migração do Contrato v1, item 1 (`estoque_itens`, RLS, `estoque` no catálogo, `automotivo` nos nichos, as políticas do `site-imagens` para `estoque-*`, `publico_estoque`), testada no banco local (RLS e isolamento) e aplicada no STG pelo `scripts/migrar.mjs`, registrada no mesmo push. A rota `api/publico/estoque/[codigo]/index.js` no molde da do site (`tratar()` testável sem rede, CORS, cache, 404), montando a `url` e a `mini` das fotos. A semente da Garagem Aurora (site `garagem-aurora` no `localhost`, Meu site e Estoque, 4 carros: um oculto, um reservado, um vendido). Conferir no STG com `curl`. | — |
+| 1B | **O nicho automotivo no painel inteiro.** `src/nichos/automotivo.js` com as mesmas chaves dos outros (as palavras do `exemplos/estoque/nicho-automotivo.js`), registrado; as listas escritas à mão passam a sair de `NICHOS` (cadastro, tela de entrar, tema, Admin); o tema escuro do protótipo (`rz-tema-automotivo`) em tokens. Conferir que Início, Serviços, Equipe e Configurações abrem bem numa conta só com Meu site e Estoque. | — |
+| 1C | **A tela do Estoque.** `exemplos/estoque/modulo.js` e `esquemas.js` vão para `src/modulos/estoque/`, com a `loja` de fora; a loja do banco (`loja-banco.js`: `listar`, `salvar`, `mudar`, `remover` com a sessão de quem entrou) e as fotos (grande e pequena, enviadas ao `site-imagens`; tirar a foto apaga os arquivos); o `estoque.css` vira peças `.rz-*` e tokens; "só vê" sem os botões; registro, ícone e a cópia dos exemplos. Testes da lógica sem banco. A prévia do site ao lado (computador) entra se não atrasar: não trava a entrega. | 1A no STG |
+| 1D | **O onboarding do automotivo.** O roteiro (`telas/montar/roteiro.js`) e o da IA (`assistente/logica.js`) com perguntas de revenda: quantos carros tem hoje, se anuncia em portal (Webmotors, OLX), se trabalha com blindados, consignação, financiamento e troca, quem mexe no estoque; no fim, o painel montado (os serviços que ele marcou) e o primeiro passo "cadastre o primeiro carro". Sem perguntas de agenda e de festa. | 1B |
+| 1E | **O fluxo e a subida.** `test/fluxos/estoque.fluxo.mjs` (Playwright, STG, celular e computador) com o "chegou quando" inteiro; `npm test` e `npm run fluxos` verdes; push na `main`; a linha e o diário. | 1C, 1D |
 
-## Parada 2 · Estoque no painel
+## Parada 2 · O site dele, ligado ao painel
 
-**Chegou quando:** no `localhost:5180` contra o STG, o dono da Garagem Aurora cria um carro com foto, muda o preço,
-marca vendido (e desfaz), reserva, destaca, oculta e mostra de novo, no celular e no computador; quem "só vê" não tem
-os botões; e a rota da 1B mostra cada mudança.
-
-**Mexe em** (dentro de `painel-clientes/`): `src/modulos/estoque/` (pasta nova), `src/nichos/automotivo.js` (novo),
-`test/estoque*.test.mjs`, `test/fluxos/estoque.fluxo.mjs` (novo). **Arquivos comuns, uma linha cada, com aviso em
-`missoes.md`:** `src/modulos/index.js` (o registro), `src/nichos/index.js`, `src/telas/casca.js` (o ícone e o lugar na
-barra), `src/admin/contas/nova.js` (a lista de demos por nicho). Depois de mexer na casca ou nos nichos:
-`exemplos/painel/src`, só pela `ferramentas/exemplos/painel-de-verdade.mjs`.
-
-| ID | Quem | O quê | Depende de |
-|---|---|---|---|
-| 2A | Claude | **O nicho automotivo:** `src/nichos/automotivo.js` com as mesmas chaves dos outros (as palavras do `exemplos/estoque/nicho-automotivo.js`: "negócio", "cliente", o Início sem agenda nem atendimento), registrado no `index.js`; a lista de demos do Admin sem o par de nichos escrito à mão. Conferir que o Início, Serviços, Equipe e Configurações abrem numa conta automotiva só com Meu site e Estoque. | — |
-| 2B | Claude | **A tela do módulo:** `exemplos/estoque/modulo.js` e `esquemas.js` vão para `src/modulos/estoque/`, recebendo a `loja` de fora (a interface da `loja-local.js`); o `estoque.css` vira peças `.rz-*` e tokens `--rz-*` (nada de cor ou tamanho solto, `10`); o registro e o ícone. Testes da lógica (esquema, título, selos, `paraOSite`) sem banco. | — |
-| 2C | Claude | **A loja do banco** (`src/modulos/estoque/loja-banco.js`): `listar`, `salvar`, `mudar`, `remover` pelo Supabase com a sessão de quem entrou (RLS); as fotos reduzidas no navegador (como o protótipo) e enviadas ao `site-imagens` como `<conta>/estoque-….webp`; tirar uma foto apaga o arquivo. Erros com o aviso do painel, nunca em silêncio. | 1A no STG |
-| 2D | Claude | **Quem pode:** "só vê" sem criar, editar nem ações; o Estoque aparece em Equipe e acessos (conferir se aparece sozinho pelo catálogo). | 2C |
-| 2E | Claude | **O fluxo** `test/fluxos/estoque.fluxo.mjs` (Playwright, STG, celular e computador): o "chegou quando" inteiro. Roda junto com o `npm run fluxos`. | 2C, 1C |
-| 2F | Claude | (opcional, não trava a entrega) **A prévia do site ao lado**, no computador, como o protótipo e o Meu site (Contrato v1, item 3, "Prévia"). | 3C |
-
-## Parada 3 · O site no repositório dele
-
-**Chegou quando:** o site, no repositório dele, abre sozinho (sem painel) igual à demo, **sem nenhum preço** e com o
-aviso do WhatsApp; com `"api"` apontando para o painel local, mostra o estoque do STG com preço; a conferência do
-`virar-site` passa; os prints de antes e depois (celular e computador) batem.
+**Chegou quando:** o site está no repositório dele; sem o painel, abre igual à demo, **sem nenhum preço** e com o
+aviso do WhatsApp; ligado à conta de teste do STG, o teste da 2C passa inteiro; os prints de antes e depois
+(celular e computador) batem.
 
 **Mexe em:** o repositório dele (todo); no `renderizaweb/Renderiza`: `demos/ricardo-motors/site.json` (novo),
-`ferramentas/estoque/` (novo), `scripts/virar-site.mjs` e `scripts/conferir-site.mjs` (só a opção do estoque), o teste
-do `virar-site`. **Não mexe** na demo nem no `painel.html` (a proposta fica como foi aceita).
+`ferramentas/estoque/` (novo), `scripts/virar-site.mjs` e `scripts/conferir-site.mjs` (só a opção do estoque), os
+testes deles, `painel-clientes/test/fluxos/ponte-estoque.fluxo.mjs` (novo). **Não mexe** na demo nem no `painel.html`.
 
-**Decisão (24/11):** o site nasce da demo **uma vez** (3A). Dali em diante, a fonte do site é o repositório dele (um
+**Decisão (24/11):** o site nasce da demo **uma vez** (2B). Dali em diante, a fonte do site é o repositório dele (um
 site feito à mão, como o da Bia); a demo fica congelada como a proposta. Atualizar o `meu-site.js` ou o `estoque.js`
-num site já entregue é trocar o bloco `<script>` dele, que o `virar-site` põe no fim do `<head>` com um atributo que
-o identifica (`data-codigo` no Meu site; a 3C dá um próprio ao do estoque).
+num site entregue é trocar o bloco `<script>` dele, que o `virar-site` põe no fim do `<head>` com um atributo que o
+identifica (`data-codigo` no Meu site; a 2A dá um próprio ao do estoque).
 
-| ID | Quem | O quê | Depende de |
-|---|---|---|---|
-| 3A | Claude | **O site no repositório dele:** `site.json` (domínio provisório `<projeto>.pages.dev` até a R2, nome, cor do tema, schema.org `AutoDealer`, `"painel": {"codigo": "ricardo-motors", "estoque": true}`) e o `virar-site` da demo para o repositório (fotos em `img/`). Sai o que é só da demo: o rastreio da prospecção, o ouvinte `rz-estoque=exemplo` (o `estoque.js` faz o papel dele) e qualquer link para `/demo/`. Push na `main` dele. | R1 |
-| 3B | Claude | **A versão de reserva** (a pedida): a lista inicial são os carros de hoje **sem preço** ("Consulte"), inclusive na capa ("Em destaque") e na página de cada carro; o aviso "O estoque muda todo dia: confirme a disponibilidade pelo WhatsApp" na vitrine e na página do carro (`data-estoque-aviso`); o WhatsApp de cada carro pergunta se ele ainda está disponível. A vitrine marcada com `data-estoque`. | — (pode ser preparada no `site.json` e num teste antes da 3A) |
-| 3C | Claude | **O script do estoque** `ferramentas/estoque/estoque.js` (Contrato v1, item 3), o `window.rzEstoque` no site (a partir do `doPainel` da demo: vitrine, filtros, contagem, capa com os destaques, esconder o aviso) e a opção `"estoque": true` no `virar-site`. A conferência acusa `data-site-*` dentro de `[data-estoque]`. Testes sem rede: resposta boa, 404, demora de mais de 6 s, foto de outro endereço, versão errada. | — |
-| 3D | Claude | **O Meu site no que não é estoque:** as marcações `data-site-*` na capa (título e frase), "quem é o Ricardo", serviços e contato (WhatsApp, endereço, Instagram, horário), com o `conteudo_inicial` tirado delas como no `03`. Nunca na vitrine nem na página do carro. | 3A |
-| 3E | Claude | **Revisão** (a Parada B do modelo): prints antes e depois no celular e no computador (lição da Bia), textos, links, WhatsApp, 404, velocidade, Google (`robots`, `sitemap`, prévia no WhatsApp). | 3B, 3C, 3D |
+| ID | O quê | Depende de |
+|---|---|---|
+| 2A | **O script do estoque.** `ferramentas/estoque/estoque.js` (Contrato v1, item 3: pede no `<head>`, espera até 6 s, confere, guarda 60 s na sessão, chama `window.rzEstoque`), a opção `"estoque": true` no `virar-site` e a conferência acusando `data-site-*` dentro de `[data-estoque]`. Testes sem rede: resposta boa, 404, demora, foto de outro endereço, versão errada. | — |
+| 2B | **O site no repositório dele.** `site.json` (o `pages.dev` até a R2, nome, cor, schema.org `AutoDealer`, `"painel": {"codigo": "ricardo-motors", "estoque": true}`) e o `virar-site` da demo para o repositório (fotos em `img/`, sem o rastreio da prospecção, sem o ouvinte de exemplo, sem link para `/demo/`). Nele: a **versão de reserva** (os 15 carros sem preço também na capa e na página do carro; o aviso "O estoque muda todo dia: confirme a disponibilidade pelo WhatsApp"; a vitrine com `data-estoque`); o `window.rzEstoque` a partir do `doPainel` da demo (vitrine, filtros, contagem, capa com os destaques, a foto pequena no card); as marcações do **Meu site** fora da vitrine (capa, quem é o Ricardo, serviços, contato). Push na `main` dele. | R1 (dá para preparar antes numa pasta de saída) |
+| 2C | **A ponte no STG e a revisão.** Pelo Admin do STG, a conta "Ricardo Motors (teste)" (automotivo, Meu site e Estoque, site `ricardo-motors` no `localhost`). `ponte-estoque.fluxo.mjs`, num teste só, no celular e no computador: o site abre sem preço → o painel cria um carro → em até 30 s ele está no site, com preço → vendido some → oculto some → reservado aparece com a etiqueta → o Meu site muda a capa e não oferece nada da vitrine → o Estoque desligado no Admin → o site volta sem preço. Prints antes e depois, textos, links, WhatsApp, 404, Google, velocidade (a primeira tela no 4G). A Renderiza testa pela prévia (branch `stg-ricardo`, como a `stg-rafaela`). | 1A, 1C, 2A, 2B |
 
-## Parada 4 · A ponte provada no STG
+## Parada 3 · Produção e entrega
 
-**Chegou quando:** o teste da 4B passa inteiro e a Renderiza testou pela prévia e disse "ok".
+**Chegou quando:** o site está no ar ligado à conta dele na produção, com os 15 carros e os preços; a Renderiza
+entrou pelo suporte, conferiu e tem a mensagem pronta para mandar ao Ricardo, com o link do site e o do convite.
 
-**Mexe em:** `painel-clientes/test/fluxos/ponte-estoque.fluxo.mjs` (novo); o STG (conta de teste); o diário.
+**Mexe em:** a produção (com o "pode"), "Migrações aplicadas", o diário, o "O que aprendemos" e o `12`.
 
-| ID | Quem | O quê | Depende de |
-|---|---|---|---|
-| 4A | Claude | **A conta de teste no STG** pelo Admin: "Ricardo Motors (teste)", automotivo, Meu site e Estoque, site `ricardo-motors` com o domínio `localhost`, 3 carros de teste. | 1, 2C |
-| 4B | Claude | **O fluxo inteiro, num teste só** (Playwright; o site do repositório dele com `"api"` no painel local): o site abre sem preço → o painel cria um carro → em até 30 s ele está no site, com preço → vendido some → oculto some → reservado aparece com a etiqueta → o Meu site muda o título da capa e não oferece nada da vitrine → desligar o Estoque no Admin → o site volta à versão de reserva, sem preço. No celular e no computador. | 4A, 3C, 3D |
-| 4C | Renderiza + Claude | **A Renderiza testa** pela prévia da Vercel (branch `stg-ricardo`, a partir da `main`, como a `stg-rafaela`), com um convite por link na conta de teste. O que ela pedir vira tarefa aqui. | 4B |
-
-## Parada 5 · A conta dele na produção
-
-**Chegou quando:** na produção, a conta dele tem o estoque de hoje e `GET /api/publico/estoque/ricardo-motors`
-responde com ele.
-
-**Mexe em:** a produção (com o "pode"), a tabela "Migrações aplicadas" de `missoes.md`, o diário.
-
-| ID | Quem | O quê | Depende de |
-|---|---|---|---|
-| 5A | Claude | **A migração da 1A na produção** (`scripts/migrar.mjs`, com `--projeto`), conferida e registrada. Depois do deploy: `npm run conferir-producao` e o `versao` de `/api/config`. | 4, R3 |
-| 5B | Claude | **A conta dele** pelo Admin: "Ricardo Motors", automotivo, Meu site e Estoque, o WhatsApp e o logo do site, o prazo como a Renderiza disser (o termo: o painel começa 30 dias depois da entrega), o site `ricardo-motors` com os domínios (o `pages.dev` e o dele). | 5A |
-| 5C | Claude | **O estoque de hoje:** os carros da demo (os anúncios dele), com fotos, preço e dados, conferidos com o que ele mandar (R4). Pelo próprio painel, com a Renderiza em suporte na conta dele; se forem muitos, um script que entra com o login da Renderiza e passa pela RLS como a tela (nunca a chave secreta). | 5B |
-| 5D | Claude | **O convite por link** (usuário do Ricardo) e a mensagem pronta para o WhatsApp, para a Renderiza mandar. | 5B |
-
-## Parada 6 · No ar e entregue
-
-**Chegou quando:** o site está no domínio dele, ligado ao painel, e o Ricardo já mudou um preço sozinho e viu no
-site.
-
-| ID | Quem | O quê | Depende de |
-|---|---|---|---|
-| 6A | Renderiza + Claude | **Cloudflare Pages** ligado ao repositório dele (o fluxo "legacy Pages", lição de 16/11) e o domínio dele com o DNS. | 3E, R2 |
-| 6B | Claude | **Conferência no ar:** o fluxo da 4B contra a produção (no site no ar): com o painel, o estoque dele com preço; simulando o painel fora, a versão de reserva sem preço; um carro de teste nasce oculto, vai para disponível, aparece em até 1 minuto e é apagado (com o "pode"). | 6A, 5C |
-| 6C | Claude | **Entregar:** a mensagem para a Renderiza mandar, com o link do site, o link do convite e um guia de 5 linhas (criar um carro, mudar o preço, vendido, tirar do ar, Meu site). | 6B |
-| 6D | Claude | **Fechar:** "O que aprendemos" no `README`, as fases do `12`, este trilho e o diário. | 6C |
+| ID | O quê | Depende de |
+|---|---|---|
+| 3A | **Produção.** A migração da 1A (`scripts/migrar.mjs` com `--projeto`) e, se a 1D mudou, a função `assistente`; conferidas e registradas. Depois do deploy: `npm run conferir-producao` e o `versao` de `/api/config`. | 1, 2C, R3 |
+| 3B | **A conta dele, ativa e parada.** Pelo Admin: "Ricardo Motors", automotivo, ativa, Meu site e Estoque, o WhatsApp e o logo do site, o site `ricardo-motors` (o `pages.dev` e, depois, o domínio). O usuário dele criado pelo convite por link, **sem mandar** (a senha ele cria quando a Renderiza liberar; o link vale 7 dias e o Admin gera outro). Os 15 carros da demo com fotos, dados e preço, pela tela do Estoque com a Renderiza no suporte (ou por um script que entra com o login da Renderiza e passa pela RLS como a tela; nunca a chave secreta). | 3A |
+| 3C | **No ar.** O Cloudflare Pages ligado ao repositório dele (o fluxo "legacy Pages", lição de 16/11), no `pages.dev`; o domínio quando a R2 vier. Conferência no ar: com o painel, os carros com preço; com o painel fora (simulado), a versão de reserva; um carro de teste nasce oculto, vai para disponível, aparece em até 1 minuto e é apagado. A mensagem para o Ricardo (o site, o convite e 5 linhas: criar um carro, mudar o preço, vendido, tirar do ar, Meu site), para a Renderiza mandar quando quiser. | 2B, 3B |
+| 3D | **Fechar.** "O que aprendemos" no `README`, as fases do `12`, este trilho e o diário. | 3C |
 
 ---
-
-## Perguntas em aberto (para a Renderiza; não travam as paradas 1 a 4)
-
-1. **O domínio:** o termo diz que é dele, mas não diz qual. Está no CPF ou CNPJ dele no Registro.br (lição de 16/11)?
-2. **O estoque de hoje:** os 15 carros da demo (de 17/11) ainda estão à venda? Ele manda a lista atual com os preços,
-   ou cadastramos os da demo e ele ajusta no painel?
-3. **A conta:** entra em teste até o painel começar a contar (30 dias depois da entrega) ou já ativa?
-4. **Os acessos:** só ele, ou alguém da loja também mexe no estoque (o "edita" e o "só vê" de Equipe)?
-5. **O número do WhatsApp dele:** a demo usa o link da bio (`wa.me/message/…`), que abre sem a mensagem pronta. Com o
-   número, cada botão já leva o carro na mensagem ("Ainda está disponível o …?"), o que a 3B pede.
 
 ## Diário de bordo (o mais novo em cima)
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
-| 24/11/2026 | 0 | Proposta aceita. Investigação do painel (módulos, `pode()`, Meu site, API pública, Storage, Admin, nichos) e das entregas da Rafaela e da Bia; o **Contrato v1** no `12` (tabela, API, site, painel) e as decisões do dia (o Estoque é um dos 2 módulos; sem preço na versão de reserva; vendido sai; reservado aparece; a Renderiza cadastra o estoque de hoje). Trilho escrito, com 1, 2 e 3 em paralelo. | Claude, a pedido da Renderiza |
+| 24/11/2026 | 1 | Trilho enxugado para 3 paradas (a pedido), com o onboarding do automotivo (1D) e as respostas da Renderiza (os 15 carros à venda, o WhatsApp da demo, a conta ativa e parada, o domínio depois). Começa a 1A. | Claude |
+| 24/11/2026 | 0 | Proposta aceita. Investigação do painel e das entregas da Rafaela e da Bia; o **Contrato v1** no `12`; trilho escrito. | Claude, a pedido da Renderiza |
 
 **Duas sessões escrevendo aqui ao mesmo tempo:** cada uma muda só a linha dela em "Onde o trem está" e põe a linha
 dela no topo do diário. No `git rebase`, um conflito neste arquivo é manter as duas linhas.
 
 ## Para colar ao abrir a próxima sessão
 
-Abrir no ambiente **"Nuvem kaue"** (variáveis `PAINEL_*` e a rede aberta), com o `renderizaweb/Renderiza` e, para
-a Parada 3 em diante, o repositório do site dele selecionados (o GitHub conectado é o da Renderiza, colaboradora nele,
-e o app do Claude instalado nele).
+Abrir no ambiente **"Nuvem kaue"** (variáveis `PAINEL_*` e a rede aberta), com o `renderizaweb/Renderiza` e, para a
+2B em diante, o repositório do site dele selecionados (o GitHub conectado é o da Renderiza, colaboradora nele, e o
+app do Claude instalado nele).
 
-> Você vai continuar a entrega da Ricardo Motors: o módulo Estoque no Painel Renderiza e o site dele, no repositório
-> dele, ligado ao painel (Meu site e Estoque). Sua parte: **Parada N** (ou a tarefa NX). Responda sempre em
-> português, direto e curto, e não invente nada.
+> Você vai continuar a entrega da Ricardo Motors: o módulo Estoque e o nicho automotivo no Painel Renderiza e o site
+> dele, no repositório dele, ligado ao painel (Meu site e Estoque). Sua parte: **a tarefa NX** (ou a Parada N).
+> Responda sempre em português, direto e curto, e não invente nada.
 >
-> Antes de tudo: `git fetch origin` e parta da `main`. Leia, nesta ordem: `docs/entregas/ricardo-motors.md` (o
-> trilho: onde o trem está, a sua parada, o que ela mexe, o diário), `docs/painel-clientes/12-modulo-estoque.md` (o
-> **Contrato v1**), `docs/entregas/README.md`, `docs/painel-clientes/README.md`, `08-trabalho-em-paralelo.md`,
-> `missoes.md` (os "Avisos entre sessões" e as "Migrações aplicadas") e os documentos que a sua parada citar (`03`,
-> `04`, `05`, `09`, `10`).
+> Antes de tudo: `git fetch origin` e parta da `main`. Leia, nesta ordem: `docs/entregas/ricardo-motors.md` (onde o
+> trem está, a rapidez e a UX, a sua parada, o que ela mexe, o diário), `docs/painel-clientes/12-modulo-estoque.md`
+> (o **Contrato v1**), `docs/entregas/README.md`, `docs/painel-clientes/README.md`, `08-trabalho-em-paralelo.md`,
+> `missoes.md` (os "Avisos entre sessões" e as "Migrações aplicadas") e os documentos que a sua parte citar (`03`,
+> `04`, `05`, `09`, `10`, `11`).
 >
-> Se a sua parada estiver `em andamento` em outra sessão, pare e me avise. Se eu não disse a parada, proponha uma
+> Se a sua parte estiver `em andamento` em outra sessão, pare e me avise. Se eu não disse a parte, proponha uma
 > `livre` que não dependa de nada pendente e espere o meu ok. No primeiro commit, marque a sua linha em "Onde o trem
 > está".
 >
