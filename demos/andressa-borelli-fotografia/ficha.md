@@ -8,8 +8,8 @@
 | WhatsApp | (11) 96137-5428 · o da página dela na Alboom (o Google mostra só o fixo (11) 4787-7673) |
 | Site | página grátis na Alboom (andressaborelli.alboompro.com), a que o Google aponta |
 | Entregável | **portfólio online, versão 4** (23/11/2026): `index.html` (a vitrine) e uma página por ensaio (`newborn`, `familia`, `infantil`). Sai de `ferramentas/demo/gerar-portfolio.py demos/andressa-borelli-fotografia <pasta dos originais>` |
-| Situação | pronta · 23/11/2026 · `/demo/andressa-borelli-fotografia` · lote 4 de fotógrafos, nº 7 |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único, sem mensalidade; promoção de uma semana (`renderiza.valido_ate` e `demos.vale_ate`); código do lead `rgk2` |
+| Situação | no ar · 24/11/2026 · `/demo/andressa-borelli-fotografia` · lote 4 de fotógrafos, nº 7 |
+| Oferta na demo | R$ 399 no Pix ou parcelado no crédito (a oferta nova, decisão do Kaue de 23/11), pagamento único, sem mensalidade; promoção de uma semana, até 01/12/2026 (`renderiza.valido_ate` no `demo.json` e `demos.vale_ate` no painel, criada ao gravar o link em 24/11); código do lead `rgk2` |
 
 ## Direção
 - Lote 4 (nº 7, 88 pontos). Dona: Andressa; a foto de perfil é ela com a câmera (entra no "quem fotografa").

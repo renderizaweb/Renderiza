@@ -8,8 +8,8 @@
 | WhatsApp | (11) 98178-7502 · celular do Perfil da Empresa no Google e das legendas ("Agendamentos 11 981787502", 05/11/2026) |
 | Site | página grátis na Alboom (biancafotografia.alboompro.com), a que o Google aponta; biancacabral.com.br é de outra Bianca (loja) |
 | Entregável | **portfólio online, versão 4** (23/11/2026): `index.html` (a vitrine) e uma página por ensaio (`newborn`, `mes-a-mes`, `smash`, `aniversario`) |
-| Situação | pronta · 23/11/2026 · `/demo/bianca-cabral-fotografia` · lote 4 de fotógrafos, nº 10 |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único, sem mensalidade; promoção de uma semana; código do lead `9n8p` |
+| Situação | no ar · 24/11/2026 · `/demo/bianca-cabral-fotografia` · lote 4 de fotógrafos, nº 10 |
+| Oferta na demo | R$ 399 no Pix ou parcelado no crédito (a oferta nova, decisão do Kaue de 23/11), pagamento único, sem mensalidade; promoção de uma semana, até 01/12/2026 (`renderiza.valido_ate` no `demo.json` e `demos.vale_ate` no painel, criada ao gravar o link em 24/11); código do lead `9n8p` |
 
 ## Direção
 - Lote 4 (nº 10, 83 pontos). Dona: Bianca, que se apresenta como Bia ("pode me chamar de Bia", na Alboom); a saudação da Renderiza e a página usam "Bia".

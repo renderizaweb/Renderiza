@@ -8,15 +8,15 @@
 | WhatsApp | **(11) 98342-2410**, o que ela põe nas legendas de novembro ("Link na Bio ou pelo WhatsApp (11) 98342-2410", 04/11/2026); o Google e a Alboom têm (11) 96299-3358 |
 | Site | página grátis na Alboom (thaynasapellyfotografia.alboompro.com); o Google não aponta site |
 | Entregável | **portfólio online, versão 4** (23/11/2026): `index.html` (a vitrine) e uma página por ensaio (`gestante`, `natal`) |
-| Situação | pronta · 23/11/2026 · `/demo/thayna-sapelly-fotografia` · lote 4 de fotógrafos, nº 9 |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único, sem mensalidade; promoção de uma semana; código do lead `ysfz` |
+| Situação | no ar · 24/11/2026 · `/demo/thayna-sapelly-fotografia` · lote 4 de fotógrafos, nº 9 |
+| Oferta na demo | R$ 399 no Pix ou parcelado no crédito (a oferta nova, decisão do Kaue de 23/11), pagamento único, sem mensalidade; promoção de uma semana, até 01/12/2026 (`renderiza.valido_ate` no `demo.json` e `demos.vale_ate` no painel, criada ao gravar o link em 24/11); código do lead `ysfz` |
 
 ## Direção
 - Lote 4 (nº 9, 83 pontos). Dona: Thayná ("Thayna sapeli de toledo" na Alboom); a foto de perfil é ela com a câmera.
 - Personalidade: gestante em estúdio (vestidos longos, jeans e camisa branca, cenários de flores e argola) e um Natal caprichado (ela reformou o estúdio para o cenário de 2026). Na página: fundo quase branco, vinho nos botões, Marcellus nos títulos, Raleway no texto, "fotografia" em Monsieur La Doulaise. Ícone da aba: monograma TS (feito para a demo).
 
 ## O que tem
-- **Vitrine**, **Gestante** (12 fotos) e **Natal 2026** (10: o cenário novo com uma família e 2 de Natais anteriores no fim).
+- **Vitrine** (a tira só com gestantes: o Natal não abre a conversa, decisão do Kaue de 23/11), **Gestante** (12 fotos) e **Natal 2026** por último (10: o cenário novo com uma família e 2 de Natais anteriores no fim).
 - Sem página de newborn, família ou aniversário: as fotos que temos são poucas (2 ou 3 de cada) ou estão fora pela regra.
 
 ## Fotos (23 escolhidas de 119)

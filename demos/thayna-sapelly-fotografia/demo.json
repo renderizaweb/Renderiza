@@ -54,10 +54,10 @@
   "ola": "Thayná",
   "whatsapp": "5511988697165",
   "preco_pix": "R$ 399",
-  "parcelado": "2x de R$ 199",
+  "parcelado": "parcelado no crédito",
   "nota_preco": "pagamento único, sem mensalidade",
   "valido_ate": "2026-12-01",
-  "msg_garantir": "Olá! Sou a Thayná, da Thayna Sapelly Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_garantir": "Olá! Sou a Thayná, da Thayna Sapelly Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou parcelado no crédito).",
   "msg_negociar": "Olá! Sou a Thayná, da Thayna Sapelly Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "msg_duvida": "Olá! Sou a Thayná, da Thayna Sapelly Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida.",
   "codigo": "ysfz"
@@ -71,13 +71,13 @@
   "linha": "Ensaios de gestante, newborn, smash, família e Natal no estúdio do Parque Primavera.",
   "tira": [
    "gestante:0",
-   "natal:0",
    "gestante:1",
-   "natal:1",
    "gestante:2",
-   "natal:2",
    "gestante:3",
-   "natal:3"
+   "gestante:4",
+   "gestante:5",
+   "gestante:6",
+   "gestante:7"
   ],
   "avaliacoes": [
    {

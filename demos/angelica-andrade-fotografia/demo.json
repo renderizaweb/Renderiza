@@ -54,10 +54,10 @@
   "ola": "Angélica",
   "whatsapp": "5511988697165",
   "preco_pix": "R$ 399",
-  "parcelado": "2x de R$ 199",
+  "parcelado": "parcelado no crédito",
   "nota_preco": "pagamento único, sem mensalidade",
   "valido_ate": "2026-12-01",
-  "msg_garantir": "Olá! Sou a Angélica, da Angélica Andrade Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou 2x de R$ 199).",
+  "msg_garantir": "Olá! Sou a Angélica, da Angélica Andrade Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou parcelado no crédito).",
   "msg_negociar": "Olá! Sou a Angélica, da Angélica Andrade Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
   "msg_duvida": "Olá! Sou a Angélica, da Angélica Andrade Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida.",
   "codigo": "g7rh"
@@ -71,17 +71,17 @@
   "local": "Zona Norte de São Paulo",
   "olho": "Fotógrafa materna infantil · Zona Norte, SP",
   "titulo": "Foto bonita é feita com segurança.",
-  "linha": "Newborn, mês a mês, ensaios infantis com cenário temático, Natal e aniversário. No estúdio, na zona norte de São Paulo.",
+  "linha": "Newborn, mês a mês, ensaios infantis com cenário temático, aniversário e Natal. No estúdio, na zona norte de São Paulo.",
   "onde": "No estúdio da Angélica, na zona norte de São Paulo. Datas pelo WhatsApp.",
   "tira": [
    "infantil:0",
-   "natal:0",
-   "newborn:1",
-   "aniversario:0",
    "newborn:0",
+   "aniversario:0",
+   "newborn:1",
    "infantil:1",
-   "natal:1",
-   "aniversario:1"
+   "aniversario:1",
+   "infantil:2",
+   "newborn:3"
   ],
   "avaliacoes": [
    {
@@ -143,104 +143,6 @@
   },
   "ensaios": [
    {
-    "id": "natal",
-    "nome": "Natal 2026",
-    "curto": "Natal",
-    "chamada": "Ensaio de Natal",
-    "pedido": "o ensaio de Natal",
-    "frase": "O cenário deste ano já está montado.",
-    "texto": "No estúdio, entre a árvore, os ursos de pelúcia, a lambreta vermelha e o telefone antigo. Para a criança sozinha ou junto com a mãe.",
-    "quando": "Os ensaios de Natal 2026 já começaram: as primeiras fotos do cenário saíram em novembro. Os horários são marcados pelo WhatsApp.",
-    "capa": 2,
-    "vitrine": [
-     0,
-     1,
-     2,
-     3,
-     4,
-     5,
-     6,
-     7
-    ],
-    "fotos": [
-     {
-      "arq": "posts/Df12byKJUQz/Df12byKJUQz_00.jpg",
-      "alt": "Mãe e bebê abraçados no cenário de Natal"
-     },
-     {
-      "arq": "posts/Df12byKJUQz/Df12byKJUQz_07.jpg",
-      "alt": "Mãe deitada no tapete com o bebê sentado"
-     },
-     {
-      "arq": "posts/DfSk62MBkHr/DfSk62MBkHr_quadro05.png",
-      "alt": "Menina de vestido verde com o cavalinho dourado, no cenário de Natal"
-     },
-     {
-      "arq": "posts/Df12byKJUQz/Df12byKJUQz_01.jpg",
-      "alt": "Bebê engatinhando entre os ursos de pelúcia"
-     },
-     {
-      "arq": "posts/Df12byKJUQz/Df12byKJUQz_02.jpg",
-      "alt": "Mãe e bebê com o telefone vermelho antigo"
-     },
-     {
-      "arq": "posts/Df12byKJUQz/Df12byKJUQz_04.jpg",
-      "alt": "Bebê sentado no pufe, com a mãe atrás"
-     },
-     {
-      "arq": "posts/DfSk62MBkHr/DfSk62MBkHr_quadro17.png",
-      "alt": "Bebê rindo na poltrona branca, entre almofadas vermelhas"
-     },
-     {
-      "arq": "posts/Df12byKJUQz/Df12byKJUQz_03.jpg",
-      "alt": "Bebê com o fone do telefone vermelho"
-     },
-     {
-      "arq": "posts/Df12byKJUQz/Df12byKJUQz_05.jpg",
-      "alt": "Bebê na lambreta vermelha, com a mãe atrás"
-     },
-     {
-      "arq": "posts/Df12byKJUQz/Df12byKJUQz_08.jpg",
-      "alt": "Mãe e bebê rindo, deitados no tapete"
-     },
-     {
-      "arq": "google/fotos/g01.jpg",
-      "alt": "Menina na máquina de escrever, num cenário de Natal de outro ano"
-     }
-    ],
-    "pacotes": [
-     {
-      "nome": "Essencial",
-      "preco": "R$ 290",
-      "itens": [
-       "30 minutos no cenário",
-       "10 fotos editadas",
-       "Galeria online"
-      ]
-     },
-     {
-      "nome": "Completo",
-      "preco": "R$ 450",
-      "itens": [
-       "45 minutos no cenário",
-       "20 fotos editadas",
-       "Criança e família juntas",
-       "Galeria online"
-      ],
-      "destaque": true
-     },
-     {
-      "nome": "Premium",
-      "preco": "R$ 650",
-      "itens": [
-       "1 hora no cenário",
-       "30 fotos editadas",
-       "3 fotos impressas 15x21"
-      ]
-     }
-    ]
-   },
-   {
     "id": "newborn",
     "nome": "Newborn",
     "chamada": "Ensaio newborn",
@@ -269,12 +171,12 @@
       "alt": "Recém-nascida dormindo no fundo rosa, com asinhas"
      },
      {
-      "arq": "drive/Instagram_files/488977478_1174194458050829_2298739676504540116_n.jpg",
-      "alt": "Recém-nascido de óculos e paletó na poltrona, no cenário Boss"
-     },
-     {
       "arq": "drive/Instagram_files/489295479_1174186774718264_6952696526804086849_n.jpg",
       "alt": "Recém-nascida na banheira, sobre o tapete rosa"
+     },
+     {
+      "arq": "drive/Instagram_files/488977478_1174194458050829_2298739676504540116_n.jpg",
+      "alt": "Recém-nascido de óculos e paletó na poltrona, no cenário Boss"
      },
      {
       "arq": "drive/Instagram_files/489531137_1174194431384165_8917623488617075210_n.jpg",
@@ -287,10 +189,6 @@
      {
       "arq": "drive/Instagram_files/489888197_1176017707868504_372559195719666567_n.jpg",
       "alt": "Recém-nascida de tiara de flores e saia de tule"
-     },
-     {
-      "arq": "drive/Instagram_files/488683990_1172547534882188_7889578048265116800_n.jpg",
-      "alt": "Recém-nascido de óculos escuros no cenário de verão"
      },
      {
       "arq": "drive/Instagram_files/489923905_1176018034535138_7591891008814348632_n.jpg",
@@ -531,6 +429,104 @@
        "40 fotos editadas",
        "3 looks",
        "Fundo claro e escuro"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "curto": "Natal",
+    "chamada": "Ensaio de Natal",
+    "pedido": "o ensaio de Natal",
+    "frase": "O cenário deste ano já está montado.",
+    "texto": "No estúdio, entre a árvore, os ursos de pelúcia, a lambreta vermelha e o telefone antigo. Para a criança sozinha ou junto com a mãe.",
+    "quando": "Os ensaios de Natal 2026 já começaram: as primeiras fotos do cenário saíram em novembro. Os horários são marcados pelo WhatsApp.",
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "posts/Df12byKJUQz/Df12byKJUQz_00.jpg",
+      "alt": "Mãe e bebê abraçados no cenário de Natal"
+     },
+     {
+      "arq": "posts/Df12byKJUQz/Df12byKJUQz_07.jpg",
+      "alt": "Mãe deitada no tapete com o bebê sentado"
+     },
+     {
+      "arq": "posts/DfSk62MBkHr/DfSk62MBkHr_quadro05.png",
+      "alt": "Menina de vestido verde com o cavalinho dourado, no cenário de Natal"
+     },
+     {
+      "arq": "posts/Df12byKJUQz/Df12byKJUQz_01.jpg",
+      "alt": "Bebê engatinhando entre os ursos de pelúcia"
+     },
+     {
+      "arq": "posts/Df12byKJUQz/Df12byKJUQz_02.jpg",
+      "alt": "Mãe e bebê com o telefone vermelho antigo"
+     },
+     {
+      "arq": "posts/Df12byKJUQz/Df12byKJUQz_04.jpg",
+      "alt": "Bebê sentado no pufe, com a mãe atrás"
+     },
+     {
+      "arq": "posts/DfSk62MBkHr/DfSk62MBkHr_quadro17.png",
+      "alt": "Bebê rindo na poltrona branca, entre almofadas vermelhas"
+     },
+     {
+      "arq": "posts/Df12byKJUQz/Df12byKJUQz_03.jpg",
+      "alt": "Bebê com o fone do telefone vermelho"
+     },
+     {
+      "arq": "posts/Df12byKJUQz/Df12byKJUQz_05.jpg",
+      "alt": "Bebê na lambreta vermelha, com a mãe atrás"
+     },
+     {
+      "arq": "posts/Df12byKJUQz/Df12byKJUQz_08.jpg",
+      "alt": "Mãe e bebê rindo, deitados no tapete"
+     },
+     {
+      "arq": "google/fotos/g01.jpg",
+      "alt": "Menina na máquina de escrever, num cenário de Natal de outro ano"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 290",
+      "itens": [
+       "30 minutos no cenário",
+       "10 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 450",
+      "itens": [
+       "45 minutos no cenário",
+       "20 fotos editadas",
+       "Criança e família juntas",
+       "Galeria online"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 650",
+      "itens": [
+       "1 hora no cenário",
+       "30 fotos editadas",
+       "3 fotos impressas 15x21"
       ]
      }
     ]

@@ -7,9 +7,9 @@
 | Google | nota 5,0 · 96 avaliações (lote 4, 21/11/2026) · "Atendimento 24 horas" · o Google aponta angelicaandradefotografia.albom.com.br, que não existe |
 | WhatsApp | (11) 95858-7843 · celular do Perfil da Empresa no Google, das legendas e do link da bio |
 | Site | morto (o domínio do Google não existe); há uma página antiga dela na Alboom (2019), com outro WhatsApp |
-| Entregável | **portfólio online, versão 4** (23/11/2026): `index.html` (a vitrine) e uma página por ensaio (`natal`, `newborn`, `infantil`, `aniversario`). Sai de `ferramentas/demo/gerar-portfolio.py demos/angelica-andrade-fotografia <pasta dos originais>`; textos, fotos e pacotes no `demo.json` (`portfolio`) |
-| Situação | pronta · 23/11/2026 · `/demo/angelica-andrade-fotografia` · lote 4 de fotógrafos, nº 6 |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único (o portfólio fica 100% dela, sem mensalidade); promoção de uma semana (`renderiza.valido_ate` no `demo.json` e `demos.vale_ate` no painel); código do lead `g7rh` |
+| Entregável | **portfólio online, versão 4** (23/11/2026): `index.html` (a vitrine) e uma página por ensaio (`newborn`, `infantil`, `aniversario`, `natal`). Sai de `ferramentas/demo/gerar-portfolio.py demos/angelica-andrade-fotografia <pasta dos originais>`; textos, fotos e pacotes no `demo.json` (`portfolio`) |
+| Situação | no ar · 24/11/2026 · `/demo/angelica-andrade-fotografia` · lote 4 de fotógrafos, nº 6 |
+| Oferta na demo | R$ 399 no Pix ou parcelado no crédito (a oferta nova, decisão do Kaue de 23/11), pagamento único, sem mensalidade; promoção de uma semana, até 01/12/2026 (`renderiza.valido_ate` no `demo.json` e `demos.vale_ate` no painel, criada ao gravar o link em 24/11); código do lead `g7rh` |
 
 ## Direção
 - Lote 4 de fotógrafos (nº 6, 88 pontos). Dona: Angélica (as avaliações falam "o trabalho da Angélica"); a saudação da Renderiza vai para ela.
@@ -17,14 +17,15 @@
 - Título: a frase dela, "Foto bonita é feita com segurança." (da página dela na Alboom: "levanta a bandeira de que foto bonita é feita com segurança").
 
 ## O que tem
-- **Vitrine**: o título, a tira de 8 fotos (abre com a bebê de princesa, em pé), a lista de ensaios com o "a partir de", o portfólio com filtro por ensaio, 4 avaliações do Google, quem fotografa e o contato (sem "Como chegar": não há endereço público).
-- **Natal 2026** (primeira da lista, porque é o que ela está vendendo agora), **Newborn**, **Infantil** (com o mês a mês) e **Aniversário**.
+- **Vitrine**: o título, a tira de 8 fotos (abre com a bebê de princesa, em pé; sem Natal), a lista de ensaios com o "a partir de", o portfólio com filtro por ensaio, 4 avaliações do Google, quem fotografa e o contato (sem "Como chegar": não há endereço público).
+- **Newborn**, **Infantil** (com o mês a mês), **Aniversário** e **Natal 2026** por último (decisão do Kaue de 23/11: o Natal não abre a conversa; ela vende o Natal 2026 e tem fotos limpas do cenário).
 
-## Fotos (43 escolhidas uma a uma, de 65)
+## Fotos (41 escolhidas uma a uma, de 65)
 - **Fontes**: (1) a grade do Instagram salva no Drive do Kaue (pasta `angelicaandradefotografia`, 22/11/2026): **só posts de janeiro a abril de 2024** (a página foi salva rolada; o Instagram tira da página as linhas de cima), 52 fotos de 2048 px; (2) o carrossel `Df12byKJUQz` ("Ensaios de Natal 2026", 17/11/2026), 9 fotos de 1067 a 1600 px, pelo embed público; (3) dois quadros nítidos (720 × 1280, sem texto) do reel de Natal `DfSk62MBkHr` (03/11/2026), que é um slideshow das fotos dela: são as únicas fotos em pé do cenário 2026; (4) 2 fotos do Perfil no Google.
 - **De quem são**: a bio da página salva tem o wa.me/5511958587843 (o mesmo celular do Google) e o arquivo `479740446_…` é a foto do perfil dela.
-- **Por ensaio**: Natal 11 (o cenário 2026, com mãe e bebê, e a foto de outro Natal do Google no fim), newborn 9, infantil 12 (bebês de 6 e 7 meses e crianças nos cenários de Carnaval e Páscoa), aniversário 10.
-- **Ficaram de fora**: as capas de vídeo, o bebê chorando de boca aberta, os adereços com o nome do bebê ("Miguel", "Gael 7 meses") e com texto ("De Deus"), o close com a mão de um adulto no quadro, a foto pequena da Páscoa (720 px), a foto pessoal dela ("Meu lugar no mundo") e a de calça jeans com a lata da Chanel (sem tema de aniversário).
+- **Por ensaio**: newborn 8, infantil 12 (bebês de 6 e 7 meses e crianças nos cenários de Carnaval e Páscoa), aniversário 10, Natal 11 (o cenário 2026, com mãe e bebê, e a foto de outro Natal do Google no fim).
+- **Marca d'água dela**: o bebê "Boss" tem o nome dela no fundo e não dá para recortar sem cortar a poltrona: ficou no newborn, fora da tira e da abertura (é a única foto em pé do newborn, que o gerador usa nos quadros de "Outros ensaios"). Uma foto do aniversário tem a marca pequena no canto.
+- **Ficaram de fora**: o newborn de verão (marca d'água e calendário com data), as capas de vídeo, o bebê chorando de boca aberta, os adereços com o nome do bebê ("Miguel", "Gael 7 meses") e com texto ("De Deus"), o close com a mão de um adulto no quadro, a foto pequena da Páscoa (720 px), a foto pessoal dela ("Meu lugar no mundo") e a de calça jeans com a lata da Chanel (sem tema de aniversário).
 
 ## Textos
 - **Dela**: o título (Alboom), a citação do "quem fotografa" ("Com o nascimento dos meus três filhos a vontade de fotografar foi cada vez mais tomando espaço na minha vida", Alboom), os fatos da primeira câmera aos 12 anos e dos três filhos (Alboom), "Fotógrafa materna infantil" e os serviços (bio do Instagram), "Ensaios de Natal 2026" (legenda de 17/11).

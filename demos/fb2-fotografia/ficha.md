@@ -8,8 +8,8 @@
 | WhatsApp | (11) 95344-1075 · celular do Perfil da Empresa no Google, das legendas e da página da Alboom |
 | Site | páginas grátis na 46graus (a que o Google aponta) e na Alboom; a bio aponta uma página do Canva |
 | Entregável | **portfólio online, versão 4** (23/11/2026): `index.html` (a vitrine) e uma página por ensaio (`aniversario`, `quinze-anos`) |
-| Situação | pronta · 23/11/2026 · `/demo/fb2-fotografia` · lote 4 de fotógrafos, nº 8 |
-| Oferta na demo | R$ 399 no Pix ou 2x de R$ 199, pagamento único, sem mensalidade; promoção de uma semana; código do lead `frna` |
+| Situação | no ar · 24/11/2026 · `/demo/fb2-fotografia` · lote 4 de fotógrafos, nº 8 |
+| Oferta na demo | R$ 399 no Pix ou parcelado no crédito (a oferta nova, decisão do Kaue de 23/11), pagamento único, sem mensalidade; promoção de uma semana, até 01/12/2026 (`renderiza.valido_ate` no `demo.json` e `demos.vale_ate` no painel, criada ao gravar o link em 24/11); código do lead `frna` |
 
 ## Direção
 - Lote 4 (nº 8, 85 pontos). **Casal**: Adeilton e Alice ("a Alice trabalha em conjunto com seu esposo", avaliação do Google; "Somos casados… Fotógrafos desde 2023", página deles na Alboom). A página fala dos dois; a saudação da Renderiza vai para o Adeilton (é o nome do perfil e das avaliações).
