@@ -15,6 +15,7 @@ import agendaPublica from "../api/publico/agenda/[codigo]/index.js";
 import pedidoPublico from "../api/publico/agenda/[codigo]/pedido.js";
 import saudePublica from "../api/publico/saude.js";
 import sitePublico from "../api/publico/site/[codigo]/index.js";
+import estoquePublico from "../api/publico/estoque/[codigo]/index.js";
 import previaPublica from "../api/publico/site/[codigo]/previa.js";
 import visitaPublica from "../api/publico/site/[codigo]/visita.js";
 import imagemPublica from "../api/publico/imagens/[...caminho].js";
@@ -63,6 +64,7 @@ createServer(async (req, res) => {
   if (/^\/api\/publico\/site\/[^/]+\/previa\/?$/.test(caminho)) return previaPublica(req, res, envDoPainel);
   if (/^\/api\/publico\/site\/[^/]+\/visita\/?$/.test(caminho)) return visitaPublica(req, res, envDoPainel);
   if (/^\/api\/publico\/site\/[^/]+\/?$/.test(caminho)) return sitePublico(req, res, envDoPainel);
+  if (/^\/api\/publico\/estoque\/[^/]+\/?$/.test(caminho)) return estoquePublico(req, res, envDoPainel);
   if (caminho.startsWith("/api/publico/imagens/")) return imagemPublica(req, res, envDoPainel);
 
   let arquivo = null;

@@ -267,3 +267,32 @@ test("visita: o aparelho é o mesmo no dia (o de São Paulo) e outro no dia segu
   assert.notEqual(a("203.0.113.7", "Chrome", "villa-alecrim", "2026-11-16T15:00:00Z"), base);
   assert.notEqual(a("203.0.113.8", "Safari", "villa-alecrim", "2026-11-16T15:00:00Z"), base);
 });
+
+import { tratar as estoque } from "../api/publico/estoque/[codigo]/index.js";
+
+test("estoque: só o disponível e o reservado, com as fotos pelo endereço da API e o mesmo cache do site; 404 quando não responde", async () => {
+  const conta = "0b6c3f2e-1111-4222-8333-944455556666";
+  const b = bancoFalso(() => ({ json: { versao: 1, esquema: "automotivo", atualizado_em: "2026-11-24T18:00:00Z", itens: [
+    { id: "a", situacao: "disponivel", destaque: true, preco: 189900, preco_antes: null, quantidade: 1, selos: ["Blindado"], descricao: "", campos: { marca: "Aurora" }, codigo_interno: "ABC1D23",
+      fotos: [{ arquivo: conta + "/estoque-aaaaaa11.webp", mini: conta + "/estoque-aaaaaa11-m.webp", w: 1600, h: 1067 }, { arquivo: "../fora.webp", w: 1, h: 1 }] },
+    { id: "b", situacao: "reservado", preco: null, campos: { marca: "Aurora" }, fotos: [{ arquivo: conta + "/estoque-bbbbbb22.webp", w: 800, h: 600 }] },
+    { id: "c", situacao: "oculto", campos: {} },
+  ] } }));
+  const r = await estoque({ metodo: "GET", caminho: "/api/publico/estoque/garagem-aurora", env: ENV }, b.buscar);
+  assert.equal(r.status, 200);
+  assert.deepEqual(b.chamadas[0].corpo, { p_codigo: "garagem-aurora" });
+  assert.match(b.chamadas[0].url, /\/rest\/v1\/rpc\/publico_estoque$/);
+  assert.equal(r.cabecalhos["Access-Control-Allow-Origin"], "*");
+  assert.match(r.cabecalhos["Cache-Control"], /s-maxage=20, stale-while-revalidate=10$/);
+  assert.deepEqual(r.corpo.itens.map(i => i.id), ["a", "b"], "o oculto não passa nem se o banco mandar");
+  assert.equal(JSON.stringify(r.corpo).includes("ABC1D23"), false, "o código interno nunca sai");
+  assert.deepEqual(r.corpo.itens[0].fotos, [{ url: "/api/publico/imagens/" + conta + "/estoque-aaaaaa11.webp", mini: "/api/publico/imagens/" + conta + "/estoque-aaaaaa11-m.webp", w: 1600, h: 1067 }]);
+  assert.equal(r.corpo.itens[1].fotos[0].mini, r.corpo.itens[1].fotos[0].url, "sem a pequena, vai a grande");
+  assert.equal(r.corpo.itens[1].preco, null);
+  const nulo = await estoque({ metodo: "GET", caminho: "/api/publico/estoque/garagem-aurora", env: ENV }, bancoFalso(() => ({ json: null })).buscar);
+  assert.equal(nulo.status, 404);
+  assert.match(nulo.cabecalhos["Cache-Control"], /s-maxage=20/);
+  assert.equal((await estoque({ metodo: "GET", caminho: "/api/publico/estoque/Garagem!", env: ENV })).status, 400);
+  assert.equal((await estoque({ metodo: "POST", caminho: "/api/publico/estoque/garagem-aurora", env: ENV })).status, 405);
+  assert.equal((await estoque({ metodo: "OPTIONS", caminho: "/api/publico/estoque/garagem-aurora", env: ENV })).status, 204);
+});

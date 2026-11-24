@@ -177,6 +177,7 @@ aparecem abaixo. O comentário de cada tabela no banco (`comment on table`) diz 
 | `sites_versoes` | rascunho (um por site) e publicadas | site, número (sozinho), conteúdo (JSON do `03`), estado (`rascunho`, `publicada`, `arquivada`), quem, publicada em. Publicada não muda |
 | `sites_previas` | links de prévia | site, versão, código, expira em (1 dia; no máximo 7) |
 | `sites_visitas` | uma linha por página aberta no site (indicadores, 16/11/2026) | site, visita (sorteio da página), dia, aparelho (embaralhado, muda a cada dia), página, tela, origem, segundos, partes, cliques; **sem dado de pessoa**; 13 meses; só as funções leem e gravam |
+| `estoque_itens` | o Estoque (24/11/2026; `12`, "Contrato v1"): o que a conta vende no site | esquema (o do nicho), situação (disponível, reservado, vendido, oculto), destaque, ordem, preço e preço anterior, quantidade, campos do nicho (jsonb), selos, descrição, fotos (`{arquivo, mini, w, h}` no `site-imagens`, `estoque-*`), código interno (nunca sai), `vendido_em` | ver: `pode(conta, 'estoque', 'ver')`; mudar: `editar`; o site só por `publico_estoque` |
 | Storage | arquivos, sempre em `<bucket>/<id da conta>/…` | `logos` (público, PNG, JPEG ou WebP até 1 MB; o dono envia), `site-imagens` (público, WebP até 2 MB; quem edita o Meu site envia), `privado` (fechado, sem uso ainda) |
 
 **Admin (só a equipe Renderiza)**

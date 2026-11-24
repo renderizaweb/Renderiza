@@ -121,7 +121,7 @@ mudar algo aqui muda este documento no mesmo commit e deixa um aviso em `missoes
 | `fotos` | `jsonb` lista de até 15 `{ "arquivo": "<conta>/estoque-<aleatório>.webp", "mini": "<conta>/estoque-<aleatório>-m.webp", "w": 1600, "h": 1067 }`; a primeira é a capa. O painel faz as duas no navegador: a grande (lado maior 1600 px) e a pequena (640 px, para o card) |
 | `codigo_interno` | `text` opcional, até 40 (placa, referência); **nunca sai na API** |
 | `vendido_em` | o banco põe quando vira `vendido` e tira quando sai |
-| `criado_em`, `atualizado_em`, `criado_por`, `atualizado_por` | como nas outras tabelas (`05`) |
+| `criado_em`, `atualizado_em` | como nas outras tabelas (`05`); o histórico de quem mexeu fica para depois |
 
 - **Índice** por `(conta_id, situacao)`: a função pública lê só disponível e reservado da conta.
 - **RLS:** ver com `pode(conta, 'estoque', 'ver')`; criar, mudar e apagar com `pode(conta, 'estoque', 'editar')`.
@@ -143,14 +143,15 @@ servindo a anterior) e `404 {"erro":"fora"}` quando a função devolve `null`.
   "itens": [ { "id": "…", "situacao": "disponivel", "destaque": true, "preco": 689900, "preco_antes": null,
                "quantidade": 1, "selos": ["Blindado"], "descricao": "…",
                "campos": { "marca": "Porsche", "modelo": "Cayenne", "ano_fab": 2019, "km": 21000 },
-               "fotos": [ { "url": "https://painel.renderizaweb.com.br/api/publico/imagens/<conta>/estoque-….webp",
-                            "mini": "https://painel.renderizaweb.com.br/api/publico/imagens/<conta>/estoque-…-m.webp",
+               "fotos": [ { "url": "/api/publico/imagens/<conta>/estoque-….webp",
+                            "mini": "/api/publico/imagens/<conta>/estoque-…-m.webp",
                             "w": 1600, "h": 1067 } ] } ] }
 ```
 
 Só `disponivel` e `reservado`, na ordem destaque, `ordem` e mais novo; até 300 itens. Nunca: `codigo_interno`,
-quem mexeu, itens ocultos ou vendidos. A função devolve o `arquivo` e a `mini`; a rota monta as duas `url` com o endereço dela mesma
-(por isso o STG e o local funcionam igual).
+quem mexeu, itens ocultos ou vendidos. A função devolve o `arquivo` e a `mini`; a rota devolve as duas como **caminho da própria API**
+(`/api/publico/imagens/…`; sem a pequena, a `mini` é a grande), e o script do site completa com o endereço que chamou:
+o local, o STG e a produção funcionam igual, e o site só mostra foto da API.
 
 **3. No site**
 
