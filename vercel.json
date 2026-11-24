@@ -76,7 +76,7 @@
   ],
   "rewrites": [
     { "source": "/exemplos/site-fotografia/exemplos/site-fotografia/:caminho*", "destination": "/exemplos/site-fotografia/:caminho*" },
-    { "source": "/termo/:id", "destination": "/termo/index.html" }
+    { "source": "/termo/:id", "destination": "/termo" }
   ],
   "redirects": [
     { "source": "/eventos", "destination": "/como-funciona/eventos", "permanent": false }

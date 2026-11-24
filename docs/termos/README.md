@@ -60,7 +60,9 @@ Mudou a base (cláusula nova para todos)? Mude `montarTermoDoSite` e, se for mud
 ## Ricardo Motors (o primeiro)
 
 Os campos estão em [`termos/clientes/ricardo-motors.json`](../../termos/clientes/ricardo-motors.json), montados a partir do
-lead (demo, proposta do Estoque, observações). Pendências que só a Renderiza decide:
+lead (demo, proposta do Estoque, observações). **Na produção desde 24/11/2026**: o termo `ricardo-motors-v1` está no card
+do lead como rascunho (fechado para assinatura), em renderizaweb.com.br/termo/ricardo-motors-v1. É só abrir no card,
+**Editar**, preencher o que falta e **Salvar e abrir**. Pendências que só a Renderiza decide:
 
 - **Valor do site** (e a forma de pagamento: hoje "tudo na assinatura").
 - **Módulo Estoque:** ainda não existe no painel de verdade (só o protótipo da demo). O termo precisa dizer até quando
