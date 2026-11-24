@@ -1,0 +1,20 @@
+{
+  "dominio": "ricardo-motors.pages.dev",
+  "nome": "Ricardo Motors",
+  "corTema": "#0b0b0c",
+  "favicon": { "texto": "RM", "cor": "#87672b" },
+  "previaCentro": [0.5, 0.45],
+  "dadosEstruturados": [
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoDealer",
+      "name": "Ricardo Motors",
+      "alternateName": "RM Consult Car",
+      "description": "Consultoria automotiva em São Paulo: carros premium e blindados, com procedência verificada.",
+      "areaServed": "São Paulo, SP",
+      "address": { "@type": "PostalAddress", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR" },
+      "sameAs": ["https://www.instagram.com/rm.consultcar/"]
+    }
+  ],
+  "painel": { "codigo": "ricardo-motors", "estoque": true }
+}
