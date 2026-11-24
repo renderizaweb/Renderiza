@@ -146,17 +146,19 @@ test("a impressão é o SHA-256 do texto exato, como o banco calcula", async () 
   assert.equal(await impressaoDoTexto(texto), createHash("sha256").update(texto, "utf8").digest("hex"));
 });
 
-test("Ricardo Motors: o termo com o que o Kaue preencheu no card, sem pendências", () => {
+test("Ricardo Motors: o termo revisado em 24/11 (domínio adiantado e as condições do estoque), sem pendências", () => {
   const t = montarTermoDoSite(RICARDO_MOTORS);
   assert.equal(t.titulo, "Termo de contratação · Site da Ricardo Motors");
   assert.equal(t.tipo_contratante, "pf_ou_pj");
   assert.deepEqual(t.opcoes.map(o => o.id), ["com-painel", "so-site"]);
   assert.match(t.texto, /Não inclui:\n\n- Ligação automática com a Webmotors ou com outro portal\.\n- Manutenção/);
-  assert.match(t.texto, /publicado no domínio que o Contratante já tem/);
-  assert.equal(/Registro\.br/.test(t.texto), false, "ele já tem domínio: sem Registro.br");
-  assert.equal((t.texto.match(/Estoque/g) || []).length, 1, "o Estoque só aparece como módulo combinado do painel");
+  assert.match(t.texto, /o domínio escolhido pelo Contratante é registrado pela Renderiza no nome do Contratante/);
+  assert.match(t.texto, /\*\*Domínio:\*\* registrado no seu nome; o 1º ano \(R\$ 40,00\) é pago à parte, antes do registro\./);
+  assert.match(t.texto, /\*\*Do preço do site, nada é pago antes da entrega:\*\*/);
+  assert.match(t.texto, /# 9\. Condições deste projeto\n\n1\. Com o Painel Renderiza, os carros, os preços e as fotos do site vêm do módulo Estoque/);
+  assert.match(t.texto, /o site mostra a versão de reserva: os carros do dia da entrega, sem preço/);
   assert.match(t.texto, /os módulos combinados são: Meu site e Estoque\. A primeira mensalidade vence 30 dias após a entrega\./);
-  assert.match(t.texto, /\*\*Valor:\*\* R\$ 399,00, por Pix, só na aprovação \(nada antes\)/);
+  assert.match(t.texto, /\*\*Valor:\*\* R\$ 399,00, por Pix, só na aprovação do site\./);
   const falta = pendencias(t.texto);
   assert.deepEqual(falta, [], "preenchido no card: nada falta");
 });
@@ -196,4 +198,14 @@ test("desistência: 7 dias sem custo; depois, sem custo até a versão para apro
 test("1ª mensalidade do painel: só aparece se preenchida", () => {
   assert.match(montarTermoDoSite({ ...COMPLETO, painel_inicio: "30 dias depois da entrega." }).texto, /A primeira mensalidade vence 30 dias depois da entrega\. O Contratante liga/);
   assert.equal(montarTermoDoSite(COMPLETO).texto.includes("primeira mensalidade"), false);
+});
+
+test("domínio adiantado: a Renderiza registra no nome do cliente, o 1º ano é pago à parte e volta se ele desistir antes do registro", () => {
+  const d = montarTermoDoSite({ ...COMPLETO, pagamento: "entrega", dominio_situacao: "registrar_adiantado", dominio_valor: "40" }).texto;
+  assert.match(d, /registrado pela Renderiza no nome do Contratante, com os dados informados na assinatura \(CPF ou CNPJ\)/);
+  assert.match(d, /O primeiro ano, \*\*R\$ 40,00\*\* \(o valor do registro\), é pago pelo Contratante à parte do preço do site, antes do registro; se ele desistir antes do registro, esse valor volta/);
+  assert.equal(/Nada é pago antes da entrega/.test(d), false, "o domínio é pago antes: o 'nada antes' vale para o preço do site");
+  assert.equal(/O preço inclui o registro do domínio/.test(d), false);
+  assert.deepEqual(pendencias(montarTermoDoSite({ ...COMPLETO, dominio_situacao: "registrar_adiantado", dominio_valor: "" }).texto), ["valor do domínio"]);
+  assert.equal(camposDoSite({}).dominio_valor, "40");
 });

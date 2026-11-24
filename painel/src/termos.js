@@ -44,6 +44,7 @@ export const HOSPEDAGENS = [
 export const DOMINIOS = [
   { id: "cliente_tem", nome: "O cliente já tem domínio (sem custo, só aponta)" },
   { id: "registrar_incluido", nome: "A Renderiza registra no nome dele, 1º ano incluído" },
+  { id: "registrar_adiantado", nome: "A Renderiza registra no nome dele; o cliente adianta o 1º ano, à parte" },
   { id: "registrar_cliente", nome: "O cliente registra e paga" },
 ];
 export const PAINEL = [
@@ -68,6 +69,7 @@ export const CAMPOS_DO_SITE = [
   { id: "prazo", rotulo: "Prazo (dias úteis)", tipo: "numero", dica: "Contados do material completo" },
   { id: "garantia", rotulo: "Garantia (dias corridos)", tipo: "numero", dica: "Contra defeitos, depois da entrega" },
   { id: "dominio_situacao", rotulo: "Domínio", tipo: "opcoes", opcoes: DOMINIOS },
+  { id: "dominio_valor", rotulo: "1º ano do domínio (adiantado)", tipo: "valor", dica: "O valor do Registro.br, pago pelo cliente antes do registro. Ex.: 40", so: c => c.dominio_situacao === "registrar_adiantado" },
   { id: "dominio", rotulo: "Endereço do domínio (opcional)", tipo: "texto", dica: "Ex.: ricardomotors.com.br (vazio: o que o cliente tiver ou escolher)" },
   { id: "hospedagem", rotulo: "Hospedagem", tipo: "opcoes", opcoes: HOSPEDAGENS },
   { id: "painel", rotulo: "Painel Renderiza", tipo: "opcoes", opcoes: PAINEL },
@@ -79,7 +81,7 @@ export const CAMPOS_DO_SITE = [
 
 export const PADRAO_DO_SITE = {
   projeto: "", contratante: "", tipo_contratante: "pf_ou_pj", referencia: "", escopo: "", fora_do_escopo: "", condicoes: "",
-  valor: "", pagamento: "entrega", pagamento_outro: "", cancelamento: "metade_apos_versao", prazo: "10", garantia: "30", dominio_situacao: "cliente_tem", dominio: "",
+  valor: "", pagamento: "entrega", pagamento_outro: "", cancelamento: "metade_apos_versao", prazo: "10", garantia: "30", dominio_situacao: "cliente_tem", dominio: "", dominio_valor: "40",
   hospedagem: "cloudflare", painel: "opcional", painel_modulos: "", painel_preco: "49", painel_inicio: "", foro: "São Paulo/SP",
 };
 
@@ -163,13 +165,17 @@ export function montarTermoDoSite(campos = {}) {
   const metade = valor ? Math.round(valor * 50) / 100 : 0;
   const METADE = valor ? reais(metade) : "metade do preço";
   const antecipado = c.pagamento === "integral" || c.pagamento === "metade" || c.pagamento === "outro"; // pode ter pago antes da entrega
+  // o domínio adiantado (o 1º ano, à parte do preço do site): o "nada antes" passa a valer para o preço do site
+  const adiantaDominio = dom === "registrar_adiantado";
+  const valorDoDominio = lerReais(c.dominio_valor);
+  const VALOR_DO_DOMINIO = valorDoDominio ? reais(valorDoDominio) : pendente("valor do domínio");
   const comoPaga = {
-    entrega: "**Nada é pago antes da entrega:** a Renderiza mostra o site pronto num endereço de prévia; aprovado, o Contratante paga em até 2 dias úteis, e a Renderiza publica o site no domínio dele e passa os acessos.",
+    entrega: (adiantaDominio ? "**Do preço do site, nada é pago antes da entrega:**" : "**Nada é pago antes da entrega:**") + " a Renderiza mostra o site pronto num endereço de prévia; aprovado, o Contratante paga em até 2 dias úteis, e a Renderiza publica o site no domínio dele e passa os acessos.",
     integral: "O pagamento é em parcela única, em até 2 dias úteis depois da assinatura.",
     metade: `O pagamento é em duas parcelas: ${METADE} em até 2 dias úteis depois da assinatura e o restante na aprovação, antes da publicação.`,
     outro: `O pagamento é ${limpo(c.pagamento_outro).replace(/\.$/, "") || pendente("forma de pagamento")}.`,
   }[c.pagamento];
-  const pagamentoCurto = { entrega: "por Pix, só na aprovação (nada antes)", integral: "por Pix, na assinatura", metade: "por Pix, metade na assinatura e metade na aprovação",
+  const pagamentoCurto = { entrega: adiantaDominio ? "por Pix, só na aprovação do site" : "por Pix, só na aprovação (nada antes)", integral: "por Pix, na assinatura", metade: "por Pix, metade na assinatura e metade na aprovação",
     outro: limpo(c.pagamento_outro) || pendente("forma de pagamento") }[c.pagamento];
   const contaDoPrazo = c.pagamento === "integral" ? " e do pagamento" : c.pagamento === "metade" ? " e da primeira parcela" : "";
   const tipo = {
@@ -181,6 +187,7 @@ export function montarTermoDoSite(campos = {}) {
   const clausulaDoDominio = {
     cliente_tem: `**Domínio:** o site é publicado n${oDominio}, que continua sob a responsabilidade dele (a conta, os pagamentos e a renovação). Ele dá o acesso necessário para apontar o domínio para o site.`,
     registrar_incluido: `**Domínio:** ${oDominio} é registrado no nome do Contratante, com o primeiro ano incluído no preço. A partir do segundo ano, a renovação é dele, direto com o registro de domínios, e a Renderiza não responde por domínio vencido ou perdido por falta de renovação.`,
+    registrar_adiantado: `**Domínio:** ${oDominio} é registrado pela Renderiza no nome do Contratante, com os dados informados na assinatura (CPF ou CNPJ). O primeiro ano, **${VALOR_DO_DOMINIO}** (o valor do registro), é pago pelo Contratante à parte do preço do site, antes do registro; se ele desistir antes do registro, esse valor volta, e registrado, o domínio é dele. A partir do segundo ano, a renovação é dele, direto com o registro de domínios, e a Renderiza não responde por domínio vencido ou perdido por falta de renovação.`,
     registrar_cliente: `**Domínio:** ${oDominio} é registrado e pago pelo Contratante, no nome dele, assim como a renovação anual. A Renderiza não responde por domínio vencido ou perdido por falta de renovação.`,
   }[dom];
 
@@ -192,6 +199,7 @@ export function montarTermoDoSite(campos = {}) {
   bloco(...lista([
     `**O que você recebe:** o ${projeto}, pronto e publicado no seu domínio${referencia ? `, seguindo ${referencia}` : ""}.`,
     `**Valor:** ${VALOR}, ${pagamentoCurto}.`,
+    ...(adiantaDominio ? [`**Domínio:** registrado no seu nome; o 1º ano (${VALOR_DO_DOMINIO}) é pago à parte, antes do registro.`] : []),
     `**Prazo:** até ${PRAZO} dias úteis depois do material completo.`,
     "**Tudo fica no seu nome:** o código, a hospedagem e o domínio.",
     `**Depois da entrega:** sem manutenção incluída e ${GARANTIA} dias de garantia contra defeitos.`,
@@ -260,7 +268,7 @@ export function montarTermoDoSite(campos = {}) {
   }
 
   bloco(`# ${n.limites}. Responsabilidades e limites`);
-  bloco(`O Contratante responde pelo que manda publicar (textos, fotos, preços, informações) e por ter o direito de usar cada um. O site é uma vitrine: a Renderiza não garante vendas, contatos nem posição no Google, e não responde por falhas ou mudanças de serviços de outras empresas (GitHub, ${hospedagem}, domínio, Google, WhatsApp). No que a lei permitir, a responsabilidade da Renderiza fica limitada ao valor pago por este termo, sem lucros cessantes ou danos indiretos, salvo dolo ou culpa grave.`);
+  bloco(`O Contratante responde pelo que manda publicar (textos, fotos, preços, informações, nomes e marcas) e por ter o direito de usar cada um. O site é uma vitrine: a Renderiza não garante vendas, contatos nem posição no Google, e não responde por falhas ou mudanças de serviços de outras empresas (GitHub, ${hospedagem}, domínio, Google, WhatsApp). No que a lei permitir, a responsabilidade da Renderiza fica limitada ao valor pago por este termo, sem lucros cessantes ou danos indiretos, salvo dolo ou culpa grave.`);
 
   bloco(`# ${n.propriedade}. De quem é o site`);
   bloco("Pago o preço, o site feito para o Contratante (código, layout e textos) é dele; o conteúdo dele sempre foi dele. Componentes genéricos que a Renderiza usa em outros projetos continuam dela, com uso livre neste site. A Renderiza só mostra o site no portfólio com autorização.");

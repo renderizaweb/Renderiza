@@ -1,5 +1,5 @@
 {
-  "_sobre": "Os campos do termo da Ricardo Motors (modelo site-v1 de painel/src/termos.js), como o Kaue preencheu no card em 24/11/2026 (valor, prazo de 5 dias úteis, pagamento na aprovação, módulos e 1ª mensalidade do painel). O texto do rascunho na produção sai destes campos; o que estiver entre [[ ]] segura a assinatura.",
+  "_sobre": "Os campos do termo da Ricardo Motors (modelo site-v1 de painel/src/termos.js). Base preenchida pelo Kaue no card em 24/11/2026; revisada no mesmo dia com o que mudou na entrega: o domínio registrado pela Renderiza no nome dele, com o 1º ano (R$ 40) adiantado à parte do site, e as condições do estoque (com o painel, os carros e preços vêm do Estoque; sem ele, a versão de reserva sem preço). O texto sai destes campos; o que estiver entre [[ ]] segura a assinatura.",
   "lead_id": "9813c87a-d0e9-4636-9417-72480a19623b",
   "id": "ricardo-motors-v1",
   "campos": {
@@ -9,13 +9,13 @@
     "referencia": "a demonstração em renderizaweb.com.br/demo/ricardo-motors",
     "escopo": "A vitrine dos carros, com a página de cada um e o botão de WhatsApp.",
     "fora_do_escopo": "Ligação automática com a Webmotors ou com outro portal",
-    "condicoes": "",
+    "condicoes": "Com o Painel Renderiza, os carros, os preços e as fotos do site vêm do módulo Estoque, e o Contratante os mantém em dia: o que aparece no site vale como oferta dele ao público.\nSem o painel (não contratado, cancelado ou fora do ar), o site mostra a versão de reserva: os carros do dia da entrega, sem preço, com o aviso para confirmar a disponibilidade pelo WhatsApp. Mudar essa vitrine sem o painel é alteração orçada à parte.",
     "valor": "399",
     "pagamento": "entrega",
     "pagamento_outro": "",
     "prazo": "5",
     "garantia": "30",
-    "dominio_situacao": "cliente_tem",
+    "dominio_situacao": "registrar_adiantado",
     "dominio": "",
     "hospedagem": "cloudflare",
     "painel": "opcional",
@@ -23,6 +23,7 @@
     "painel_preco": "49",
     "foro": "São Paulo/SP",
     "cancelamento": "metade_apos_versao",
-    "painel_inicio": "30 dias após a entrega"
+    "painel_inicio": "30 dias após a entrega",
+    "dominio_valor": "40"
   }
 }

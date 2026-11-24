@@ -58,6 +58,9 @@ Enxuto de propósito (24/11/2026): o termo garante a entrega de forma genérica 
   - **o cliente já tem** (o padrão): uma linha só, dizendo que o domínio continua dele (conta, pagamentos e
     renovação). Sem valor, sem Registro.br;
   - **a Renderiza registra** no nome dele, com o 1º ano incluído no preço; a renovação, a partir do 2º ano, é dele;
+  - **a Renderiza registra, e o cliente adianta o 1º ano** (24/11/2026, o caso da Ricardo): no nome dele, com os dados
+    da assinatura; o 1º ano (campo "1º ano do domínio", padrão R$ 40, o valor do Registro.br) é pago à parte do preço
+    do site, antes do registro, e volta se ele desistir antes; o "nada antes" passa a valer só para o preço do site;
   - **o cliente registra e paga.**
 - **Garantia** contra defeitos (padrão 30 dias), que não reduz a garantia da lei.
 - **Limites:** conteúdo e preços são do cliente; sem garantia de vendas ou de Google; serviços de terceiros fora; teto
@@ -88,11 +91,20 @@ assinados, o nome do modelo (`site-v2`). Termos assinados não mudam: eles guard
 
 ## Ricardo Motors (o primeiro)
 
-Os campos estão em [`termos/clientes/ricardo-motors.json`](../../termos/clientes/ricardo-motors.json), como o Kaue
-preencheu no card em 24/11/2026: R$ 399,00 pagos na aprovação, prazo de 5 dias úteis, domínio dele, painel opcional com
-Meu site e Estoque e a 1ª mensalidade 30 dias após a entrega. O rascunho na produção (renderizaweb.com.br/termo/ricardo-motors-v1)
-está **sem pendências e fechado**: é só conferir e, no card, **Editar → Salvar e abrir** (ou ligar "Aberto para assinar").
-Atenção: o módulo Estoque ainda não existe no painel; ele está como "módulo combinado" porque foi o que se preencheu.
+Os campos estão em [`termos/clientes/ricardo-motors.json`](../../termos/clientes/ricardo-motors.json). A base é a
+que o Kaue preencheu no card em 24/11/2026 (R$ 399,00 na aprovação, 5 dias úteis, painel opcional com Meu site e
+Estoque, a 1ª mensalidade 30 dias após a entrega), revisada no mesmo dia com o que mudou na entrega
+([`docs/entregas/ricardo-motors.md`](../entregas/ricardo-motors.md)):
+
+- **Domínio:** o `ricardomotors.com.br` é de outra empresa; a Renderiza registra um `.com.br` novo no nome dele, e ele
+  adianta o 1º ano (R$ 40) à parte do site.
+- **Condições deste projeto:** com o painel, os carros, os preços e as fotos vêm do Estoque, e ele os mantém em dia
+  (o que aparece no site vale como oferta dele); sem o painel, o site mostra a versão de reserva (os carros do dia da
+  entrega, sem preço, com o aviso do WhatsApp), e mudar essa vitrine é alteração orçada.
+- **Responsabilidades:** passou a citar "nomes e marcas" (existe outra Ricardo Motors, em SC).
+
+O rascunho na produção (renderizaweb.com.br/termo/ricardo-motors-v1) foi gravado com esses campos e o texto deles,
+**fechado**: o Kaue confere no card e faz **Salvar e abrir para assinar**.
 
 ## Como testar sem cair no cliente
 
