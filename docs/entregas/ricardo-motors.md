@@ -28,7 +28,7 @@ proponha o ajuste e registre no diário.
 | Parada | Situação | Sessão / branch | Atualizada |
 |---|---|---|---|
 | 0 · Investigação e contrato | **feita** | `estoque-plano` (na `main`) | 24/11/2026 |
-| 1 · O Estoque e o nicho automotivo no painel (STG) | **em andamento** (1A) | `main` (sessão do plano) | 24/11/2026 |
+| 1 · O Estoque e o nicho automotivo no painel (STG) | **em andamento**: 1A feita; 1B e 1C nesta sessão | `main` (sessão do plano) | 24/11/2026 |
 | 2 · O site dele, ligado ao painel | livre: a 2A pode começar já; a 2B espera o **R1**; a 2C, a 1A e a 1C | | |
 | 3 · Produção e entrega | esperando 1, 2 e o **R3** | | |
 
@@ -165,6 +165,7 @@ entrou pelo suporte, conferiu e tem a mensagem pronta para mandar ao Ricardo, co
 
 | Data | Parada | O que aconteceu | Quem |
 |---|---|---|---|
+| 24/11/2026 | 1 | **1A feita.** Migração `20261124190000_estoque` no STG (local verde, com o teste `093`: RLS, isolamento, fotos, vendido, a função pública); a rota `GET /api/publico/estoque/<código>` com testes sem rede; a semente `garagem-aurora.mjs stg` (5 carros; o site recebe 3, na ordem). Medido daqui ao STG: ~200 ms por pedido sem cache. As funções do painel passam a rodar em São Paulo (`gru1`), ao lado do banco. | Claude |
 | 24/11/2026 | 1 | Trilho enxugado para 3 paradas (a pedido), com o onboarding do automotivo (1D) e as respostas da Renderiza (os 15 carros à venda, o WhatsApp da demo, a conta ativa e parada, o domínio depois). Começa a 1A. | Claude |
 | 24/11/2026 | 0 | Proposta aceita. Investigação do painel e das entregas da Rafaela e da Bia; o **Contrato v1** no `12`; trilho escrito. | Claude, a pedido da Renderiza |
 

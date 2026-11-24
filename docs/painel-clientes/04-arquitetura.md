@@ -205,6 +205,9 @@ painel-clientes/
 ## Vercel
 
 - **Projeto novo** apontando para `painel-clientes/`, sem framework, sem passo de build (ou um mínimo, se precisar).
+- **As funções rodam em São Paulo** (`"regions": ["gru1"]` no `vercel.json`, 24/11/2026), ao lado do Supabase
+  (`sa-east-1`): sem isso a Vercel usa os EUA e cada pedido não cacheado da API pública (o site do cliente pedindo o
+  Meu site, a agenda ou o Estoque) atravessava o continente duas vezes.
 - "Pular build quando a pasta não mudou" ligado: a `main` recebe muitos commits de demos e o Hobby tem 100 deploys
   por dia. Já vem no `painel-clientes/vercel.json` (`ignoreCommand`), junto com os cabeçalhos abaixo; o
   `.vercelignore` deixa `supabase/`, `scripts/` e `test/` fora do que é publicado. O `cleanUrls` fica **desligado**: ligado, a Vercel
