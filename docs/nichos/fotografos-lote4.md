@@ -494,3 +494,28 @@ site dela aponta outro @); a Casa 43 (casa cultural).
   grátis, os sinais mais fortes. `recupera.py` procura a página na Alboom pelo nome e pelo domínio morto (só vale com o
   telefone do Google na página) e testa o @ igual ao domínio; achou 14, e duas entraram nas 40 (Daph Prado e Laís
   Figueiredo). Rodar sempre, antes do corte.
+
+## Demos (6 a 10)
+
+Portfólio online v4, feitos em 23 e 24/11/2026 com a skill `demo-portfolio-fotografa` (os leads 1 a 5 são de outra
+sessão). Os 5 foram cadastrados no painel em "Leads a trabalhar" e, com a demo no ar, movidos para "Prontas para
+trabalhar". Oferta: R$ 399 no Pix ou 2x de R$ 199, promoção até 01/12/2026 (a janela da demo). O que entrou, o que
+ficou de fora e o que conferir está na `ficha.md` de cada pasta.
+
+| nº | Demo | Ensaios | Código | Conferir antes de mandar |
+|---|---|---|---|---|
+| 6 | [`/demo/angelica-andrade-fotografia`](https://www.renderizaweb.com.br/demo/angelica-andrade-fotografia) | Natal 2026, newborn, infantil, aniversário | `g7rh` | sem endereço no Google (a página diz só "zona norte"); a foto de "quem fotografa" é a do perfil (não confirmei que é ela) |
+| 7 | [`/demo/andressa-borelli-fotografia`](https://www.renderizaweb.com.br/demo/andressa-borelli-fotografia) | newborn, família, infantil | `rgk2` | o WhatsApp é o da Alboom (o Google só tem o fixo); sem página de Natal (o de 2026 só saiu em reel) |
+| 8 | [`/demo/fb2-fotografia`](https://www.renderizaweb.com.br/demo/fb2-fotografia) | festa infantil, 15 anos | `frna` | casal (Adeilton e Alice): a página fala dos dois, a saudação vai para o Adeilton |
+| 9 | [`/demo/thayna-sapelly-fotografia`](https://www.renderizaweb.com.br/demo/thayna-sapelly-fotografia) | gestante, Natal 2026 | `ysfz` | dois celulares: a demo usa o (11) 98342-2410 das legendas dela de novembro; o Google e a Alboom têm o (11) 96299-3358 |
+| 10 | [`/demo/bianca-cabral-fotografia`](https://www.renderizaweb.com.br/demo/bianca-cabral-fotografia) | newborn, mês a mês, smash, aniversário | `9n8p` | sem gestante (top tipo sutiã nos ensaios recentes) e sem Natal (o cenário de 2026 ainda sem família) |
+
+**O que esta leva ensinou** (já está no guia da skill):
+- **A página salva no Drive pode vir só com posts antigos.** Em 4 das 5 a grade era de 2019 a 2024 (o Instagram tira da
+  página as linhas de cima quando ela é rolada antes de salvar). O material recente veio dos carrosséis pelo embed e,
+  na Thayna e na Bianca, das galerias da página delas na Alboom (originais de 1200 × 1800, separados por ensaio). Para
+  o Kaue: salvar a página logo ao abrir o perfil, sem rolar.
+- **A mensagem de primeiro contato fala em "horários disponíveis" no Natal**, que era a agenda da versão 3. Nas duas com
+  página de Natal (Angélica e Thayna) a frase foi trocada pelo que a página tem; o `mensagem-fotografia.py` continua
+  com o texto antigo até o Kaue decidir.
+- A validade da oferta nasce no dia em que o link é gravado no painel (hoje + 7): gerar a versão final no mesmo dia.

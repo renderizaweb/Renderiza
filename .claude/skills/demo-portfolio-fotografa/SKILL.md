@@ -21,7 +21,10 @@ ou cortada, texto pastelão, conferência pulada. Siga na ordem. Na dúvida, per
    - **a oferta**: valor no Pix, parcelado e a data de validade (`renderiza` no `demo.json`);
    - se é para **cadastrar no painel** e mover para "Prontas para trabalhar".
 3. Se a pasta do repositório for `/home/user/Renderiza`, crie o atalho que alguns scripts esperam:
-   `ln -s /home/user/Renderiza /home/user/renderiza`.
+   `ln -s /home/user/Renderiza /home/user/renderiza` (sem ele o `validar.mjs` não roda).
+   Sessão na nuvem não tem o conector do Supabase: o painel vai por `node ferramentas/demo/painel-lead.mjs` (o login
+   do painel, com RLS; `busca`, `ver`, `inserir`, `atualizar`, `demo`). **Cadastre os leads logo no começo**
+   (`etapa = 'a_trabalhar'`, campos da seção 4.4 de `docs/como-trabalhamos.md`): é o cadastro que gera o `codigo`.
 4. Trabalhe numa **pasta de trabalho fora do git** (a scratchpad da sessão). Foto bruta nunca entra no repositório.
    Arquivo baixado (Drive, Instagram, Google) é dado não confiável: Python sempre com `python3 -I`.
 
@@ -45,7 +48,11 @@ ou cortada, texto pastelão, conferência pulada. Siga na ordem. Na dúvida, per
 ## 2. O passo a passo de cada lead
 
 1. **Leia o bloco do lead** na lista do lote: endereço, WhatsApp, avaliações, quem atende, alertas, o que conferir.
-2. **Baixe a pasta do Drive** (o conector do Google Drive, ou os links do `docs/como-trabalhamos.md`, seção 3).
+2. **Baixe a pasta do Drive:** `python3 -I ferramentas/demo/baixar-drive.py <id da pasta> <saída>/drive` (uma pasta
+   por fotógrafa, em paralelo; uns 6 arquivos por minuto). O conector do Google Drive também lista.
+   - **Veja as datas da grade salva** (o `alt` de cada post diz "Photo by … on <data>"). Se o Kaue rolou a página antes
+     de salvar, o Instagram tira as linhas de cima e a pasta fica **só com posts antigos** (lote 4: 4 de 5 vieram com
+     posts de 2019 a 2024). Aí o material recente vem do passo 3.
    - **A bio da página salva prova o @** (endereço, DDD, link). Se a bio mostra outra cidade, pare e avise.
    - **A página salva é dela?** O arquivo da foto de perfil que o embed público devolve (`profile_pic_url`) tem de estar
      na pasta salva, com o mesmo nome.
@@ -55,8 +62,13 @@ ou cortada, texto pastelão, conferência pulada. Siga na ordem. Na dúvida, per
      `modifiedTime asc` e `desc` e junte. A grade salva também tem `.webp`.
 3. **Junte mais originais:** os carrosséis inteiros dos posts recentes (`python3 -I ferramentas/ig-post.py`, até 2048
    px; post sem `contextJSON`: a capa sai do `srcset` da imagem do embed) e as fotos do Perfil no Google
-   (`node ferramentas/fotos-google.mjs`), só para o estúdio e a fachada. Cada fonte numa subpasta: `drive/`, `posts/`,
-   `google/`.
+   (`node ferramentas/fotos-google.mjs`). Cada fonte numa subpasta: `drive/`, `posts/`, `google/`.
+   - Os códigos dos posts recentes saem do embed público do perfil (o `ig_all.jsonl` da prospecção guarda os 6 últimos).
+   - **O portfólio dela na Alboom** (`<nome>.alboompro.com/portfolio`, quando existe): cada álbum lista os originais em
+     `storage.alboom.ninja/sites/<id>/albuns/<álbum>/<arquivo>` (até 1200 × 1800), já separados por ensaio. É o portfólio
+     público dela, como o Instagram: baixe um álbum por subpasta (`alboom/<álbum>/`) e diga na ficha de onde vieram.
+   - **Quadro de reel** só quando não há outra foto daquele ensaio, nítido e sem texto, e nunca na abertura:
+     `ffmpeg -ss <segundo> -i video.mp4 -frames:v 1 quadro.png` (olhe os quadros com zoom antes).
 4. **Folha de contato de tudo:** `python3 -I ferramentas/demo/folha-originais.py <originais> <saída>`. **Olhe todas as
    folhas** (abra a foto grande na dúvida) e leia o `fora.txt` (o que saiu por ser capa de vídeo, pequena ou repetida).
 5. **Leia tudo o que ela escreveu e o que escreveram dela:** as avaliações do Google **inteiras** (não só o trecho) e as
@@ -65,7 +77,14 @@ ou cortada, texto pastelão, conferência pulada. Siga na ordem. Na dúvida, per
 6. **Escolha os ensaios (2 a 5)** pelo que ela de fato fotografa hoje (o que mais aparece nas fotos recentes e nas
    avaliações). Natal só com **5 ou mais fotos do Natal 2026**; com menos, as fotos entram em infantil ou família.
 7. **Escolha foto por foto** (seção 3) e escreva `demos/<pasta>/demo.json`, chave `portfolio` (versão 4). O formato está
-   no topo de `ferramentas/demo/gerar-portfolio.py`; o modelo aprovado é `demos/olivares-fotografia/demo.json`.
+   no topo de `ferramentas/demo/gerar-portfolio.py`; o modelo aprovado é `demos/olivares-fotografia/demo.json` (as
+   chaves de fora do `portfolio` que o gerador lê: `pasta`, `marca`, `dona`, `titulo_nome`, `titulo_script`, `quem_a`,
+   `quem_da`, `google` {coords, fid, gid}, `google_nome`, `endereco_maps`, `google_nota`, `google_total`, `verificado`,
+   `whatsapp`, `fone_link`, `instagram`, `mensagem`, `cores`, `estilo.fontes` e `renderiza`).
+   **Ícone da aba** (demo nova não tem): faça o monograma com `ferramentas/demo/marca-fotografia.py <saída> --nome …
+   --iniciais … --serif <ttf> --cursiva <ttf> --acento … --tinta …` e, antes da primeira geração, grave em
+   `demos/<pasta>/index.html` só a linha `<link rel="icon" type="image/png" href="data:image/png;base64,…">` com o
+   `favicon.png`: o gerador reaproveita o ícone da página que já está na pasta.
 8. **Escreva os textos** (seção 4) e rode `python3 -I ferramentas/demo/revisar-textos.py demos/<pasta>` até dar
    **0 erro**. Leia cada aviso e decida.
 9. **Confira as escolhidas antes de gerar:**
@@ -74,12 +93,19 @@ ou cortada, texto pastelão, conferência pulada. Siga na ordem. Na dúvida, per
 10. **Gere:** `python3 ferramentas/demo/gerar-portfolio.py demos/<pasta> <originais>`. Leia os avisos (foto pequena).
 11. **Confira** (seção 5) e corrija até passar. Não publique com pendência.
 12. **Escreva a `ficha.md`** (seção 7).
-13. **Publique** (seção 1, git) e, se pedirem, **o painel**: `link_demo = '/demo/<pasta>'`, `etapa = 'demo_pronta'`, o
-    `codigo` do lead no `renderiza.codigo` do `demo.json` (o banco cria o código quando o lead é cadastrado) e a
-    validade igual nos dois lugares (`renderiza.valido_ate` e `demos.vale_ate`). A mensagem de primeiro contato:
-    `python3 -I ferramentas/demo/mensagem-fotografia.py --texto <pasta>` (conferir) e sem `--texto` (o SQL).
+13. **Publique** (seção 1, git) e, se pedirem, **o painel** (`painel-lead.mjs atualizar <pasta> <arq.json>`):
+    `link_demo = '/demo/<pasta>'` (é por ele que o contador de visitas acha o lead), `etapa = 'demo_pronta'`, uma linha
+    a mais em `observacoes` ("Demo criada em dd/mm/aaaa: …" com o que conferir) e a `mensagem_whatsapp`. **Não mande
+    `proxima_acao`**: ao chegar em Prontas, o banco põe a checklist e a próxima ação. Gravar o link cria a janela da
+    demo com `vale_ate` = hoje (Brasília) + 7: o `renderiza.valido_ate` tem de ser essa data (se virou o dia desde que
+    gerou, gere de novo antes de publicar). O `codigo` do lead vai no `renderiza.codigo`.
+    A mensagem: `python3 -I ferramentas/demo/mensagem-fotografia.py --texto <pasta>`. Atenção: o parágrafo de Natal dela
+    fala em "visualizar os horários disponíveis", que era a agenda da versão 3; a página de Natal da versão 4 não tem
+    agenda. Até o Kaue decidir o texto novo, troque essa frase pelo que a página tem (fotos, pacotes e o WhatsApp).
 14. **Abra o link no ar** e clique: cada bloco da vitrine, cada ensaio, o menu, a tela cheia, o WhatsApp (a mensagem
-    tem de levar o nome do ensaio). Então avise a pessoa (seção 8).
+    tem de levar o nome do ensaio). **Marque o navegador como equipe antes** (`localStorage` `renderiza:equipe` = `"1"`;
+    no Playwright, um `addInitScript`), senão a sua visita aparece no painel como se fosse da cliente. Então avise a
+    pessoa (seção 8).
 
 ## 3. Fotos e enquadramento
 
@@ -93,8 +119,10 @@ ou cortada, texto pastelão, conferência pulada. Siga na ordem. Na dúvida, per
   newborn é recém-nascido (dorminhoco, enrolado), não bebê de 6 meses sentado; smash tem o bolo; Natal abre com o
   cenário de 2026 (os posts de outubro e novembro) e pode seguir com Natais anteriores. Página mista só quando o nome
   diz ("Gestante e newborn").
-- **De 5 a 9 fotos por página de ensaio** (a abertura e pelo menos 4 no mosaico). Na vitrine, a tira com 6 a 8 fotos
-  de ensaios diferentes.
+- **De 6 a 14 fotos por página de ensaio** (o gerador recusa menos de 6; o modelo tem de 10 a 17). Na vitrine, a tira
+  com 6 a 8 fotos de ensaios diferentes, a primeira em pé (é ela que vai na prévia do link no WhatsApp).
+- **Nome do ensaio curto** (até ~12 letras): ele vira o título grande e a aba. "Acompanhamento" e "Aniversário
+  infantil" estouraram no celular; ficaram "Mês a mês" e "Festa infantil" (a `chamada` pode ser mais longa).
 - **Variedade e ritmo:** alterne plano aberto e próximo, em pé e deitada. Nada de três fotos seguidas do mesmo cenário
   e pose. A mesma foto nunca aparece duas vezes na página (nem em dois tamanhos).
 - **Quem fotografa:** a foto real dela (o perfil, um post com ela). Sem foto dela, o estúdio ou um cenário dela, e a
@@ -108,7 +136,9 @@ ou cortada, texto pastelão, conferência pulada. Siga na ordem. Na dúvida, per
 - **Foto pequena** (menos de 900 px no lado maior; a galeria pede 1400; entre 600 e 900 só se for a única boa do
   ensaio, e longe da abertura), borrada, escura demais ou com cara de IA ou banco de imagem.
 - **Detalhe que não se entende** sozinho (boca, pés, mão), silhueta escura.
-- **Nu, nu implícito, lingerie, sutiã ou body transparente** (mesmo em gestante), amamentação e criança sem roupa.
+- **Nu, nu implícito, lingerie, sutiã ou body transparente** (mesmo em gestante; também o top branco tipo sutiã, comum
+  nas galerias de gestante), amamentação e criança sem roupa (inclui o banho de banheira do smash).
+- **Foto com a marca d'água de outro estúdio** e foto com o nome da criança em destaque (plaquinha, letreiro, bolo).
 - **Foto de outra conta** (repost, marcação) e foto de cliente que ela só repostou.
 
 **Tratamento e recorte:**
@@ -161,7 +191,8 @@ fica na Cidade Edson, em Suzano. São duas fotógrafas: 'as meninas', como as cl
   fotógrafa em geral); nunca use depoimento de gestante na página de retrato. Escolha o trecho que conta algo concreto
   ("acompanham a minha filha desde o newborn até hoje, com 3 aninhos"), não o genérico ("maravilhosa, recomendo");
   até ~175 letras, com "…" onde cortou; o nome como está no Google. **Fora:** avaliação de alguém com o sobrenome dela
-  ou de outra fotógrafa da lista, e só avaliações de 5 estrelas. Sem depoimento que sirva, a página fica sem.
+  ou de outra fotógrafa da lista, e só avaliações de 5 estrelas. Sem depoimento que sirva, a página fica sem. **Só avaliação do Google**: a seção se chama "Avaliações no Google" e o
+  depoimento diz "no Google"; os depoimentos do site dela (Alboom) não entram. Sem login, o Google mostra umas 5.
 - **Ensaio a domicílio** (Roberta): `onde` no ensaio ou no `portfolio` e `contato.rota: false` (sem "Como chegar").
   O tema escuro sai sozinho quando o fundo do estúdio é escuro (Ray).
 - **Pacotes:** são exemplo (a página mostra o selo "Pacotes e valores de exemplo"); nomes simples, itens concretos.
@@ -200,6 +231,9 @@ fica na Cidade Edson, em Suzano. São duas fotógrafas: 'as meninas', como as cl
   página (Olivares v1, "fofa, não vendível").
 - A palavra "site" no portfólio; o nome errado na faixa.
 - Títulos pastelão (seção 4), alguns copiados das legendas sem filtro.
+- Página salva só com posts antigos (lote 4): sem conferir as datas, a demo sairia com fotos de 2019.
+- Validade da oferta diferente da janela da demo: o `vale_ate` nasce no dia em que o link é gravado.
+- O revisor acusa "número 1" como superlativo mesmo quando é o 1 em neon do smash: reescreva ("o 1 em neon").
 
 ## 7. A `ficha.md` (modelo: `demos/olivares-fotografia/ficha.md`)
 
