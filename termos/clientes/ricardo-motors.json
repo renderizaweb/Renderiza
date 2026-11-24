@@ -1,0 +1,27 @@
+{
+  "_sobre": "Os campos do termo da Ricardo Motors (modelo site-v1 de painel/src/termos.js), montados em 23/11/2026 a partir do lead (observações, demo, proposta do Estoque). É o ponto de partida: no painel, o termo nasce com estes campos e o texto pode ser ajustado. O que está entre [[ ]] é decisão do Kaue e segura a assinatura até ser preenchido.",
+  "lead_id": "9813c87a-d0e9-4636-9417-72480a19623b",
+  "id": "ricardo-motors-v1",
+  "campos": {
+    "projeto": "Site da Ricardo Motors",
+    "contratante": "Ricardo Neves, consultor automotivo, responsável pela Ricardo Motors (RM Consult Car)",
+    "tipo_contratante": "pf_ou_pj",
+    "referencia": "a demonstração em renderizaweb.com.br/demo/ricardo-motors",
+    "escopo": "Página inicial com a vitrine dos carros, os blindados em destaque e os serviços: compra assistida, venda, consignação e personal car.\nEstoque: um cartão por carro (foto, nome, ano, quilometragem e preço) e a página de cada carro, com a galeria de fotos, a ficha e o botão de WhatsApp que já leva o carro na mensagem.\nO estoque inicial cadastrado pela Renderiza: os carros anunciados no dia da aprovação, com as fotos e os dados que o Contratante enviar ou aprovar.\nAs seções de blindados, consignação e serviços, a história do Ricardo e o contato (WhatsApp, Instagram e mapa, se houver endereço para mostrar).\nA identidade em preto e dourado, com o monograma RM.",
+    "fora_do_escopo": "Ligação automática com a Webmotors ou com outro portal: o estoque do site não é puxado de lá.\nFinanciamento, simulação de parcelas ou pagamento pelo site.\nCriação ou cuidado do Perfil da Empresa no Google.",
+    "condicoes": "Os preços, a disponibilidade e os dados de cada carro (ano, quilometragem, blindagem e procedência) são informados pelo Contratante, que responde por eles; o site mostra o que estiver cadastrado.\nDepois da entrega, o estoque do site é atualizado pelo próprio Contratante no Painel Renderiza (módulo Estoque), se contratado, ou pedido à Renderiza como trabalho novo.\nCom o painel, o carro marcado como vendido sai do site e o reservado aparece com a etiqueta \"Reservado\".\n[[Módulo Estoque: ainda não está no painel. Definir até quando entra e o que vale até lá (sugestão: a mensalidade só começa com o Estoque funcionando na conta dele; até lá, a Renderiza atualiza o estoque do site a pedido, sem custo)]]",
+    "valor": "",
+    "pagamento": "integral",
+    "pagamento_outro": "",
+    "prazo": "10",
+    "garantia": "30",
+    "dominio": "",
+    "dominio_primeiro_ano": "incluido",
+    "hospedagem": "cloudflare",
+    "painel": "opcional",
+    "painel_modulos": "Meu site e Estoque",
+    "painel_preco": "49",
+    "painel_inicio": "no mês seguinte à entrega",
+    "foro": "São Paulo/SP"
+  }
+}

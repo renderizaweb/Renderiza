@@ -12,6 +12,13 @@ Regras que valem do começo ao fim:
 - No `site.json` e no site, só dados públicos da empresa: nada de CPF, endereço ou telefone pessoal.
 - As fotos brutas do cliente (Drive, ensaio) não entram no repositório da Renderiza nem no dele: só as que estão no site.
 
+## 0. Termo de contratação (Kaue, antes do pagamento)
+
+- [ ] No card do lead, **Termo de aceite → Gerar termo**: a base geral do site com o que é deste cliente (o que entra, valor,
+  prazo, domínio, painel). Sem pendência `[[ ]]`, **Salvar e abrir** → **Copiar mensagem** → WhatsApp.
+- [ ] A assinatura aparece no card e na Atividade; o comprovante chega em contato@renderizaweb.com.br.
+  Como funciona e como adaptar: [`docs/termos/README.md`](termos/README.md).
+
 ## 1. Painel, no mesmo dia (Kaue ou Claude)
 
 Para o Claude, basta: *"fechou &lt;cliente&gt;, R$ &lt;valor&gt;, pago em &lt;data&gt; (Pix, 2x…)"*.

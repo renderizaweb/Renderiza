@@ -68,10 +68,15 @@
     {
       "source": "/como-funciona/(.*)",
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    },
+    {
+      "source": "/termo/(.*)",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }, { "key": "X-Frame-Options", "value": "DENY" }, { "key": "Cache-Control", "value": "no-store" }]
     }
   ],
   "rewrites": [
-    { "source": "/exemplos/site-fotografia/exemplos/site-fotografia/:caminho*", "destination": "/exemplos/site-fotografia/:caminho*" }
+    { "source": "/exemplos/site-fotografia/exemplos/site-fotografia/:caminho*", "destination": "/exemplos/site-fotografia/:caminho*" },
+    { "source": "/termo/:id", "destination": "/termo/index.html" }
   ],
   "redirects": [
     { "source": "/eventos", "destination": "/como-funciona/eventos", "permanent": false }

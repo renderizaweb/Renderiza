@@ -98,3 +98,22 @@ test("comprovante: protocolo fora do formato ou já enviado não manda nada", as
   const r = await atender({ metodo: "POST", corpo: { acao: "comprovante", termo: TERMO, protocolo: "ABC123DEF456" } }, d);
   assert.equal(r.status, 409); assert.equal(d.enviados.length, 0);
 });
+
+test("comprovante de termo de lead: a opção pelo nome, a empresa com o CNPJ e o nome Termo", async () => {
+  const d = deps();
+  d.comprovante = async () => ({ ok: true, protocolo: "ABC123DEF456", titulo: "Termo de contratação · Site da Ricardo Motors", pagina: "https://www.renderizaweb.com.br/termo/ricardo-motors-v1",
+    contratada: "Kaue", nome: "Ricardo Neves", email: "r@exemplo.com", email_confirmado: true, cpf: "***.982.247-**", plano: "com-painel",
+    plano_nome: "Site com o Painel Renderiza · R$ 49,00 por mês", cnpj: "11222333000181", empresa: "RM Consult Car Ltda", em: "2026-11-23T13:00:00Z", ip: "200.1.2.3", impressao: "b".repeat(64) });
+  await atender({ metodo: "POST", corpo: { acao: "comprovante", termo: "ricardo-motors-v1", protocolo: "ABC123DEF456" } }, d);
+  const e = d.enviados[0];
+  assert.equal(e.assunto, "Termo assinado · protocolo ABC123DEF456");
+  assert.ok(e.texto.startsWith("Termo assinado."));
+  assert.ok(e.texto.includes("Opção escolhida: Site com o Painel Renderiza · R$ 49,00 por mês"));
+  assert.ok(e.texto.includes("Empresa: RM Consult Car Ltda · CNPJ 11.222.333/0001-81"));
+  assert.ok(e.texto.includes("Texto do termo: https://www.renderizaweb.com.br/termo/ricardo-motors-v1"));
+  // sem opções e pessoa física: nem a linha da escolha nem a da empresa
+  d.comprovante = async () => ({ ok: true, protocolo: "ABC123DEF456", titulo: "T", pagina: "https://www.renderizaweb.com.br/termo/x-v1", contratada: "K", nome: "Ana Souza",
+    email: "a@b.com", email_confirmado: true, cpf: "***", plano: "", plano_nome: "", cnpj: "", empresa: "", em: "2026-11-23T13:00:00Z", ip: "", impressao: "c".repeat(64) });
+  await atender({ metodo: "POST", corpo: { acao: "comprovante", termo: "x-v1", protocolo: "ABC123DEF456" } }, d);
+  assert.ok(!/Plano escolhido|Opção escolhida|Empresa:/.test(d.enviados[1].texto));
+});

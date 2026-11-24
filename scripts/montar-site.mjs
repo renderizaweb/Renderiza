@@ -12,6 +12,7 @@
 //   /gravacao/<lead>.mp4       → gravacoes/<lead>.mp4 (vídeo de apresentação da demo; só o MP4 vai ao ar)
 //   /como-funciona/<nicho>     → página de venda do nicho (site/como-funciona.mjs + site/nichos/<nicho>.mjs)
 //   /kit/<pasta>               → demos/<pasta>/kit.html (o kit de divulgação de quem fechou; fora da trava das demos)
+//   /termo/<id>                → termos/pagina.html (termo de aceite de um lead, lido do banco; rewrite no vercel.json)
 //   /exemplos, /exemplos/<x>   → exemplos/ (sistemas de exemplo com dados fictícios: painel, agenda online e imagens);
 //                                só HTML, JS, CSS e imagens vão ao ar
 //   /fontes, /favicon.svg…     → site/estatico/ (arquivos do site público)
@@ -165,6 +166,10 @@ export function arquivosPublicados() {
   // aceitar_termo_online (supabase/termos-online.sql), com a impressão digital do texto, o IP e o aparelho.
   const contratos = join(RAIZ, "contratos");
   if (existsSync(contratos)) for (const f of readdirSync(contratos)) if (f.endsWith(".html")) lista.push([join("contrato", f), join(contratos, f)]);
+  // Termos de lead (termos/pagina.html → /termo/<id>, pelo rewrite do vercel.json): uma página só, que lê o termo do
+  // banco (publico_termo). Os campos de cada cliente (termos/clientes/*.json) não vão ao ar.
+  const termo = join(RAIZ, "termos", "pagina.html");
+  if (existsSync(termo)) lista.push([join("termo", "index.html"), termo]);
   const vistos = new Set();
   for (const [destino] of lista) {
     if (vistos.has(destino)) throw new Error(`Dois arquivos querem ser publicados em ${destino}.`);

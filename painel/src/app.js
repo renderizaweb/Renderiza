@@ -24,6 +24,7 @@ import { pastaDaDemo, situacaoDaDemo, reabilitar, hojeEmBrasilia, DIAS_DE_PRAZO 
 import { mensagemPronta } from "./mensagem.js";
 import { mostraPainel, linkDoPainel, linkCurto, agruparVisitas, ipsDaEquipe, visitantesDaEquipe, resumoDasVisitas, duracao, daDemo, textoDoRepasse } from "./visitas.js";
 import { criarTelaAtividade, naoVistas } from "./tela-atividade.js";
+import { secaoTermo } from "./termos-ui.js";
 import {
   tagsDe, emOrdem, rotuloDaTag, descricaoDaTag, classeDaTag, numeroDoCiclo, comTag, semTag, patchDeCiclo,
   comCiclo, ciclosParaEscolher, nomeDoCiclo, tagDoCiclo, cicloDoLead,
@@ -670,7 +671,7 @@ function campo(tabela, id, { campo: nome, rotulo, tipo = "texto", opcoes, largo,
 // Cada seção do painel é um cartão com ícone e cor próprios, para separar os assuntos à primeira vista.
 const ESTILO_SECAO = {
   Andamento: ["alvo", "verde"], Fechamento: ["trofeu", "verde"], Observações: ["nota", "ambar"],
-  Interações: ["conversa", "azul"], Demo: ["monitor", "roxo"], "Flyer para Stories": ["imagem", "rosa"], Contato: ["pessoa", "agua"],
+  Interações: ["conversa", "azul"], Demo: ["monitor", "roxo"], "Flyer para Stories": ["imagem", "rosa"], Contato: ["pessoa", "agua"], "Termo de aceite": ["documento", "azul"],
   Planejamento: ["calendario", "verde"], Texto: ["caneta", "azul"], Arquivos: ["clipe", "roxo"], Tarefas: ["certo", "verde"],
   Checklist: ["tarefas", "agua"],
 };
@@ -1344,6 +1345,7 @@ function corpoDoLead(id) {
       h("label", { class: "check-painel neutro" }, foraDoFunil, h("span", {}, h("strong", { text: "Fora do funil." }), " Fica só na tela Clientes, sem etapa no Pipeline. Bom para relacionamento com quem já foi cliente."))),
     secaoDemo(id),
     secaoPainelRenderiza(id),
+    secaoTermo({ id, vincular, cartao, mapaDeVisitas }),
     fechamento,
     secao("Observações", campo("leads", id, { campo: "observacoes", tipo: "area", linhas: 4, crescer: true, placeholder: "Livre, para quando quiser anotar algo." })),
     cartao("Interações", { acao: registrar, classe: "secao-interacoes" }, linhaDoTempo.el),

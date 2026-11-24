@@ -1054,6 +1054,46 @@ button.lead-chip:hover{filter:brightness(.96)}
 }
 @media(hover:none){.hide-col-button,.insert-row-button,.row-drag-handle,.open-row-button,.ir{opacity:.72}.insert-row-button{transform:translateY(-50%) scale(1)}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* Termo de aceite do lead (termos-ui.js) */
+.secao-termo .termo-vazio{display:grid;gap:10px;justify-items:start}
+.secao-termo .termo-vazio p,.secao-termo .pr-dica{font-size:.8125rem;color:var(--muted-foreground);line-height:1.55}
+.termo-cheio{display:grid;gap:12px}
+.termo-cabeca{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.termo-titulo{font-size:.9375rem;font-weight:600}
+.termo-versao{font:500 .75rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--muted-foreground)}
+.termo-situacao{margin-left:auto;font-size:.6875rem;font-weight:600;padding:3px 9px;border-radius:999px;background:#eef1f0;color:#52645b;white-space:nowrap}
+.termo-situacao.rascunho{background:#f8ecd2;color:#8a5a12}
+.termo-situacao.aberto{background:#e5f0fb;color:#1f4f86}
+.termo-situacao.assinado{background:#e2f1e7;color:#1d6b4f}
+.termo-falta{font-size:.8125rem;line-height:1.5;padding:9px 12px;border-radius:10px;background:#fdf3d8;color:#7a5a22}
+.termo-falta strong{font-weight:600}
+.termo-acoes{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.termo-acoes .demo-chave{margin-right:auto;height:32px}
+.termo-assinaturas{display:grid;gap:8px}
+.termo-aceite{padding:10px 12px;border-radius:10px;background:#e9f5ee;border:1px solid #cfe6d8;font-size:.8125rem;color:#2c4a3c;line-height:1.5}
+.termo-aceite-topo{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;color:#1d6b4f}
+.termo-aceite-topo span{margin-left:auto;font-size:.75rem;color:var(--muted-foreground)}
+.termo-aceite p{margin-top:4px;overflow-wrap:anywhere}
+.termo-aceite-prova{font-size:.75rem;color:var(--muted-foreground)}
+.termo-anteriores{font-size:.75rem;color:var(--muted-foreground)}
+.termo-anteriores a{color:#32765e;text-decoration:underline}
+.termo-apagar{justify-self:start;color:#9a432d;font-size:.8125rem}
+.termo-abas{justify-self:start;max-width:100%;overflow-x:auto}
+.termo-editor-campos .campo.largo{grid-column:1/-1}
+.termo-dica{display:block;font-size:.75rem;color:var(--muted-foreground);margin-top:4px;line-height:1.45}
+.termo-editor-texto{display:grid;gap:8px}
+.termo-texto{width:100%;min-height:360px;padding:10px 12px;border-radius:8px;border:1px solid #dbe5dd;font:400 .8125rem/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;resize:vertical}
+.termo-texto:focus{border-color:#4e9167;box-shadow:0 0 0 2px #e2f0e6;outline:none}
+.termo-mexido{font-size:.8125rem;color:#7a5a22;background:#fdf3d8;border-radius:8px;padding:8px 10px}
+.termo-previa{max-height:60vh;overflow:auto;padding:16px 18px;border:1px solid var(--border);border-radius:10px;font-size:.875rem;line-height:1.6;color:#33403b}
+.termo-previa h3{font-size:1rem;font-weight:600;color:var(--foreground);margin:18px 0 6px}
+.termo-previa h3:first-child{margin-top:0}
+.termo-previa h4{font-size:.875rem;font-weight:600;margin:12px 0 4px}
+.termo-previa p{margin-top:6px}
+.termo-previa ol,.termo-previa ul{margin:6px 0 0 20px;display:grid;gap:4px}
+.termo-previa ol{list-style:decimal}.termo-previa ul{list-style:disc}
+.termo-previa mark.pendente{background:#fdf3d8;color:#8a5a00;font-weight:600;padding:0 3px;border-radius:4px}
+@media (min-width:760px){.wide-dialog:has(.termo-abas){width:min(820px,100%)}}
 </style>
 </head>
 <body>
