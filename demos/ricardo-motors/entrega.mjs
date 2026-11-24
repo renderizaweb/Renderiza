@@ -131,22 +131,34 @@ chips();grade();ligarWa();rota();` + h.slice(ouvFim + "heroIr(0);\nchips();grade
   return { html: h, arquivos };
 }
 
-function principal() {
-  const saida = process.argv[2];
-  if (!saida) { console.error("Uso: node demos/ricardo-motors/entrega.mjs <pasta de saída>"); process.exit(1); }
+/**
+ * Gera o site em `saida`. Para a prova no STG (2C), `codigo` e `api` trocam os do site.json (o código da conta de
+ * teste e a API do painel local); na entrega, nada disso: vale o site.json.
+ */
+export function gerar(saida, { codigo, api, silencioso = false } = {}) {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "ricardo-entrega-"));
   try {
     const { html, arquivos } = versaoDeEntrega(fs.readFileSync(path.join(AQUI, "index.html"), "utf8"));
     fs.writeFileSync(path.join(tmp, "index.html"), html);
-    fs.copyFileSync(path.join(AQUI, "site.json"), path.join(tmp, "site.json"));
-    const r = spawnSync("node", ["scripts/virar-site.mjs", tmp, path.resolve(saida)], { cwd: RAIZ, stdio: "inherit" });
+    const conf = JSON.parse(fs.readFileSync(path.join(AQUI, "site.json"), "utf8"));
+    if (codigo) conf.painel.codigo = codigo;
+    if (api) conf.painel.api = api;
+    fs.writeFileSync(path.join(tmp, "site.json"), JSON.stringify(conf, null, 2));
+    const r = spawnSync("node", ["scripts/virar-site.mjs", tmp, path.resolve(saida)], { cwd: RAIZ, stdio: silencioso ? "pipe" : "inherit", encoding: "utf8" });
+    if (r.status !== 0 && silencioso) throw new Error("virar-site: " + (r.stderr || r.stdout));
     // depois do virar-site (ele limpa a pasta de saída): as fotos dos carros
     for (const [rel, buf] of arquivos) { fs.mkdirSync(path.dirname(path.join(saida, rel)), { recursive: true }); fs.writeFileSync(path.join(saida, rel), buf); }
-    console.log(`Fotos dos carros: ${arquivos.length} em ${path.join(saida, "img/c")}`);
-    process.exitCode = r.status;
+    if (!silencioso) console.log(`Fotos dos carros: ${arquivos.length} em ${path.join(saida, "img/c")}`);
+    return r.status;
   } finally {
     fs.rmSync(tmp, { recursive: true, force: true });
   }
+}
+
+function principal() {
+  const saida = process.argv[2];
+  if (!saida) { console.error("Uso: node demos/ricardo-motors/entrega.mjs <pasta de saída>"); process.exit(1); }
+  process.exitCode = gerar(saida);
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) principal();
