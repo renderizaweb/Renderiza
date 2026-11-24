@@ -4,6 +4,10 @@ Planejado em 20/11/2026, a partir do pedido do primeiro cliente do nicho automot
 carros premium e blindados em São Paulo). **Ainda não existe no painel real:** há um protótipo funcionando nos
 exemplos (abaixo, "Fase 0") e este plano. Nada aqui muda o que já existe sem decisão registrada no `07`.
 
+**24/11/2026: o Ricardo aceitou a proposta.** A construção anda pelo trilho
+[`docs/entregas/ricardo-motors.md`](../entregas/ricardo-motors.md), em paradas que várias sessões podem tocar ao
+mesmo tempo, todas presas ao **Contrato v1** (abaixo).
+
 ## Em uma frase
 
 O **Meu site** cuida do visual do site (textos, fotos, cores, seções); o **Estoque** cuida do que se vende nele:
@@ -75,7 +79,7 @@ Os filtros do site saem do esquema: cada campo marcado como `filtro` vira um chi
 - **API pública:** `GET /api/publico/estoque/<código>` devolve só o que o site mostra (nunca código interno, quem
   mexeu, itens ocultos ou vendidos). Mesmas regras de cache, tamanho e endereço de imagem do Meu site.
 - **No site:** a vitrine do site já existe (é a da demo); o script do estoque troca a lista inicial pela do painel e
-  refaz filtros e contagens. Desligado do painel, o site continua com a lista do dia da entrega, como no Meu site.
+  refaz filtros e contagens. Desligado do painel, o site fica com a versão de reserva: a lista do dia da entrega, sem preço (Contrato v1, item 3).
 - **Indicadores:** o contador de visitas do site já registra "Ver BMW 530e" (o carro aberto) e o WhatsApp de cada
   página de carro. A aba Indicadores do Estoque mostra os itens mais vistos e os que mais geraram conversa, por
   período. É o argumento de venda para o dono: "este carro foi aberto 48 vezes e ninguém chamou; o preço?".
@@ -93,13 +97,86 @@ Os filtros do site saem do esquema: cada campo marcado como `filtro` vira um chi
 - **Ordem:** destaque primeiro, depois os mais novos; o dono pode arrastar para mudar.
 - **Quem pode:** o dono dá "edita" a quem vende e "só vê" a quem só consulta (Equipe e acessos).
 
+## Contrato v1 (fixado em 24/11/2026)
+
+É o que deixa o banco, o painel e o site serem feitos **ao mesmo tempo, por sessões diferentes**, sem uma esperar a
+outra (o trilho da entrega: [`docs/entregas/ricardo-motors.md`](../entregas/ricardo-motors.md)). Quem precisar
+mudar algo aqui muda este documento no mesmo commit e deixa um aviso em `missoes.md` (08).
+
+**1. Banco** (uma migração, `AAAAMMDDHHMMSS_estoque.sql`)
+
+| Coluna | Tipo e regra |
+|---|---|
+| `id` | `uuid` primary key |
+| `conta_id` | `uuid` not null, da `contas` (apagar a conta apaga os itens) |
+| `esquema` | `text` not null: o do nicho da conta (`automotivo`); o painel valida os `campos` por ele |
+| `situacao` | `disponivel` (padrão) · `reservado` · `vendido` · `oculto` |
+| `destaque` | `boolean`, padrão `false` |
+| `ordem` | `integer`, padrão 0 (menor primeiro, depois do destaque) |
+| `preco`, `preco_antes` | `numeric(12,2)`, ≥ 0; `preco` vazio = "Sob consulta"; `preco_antes` é opcional (a baixa) |
+| `quantidade` | `integer` ≥ 0, padrão 1 (no automotivo, sempre 1) |
+| `campos` | `jsonb` objeto, até 20 KB (os campos do nicho: marca, modelo, ano…) |
+| `selos` | `text[]`, até 8, cada um com até 30 letras |
+| `descricao` | `text`, até 4000 letras, padrão vazio |
+| `fotos` | `jsonb` lista de até 15 `{ "arquivo": "<conta>/estoque-<item>-<aleatório>.webp", "w": 1600, "h": 1067 }`; a primeira é a capa |
+| `codigo_interno` | `text` opcional, até 40 (placa, referência); **nunca sai na API** |
+| `vendido_em` | o banco põe quando vira `vendido` e tira quando sai |
+| `criado_em`, `atualizado_em`, `criado_por`, `atualizado_por` | como nas outras tabelas (`05`) |
+
+- **RLS:** ver com `pode(conta, 'estoque', 'ver')`; criar, mudar e apagar com `pode(conta, 'estoque', 'editar')`.
+  Teste de isolamento (uma conta não vê nem muda o item da outra), como em toda tabela nova.
+- **Catálogo:** `modulos` ganha `('estoque', 'Estoque', 14.99, 8)`. O Admin liga e desliga como os outros.
+- **Nicho:** `contas.nicho` e `demos.nicho` passam a aceitar `automotivo`.
+- **Fotos:** no bucket público `site-imagens` que já existe (só WebP, até 2 MB), com o nome
+  `<conta>/estoque-….webp`. Políticas novas: quem edita o Estoque envia, troca e tira só arquivos `estoque-*` da
+  própria conta. A rota `/api/publico/imagens/…` já serve esses arquivos, sem mudança.
+- **Função `publico_estoque(p_codigo)`** (`security definer`, liberada ao visitante como as outras `publico_*`):
+  usa `conta_do_site(p_codigo, 'estoque')` e devolve `null` quando o site não responde (desconectado, conta não
+  liberada, módulo desligado).
+
+**2. API pública:** `GET /api/publico/estoque/<código do site>`, com o mesmo cache do Meu site (20 s, mais 10 s
+servindo a anterior) e `404 {"erro":"fora"}` quando a função devolve `null`.
+
+```json
+{ "versao": 1, "esquema": "automotivo", "atualizado_em": "2026-11-24T18:00:00Z",
+  "itens": [ { "id": "…", "situacao": "disponivel", "destaque": true, "preco": 689900, "preco_antes": null,
+               "quantidade": 1, "selos": ["Blindado"], "descricao": "…",
+               "campos": { "marca": "Porsche", "modelo": "Cayenne", "ano_fab": 2019, "km": 21000 },
+               "fotos": [ { "url": "https://painel.renderizaweb.com.br/api/publico/imagens/<conta>/estoque-….webp",
+                            "w": 1600, "h": 1067 } ] } ] }
+```
+
+Só `disponivel` e `reservado`, na ordem destaque, `ordem` e mais novo; até 300 itens. Nunca: `codigo_interno`,
+quem mexeu, itens ocultos ou vendidos. A função devolve o `arquivo`; a rota monta a `url` com o endereço dela mesma
+(por isso o STG e o local funcionam igual).
+
+**3. No site**
+
+- A vitrine é uma seção marcada com `data-estoque`. **Nada dentro dela tem `data-site-*`:** o Meu site não mexe no
+  estoque (a conferência do site acusa). O resto do site (capa, sobre, serviços, contato) segue no Meu site.
+- **A versão de reserva** (a que está no HTML): os itens do dia da entrega **sem preço** ("Consulte") e o aviso
+  "O estoque muda todo dia: confirme a disponibilidade pelo WhatsApp" (`data-estoque-aviso`). Sem o painel, o site
+  nunca mostra um preço que pode estar errado.
+- **O script** `ferramentas/estoque/estoque.js` entra pelo `virar-site` com `"painel": { "codigo", "estoque": true }`.
+  Ele pede a API (espera até 6 s), confere a resposta (versão 1, lista, foto só do endereço da API), guarda por 60 s
+  na sessão do navegador e chama `window.rzEstoque(itens, { esquema, atualizado_em })`, que o site define: refaz a
+  vitrine, os filtros, a contagem e a capa com os destaques, e esconde o aviso. Erro, demora ou resposta inválida: o
+  script não chama nada e o site fica com a versão de reserva.
+- **Prévia no painel** (opcional): com `?rz-estoque=previa`, dentro de um quadro do painel, o script aceita
+  `{ tipo: "rz-estoque", itens }` por `postMessage`, só da origem da API, e responde `rz-estoque-pronto` (como o
+  protótipo).
+
+**4. No painel:** o módulo mora em `src/modulos/estoque/` (o `exemplos/estoque/modulo.js`, com a loja do navegador
+trocada pela do banco; a mesma interface: `listar`, `salvar`, `mudar`, `remover`), os esquemas em
+`src/modulos/estoque/esquemas.js` (os do protótipo) e as palavras do nicho em `src/nichos/automotivo.js`.
+
 ## Fases
 
 | Fase | O que entra | Onde |
 |---|---|---|
 | **0 · Protótipo** (feita, 20/11/2026: o painel do Ricardo em `/demo/ricardo-motors/painel` e o vídeo em `/gravacao/ricardo-motors-estoque.mp4`) | a tela do módulo com o painel de verdade (casca, estilo, gaveta, campos) sobre dados guardados no navegador; o esquema automotivo e o de ótica; o site do Ricardo ouvindo o protótipo ao vivo; o vídeo para o Ricardo | `exemplos/estoque/` (o módulo, sem dados de cliente) e `demos/ricardo-motors/painel.html` (o painel dele, dentro da demo) |
-| **1 · Banco e API** | migração `estoque_itens` e o Storage, RLS, a função da API pública, testes de permissão; o módulo vai para `painel-clientes/src/modulos/estoque/` e entra no registro (com aviso no `missoes.md`) | STG, depois produção com o "pode" |
-| **2 · Piloto automotivo** | o site do Ricardo ligado ao painel (código do site, script do estoque), o estoque dele cadastrado por nós no começo | o domínio dele |
+| **1 · Banco, API e módulo** (em andamento desde 24/11: paradas 1 e 2 do [trilho do Ricardo](../entregas/ricardo-motors.md)) | o contrato v1 acima: migração, RLS, Storage, `publico_estoque`, a rota, o módulo em `src/modulos/estoque/` e o nicho automotivo | STG, depois produção com o "pode" |
+| **2 · Piloto automotivo** (paradas 3 a 6 do trilho) | o site do Ricardo no repositório dele, com a versão de reserva sem preço e o script do estoque; a conta dele com Meu site e Estoque; o estoque de hoje cadastrado por nós | o domínio dele |
 | **3 · Ótica e indicadores** | o esquema de ótica ligado à vitrine de armações do `gerar.py`; a aba Indicadores por item; importar de planilha (CSV, já há `ui/csv.js`) | — |
 | **Depois** | importar da Webmotors ou de integradores (XML), variações (loja), mais de um site por conta | só com decisão no `07` |
 
@@ -107,9 +184,9 @@ Os filtros do site saem do esquema: cada campo marcado como `filtro` vira um chi
 
 - **Decidido (20/11):** Estoque é um módulo à parte do Meu site; sem rascunho por item (o "oculto" faz esse papel);
   os campos são por nicho, por configuração; o desenho do site é o do Meu site (inicial embutido + painel por cima).
-- **Em aberto (para o Kaue):**
-  1. Preço: conta como um dos 2 módulos do plano ou é um extra? Limite de itens e de fotos por plano?
-  2. Vendido some na hora ou fica uns dias com a etiqueta "Vendido" (prova social, como as revendas fazem)?
-  3. Reservado aparece no site com a etiqueta, ou some?
-  4. Quem cadastra o estoque inicial: a Renderiza (no onboarding) ou o próprio cliente?
-  5. Nome no menu por nicho: "Estoque" em todos, ou "Vitrine" na ótica?
+- **Decidido (24/11, com a proposta aceita pelo Ricardo):** o Estoque é **um dos 2 módulos** do plano de R$ 49 (o
+  termo dele: "Meu site e Estoque"); a versão de reserva do site **não mostra preço**; **vendido sai do site** na
+  hora; **reservado aparece** com a etiqueta; **a Renderiza cadastra o estoque inicial** (os carros da demo,
+  conferidos com ele); o nome no menu é "Estoque"; até 300 itens e 15 fotos por item.
+- **Em aberto:** "Vitrine" em vez de "Estoque" na ótica; o vendido ficar uns dias com a etiqueta (prova social),
+  se algum cliente pedir.

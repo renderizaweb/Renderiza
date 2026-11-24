@@ -2,8 +2,9 @@
 
 Quando o cliente fecha **o site e o painel** juntos. A entrega só de site continua em [`docs/fechamento.md`](../fechamento.md);
 aqui fica o que muda quando o site conversa com o Painel Renderiza (Meu site, agenda online) e o que fomos aprendendo.
-Cada cliente tem o seu trilho nesta pasta: [`rafaela-damaceno.md`](rafaela-damaceno.md) (o primeiro) e
-[`bia-maida.md`](bia-maida.md).
+Cada cliente tem o seu trilho nesta pasta: [`rafaela-damaceno.md`](rafaela-damaceno.md) (o primeiro),
+[`bia-maida.md`](bia-maida.md) e [`ricardo-motors.md`](ricardo-motors.md) (o primeiro com o módulo Estoque, feito em
+paradas que várias sessões tocam ao mesmo tempo).
 
 Isto **não está cravado em pedra**: a Rafaela é a primeira. Cada sessão que andar num trilho anota o que aprendeu em
 "O que aprendemos" (abaixo) e ajusta o modelo, para o próximo cliente ser mais fácil.
@@ -58,6 +59,8 @@ B pode andar junto com C; D depende de C (e das migrações com o "pode" da Rend
 
 | Data | Cliente | Lição |
 |---|---|---|
+| 24/11/2026 | Ricardo | **Lista que muda todo dia não vai no Meu site:** o estoque de uma revenda vira um módulo com rota própria na API, e a vitrine do site fica fora das marcações do Meu site. A versão de reserva (o site sem o painel) **não mostra o que pode estar errado**: os carros do dia da entrega sem preço, com "confirme pelo WhatsApp". |
+| 24/11/2026 | Ricardo | **Trabalho que depende de banco, painel e site ao mesmo tempo: primeiro o contrato, depois as sessões.** A Parada 0 fixa a tabela, a API e o que o site espera (o Contrato v1 no `12`); daí banco, painel e site andam em paralelo, cada sessão no seu "Mexe em", sem uma esperar a outra. |
 | 18/11/2026 | Bia | **O que muda de cliente para cliente vira escolha da conta, não do nicho:** a Bia é fotografia, mas trabalha por data (eventos). Em vez de um caminho só para ela, o jeito da agenda virou um ajuste da conta, com o nicho como padrão (nenhuma conta mudou sozinha). Para não quebrar o que existe: comparar as funções da produção com as migrações antes de trocá-las, e rodar as provas de quem já está no ar (a da Rafaela) junto com a nova. |
 | 18/11/2026 | Bia | **Lista editável no Meu site tem de ser plana:** o painel troca os filhos diretos da lista (`data-site-item`), então uma galeria agrupada em linhas (`.linha > .foto`) não deixa incluir nem ordenar fotos. A saída foi a galeria virar uma lista simples e as linhas serem montadas no navegador, refeitas quando a lista muda (`MutationObserver`). O mesmo vale para o que o JavaScript copia ou conta (faixa duplicada, "Ver mais fotos", o serviço ativo): ler da lista, não guardar no carregamento. |
 | 18/11/2026 | Bia | **Regra de CSS ampla pega os filhos novos:** pôr a legenda como `<span>` dentro do item fez a `.reveal > *` (a entrada animada) deixá-la sempre à vista. Ao mexer na estrutura para o Meu site, comparar com prints de antes e depois (no celular e no computador), não só os testes de uso. |

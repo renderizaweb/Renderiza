@@ -27,6 +27,10 @@
   ≈ R$ 250/mês; ou o Painel Renderiza, R$ 49/mês, com o Meu site e o Estoque). Nas Atividades: "Abriu a proposta
   comercial", o play, a metade e o fim do vídeo, "viu o card com o valor", o tempo em cada parte e o WhatsApp.
 
+## Entrega (24/11/2026: proposta aceita)
+- O trilho: `docs/entregas/ricardo-motors.md` (o site no repositório dele, Meu site e Estoque). A demo e o
+  `painel.html` ficam congelados como a proposta aceita; o site novo nasce daqui uma vez (Parada 3A).
+
 ## Conferir antes de mandar
 - **WhatsApp:** os botões usam o link da bio (`wa.me/message/G5X6UUN627ARL1`), que abre sem a mensagem pronta.
   Com o número dele, preencher `WA_NUM` no script e cada botão sai com o carro na mensagem.
