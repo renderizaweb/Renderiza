@@ -17,6 +17,8 @@ Regras que valem do começo ao fim:
 - [ ] No card do lead, **Termo de aceite → Gerar termo**: a base geral do site com o que é deste cliente (o que entra, valor,
   prazo, domínio, painel). Sem pendência `[[ ]]`, **Salvar e abrir** → **Copiar mensagem** → WhatsApp.
 - [ ] A assinatura aparece no card e na Atividade; o comprovante chega em contato@renderizaweb.com.br.
+- [ ] Escolheu "Site + Painel Renderiza"? Criar a conta dele no Admin do painel com os módulos que ele quiser; os Termos de
+  uso do painel (plano, módulos e valor) ele aceita no primeiro acesso.
   Como funciona e como adaptar: [`docs/termos/README.md`](termos/README.md).
 
 ## 1. Painel, no mesmo dia (Kaue ou Claude)

@@ -107,7 +107,10 @@ export function secaoTermo({ id, vincular, cartao, mapaDeVisitas }) {
     assinaturas.replaceChildren(...aceites.map(a => h("div", { class: "termo-aceite" },
       h("div", { class: "termo-aceite-topo" }, icone("certo", 15), h("strong", { text: `Assinado por ${a.nome}` }), h("span", { text: quando(a.criado_em) })),
       h("p", { text: [a.empresa && `${a.empresa} · CNPJ ${cnpjBonito(a.cnpj)}`, a.opcao_nome, `${a.email}${a.email_confirmado ? " (e-mail confirmado)" : ""}`, `WhatsApp ${a.whatsapp}`].filter(Boolean).join(" · ") }),
-      h("p", { class: "termo-aceite-prova", text: `Protocolo ${protocolo(a)} · IP ${a.ip || "não informado"}${a.comprovante_em ? " · comprovante enviado" : " · comprovante não saiu"}` }))));
+      h("p", { class: "termo-aceite-prova", text: `Protocolo ${protocolo(a)} · IP ${a.ip || "não informado"}${a.comprovante_em ? " · comprovante enviado" : " · comprovante não saiu"}` }),
+      // A ligação com o outro contrato: o painel tem Termos de uso próprios, aceitos no primeiro acesso a ele.
+      a.plano === "com-painel" ? h("p", { class: "termo-proximo" }, icone("painel", 14),
+        h("span", { text: "Escolheu o painel. Próximo passo: criar a conta dele no Admin do Painel Renderiza, com os módulos que ele quiser. Os Termos de uso do painel (plano, módulos e valor) ele aceita no primeiro acesso." })) : null)));
     assinaturas.hidden = !aceites.length;
     const velhos = termos.slice(1);
     anteriores.hidden = !velhos.length;
@@ -212,7 +215,7 @@ export function abrirEditor(leadId, termo, base = null) {
 
   const { fechar } = abrirJanela({
     titulo: termo ? `Editar ${termo.id}` : `Novo termo · ${novoId}`,
-    descricao: "A base geral do site (entrega única, sem manutenção, tudo no nome do cliente, domínio renovado por ele, painel à parte) com o que é deste cliente. Assinado, o texto não muda mais.",
+    descricao: "A base geral do site (entrega única, sem manutenção, tudo no nome do cliente, painel à parte) com o que é deste cliente. Só o que estiver em branco e for obrigatório vira pendência. Assinado, o texto não muda mais.",
     larga: true,
     conteudo: [
       h("div", { class: "tabs-list termo-abas", role: "tablist" }, ...botoesAba),

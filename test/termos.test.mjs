@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { montarTermoDoSite, opcoesDoSite, idDoTermo, baseDoId, lerReais, reais, camposDoLead, situacaoDoTermo, linkDoTermo, CAMPOS_DO_SITE, PADRAO_DO_SITE } from "../painel/src/termos.js";
+import { camposDoSite, montarTermoDoSite, opcoesDoSite, idDoTermo, baseDoId, lerReais, reais, camposDoLead, situacaoDoTermo, linkDoTermo, CAMPOS_DO_SITE, PADRAO_DO_SITE } from "../painel/src/termos.js";
 import { blocosDoTexto, pedacosDaLinha, pendencias, impressaoDoTexto, ancoraDoTitulo } from "../painel/src/termos-texto.js";
 import { readFileSync } from "node:fs";
 
@@ -20,17 +20,19 @@ test("termo completo: sem pendências, título, opções com e sem o painel", ()
   assert.equal(t.modelo, "site-v1");
   assert.equal(t.tipo_contratante, "pf_ou_pj");
   assert.deepEqual(t.opcoes.map(o => o.id), ["com-painel", "so-site"]);
-  assert.match(t.opcoes[0].nome, /R\$ 49,00 por mês/);
+  assert.match(t.opcoes[0].detalhe, /a partir de R\$ 49,00 por mês, com os módulos que você escolher/);
   assert.match(t.texto, /\*\*R\$ 1\.200,50\*\*/);
-  assert.match(t.texto, /R\$ 600,25 \(50%\) em até 2 dias úteis/);
+  assert.match(t.texto, /R\$ 600,25 em até 2 dias úteis depois da assinatura e R\$ 600,25 até o dia útil seguinte/);
   assert.match(t.texto, /\*\*lojateste\.com\.br\*\*/);
-  assert.match(t.texto, /- Galeria de produtos\n- Contato\n/, "um item por linha, sem marcador repetido");
+  assert.match(t.texto, /Inclui:\n\n- Página inicial\n- Galeria de produtos\n- Contato\n- As páginas e seções combinadas/, "um item por linha, sem marcador repetido");
+  assert.match(t.texto, /no modelo da demonstração em renderizaweb\.com\.br\/demo\/loja-teste/);
   assert.match(t.texto, /# \d+\. Condições deste projeto\n\n1\. Uma condição só dela/);
+  assert.ok(t.texto.length < 9000, `texto enxuto (${t.texto.length} caracteres)`);
 });
 
 test("o que falta vira pendência, e o termo não abre assim", () => {
   const t = montarTermoDoSite({});
-  assert.deepEqual(pendencias(t.texto), ["nome do projeto", "valor do site", "quem contrata", "o que é entregue"]);
+  assert.deepEqual(pendencias(t.texto), ["nome do projeto", "valor do site", "quem contrata"], "o que é entregue é opcional: a entrega genérica já vale");
   assert.equal(montarTermoDoSite({ ...COMPLETO, pagamento: "outro" }).texto.includes("[[forma de pagamento]]"), true);
   assert.equal(montarTermoDoSite({ ...COMPLETO, prazo: "0" }).texto.includes("[[prazo]]"), true);
 });
@@ -49,19 +51,35 @@ test("painel: opcional dá a escolha; incluído e 'não' não dão; sem painel, 
   assert.equal(opcoesDoSite({ painel: "nao" }).length, 0);
   const sem = montarTermoDoSite({ ...COMPLETO, painel: "nao" });
   assert.equal(/Painel Renderiza\n/.test(sem.texto), false);
-  assert.match(sem.texto, /O Painel Renderiza ou qualquer outro sistema para editar o site/);
+  assert.equal(sem.texto.includes("Painel Renderiza"), false);
   assert.equal(sem.texto.includes("a opção escolhida"), false);
   assert.match(montarTermoDoSite(COMPLETO).texto, /a opção escolhida/);
 });
 
-test("domínio: 1º ano incluído ou pago pelo cliente; a renovação é sempre do cliente", () => {
-  const inc = montarTermoDoSite(COMPLETO).texto;
-  assert.match(inc, /O primeiro ano do registro está incluído no preço/);
-  assert.match(inc, /A partir do segundo ano, o Contratante renova o domínio/);
-  const cli = montarTermoDoSite({ ...COMPLETO, dominio_primeiro_ano: "contratante" }).texto;
-  assert.match(cli, /O registro é pago pelo Contratante/);
-  assert.match(cli, /Todo ano, o Contratante renova o domínio/);
-  assert.equal(cli.includes("O preço inclui o registro do domínio"), false);
+test("domínio: o cliente já tem (só uma linha, sem custo), a Renderiza registra com o 1º ano, ou o cliente registra", () => {
+  const tem = montarTermoDoSite({ ...COMPLETO, dominio: "" }).texto;
+  assert.match(tem, /publicado no domínio que o Contratante já tem, que continua sob a responsabilidade dele/);
+  assert.equal(/Registro\.br|registro do domínio|primeiro ano|R\$ 40/.test(tem), false, "sem valor nem registro quando ele já tem");
+  assert.equal((tem.match(/\*\*Domínio:\*\*/g) || []).length, 1, "uma linha só sobre o domínio");
+  const inc = montarTermoDoSite({ ...COMPLETO, dominio_situacao: "registrar_incluido" }).texto;
+  assert.match(inc, /com o primeiro ano incluído no preço\. A partir do segundo ano, a renovação é dele/);
+  assert.match(inc, /Inclui o registro do domínio por 1 ano/);
+  const cli = montarTermoDoSite({ ...COMPLETO, dominio_situacao: "registrar_cliente" }).texto;
+  assert.match(cli, /registrado e pago pelo Contratante, no nome dele, assim como a renovação anual/);
+  assert.equal(cli.includes("Inclui o registro do domínio"), false);
+  // campos da primeira versão (dominio_primeiro_ano) continuam valendo
+  assert.equal(camposDoSite({ dominio_primeiro_ano: "contratante" }).dominio_situacao, "registrar_cliente");
+  assert.equal(camposDoSite({ dominio_primeiro_ano: "incluido" }).dominio_situacao, "registrar_incluido");
+  assert.equal("dominio_primeiro_ano" in camposDoSite({ dominio_primeiro_ano: "incluido" }), false);
+});
+
+test("painel: outro contrato; o termo do site não fixa módulos nem preço, aponta para os Termos de uso", () => {
+  const t = montarTermoDoSite(COMPLETO).texto;
+  assert.match(t, /regido pelos \*\*Termos de uso do painel\*\* \(painel\.renderizaweb\.com\.br\/termos\), que o Contratante aceita no primeiro acesso/);
+  assert.match(t, /O Contratante liga ou desliga módulos quando quiser, e o valor acompanha/);
+  assert.equal(t.includes("módulos combinados"), false, "sem módulos combinados, não fixa nenhum");
+  assert.match(montarTermoDoSite({ ...COMPLETO, painel_modulos: "Meu site e Estoque" }).texto, /os módulos combinados são: Meu site e Estoque/);
+  assert.equal(/R\$ 49/.test(montarTermoDoSite({ ...COMPLETO, painel_preco: "" }).texto), false);
 });
 
 test("valores em reais", () => {
@@ -128,14 +146,25 @@ test("a impressão é o SHA-256 do texto exato, como o banco calcula", async () 
   assert.equal(await impressaoDoTexto(texto), createHash("sha256").update(texto, "utf8").digest("hex"));
 });
 
-test("Ricardo Motors: o termo monta, com as pendências que só o Kaue decide", () => {
+test("Ricardo Motors: o termo monta enxuto, e só falta o valor", () => {
   const t = montarTermoDoSite(RICARDO_MOTORS);
   assert.equal(t.titulo, "Termo de contratação · Site da Ricardo Motors");
   assert.equal(t.tipo_contratante, "pf_ou_pj");
   assert.deepEqual(t.opcoes.map(o => o.id), ["com-painel", "so-site"]);
-  assert.match(t.texto, /Meu site e Estoque/);
   assert.match(t.texto, /Webmotors/);
+  assert.match(t.texto, /publicado no domínio que o Contratante já tem/);
+  assert.equal(/Estoque|Registro\.br/.test(t.texto), false, "o Estoque é assunto do painel, não do termo do site");
   const falta = pendencias(t.texto);
   assert.ok(falta.includes("valor do site"), falta.join(" | "));
-  assert.ok(falta.some(p => /Estoque/.test(p)), "o módulo Estoque ainda não está pronto: pendência");
+  assert.deepEqual(falta, ["valor do site"], "só o valor falta decidir");
+});
+
+test("os arquivos da tela e da página dos termos não têm erro de sintaxe (nenhum teste carrega a tela)", async () => {
+  const { execFileSync } = await import("node:child_process");
+  for (const f of ["painel/src/termos-ui.js", "painel/src/termos-texto.js", "painel/src/termos.js"]) {
+    execFileSync(process.execPath, ["--check", new URL("../" + f, import.meta.url).pathname]);
+  }
+  const html = readFileSync(new URL("../termos/pagina.html", import.meta.url), "utf8");
+  const modulo = /<script type="module">([\s\S]*?)<\/script>/.exec(html)[1].replace(/^import .*$/m, "");
+  assert.doesNotThrow(() => new Function(modulo.replace(/\bawait\b/g, "")), "o script da página /termo");
 });
