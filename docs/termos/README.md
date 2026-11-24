@@ -62,21 +62,55 @@ Enxuto de propósito (24/11/2026): o termo garante a entrega de forma genérica 
 - **Garantia** contra defeitos (padrão 30 dias), que não reduz a garantia da lei.
 - **Limites:** conteúdo e preços são do cliente; sem garantia de vendas ou de Google; serviços de terceiros fora; teto
   no valor pago.
-- Prazo com uma rodada de ajustes e aprovação por escrito; desistência em 7 dias; o site é dele depois de pago;
-  assinatura eletrônica e foro.
+- **Pagamento** (padrão: na aprovação, nada antes): a Renderiza mostra o site pronto num endereço de prévia; aprovado,
+  o cliente paga em até 2 dias úteis e a Renderiza publica no domínio dele. Também dá para cobrar na assinatura, metade
+  e metade, ou de outra forma.
+- **Desistência e cancelamento:**
+  1. nos 7 dias depois da assinatura: desiste sem motivo e sem custo (o direito de arrependimento);
+  2. depois disso e antes de aprovar o site: cancela por escrito. Sem custo se a versão para aprovação ainda não foi
+     mandada; se já foi, paga metade do preço pelo trabalho feito (ou "sem custo", se escolhido no campo). Cancelado, o
+     site não é entregue nem publicado (assim ninguém leva o site pagando metade);
+  3. depois da aprovação, o preço é devido por inteiro;
+  4. material ou resposta parados por mais de 30 dias: a Renderiza pode encerrar, com a regra do item 2.
+- Prazo com uma rodada de ajustes e aprovação por escrito; o site é dele depois de pago; assinatura eletrônica e foro.
 
 Só três coisas viram pendência `[[ ]]` se ficarem em branco: o nome do projeto, quem contrata e o valor.
+
+**Texto ajustado à mão:** no editor, mexer na aba Texto marca o termo como ajustado à mão (`campos.texto_manual`), e
+aí os campos não mudam mais o texto (o aviso aparece em qualquer aba, com "Refazer o texto pelos campos"). Sem essa
+marca, o texto sempre sai dos campos, com o modelo de agora: um rascunho antigo pega sozinho as mudanças da base.
+(Até 24/11/2026 isso era adivinhado comparando com o modelo, e uma mudança no modelo fazia o texto parar de seguir os
+campos: foi o caso do valor da Ricardo que "não aparecia".) **Painel aberto há muito tempo roda o código antigo:
+recarregue a página depois de uma atualização.**
 
 Mudou a base (cláusula nova para todos)? Mude `montarTermoDoSite` e, se for mudança de conteúdo com termos já
 assinados, o nome do modelo (`site-v2`). Termos assinados não mudam: eles guardam o texto exato.
 
 ## Ricardo Motors (o primeiro)
 
-Os campos estão em [`termos/clientes/ricardo-motors.json`](../../termos/clientes/ricardo-motors.json): o site no modelo
-da demo, uma linha do que é entregue (a vitrine dos carros) e uma do que não é (ligação automática com a Webmotors);
-ele já tem domínio; o painel é opcional, com os módulos que ele escolher. **Na produção desde 24/11/2026** como
-rascunho no card do lead (renderizaweb.com.br/termo/ricardo-motors-v1). **Só falta o valor do site**: no card,
-**Editar**, preencher o valor (e o domínio, se quiser que apareça) e **Salvar e abrir**.
+Os campos estão em [`termos/clientes/ricardo-motors.json`](../../termos/clientes/ricardo-motors.json), como o Kaue
+preencheu no card em 24/11/2026: R$ 399,00 pagos na aprovação, prazo de 5 dias úteis, domínio dele, painel opcional com
+Meu site e Estoque e a 1ª mensalidade 30 dias após a entrega. O rascunho na produção (renderizaweb.com.br/termo/ricardo-motors-v1)
+está **sem pendências e fechado**: é só conferir e, no card, **Editar → Salvar e abrir** (ou ligar "Aberto para assinar").
+Atenção: o módulo Estoque ainda não existe no painel; ele está como "módulo combinado" porque foi o que se preencheu.
+
+## Como testar sem cair no cliente
+
+Há um lead só para isso: **Teste dos termos (Renderiza)**, fora do funil (aparece na tela Clientes), com o termo
+**teste-termos-v1** aberto em renderizaweb.com.br/termo/teste-termos-v1 (valor R$ 1,00, com a escolha do painel).
+
+1. Abrir o link no celular, preencher com os **próprios dados** (o CPF tem de ser válido) e um e-mail que você lê.
+   Dá para testar como pessoa física ou como empresa (CNPJ).
+2. Pedir o código: chega em segundos, de nao-responda@renderizaweb.com.br (olhar o spam). Vale 15 minutos.
+3. Assinar. Na tela aparecem o protocolo, o IP e a impressão do texto; "Salvar em PDF" imprime o termo assinado.
+4. Conferir o **comprovante por e-mail**: os dados, o IP, a impressão e o **texto inteiro do termo assinado**. A cópia
+   vai para contato@renderizaweb.com.br.
+5. No painel, card do lead de teste: a assinatura (nome, empresa, escolha, protocolo, IP, aparelho) e, se escolheu o
+   painel, o próximo passo. Na Atividade: "Abriu o contrato para assinar" e "Assinou o contrato online".
+
+Limites (contra abuso): 1 código por minuto e 3 por hora para o mesmo e-mail; 5 assinaturas por hora do mesmo IP. O
+termo de teste aceita várias assinaturas; para apagar as de teste, pedir ao Claude (apaga `termos_aceites`,
+`termos_codigos` e os passos `contrato-assinado` em `visitas` do lead `teste-termos`).
 
 ## Técnico
 
