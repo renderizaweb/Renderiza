@@ -881,7 +881,7 @@ Migrações aplicadas (STG / produção): 20261029135228_publico_agenda (29/10 /
 ```
 Missão 4 · bloco C (Meu site no painel) · branch claude/painel-renderiza-roadmap-jfhmpp · atualizada em 29/10 · FEITO, NA MAIN (banco na produção)
 Onde está: tudo na main (29/10). O servidor: migração 20261029141746_publico_site, teste 042,
-  api/publico/site/[codigo]/ (index e previa), api/publico/imagens/[...caminho].js. O editor: src/modulos/meu-site/
+  api/publico/site/[codigo]/ (index e previa), api/publico/imagens/[conta]/[arquivo].js. O editor: src/modulos/meu-site/
   (index.js, conteudo.js e a cópia meu-site.js) e test/meu-site.test.mjs; o { trocar } no enviarArquivo
   (src/adaptadores/supabase.js). A semente põe na Villa Alecrim o Meu site e o site villa-alecrim (para testar no STG
   e numa prévia: entrar como dono da Villa e abrir Meu site).

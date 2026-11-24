@@ -182,7 +182,7 @@ test("adaptar: lê o corpo do (req, res), devolve JSON e esconde o erro interno"
 // ---------- Meu site (Missão 4C) ----------
 import { tratar as site } from "../api/publico/site/[codigo]/index.js";
 import { tratar as previa } from "../api/publico/site/[codigo]/previa.js";
-import { tratar as imagem } from "../api/publico/imagens/[...caminho].js";
+import { tratar as imagem } from "../api/publico/imagens/[conta]/[arquivo].js";
 
 test("site: a versão publicada com CORS e 60 s de cache; 404 quando não responde, com o mesmo cache", async () => {
   const b = bancoFalso(() => ({ json: { esquema: 1, site: "villa-alecrim", versao: 3, secoes: {} } }));

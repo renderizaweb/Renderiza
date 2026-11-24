@@ -18,7 +18,7 @@ import sitePublico from "../api/publico/site/[codigo]/index.js";
 import estoquePublico from "../api/publico/estoque/[codigo]/index.js";
 import previaPublica from "../api/publico/site/[codigo]/previa.js";
 import visitaPublica from "../api/publico/site/[codigo]/visita.js";
-import imagemPublica from "../api/publico/imagens/[...caminho].js";
+import imagemPublica from "../api/publico/imagens/[conta]/[arquivo].js";
 
 const PASTA = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const PORTA = Number(process.env.PORT) || 5180;
