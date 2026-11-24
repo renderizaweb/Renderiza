@@ -945,7 +945,7 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | `20261120190000_agenda_no_site.sql` (a agenda do site com chave da dona: `contas.ajustes.agenda.site = false` faz `conta_do_site` não achar a conta para `agenda-online`; sem o valor, como era) | Entrega Bia | `claude/serene-carson-tssomx` | 20/11/2026 | 20/11/2026 (pedido da Renderiza: bloquear a agenda dela hoje) |
 | `20261119004809_uso_do_painel.sql` (o uso do painel no Admin: `uso_diario`, `registrar_uso`, `admin_uso`) | Pedido da Renderiza (19/11) | `claude/rafaela-damaceno-demo-irwkqp` (`6446045`), aplicada pela `claude/eloquent-einstein-fja03g` | 19/11/2026 | 19/11/2026 (com o "pode" da Renderiza: "sim") |
 | `20261116040000_site_visitas.sql` (indicadores do Meu site: `sites_visitas`, `publico_visita`, `site_indicadores`; sem dado de pessoa) | Entrega Rafaela (indicadores) | `claude/eloquent-dijkstra-f6q81i` | 16/11/2026 | 16/11/2026 (com o "pode" da Renderiza) |
-| `20261124190000_estoque.sql` (o Estoque: `estoque_itens`, `publico_estoque`, as fotos `estoque-*` no `site-imagens`, o módulo `estoque` e o nicho `automotivo`; o único "drop" é a regra de nicho trocada por uma mais larga) | Entrega Ricardo (1A) | `main` | 24/11/2026 | — (na 3A, com o "pode"; o `migrar.mjs` pede `--pode-destrutivo` por causa do "drop" da regra) |
+| `20261124190000_estoque.sql` (o Estoque: `estoque_itens`, `publico_estoque`, as fotos `estoque-*` no `site-imagens`, o módulo `estoque` e o nicho `automotivo`; o único "drop" é a regra de nicho trocada por uma mais larga) | Entrega Ricardo (1A) | `main` | 24/11/2026 | 24/11/2026 (com o "pode" da Renderiza; `--pode-destrutivo` só pelo "drop" da regra de nicho, que ficou mais larga) |
 
 ## Avisos entre sessões
 
