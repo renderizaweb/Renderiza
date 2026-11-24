@@ -146,17 +146,20 @@ test("a impressão é o SHA-256 do texto exato, como o banco calcula", async () 
   assert.equal(await impressaoDoTexto(texto), createHash("sha256").update(texto, "utf8").digest("hex"));
 });
 
-test("Ricardo Motors: o termo monta enxuto, e só falta o valor", () => {
+test("Ricardo Motors: o termo com o que o Kaue preencheu no card, sem pendências", () => {
   const t = montarTermoDoSite(RICARDO_MOTORS);
   assert.equal(t.titulo, "Termo de contratação · Site da Ricardo Motors");
   assert.equal(t.tipo_contratante, "pf_ou_pj");
   assert.deepEqual(t.opcoes.map(o => o.id), ["com-painel", "so-site"]);
   assert.match(t.texto, /Não inclui:\n\n- Ligação automática com a Webmotors ou com outro portal\.\n- Manutenção/);
   assert.match(t.texto, /publicado no domínio que o Contratante já tem/);
-  assert.equal(/Estoque|Registro\.br/.test(t.texto), false, "o Estoque é assunto do painel, não do termo do site");
+  assert.equal(/Registro\.br/.test(t.texto), false, "ele já tem domínio: sem Registro.br");
+  assert.equal((t.texto.match(/Estoque/g) || []).length, 1, "o Estoque só aparece como módulo combinado do painel");
+  assert.match(t.texto, /os módulos combinados são: Meu site e Estoque\. A primeira mensalidade vence 30 dias após a entrega\./);
+  assert.match(t.texto, /\*\*Valor:\*\* R\$ 399,00, por Pix, só na aprovação \(nada antes\)/);
   const falta = pendencias(t.texto);
   assert.ok(falta.includes("valor do site"), falta.join(" | "));
-  assert.deepEqual(falta, ["valor do site"], "só o valor falta decidir");
+  assert.deepEqual(falta, [], "preenchido no card: nada falta");
 });
 
 test("os arquivos da tela e da página dos termos não têm erro de sintaxe (nenhum teste carrega a tela)", async () => {
