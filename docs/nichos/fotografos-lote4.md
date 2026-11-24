@@ -499,7 +499,9 @@ site dela aponta outro @); a Casa 43 (casa cultural).
 
 Portfólio online v4, feitos em 23 e 24/11/2026 com a skill `demo-portfolio-fotografa` (os leads 1 a 5 são de outra
 sessão). Os 5 foram cadastrados no painel em "Leads a trabalhar" e, com a demo no ar, movidos para "Prontas para
-trabalhar". Oferta: R$ 399 no Pix ou 2x de R$ 199, promoção até 01/12/2026 (a janela da demo). O que entrou, o que
+trabalhar". Oferta: a nova (decisão do Kaue de 23/11, seção 12 do `fotografos.md`), R$ 399 no Pix ou parcelado no
+crédito, promoção até 01/12/2026 (a janela da demo, criada ao gravar o link em 24/11). O Natal (Angélica e Thayna)
+fica por último, fora da tira e do título da vitrine. O que entrou, o que
 ficou de fora e o que conferir está na `ficha.md` de cada pasta.
 
 | nº | Demo | Ensaios | Código | Conferir antes de mandar |
@@ -515,7 +517,6 @@ ficou de fora e o que conferir está na `ficha.md` de cada pasta.
   página as linhas de cima quando ela é rolada antes de salvar). O material recente veio dos carrosséis pelo embed e,
   na Thayna e na Bianca, das galerias da página delas na Alboom (originais de 1200 × 1800, separados por ensaio). Para
   o Kaue: salvar a página logo ao abrir o perfil, sem rolar.
-- **A mensagem de primeiro contato fala em "horários disponíveis" no Natal**, que era a agenda da versão 3. Nas duas com
-  página de Natal (Angélica e Thayna) a frase foi trocada pelo que a página tem; o `mensagem-fotografia.py` continua
-  com o texto antigo até o Kaue decidir.
+- **A mensagem de primeiro contato vai sem o parágrafo do Natal**: o Natal não abre a conversa, e o parágrafo do
+  `mensagem-fotografia.py` ainda fala dos "horários disponíveis", a agenda da versão 3 (a página de Natal da v4 não tem).
 - A validade da oferta nasce no dia em que o link é gravado no painel (hoje + 7): gerar a versão final no mesmo dia.

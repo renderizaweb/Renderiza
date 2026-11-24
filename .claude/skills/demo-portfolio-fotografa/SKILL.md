@@ -18,7 +18,9 @@ ou cortada, texto pastelão, conferência pulada. Siga na ordem. Na dúvida, per
 2. Confirme com a pessoa (se ela não disse, pergunte antes de mexer em qualquer coisa):
    - **a sua faixa de leads** (ex.: "1 a 20"), quando há mais de uma sessão (seção 1);
    - **os links das pastas no Drive** (uma pasta por fotógrafa, com a página do Instagram salva e as fotos);
-   - **a oferta**: valor no Pix, parcelado e a data de validade (`renderiza` no `demo.json`);
+   - **a oferta**: valor no Pix, parcelado e a data de validade (`renderiza` no `demo.json`). A atual (decisão do Kaue,
+     23/11/2026): `preco_pix` "R$ 399", `parcelado` "parcelado no crédito", `nota_preco` "pagamento único, sem
+     mensalidade", promoção de uma semana (a data é a do link no painel + 7; veja o passo 13 da seção 2);
    - se é para **cadastrar no painel** e mover para "Prontas para trabalhar".
 3. Se a pasta do repositório for `/home/user/Renderiza`, crie o atalho que alguns scripts esperam:
    `ln -s /home/user/Renderiza /home/user/renderiza` (sem ele o `validar.mjs` não roda).
@@ -75,7 +77,9 @@ ou cortada, texto pastelão, conferência pulada. Siga na ordem. Na dúvida, per
    legendas. Separe: frases dela que dizem algo concreto; depoimentos por ensaio; fatos (onde fica, desde quando,
    o que faz, se atende a domicílio).
 6. **Escolha os ensaios (2 a 5)** pelo que ela de fato fotografa hoje (o que mais aparece nas fotos recentes e nas
-   avaliações). Natal só com **5 ou mais fotos do Natal 2026**; com menos, as fotos entram em infantil ou família.
+   avaliações). **Natal** (decisão do Kaue, 23/11): só para quem vende o Natal 2026 e tem **5 ou mais fotos limpas** do
+   cenário, e **sempre como o último ensaio, fora da tira e do título da vitrine** (o Natal não abre a conversa). Com
+   menos fotos, elas entram em infantil ou família.
 7. **Escolha foto por foto** (seção 3) e escreva `demos/<pasta>/demo.json`, chave `portfolio` (versão 4). O formato está
    no topo de `ferramentas/demo/gerar-portfolio.py`; o modelo aprovado é `demos/olivares-fotografia/demo.json` (as
    chaves de fora do `portfolio` que o gerador lê: `pasta`, `marca`, `dona`, `titulo_nome`, `titulo_script`, `quem_a`,
@@ -99,9 +103,8 @@ ou cortada, texto pastelão, conferência pulada. Siga na ordem. Na dúvida, per
     `proxima_acao`**: ao chegar em Prontas, o banco põe a checklist e a próxima ação. Gravar o link cria a janela da
     demo com `vale_ate` = hoje (Brasília) + 7: o `renderiza.valido_ate` tem de ser essa data (se virou o dia desde que
     gerou, gere de novo antes de publicar). O `codigo` do lead vai no `renderiza.codigo`.
-    A mensagem: `python3 -I ferramentas/demo/mensagem-fotografia.py --texto <pasta>`. Atenção: o parágrafo de Natal dela
-    fala em "visualizar os horários disponíveis", que era a agenda da versão 3; a página de Natal da versão 4 não tem
-    agenda. Até o Kaue decidir o texto novo, troque essa frase pelo que a página tem (fotos, pacotes e o WhatsApp).
+    A mensagem: `python3 -I ferramentas/demo/mensagem-fotografia.py --texto <pasta>`, **sem o parágrafo do Natal** (o
+    Natal não abre a conversa, e o parágrafo ainda fala dos "horários disponíveis", a agenda da versão 3).
 14. **Abra o link no ar** e clique: cada bloco da vitrine, cada ensaio, o menu, a tela cheia, o WhatsApp (a mensagem
     tem de levar o nome do ensaio). **Marque o navegador como equipe antes** (`localStorage` `renderiza:equipe` = `"1"`;
     no Playwright, um `addInitScript`), senão a sua visita aparece no painel como se fosse da cliente. Então avise a
