@@ -204,8 +204,9 @@ export function montarTermoDoSite(campos = {}) {
     "A versão para celular e para computador, com o endereço seguro (HTTPS) e a prévia com foto quando o link é compartilhado.",
     `A publicação no domínio do Contratante e a passagem de todos os acessos (${cl("onde")}).`,
   ]));
-  bloco(`Não inclui: ${[...fora.map(f => f.replace(/\.$/, "")), `manutenção e alterações depois da entrega (${cl("depois")})`, "produção de conteúdo, anúncios e redes sociais",
-    ...(c.painel === "opcional" ? [`o Painel Renderiza, que é à parte (${cl("painel")})`] : [])].join("; ")}.`);
+  bloco("Não inclui:");
+  bloco(...lista([...fora.map(f => (/[.!?]$/.test(f) ? f : f + ".")), `Manutenção e alterações depois da entrega (${cl("depois")}).`, "Produção de conteúdo, anúncios e redes sociais.",
+    ...(c.painel === "opcional" ? [`O Painel Renderiza, que é à parte (${cl("painel")}).`] : [])]));
 
   bloco(`# ${n.prazo}. Prazo, ajustes e aprovação`);
   bloco(...lista([

@@ -151,7 +151,7 @@ test("Ricardo Motors: o termo monta enxuto, e só falta o valor", () => {
   assert.equal(t.titulo, "Termo de contratação · Site da Ricardo Motors");
   assert.equal(t.tipo_contratante, "pf_ou_pj");
   assert.deepEqual(t.opcoes.map(o => o.id), ["com-painel", "so-site"]);
-  assert.match(t.texto, /Webmotors/);
+  assert.match(t.texto, /Não inclui:\n\n- Ligação automática com a Webmotors ou com outro portal\.\n- Manutenção/);
   assert.match(t.texto, /publicado no domínio que o Contratante já tem/);
   assert.equal(/Estoque|Registro\.br/.test(t.texto), false, "o Estoque é assunto do painel, não do termo do site");
   const falta = pendencias(t.texto);
