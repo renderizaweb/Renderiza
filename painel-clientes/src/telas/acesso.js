@@ -28,10 +28,16 @@ const PREVIAS = {
     ["carteira", "Sinal da Mariana", "R$ 250 · ensaio gestante · vence hoje", "Receber"],
     ["imagem", "Fotos entregues", "Ensaio de família · Souza", "Pronto"],
   ],
+  automotivo: [
+    ["conversa", "Responder quem chamou pelo Cayenne", "WhatsApp · do site · há 5 min", "Novo"],
+    ["estoque", "Carro novo no site", "BMW X5 · 2022 · 31.000 km", "No ar"],
+    ["ok", "Vendido", "Mercedes C 300 · saiu do site", "Pronto"],
+  ],
 };
 const CHAMADAS = {
   eventos: ["As festas do seu espaço,", "num lugar só.", "Datas, visitas, pedidos, contratos e pagamentos, no celular e no computador."],
   fotografia: ["Os ensaios do seu estúdio,", "num lugar só.", "Agenda, pedidos, contratos, sinais e entregas, no celular e no computador."],
+  automotivo: ["Os carros da sua loja,", "no site na hora.", "Estoque, fotos, preços e o site, no celular e no computador."],
   "": ["O dia a dia do seu negócio,", "num lugar só.", "Agenda, pedidos, contratos e pagamentos, no celular e no computador."],
 };
 
@@ -51,7 +57,8 @@ export function painelDaMarca(nicho = "") {
 }
 
 /** A classe do tema do nicho (cor de destaque e do painel da marca; 10, "Tema do nicho"). */
-export const temaDoNicho = nicho => (["eventos", "fotografia"].includes(nicho) ? `rz-tema-${nicho}` : "");
+export const TEMAS_DE_NICHO = ["eventos", "fotografia", "automotivo"];
+export const temaDoNicho = nicho => (TEMAS_DE_NICHO.includes(nicho) ? `rz-tema-${nicho}` : "");
 
 /**
  * Monta a tela. `conteudo` é o HTML do formulário (cabeça + form); `rodape`, o HTML embaixo dele;

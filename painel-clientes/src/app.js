@@ -14,6 +14,7 @@ import { decidir, TELAS } from "./rotas.js";
 import { acharModulo } from "./modulos/index.js";
 import { acharAreaAdmin } from "./admin/index.js";
 import { montarCasca, conteudoSemAcesso, avisarTrancado } from "./telas/casca.js";
+import { TEMAS_DE_NICHO } from "./telas/acesso.js";
 import { nicho } from "./nichos/index.js";
 import { avisar } from "./ui/aviso.js";
 import { escapar } from "./ui/formulario.js";
@@ -72,7 +73,7 @@ async function iniciar() {
     if (desmontar) { try { desmontar(); } catch (e) { /* sair nunca trava a próxima tela */ } desmontar = null; }
     // trocar de tela fecha as gavetas e folhas abertas (um link de dentro da gaveta leva a outra tela)
     for (const janela of document.querySelectorAll("dialog.rz-janela")) { try { janela.close(); } catch (e) { /* já fechada */ } janela.remove(); }
-    document.body.classList.remove("rz-tema-eventos", "rz-tema-fotografia"); // a casca põe de novo (o tema da conta)
+    document.body.classList.remove(...TEMAS_DE_NICHO.map(n => "rz-tema-" + n)); // a casca põe de novo (o tema da conta)
     uso.onde(null); // fora de uma conta (entrar, contas, Admin) não conta
     const decisao = decidir({ caminho: location.pathname, busca: location.search, logado: sessao.logado() });
     if (decisao.redirecionar) return navegar(decisao.redirecionar, { substituir: true });

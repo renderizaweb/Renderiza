@@ -65,7 +65,7 @@ export function abrirNovaConta(ctx) {
   let demos = [];
   banco.resultado(banco.tabela("demos").select("pasta, nicho, nome, dados").order("nome")).then(lista => {
     demos = lista;
-    form.demo.innerHTML = `<option value="">Não veio de demo</option>${["eventos", "fotografia"].map(ni => `<optgroup label="${escapar(NICHOS[ni].nome)}">${lista.filter(x => x.nicho === ni).map(x => `<option value="${escapar(x.pasta)}">${escapar(x.nome)}</option>`).join("")}</optgroup>`).join("")}`;
+    form.demo.innerHTML = `<option value="">Não veio de demo</option>${Object.keys(NICHOS).map(ni => `<optgroup label="${escapar(NICHOS[ni].nome)}">${lista.filter(x => x.nicho === ni).map(x => `<option value="${escapar(x.pasta)}">${escapar(x.nome)}</option>`).join("")}</optgroup>`).join("")}`;
   }).catch(() => { form.demo.innerHTML = `<option value="">Não deu para carregar as demos</option>`; });
   form.demo.addEventListener("change", () => {
     const x = demos.find(v => v.pasta === form.demo.value);

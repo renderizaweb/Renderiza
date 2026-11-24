@@ -36,6 +36,11 @@
   --rz-fotografia:#8a4a5f; --rz-fotografia-escuro:#6e3a4c; --rz-fotografia-claro:#e3a9bb; --rz-fotografia-fundo:#f5e8ec;
   --rz-fotografia-lateral:#3a2430; --rz-fotografia-brilho:rgba(227,169,187,.28); --rz-fotografia-foco:rgba(138,74,95,.3);
   --rz-fotografia-acao:rgba(227,169,187,.16); --rz-fotografia-acao-texto:#f0c6d3;
+  /* automotivo (24/11/2026, o protótipo do Estoque): grafite quase preto e o dourado da marca (branco no dourado
+     escuro: 4,8:1) */
+  --rz-automotivo:#87672b; --rz-automotivo-escuro:#6d5323; --rz-automotivo-claro:#e3c78c; --rz-automotivo-fundo:#f6efe1;
+  --rz-automotivo-lateral:#141416; --rz-automotivo-brilho:rgba(217,184,120,.26); --rz-automotivo-foco:rgba(184,145,74,.38);
+  --rz-automotivo-acao:rgba(217,184,120,.16); --rz-automotivo-acao-texto:#e3c78c;
   /* o painel da marca (telas de acesso): grafite e terracota, ou as do nicho */
   /* Gráficos (Financeiro): as duas séries, validadas pelo guia de dados (contraste, daltonismo, separação) */
   --rz-grafico-1:#b25134; --rz-grafico-2:#2f78a8;
@@ -43,6 +48,7 @@
      sempre com a textura, que já é da série 2), fotografia vinho e azul */
   --rz-eventos-grafico-1:#2f8a5b; --rz-eventos-grafico-2:#c27a1e;
   --rz-fotografia-grafico-1:#a64d6d; --rz-fotografia-grafico-2:#2f78a8;
+  --rz-automotivo-grafico-1:#87672b; --rz-automotivo-grafico-2:#2f78a8;
   /* De onde veio o pedido (Atendimento): as cores do exemplo, só no fundo do ícone (branco nelas: 3,3:1 ou mais) */
   --rz-origem-whatsapp:#1f9d55; --rz-origem-instagram:#c13584; --rz-origem-indicacao:#9a6a12; --rz-origem-google:#2f6fe0;
   --rz-lateral:var(--rz-grafite); --rz-brilho:rgba(232,133,94,.32); --rz-previa-acao:rgba(232,133,94,.16); --rz-previa-acao-texto:#f4b79c;
@@ -558,6 +564,9 @@ fieldset.rz-campo:disabled .rz-acessos-grade{opacity:.5}
 .rz-tema-fotografia{--rz-destaque:var(--rz-fotografia);--rz-destaque-escuro:var(--rz-fotografia-escuro);--rz-destaque-claro:var(--rz-fotografia-claro);
   --rz-destaque-fundo:var(--rz-fotografia-fundo);--rz-foco:0 0 0 3px var(--rz-fotografia-foco);--rz-lateral:var(--rz-fotografia-lateral);
   --rz-brilho:var(--rz-fotografia-brilho);--rz-previa-acao:var(--rz-fotografia-acao);--rz-previa-acao-texto:var(--rz-fotografia-acao-texto)}
+.rz-tema-automotivo{--rz-destaque:var(--rz-automotivo);--rz-destaque-escuro:var(--rz-automotivo-escuro);--rz-destaque-claro:var(--rz-automotivo-claro);
+  --rz-destaque-fundo:var(--rz-automotivo-fundo);--rz-foco:0 0 0 3px var(--rz-automotivo-foco);--rz-lateral:var(--rz-automotivo-lateral);
+  --rz-brilho:var(--rz-automotivo-brilho);--rz-previa-acao:var(--rz-automotivo-acao);--rz-previa-acao-texto:var(--rz-automotivo-acao-texto)}
 .rz-acesso .rz-botao,.rz-acesso .rz-opcao,.rz-acesso .rz-opcao-icone,.rz-acesso .rz-opcao-marca,.rz-trilho span{transition:background-color var(--rz-lento),border-color var(--rz-lento),color var(--rz-lento),box-shadow var(--rz-rapido)}
 
 /* passos que entram e saem */
@@ -609,7 +618,7 @@ button.rz-opcao:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-acesso-form{position:relative;isolation:isolate}
 .rz-acesso-form::before{content:"";position:absolute;z-index:-1;inset:0 0 auto;height:320px;pointer-events:none;
   background:linear-gradient(180deg,var(--rz-destaque-fundo),transparent);opacity:0;transition:opacity var(--rz-lento)}
-.rz-tema-eventos .rz-acesso-form::before,.rz-tema-fotografia .rz-acesso-form::before{opacity:1}
+.rz-tema-eventos .rz-acesso-form::before,.rz-tema-fotografia .rz-acesso-form::before,.rz-tema-automotivo .rz-acesso-form::before{opacity:1}
 .rz-acesso .rz-chip[aria-pressed=true]{background:var(--rz-destaque);border-color:var(--rz-destaque);color:#fff}
 
 /* ---------- 17. Atendimento (Missão 3, bloco C; 09): lista primeiro, quadro por etapa no computador ---------- */
@@ -891,12 +900,12 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-topo-nome small{font-size:var(--rz-t-xs);font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--rz-destaque);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 /* "Painel do espaço" numa linha só (com o "+" no topo, quebrava em duas e o nome da conta ficava espremido) */
 .rz-topo-nome b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-@media (min-width:960px){.rz-app.rz-tema-eventos .rz-lateral,.rz-app.rz-tema-fotografia .rz-lateral{background:var(--rz-lateral)}}
+@media (min-width:960px){.rz-app.rz-tema-eventos .rz-lateral,.rz-app.rz-tema-fotografia .rz-lateral,.rz-app.rz-tema-automotivo .rz-lateral{background:var(--rz-lateral)}}
 /* no celular, o "+" no topo, ao lado do nome, como o exemplo (cara-dos-exemplos.md, G3): o flutuante cobria a lista */
 .rz-topo-mais{flex:none;width:40px;height:40px;display:grid;place-items:center;padding:0;border:0;border-radius:var(--rz-raio);background:var(--rz-destaque);color:#fff;cursor:pointer;box-shadow:var(--rz-sombra-1)}
 .rz-topo-mais:hover{background:var(--rz-destaque-escuro)}
 .rz-topo-mais:focus-visible{outline:none;box-shadow:var(--rz-foco)}
-.rz-app.rz-tema-eventos .rz-topo .rz-conta-sinal,.rz-app.rz-tema-fotografia .rz-topo .rz-conta-sinal{background:var(--rz-destaque-escuro)}
+.rz-app.rz-tema-eventos .rz-topo .rz-conta-sinal,.rz-app.rz-tema-fotografia .rz-topo .rz-conta-sinal,.rz-app.rz-tema-automotivo .rz-topo .rz-conta-sinal{background:var(--rz-destaque-escuro)}
 @media (min-width:960px){.rz-topo-mais{display:none}}
 
 /* ---------- 26. A cara dos exemplos (Missão 7, bloco A; cara-dos-exemplos.md) ----------
@@ -913,6 +922,7 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .rz-resumo--aberto>.rz-resumo-corpo{padding-top:var(--rz-5)}
 .rz-tema-eventos{--rz-grafico-1:var(--rz-eventos-grafico-1);--rz-grafico-2:var(--rz-eventos-grafico-2)}
 .rz-tema-fotografia{--rz-grafico-1:var(--rz-fotografia-grafico-1);--rz-grafico-2:var(--rz-fotografia-grafico-2)}
+.rz-tema-automotivo{--rz-grafico-1:var(--rz-automotivo-grafico-1);--rz-grafico-2:var(--rz-automotivo-grafico-2)}
 /* A2: na Agenda, a legenda das cores à vista (o esconder tipos continua no "Filtrar") */
 .rz-legenda{display:flex;flex-wrap:wrap;gap:var(--rz-1) var(--rz-4);margin:calc(-1 * var(--rz-1)) 0 var(--rz-4);font-size:var(--rz-t-sm);color:var(--rz-tinta-2)}
 .rz-legenda li{display:inline-flex;align-items:center;gap:var(--rz-2)}
@@ -1121,3 +1131,52 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
   .rz-hs-dia ul{flex-direction:column;flex-wrap:nowrap}
   .rz-hs-slot{width:100%;min-width:0}
 }
+
+/* ---------- Estoque (src/modulos/estoque/; 12-modulo-estoque.md). Veio do protótipo (exemplos/estoque/estoque.css) ---------- */
+/* a lista */
+.et-ferramentas{margin-bottom:var(--rz-3)}
+.et-busca{position:relative;display:block;margin-bottom:var(--rz-4)}
+.et-busca svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--rz-tinta-3);pointer-events:none}
+.et-busca .rz-entrada{padding-left:42px}
+.et-linha{cursor:pointer;padding-left:var(--rz-3);padding-right:var(--rz-2);transition:background var(--rz-rapido) ease}
+.et-linha:hover{background:var(--rz-gelo)}
+.et-linha:focus-visible{outline:none;box-shadow:inset var(--rz-foco)}
+.et-mini{flex:none;width:76px;height:57px;border-radius:var(--rz-raio-p);object-fit:cover;background:var(--rz-gelo)}
+.et-mini--vazia{display:grid;place-items:center;color:var(--rz-tinta-3)}
+.et-preco-linha{display:flex;align-items:center;gap:var(--rz-2);margin-top:2px}
+.et-preco-linha b{font-variant-numeric:tabular-nums}
+.et-estrela{display:inline-grid;place-items:center;color:var(--rz-destaque);flex:none}
+.et-acoes{flex:none;width:40px;height:40px;padding:0}
+.et-nada{padding:var(--rz-4) 0}
+
+/* o formulário (na gaveta) */
+.et-gaveta .rz-janela-corpo{padding-bottom:var(--rz-6)}
+.et-form{gap:var(--rz-6)}
+.et-bloco{display:flex;flex-direction:column;gap:var(--rz-3)}
+.et-bloco>.rz-texto-3{margin-top:calc(var(--rz-2) * -1)}
+.et-campos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--rz-3) var(--rz-3)}
+.et-inteiro{grid-column:1/-1}
+@media (max-width:480px){.et-campos{grid-template-columns:minmax(0,1fr)}}
+.et-fotos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--rz-2)}
+.et-foto{position:relative;margin:0;aspect-ratio:4/3;border-radius:var(--rz-raio-p);overflow:hidden;background:var(--rz-gelo)}
+.et-foto img{width:100%;height:100%;object-fit:cover;display:block}
+.et-capa{position:absolute;left:6px;bottom:6px;padding:2px 8px;border-radius:var(--rz-raio-pilula);background:var(--rz-tinta);color:#fff;font-size:var(--rz-t-xs);font-weight:600}
+.et-foto-b{position:absolute;top:6px;width:28px;height:28px;display:grid;place-items:center;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.92);color:var(--rz-tinta);cursor:pointer;box-shadow:var(--rz-sombra-1)}
+.et-foto-tirar{right:6px}.et-foto-capa{left:6px}
+.et-foto--mais{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:1.5px dashed var(--rz-linha-forte);color:var(--rz-tinta-2);font-size:var(--rz-t-sm);font-weight:600;cursor:pointer}
+.et-foto--mais:hover{border-color:var(--rz-destaque);color:var(--rz-destaque)}
+.et-marcar{display:flex;flex-wrap:wrap;gap:var(--rz-2)}
+.et-marcar label{position:relative;cursor:pointer}
+.et-marcar input{position:absolute;opacity:0;pointer-events:none}
+.et-marcar span{display:inline-flex;align-items:center;min-height:36px;padding:0 var(--rz-3);border:1px solid var(--rz-linha-forte);border-radius:var(--rz-raio-pilula);font-size:var(--rz-t-sm);font-weight:500;background:var(--rz-superficie)}
+.et-marcar input:checked+span{background:var(--rz-tinta);border-color:var(--rz-tinta);color:#fff}
+.et-marcar input:focus-visible+span{box-shadow:var(--rz-foco)}
+.et .rz-segmentos{flex-wrap:wrap}
+.et-linha--fora .et-mini{opacity:.55}
+.et-linha--esqueleto{pointer-events:none}
+.et-linha--esqueleto b,.et-linha--esqueleto small{display:block;width:60%;border-radius:var(--rz-raio-p);background:var(--rz-gelo)}
+.et-linha--esqueleto small{width:40%;margin-top:6px}
+.et-foto--subindo{background:linear-gradient(90deg,var(--rz-gelo) 25%,var(--rz-superficie) 50%,var(--rz-gelo) 75%);background-size:200% 100%;animation:et-subindo 1.2s linear infinite}
+@keyframes et-subindo{to{background-position:-200% 0}}
+
+.rz-inicio-estoque{margin-top:var(--rz-3)}

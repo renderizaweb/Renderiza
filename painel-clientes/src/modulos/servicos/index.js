@@ -2,6 +2,7 @@
 // que os módulos usam. Por nicho (05, "Os nomes que mudam por nicho"):
 //   eventos:    Pacotes · Tipos de festa · Adicionais · Horários (turnos) · Datas fechadas
 //   fotografia: Ensaios · Horários · Campanhas · Folgas · Adicionais
+//   automotivo: Serviços (só o nome e a descrição: consignação, financiamento, troca; 24/11/2026)
 // Os horários seguem o jeito da agenda online da conta (Configurações; src/nichos/index.js, modoDaAgenda): por horário,
 // cada linha é um começo (e pode ser só de um ensaio); por turno, começo, fim e nome. As campanhas são do jeito por horário.
 // Pacote, tipo e adicional não se apagam (as reservas apontam para eles): desativam. Horário e data fechada, sim.
@@ -22,6 +23,7 @@ export function abasDoNicho(nicho, modo = nicho.agendaPadrao) {
   const servicos = { id: "servicos", nome: p.servicos[0].toUpperCase() + p.servicos.slice(1), novo: `Novo ${p.servico}` };
   const adicionais = { id: "adicionais", nome: "Adicionais", novo: "Novo adicional" };
   const horarios = { id: "horarios", nome: "Horários", novo: "Novo horário" };
+  if (nicho.servicoSimples) return [servicos];
   return nicho.id === "fotografia"
     ? [servicos, horarios, ...(modo === "horario" ? [{ id: "campanhas", nome: "Campanhas", novo: "Nova campanha" }] : []), { id: "bloqueios", nome: "Folgas", novo: "Nova folga" }, adicionais]
     : [servicos, { id: "tipos", nome: "Tipos de festa", novo: "Novo tipo de festa" }, adicionais, horarios, { id: "bloqueios", nome: "Datas fechadas", novo: "Nova data fechada" }];
@@ -89,10 +91,10 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
   el.innerHTML = `
     <header class="rz-cabeca">
       <div class="rz-cabeca-titulos"><h1 class="rz-titulo-1">Serviços</h1>
-        <p class="rz-texto-2">${nicho.id === "fotografia" ? "Os ensaios, os horários e as campanhas que o painel e a agenda online usam." : "Os pacotes, os tipos de festa e os horários que o painel e a agenda online usam."}</p></div>
+        <p class="rz-texto-2">${nicho.servicoSimples ? "O que a loja faz além de vender, como o site mostra." : nicho.id === "fotografia" ? "Os ensaios, os horários e as campanhas que o painel e a agenda online usam." : "Os pacotes, os tipos de festa e os horários que o painel e a agenda online usam."}</p></div>
       ${edita ? `<div class="rz-cabeca-acoes"><button class="rz-botao rz-botao--primario" type="button" data-novo>${icone("adicionar", { tamanho: 18 })}Novo</button></div>` : ""}
     </header>
-    <nav class="rz-abas" aria-label="Partes de Serviços">${abas.map(a => `<a href="/servicos?aba=${a.id}"${a.id === aba.id ? ' aria-current="page"' : ""}>${escapar(a.nome)}</a>`).join("")}</nav>
+    <nav class="rz-abas" aria-label="Partes de Serviços"${abas.length < 2 ? " hidden" : ""}>${abas.map(a => `<a href="/servicos?aba=${a.id}"${a.id === aba.id ? ' aria-current="page"' : ""}>${escapar(a.nome)}</a>`).join("")}</nav>
     ${!edita ? `<p class="rz-alerta" role="note">${icone("cadeado", { tamanho: 18 })}<span>Você só vê esta parte. Quem muda é o dono ou quem ele deixar.</span></p>` : ""}
     ${aba.id === "horarios" ? `<p class="rz-texto-3 rz-nota-aba">${porTurno ? "A agenda online oferece o dia e o turno: cada turno tem começo, fim e nome." : "A agenda online oferece o horário de começo: cada linha é um começo."}${conta.dono ? ` <a href="/configuracoes">Mudar o jeito em Configurações</a>.` : ""}</p>` : ""}
     <div data-lista></div>`;
@@ -105,7 +107,7 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
     servicos: {
       tabela: "servicos",
       carregar: () => banco.resultado(banco.tabela("servicos").select("*").eq("conta_id", conta.conta_id).order("ativo", { ascending: false }).order("ordem").order("nome")),
-      vazio: { titulo: `Nenhum ${p.servico} ainda`, texto: nicho.id === "fotografia" ? "Cadastre os ensaios que você faz, com a duração e o valor." : "Cadastre os pacotes, com o valor e quantos convidados cada um cobre." },
+      vazio: { titulo: `Nenhum ${p.servico} ainda`, texto: nicho.servicoSimples ? "Consignação, financiamento, troca: o que a loja faz além de vender." : nicho.id === "fotografia" ? "Cadastre os ensaios que você faz, com a duração e o valor." : "Cadastre os pacotes, com o valor e quantos convidados cada um cobre." },
       linha: s => {
         const partes = nicho.temConvidados
           ? [s.valor != null ? moeda(s.valor) : null, s.convidados_inclusos != null ? `até ${s.convidados_inclusos} convidados` : null, s.valor_convidado_extra != null ? `${moeda(s.valor_convidado_extra)} por convidado a mais` : null]
@@ -113,7 +115,10 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
         return `${s.cor ? `<span class="rz-cor" style="--cor:${escapar(s.cor)}"></span>` : ""}<span class="rz-linha-texto"><b>${escapar(s.nome)}</b><small>${escapar(partes.filter(Boolean).join(" · ") || "Sem detalhes ainda")}</small></span>
           <span class="rz-linha-fim">${s.valor == null ? etiqueta("Sem valor", "alerta") : ""}${!s.ativo ? etiqueta("Desativado") : temAgendaOnline && !s.na_agenda_online ? etiqueta("Fora da agenda online") : ""}</span>`;
       },
-      form: s => `
+      form: s => nicho.servicoSimples ? `
+        ${campoTexto({ id: "s-nome", nome: "nome", rotulo: "Nome", valor: s.nome, placeholder: "Ex.: Consignação" })}
+        ${campoArea({ id: "s-desc", nome: "descricao", rotulo: "Descrição", valor: s.descricao || "", opcional: true, linhas: 2 })}
+        ${interruptor({ nome: "ativo", rotulo: "Ativo", marcado: s.ativo !== false })}` : `
         ${campoTexto({ id: "s-nome", nome: "nome", rotulo: "Nome", valor: s.nome, placeholder: nicho.id === "fotografia" ? "Ex.: Ensaio gestante" : "Ex.: Clássico" })}
         <div class="rz-campos rz-campos--duas">
           ${campoTexto({ id: "s-valor", nome: "valor", rotulo: "Valor (R$)", valor: s.valor != null ? String(s.valor).replace(".", ",") : "", teclado: "decimal", opcional: true, placeholder: "Ex.: 1.900" })}

@@ -17,6 +17,7 @@ export const MODULOS = [
   { id: "clientes", nome: "Clientes", base: false, carregar: () => import("./clientes/index.js") },
   { id: "contratos", nome: "Contratos", base: false, carregar: () => import("./contratos/index.js") },
   { id: "financeiro", nome: "Financeiro", base: false, carregar: () => import("./financeiro/index.js") },
+  { id: "estoque", nome: "Estoque", base: false, carregar: () => import("./estoque/index.js") },
   { id: "meu-site", nome: "Meu site", base: false, carregar: () => import("./meu-site/index.js") },
   { id: "servicos", nome: "Serviços", base: true, carregar: () => import("./servicos/index.js") },
   { id: "equipe", nome: "Equipe e acessos", base: true, carregar: () => import("./equipe/index.js") },

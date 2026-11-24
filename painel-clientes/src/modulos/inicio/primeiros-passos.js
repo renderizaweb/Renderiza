@@ -24,8 +24,12 @@ export function passosDaConta(conta, feitos = {}) {
     // a conversa de boas-vindas ficou para depois (Missão 7, bloco E)
     montarAdiado(conta) && { id: "montar", titulo: "Terminar de montar o painel", texto: "Umas perguntas de um toque, e o painel fica com a cara do seu negócio.",
       feito: false, acao: { href: "/montar", rotulo: "Continuar" } },
+    // a loja (nicho com Estoque, 24/11/2026): o primeiro passo é pôr os carros; os serviços não têm valor
+    ligado("estoque") && { id: "estoque", titulo: `Pôr os ${(n.estoque && n.estoque.itens) || "itens"} no estoque`, texto: "Com foto e preço: cada um aparece no site na hora.",
+      feito: !!feitos.estoque, acao: { href: "/estoque?novo=item", rotulo: n.palavras.novoItem || "Novo item" }, deNovo: "Abrir o Estoque" },
+    n.servicoSimples ? null
     // a conta criada pelo Admin nasce sem nenhum (a do cadastro já vem com os da pergunta do nicho)
-    feitos.semServicos
+    : feitos.semServicos
       ? { id: "valores", titulo: `Cadastrar os seus ${n.palavras.servicos}, com os valores`, texto: "Para os orçamentos, os contratos e o Financeiro saírem certos.",
         feito: false, acao: { href: "/servicos", rotulo: "Cadastrar" } }
       : { id: "valores", titulo: `Pôr os valores dos seus ${n.palavras.servicos}`, texto: "Para os orçamentos e o Financeiro saírem certos.",
@@ -34,7 +38,7 @@ export function passosDaConta(conta, feitos = {}) {
       texto: "Datas marcadas, clientes, pacotes e contrato: em foto, PDF ou planilha. A IA lê e você confere.", feito: !!feitos.reservas || !!feitos.trouxe,
       acao: { href: "/trazer", rotulo: "Trazer" }, extra: { importar: true, rotulo: "Digitar as datas" }, deNovo: "Trazer mais" },
     // o site ligado ao painel (Meu site): o caminho para ele, até a primeira mudança
-    ligado("meu-site") && feitos.site && { id: "site", titulo: "Conhecer o seu site no painel", texto: "Mude textos e fotos vendo o site ao lado. Os pedidos da agenda do site caem no Atendimento.",
+    ligado("meu-site") && feitos.site && { id: "site", titulo: "Conhecer o seu site no painel", texto: ligado("agenda-online") ? "Mude textos e fotos vendo o site ao lado. Os pedidos da agenda do site caem no Atendimento." : "Mude textos e fotos vendo o site ao lado.",
       feito: !!feitos.siteMexido, acao: { href: "/meu-site", rotulo: "Abrir o Meu site" }, deNovo: "Abrir o Meu site" },
     // a agenda do site, nas contas que nasceram com ela desligada (20/11/2026): ligar quando conferir os horários
     ligado("agenda-online") && feitos.site && conta.ajustes && conta.ajustes.agenda && typeof conta.ajustes.agenda.site === "boolean" && {
@@ -288,7 +292,7 @@ export function abrirImportacao({ banco, conta }) {
 
 async function lerFeitos(banco, contaId, { comUsuario = false } = {}) {
   const existe = consulta => banco.resultado(consulta.limit(1)).then(l => l.length > 0).catch(() => false);
-  const [valores, servicos, reservas, pedidos, pessoas, convites, trouxe, site, siteMexido] = await Promise.all([
+  const [valores, servicos, reservas, pedidos, pessoas, convites, trouxe, site, siteMexido, estoque] = await Promise.all([
     existe(banco.tabela("servicos").select("id").eq("conta_id", contaId).not("valor", "is", null)),
     existe(banco.tabela("servicos").select("id").eq("conta_id", contaId)),
     existe(banco.tabela("reservas").select("id").eq("conta_id", contaId)),
@@ -298,9 +302,10 @@ async function lerFeitos(banco, contaId, { comUsuario = false } = {}) {
     existe(banco.tabela("importacoes").select("id").eq("conta_id", contaId).is("desfeita_em", null)),
     existe(banco.tabela("sites").select("id").eq("conta_id", contaId).eq("situacao", "conectado")),
     existe(banco.tabela("sites_versoes").select("id").eq("conta_id", contaId)),
+    existe(banco.tabela("estoque_itens").select("id").eq("conta_id", contaId)),
   ]);
   const recuperacao = comUsuario ? await banco.rpc("meu_email_de_recuperacao").catch(() => null) : null;
-  return { valores, semServicos: !servicos, reservas, pedidos, equipe: pessoas || convites, trouxe, site, siteMexido, comUsuario, emailRecuperacao: !!(recuperacao && recuperacao.confirmado) };
+  return { valores, semServicos: !servicos, estoque, reservas, pedidos, equipe: pessoas || convites, trouxe, site, siteMexido, comUsuario, emailRecuperacao: !!(recuperacao && recuperacao.confirmado) };
 }
 
 /** O botão de um passo: importar, pôr o e-mail ou ir para a tela. Feito, o mesmo caminho com o rótulo de fazer de novo. */

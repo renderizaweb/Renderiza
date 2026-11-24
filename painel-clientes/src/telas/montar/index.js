@@ -160,7 +160,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
     },
 
     tipos: () => `
-      ${cabeca(escapar(n.perguntaDoNicho), sabe.tipos.length ? "Os que estão na sua página já vêm marcados. Toque para tirar ou pôr." : "Toque nos que vocês fazem. Cada um ganha uma cor na agenda.")}
+      ${cabeca(escapar(n.perguntaDoNicho), sabe.tipos.length ? "Os que estão na sua página já vêm marcados. Toque para tirar ou pôr." : n.servicoSimples ? "Toque nos que a loja faz. Eles ficam em Serviços, para o site e o painel." : "Toque nos que vocês fazem. Cada um ganha uma cor na agenda.")}
       <form class="rz-pilha" novalidate>
         <div class="rz-chips rz-chips--quebra" role="group" aria-label="${escapar(n.palavras.tipos)}">
           ${estado.tipos.map((t, i) => `<button class="rz-chip" type="button" data-tipo="${i}" aria-pressed="${t.marcada}">${escapar(t.nome)}</button>`).join("")}
@@ -191,6 +191,12 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
     arquivos: () => {
       // o que voltou do /trazer (Missão 7, bloco F): "Pronto: trouxe…"
       const trazido = lerTrazido(conta.conta_id);
+      // a loja: os carros entram pelo Estoque (foto, dados e preço), não por arquivo
+      if (n.estoque && !trazido) return `
+      ${cabeca(`E os ${escapar(n.estoque.itens)}?`, `Eles entram pelo Estoque, com foto e preço, e aparecem no site na hora. No fim, o Início te leva até lá.`)}
+      <div class="rz-acesso-acoes">
+        <button class="rz-botao rz-botao--grande rz-botao--bloco rz-botao--primario" type="button" data-seguir>Montar o meu painel ${icone("seta", { tamanho: 18 })}</button>
+      </div>`;
       return `
       ${cabeca(trazido ? "Pronto, já está no seu painel" : "Tem orçamento, contrato ou lista de clientes?", trazido
         ? (trazido.pedido ? "Os arquivos foram para a Renderiza: a gente monta e te avisa no WhatsApp." : `Entrou: ${escapar(trazido.texto)}. Quer trazer mais alguma coisa?`)
@@ -205,7 +211,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
       const marcadas = estado.tipos.filter(t => t.marcada && !existentes.some(x => x.nome.toLowerCase() === t.nome.toLowerCase()));
       const etapas = [
         ["dados", `Confirmando os dados ${escapar(n.palavras.daConta)}`],
-        marcadas.length && ["tipos", n.temTiposDeFesta ? `Separando as cores das festas (${marcadas.length})` : `Guardando os ensaios (${marcadas.length})`],
+        marcadas.length && ["tipos", n.temTiposDeFesta ? `Separando as cores das festas (${marcadas.length})` : `Guardando os ${escapar(n.palavras.servicos)} (${marcadas.length})`],
         ["menu", "Arrumando o menu do seu jeito"],
         ["pronto", "Preparando o seu plano para começar"],
       ].filter(Boolean);

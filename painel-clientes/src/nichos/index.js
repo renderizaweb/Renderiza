@@ -3,8 +3,9 @@
 
 import eventos from "./eventos.js";
 import fotografia from "./fotografia.js";
+import automotivo from "./automotivo.js";
 
-export const NICHOS = { eventos, fotografia };
+export const NICHOS = { eventos, fotografia, automotivo };
 
 /** O nicho pelo id (o da conta); sem conta ainda, o de eventos. */
 export function nicho(id) {
