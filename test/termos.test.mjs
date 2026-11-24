@@ -158,7 +158,6 @@ test("Ricardo Motors: o termo com o que o Kaue preencheu no card, sem pendência
   assert.match(t.texto, /os módulos combinados são: Meu site e Estoque\. A primeira mensalidade vence 30 dias após a entrega\./);
   assert.match(t.texto, /\*\*Valor:\*\* R\$ 399,00, por Pix, só na aprovação \(nada antes\)/);
   const falta = pendencias(t.texto);
-  assert.ok(falta.includes("valor do site"), falta.join(" | "));
   assert.deepEqual(falta, [], "preenchido no card: nada falta");
 });
 
