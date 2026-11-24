@@ -361,6 +361,7 @@ grant execute on function public.aceitar_termo_online(text, text, jsonb, text) t
 -- Só a função de borda termo-codigo (chave de serviço), logo depois da assinatura: devolve os dados do comprovante de
 -- uma assinatura feita há menos de 30 minutos, uma vez só (marca comprovante_em). O protocolo são os 12 primeiros
 -- caracteres do id; o CPF volta mascarado. Termos de lead: também o nome da opção escolhida, o CNPJ e a razão social.
+-- E o texto inteiro do termo (24/11/2026): o e-mail do comprovante leva o termo assinado, como registro.
 create or replace function public.comprovante_termo(p_termo text, p_protocolo text)
 returns jsonb language plpgsql security definer set search_path = '' as $$
 declare a public.termos_aceites; t public.termos_online;
@@ -377,7 +378,7 @@ begin
     'nome', a.nome, 'email', a.email, 'email_confirmado', a.email_confirmado,
     'cpf', '***.' || substr(a.cpf, 4, 3) || '.' || substr(a.cpf, 7, 3) || '-**', 'plano', a.plano,
     'plano_nome', a.opcao_nome, 'cnpj', a.cnpj, 'empresa', a.empresa,
-    'em', a.criado_em, 'ip', a.ip, 'impressao', a.impressao);
+    'em', a.criado_em, 'ip', a.ip, 'impressao', a.impressao, 'texto', t.texto);
 end $$;
 revoke all on function public.comprovante_termo(text, text) from public, anon, authenticated;
 grant execute on function public.comprovante_termo(text, text) to service_role;

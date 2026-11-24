@@ -22,7 +22,7 @@ test("termo completo: sem pendências, título, opções com e sem o painel", ()
   assert.deepEqual(t.opcoes.map(o => o.id), ["com-painel", "so-site"]);
   assert.match(t.opcoes[0].detalhe, /a partir de R\$ 49,00 por mês, com os módulos que você escolher/);
   assert.match(t.texto, /\*\*R\$ 1\.200,50\*\*/);
-  assert.match(t.texto, /R\$ 600,25 em até 2 dias úteis depois da assinatura e R\$ 600,25 até o dia útil seguinte/);
+  assert.match(t.texto, /R\$ 600,25 em até 2 dias úteis depois da assinatura e o restante na aprovação, antes da publicação/);
   assert.match(t.texto, /\*\*lojateste\.com\.br\*\*/);
   assert.match(t.texto, /Inclui:\n\n- Página inicial\n- Galeria de produtos\n- Contato\n- As páginas e seções combinadas/, "um item por linha, sem marcador repetido");
   assert.match(t.texto, /no modelo da demonstração em renderizaweb\.com\.br\/demo\/loja-teste/);
@@ -63,10 +63,10 @@ test("domínio: o cliente já tem (só uma linha, sem custo), a Renderiza regist
   assert.equal((tem.match(/\*\*Domínio:\*\*/g) || []).length, 1, "uma linha só sobre o domínio");
   const inc = montarTermoDoSite({ ...COMPLETO, dominio_situacao: "registrar_incluido" }).texto;
   assert.match(inc, /com o primeiro ano incluído no preço\. A partir do segundo ano, a renovação é dele/);
-  assert.match(inc, /Inclui o registro do domínio por 1 ano/);
+  assert.match(inc, /O preço inclui o registro do domínio por 1 ano/);
   const cli = montarTermoDoSite({ ...COMPLETO, dominio_situacao: "registrar_cliente" }).texto;
   assert.match(cli, /registrado e pago pelo Contratante, no nome dele, assim como a renovação anual/);
-  assert.equal(cli.includes("Inclui o registro do domínio"), false);
+  assert.equal(cli.includes("inclui o registro do domínio"), false);
   // campos da primeira versão (dominio_primeiro_ano) continuam valendo
   assert.equal(camposDoSite({ dominio_primeiro_ano: "contratante" }).dominio_situacao, "registrar_cliente");
   assert.equal(camposDoSite({ dominio_primeiro_ano: "incluido" }).dominio_situacao, "registrar_incluido");
@@ -167,4 +167,31 @@ test("os arquivos da tela e da página dos termos não têm erro de sintaxe (nen
   const html = readFileSync(new URL("../termos/pagina.html", import.meta.url), "utf8");
   const modulo = /<script type="module">([\s\S]*?)<\/script>/.exec(html)[1].replace(/^import .*$/m, "");
   assert.doesNotThrow(() => new Function(modulo.replace(/\bawait\b/g, "")), "o script da página /termo");
+});
+
+test("pagamento no final (padrão): nada antes; aprovado, paga e a Renderiza publica", () => {
+  const t = montarTermoDoSite({ ...COMPLETO, pagamento: undefined }).texto;
+  assert.match(t, /\*\*Valor:\*\* R\$ 1\.200,50, por Pix, só na aprovação \(nada antes\)/);
+  assert.match(t, /\*\*Nada é pago antes da entrega:\*\* a Renderiza mostra o site pronto num endereço de prévia; aprovado, o Contratante paga em até 2 dias úteis/);
+  assert.match(t, /Aprovada e paga, a Renderiza publica o site/);
+  assert.equal(/volta em até 10 dias/.test(t), false, "nada foi pago antes: não há o que devolver");
+});
+
+test("desistência: 7 dias sem custo; depois, sem custo até a versão para aprovação e metade depois dela; o site não é entregue", () => {
+  const t = montarTermoDoSite({ ...COMPLETO, pagamento: "entrega" }).texto;
+  assert.match(t, /\*\*Nos 7 dias depois da assinatura:\*\* o Contratante pode desistir deste termo sem dar motivo e sem nenhum custo\./);
+  assert.match(t, /Se a Renderiza ainda não tiver mandado a versão para aprovação \(cláusula 3\), não há custo; se já tiver mandado, o Contratante paga metade do preço \(R\$ 600,25\) pelo trabalho feito\. Cancelado, o site não é entregue nem publicado\./);
+  assert.match(t, /não responder por mais de 30 dias, a Renderiza pode encerrar o termo/);
+  const sem = montarTermoDoSite({ ...COMPLETO, pagamento: "entrega", cancelamento: "sem_custo" }).texto;
+  assert.match(sem, /pode cancelar avisando por escrito\. Não há custo\. Cancelado/);
+  assert.match(sem, /\*\*Desistência:\*\* a qualquer momento antes de aprovar o site, sem custo\./);
+  // pagou antes: devolve
+  const antes = montarTermoDoSite({ ...COMPLETO, pagamento: "integral" }).texto;
+  assert.match(antes, /sem nenhum custo; o que tiver pago volta em até 10 dias\./);
+  assert.match(antes, /pelo trabalho feito\. O que tiver pago além disso volta em até 10 dias\./);
+});
+
+test("1ª mensalidade do painel: só aparece se preenchida", () => {
+  assert.match(montarTermoDoSite({ ...COMPLETO, painel_inicio: "30 dias depois da entrega." }).texto, /A primeira mensalidade vence 30 dias depois da entrega\. O Contratante liga/);
+  assert.equal(montarTermoDoSite(COMPLETO).texto.includes("primeira mensalidade"), false);
 });

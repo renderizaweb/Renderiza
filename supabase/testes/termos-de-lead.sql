@@ -122,6 +122,7 @@ begin
   r := public.comprovante_termo('ricardo-motors-v1', p);
   assert (r ->> 'ok')::boolean and r ->> 'plano_nome' = 'Só o site' and r ->> 'cnpj' = '11222333000181' and r ->> 'empresa' = 'RM Consult Car Ltda', 'comprovante: ' || r::text;
   assert r ->> 'pagina' = 'https://www.renderizaweb.com.br/termo/ricardo-motors-v1', 'endereço do texto no comprovante';
+  assert r ->> 'texto' = E'# 1. Teste\nValor: R$ 1.000,00', 'o comprovante leva o texto inteiro';
   assert not (public.comprovante_termo('ricardo-motors-v1', p) ->> 'ok')::boolean, 'o comprovante sai uma vez só';
 end $$;
 reset role;

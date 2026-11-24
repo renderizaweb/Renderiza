@@ -19,6 +19,14 @@ const aceitesDo = termoId => dados.listar("termos_aceites").filter(a => a.termo_
 const quando = iso => { const d = new Date(iso); return Number.isNaN(d.getTime()) ? "" : d.toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" }); };
 const cnpjBonito = c => String(c || "").replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5");
 const protocolo = a => String(a.id || "").replace(/-/g, "").slice(0, 12).toUpperCase();
+/** "Mozilla/5.0 (Linux; Android 14…) … Chrome/131…" → "Android · Chrome" (o texto inteiro fica no banco, como prova). */
+export function aparelhoDe(ua) {
+  const u = String(ua || "");
+  if (!u) return "aparelho não informado";
+  const so = /iPhone|iPad/.test(u) ? "iPhone/iPad" : /Android/.test(u) ? "Android" : /Windows/.test(u) ? "Windows" : /Mac OS X|Macintosh/.test(u) ? "Mac" : /Linux/.test(u) ? "Linux" : "outro sistema";
+  const nav = /Edg\//.test(u) ? "Edge" : /SamsungBrowser/.test(u) ? "Samsung Internet" : /CriOS|Chrome\//.test(u) ? "Chrome" : /FxiOS|Firefox\//.test(u) ? "Firefox" : /Safari\//.test(u) ? "Safari" : "outro navegador";
+  return `${so} · ${nav}`;
+}
 /** O endereço do termo: o que o banco guarda (o do vereador é /contrato/…) ou /termo/<id>. */
 const enderecoDo = t => (/^https:\/\//.test(t.pagina || "") ? t.pagina : linkDoTermo(t.id));
 
@@ -107,7 +115,7 @@ export function secaoTermo({ id, vincular, cartao, mapaDeVisitas }) {
     assinaturas.replaceChildren(...aceites.map(a => h("div", { class: "termo-aceite" },
       h("div", { class: "termo-aceite-topo" }, icone("certo", 15), h("strong", { text: `Assinado por ${a.nome}` }), h("span", { text: quando(a.criado_em) })),
       h("p", { text: [a.empresa && `${a.empresa} · CNPJ ${cnpjBonito(a.cnpj)}`, a.opcao_nome, `${a.email}${a.email_confirmado ? " (e-mail confirmado)" : ""}`, `WhatsApp ${a.whatsapp}`].filter(Boolean).join(" · ") }),
-      h("p", { class: "termo-aceite-prova", text: `Protocolo ${protocolo(a)} · IP ${a.ip || "não informado"}${a.comprovante_em ? " · comprovante enviado" : " · comprovante não saiu"}` }),
+      h("p", { class: "termo-aceite-prova", text: `Protocolo ${protocolo(a)} · IP ${a.ip || "não informado"} · ${aparelhoDe(a.aparelho)}${a.comprovante_em ? " · comprovante enviado" : " · comprovante não saiu"}` }),
       // A ligação com o outro contrato: o painel tem Termos de uso próprios, aceitos no primeiro acesso a ele.
       a.plano === "com-painel" ? h("p", { class: "termo-proximo" }, icone("painel", 14),
         h("span", { text: "Escolheu o painel. Próximo passo: criar a conta dele no Admin do Painel Renderiza, com os módulos que ele quiser. Os Termos de uso do painel (plano, módulos e valor) ele aceita no primeiro acesso." })) : null)));
@@ -124,7 +132,7 @@ export function secaoTermo({ id, vincular, cartao, mapaDeVisitas }) {
   copiarLink.addEventListener("click", () => atual && copiar(enderecoDo(atual), "Link do termo copiado."));
   copiarMsg.addEventListener("click", () => atual && copiar(mensagemDoTermo(atual), "Mensagem copiada: é só colar no WhatsApp do cliente."));
   editar.addEventListener("click", () => atual && abrirEditor(id, atual));
-  novaVersao.addEventListener("click", () => atual && abrirEditor(id, null, atual.campos));
+  novaVersao.addEventListener("click", () => atual && abrirEditor(id, null, atual));
   chave.addEventListener("change", async () => {
     if (!atual) return;
     try {
@@ -143,13 +151,17 @@ export function secaoTermo({ id, vincular, cartao, mapaDeVisitas }) {
 
 /**
  * A janela do termo: os campos do modelo, o texto final (dá para mexer) e a prévia como o cliente vê.
- * termo: o termo a editar (rascunho, sem assinatura) ou null para um novo; base: campos para começar (nova versão).
+ * termo: o termo a editar (rascunho, sem assinatura) ou null para um novo; base: o termo anterior (nova versão).
  */
 export function abrirEditor(leadId, termo, base = null) {
   const lead = dados.buscar("leads", leadId) || {};
-  let campos = camposDoSite(termo ? termo.campos : base || camposDoLead(lead));
+  // base: o termo anterior, numa nova versão (os mesmos campos e, se foi ajustado à mão, o mesmo texto)
+  const origem = termo || base;
+  let campos = camposDoSite(origem ? origem.campos : camposDoLead(lead));
   let montado = montarTermoDoSite(campos);
-  let mexido = !!termo && termo.texto !== montado.texto; // o texto salvo foi ajustado à mão
+  // Texto ajustado à mão fica marcado nos campos (texto_manual); sem a marca, o texto sempre sai dos campos, com o modelo
+  // de agora. (Antes se adivinhava comparando com o modelo: um modelo novo fazia o texto parar de seguir os campos.)
+  let mexido = !!(origem && origem.campos && origem.campos.texto_manual && origem.texto);
   const novoId = termo ? termo.id : idDoTermo(lead.empresa, termosDoLead(leadId).map(t => t.id));
 
   // aba Campos
@@ -171,14 +183,14 @@ export function abrirEditor(leadId, termo, base = null) {
 
   // aba Texto
   const texto = h("textarea", { class: "termo-texto", rows: "18", spellcheck: "true", "aria-label": "Texto do termo" });
-  texto.value = termo ? termo.texto : montado.texto;
+  texto.value = mexido ? origem.texto : montado.texto;
   const refazer = h("button", { type: "button", class: "text-link" }, icone("recuperar", 14), "Refazer o texto pelos campos");
-  const avisoMexido = h("p", { class: "termo-mexido" }, "Você ajustou o texto à mão: mudar os campos não mexe mais nele. ", refazer);
+  const avisoMexido = h("p", { class: "termo-mexido" }, h("strong", { text: "O texto foi ajustado à mão: " }), "mudar os campos não muda mais o texto. ", refazer);
   texto.addEventListener("input", () => { mexido = texto.value !== montado.texto; avisoMexido.hidden = !mexido; atualizarFalta(); });
   refazer.addEventListener("click", () => { texto.value = montado.texto; mexido = false; avisoMexido.hidden = true; atualizarFalta(); });
   const paneTexto = h("div", { class: "termo-editor-texto" },
     h("p", { class: "termo-dica", text: "# título · ## subtítulo · - item · 1. item numerado · **negrito** · [[pendência]] (segura a assinatura até sair)." }),
-    avisoMexido, texto);
+    texto);
 
   // aba Prévia
   const previa = h("article", { class: "termo-previa" });
@@ -202,7 +214,8 @@ export function abrirEditor(leadId, termo, base = null) {
   function atualizarFalta() {
     const f = pendencias(texto.value);
     falta.hidden = !f.length;
-    falta.replaceChildren(h("strong", { text: `Falta ${f.length === 1 ? "1 coisa" : f.length + " coisas"}: ` }), f.join(" · "));
+    falta.replaceChildren(h("strong", { text: `Falta ${f.length === 1 ? "1 coisa" : f.length + " coisas"} no texto: ` }), f.join(" · "),
+      mexido ? " (o texto foi ajustado à mão: corrija na aba Texto ou refaça pelos campos)" : "");
     salvarAbrir.disabled = !!f.length || !texto.value.trim();
     salvarAbrir.title = f.length ? "Preencha o que está entre [[ ]] para abrir" : "";
   }
@@ -218,6 +231,7 @@ export function abrirEditor(leadId, termo, base = null) {
     descricao: "A base geral do site (entrega única, sem manutenção, tudo no nome do cliente, painel à parte) com o que é deste cliente. Só o que estiver em branco e for obrigatório vira pendência. Assinado, o texto não muda mais.",
     larga: true,
     conteudo: [
+      avisoMexido,
       h("div", { class: "tabs-list termo-abas", role: "tablist" }, ...botoesAba),
       paneCampos, paneTexto, panePrevia, falta,
       h("div", { class: "janela-acoes" }, h("button", { type: "button", class: "btn btn-outline", text: "Cancelar", onclick: () => fechar() }), salvarRascunho, salvarAbrir),
@@ -230,7 +244,7 @@ export function abrirEditor(leadId, termo, base = null) {
   async function gravar(abrirJa) {
     const linha = {
       titulo: montado.titulo, texto: texto.value.replace(/\r\n/g, "\n").trim(), opcoes: montado.opcoes,
-      tipo_contratante: montado.tipo_contratante, modelo: MODELO_SITE, campos, aberto: !!abrirJa,
+      tipo_contratante: montado.tipo_contratante, modelo: MODELO_SITE, campos: { ...campos, texto_manual: mexido }, aberto: !!abrirJa,
     };
     if (!linha.texto) { aviso("O texto está vazio.", "erro"); return; }
     [salvarRascunho, salvarAbrir].forEach(b => { b.disabled = true; });

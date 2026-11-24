@@ -27,10 +27,15 @@ export const TIPOS_DE_CONTRATANTE = [
   { id: "pj", nome: "Só empresa (CNPJ e razão social)" },
 ];
 export const PAGAMENTOS = [
+  { id: "entrega", nome: "Tudo na aprovação (nada antes)" },
   { id: "integral", nome: "Tudo na assinatura" },
-  { id: "metade", nome: "50% na assinatura e 50% na entrega" },
-  { id: "entrega", nome: "Tudo na entrega" },
+  { id: "metade", nome: "50% na assinatura e 50% na aprovação" },
   { id: "outro", nome: "Outra forma (escrever)" },
+];
+/** Se o cliente desistir depois dos 7 dias e antes de aprovar o site. */
+export const CANCELAMENTOS = [
+  { id: "metade_apos_versao", nome: "Sem custo até a versão para aprovação; depois dela, metade do preço" },
+  { id: "sem_custo", nome: "Sem custo em qualquer momento antes de aprovar" },
 ];
 export const HOSPEDAGENS = [
   { id: "cloudflare", nome: "Cloudflare Pages (grátis, permite uso comercial)" },
@@ -58,7 +63,8 @@ export const CAMPOS_DO_SITE = [
   { id: "condicoes", rotulo: "Condições deste cliente (opcional)", tipo: "linhas", dica: "Um item por linha, só se houver algo próprio deste projeto (vira uma cláusula)." },
   { id: "valor", rotulo: "Valor do site", tipo: "valor", dica: "Ex.: 399 ou 1.200,00" },
   { id: "pagamento", rotulo: "Pagamento", tipo: "opcoes", opcoes: PAGAMENTOS },
-  { id: "pagamento_outro", rotulo: "Pagamento (outra forma)", tipo: "texto", dica: "Continua a frase \"por Pix, para a conta indicada pela Renderiza, …\"", so: c => c.pagamento === "outro" },
+  { id: "pagamento_outro", rotulo: "Pagamento (outra forma)", tipo: "texto", dica: "Ex.: em duas parcelas, na assinatura e na aprovação", so: c => c.pagamento === "outro" },
+  { id: "cancelamento", rotulo: "Se desistir no meio do caminho", tipo: "opcoes", opcoes: CANCELAMENTOS },
   { id: "prazo", rotulo: "Prazo (dias úteis)", tipo: "numero", dica: "Contados do material completo" },
   { id: "garantia", rotulo: "Garantia (dias corridos)", tipo: "numero", dica: "Contra defeitos, depois da entrega" },
   { id: "dominio_situacao", rotulo: "Domínio", tipo: "opcoes", opcoes: DOMINIOS },
@@ -67,13 +73,14 @@ export const CAMPOS_DO_SITE = [
   { id: "painel", rotulo: "Painel Renderiza", tipo: "opcoes", opcoes: PAINEL },
   { id: "painel_modulos", rotulo: "Módulos combinados (opcional)", tipo: "texto", dica: "Ex.: Meu site e Estoque. Vazio: os que ele escolher no painel. Ele pode mudar depois.", so: c => c.painel !== "nao" },
   { id: "painel_preco", rotulo: "Painel a partir de (por mês)", tipo: "valor", dica: "O valor de hoje do plano, como nos Termos de uso do painel", so: c => c.painel !== "nao" },
+  { id: "painel_inicio", rotulo: "1ª mensalidade do painel (opcional)", tipo: "texto", dica: "Ex.: 30 dias depois da entrega. Vazio: como nos Termos de uso do painel.", so: c => c.painel !== "nao" },
   { id: "foro", rotulo: "Foro (cidade/UF)", tipo: "texto" },
 ];
 
 export const PADRAO_DO_SITE = {
   projeto: "", contratante: "", tipo_contratante: "pf_ou_pj", referencia: "", escopo: "", fora_do_escopo: "", condicoes: "",
-  valor: "", pagamento: "integral", pagamento_outro: "", prazo: "10", garantia: "30", dominio_situacao: "cliente_tem", dominio: "",
-  hospedagem: "cloudflare", painel: "opcional", painel_modulos: "", painel_preco: "49", foro: "São Paulo/SP",
+  valor: "", pagamento: "entrega", pagamento_outro: "", cancelamento: "metade_apos_versao", prazo: "10", garantia: "30", dominio_situacao: "cliente_tem", dominio: "",
+  hospedagem: "cloudflare", painel: "opcional", painel_modulos: "", painel_preco: "49", painel_inicio: "", foro: "São Paulo/SP",
 };
 
 const limpo = v => String(v == null ? "" : v).replace(/\s+/g, " ").trim();
@@ -98,11 +105,12 @@ export function camposDoSite(campos = {}) {
   const antigo = campos && !campos.dominio_situacao && campos.dominio_primeiro_ano
     ? { dominio_situacao: campos.dominio_primeiro_ano === "contratante" ? "registrar_cliente" : "registrar_incluido" } : {};
   const c = { ...PADRAO_DO_SITE, ...campos, ...antigo };
-  delete c.dominio_primeiro_ano; delete c.painel_inicio;
+  delete c.dominio_primeiro_ano;
   return {
     ...c,
     tipo_contratante: daLista(TIPOS_DE_CONTRATANTE, c.tipo_contratante, "pf_ou_pj"),
-    pagamento: daLista(PAGAMENTOS, c.pagamento, "integral"),
+    pagamento: daLista(PAGAMENTOS, c.pagamento, "entrega"),
+    cancelamento: daLista(CANCELAMENTOS, c.cancelamento, "metade_apos_versao"),
     hospedagem: daLista(HOSPEDAGENS, c.hospedagem, "cloudflare"),
     dominio_situacao: daLista(DOMINIOS, c.dominio_situacao, "cliente_tem"),
     painel: daLista(PAINEL, c.painel, "opcional"),
@@ -153,14 +161,16 @@ export function montarTermoDoSite(campos = {}) {
   const cl = k => `cláusula ${n[k]}`;
 
   const metade = valor ? Math.round(valor * 50) / 100 : 0;
-  const pagamento = {
-    integral: `em parcela única, em até 2 dias úteis depois da assinatura`,
-    metade: valor ? `em duas parcelas: ${reais(metade)} em até 2 dias úteis depois da assinatura e ${reais(Math.round((valor - metade) * 100) / 100)} até o dia útil seguinte à aprovação (${cl("prazo")})`
-      : `em duas parcelas de 50%: na assinatura e na aprovação (${cl("prazo")})`,
-    entrega: `em parcela única, até o dia útil seguinte à aprovação (${cl("prazo")})`,
-    outro: limpo(c.pagamento_outro) || pendente("forma de pagamento"),
+  const METADE = valor ? reais(metade) : "metade do preço";
+  const antecipado = c.pagamento === "integral" || c.pagamento === "metade" || c.pagamento === "outro"; // pode ter pago antes da entrega
+  const comoPaga = {
+    entrega: "**Nada é pago antes da entrega:** a Renderiza mostra o site pronto num endereço de prévia; aprovado, o Contratante paga em até 2 dias úteis, e a Renderiza publica o site no domínio dele e passa os acessos.",
+    integral: "O pagamento é em parcela única, em até 2 dias úteis depois da assinatura.",
+    metade: `O pagamento é em duas parcelas: ${METADE} em até 2 dias úteis depois da assinatura e o restante na aprovação, antes da publicação.`,
+    outro: `O pagamento é ${limpo(c.pagamento_outro).replace(/\.$/, "") || pendente("forma de pagamento")}.`,
   }[c.pagamento];
-  const pagamentoCurto = { integral: "na assinatura", metade: "metade na assinatura e metade na entrega", entrega: "na entrega", outro: limpo(c.pagamento_outro) || pendente("forma de pagamento") }[c.pagamento];
+  const pagamentoCurto = { entrega: "por Pix, só na aprovação (nada antes)", integral: "por Pix, na assinatura", metade: "por Pix, metade na assinatura e metade na aprovação",
+    outro: limpo(c.pagamento_outro) || pendente("forma de pagamento") }[c.pagamento];
   const contaDoPrazo = c.pagamento === "integral" ? " e do pagamento" : c.pagamento === "metade" ? " e da primeira parcela" : "";
   const tipo = {
     pf: "Contrata em nome próprio, como pessoa física.",
@@ -181,12 +191,13 @@ export function montarTermoDoSite(campos = {}) {
   bloco("# Em poucas palavras");
   bloco(...lista([
     `**O que você recebe:** o ${projeto}, pronto e publicado no seu domínio${referencia ? `, seguindo ${referencia}` : ""}.`,
-    `**Valor:** ${VALOR}, por Pix, ${pagamentoCurto}.`,
+    `**Valor:** ${VALOR}, ${pagamentoCurto}.`,
     `**Prazo:** até ${PRAZO} dias úteis depois do material completo.`,
     "**Tudo fica no seu nome:** o código, a hospedagem e o domínio.",
     `**Depois da entrega:** sem manutenção incluída e ${GARANTIA} dias de garantia contra defeitos.`,
     ...(comPainel ? [`**Painel Renderiza${c.painel === "opcional" ? " (opcional)" : ""}:** assinatura à parte${precoDoPainel(c) ? `, ${precoDoPainel(c)}` : ""}, com os módulos que você escolher.`] : []),
-    "**Desistência:** nos 7 primeiros dias, sem custo.",
+    c.cancelamento === "sem_custo" ? "**Desistência:** a qualquer momento antes de aprovar o site, sem custo."
+      : "**Desistência:** até 7 dias depois de assinar, sem custo. Depois, e antes de aprovar o site: sem custo se a versão para aprovação ainda não foi enviada; se já foi, metade do preço.",
   ]));
   bloco("O resumo ajuda a ler; o que vale são as cláusulas abaixo.");
 
@@ -211,13 +222,13 @@ export function montarTermoDoSite(campos = {}) {
   bloco(`# ${n.prazo}. Prazo, ajustes e aprovação`);
   bloco(...lista([
     `O Contratante envia o material (textos, fotos, logotipo, informações${dom === "cliente_tem" ? " e o acesso ao domínio" : ""}) em até 5 dias úteis depois da assinatura.`,
-    `A Renderiza entrega a versão para aprovação em até **${PRAZO} dias úteis**, contados do material completo${contaDoPrazo}. Atraso do Contratante em mandar o material ou responder estende o prazo pelo mesmo tempo.`,
+    `A Renderiza manda a versão para aprovação (o site pronto, num endereço de prévia) em até **${PRAZO} dias úteis**, contados do material completo${contaDoPrazo}. Atraso do Contratante em mandar o material ou responder estende o prazo pelo mesmo tempo.`,
     `Está incluída **uma rodada de ajustes**, com a lista do que mudar mandada de uma vez. Página nova, função nova ou outro layout são trabalho novo (${cl("depois")}).`,
-    "A aprovação é por escrito (WhatsApp ou e-mail: \"pode publicar\"). Sem resposta em 10 dias úteis depois da versão ajustada, a entrega é considerada aprovada. Aprovada, a Renderiza publica o site e passa os acessos: isso é a **entrega**.",
+    `A aprovação é por escrito (WhatsApp ou e-mail: "pode publicar"). Sem resposta em 10 dias úteis depois da versão ajustada, a entrega é considerada aprovada. Aprovada${c.pagamento === "entrega" || c.pagamento === "metade" ? " e paga" : ""}, a Renderiza publica o site e passa os acessos: isso é a **entrega**.`,
   ], true));
 
   bloco(`# ${n.preco}. Preço e pagamento`);
-  bloco(`O preço é de **${VALOR}**, fechado para o que está incluído, pago por Pix na conta indicada pela Renderiza, ${pagamento}, com recibo.${dom === "registrar_incluido" ? " Inclui o registro do domínio por 1 ano." : ""} Atraso gera multa de 2% e juros de 1% ao mês; com mais de 10 dias, a Renderiza pode parar o trabalho, e o prazo para junto.`);
+  bloco(`O preço é de **${VALOR}**, fechado para o que está incluído, pago por Pix na conta indicada pela Renderiza, com recibo. ${comoPaga}${dom === "registrar_incluido" ? " O preço inclui o registro do domínio por 1 ano." : ""} Atraso gera multa de 2% e juros de 1% ao mês; com mais de 10 dias, a Renderiza pode parar o trabalho ou não publicar o site até o pagamento.`);
 
   bloco(`# ${n.onde}. Onde o site fica: tudo no nome do Contratante`);
   bloco(...lista([
@@ -236,7 +247,7 @@ export function montarTermoDoSite(campos = {}) {
     bloco(`# ${n.painel}. Painel Renderiza`);
     bloco(...lista([
       `O **Painel Renderiza** (painel.renderizaweb.com.br) é um serviço à parte, por assinatura mensal e sem fidelidade, regido pelos **Termos de uso do painel** (${TERMOS_DO_PAINEL}), que o Contratante aceita no primeiro acesso. Este termo não muda aqueles.`,
-      `O plano, os módulos e o valor são os dos Termos de uso${precoDoPainel(c) ? ` (hoje, ${precoDoPainel(c)})` : ""}. ${modulos ? `Para este site, os módulos combinados são: ${modulos}. ` : ""}O Contratante liga ou desliga módulos quando quiser, e o valor acompanha.`,
+      `O plano, os módulos e o valor são os dos Termos de uso${precoDoPainel(c) ? ` (hoje, ${precoDoPainel(c)})` : ""}. ${modulos ? `Para este site, os módulos combinados são: ${modulos}. ` : ""}${limpo(c.painel_inicio) ? `A primeira mensalidade vence ${limpo(c.painel_inicio).replace(/\.$/, "")}. ` : ""}O Contratante liga ou desliga módulos quando quiser, e o valor acompanha.`,
       c.painel === "opcional" ? "O Contratante diz na assinatura deste termo se quer o painel; pode contratar depois ou cancelar quando quiser."
         : "O painel é contratado junto com o site; o Contratante pode cancelar quando quiser.",
       "O site não depende do painel. Se o painel for cancelado, o site volta à versão entregue, como nos Termos de uso do painel.",
@@ -254,8 +265,15 @@ export function montarTermoDoSite(campos = {}) {
   bloco(`# ${n.propriedade}. De quem é o site`);
   bloco("Pago o preço, o site feito para o Contratante (código, layout e textos) é dele; o conteúdo dele sempre foi dele. Componentes genéricos que a Renderiza usa em outros projetos continuam dela, com uso livre neste site. A Renderiza só mostra o site no portfólio com autorização.");
 
-  bloco(`# ${n.desistencia}. Desistência e encerramento`);
-  bloco("Nos 7 primeiros dias depois da assinatura, o Contratante pode desistir sem custo, e o que pagou volta em até 10 dias. Depois disso e antes da entrega, paga só o trabalho já feito, proporcional ao preço, e recebe o que estiver pronto. Qualquer parte pode encerrar por descumprimento grave não corrigido em 10 dias depois do aviso.");
+  bloco(`# ${n.desistencia}. Desistência e cancelamento`);
+  const devolve = antecipado ? " O que tiver pago além disso volta em até 10 dias." : "";
+  bloco(...lista([
+    `**Nos 7 dias depois da assinatura:** o Contratante pode desistir deste termo sem dar motivo e sem nenhum custo${antecipado ? "; o que tiver pago volta em até 10 dias" : ""}.`,
+    `**Depois disso e antes de aprovar o site:** pode cancelar avisando por escrito. ${c.cancelamento === "sem_custo" ? "Não há custo."
+      : `Se a Renderiza ainda não tiver mandado a versão para aprovação (${cl("prazo")}), não há custo; se já tiver mandado, o Contratante paga metade do preço (${METADE}) pelo trabalho feito.`}${devolve} Cancelado, o site não é entregue nem publicado.`,
+    "**Depois da aprovação**, o preço é devido por inteiro.",
+    "Se o Contratante não mandar o material ou não responder por mais de 30 dias, a Renderiza pode encerrar o termo, com a mesma regra do item 2. Qualquer parte também pode encerrar por descumprimento grave da outra, não corrigido em 10 dias depois do aviso.",
+  ], true));
 
   bloco(`# ${n.assinatura}. Dados, avisos e assinatura eletrônica`);
   bloco(`Os dados informados na assinatura são usados só para este termo. Os avisos valem pelo e-mail ou WhatsApp de cada parte. O termo é assinado eletronicamente: a Renderiza concorda ao publicá-lo, e ele se forma com o aceite do Contratante, que confirma o e-mail com um código de 6 números. Ficam registrados os dados informados${opcoes.length ? ", a opção escolhida" : ""}, a data e a hora, o IP, o aparelho e a impressão digital (SHA-256) deste texto, e o comprovante vai ao e-mail do Contratante, com cópia para a Renderiza (Medida Provisória 2.200-2/2001, art. 10, § 2º).`);
