@@ -65,7 +65,8 @@ export function versaoDeEntrega(demo) {
   h = h.replace(/<article class="serv">(<span class="ic">.*?<\/span>)<h3>(.*?)<\/h3><p>(.*?)<\/p>/g, (_, ic, t, p) => `<article class="serv" data-site-item>${ic}<h3 data-site-campo="titulo">${t}</h3><p data-site-campo="texto">${p}</p>`);
   if ((h.match(/data-site-item/g) || []).length !== 4) throw new Error("entrega: esperava os 4 serviços");
   h = trocar(h, '<section class="sec" id="sobre" style="padding-top:0">', '<section class="sec" id="sobre" style="padding-top:0" data-site-secao="sobre">');
-  h = h.replace(/(<div class="sobre">\s*<img )/, '$1data-site-img="sobre.foto" ');
+  h = trocar(h, '<img class="principal" ', '<img class="principal" data-site-img="sobre.foto" ');
+  h = trocar(h, '<img class="segunda" ', '<img class="segunda" data-site-img="sobre.foto-2" ');
   h = trocar(h, '<span class="k">Quem cuida do seu negócio</span><h2>Ricardo Neves</h2>', '<span class="k" data-site="sobre.etiqueta">Quem cuida do seu negócio</span><h2 data-site="sobre.titulo">Ricardo Neves</h2>');
   h = trocar(h, '<p>Dez anos no dia a dia', '<p data-site="sobre.texto">Dez anos no dia a dia');
   h = trocar(h, '<section id="contato" aria-label="Contato">', '<section id="contato" aria-label="Contato" data-site-secao="contato">');

@@ -112,7 +112,7 @@ test("a entrega da Ricardo Motors: sem preço na reserva, a vitrine fora do Meu 
   assert.ok(carros.length >= 10 && carros.every(c => c.preco === null), "os carros da reserva sem preço");
   assert.ok(html.includes('<section class="sec" id="estoque" data-estoque>') && html.includes("data-estoque-aviso"));
   assert.deepEqual(conferirHtml(html, { dominio: "ricardo-motors.pages.dev" }).problemas.filter(p => /Estoque/.test(p)), [], "nada do Meu site na vitrine");
-  for (const m of ['data-site-secao="inicio"', 'data-site="inicio.titulo"', 'data-site-lista="servicos.itens"', 'data-site-img="sobre.foto"', 'data-site-botao="contato.botao"']) assert.ok(html.includes(m), m);
+  for (const m of ['data-site-secao="inicio"', 'data-site="inicio.titulo"', 'data-site-lista="servicos.itens"', 'data-site-img="sobre.foto"', 'data-site-img="sobre.foto-2"', 'data-site-botao="contato.botao"']) assert.ok(html.includes(m), m);
   assert.ok(html.includes("window.rzEstoque=") && !html.includes("rz-estoque=exemplo"));
   assert.equal(/data:image\//.test(html.match(/const IMG=(\{.*?\});/)[1]), false, "as fotos dos carros saem do HTML");
   assert.ok(arquivos.length > 50 && arquivos.every(([rel]) => /^img\/c\/[A-Za-z0-9-]+\.(webp|jpg|png)$/.test(rel)));
