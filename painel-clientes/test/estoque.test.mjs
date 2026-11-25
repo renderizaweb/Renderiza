@@ -65,3 +65,17 @@ test("o onboarding da loja: perguntas de revenda (sem agenda nem pacotes) e o Es
   assert.deepEqual(ordemDoMenu("estoque_certo", ["meu-site", "estoque"]), ["estoque", "meu-site"]);
   assert.deepEqual(ordemDoMenu("pedidos", ["meu-site", "estoque"]), ["meu-site", "estoque"]);
 });
+
+import { paraOSite } from "../src/modulos/estoque/loja.js";
+test("a prévia ao lado manda ao site o mesmo formato da API: só disponível e reservado, na ordem, fotos pelo caminho da API", () => {
+  const itens = [
+    { id: "v", situacao: "vendido", campos: {} },
+    { id: "a", situacao: "disponivel", destaque: false, ordem: 1, preco: "189900.00", campos: { marca: "Toyota" }, fotos: [{ arquivo: "c/estoque-a.webp", mini: "c/estoque-a-m.webp", w: 1600, h: 1067 }], codigo_interno: "ABC" },
+    { id: "r", situacao: "reservado", destaque: true, ordem: 2, preco: null, campos: {}, fotos: [] },
+  ];
+  const s = paraOSite(itens);
+  assert.deepEqual(s.map(i => i.id), ["r", "a"]);
+  assert.equal(s[1].preco, 189900);
+  assert.deepEqual(s[1].fotos, [{ url: "/api/publico/imagens/c/estoque-a.webp", mini: "/api/publico/imagens/c/estoque-a-m.webp", w: 1600, h: 1067 }]);
+  assert.equal(JSON.stringify(s).includes("ABC"), false, "o código interno não vai para o site");
+});

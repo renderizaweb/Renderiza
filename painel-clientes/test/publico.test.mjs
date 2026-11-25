@@ -283,7 +283,7 @@ test("estoque: só o disponível e o reservado, com as fotos pelo endereço da A
   assert.deepEqual(b.chamadas[0].corpo, { p_codigo: "garagem-aurora" });
   assert.match(b.chamadas[0].url, /\/rest\/v1\/rpc\/publico_estoque$/);
   assert.equal(r.cabecalhos["Access-Control-Allow-Origin"], "*");
-  assert.match(r.cabecalhos["Cache-Control"], /s-maxage=20, stale-while-revalidate=10$/);
+  assert.equal(r.cabecalhos["Cache-Control"], "public, max-age=0, s-maxage=1", "o estoque aparece na hora: 1 s na rede");
   assert.deepEqual(r.corpo.itens.map(i => i.id), ["a", "b"], "o oculto não passa nem se o banco mandar");
   assert.equal(JSON.stringify(r.corpo).includes("ABC1D23"), false, "o código interno nunca sai");
   assert.deepEqual(r.corpo.itens[0].fotos, [{ url: "/api/publico/imagens/" + conta + "/estoque-aaaaaa11.webp", mini: "/api/publico/imagens/" + conta + "/estoque-aaaaaa11-m.webp", w: 1600, h: 1067 }]);
@@ -291,7 +291,7 @@ test("estoque: só o disponível e o reservado, com as fotos pelo endereço da A
   assert.equal(r.corpo.itens[1].preco, null);
   const nulo = await estoque({ metodo: "GET", caminho: "/api/publico/estoque/garagem-aurora", env: ENV }, bancoFalso(() => ({ json: null })).buscar);
   assert.equal(nulo.status, 404);
-  assert.match(nulo.cabecalhos["Cache-Control"], /s-maxage=20/);
+  assert.match(nulo.cabecalhos["Cache-Control"], /s-maxage=1$/);
   assert.equal((await estoque({ metodo: "GET", caminho: "/api/publico/estoque/Garagem!", env: ENV })).status, 400);
   assert.equal((await estoque({ metodo: "POST", caminho: "/api/publico/estoque/garagem-aurora", env: ENV })).status, 405);
   assert.equal((await estoque({ metodo: "OPTIONS", caminho: "/api/publico/estoque/garagem-aurora", env: ENV })).status, 204);

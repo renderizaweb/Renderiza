@@ -2,7 +2,9 @@
 // (gerado de verdade pelo demos/ricardo-motors/entrega.mjs, com o código de uma conta de teste e a API do painel
 // local) e o painel de verdade, juntos. O site abre sem preço (a reserva) → o painel cria um carro → o site mostra o
 // carro com o preço e a foto do painel → reservado aparece com a etiqueta → vendido sai → o Meu site muda a capa e não
-// mexe na vitrine → o Estoque desligado no Admin faz o site voltar à reserva, sem preço. Celular e computador.
+// mexe na vitrine → o Estoque desligado no Admin faz o site voltar à reserva, sem preço. Celular e computador. No
+// painel, o site ao lado (computador) e o "Ver o site" (celular) mostram cada mudança na hora. FLUXO_RETRATOS=<pasta>
+// salva os prints da tela do Estoque.
 // Tudo criado e apagado pelo próprio fluxo (ambiente.mjs).
 //
 //   npm run fluxos            (precisa das variáveis PAINEL_* e do Playwright; sem elas, pula)
@@ -44,6 +46,15 @@ test("a ponte do Estoque: o site de entrega e o painel, no STG", { skip: A.motiv
   gerar(pastaSite, { codigo: A.CODIGO, api: `${srv.url}/api/publico/`, silencioso: true });
   const site = await servirSite(pastaSite);
   const dono = { email: A.email("dono-ponte") };
+  // o endereço do site na conta (o quadro "site ao lado" do painel abre este; o navegador do teste serve a pasta gerada)
+  const DOMINIO_DO_SITE = `ponte-${A.MARCA}.teste`;
+  const servirNoContexto = ctx => ctx.route(`https://${DOMINIO_DO_SITE}/**`, r => {
+    const rel = decodeURIComponent(new URL(r.request().url()).pathname).replace(/^\/+/, "") || "index.html";
+    const f = path.join(pastaSite, rel);
+    return f.startsWith(pastaSite) && fs.existsSync(f) && fs.statSync(f).isFile()
+      ? r.fulfill({ status: 200, contentType: TIPOS[path.extname(f)] || "application/octet-stream", body: fs.readFileSync(f) })
+      : r.fulfill({ status: 404, body: "" });
+  });
   const contaId = async () => (await banco.sql(`select id from public.contas where codigo = ${A.q(A.CODIGO)}`))[0].id;
   /** Abre o site numa aba nova (a sessão do navegador começa vazia: nada guardado) e devolve o que ele mostra. */
   const abrirSite = async (ctx, espera = c => true, oQue = "o site") => {
@@ -73,7 +84,7 @@ test("a ponte do Estoque: o site de entrega e o painel, no STG", { skip: A.motiv
     await A.limparSobras(banco);
     await banco.sql(`insert into public.contas (nome, nicho, codigo, situacao, origem) values ('Ricardo Motors (teste do fluxo)', 'automotivo', ${A.q(A.CODIGO)}, 'ativa', 'renderiza');
       insert into public.contas_modulos (conta_id, modulo_id) select id, m from public.contas, unnest(array['meu-site', 'estoque']) m where codigo = ${A.q(A.CODIGO)};
-      insert into public.sites (conta_id, codigo, dominios) select id, ${A.q(A.CODIGO)}, array['localhost'] from public.contas where codigo = ${A.q(A.CODIGO)};`);
+      insert into public.sites (conta_id, codigo, dominios) select id, ${A.q(A.CODIGO)}, array[${A.q(DOMINIO_DO_SITE)}, 'localhost'] from public.contas where codigo = ${A.q(A.CODIGO)};`);
     dono.senha = await A.criarLogin(banco, dono.email, "Dono da Ponte");
     await A.porNaConta(banco, dono.email, A.CODIGO, { dono: true, nome: "Dono da Ponte" });
     ctxSite = await navegador.newContext({ ...CELULAR, locale: "pt-BR" });
@@ -145,10 +156,51 @@ test("a ponte do Estoque: o site de entrega e o painel, no STG", { skip: A.motiv
       await r.pagina.close();
     });
 
+    await t.test("no computador, o site ao lado no painel muda na hora em que se salva (sem esperar a rede)", async () => {
+      const ctx = await navegador.newContext({ ...COMPUTADOR, locale: "pt-BR" });
+      await servirNoContexto(ctx);
+      const p = await ctx.newPage();
+      const erros = A.vigiar(p);
+      await A.entrar(p, srv.url, dono.email, dono.senha);
+      await p.goto(`${srv.url}/estoque`, { waitUntil: "networkidle" });
+      const quadro = p.frameLocator("[data-quadro]");
+      await quadro.locator('#grade .card:has-text("R$ 128.900")').waitFor({ timeout: 20000 });
+      assert.equal(await p.locator("[data-sem-ponte]").isHidden(), true, "o site respondeu ao painel");
+      await p.locator('.et-linha:has-text("Toyota Corolla")').click();
+      const g = p.locator("dialog[open]").last();
+      await g.locator("#et-preco").fill("119.900");
+      const t0 = Date.now();
+      await g.locator("[data-salvar]").click();
+      await quadro.locator('#grade .card:has-text("R$ 119.900")').waitFor({ timeout: 10000 });
+      const ms = Date.now() - t0;
+      console.log(`    (o site ao lado mostrou o preço novo ${ms} ms depois do Salvar)`);
+      assert.ok(ms < 4000, `o site ao lado demorou ${ms} ms`);
+      if (process.env.FLUXO_RETRATOS) { await p.waitForTimeout(800); await p.screenshot({ path: path.join(process.env.FLUXO_RETRATOS, "estoque-computador.png") }); }
+      const r = await abrirSite(ctxSite, x => x.precos.includes("R$ 119.900"), "o preço novo no site de verdade");
+      await r.pagina.close();
+      // no celular: "Ver o site" abre o mesmo site, com o estoque de agora
+      const cel = await navegador.newContext({ ...CELULAR, locale: "pt-BR" });
+      await servirNoContexto(cel);
+      const pc = await cel.newPage();
+      await A.entrar(pc, srv.url, dono.email, dono.senha);
+      await pc.goto(`${srv.url}/estoque`, { waitUntil: "networkidle" });
+      if (process.env.FLUXO_RETRATOS) await pc.screenshot({ path: path.join(process.env.FLUXO_RETRATOS, "estoque-celular.png") });
+      await pc.locator("[data-ver]").click();
+      await pc.frameLocator("[data-quadro]").locator('#grade .card:has-text("R$ 119.900")').waitFor({ timeout: 15000 });
+      if (process.env.FLUXO_RETRATOS) { await pc.waitForTimeout(800); await pc.screenshot({ path: path.join(process.env.FLUXO_RETRATOS, "estoque-celular-ver-o-site.png") }); }
+      await pc.locator("[data-fechar-previa]").click();
+      assert.ok(await pc.locator(".et-linha").first().isVisible(), "Voltar ao estoque volta à lista");
+      await cel.close();
+      // Só no teste: o site num domínio "público" pedindo ao painel em localhost é barrado pelo Chrome (Private Network
+      // Access); na produção, os dois são públicos. Os preços chegam pela mensagem do painel, que é o que se testa aqui.
+      assert.deepEqual(erros.filter(e => !/loopback/.test(e)), []);
+      await ctx.close();
+    });
+
     await t.test("no computador, o mesmo site com o painel", async () => {
       const ctx = await navegador.newContext({ ...COMPUTADOR, locale: "pt-BR" });
       const r = await abrirSite(ctx, x => x.cards.length === 1, "o computador");
-      assert.ok(r.precos.includes("R$ 128.900"));
+      assert.ok(r.precos.includes("R$ 119.900"));
       assert.deepEqual(r.erros, []);
       await ctx.close();
     });

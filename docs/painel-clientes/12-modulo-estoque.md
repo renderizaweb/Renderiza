@@ -67,7 +67,7 @@ Os filtros do site saem do esquema: cada campo marcado como `filtro` vira um chi
 ```
  Site do cliente                                        Painel Renderiza
  HTML com o ESTOQUE INICIAL embutido  ──1. pede──▶  /api/publico/estoque/<código do site>
- (o que estava no dia da entrega)     ◀─2. JSON──   (cache de 20 s; só disponível e reservado)
+ (o que estava no dia da entrega)     ◀─2. JSON──   (cache de 1 s; só disponível e reservado)
  3. troca a vitrine pela lista do painel            Supabase: estoque_itens (banco), fotos (Storage)
     erro, demora ou resposta inválida? fica a inicial
 ```
@@ -135,8 +135,9 @@ mudar algo aqui muda este documento no mesmo commit e deixa um aviso em `missoes
   usa `conta_do_site(p_codigo, 'estoque')` e devolve `null` quando o site não responde (desconectado, conta não
   liberada, módulo desligado).
 
-**2. API pública:** `GET /api/publico/estoque/<código do site>`, com o mesmo cache do Meu site (20 s, mais 10 s
-servindo a anterior) e `404 {"erro":"fora"}` quando a função devolve `null`.
+**2. API pública:** `GET /api/publico/estoque/<código do site>`, com **1 s** de cache na rede (25/11/2026: o estoque
+tem de aparecer na hora; o 1 s só junta as visitas do mesmo segundo) e `404 {"erro":"fora"}` quando a função devolve
+`null`.
 
 ```json
 { "versao": 1, "esquema": "automotivo", "atualizado_em": "2026-11-24T18:00:00Z",
@@ -161,13 +162,15 @@ o local, o STG e a produção funcionam igual, e o site só mostra foto da API.
   "O estoque muda todo dia: confirme a disponibilidade pelo WhatsApp" (`data-estoque-aviso`). Sem o painel, o site
   nunca mostra um preço que pode estar errado.
 - **O script** `ferramentas/estoque/estoque.js` entra pelo `virar-site` com `"painel": { "codigo", "estoque": true }`.
-  Ele pede a API (espera até 6 s), confere a resposta (versão 1, lista, foto só do endereço da API), guarda por 60 s
-  na sessão do navegador e chama `window.rzEstoque(itens, { esquema, atualizado_em })`, que o site define: refaz a
+  Ele mostra na hora a lista que a sessão do navegador já tinha e pede **sempre** a da API (espera até 6 s; de novo
+  quando a pessoa volta à aba ou à janela, no mínimo a cada 3 s), confere a resposta (versão 1, lista, foto só do
+  endereço da API) e, só se mudou, chama `window.rzEstoque(itens, { esquema, atualizado_em })`, que o site define: refaz a
   vitrine, os filtros, a contagem e a capa com os destaques, e esconde o aviso. Erro, demora ou resposta inválida: o
   script não chama nada e o site fica com a versão de reserva. Se uma lista já foi mostrada (da sessão) e o painel
   responde 404, o script chama `window.rzEstoque(null)`: o site volta à reserva. O bloco no `<head>` é
   `<script data-estoque="<código>">` (com `data-api` só em teste).
-- **Prévia no painel** (opcional): com `?rz-estoque=previa`, dentro de um quadro do painel, o script aceita
+- **Prévia no painel** (feita em 25/11/2026: o site ao lado no computador e "Ver o site" no celular, na tela do
+  Estoque, quando a conta tem o site cadastrado): com `?rz-estoque=previa`, dentro de um quadro do painel, o script aceita
   `{ tipo: "rz-estoque", itens }` por `postMessage`, só da origem da API, e responde `rz-estoque-pronto` (como o
   protótipo).
 

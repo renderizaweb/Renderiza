@@ -3,8 +3,8 @@
 //   um <script data-estoque="<código do site>" [data-api="<base da API pública>"]> com este arquivo dentro
 //
 // O site tem, no HTML, a VERSÃO DE RESERVA: os itens do dia da entrega, sem preço, com "confirme pelo WhatsApp". Este
-// script pede a lista do painel (GET <api>estoque/<código>, até 6 s), confere a resposta, guarda 60 s na sessão do
-// navegador (trocar de página não pede de novo) e entrega ao site, quando a página termina de carregar:
+// script mostra na hora a lista que a sessão do navegador já tinha, pede SEMPRE a do painel (GET <api>estoque/<código>,
+// até 6 s; a rede guarda só 1 s), de novo quando a pessoa volta à aba, confere a resposta e entrega ao site (só se mudou):
 //   window.rzEstoque(itens, { esquema, atualizado_em })   o site refaz a vitrine, os filtros, a contagem e a capa
 //   window.rzEstoque(null)                                o painel desligou depois de uma lista já mostrada: volte à reserva
 // Erro, demora ou resposta fora do contrato: nada é chamado e o site fica como está (sem preço). Foto só da API.
@@ -18,7 +18,9 @@
   var API = "https://painel.renderizaweb.com.br/api/publico/";
   var CODIGO = /^[a-z0-9][a-z0-9-]{1,38}[a-z0-9]$/;
   var FOTO = /^\/api\/publico\/imagens\/[0-9a-f-]{36}\/estoque-[A-Za-z0-9_-]{6,80}\.webp$/;
-  var GUARDA = 60000, ESPERA = 6000, MAXIMO = 300;
+  // GUARDA: até quando a lista da sessão serve para a primeira pintura (a nova vem logo atrás); INTERVALO: o mínimo
+  // entre dois pedidos (voltar à aba várias vezes seguidas não vira uma enxurrada)
+  var GUARDA = 600000, ESPERA = 6000, MAXIMO = 300, INTERVALO = 3000;
 
   var ehObjeto = function (o) { return !!o && typeof o === "object" && !Array.isArray(o); };
   var numero = function (v) { return typeof v === "number" && isFinite(v) && v >= 0 ? v : null; };
@@ -84,23 +86,38 @@
       return;
     }
 
-    var chave = "rz-estoque:" + codigo;
+    // Rápido e sempre em dia (25/11/2026): o que a sessão guardou aparece na hora, e a lista do painel é pedida SEMPRE
+    // (a rede guarda só 1 s); de novo quando a pessoa volta à aba ou à janela. Só redesenha se a lista mudou.
+    var chave = "rz-estoque:" + codigo, ultimo = null, buscando = false, ultimaBusca = 0;
+    var aplicar = function (j) {
+      var s = JSON.stringify(j);
+      if (s === ultimo) return;
+      var d = conferir(j, origem);
+      if (!d) return;
+      ultimo = s;
+      guardar(chave, j);
+      entregar(d);
+    };
     var guardado = lerGuardado(chave);
-    if (guardado) { var d = conferir(guardado, origem); if (d) return entregar(d); }
-    var ctrl = typeof global.AbortController === "function" ? new global.AbortController() : null;
-    if (ctrl) setTimeout(function () { ctrl.abort(); }, ESPERA);
-    global.fetch(api + "estoque/" + encodeURIComponent(codigo), { credentials: "omit", signal: ctrl ? ctrl.signal : undefined })
-      .then(function (r) {
-        if (r.status === 404) { esquecer(chave); entregar(null); return; }
-        if (!r.ok) return;
-        return r.json().then(function (j) {
-          var d = conferir(j, origem);
-          if (!d) return;
-          guardar(chave, j);
-          entregar(d);
-        });
-      })
-      .catch(function () { /* fora do ar, demorou ou bloqueado: fica a versão de reserva */ });
+    if (guardado) aplicar(guardado);
+    var buscar = function () {
+      if (buscando || Date.now() - ultimaBusca < INTERVALO) return;
+      buscando = true;
+      ultimaBusca = Date.now();
+      var ctrl = typeof global.AbortController === "function" ? new global.AbortController() : null;
+      if (ctrl) setTimeout(function () { ctrl.abort(); }, ESPERA);
+      global.fetch(api + "estoque/" + encodeURIComponent(codigo), { credentials: "omit", signal: ctrl ? ctrl.signal : undefined })
+        .then(function (r) {
+          if (r.status === 404) { esquecer(chave); ultimo = null; entregar(null); return; }
+          if (!r.ok) return;
+          return r.json().then(aplicar);
+        })
+        .catch(function () { /* fora do ar, demorou ou bloqueado: fica o que está na tela (a reserva, sem preço) */ })
+        .then(function () { buscando = false; });
+    };
+    buscar();
+    if (typeof doc.addEventListener === "function") doc.addEventListener("visibilitychange", function () { if (doc.visibilityState === "visible") buscar(); });
+    if (typeof global.addEventListener === "function") global.addEventListener("focus", buscar);
   }
 
   var exportar = { API: API, conferir: conferir };

@@ -59,15 +59,17 @@ test("a resposta conferida: fotos no endereço inteiro da API, foto de fora sai,
   assert.equal(simples(conferir({ ...RESPOSTA, itens: [{ ...RESPOSTA.itens[0], preco: "689900" }] }, API)).itens[0].preco, null, "preço que não é número vira sob consulta");
 });
 
-test("o script entrega ao site a lista do painel e guarda na sessão; a próxima página não pede de novo", async () => {
+test("o script entrega ao site a lista do painel; a da sessão aparece na hora e a do painel é pedida sempre", async () => {
   const r = await rodar();
   assert.deepEqual(r.pedidos, ["https://painel.renderizaweb.com.br/api/publico/estoque/ricardo-motors"]);
   assert.equal(r.recebidos.length, 1);
   assert.deepEqual(r.recebidos[0].itens.map(i => i.id), ["a", "b"]);
   const guardado = JSON.parse(r.sessao.get("rz-estoque:ricardo-motors")).r;
   const outra = await rodar({ guardado });
-  assert.deepEqual(outra.pedidos, [], "veio da sessão");
-  assert.equal(outra.recebidos.length, 1);
+  assert.equal(outra.pedidos.length, 1, "a da sessão aparece na hora, e a do painel é pedida mesmo assim");
+  assert.equal(outra.recebidos.length, 1, "a lista não mudou: não redesenha");
+  const mudou = await rodar({ guardado, resposta: { status: 200, corpo: { ...RESPOSTA, itens: RESPOSTA.itens.slice(0, 1) } } });
+  assert.deepEqual(mudou.recebidos.map(r => r.itens.length), [2, 1], "a da sessão na hora, e a nova logo depois");
 });
 
 test("404, erro, demora ou resposta fora do contrato: o site fica com a versão de reserva (nada é chamado)", async () => {

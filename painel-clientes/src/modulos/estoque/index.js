@@ -1,8 +1,9 @@
 // Estoque (docs/painel-clientes/12-modulo-estoque.md): o que a conta vende no site (os carros, numa revenda). A tela é
 // a do protótipo aprovado (exemplos/estoque/modulo.js, o vídeo da Ricardo Motors), agora sobre o banco
 // (./loja.js): a lista com chips e busca, as ações de um toque (vendido com Desfazer, reservar, destacar, ocultar) e a
-// gaveta com fotos primeiro, os campos do nicho (./esquemas.js), preço, selos e situação. Salvou, está no site em
-// menos de 1 minuto (o cache da API pública é de 20 s). Quem "só vê" lê a lista e abre os itens, sem mudar nada.
+// gaveta com fotos primeiro, os campos do nicho (./esquemas.js), preço, selos e situação; no computador, o site ao lado,
+// mudando a cada salvamento (no celular, "Ver o site"). Salvou, está no site na hora (a API pública guarda 1 s na rede, e
+// o site pede de novo a cada visita e ao voltar à aba). Quem "só vê" lê a lista e abre os itens, sem mudar nada.
 
 import { icone } from "../../ui/icones.js";
 import { escapar, ocupado } from "../../ui/formulario.js";
@@ -12,9 +13,11 @@ import { chips, ligarChips } from "../../ui/filtros.js";
 import { vazio } from "../../ui/estados.js";
 import { moeda, lerValor } from "../../ui/formatos.js";
 import { ESQUEMAS, SITUACOES, situacao, camposDe } from "./esquemas.js";
-import { criarLoja, urlDaFoto } from "./loja.js";
+import { criarLoja, urlDaFoto, paraOSite } from "./loja.js";
+import { enderecoDoSite } from "../meu-site/conteudo.js";
 
 const MAX_FOTOS = 15;
+const TELAS = { celular: 390, computador: 1280 };
 const nomeDoErro = e => (e && e.message && !/fetch|network|JWT|PGRST/i.test(e.message) ? e.message : "Não deu certo. Confira a internet e tente de novo.");
 
 /** O que o formulário vira no item (os campos do nicho já no tipo certo), ou o erro para mostrar. */
@@ -45,20 +48,77 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
   const novoRotulo = (nicho.palavras && nicho.palavras.novoItem) || esquema.novo;
   const loja = criarLoja({ banco, conta });
   let filtro = "todos", busca = "";
+  // o site ao lado (como no protótipo do vídeo): o site de verdade num quadro (?rz-estoque=previa), que recebe a lista
+  // do painel por mensagem a cada mudança, sem esperar a rede. Só com o site ligado (o endereço vem de "sites").
+  const site = await banco.resultado(banco.tabela("sites").select("dominios, situacao").eq("conta_id", conta.conta_id)).then(l => l[0] || null).catch(() => null);
+  const endereco = site && site.situacao === "conectado" ? enderecoDoSite((site.dominios || [])[0]) : "";
 
   el.innerHTML = `
-    <section class="et">
+    <section class="et${endereco ? " rz-ms" : ""}">
       <header class="rz-cabeca">
         <div class="rz-cabeca-titulos"><h1 class="rz-titulo-1">Estoque</h1>
-          <p class="rz-texto-2">Os ${ITENS} do seu site. Salvou aqui, aparece no site em menos de 1 minuto.</p></div>
-        ${edita ? `<div class="rz-cabeca-acoes"><button class="rz-botao rz-botao--primario" type="button" data-novo-item>${icone("adicionar", { tamanho: 18 })}${escapar(novoRotulo)}</button></div>` : ""}
+          <p class="rz-texto-2">Os ${ITENS} do seu site. Salvou aqui, aparece no site na hora.</p></div>
+        <div class="rz-cabeca-acoes">${endereco ? `<a class="rz-botao et-abrir-site" href="${escapar(endereco)}" target="_blank" rel="noopener">${icone("link", { tamanho: 18 })}Abrir o site</a>` : ""}
+          ${edita ? `<button class="rz-botao rz-botao--primario" type="button" data-novo-item>${icone("adicionar", { tamanho: 18 })}${escapar(novoRotulo)}</button>` : ""}</div>
       </header>
       ${!edita ? `<p class="rz-alerta" role="note">${icone("cadeado", { tamanho: 18 })}<span>Você só vê o estoque. Quem muda é o dono ou quem ele deixar.</span></p>` : ""}
+      ${endereco ? `<div class="rz-ms-grade"><div class="rz-ms-editor">` : ""}
       <div class="et-ferramentas" data-filtros></div>
       <label class="et-busca">${icone("buscar", { tamanho: 18 })}<input class="rz-entrada" type="search" placeholder="Buscar por marca, modelo ou ano" aria-label="Buscar no estoque" data-busca></label>
       <div data-lista aria-live="polite"><div class="rz-cartao"><div class="rz-linhas">${'<div class="rz-linha et-linha et-linha--esqueleto"><span class="et-mini"></span><span class="rz-linha-texto"><b>&nbsp;</b><small>&nbsp;</small></span></div>'.repeat(4)}</div></div></div>
+      ${endereco ? `</div>
+        <aside class="rz-ms-previa" aria-label="O seu site, com o estoque de agora">
+          <div class="rz-ms-barra">
+            <button class="rz-botao rz-botao--pequeno rz-ms-fechar" type="button" data-fechar-previa>${icone("voltar", { tamanho: 16 })}Voltar ao estoque</button>
+            <div class="rz-segmentos" role="group" aria-label="Tamanho da tela">
+              <button type="button" data-tela="celular" aria-pressed="true">Celular</button><button type="button" data-tela="computador" aria-pressed="false">Computador</button>
+            </div>
+            <span class="rz-texto-3 rz-ms-dica">O seu site, com o estoque de agora</span>
+          </div>
+          <div class="rz-ms-palco" data-palco>
+            <iframe title="O seu site, com o estoque de agora" src="${escapar(endereco)}/?rz-estoque=previa" sandbox="allow-scripts allow-same-origin allow-popups" data-quadro></iframe>
+            <div class="rz-ms-sem-ponte" data-sem-ponte hidden><p><b>O site ainda não respondeu.</b></p>
+              <p class="rz-texto-2">Se ele ainda não está no ar, a prévia aparece aqui quando estiver. O que você salva já vale.</p>
+              <a class="rz-botao" href="${escapar(endereco)}" target="_blank" rel="noopener">${icone("link", { tamanho: 18 })}Abrir o site</a></div>
+          </div>
+        </aside></div>
+      <button class="rz-botao rz-botao--primario rz-ms-ver" type="button" data-ver>${icone("olho", { tamanho: 18 })}Ver o site</button>` : ""}
     </section>`;
   const lista = el.querySelector("[data-lista]"), filtros = el.querySelector("[data-filtros]");
+
+  // ---------- o site ao lado ----------
+  const quadro = el.querySelector("[data-quadro]"), palco = el.querySelector("[data-palco]"), raiz = el.querySelector(".et");
+  const origemDoSite = endereco ? new URL(endereco).origin : "";
+  let tela = "celular", siteOuvindo = false;
+  function ajustar() {
+    const grade = el.querySelector(".rz-ms-grade");
+    if (grade) grade.style.setProperty("--rz-ms-altura", Math.max(420, innerHeight - (grade.getBoundingClientRect().top + scrollY) - 24) + "px");
+    if (!palco || !palco.clientWidth || !quadro) return;
+    const largura = TELAS[tela], escala = Math.min(1, palco.clientWidth / largura);
+    quadro.style.width = largura + "px";
+    quadro.style.height = Math.round(palco.clientHeight / escala) + "px";
+    quadro.style.transform = `scale(${escala})`;
+    quadro.style.left = Math.max(0, Math.round((palco.clientWidth - largura * escala) / 2)) + "px";
+  }
+  function mandarAoSite() {
+    if (!quadro || !siteOuvindo || !quadro.contentWindow) return;
+    quadro.contentWindow.postMessage({ tipo: "rz-estoque", esquema: conta.nicho, itens: paraOSite(loja.listar()) }, origemDoSite);
+  }
+  if (quadro) {
+    const ouvir = e => {
+      if (e.origin !== origemDoSite || e.source !== quadro.contentWindow || !e.data || e.data.tipo !== "rz-estoque-pronto") return;
+      siteOuvindo = true;
+      el.querySelector("[data-sem-ponte]").hidden = true;
+      quadro.hidden = false;
+      mandarAoSite();
+    };
+    addEventListener("message", ouvir);
+    // o site não respondeu (fora do ar, ou ainda sem o script do estoque): avisa, sem travar nada
+    setTimeout(() => { if (!siteOuvindo && el.isConnected) { quadro.hidden = true; el.querySelector("[data-sem-ponte]").hidden = false; } }, 9000);
+    new ResizeObserver(ajustar).observe(palco);
+    addEventListener("resize", ajustar);
+    setTimeout(ajustar, 0);
+  }
 
   // ---------- a lista ----------
   const quantos = s => loja.listar().filter(i => s === "todos" || i.situacao === s).length;
@@ -93,7 +153,7 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
   const tudo = () => { desenharFiltros(); desenharLista(); };
   ligarChips(filtros, v => { filtro = v; desenharLista(); });
   el.querySelector("[data-busca]").addEventListener("input", e => { busca = e.target.value; desenharLista(); });
-  loja.aoMudar(tudo);
+  loja.aoMudar(() => { tudo(); mandarAoSite(); });
 
   // ---------- ações de um toque ----------
   async function mudar(i, patch, texto, { desfazer = true } = {}) {
@@ -121,7 +181,7 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
       if (o === "editar") return editar(i);
       if (o === "destaque") return mudar(i, { destaque: !i.destaque }, i.destaque ? `${nome}: saiu do destaque.` : `${nome}: em destaque, aparece primeiro no site.`, { desfazer: false });
       const fora = o === "vendido" || o === "oculto" ? { destaque: false } : {};
-      const texto = { vendido: `${nome}: vendido. Sai do site em até 1 minuto.`, reservado: `${nome}: reservado. No site, aparece com a etiqueta.`,
+      const texto = { vendido: `${nome}: vendido. Já saiu do site.`, reservado: `${nome}: reservado. No site, aparece com a etiqueta.`,
         oculto: `${nome}: fora do site.`, disponivel: `${nome}: no site de novo.` }[o];
       return mudar(i, { situacao: o, ...fora }, texto);
     });
@@ -219,7 +279,7 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
         g.fechar();
         if (tiradas.length) loja.tirarArquivos(tiradas).catch(() => {});
         const s = situacao(linha.situacao), titulo = esquema.titulo(linha.campos);
-        avisar(s.noSite ? `${titulo}: salvo. Aparece no site em até 1 minuto.` : `${titulo}: salvo, fora do site (${s.rotulo.toLowerCase()}).`);
+        avisar(s.noSite ? `${titulo}: salvo. Já está no site.` : `${titulo}: salvo, fora do site (${s.rotulo.toLowerCase()}).`);
       } catch (e) {
         ocupado(salvar, false);
         erro.hidden = false;
@@ -239,6 +299,10 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
   el.addEventListener("click", e => {
     if (edita && (e.target.closest("[data-novo-item]") || e.target.closest('[data-acao="novo"]'))) return editar(null);
     if (e.target.closest("[data-recarregar]")) return location.reload();
+    const botaoDaTela = e.target.closest("[data-tela]");
+    if (botaoDaTela) { tela = botaoDaTela.dataset.tela; el.querySelectorAll("[data-tela]").forEach(x => x.setAttribute("aria-pressed", String(x === botaoDaTela))); return ajustar(); }
+    if (e.target.closest("[data-ver]")) { raiz.classList.add("rz-ms--vendo"); return setTimeout(ajustar, 0); }
+    if (e.target.closest("[data-fechar-previa]")) return raiz.classList.remove("rz-ms--vendo");
     if (e.target.closest("[data-limpar]")) { filtro = "todos"; busca = ""; el.querySelector("[data-busca]").value = ""; return tudo(); }
     const linha = e.target.closest(".et-linha[data-id]");
     if (!linha) return;

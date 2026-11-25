@@ -98,3 +98,15 @@ export function criarLoja({ banco, conta }) {
     aoMudar(f) { ouvintes.add(f); return () => ouvintes.delete(f); },
   };
 }
+
+/** O que o site recebe (o mesmo formato da API pública, 12 "Contrato v1"): só disponível e reservado, na ordem, com as
+ *  fotos como caminho da API. A prévia ao lado manda isto ao site a cada mudança. */
+export function paraOSite(itens) {
+  const caminho = a => "/api/publico/imagens/" + a;
+  return ordenar(itens.filter(i => i.situacao === "disponivel" || i.situacao === "reservado")).map(i => ({
+    id: i.id, situacao: i.situacao, destaque: !!i.destaque,
+    preco: i.preco == null ? null : Number(i.preco), preco_antes: i.preco_antes == null ? null : Number(i.preco_antes),
+    quantidade: i.quantidade == null ? 1 : Number(i.quantidade), selos: i.selos || [], descricao: i.descricao || "", campos: i.campos || {},
+    fotos: (i.fotos || []).map(f => ({ url: caminho(f.arquivo), mini: caminho(f.mini || f.arquivo), w: f.w, h: f.h })),
+  }));
+}

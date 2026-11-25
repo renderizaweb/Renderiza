@@ -1,8 +1,7 @@
 // GET /api/publico/estoque/<código> — o estoque que o site do cliente mostra (docs/painel-clientes/12-modulo-estoque.md,
 // "Contrato v1", item 2): só disponível e reservado, já na ordem. 404 quando o site não responde (desconectado, conta
-// não liberada, Estoque desligado): o script do site fica com a versão de reserva, sem preço. Cache de 20 s na rede
-// (mais 10 s servindo a anterior enquanto busca a nova), como o Meu site: uma mudança aparece em menos de 1 minuto e a
-// maioria das visitas nem chega ao banco. As fotos saem como caminho desta API (/api/publico/imagens/…): o script
+// não liberada, Estoque desligado): o script do site fica com a versão de reserva, sem preço. Cache de 1 s na rede:
+// uma mudança aparece na próxima visita (o banco responde em São Paulo, ao lado da função). As fotos saem como caminho desta API (/api/publico/imagens/…): o script
 // completa com o endereço que chamou, então o local, o STG e a produção funcionam igual.
 
 import { CODIGO, adaptar, cors, resposta, rpc } from "../../_comum.js";
@@ -42,7 +41,8 @@ export async function tratar({ metodo, caminho, env }, buscar = fetch) {
   const codigo = (caminho.match(/^\/api\/publico\/estoque\/([^/]+)\/?$/) || [])[1];
   if (!CODIGO.test(codigo || "")) return resposta(400, { erro: "pedido" }, { ...cabecalhos, "Cache-Control": "no-store" });
   const r = await rpc(env, "publico_estoque", { p_codigo: codigo }, buscar);
-  const cache = { "Cache-Control": "public, max-age=0, s-maxage=20, stale-while-revalidate=10" };
+  // 1 s na rede (25/11/2026: o estoque tem de aparecer na hora; o 1 s só junta as visitas do mesmo segundo)
+  const cache = { "Cache-Control": "public, max-age=0, s-maxage=1" };
   if (r === null) return resposta(404, { erro: "fora" }, { ...cabecalhos, ...cache });
   return resposta(200, paraOSite(r), { ...cabecalhos, ...cache });
 }
