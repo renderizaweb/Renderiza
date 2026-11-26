@@ -10,7 +10,7 @@
 | Empresa | não consultei o CNPJ |
 | Site | não tem |
 | Entregável | demo de site (`index.html`), gerada por `ferramentas/demo/gerar-odonto.py` a partir do `demo.json` |
-| Situação | **versão 2 em 26/11/2026** (abaixo) · versão 1 pronta em 09/10/2026 · `/demo/dra-milena-ferreira` · vídeo `/gravacao/dra-milena-ferreira.mp4` · flyer `/flyer/dra-milena-ferreira.png`. No painel desde 09/10/2026 (pedido direto do Kaue), em Gravação realizada, com a mensagem pronta de WhatsApp |
+| Situação | **versão 2.1 em 26/11/2026** (abaixo) · versão 1 pronta em 09/10/2026 · `/demo/dra-milena-ferreira` · vídeo `/gravacao/dra-milena-ferreira.mp4` · flyer `/flyer/dra-milena-ferreira.png`. No painel desde 09/10/2026 (pedido direto do Kaue), em Gravação realizada, com a mensagem pronta de WhatsApp |
 
 ## Quem é
 - Cirurgiã-dentista com atuação em harmonização orofacial, CRO-SP 181642 (bio e legendas: "Cirurgiã-Dentista | Harmonização Orofacial").
@@ -65,3 +65,17 @@ dela, agenda integrada (para fechar junto com o painel) e valores.
   (inauguração) e a09 (recepção decorada).
 - **Conferir:** a nota 5,0 do Google é de 09/10/2026 (17 avaliações; não conferi de novo); "Lipo de papada HD" está no
   nome do perfil dela, mas não confirmei como o CRO-SP vê o procedimento para dentista.
+
+## Versão 2.1 (26/11/2026, mesmo dia): mais limpa, a pedido do Kaue
+O Kaue não gostou da fonte e pediu um site mais limpo, menos poluído, e fotos melhores.
+- **Fonte:** Instrument Serif (títulos, com itálico no acento) + Inter (texto), no lugar da Bodoni Moda (os traços finos
+  quebravam na tela) + Manrope.
+- **Mais limpo:** fundo creme, um só acento marrom, uma foto por bloco. Saíram a faixa que rola, o selo que gira, a
+  segunda foto sobreposta na abertura, as pílulas, o mosaico, a seção escura de "cada rosto" (a frase virou o título dos
+  tratamentos), os cartões numerados e as legendas sobre as fotos. Tratamentos viraram uma lista em duas colunas
+  (cada um leva à agenda com o tratamento marcado); avaliações, 3 citações; contato, 4 colunas sem foto.
+- **Fotos em tamanho cheio:** abertura com o post da inauguração (`Ddy6O28EaUh_01`, 3072 px, vestido branco diante do
+  logo) e "Sobre" com o post do diário de obra (`Dd1sfqjiG6O_00`, 1217×2160, terno marrom); no celular, a foto da
+  abertura vem antes do título. As da clínica e dos resultados continuam as da versão 1. A página caiu de 964 KB
+  para 680 KB.
+- Avaliações com o texto como está no Google (sem juntar trechos).
