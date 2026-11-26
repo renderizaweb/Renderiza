@@ -92,6 +92,10 @@ export function versaoDeEntrega(demo) {
   h = trocar(h, '["ate250","Até R$ 250 mil",c=>c.preco<=250000]', '["ate250","Até R$ 250 mil",c=>!!c.preco&&c.preco<=250000]');
   h = trocar(h, "$(\"#grade\").innerHTML=l.map((c,i)=>{const f=fts(c).slice(0,6);", "$(\"#grade\").innerHTML=l.map((c,i)=>{const f=ftm(c).slice(0,6);");
   h = trocar(h, '<img src="${fts(x)[0]}" alt="" loading="lazy"><span>${nome(x)}<small>${brl(x.preco)}</small></span>', '<img src="${ftm(x)[0]}" alt="" loading="lazy"><span>${nome(x)}<small>${brl(x.preco)}</small></span>');
+  // as miniaturas da página do carro com a foto pequena (a grande só na galeria)
+  h = trocar(h, "const dlg=$(\"#dlg\");let gi=0,gl=[];", "const dlg=$(\"#dlg\");let gi=0,gl=[],glm=[];");
+  h = trocar(h, "if(!c)return;gl=fts(c);gi=0;", "if(!c)return;gl=fts(c);glm=ftm(c);gi=0;");
+  h = trocar(h, '<button data-i="${k}" aria-label="Foto ${k+1}" aria-current="${!k}"><img src="${u}" alt="" loading="lazy"></button>', '<button data-i="${k}" aria-label="Foto ${k+1}" aria-current="${!k}"><img src="${glm[k]||u}" alt="" loading="lazy"></button>');
   h = trocar(h, '<div class="preco">${brl(c.preco)}</div>', '<div class="preco">${brl(c.preco)}</div>${DO_PAINEL?"":`<p class="aviso-carro">O estoque muda todo dia: confirme a disponibilidade pelo WhatsApp.</p>`}');
   h = trocar(h, "const m=location.hash.match(/^#carro-(\\d+)/);", "const m=location.hash.match(/^#carro-([A-Za-z0-9-]+)/);");
   // ---------- o contato: o número e o Instagram, com o "WhatsApp e redes" do Meu site por cima ----------
