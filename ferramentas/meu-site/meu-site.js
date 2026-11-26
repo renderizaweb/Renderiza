@@ -372,7 +372,7 @@
   // ---------- extrair: o conteúdo inicial de um site, no mesmo formato (para a montagem no painel) ----------
   function deTexto(el) {
     return Array.prototype.map.call(el.childNodes, function (n) {
-      return n.nodeName === "EM" ? "*" + n.textContent + "*" : n.textContent;
+      return n.nodeName === "EM" ? "*" + n.textContent + "*" : n.nodeName === "BR" ? " " : n.textContent; // <br> é espaço: "premium<br>e" não vira "premiume"
     }).join("").replace(/\s+/g, " ").trim();
   }
 
@@ -616,10 +616,17 @@
       });
     };
     if (!previa) { var guardada = lerCache(chave); if (guardada) mostrar(guardada); }
-    var ctrl = typeof global.AbortController === "function" ? new global.AbortController() : null;
-    if (ctrl) setTimeout(function () { ctrl.abort(); }, 10000);
     var url = api + encodeURIComponent(codigo) + (previa ? "/previa?t=" + previa : "");
-    global.fetch(url, { credentials: "omit", cache: previa ? "no-store" : "default", signal: ctrl ? ctrl.signal : undefined })
+    // Como o Estoque: pede sempre que a página abre e de novo quando a pessoa volta à aba (no máximo a cada 3 s); a
+    // rede guarda a resposta por 1 s, então o que foi publicado aparece na próxima vez que o site é aberto ou olhado.
+    var buscando = false, ultimaBusca = 0;
+    var buscar = function () {
+      if (buscando || Date.now() - ultimaBusca < 3000) return;
+      buscando = true; ultimaBusca = Date.now();
+      var ctrl = typeof global.AbortController === "function" ? new global.AbortController() : null;
+      var limite = ctrl ? setTimeout(function () { ctrl.abort(); }, 10000) : null;
+      var fim = function () { buscando = false; if (limite) clearTimeout(limite); };
+      global.fetch(url, { credentials: "omit", cache: previa ? "no-store" : "default", signal: ctrl ? ctrl.signal : undefined })
       .then(function (r) {
         if (r.status === 404) { if (!previa) apagarCache(chave); mostrar(null); return; }
         if (!r.ok) return;
@@ -629,7 +636,15 @@
           mostrar(c); // mesmo atrasada: a mesma versão não reaplica (assinatura)
         });
       })
-      .catch(function () { /* fora do ar, demorou ou bloqueado: fica a versão que está na tela */ });
+      .catch(function () { /* fora do ar, demorou ou bloqueado: fica a versão que está na tela */ })
+      .then(fim, fim);
+    };
+    buscar();
+    if (!previa && typeof doc.addEventListener === "function") {
+      var deNovo = function () { if (doc.visibilityState !== "hidden") buscar(); };
+      doc.addEventListener("visibilitychange", deNovo);
+      if (typeof global.addEventListener === "function") global.addEventListener("focus", deNovo);
+    }
   }
 
   var api = { ESQUEMA: ESQUEMA, API: API, validar: validar, partes: partes, destino: destino, iniciais: iniciais, aplicar: aplicar, voltar: voltar, extrair: extrair, lerCliente: lerCliente, marcaDe: marcaDe };

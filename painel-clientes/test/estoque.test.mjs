@@ -54,6 +54,10 @@ test("o nicho automotivo: as mesmas chaves dos outros, o Estoque primeiro na bar
   const pode = m => m === "estoque";
   assert.deepEqual(acoesRapidas(conta, pode).map(a => [a.rotulo, a.caminho]), [["Novo carro", "/estoque?novo=item"]]);
   assert.deepEqual(abasDoNicho(NICHOS.automotivo).map(a => a.id), ["servicos"]);
+  // Serviços só aparece com o Atendimento (o único que usa a lista na loja); nos outros nichos, sempre
+  assert.equal(itens.some(i => i.id === "servicos"), false, "a loja só com Meu site e Estoque não vê Serviços");
+  assert.ok(itensDoMenu({ ...conta, modulos: ["meu-site", "estoque", "atendimento"] }).some(i => i.id === "servicos"));
+  assert.ok(itensDoMenu({ ...conta, nicho: "fotografia" }).some(i => i.id === "servicos"));
 });
 
 import { assuntosDoNicho, ordemDoMenu } from "../src/telas/montar/roteiro.js";

@@ -2,7 +2,8 @@
 // que os módulos usam. Por nicho (05, "Os nomes que mudam por nicho"):
 //   eventos:    Pacotes · Tipos de festa · Adicionais · Horários (turnos) · Datas fechadas
 //   fotografia: Ensaios · Horários · Campanhas · Folgas · Adicionais
-//   automotivo: Serviços (só o nome e a descrição: consignação, financiamento, troca; 24/11/2026)
+//   automotivo: Serviços (só o nome e a descrição: consignação, financiamento, troca; 24/11/2026). Só o Atendimento usa;
+//               sem ele no plano, o menu não mostra e o onboarding não pergunta (sessao.js, servicosSemUso; 26/11). Apaga.
 // Os horários seguem o jeito da agenda online da conta (Configurações; src/nichos/index.js, modoDaAgenda): por horário,
 // cada linha é um começo (e pode ser só de um ensaio); por turno, começo, fim e nome. As campanhas são do jeito por horário.
 // Pacote, tipo e adicional não se apagam (as reservas apontam para eles): desativam. Horário e data fechada, sim.
@@ -138,6 +139,7 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
         ${temAgendaOnline ? interruptor({ nome: "na_agenda_online", rotulo: "Aparece na agenda online", marcado: s.na_agenda_online !== false }) : ""}
         ${interruptor({ nome: "ativo", rotulo: "Ativo", ajuda: "Desativado não aparece para escolher, mas continua nas reservas que já tem.", marcado: s.ativo !== false })}`,
       ler: d => lerServico(d, nicho),
+      apaga: !!nicho.servicoSimples, // na loja não há reserva apontando para o serviço: apaga (os outros desativam)
     },
     tipos: {
       tabela: "tipos_reserva",
@@ -304,7 +306,7 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
       }
     });
     g.pe.querySelector("[data-apagar]")?.addEventListener("click", async () => {
-      if (!(await confirmar({ titulo: "Apagar?", texto: "Isso sai da agenda online também.", sim: "Apagar", perigo: true }))) return;
+      if (!(await confirmar({ titulo: "Apagar?", texto: nicho.servicoSimples ? "Ele sai da lista de serviços." : "Isso sai da agenda online também.", sim: "Apagar", perigo: true }))) return;
       try {
         await banco.resultado(banco.tabela(atual.tabela).delete().eq("id", item.id));
         g.fechar();

@@ -17,6 +17,7 @@ import { escapar, erroNoCampo, avisoDoFormulario, ocupado } from "../../ui/formu
 import { mascaraTelefone, normalizarWhatsapp, whatsappValido, telefone } from "../../ui/formatos.js";
 import { campoTexto, CORES } from "../../ui/campos.js";
 import { linkDaRenderiza } from "../renderiza.js";
+import { servicosSemUso } from "../../sessao.js";
 import { perguntasDaConversa, perfilDasRespostas, ordemDoMenu, confirmacoes, tiposParaEscolher, assuntosDoNicho, resumoDosHorarios } from "./roteiro.js";
 
 export const VERSAO = 2; // 2: as 5 perguntas preparadas de uma vez (o progresso guardado da versão 1 é descartado)
@@ -80,6 +81,9 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
   const estado = ler(conta.conta_id);
   const salvar = () => guardar(conta.conta_id, estado);
   // a conta que já tem ensaios (ou tipos) não ganha sugestões: elas repetiam com outro nome ("Ensaio gestante" e "Gestante")
+  // a loja sem Atendimento não escolhe serviços (não aparecem em lugar nenhum): a conversa vai da confirmação às perguntas
+  const semTipos = servicosSemUso(conta, n.servicoSimples);
+  if (semTipos) estado.tipos = [];
   if (!estado.tipos) estado.tipos = tiposParaEscolher(sabe.tipos, existentes.length ? [] : n.sugestoes);
   const usuario = sessao.usuario() || {};
   const pessoa = sessao.pessoa ? sessao.pessoa() : null;
@@ -236,7 +240,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
     andando = false;
   }
   function desenhar() {
-    if (estado.passo === "pergunta" && (!estado.perguntas || estado.respostas.length >= estado.perguntas.length)) estado.passo = estado.perguntas ? "arquivos" : "tipos";
+    if (estado.passo === "pergunta" && (!estado.perguntas || estado.respostas.length >= estado.perguntas.length)) estado.passo = estado.perguntas || semTipos ? "arquivos" : "tipos";
     palco.innerHTML = telas[estado.passo]();
     focarTitulo(palco);
     (ligar[estado.passo] || (() => {}))();
@@ -314,10 +318,21 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
     }
   }
 
+  // depois dos tipos (ou no lugar deles, na loja sem Atendimento): as perguntas
+  async function irAsPerguntas() {
+    if (estado.perguntas) return trocar("pergunta");
+    // as perguntas quase sempre já vieram (foram pedidas na abertura); se não, o esqueleto enquanto chegam
+    const prontas = await comPrazo(preparar(), 150);
+    if (!prontas) await trocar("preparando");
+    await perguntasProntas(ESPERA_DA_IA);
+    trocar("pergunta");
+  }
+  const aosTipos = () => (semTipos ? irAsPerguntas() : trocar("tipos"));
+
   const ligar = {
     abertura() { palco.querySelector("[data-seguir]").addEventListener("click", () => { registrar("conversa_comecou"); preparar(); trocar("confirma"); }); },
     confirma() {
-      palco.querySelector("[data-certo]").addEventListener("click", () => trocar("tipos"));
+      palco.querySelector("[data-certo]").addEventListener("click", () => aosTipos());
       palco.querySelector("[data-corrigir]").addEventListener("click", () => trocar("corrige"));
     },
     corrige() {
@@ -331,7 +346,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
         erroNoCampo(form.whatsapp, !zap || whatsappValido(zap) ? "" : "Confira o número: DDD e o número.");
         if (!nome || (zap && !whatsappValido(zap))) return;
         estado.corrigido = { nome, whatsapp: normalizarWhatsapp(zap) || "" };
-        trocar("tipos");
+        aosTipos();
       });
     },
     tipos() {
@@ -351,15 +366,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
         if (e.target.closest("[data-adicionar]")) adicionar();
       });
       form.outro.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); adicionar(); } });
-      form.addEventListener("submit", async e => {
-        e.preventDefault();
-        if (estado.perguntas) return trocar("pergunta");
-        // as perguntas quase sempre já vieram (foram pedidas na abertura); se não, o esqueleto enquanto chegam
-        const prontas = await comPrazo(preparar(), 150);
-        if (!prontas) await trocar("preparando");
-        await perguntasProntas(ESPERA_DA_IA);
-        trocar("pergunta");
-      });
+      form.addEventListener("submit", e => { e.preventDefault(); irAsPerguntas(); });
     },
     pergunta() {
       let escolhendo = false;
@@ -396,7 +403,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
   });
 
   if (estado.passo === "montagem") estado.passo = "arquivos"; // a montagem recomeça pelo último cartão
-  if (estado.passo === "preparando") estado.passo = "tipos";
+  if (estado.passo === "preparando") estado.passo = semTipos ? "confirma" : "tipos";
   // as perguntas começam a ser preparadas já agora (a pessoa ainda vai conferir os dados e os tipos)
   if (!estado.perguntas && estado.passo !== "arquivos") preparar();
   desenhar();

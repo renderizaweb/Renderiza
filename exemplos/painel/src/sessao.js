@@ -77,6 +77,15 @@ export function estadoDoModulo(conta, modulo) {
   return "fora";
 }
 
+/**
+ * Os Serviços de um nicho com serviço simples (automotivo: só nome e descrição) só servem ao Atendimento (o pedido diz
+ * o serviço). Sem ele no plano, a lista não aparece em lugar nenhum: o menu não mostra e o onboarding não pergunta
+ * (26/11/2026: a loja só com Meu site e Estoque via "Serviços" e não sabia para que era). `simples`: o do nicho.
+ */
+export function servicosSemUso(conta, simples) {
+  return !!simples && estadoDoModulo(conta, "atendimento") === "fora";
+}
+
 /** Dias que faltam do teste (arredondado para cima), ou null se a conta não está em teste. */
 export function diasDeTeste(conta, agora = Date.now()) {
   if (!conta || conta.situacao !== "teste" || !conta.teste_ate) return null;

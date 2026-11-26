@@ -190,7 +190,7 @@ test("site: a versão publicada com CORS e 60 s de cache; 404 quando não respon
   assert.equal(r.status, 200);
   assert.equal(r.corpo.versao, 3);
   assert.equal(r.cabecalhos["Access-Control-Allow-Origin"], "*");
-  assert.match(r.cabecalhos["Cache-Control"], /s-maxage=20, stale-while-revalidate=10$/);
+  assert.match(r.cabecalhos["Cache-Control"], /^public, max-age=0, s-maxage=1$/);
   assert.deepEqual(b.chamadas[0].corpo, { p_codigo: "villa-alecrim" });
   const nulo = await site({ metodo: "GET", caminho: "/api/publico/site/villa-alecrim", env: ENV }, bancoFalso(() => ({ json: null })).buscar);
   assert.equal(nulo.status, 404);

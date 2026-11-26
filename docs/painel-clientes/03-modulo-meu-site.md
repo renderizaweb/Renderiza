@@ -56,7 +56,7 @@ código, os dados para o Google (endereço oficial, dados estruturados) e o dom�
  │ HTML completo com a VERSÃO INICIAL       │  1. pede a versão publicada             │
  │ (textos, fotos e cores dentro do site)   │ ─────────────────▶ painel.renderizaweb… │
  │                                          │        │  /api/publico/site/<código>     │
- │ + script do Meu site (pequeno, embutido) │ ◀───────────────── (cache de ~60 s)     │
+ │ + script do Meu site (pequeno, embutido) │ ◀───────────────── (cache de 1 s)         │
  │                                          │  2. JSON com o que mudou                │
  │ 3. aplica por cima do que mudou          │        │                                 │
  │    deu erro, demorou ou 404?             │        │  Supabase: versões (banco)      │
@@ -82,8 +82,8 @@ código, os dados para o Google (endereço oficial, dados estruturados) e o dom�
    a guardada.
 4. **Guardada no navegador por 24 horas:** a última versão aparece logo nas visitas seguintes. Se a do painel for diferente
    da guardada, a página volta à inicial e aplica a nova, sem sobrar nada da guardada.
-5. **Cache na rede de 20 segundos** (mais 10 servindo a anterior enquanto busca a nova; até 17/11/2026, 60 + 300) (no endereço do painel): a maioria das visitas nem chega ao banco, e uma
-   publicação aparece em até 1 minuto.
+5. **Cache na rede de 1 segundo, como o Estoque** (26/11/2026; antes 20 + 10 s e, até 17/11, 60 + 300) (no endereço do painel): o script pede a versão sempre que o site abre e de novo quando a pessoa volta à aba (no máximo a cada 3 s), então
+   uma publicação aparece na próxima vez que o site é aberto ou olhado; a rede ainda junta as visitas do mesmo segundo.
 6. **Piscar na primeira visita:** o site abre com a versão inicial e troca pela publicada assim que a página termina
    de carregar. Nas visitas seguintes, a versão guardada entra no mesmo momento. **Validar no piloto**, no celular
    com internet lenta.
@@ -259,7 +259,7 @@ site ligado e o site de teste `villa-alecrim` cadastrado.
 - **Site sem a ponte** (gerado antes de 16/11/2026, ou que não deixa o painel pôr ele num quadro): depois de 7
   segundos sem resposta, o painel oferece "Ver o rascunho no site", que cria um código de prévia e abre o site com
   `?rz-previa=` em outra aba (a faixa "Prévia do rascunho"); editar e publicar funcionam igual.
-- **Publicar:** o rascunho vira a versão no ar (o site vê em até 1 minuto). Cada publicação fica em "Versões
+- **Publicar:** o rascunho vira a versão no ar (o site vê na próxima vez que é aberto). Cada publicação fica em "Versões
   publicadas", com quem publicou.
 - **Usar esta** (numa versão antiga) e **Voltar ao site como foi entregue** levam aquilo para o rascunho; publicar
   é que vale.

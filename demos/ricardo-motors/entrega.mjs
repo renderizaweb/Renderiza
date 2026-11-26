@@ -24,6 +24,7 @@ import { fileURLToPath } from "node:url";
 export const WHATSAPP = "5511947882373";
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
+const DOMINIO = JSON.parse(fs.readFileSync(path.join(AQUI, "site.json"), "utf8")).dominio;
 const RAIZ = path.resolve(AQUI, "../..");
 
 /** Troca um trecho que tem de existir exatamente `vezes` vezes (a demo mudou? para, em vez de sair um site torto). */
@@ -59,7 +60,11 @@ export function versaoDeEntrega(demo) {
   // ---------- o Meu site: capa, serviços, quem é o Ricardo, contato ----------
   h = trocar(h, '<section class="capa" aria-label="Capa">', '<section class="capa" aria-label="Capa" data-site-secao="inicio">');
   h = trocar(h, '<span class="k">Consultoria automotiva · São Paulo</span>', '<span class="k" data-site="inicio.etiqueta">Consultoria automotiva · São Paulo</span>');
-  h = trocar(h, '<h1><span class="nw">Carros premium</span>', '<h1 data-site="inicio.titulo"><span class="nw">Carros premium</span>');
+  // o título: o texto que o Meu site edita num span só (sem <br> nem pedaços, que o painel lia "premiume"); o ponto
+  // dourado fica fora e some quando o texto já termina em pontuação (DEMO_RUNTIME.carrosseis, depois de cada aplicar)
+  h = trocar(h, '<h1><span class="nw">Carros premium</span><br><span class="nw">e blindados<span class="pt">.</span></span></h1>',
+    '<h1 class="titulo-capa"><span data-site="inicio.titulo">Carros premium e blindados</span><span class="pt">.</span></h1>');
+  h = trocar(h, ".pt{color:var(--ouro-c)}", ".pt{color:var(--ouro-c)}.titulo-capa{text-wrap:balance}.titulo-capa .pt[hidden]{display:none}");
   h = trocar(h, '<p>Selecionados a dedo, com procedência verificada e negociação direta com o Ricardo.</p>', '<p data-site="inicio.texto">Selecionados a dedo, com procedência verificada e negociação direta com o Ricardo.</p>');
   h = trocar(h, '<a class="bt bt-l" data-wa="Olá, Ricardo! Vim pelo seu site e quero ajuda para encontrar um carro." href="#">', '<a class="bt bt-l" data-site-botao="inicio.botao" data-wa="Olá, Ricardo! Vim pelo seu site e quero ajuda para encontrar um carro." href="#">');
   h = trocar(h, '<section class="sec" id="servicos" style="padding-top:0">', '<section class="sec" id="servicos" style="padding-top:0" data-site-secao="servicos">');
@@ -88,7 +93,11 @@ export function versaoDeEntrega(demo) {
   if (/R\$ \d/.test(h.replace(/<script[\s\S]*?<\/script>/g, ""))) throw new Error("entrega: sobrou preço no HTML");
   // ---------- o script da página ----------
   h = trocar(h, "const msg=c=>`Olá, Ricardo! Tenho interesse no ${nome(c)} ${c.ano} (${brl(c.preco)}) que vi no seu site.`;",
-    "const msg=c=>`Olá, Ricardo! Vi no seu site o ${nome(c)} ${c.ano}${c.preco?` (${brl(c.preco)})`:\"\"}. Ainda está disponível?`;\nconst ftm=c=>c.fm&&c.fm.length?c.fm:fts(c);\nlet DO_PAINEL=false;");
+    `const SITE=${JSON.stringify("https://" + DOMINIO)};\nconst linkDo=c=>SITE+"/#carro-"+c.id;\n` +
+    "const msg=c=>`Olá, Ricardo! Tenho interesse neste carro do seu site:\\n*${nome(c)} ${c.ano}*${c.preco?` · ${brl(c.preco)}`:\"\"}\\n${linkDo(c)}\\nAinda está disponível?`;\nconst ftm=c=>c.fm&&c.fm.length?c.fm:fts(c);\nlet DO_PAINEL=false;");
+  h = trocar(h, 'data-wa="Olá, Ricardo! Quero agendar uma visita para ver o ${nome(c)} ${c.ano}."', 'data-wa="Olá, Ricardo! Quero agendar uma visita para ver o *${nome(c)} ${c.ano}*:\\n${linkDo(c)}"');
+  h = trocar(h, 'data-wa="Olá, Ricardo! Quero simular a troca ou o financiamento do ${nome(c)} ${c.ano}."', 'data-wa="Olá, Ricardo! Quero simular a troca ou o financiamento do *${nome(c)} ${c.ano}*:\\n${linkDo(c)}"');
+  h = trocar(h, 'data-wa="Olá, Ricardo! Pode me mandar mais fotos e um vídeo do ${nome(c)} ${c.ano}?"', 'data-wa="Olá, Ricardo! Pode me mandar mais fotos e um vídeo do *${nome(c)} ${c.ano}*?\\n${linkDo(c)}"');
   h = trocar(h, '["ate250","Até R$ 250 mil",c=>c.preco<=250000]', '["ate250","Até R$ 250 mil",c=>!!c.preco&&c.preco<=250000]');
   h = trocar(h, "$(\"#grade\").innerHTML=l.map((c,i)=>{const f=fts(c).slice(0,6);", "$(\"#grade\").innerHTML=l.map((c,i)=>{const f=ftm(c).slice(0,6);");
   h = trocar(h, '<img src="${fts(x)[0]}" alt="" loading="lazy"><span>${nome(x)}<small>${brl(x.preco)}</small></span>', '<img src="${ftm(x)[0]}" alt="" loading="lazy"><span>${nome(x)}<small>${brl(x.preco)}</small></span>');
@@ -114,7 +123,8 @@ export function versaoDeEntrega(demo) {
     'const doServico=a=>{if(a.dataset.waDe===undefined)return"";const it=a.closest("[data-site-item]"),t=it&&it.querySelector(\'[data-site-campo="titulo"]\'),n=t?t.textContent.trim():"";return n&&n!==a.dataset.waDe?n:""};\n' +
     'const ligarWa=(el=document)=>$$("[data-wa]",el).forEach(a=>{if(a.hasAttribute("data-site-botao")&&!a.hasAttribute("data-whatsapp"))return;const s=doServico(a),t=s&&[...a.childNodes].find(x=>x.nodeType===3&&x.nodeValue.trim());if(t)t.nodeValue="Falar com o Ricardo";a.href=wa(s?`Olá, Ricardo! Quero saber mais sobre: ${s}.`:a.dataset.wa,a.hasAttribute("data-wa-geral"));a.target="_blank";a.rel="noopener";a.setAttribute("data-whatsapp","")});\n' +
     'const ligarIg=()=>{const n=(String((window.DEMO_CLIENT||{}).instagram||"").match(/instagram\\.com\\/([A-Za-z0-9._]{1,30})/)||[])[1];if(n)$$("a[data-instagram]").forEach(a=>{a.href=`https://www.instagram.com/${n}/`;const t=[...a.childNodes].find(x=>x.nodeType===3&&x.nodeValue.trim().startsWith("@"));if(t)t.nodeValue="@"+n})};\n' +
-    "window.DEMO_RUNTIME={links(){ligarWa();ligarIg()},carrosseis(){},avaliacoes(){}};");
+    "const pontoDoTitulo=()=>{const t=$('[data-site=\"inicio.titulo\"]'),p=$(\".titulo-capa .pt\");if(t&&p)p.hidden=/[.!?…]\\s*$/.test(t.textContent)};\n" +
+    "window.DEMO_RUNTIME={links(){ligarWa();ligarIg()},carrosseis(){pontoDoTitulo()},avaliacoes(){}};");
   h = trocar(h, '<a class="bt bt-w" data-wa="Olá, Ricardo! Vim pelo seu site e quero falar sobre um carro." href="#">', '<a class="bt bt-w" data-wa-geral data-wa="Olá, Ricardo! Vim pelo seu site e quero falar sobre um carro." href="#">', 2);
   h = trocar(h, '<a class="wa-f" data-wa="Olá, Ricardo! Vim pelo seu site." href="#"', '<a class="wa-f" data-wa-geral data-wa="Olá, Ricardo! Vim pelo seu site." href="#"');
   // no HTML parado, os links já prontos (sem JavaScript, no Google e para o Meu site saber que são de WhatsApp)
@@ -165,7 +175,7 @@ window.rzEstoque=itens=>{
  CARROS.splice(0,CARROS.length,...l);$$("[data-estoque-aviso]").forEach(x=>x.hidden=DO_PAINEL);ordensDePreco();
  chips();grade();contagens();
  const comFoto=l.filter(c=>c.f.length),capa=itens?[...comFoto.filter(c=>c.destaque),...comFoto.filter(c=>!c.destaque)].slice(0,4).map(c=>({c,src:c.f[0],mini:(c.fm||[])[0]})):CAPA0;
- montarCapa(capa.length?capa:CAPA0);if(dlg.open)rota()};
+ montarCapa(capa.length?capa:CAPA0);rota()}; // #carro-<id> do painel: abre quando a lista chega
 montarCapa(HL);ordensDePreco();
 chips();grade();ligarWa();rota();` + h.slice(ouvFim + "heroIr(0);\nchips();grade();ligarWa();rota();".length);
   if (/rz-estoque=exemplo/.test(h)) throw new Error("entrega: sobrou o ouvinte do exemplo");
@@ -190,6 +200,9 @@ export function gerar(saida, { codigo, api, silencioso = false } = {}) {
     // depois do virar-site (ele limpa a pasta de saída): as fotos dos carros
     for (const [rel, buf] of arquivos) { fs.mkdirSync(path.dirname(path.join(saida, rel)), { recursive: true }); fs.writeFileSync(path.join(saida, rel), buf); }
     if (!silencioso) console.log(`Fotos dos carros: ${arquivos.length} em ${path.join(saida, "img/c")}`);
+    // o ícone da aba: o símbolo do logo dele (o "RM" dourado em escudo, vetorizado do logo do topo; 26/11/2026), no
+    // lugar do que o virar-site faz com as letras. O painel usa o mesmo arquivo como logo da conta.
+    fs.copyFileSync(path.join(AQUI, "favicon.svg"), path.join(saida, "favicon.svg"));
     return r.status;
   } finally {
     fs.rmSync(tmp, { recursive: true, force: true });

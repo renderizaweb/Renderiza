@@ -41,7 +41,7 @@ test("o Estoque de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout:
     await A.porNaConta(banco, dono.email, A.CODIGO, { dono: true, nome: "Dono da Garagem" });
     await A.porNaConta(banco, ve.email, A.CODIGO, { acessos: { estoque: "ver" }, nome: "Vendedor da Garagem" });
 
-    await t.test("a conversa de boas-vindas da loja: perguntas de revenda, serviços e o Estoque primeiro no menu", async () => {
+    await t.test("a conversa de boas-vindas da loja: perguntas de revenda, sem escolher serviços (sem Atendimento) e o Estoque primeiro no menu", async () => {
       const ctx = await navegador.newContext({ ...CELULAR, locale: "pt-BR" });
       pagina = await ctx.newPage();
       erros = A.vigiar(pagina, [/functions\/v1\/assistente/]);
@@ -49,9 +49,7 @@ test("o Estoque de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout:
       await pagina.waitForURL(/\/montar/, { timeout: 15000 });
       await pagina.locator("[data-seguir]").click();
       await pagina.locator("[data-certo]").click();
-      await pagina.locator("[data-tipo]:has-text('Consignação')").click();
-      await pagina.locator("[data-tipo]:has-text('Financiamento')").click();
-      await pagina.locator("form button[type=submit]").click();
+      assert.equal(await pagina.locator("[data-tipo]").count(), 0, "a loja sem Atendimento não escolhe serviços: vai direto às perguntas");
       const perguntas = [];
       for (let k = 0; k < 8 && !(await pagina.locator("[data-seguir]").count()); k++) {
         await pagina.locator("[data-resposta]").first().waitFor({ timeout: 20000 });
@@ -66,7 +64,8 @@ test("o Estoque de ponta a ponta, no STG", { skip: A.motivoParaPular(), timeout:
       await pagina.waitForSelector("#estoque-titulo", { timeout: 30000 });
       const [c] = await banco.sql(`select ajustes -> 'ordem_menu' ->> 0 as primeiro, (select string_agg(nome, ', ' order by nome) from public.servicos s where s.conta_id = c.id) as servicos from public.contas c where codigo = ${A.q(A.CODIGO)}`);
       assert.equal(c.primeiro, "estoque", "o Estoque primeiro no menu");
-      assert.equal(c.servicos, "Consignação, Financiamento");
+      assert.equal(c.servicos, null, "nenhum serviço guardado");
+      assert.equal(await pagina.locator('nav a[href="/servicos"]').count(), 0, "nem Serviços no menu");
       assert.ok(await pagina.locator("text=Pôr os carros no estoque").count(), "o primeiro passo é pôr os carros");
     });
 

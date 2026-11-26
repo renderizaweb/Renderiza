@@ -7,7 +7,7 @@
 
 import { MODULOS } from "../modulos/index.js";
 import { caminhoDe } from "../rotas.js";
-import { estadoDoModulo, diasDeTeste, usuarioDoEmail } from "../sessao.js";
+import { estadoDoModulo, diasDeTeste, usuarioDoEmail, servicosSemUso } from "../sessao.js";
 import { nicho } from "../nichos/index.js";
 import { temaDoNicho } from "./acesso.js";
 import { icone } from "../ui/icones.js";
@@ -40,7 +40,7 @@ export function itensDoMenu(conta) {
   });
   const inicio = MODULOS.filter(m => m.id === "inicio").map(item);
   const modulos = MODULOS.filter(m => !m.base).sort((a, b) => posicao(a.id) - posicao(b.id)).map(item);
-  const daConta = DA_CONTA.map(id => MODULOS.find(m => m.id === id)).filter(Boolean).map(item);
+  const daConta = DA_CONTA.filter(id => id !== "servicos" || !servicosSemUso(conta, n.servicoSimples)).map(id => MODULOS.find(m => m.id === id)).filter(Boolean).map(item);
   return [...inicio, ...modulos, ...daConta].filter(i => i.estado !== "fora");
 }
 
