@@ -97,6 +97,27 @@ Os filtros do site saem do esquema: cada campo marcado como `filtro` vira um chi
 - **Ordem:** destaque primeiro, depois os mais novos; o dono pode arrastar para mudar.
 - **Quem pode:** o dono dá "edita" a quem vende e "só vê" a quem só consulta (Equipe e acessos).
 
+### Trazer do anúncio da WebMotors (26/11/2026)
+
+Pedido da Renderiza: não digitar de novo o carro que já está anunciado. A WebMotors **recusa leitura automática** da
+página (proteção anti-robô, 403) e **não se contorna** (termos de uso, risco de bloquear o próprio anunciante, quebra
+a cada mudança deles). O caminho é o navegador da própria pessoa:
+
+- **Onde:** no topo de "Adicionar carro", **só no computador** (`(min-width: 900px) and (pointer: fine)`), só no carro
+  novo e só no nicho automotivo: "Já anunciou este carro na WebMotors? · Trazer do anúncio".
+- **Como:** o passo a passo animado (1. abra o anúncio; 2. copie a página toda, Ctrl+A e Ctrl+C; 3. cole aqui, Ctrl+V;
+  no Mac, ⌘), parado para quem pede menos movimento, e a área de colar. Colou, os campos se preenchem e piscam, a área
+  fecha, sai o resumo ("Pronto: 20 campos vieram do anúncio · Porsche Cayenne 2023/2024 · 21.500 km · R$ 689.900") e
+  "Adicionar fotos" chama atenção. Texto que não é anúncio: o aviso, e nada muda.
+- **O que vem** (`src/modulos/estoque/webmotors.js`, sem IA e sem rede): marca, modelo e versão (as linhas antes da
+  ficha; a grafia que a conta já usa vale), os anos, km, câmbio, carroceria, combustível, final da placa, cor, os sete
+  sim/não, o preço do "Valor anunciado" (nunca a FIPE, a média ou os anúncios parecidos da mesma página), a descrição
+  ("Sobre este carro") e os itens: os que têm caixa viram opcionais, os outros vão para o fim da descrição
+  ("Itens: …"). **As fotos não vêm.** O link sozinho dá marca, modelo, versão e anos (estão no endereço).
+- **Testes:** `test/webmotors.test.mjs` (um anúncio fictício na ordem da página, `test/fixtures/anuncio-webmotors.txt`)
+  e `test/fluxos/webmotors.fluxo.mjs` (no STG: copiar, Ctrl+V, conferir os campos, salvar; o aviso; o celular sem o
+  cartão). Conferido também com dois anúncios de verdade da Ricardo Motors salvos pela Renderiza (fora do repositório).
+
 ## Contrato v1 (fixado em 24/11/2026)
 
 É o que deixa o banco, o painel e o site serem feitos **ao mesmo tempo, por sessões diferentes**, sem uma esperar a

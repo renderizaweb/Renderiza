@@ -15,6 +15,7 @@ import { moeda, lerValor } from "../../ui/formatos.js";
 import { ESQUEMAS, SITUACOES, situacao, camposDe } from "./esquemas.js";
 import { criarLoja, urlDaFoto, paraOSite } from "./loja.js";
 import { enderecoDoSite } from "../meu-site/conteudo.js";
+import { lerAnuncio } from "./webmotors.js";
 
 const MAX_FOTOS = 15;
 const TELAS = { celular: 390, computador: 1280 };
@@ -187,6 +188,121 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
     });
   }
 
+  // ---------- trazer do anúncio da WebMotors (./webmotors.js; 12, "Trazer do anúncio") ----------
+  // Só no carro novo e no computador (copiar a página inteira é coisa de computador): a pessoa abre o anúncio dela,
+  // copia a página (Ctrl+A, Ctrl+C) e cola aqui; os campos se preenchem e piscam, e ela confere e põe as fotos.
+  const noComputador = () => typeof matchMedia === "function" && matchMedia("(min-width: 900px) and (pointer: fine)").matches;
+  const CTRL = typeof navigator !== "undefined" && /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent || "") ? "⌘" : "Ctrl";
+  const teclas = l => `<kbd>${CTRL}</kbd><span>+</span><kbd>${l}</kbd>`;
+  const telinha = (extra = "") => `<div class="et-tela"><div class="et-tela-barra"><i></i><i></i><i></i><span>webmotors.com.br/comprar/…</span></div>
+      <div class="et-tela-corpo"><span class="et-tela-foto"></span><span class="et-tela-linha et-tela-linha--titulo"></span><span class="et-tela-linha"></span><span class="et-tela-linha et-tela-linha--curta"></span>${extra}</div></div>`;
+  const blocoTrazer = () => `<section class="et-bloco et-trazer" data-trazer>
+      <div class="et-trazer-topo">
+        <span class="et-trazer-icone" aria-hidden="true">${icone("importar", { tamanho: 20 })}</span>
+        <span class="et-trazer-texto"><b>Já anunciou este ${ITEM} na WebMotors?</b><small>Traga os dados do anúncio com 3 teclas. Você só confere e põe as fotos.</small></span>
+        <button class="rz-botao" type="button" data-trazer-abrir aria-expanded="false" aria-controls="et-trazer-painel">Trazer do anúncio</button>
+      </div>
+      <div class="et-trazer-painel" id="et-trazer-painel" hidden>
+        <ol class="et-passos">
+          <li class="et-passo" style="--i:0"><div class="et-cena" aria-hidden="true">${telinha()}</div>
+            <span class="et-passo-n">1</span><b>Abra o anúncio</b><small>Na WebMotors, neste computador.</small></li>
+          <li class="et-passo" style="--i:1"><div class="et-cena et-cena--copiar" aria-hidden="true">${telinha('<span class="et-tela-selecao"></span>')}
+              <span class="et-cena-teclas et-cena-teclas--a">${teclas("A")}</span><span class="et-cena-teclas et-cena-teclas--c">${teclas("C")}</span></div>
+            <span class="et-passo-n">2</span><b>Copie a página toda</b><span class="et-passo-teclas">${teclas("A")}<small>depois</small>${teclas("C")}</span></li>
+          <li class="et-passo" style="--i:2"><div class="et-cena et-cena--colar" aria-hidden="true"><div class="et-tela et-tela--painel">
+              <div class="et-tela-corpo">${"<span class=\"et-tela-campo\"><i></i></span>".repeat(4)}</div></div><span class="et-cena-teclas et-cena-teclas--v">${teclas("V")}</span></div>
+            <span class="et-passo-n">3</span><b>Cole aqui</b><span class="et-passo-teclas">${teclas("V")}<small>e os campos se preenchem</small></span></li>
+        </ol>
+        <label class="et-colar"><span class="et-colar-rotulo">${icone("importar", { tamanho: 18 })}<b>Cole aqui o anúncio</b><span>(${CTRL} + V)</span></span>
+          <textarea data-colar rows="2" placeholder="Clique aqui e aperte ${CTRL} + V" aria-describedby="et-trazer-ajuda"></textarea></label>
+        <p class="rz-texto-3" id="et-trazer-ajuda">O link do anúncio também serve, mas traz menos: só a marca, o modelo, a versão e o ano. As fotos não vêm: ponha as suas, que ficam melhores no site.</p>
+        <p class="rz-alerta rz-alerta--erro" data-trazer-erro role="alert" hidden></p>
+      </div>
+      <div class="et-trazer-feito" data-trazer-feito role="status" hidden></div>
+    </section>`;
+
+  /** Põe no formulário o que veio do anúncio; os campos preenchidos piscam. Devolve os rótulos preenchidos. */
+  function preencher(form, r) {
+    const feitos = [];
+    // pisca o próprio campo (a caixa de texto, a lista) ou a linha do sim/não e a etiqueta do opcional
+    const piscar = el => { const alvo = el.matches("input[type=checkbox]") ? el.closest("label") || el : el; alvo.classList.remove("et-trazido"); void alvo.offsetWidth; alvo.classList.add("et-trazido"); setTimeout(() => alvo.classList.remove("et-trazido"), 2600); };
+    for (const c of camposDe(esquema)) {
+      if (!(c.id in r.campos)) continue;
+      const v = r.campos[c.id];
+      if (c.tipo === "simnao") {
+        const el = form.querySelector(`input[type=checkbox][name="${c.id}"]`);
+        if (el) { el.checked = v === true; piscar(el); feitos.push(c.rotulo); }
+      } else if (c.tipo === "marcar") {
+        let algum = false;
+        form.querySelectorAll(`input[type=checkbox][name="${c.id}"]`).forEach(el => { if (v.includes(el.value)) { el.checked = true; piscar(el); algum = true; } });
+        if (algum) feitos.push(c.rotulo);
+      } else {
+        const el = form.querySelector(`[name="${c.id}"]`);
+        if (!el || (c.tipo === "lista" && ![...el.options].some(o => o.value === v))) continue;
+        el.value = c.id === "km" ? Number(v).toLocaleString("pt-BR") : String(v);
+        piscar(el);
+        feitos.push(c.rotulo);
+      }
+    }
+    if (r.preco != null) { const el = form.querySelector('[name="preco"]'); el.value = Number(r.preco).toLocaleString("pt-BR"); piscar(el); feitos.push("Preço"); }
+    if (r.descricao) { const el = form.querySelector('[name="descricao"]'); el.value = r.descricao; piscar(el); feitos.push("Descrição"); }
+    return feitos;
+  }
+
+  function ligarTrazer(g, form) {
+    const caixa = g.corpo.querySelector("[data-trazer]");
+    if (!caixa) return;
+    const abrir = caixa.querySelector("[data-trazer-abrir]"), painel = caixa.querySelector(".et-trazer-painel"), area = caixa.querySelector("[data-colar]");
+    const erroT = caixa.querySelector("[data-trazer-erro]"), feito = caixa.querySelector("[data-trazer-feito]");
+    const mostrar = aberto => {
+      painel.hidden = !aberto;
+      abrir.setAttribute("aria-expanded", String(aberto));
+      abrir.textContent = aberto ? "Fechar" : feito.hidden ? "Trazer do anúncio" : "Colar de novo";
+      if (aberto) { erroT.hidden = true; caixa.scrollIntoView({ block: "start" }); area.focus({ preventScroll: true }); }
+    };
+    abrir.addEventListener("click", () => mostrar(painel.hidden));
+    const conhecidos = () => [...new Set(loja.listar().flatMap(i => [i.campos && i.campos.marca, i.campos && i.campos.modelo]).filter(Boolean))];
+    const usar = texto => {
+      const r = lerAnuncio(texto, { conhecidos: conhecidos() });
+      if (!r.tipo || !Object.keys(r.campos).length) {
+        erroT.hidden = false;
+        erroT.innerHTML = `Não achamos um anúncio nesse texto. Abra o anúncio na WebMotors, aperte ${teclas("A")} e ${teclas("C")}, e cole aqui de novo.`;
+        return;
+      }
+      const feitos = preencher(form, r);
+      const c = r.campos, falta = ["marca", "modelo"].filter(k => !c[k]);
+      const titulo = [c.marca, c.modelo, c.ano_fab && c.ano_modelo ? `${c.ano_fab}/${c.ano_modelo}` : ""].filter(Boolean).join(" ");
+      const resumo = [c.km != null ? `${Number(c.km).toLocaleString("pt-BR")} km` : "", r.preco != null ? moeda(r.preco) : ""].filter(Boolean).join(" · ");
+      feito.hidden = false;
+      feito.innerHTML = `<span class="et-trazer-icone et-trazer-icone--ok" aria-hidden="true">${icone("ok", { tamanho: 20 })}</span>
+        <span class="et-trazer-texto"><b>Pronto: ${feitos.length} ${feitos.length === 1 ? "campo veio" : "campos vieram"} do anúncio.</b>
+          <small>${escapar([titulo, resumo].filter(Boolean).join(" · "))}. Confira os campos destacados e ponha as fotos.</small>
+          ${r.tipo === "link" ? `<small>Pelo link vieram só a marca, o modelo, a versão e o ano. Para trazer km, preço, cor, opcionais e descrição, copie a página toda (${CTRL} + A, ${CTRL} + C) e cole de novo.</small>` : ""}
+          ${falta.length ? `<small>Não achamos ${falta.length === 2 ? "a marca e o modelo" : falta[0] === "marca" ? "a marca" : "o modelo"}: preencha.</small>` : ""}
+          ${r.semCaixa.length ? `<small>${r.semCaixa.length} ${r.semCaixa.length === 1 ? "item sem caixa aqui foi" : "itens sem caixa aqui foram"} para o fim da descrição.</small>` : ""}</span>`;
+      mostrar(false);
+      caixa.scrollIntoView({ block: "start", behavior: "smooth" });
+      // o próximo passo é pôr as fotos (as do anúncio não vêm)
+      const mais = g.corpo.querySelector(".et-foto--mais");
+      if (mais) { mais.classList.add("et-chama"); setTimeout(() => mais.classList.remove("et-chama"), 4000); }
+    };
+    area.addEventListener("paste", e => {
+      const t = e.clipboardData && e.clipboardData.getData("text/plain");
+      if (!t) return;
+      e.preventDefault();
+      usar(t);
+    });
+    // colou de outro jeito (o menu do botão direito sem a área de transferência, arrastar) ou digitou o link e deu Enter
+    area.addEventListener("input", e => { if (/^insertFrom(Paste|Drop)/.test(e.inputType || "")) { usar(area.value); area.value = ""; } });
+    area.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey && area.value.trim()) { e.preventDefault(); usar(area.value); area.value = ""; } });
+    // com a área aberta, o Ctrl+V vale em qualquer lugar da gaveta que não seja um campo
+    g.el.addEventListener("paste", e => {
+      if (painel.hidden || e.target === area || (e.target.closest && e.target.closest("input, textarea, select, [contenteditable]"))) return;
+      const t = e.clipboardData && e.clipboardData.getData("text/plain");
+      if (t) { e.preventDefault(); usar(t); }
+    });
+  }
+
   // ---------- adicionar e editar ----------
   function campo(c, valor, travado) {
     const id = "et-" + c.id;
@@ -207,7 +323,9 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
     const enviadas = []; // as que subiram nesta gaveta: apagadas se ela fechar sem salvar
     const tiradas = []; // as que já estavam salvas e saíram: apagadas depois de salvar
     let enviando = 0, salvo = false;
+    const trazer = novo && edita && conta.nicho === "automotivo" && noComputador();
     const corpo = `<form class="rz-pilha et-form" novalidate data-form>
+      ${trazer ? blocoTrazer() : ""}
       <section class="et-bloco"><h3 class="rz-titulo-3">Fotos</h3><p class="rz-texto-3">A primeira é a capa. Do celular, dá para tirar na hora.</p><div class="et-fotos" data-fotos></div></section>
       ${esquema.grupos.map(g => `<section class="et-bloco"><h3 class="rz-titulo-3">${escapar(g.titulo)}</h3><div class="et-campos">${g.campos.map(c =>
         `<div class="${c.meio ? "et-meio" : "et-inteiro"}">${campo(c, i.campos[c.id], !edita)}</div>`).join("")}</div></section>`).join("")}
@@ -234,6 +352,7 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
     g.el.classList.add("et-gaveta");
     const caixaFotos = g.corpo.querySelector("[data-fotos]"), form = g.corpo.querySelector("[data-form]"), erro = g.corpo.querySelector("[data-erro]");
     if (!edita) form.querySelectorAll("input, select, textarea, button").forEach(x => { x.disabled = true; });
+    if (trazer) ligarTrazer(g, form);
 
     function desenharFotos() {
       caixaFotos.innerHTML = fotos.map((f, k) => `<figure class="et-foto">
