@@ -9,7 +9,7 @@ import { escapar, avisoDoFormulario, ocupado } from "../../ui/formulario.js";
 import { abrirGaveta } from "../../ui/gaveta.js";
 import { segmentos } from "../../ui/campos.js";
 import { lerCsv, baixarCsv } from "../../ui/csv.js";
-import { montarAdiado } from "../../telas/montar/roteiro.js";
+import { montarAdiado, conversaDoDonoPendente } from "../../telas/montar/roteiro.js";
 import { abrirEmailDeRecuperacao } from "../../ui/email-de-recuperacao.js";
 import { FUSO_PADRAO, dia, dataCurta, hora, instanteNoFuso, lerData, lerHora, normalizarWhatsapp, whatsappValido } from "../../ui/formatos.js";
 
@@ -24,6 +24,9 @@ export function passosDaConta(conta, feitos = {}) {
     // a conversa de boas-vindas ficou para depois (Missão 7, bloco E)
     montarAdiado(conta) && { id: "montar", titulo: "Terminar de montar o painel", texto: "Umas perguntas de um toque, e o painel fica com a cara do seu negócio.",
       feito: false, acao: { href: "/montar", rotulo: "Continuar" } },
+    // a Renderiza no suporte: a conversa é do dono, que ainda não passou por ela; dá para ver como fica, sem gravar
+    conversaDoDonoPendente(conta) && { id: "montar-suporte", titulo: "O dono ainda não fez a conversa de boas-vindas", texto: "Ela abre quando ele entrar. Você pode ver como fica: no suporte, nada do que tocar é gravado.",
+      feito: false, acao: { href: "/montar", rotulo: "Ver a conversa" } },
     // a loja (nicho com Estoque, 24/11/2026): o primeiro passo é pôr os carros; os serviços não têm valor
     ligado("estoque") && { id: "estoque", titulo: `Pôr os ${(n.estoque && n.estoque.itens) || "itens"} no estoque`, texto: "Com foto e preço: cada um aparece no site na hora.",
       feito: !!feitos.estoque, acao: { href: "/estoque?novo=item", rotulo: n.palavras.novoItem || "Novo item" }, deNovo: "Abrir o Estoque" },

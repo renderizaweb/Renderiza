@@ -2,7 +2,7 @@
 // o perfil e a ordem do menu pelo objetivo. Dados fictícios.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { ASSUNTOS, assuntosDoNicho, perguntasDaConversa, perfilDasRespostas, ordemDoMenu, confirmacoes, tiposParaEscolher } from "../src/telas/montar/roteiro.js";
+import { ASSUNTOS, assuntosDoNicho, perguntasDaConversa, perfilDasRespostas, ordemDoMenu, confirmacoes, tiposParaEscolher, precisaMontar, conversaDoDonoPendente } from "../src/telas/montar/roteiro.js";
 import { TAREFAS } from "../supabase/functions/assistente/logica.js";
 
 test("o roteiro: 5 perguntas na conversa (as que mudam o painel na hora); as outras ficam para depois", () => {
@@ -61,4 +61,13 @@ test("os horários da Agenda numa frase: os dias seguidos juntos, só os gerais"
   assert.equal(resumoDosHorarios([h(0, "11:00", "17:00"), h(6, "11:00", "17:00")]), "Sábado a domingo, das 11h às 17h");
   assert.equal(resumoDosHorarios([h(1, "09:30")]), "Segunda, às 9h30");
   assert.equal(resumoDosHorarios([]), "");
+});
+
+test("a conversa de boas-vindas é do dono: a Renderiza no suporte não cai nela (pode só ver, pelo Início)", () => {
+  const pendente = { ajustes: { onboarding: { pendente: true } } };
+  assert.equal(precisaMontar({ ...pendente, dono: true, pessoa_id: "p" }), true, "o dono cai na conversa");
+  assert.equal(precisaMontar({ ...pendente, dono: true, pessoa_id: null, suporte_ate: "2026-11-27T12:00:00Z" }), false, "o suporte não");
+  assert.equal(conversaDoDonoPendente({ ...pendente, dono: true, suporte_ate: "2026-11-27T12:00:00Z" }), true, "o Início do suporte oferece ver a conversa");
+  assert.equal(conversaDoDonoPendente({ ...pendente, dono: true, pessoa_id: "p" }), false);
+  assert.equal(conversaDoDonoPendente({ ajustes: { onboarding: { pendente: false, feito_em: "x" } }, suporte_ate: "2026-11-27T12:00:00Z" }), false, "feita: nada");
 });

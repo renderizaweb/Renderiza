@@ -108,7 +108,10 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
     return estado.perguntas;
   }
   // cada passo fica registrado para o acompanhamento no Admin (bloco G): sem esperar, e sem atrapalhar se falhar
-  const registrar = (evento, detalhe = null) => { banco.resultado(banco.tabela("onboarding_eventos").insert({ conta_id: conta.conta_id, evento, detalhe })).catch(() => {}); };
+  // a Renderiza no suporte vê a conversa como o dono vai ver, mas nada é gravado (nem os eventos, nem as respostas):
+  // a conversa continua esperando o dono (26/11/2026)
+  const emSuporte = !!conta.suporte_ate;
+  const registrar = (evento, detalhe = null) => { if (!emSuporte) banco.resultado(banco.tabela("onboarding_eventos").insert({ conta_id: conta.conta_id, evento, detalhe })).catch(() => {}); };
 
   el.innerHTML = telaDeAcesso({
     ambiente,
@@ -133,10 +136,11 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
       ${cabeca(`${primeiroNome ? `Oi, ${escapar(primeiroNome)}! ` : ""}Vamos deixar o painel ${escapar(n.palavras.daConta)} pronto`,
         `${escapar(sabe.nome)} já tem um painel. A gente trouxe o que sabe, você confere e responde umas perguntas de um toque. Uns 2 minutos.`)}
       <ol class="rz-roteiro">
-        ${[["Conferir o que a gente já sabe", "Nome, WhatsApp e o que vocês fazem"], [n.temTiposDeFesta ? "Seus tipos de festa" : "Seus ensaios", "Já marcados, é só conferir"],
-          ["Umas perguntas rápidas", "Para o painel falar a sua língua"], ["Pronto", "O seu plano para começar"]]
+        ${[["Conferir o que a gente já sabe", "Nome, WhatsApp e o que vocês fazem"], !semTipos && [`Seus ${escapar(n.palavras.tipos)}`, "Já marcados, é só conferir"],
+          ["Umas perguntas rápidas", "Para o painel falar a sua língua"], ["Pronto", "O seu plano para começar"]].filter(Boolean)
           .map(([t, s], i) => `<li style="--i:${i}"><span class="rz-roteiro-marca">${i + 1}</span><span class="rz-roteiro-texto"><b>${t}</b><small>${s}</small></span></li>`).join("")}
       </ol>
+      ${emSuporte ? `<p class="rz-alerta rz-alerta--aviso" role="note">${icone("alerta", { tamanho: 18 })}<span>Você está no suporte: esta é a conversa que o dono vai ver. <b>Nada do que você tocar aqui é gravado</b>, e ela continua esperando por ele.</span></p>` : ""}
       <div class="rz-acesso-acoes"><button class="rz-botao rz-botao--primario rz-botao--grande rz-botao--bloco" type="button" data-seguir>Vamos lá ${icone("seta", { tamanho: 18 })}</button></div>`,
 
     confirma: () => {
@@ -279,11 +283,13 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
     const perfil = perfilDasRespostas(estado.respostas);
     try {
       await etapa("dados", async () => {
+        if (emSuporte) return;
         const c = estado.corrigido;
         if (c) await banco.resultado(banco.tabela("contas").update({ nome: c.nome, whatsapp: normalizarWhatsapp(c.whatsapp) || null }).eq("id", conta.conta_id));
         else if (!linha.whatsapp && sabe.whatsapp) await banco.resultado(banco.tabela("contas").update({ whatsapp: normalizarWhatsapp(sabe.whatsapp) }).eq("id", conta.conta_id));
       });
       await etapa("tipos", async () => {
+        if (emSuporte) return;
         const novos = estado.tipos.filter(t => t.marcada && !existentes.some(x => x.nome.toLowerCase() === t.nome.toLowerCase()));
         if (!novos.length) return;
         const usadas = [];
@@ -297,6 +303,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
         existentes.push(...novos.map(t => ({ nome: t.nome })));
       });
       await etapa("menu", async () => {
+        if (emSuporte) return;
         const antes = conta.ajustes || {};
         const ajustes = {
           ...antes,
@@ -393,11 +400,13 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
   // "Fazer depois": o painel abre, e o Início guarda o passo "Terminar de montar o painel"
   el.querySelector("[data-depois]").addEventListener("click", async e => {
     ocupado(e.currentTarget, true, "Abrindo…");
-    const antes = conta.ajustes || {};
-    const ajustes = { ...antes, onboarding: { ...(antes.onboarding || {}), pendente: false, adiado: true } };
-    registrar("conversa_adiada");
-    await banco.resultado(banco.tabela("contas").update({ ajustes }).eq("id", conta.conta_id)).catch(() => null);
-    conta.ajustes = ajustes;
+    if (!emSuporte) {
+      const antes = conta.ajustes || {};
+      const ajustes = { ...antes, onboarding: { ...(antes.onboarding || {}), pendente: false, adiado: true } };
+      registrar("conversa_adiada");
+      await banco.resultado(banco.tabela("contas").update({ ajustes }).eq("id", conta.conta_id)).catch(() => null);
+      conta.ajustes = ajustes;
+    }
     await sessao.carregarContas().catch(() => null);
     navegar("/", { substituir: true });
   });

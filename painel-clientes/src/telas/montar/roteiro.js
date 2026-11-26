@@ -4,7 +4,11 @@
 // menu pelo objetivo e o plano para começar no Início.
 
 /** A conta precisa da conversa? Só o dono, e só quando o Admin marcou (contas.ajustes.onboarding.pendente). */
-export const precisaMontar = conta => !!(conta && conta.dono && conta.ajustes && conta.ajustes.onboarding && conta.ajustes.onboarding.pendente);
+// a Renderiza no suporte (suporte_ate) não cai na conversa: ela é do dono (26/11/2026: um teste pelo suporte marcou a
+// conversa como feita, e o dono não passaria mais por ela); pelo Início, o suporte abre a conversa só para ver
+export const precisaMontar = conta => !!(conta && conta.dono && !conta.suporte_ate && conta.ajustes && conta.ajustes.onboarding && conta.ajustes.onboarding.pendente);
+/** A Renderiza no suporte, numa conta cujo dono ainda não fez a conversa: o Início oferece ver a conversa (sem gravar). */
+export const conversaDoDonoPendente = conta => !!(conta && conta.suporte_ate && conta.ajustes && conta.ajustes.onboarding && conta.ajustes.onboarding.pendente);
 
 /** A conversa ficou para depois (e ainda não foi feita): o Início mostra o passo "Terminar de montar o painel". */
 export const montarAdiado = conta => !!(conta && conta.ajustes && conta.ajustes.onboarding && conta.ajustes.onboarding.adiado && !conta.ajustes.onboarding.feito_em);
