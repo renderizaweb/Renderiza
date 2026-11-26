@@ -601,7 +601,8 @@
       if (doc.readyState === "loading") doc.addEventListener("DOMContentLoaded", function () { ok(); });
       else ok();
     });
-    if (!previa && !script.hasAttribute("data-sem-visitas")) {
+    // a prévia do Estoque (o site num quadro do painel, ?rz-estoque=previa) é o dono olhando: não conta como visita
+    if (!previa && !script.hasAttribute("data-sem-visitas") && !/[?&]rz-estoque=previa(?:&|$)/.test(global.location.search)) {
       pronto.then(function () { try { contarVisitas(doc, api + encodeURIComponent(codigo) + "/visita"); } catch (e) { /* o site segue sem contar */ } });
     }
     var mostrar = function (c) {

@@ -106,7 +106,7 @@ test("o virar-site põe o script do Estoque no <head>, uma vez, com o código; a
 });
 
 test("a entrega da Ricardo Motors: sem preço na reserva, a vitrine fora do Meu site, as fotos dos carros em arquivo", async () => {
-  const { versaoDeEntrega } = await import("../demos/ricardo-motors/entrega.mjs");
+  const { versaoDeEntrega, WHATSAPP } = await import("../demos/ricardo-motors/entrega.mjs");
   const { html, arquivos } = versaoDeEntrega(fs.readFileSync(path.join(RAIZ, "demos", "ricardo-motors", "index.html"), "utf8"));
   const semScript = html.replace(/<script[\s\S]*?<\/script>/g, "");
   assert.equal(/R\$ ?\d/.test(semScript), false, "nenhum preço no HTML");
@@ -118,4 +118,10 @@ test("a entrega da Ricardo Motors: sem preço na reserva, a vitrine fora do Meu 
   assert.ok(html.includes("window.rzEstoque=") && !html.includes("rz-estoque=exemplo"));
   assert.equal(/data:image\//.test(html.match(/const IMG=(\{.*?\});/)[1]), false, "as fotos dos carros saem do HTML");
   assert.ok(arquivos.length > 50 && arquivos.every(([rel]) => /^img\/c\/[A-Za-z0-9-]+\.(webp|jpg|png)$/.test(rel)));
+  // o contato: no HTML parado, os links já com o número e a mensagem; o meu-site.js acha o DEMO_RUNTIME para refazê-los
+  const pagina = html.slice(0, html.lastIndexOf("<script", html.indexOf("const WA_NUM=")));
+  const zaps = pagina.match(/<a [^>]*data-wa="[^"]*"[^>]*>/g);
+  assert.ok(zaps.length >= 10 && zaps.every(a => a.includes("data-whatsapp") && a.includes(`href="https://wa.me/${WHATSAPP}?text=`)), "os links de WhatsApp prontos, com o número");
+  assert.ok(html.includes("window.DEMO_RUNTIME={links()") && html.includes('const WA_NUM="5511947882373"'));
+  assert.equal((pagina.match(/data-wa-de="/g) || []).length, 4, "o link de cada serviço sabe de que serviço é");
 });

@@ -20,6 +20,9 @@ import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
+/** O WhatsApp da Ricardo Motors: o número por trás do link da bio (wa.me/message/G5X6UUN627ARL1), conferido em 26/11. */
+export const WHATSAPP = "5511947882373";
+
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
 const RAIZ = path.resolve(AQUI, "../..");
 
@@ -64,6 +67,10 @@ export function versaoDeEntrega(demo) {
   h = trocar(h, '<div class="servs">', '<div class="servs" data-site-lista="servicos.itens">');
   h = h.replace(/<article class="serv">(<span class="ic">.*?<\/span>)<h3>(.*?)<\/h3><p>(.*?)<\/p>/g, (_, ic, t, p) => `<article class="serv" data-site-item>${ic}<h3 data-site-campo="titulo">${t}</h3><p data-site-campo="texto">${p}</p>`);
   if ((h.match(/data-site-item/g) || []).length !== 4) throw new Error("entrega: esperava os 4 serviços");
+  // o link de cada serviço sabe de que serviço é: um serviço novo ou renomeado no Meu site leva a mensagem com o nome dele
+  let servicos = 0;
+  h = h.replace(/(<h3 data-site-campo="titulo">([^<]*)<\/h3><p data-site-campo="texto">.*?<\/p>)<a data-wa=/g, (_, a, t) => (servicos += 1, `${a}<a data-wa-de="${t}" data-wa=`));
+  if (servicos !== 4) throw new Error("entrega: esperava o link dos 4 serviços");
   h = trocar(h, '<section class="sec" id="sobre" style="padding-top:0">', '<section class="sec" id="sobre" style="padding-top:0" data-site-secao="sobre">');
   h = trocar(h, '<img class="principal" ', '<img class="principal" data-site-img="sobre.foto" ');
   h = trocar(h, '<img class="segunda" ', '<img class="segunda" data-site-img="sobre.foto-2" ');
@@ -87,6 +94,35 @@ export function versaoDeEntrega(demo) {
   h = trocar(h, '<img src="${fts(x)[0]}" alt="" loading="lazy"><span>${nome(x)}<small>${brl(x.preco)}</small></span>', '<img src="${ftm(x)[0]}" alt="" loading="lazy"><span>${nome(x)}<small>${brl(x.preco)}</small></span>');
   h = trocar(h, '<div class="preco">${brl(c.preco)}</div>', '<div class="preco">${brl(c.preco)}</div>${DO_PAINEL?"":`<p class="aviso-carro">O estoque muda todo dia: confirme a disponibilidade pelo WhatsApp.</p>`}');
   h = trocar(h, "const m=location.hash.match(/^#carro-(\\d+)/);", "const m=location.hash.match(/^#carro-([A-Za-z0-9-]+)/);");
+  // ---------- o contato: o número e o Instagram, com o "WhatsApp e redes" do Meu site por cima ----------
+  // O número é o do link da bio (wa.me/message/…, da Ricardo Motors): com ele, cada botão abre a conversa com a mensagem
+  // dele (o carro, a visita); o link da bio fica de reserva. O meu-site.js grava o contato publicado no DEMO_CLIENT e
+  // chama DEMO_RUNTIME.links(): os links (inclusive os da vitrine, refeitos pelo Estoque) passam a usar o número e o
+  // Instagram de lá; a "mensagem" de lá vale para os botões gerais (data-wa-geral), não para os de um carro. Botão do
+  // Meu site com destino próprio (o porBotao tira o data-whatsapp) fica como o Meu site deixou.
+  h = trocar(h, 'const WA_NUM="";', `const WA_NUM=${JSON.stringify(WHATSAPP)};`);
+  h = trocar(h, "const wa=m=>WA_NUM?`https://wa.me/${WA_NUM}?text=${encodeURIComponent(m)}`:WA_BIO;",
+    "const doContato=()=>{const m=String((window.DEMO_CLIENT||{}).whatsapp||\"\").match(/wa\\.me\\/(\\d{10,15})(?:\\?text=([^#]*))?/);let t=\"\";if(m&&m[2])try{t=decodeURIComponent(m[2])}catch(e){}return{num:m?m[1]:\"\",msg:t}};\n" +
+    "const wa=(m,geral)=>{const k=doContato();return k.num?`https://wa.me/${k.num}?text=${encodeURIComponent(geral&&k.msg||m)}`:WA_BIO};");
+  h = trocar(h, 'window.DEMO_CLIENT={whatsapp:WA_NUM?`https://wa.me/${WA_NUM}`:WA_BIO,instagram:"https://www.instagram.com/rm.consultcar/",reviews:[]};',
+    'window.DEMO_CLIENT={whatsapp:WA_NUM?`https://wa.me/${WA_NUM}?text=`:WA_BIO,instagram:"https://www.instagram.com/rm.consultcar/",reviews:[]};');
+  h = trocar(h, 'const ligarWa=(el=document)=>$$("[data-wa]",el).forEach(a=>{a.href=wa(a.dataset.wa);a.target="_blank";a.rel="noopener";a.setAttribute("data-whatsapp","")});',
+    'const doServico=a=>{if(a.dataset.waDe===undefined)return"";const it=a.closest("[data-site-item]"),t=it&&it.querySelector(\'[data-site-campo="titulo"]\'),n=t?t.textContent.trim():"";return n&&n!==a.dataset.waDe?n:""};\n' +
+    'const ligarWa=(el=document)=>$$("[data-wa]",el).forEach(a=>{if(a.hasAttribute("data-site-botao")&&!a.hasAttribute("data-whatsapp"))return;const s=doServico(a),t=s&&[...a.childNodes].find(x=>x.nodeType===3&&x.nodeValue.trim());if(t)t.nodeValue="Falar com o Ricardo";a.href=wa(s?`Olá, Ricardo! Quero saber mais sobre: ${s}.`:a.dataset.wa,a.hasAttribute("data-wa-geral"));a.target="_blank";a.rel="noopener";a.setAttribute("data-whatsapp","")});\n' +
+    'const ligarIg=()=>{const n=(String((window.DEMO_CLIENT||{}).instagram||"").match(/instagram\\.com\\/([A-Za-z0-9._]{1,30})/)||[])[1];if(n)$$("a[data-instagram]").forEach(a=>{a.href=`https://www.instagram.com/${n}/`;const t=[...a.childNodes].find(x=>x.nodeType===3&&x.nodeValue.trim().startsWith("@"));if(t)t.nodeValue="@"+n})};\n' +
+    "window.DEMO_RUNTIME={links(){ligarWa();ligarIg()},carrosseis(){},avaliacoes(){}};");
+  h = trocar(h, '<a class="bt bt-w" data-wa="Olá, Ricardo! Vim pelo seu site e quero falar sobre um carro." href="#">', '<a class="bt bt-w" data-wa-geral data-wa="Olá, Ricardo! Vim pelo seu site e quero falar sobre um carro." href="#">', 2);
+  h = trocar(h, '<a class="wa-f" data-wa="Olá, Ricardo! Vim pelo seu site." href="#"', '<a class="wa-f" data-wa-geral data-wa="Olá, Ricardo! Vim pelo seu site." href="#"');
+  // no HTML parado, os links já prontos (sem JavaScript, no Google e para o Meu site saber que são de WhatsApp)
+  const iScript = h.lastIndexOf("<script", h.indexOf("const WA_NUM="));
+  if (iScript < 0) throw new Error("entrega: não achei o script da página");
+  const des = t => t.replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
+  let estaticos = 0;
+  h = h.slice(0, iScript).replace(/data-wa="([^"$]*)" href="#"/g, (_, m) => {
+    estaticos += 1;
+    return `data-whatsapp data-wa="${m}" href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent(des(m))}" target="_blank" rel="noopener"`;
+  }) + h.slice(iScript);
+  if (estaticos < 8) throw new Error("entrega: esperava os links de WhatsApp da página, achei " + estaticos);
   // a capa: os destaques numa lista (os da demo; com o painel, os dele)
   const capaIni = h.indexOf('const HERO=[["81662220",null]');
   const capaFim = h.indexOf('sl.addEventListener("click",()=>$("#ver-capa").click());');
