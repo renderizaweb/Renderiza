@@ -946,6 +946,7 @@ Antes de aplicar uma nova, confira esta lista e a do próprio banco.
 | `20261119004809_uso_do_painel.sql` (o uso do painel no Admin: `uso_diario`, `registrar_uso`, `admin_uso`) | Pedido da Renderiza (19/11) | `claude/rafaela-damaceno-demo-irwkqp` (`6446045`), aplicada pela `claude/eloquent-einstein-fja03g` | 19/11/2026 | 19/11/2026 (com o "pode" da Renderiza: "sim") |
 | `20261116040000_site_visitas.sql` (indicadores do Meu site: `sites_visitas`, `publico_visita`, `site_indicadores`; sem dado de pessoa) | Entrega Rafaela (indicadores) | `claude/eloquent-dijkstra-f6q81i` | 16/11/2026 | 16/11/2026 (com o "pode" da Renderiza) |
 | `20261124190000_estoque.sql` (o Estoque: `estoque_itens`, `publico_estoque`, as fotos `estoque-*` no `site-imagens`, o módulo `estoque` e o nicho `automotivo`; o único "drop" é a regra de nicho trocada por uma mais larga) | Entrega Ricardo (1A) | `main` | 24/11/2026 | 24/11/2026 (com o "pode" da Renderiza; `--pode-destrutivo` só pelo "drop" da regra de nicho, que ficou mais larga) |
+| `20261126150000_assinatura.sql` (a assinatura do lado do cliente: `assinaturas`, o combinado da mensalidade de cada conta, só a Renderiza; `minha_assinatura`, o combinado e os pagamentos sem a observação, para o dono, o suporte e a Renderiza; 13) | Pedido da Renderiza (26/11) | branch `assinatura` | 26/11/2026 | — (espera o "pode" da Renderiza; aditiva) |
 
 ## Avisos entre sessões
 
