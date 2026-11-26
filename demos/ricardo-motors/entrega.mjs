@@ -52,6 +52,7 @@ export function versaoDeEntrega(demo) {
   h = trocar(h, "</style>", `.aviso-est{display:flex;align-items:center;gap:10px;margin:0 0 18px;padding:12px 16px;border-radius:var(--r);background:#fff;box-shadow:var(--sombra);color:var(--tx);font-size:14px}
 .aviso-est[hidden]{display:none}.aviso-est svg{flex:none;width:20px;height:20px;color:var(--verde)}.aviso-est a{color:inherit;font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .aviso-carro{margin:-6px 0 14px;color:var(--mu);font-size:14px}
+.trilho img[data-src]{background:#e9e9e9}
 </style>`);
   // ---------- a vitrine: fora do Meu site, com o aviso da versão de reserva ----------
   h = trocar(h, '<section class="sec" id="estoque">', '<section class="sec" id="estoque" data-estoque>');
@@ -100,6 +101,12 @@ export function versaoDeEntrega(demo) {
   h = trocar(h, 'data-wa="Olá, Ricardo! Pode me mandar mais fotos e um vídeo do ${nome(c)} ${c.ano}?"', 'data-wa="Olá, Ricardo! Pode me mandar mais fotos e um vídeo do *${nome(c)} ${c.ano}*?\\n${linkDo(c)}"');
   h = trocar(h, '["ate250","Até R$ 250 mil",c=>c.preco<=250000]', '["ate250","Até R$ 250 mil",c=>!!c.preco&&c.preco<=250000]');
   h = trocar(h, "$(\"#grade\").innerHTML=l.map((c,i)=>{const f=fts(c).slice(0,6);", "$(\"#grade\").innerHTML=l.map((c,i)=>{const f=ftm(c).slice(0,6);");
+  // a vitrine leve (o ESPERA e o baixar estão na capa, abaixo): só a primeira foto de cada card baixa (na primeira
+  // visita, depois da lista do painel); as outras, quando a pessoa desliza, passa o mouse ou toca no card
+  h = trocar(h, '<img src="${u}" alt="${k?"":nome(c)+" "+c.ano}" loading="${i<3&&!k?"eager":"lazy"}" width="1280" height="960">',
+    '<img ${k||ESPERA?`src="${VAZIA}" data-src="${u}"`:`src="${u}"`} alt="${k?"":nome(c)+" "+c.ano}" loading="${i<3&&!k?"eager":"lazy"}" width="1280" height="960">');
+  h = trocar(h, '$$("#grade .card").forEach(card=>{const t=card.querySelector(".trilho"),pt=$$(".pontos i",card);if(!t)return;',
+    '$$("#grade .card").forEach(card=>{const t=card.querySelector(".trilho"),pt=$$(".pontos i",card);if(!t)return;let tudo=false;const resto=()=>{if(tudo||ESPERA)return;tudo=true;$$(".trilho img[data-src]",card).forEach(baixar)};["pointerenter","touchstart","focusin"].forEach(ev=>card.addEventListener(ev,resto,{passive:true}));t.addEventListener("scroll",resto,{passive:true});');
   h = trocar(h, '<img src="${fts(x)[0]}" alt="" loading="lazy"><span>${nome(x)}<small>${brl(x.preco)}</small></span>', '<img src="${ftm(x)[0]}" alt="" loading="lazy"><span>${nome(x)}<small>${brl(x.preco)}</small></span>');
   // as miniaturas da página do carro com a foto pequena (a grande só na galeria)
   h = trocar(h, "const dlg=$(\"#dlg\");let gi=0,gl=[];", "const dlg=$(\"#dlg\");let gi=0,gl=[],glm=[];");
@@ -144,12 +151,19 @@ export function versaoDeEntrega(demo) {
   h = h.slice(0, capaIni) + `const sl=$("#slides"),primeira=sl.querySelector("img");
 let HL=[["81662220",null],["82333708","h2"],["77408515","h3"],["81200148","h4"]].map(([id,k])=>({c:CARROS0.find(x=>x.id===id),src:k?IMG[k]:primeira.src}));
 let himgs=[],hi=0,ht;
+// o site leve (26/11/2026: a primeira visita baixava 14 MB no celular e 20 no computador, as fotos da reserva e depois
+// as do painel): na capa, a foto de um destaque só baixa quando chega a vez dele (a seguinte, um pouco antes); na
+// vitrine, só a primeira foto de cada card, e as outras quando a pessoa desliza, passa o mouse ou toca. Na primeira
+// visita, as fotos da reserva esperam a lista do painel por até 2,5 s (ESPERA); sem o painel, a reserva aparece.
+let ESPERA=true;
+const VAZIA="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+const baixar=im=>{if(im&&im.dataset.src){im.src=im.dataset.src;im.removeAttribute("data-src")}};
 function montarCapa(lista){HL=lista;sl.innerHTML="";
- HL.forEach((x,i)=>{const im=i===0&&x.src===primeira.src?primeira:new Image();im.src=x.src;im.alt=nome(x.c);im.decoding="async";im.className=i?"":"on";sl.appendChild(im)});
+ HL.forEach((x,i)=>{const im=i===0&&x.src===primeira.src?primeira:new Image();if(i===0)im.src=x.src;else im.dataset.src=x.src;im.alt=nome(x.c);im.decoding="async";im.className=i?"":"on";sl.appendChild(im)});
  himgs=$$("#slides img");
  $("#destaques").innerHTML=\`<span class="k">Em destaque</span>\`+HL.map((x,i)=>\`<button class="dq\${i?"":" on"}" data-i="\${i}" aria-label="Destaque: \${nome(x.c)}"><img src="\${x.mini||x.src}" alt=""><span><b>\${nome(x.c)}</b><small>\${x.c.ano} · \${brl(x.c.preco)}</small></span><span class="bp"><i></i></span></button>\`).join("");
  $("#pontos-capa").innerHTML=HL.map((_,i)=>\`<i class="\${i?"":"on"}"></i>\`).join("");heroIr(0)}
-function heroIr(i){if(!HL.length)return;hi=(i+HL.length)%HL.length;const c=HL[hi].c;
+function heroIr(i){if(!HL.length)return;hi=(i+HL.length)%HL.length;const c=HL[hi].c;baixar(himgs[hi]);setTimeout(()=>baixar(himgs[(hi+1)%himgs.length]),2500);
  himgs.forEach((im,k)=>im.classList.toggle("on",k===hi));$$(".dq").forEach((b,k)=>b.classList.toggle("on",k===hi));$$("#pontos-capa i").forEach((d,k)=>d.classList.toggle("on",k===hi));
  const v=$("#ver-capa");v.dataset.abre=c.id;v.setAttribute("aria-label","Ver "+nome(c));$("#vc-txt").innerHTML=\`<b>\${nome(c)}</b> · \${brl(c.preco)}\`;
  clearTimeout(ht);if(MOV)ht=setTimeout(()=>heroIr(hi+1),6500)}
@@ -171,12 +185,15 @@ const doPainel=i=>{const c=i.campos||{},tags=[...(i.selos||[])];if(c.blindado&&!
 function ordensDePreco(){$$('#ordem option[value="maior"],#ordem option[value="menor"]').forEach(o=>{o.hidden=o.disabled=!DO_PAINEL});if(!DO_PAINEL&&/maior|menor/.test($("#ordem").value))$("#ordem").value="rel"}
 function contagens(){$$("[data-total]").forEach(x=>x.textContent=CARROS.length);$$("[data-blind]").forEach(x=>x.textContent=CARROS.filter(c=>c.tags.includes("Blindado")).length)}
 window.rzEstoque=itens=>{
+ ESPERA=false;
  const l=itens?itens.map(doPainel):CARROS0;DO_PAINEL=!!itens;
  CARROS.splice(0,CARROS.length,...l);$$("[data-estoque-aviso]").forEach(x=>x.hidden=DO_PAINEL);ordensDePreco();
  chips();grade();contagens();
  const comFoto=l.filter(c=>c.f.length),capa=itens?[...comFoto.filter(c=>c.destaque),...comFoto.filter(c=>!c.destaque)].slice(0,4).map(c=>({c,src:c.f[0],mini:(c.fm||[])[0]})):CAPA0;
  montarCapa(capa.length?capa:CAPA0);rota()}; // #carro-<id> do painel: abre quando a lista chega
-montarCapa(HL);ordensDePreco();
+// sem resposta do painel em 2,5 s (o estoque.js desiste sem chamar ninguém): a reserva aparece inteira
+setTimeout(()=>{if(!ESPERA)return;ESPERA=false;montarCapa(HL);$$("#grade .trilho img[data-src]:first-child").forEach(baixar)},2500);
+ordensDePreco();
 chips();grade();ligarWa();rota();` + h.slice(ouvFim + "heroIr(0);\nchips();grade();ligarWa();rota();".length);
   if (/rz-estoque=exemplo/.test(h)) throw new Error("entrega: sobrou o ouvinte do exemplo");
   return { html: h, arquivos };
