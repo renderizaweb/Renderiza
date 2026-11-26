@@ -1,30 +1,41 @@
 {
- "_sobre": "Versão 2.1 (26/11/2026): site de harmonização limpo e claro, com agenda online, gerado por ferramentas/demo/gerar-pagina.py a partir de ferramentas/demo/modelos/dra-milena-ferreira.html. Fotos numa pasta só: capa e sobre são os posts dela em tamanho cheio (python3 -I ferramentas/ig-post.py Ddy6O28EaUh <pasta> e Dd1sfqjiG6O <pasta>); as outras (a05, a06, a08, a11 a a14) saem da versão 1: python3 -I ferramentas/demo/gerar-pagina.py --fotos-da-pagina <index.html de git show c932874:demos/dra-milena-ferreira/index.html> <pasta>. A versão 1 (gerar-odonto.py) está no git e em \"versao1\" abaixo.",
+ "_sobre": "Versão 2.2 (26/11/2026): a versão 2 (cara de revista, agenda online) com os ajustes do Kaue, gerada por ferramentas/demo/gerar-pagina.py a partir de ferramentas/demo/modelos/dra-milena-ferreira.html. Fotos numa pasta só: capa e capa2 são os posts dela em tamanho cheio (python3 -I ferramentas/ig-post.py Dd1sfqjiG6O <pasta> e Ddy6O28EaUh <pasta>); as outras (a01, a05 a a08, a11 a a14) saem da versão 1: python3 -I ferramentas/demo/gerar-pagina.py --fotos-da-pagina <index.html de git show c932874:demos/dra-milena-ferreira/index.html> <pasta>. A versão 1 (gerar-odonto.py) está no git e em \"versao1\" abaixo.",
  "pasta": "dra-milena-ferreira",
  "marca": "Dra. Milena Ferreira",
  "modelo": "dra-milena-ferreira",
  "fotos": {
   "capa": {
-   "arquivo": "Ddy6O28EaUh_01.jpg",
-   "corte": [
-    0,
-    0,
-    1,
-    0.94
-   ],
-   "largura": 1000,
-   "qualidade": 82
-  },
-  "sobre": {
    "arquivo": "Dd1sfqjiG6O_00.jpg",
    "corte": [
     0,
-    0.05,
+    0.02,
     1,
-    0.8
+    0.78
    ],
-   "largura": 900,
+   "largura": 960,
    "qualidade": 82
+  },
+  "capa2": {
+   "arquivo": "Ddy6O28EaUh_01.jpg",
+   "corte": [
+    0.18,
+    0,
+    0.82,
+    0.672
+   ],
+   "largura": 520,
+   "qualidade": 82
+  },
+  "sobre": {
+   "arquivo": "a01.jpg",
+   "corte": [
+    0.14,
+    0.06,
+    0.96,
+    0.86
+   ],
+   "largura": 840,
+   "qualidade": 86
   },
   "r1": {
    "arquivo": "a13.jpg",
@@ -52,6 +63,10 @@
   },
   "cl3": {
    "arquivo": "a06.jpg",
+   "largura": 620
+  },
+  "cl4": {
+   "arquivo": "a07.jpg",
    "largura": 620
   }
  },

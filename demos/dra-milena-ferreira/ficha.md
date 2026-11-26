@@ -10,7 +10,7 @@
 | Empresa | não consultei o CNPJ |
 | Site | não tem |
 | Entregável | demo de site (`index.html`), gerada por `ferramentas/demo/gerar-odonto.py` a partir do `demo.json` |
-| Situação | **versão 2.1 em 26/11/2026** (abaixo) · versão 1 pronta em 09/10/2026 · `/demo/dra-milena-ferreira` · vídeo `/gravacao/dra-milena-ferreira.mp4` · flyer `/flyer/dra-milena-ferreira.png`. No painel desde 09/10/2026 (pedido direto do Kaue), em Gravação realizada, com a mensagem pronta de WhatsApp |
+| Situação | **versão 2.2 em 26/11/2026** (abaixo) · versão 1 pronta em 09/10/2026 · `/demo/dra-milena-ferreira` · vídeo `/gravacao/dra-milena-ferreira.mp4` · flyer `/flyer/dra-milena-ferreira.png`. No painel desde 09/10/2026 (pedido direto do Kaue), em Gravação realizada, com a mensagem pronta de WhatsApp |
 
 ## Quem é
 - Cirurgiã-dentista com atuação em harmonização orofacial, CRO-SP 181642 (bio e legendas: "Cirurgiã-Dentista | Harmonização Orofacial").
@@ -79,3 +79,16 @@ O Kaue não gostou da fonte e pediu um site mais limpo, menos poluído, e fotos 
   abertura vem antes do título. As da clínica e dos resultados continuam as da versão 1. A página caiu de 964 KB
   para 680 KB.
 - Avaliações com o texto como está no Google (sem juntar trechos).
+
+## Versão 2.2 (26/11/2026, à noite): a versão 2 com os ajustes do Kaue
+O Kaue desfez a 2.1 (a limpa, que ele não chegou a ver no ar) e pediu estes ajustes sobre a versão 2:
+- **Agenda em calendário do mês** (como uma agenda de papel), no lugar da fileira de dias: abre no mês do dia seguinte,
+  setas para o mês seguinte (até 45 dias), domingos e dias passados apagados, um pontinho no dia de hoje.
+- **Fonte:** Instrument Serif + Inter (a Bodoni Moda ficava "falhada", com os traços finos sumindo).
+- **Capa:** "Cirurgiã-dentista · Harmonização facial", o nome grande com o CRO entre parênteses embaixo
+  ("Dra. Milena Ferreira (CRO-SP 181642)") e o lema; saiu o cartão do CRO em cima da foto.
+- **Fotos:** a capa e a foto pequena vêm dos posts em tamanho cheio (`Dd1sfqjiG6O_00`, `Ddy6O28EaUh_01`), com o
+  enquadramento refeito; em "Sobre" ficou só a foto sentada, com a mão no rosto (`a01`, mais fechada); a clínica virou
+  4 fotos em pé do mesmo tamanho (no mosaico, as fotos em pé eram cortadas deitadas).
+- **Saiu a faixa que rolava** com os tratamentos.
+- **Contato com o mapa do Google** (o mesmo endereço da versão 1) no lugar da foto.
