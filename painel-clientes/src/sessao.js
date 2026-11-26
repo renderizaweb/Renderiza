@@ -52,7 +52,7 @@ export function validarSenhaNova(senha) {
 }
 
 /** Os módulos da base: vêm em toda conta e não contam no plano (02; src/modulos/index.js). */
-export const MODULOS_BASE = ["inicio", "servicos", "equipe", "configuracoes"];
+export const MODULOS_BASE = ["inicio", "servicos", "equipe", "configuracoes", "assinatura"];
 
 /**
  * O que a pessoa pode num módulo, pela linha de minhas_contas() (a mesma regra de public.pode no banco).
@@ -63,7 +63,7 @@ export function podeNaConta(conta, modulo, nivel = "ver") {
   const acesso = (conta.acessos || {})[modulo];
   if (MODULOS_BASE.includes(modulo)) {
     if (conta.dono) return true;
-    if (modulo === "equipe" || modulo === "configuracoes") return false;
+    if (modulo === "equipe" || modulo === "configuracoes" || modulo === "assinatura") return false; // só o dono
     return nivel === "ver" || acesso === "editar";
   }
   if (!(conta.modulos || []).includes(modulo)) return false;

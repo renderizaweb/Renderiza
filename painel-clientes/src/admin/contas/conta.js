@@ -12,8 +12,9 @@ import { campoTexto, campoSelecao, campoArea, interruptor, lerFormulario } from 
 import { dataNumerica, dia, telefone, linkWhatsapp, moeda, instanteNoFuso, lerValor } from "../../ui/formatos.js";
 import { nicho } from "../../nichos/index.js";
 import { MODULOS } from "../../modulos/index.js";
-import { estadoDaConta, ultimoAcesso, prazoAte, nomeDoMes, usandoAgora, INCLUIDOS, resumoDoUso } from "../logica.js";
+import { estadoDaConta, ultimoAcesso, prazoAte, nomeDoMes, usandoAgora, INCLUIDOS, resumoDoUso, mensalidadeSugerida } from "../logica.js";
 import { abrirPagamento } from "../pagamentos/pagamento.js";
+import { abrirCombinado, resumoDoCombinado } from "../pagamentos/combinado.js";
 import { entrarParaAjudar, exportarAPedido } from "../suporte.js";
 import { usuarioDoEmail } from "../../sessao.js";
 import { novoCodigoDeLink, linkDoConvite, abrirMandarConvite } from "../../ui/convite-link.js";
@@ -54,7 +55,7 @@ export async function abrirConta(c, ctx) {
   const { banco, avisar, catalogo } = ctx;
   const n = nicho(c.nicho);
   const e = estadoDaConta(c);
-  const [convites, pagamentos, suportes, contexto, iaUso, iaConta, uso] = await Promise.all([
+  const [convites, pagamentos, suportes, contexto, iaUso, iaConta, uso, combinado] = await Promise.all([
     banco.resultado(banco.tabela("convites").select("id, email, nome, dono, acessos, usuario, link_codigo, link_usado_em, expira_em, aceito_em, cancelado_em").eq("conta_id", c.id).is("aceito_em", null).is("cancelado_em", null).order("criado_em", { ascending: false })).catch(() => []),
     banco.resultado(banco.tabela("pagamentos").select("id, mes, valor, pago_em, observacao").eq("conta_id", c.id).order("mes", { ascending: false }).limit(6)).catch(() => []),
     banco.resultado(banco.tabela("acessos_suporte").select("id, motivo, nivel, inicio, fim").eq("conta_id", c.id).order("inicio", { ascending: false }).limit(5)).catch(() => []),
@@ -62,6 +63,7 @@ export async function abrirConta(c, ctx) {
     banco.resultado(banco.tabela("ia_uso").select("custo_usd").eq("conta_id", c.id)).catch(() => []),
     banco.resultado(banco.tabela("ia_contas").select("teto_usd").eq("conta_id", c.id).maybeSingle()).catch(() => null),
     banco.rpc("admin_uso", { p_dias: 30 }).catch(() => null), // o uso do painel (19/11/2026); sem a migração, nada muda
+    banco.resultado(banco.tabela("assinaturas").select("valor, dia, inicio").eq("conta_id", c.id).maybeSingle()).catch(() => null), // 13: o combinado da mensalidade
   ]);
   const usoDe = p => (uso && uso.pessoas.find(u => u.pessoa_id === p.id)) || null;
   const nomeDoModulo = id => (MODULOS.find(m => m.id === id) || { nome: id }).nome;
@@ -114,7 +116,8 @@ export async function abrirConta(c, ctx) {
               : `<button class="rz-botao rz-botao--pequeno" type="button" data-reenviar="${escapar(x.id)}">${icone("carta", { tamanho: 16 })}Mandar o convite de novo</button>`}</div></div>`).join("")}
         </section>
 
-        <section class="rz-pilha-p"><div class="rz-secao-cabeca"><h3 class="rz-titulo-3">Pagamentos</h3><button class="rz-botao rz-botao--pequeno" type="button" data-pagar>${icone("carteira", { tamanho: 16 })}Registrar Pix</button></div>
+        <section class="rz-pilha-p"><div class="rz-secao-cabeca"><h3 class="rz-titulo-3">Pagamentos</h3><span class="rz-cabeca-acoes"><button class="rz-botao rz-botao--pequeno" type="button" data-combinar>${icone("relogio", { tamanho: 16 })}${combinado && combinado.inicio ? "Mudar o combinado" : "Combinar o dia"}</button><button class="rz-botao rz-botao--pequeno" type="button" data-pagar>${icone("carteira", { tamanho: 16 })}Registrar Pix</button></span></div>
+          <p class="rz-texto-3" data-combinado>${escapar(resumoDoCombinado(combinado, mensalidadeSugerida(c.ligados || [], catalogo)))}</p>
           ${pagamentos.length ? `<ul class="rz-linhas rz-cartao">${pagamentos.map(p => `<li><div class="rz-linha rz-linha--fixa"><span class="rz-linha-texto"><b>${escapar(nomeDoMes(p.mes))} · ${escapar(moeda(p.valor, { centavos: true }))}</b><small>pago em ${escapar(dataNumerica(new Date(p.pago_em + "T12:00:00Z")))}${p.observacao ? ` · ${escapar(p.observacao)}` : ""}</small></span></div></li>`).join("")}</ul>`
             : `<p class="rz-texto-3">Nenhum pagamento registrado.</p>`}
         </section>
@@ -245,6 +248,7 @@ export async function abrirConta(c, ctx) {
     ocupado(b, false);
   });
   el.querySelector("[data-pagar]").addEventListener("click", () => { j.fechar(); abrirPagamento(c, ctx); });
+  el.querySelector("[data-combinar]").addEventListener("click", () => { j.fechar(); abrirCombinado(c, ctx, combinado); });
   el.querySelector("[data-entrar]").addEventListener("click", () => { j.fechar(); entrarParaAjudar(c, ctx); });
   el.querySelector("[data-exportar]").addEventListener("click", () => exportarAPedido(c, ctx));
   return j;

@@ -37,6 +37,7 @@ test("menu: Início, os módulos ligados (trancados sem acesso) e os da conta", 
   assert.ok(!menuCarla.some(i => i.id === "meu-site"), "o que a conta não tem não aparece");
   const ordenado = itensDoMenu({ ...dono, ajustes: { ordem_menu: ["financeiro", "agenda"] } });
   assert.deepEqual(ordenado.slice(0, 3).map(i => i.id), ["inicio", "financeiro", "agenda"], "a ordem do onboarding vale");
+  assert.deepEqual(itensDoMenu(dono).filter(i => i.grupo === "conta").map(i => i.id), ["servicos", "equipe", "assinatura", "configuracoes"], "o dono vê a Assinatura (13)");
   const foto = itensDoMenu({ ...dono, nicho: "fotografia" });
   assert.equal(foto.find(i => i.id === "clientes").nome, "Clientes e entregas");
 });

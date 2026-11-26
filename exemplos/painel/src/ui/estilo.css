@@ -1180,3 +1180,19 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 @keyframes et-subindo{to{background-position:-200% 0}}
 
 .rz-inicio-estoque{margin-top:var(--rz-3)}
+
+/* ---------- Assinatura (src/modulos/assinatura/; 13-assinatura.md, 26/11/2026) ---------- */
+.rz-assinatura-topo{display:flex;align-items:flex-start;gap:var(--rz-4);padding:var(--rz-5);border-left:4px solid var(--rz-tom,var(--rz-info));background:linear-gradient(90deg,var(--rz-tom-fundo,var(--rz-info-fundo)),var(--rz-superficie) 70%)}
+.rz-assinatura-topo--sucesso{--rz-tom:var(--rz-sucesso);--rz-tom-fundo:var(--rz-sucesso-fundo)}
+.rz-assinatura-topo--alerta{--rz-tom:var(--rz-alerta);--rz-tom-fundo:var(--rz-alerta-fundo)}
+.rz-assinatura-topo--perigo{--rz-tom:var(--rz-perigo);--rz-tom-fundo:var(--rz-perigo-fundo)}
+.rz-assinatura-topo--destaque{--rz-tom:var(--rz-destaque-escuro);--rz-tom-fundo:var(--rz-destaque-fundo)}
+.rz-assinatura-topo .rz-titulo-2{margin:0}
+.rz-assinatura-topo .rz-texto-2{margin:0}
+.rz-assinatura-icone{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--rz-tom-fundo,var(--rz-info-fundo));color:var(--rz-tom,var(--rz-info))}
+.rz-assinatura-plano{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:760px){.rz-assinatura-plano{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.rz-assinatura-regras{list-style:none;margin:0;display:grid;gap:var(--rz-4)}
+.rz-assinatura-regras li{display:flex;gap:var(--rz-3);align-items:flex-start;line-height:1.5}
+.rz-assinatura-regras .rz-icone{flex:none;margin-top:2px;color:var(--rz-tinta-3)}
+.rz-assinatura-regras b{font-weight:600}

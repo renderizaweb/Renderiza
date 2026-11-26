@@ -19,9 +19,9 @@ import { linkDaRenderiza } from "./renderiza.js";
 
 const ICONE = {
   inicio: "inicio", agenda: "agenda", atendimento: "conversa", clientes: "clientes", contratos: "contrato",
-  financeiro: "carteira", "meu-site": "site", estoque: "estoque", servicos: "servicos", equipe: "equipe", configuracoes: "configuracoes",
+  financeiro: "carteira", "meu-site": "site", estoque: "estoque", servicos: "servicos", equipe: "equipe", assinatura: "carteira", configuracoes: "configuracoes",
 };
-const DA_CONTA = ["servicos", "equipe", "configuracoes"];
+const DA_CONTA = ["servicos", "equipe", "assinatura", "configuracoes"];
 // Na barra de baixo cabem o Início, mais três e o "Mais"; Atendimento primeiro (09, "Barra de baixo").
 const PRIORIDADE_DA_BARRA = ["estoque", "atendimento", "agenda", "clientes", "financeiro", "contratos", "meu-site"];
 
@@ -40,7 +40,9 @@ export function itensDoMenu(conta) {
   });
   const inicio = MODULOS.filter(m => m.id === "inicio").map(item);
   const modulos = MODULOS.filter(m => !m.base).sort((a, b) => posicao(a.id) - posicao(b.id)).map(item);
-  const daConta = DA_CONTA.filter(id => id !== "servicos" || !servicosSemUso(conta, n.servicoSimples)).map(id => MODULOS.find(m => m.id === id)).filter(Boolean).map(item);
+  // Serviços some quando nada usa (servicosSemUso); a Assinatura é só do dono: a equipe nem a vê trancada (13)
+  const daConta = DA_CONTA.filter(id => (id !== "servicos" || !servicosSemUso(conta, n.servicoSimples)) && (id !== "assinatura" || (conta && conta.dono)))
+    .map(id => MODULOS.find(m => m.id === id)).filter(Boolean).map(item);
   return [...inicio, ...modulos, ...daConta].filter(i => i.estado !== "fora");
 }
 

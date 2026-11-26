@@ -114,6 +114,7 @@ export async function montar(el, { banco, conta, avisar, sessao, navegar }) {
           <div><dt>Código público</dt><dd><code>${escapar(c.codigo)}</code></dd></div>
         </dl>
         <p class="rz-texto-3">Para mudar os módulos ou o plano, <a href="${linkDaRenderiza(`Oi! Quero mudar o plano do Painel Renderiza de ${c.nome}.`)}" target="_blank" rel="noopener">fale com a gente</a>. O valor novo vale a partir da mensalidade seguinte.</p>
+        <div><a class="rz-botao" href="/assinatura">${icone("carteira", { tamanho: 18 })}Ver a assinatura e os pagamentos</a></div>
       </section>`;
     ligar(c);
   };

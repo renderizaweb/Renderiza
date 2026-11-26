@@ -12,8 +12,8 @@ const pasta = new URL("../", import.meta.url);
 
 test("todos os módulos do 04 estão registrados", () => {
   const ids = MODULOS.map(m => m.id).sort();
-  assert.deepEqual(ids, ["agenda", "atendimento", "clientes", "configuracoes", "contratos", "equipe", "estoque", "financeiro", "inicio", "meu-site", "servicos"]);
-  assert.deepEqual(MODULOS.filter(m => m.base).map(m => m.id).sort(), ["configuracoes", "equipe", "inicio", "servicos"]);
+  assert.deepEqual(ids, ["agenda", "assinatura", "atendimento", "clientes", "configuracoes", "contratos", "equipe", "estoque", "financeiro", "inicio", "meu-site", "servicos"]);
+  assert.deepEqual(MODULOS.filter(m => m.base).map(m => m.id).sort(), ["assinatura", "configuracoes", "equipe", "inicio", "servicos"]);
 });
 
 test("todas as partes do Admin estão registradas", () => {
