@@ -11,6 +11,8 @@
       "name": "Ricardo Motors",
       "alternateName": "RM Consult Car",
       "description": "Consultoria automotiva em São Paulo: carros premium e blindados, com procedência verificada.",
+      "telephone": "+55 11 94788-2373",
+      "logo": "https://ricardomotorsconsultoria.com.br/favicon.svg",
       "areaServed": "São Paulo, SP",
       "address": { "@type": "PostalAddress", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR" },
       "sameAs": ["https://www.instagram.com/rm.consultcar/"]
