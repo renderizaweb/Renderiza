@@ -62,8 +62,10 @@ export function podeNaConta(conta, modulo, nivel = "ver") {
   if (!conta || !conta.liberada || !["ver", "editar"].includes(nivel)) return false;
   const acesso = (conta.acessos || {})[modulo];
   if (MODULOS_BASE.includes(modulo)) {
+    // a Assinatura só se lê: o dono e a Renderiza no suporte, até no "só ver" (13; a equipe, não)
+    if (modulo === "assinatura") return nivel === "ver" && !!(conta.dono || conta.suporte_ate);
     if (conta.dono) return true;
-    if (modulo === "equipe" || modulo === "configuracoes" || modulo === "assinatura") return false; // só o dono
+    if (modulo === "equipe" || modulo === "configuracoes") return false;
     return nivel === "ver" || acesso === "editar";
   }
   if (!(conta.modulos || []).includes(modulo)) return false;

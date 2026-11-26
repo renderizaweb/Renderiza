@@ -40,8 +40,8 @@ export function itensDoMenu(conta) {
   });
   const inicio = MODULOS.filter(m => m.id === "inicio").map(item);
   const modulos = MODULOS.filter(m => !m.base).sort((a, b) => posicao(a.id) - posicao(b.id)).map(item);
-  // Serviços some quando nada usa (servicosSemUso); a Assinatura é só do dono: a equipe nem a vê trancada (13)
-  const daConta = DA_CONTA.filter(id => (id !== "servicos" || !servicosSemUso(conta, n.servicoSimples)) && (id !== "assinatura" || (conta && conta.dono)))
+  // Serviços some quando nada usa (servicosSemUso); a Assinatura é do dono e do suporte: a equipe nem a vê trancada (13)
+  const daConta = DA_CONTA.filter(id => (id !== "servicos" || !servicosSemUso(conta, n.servicoSimples)) && (id !== "assinatura" || (conta && (conta.dono || conta.suporte_ate))))
     .map(id => MODULOS.find(m => m.id === id)).filter(Boolean).map(item);
   return [...inicio, ...modulos, ...daConta].filter(i => i.estado !== "fora");
 }
