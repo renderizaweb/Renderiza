@@ -12,7 +12,7 @@ import { abrirGaveta, abrirFolha, confirmar } from "../../ui/gaveta.js";
 import { chips, ligarChips } from "../../ui/filtros.js";
 import { vazio } from "../../ui/estados.js";
 import { moeda, lerValor } from "../../ui/formatos.js";
-import { ESQUEMAS, SITUACOES, situacao, camposDe } from "./esquemas.js";
+import { ESQUEMAS, SITUACOES, situacao, camposDe, semFotoNoSite } from "./esquemas.js";
 import { criarLoja, urlDaFoto, paraOSite } from "./loja.js";
 import { enderecoDoSite } from "../meu-site/conteudo.js";
 import { lerAnuncio } from "./webmotors.js";
@@ -145,7 +145,7 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
         <span class="rz-linha-texto">
           <span class="rz-linha-titulo"><b>${escapar(titulo)}</b>${i.destaque ? `<span class="et-estrela" title="Destaque">${icone("estrela", { tamanho: 14 })}</span>` : ""}</span>
           <small>${escapar(esquema.resumo(i.campos) || esquema.linha(i.campos))}</small>
-          <span class="et-preco-linha"><b>${i.preco != null ? moeda(i.preco) : "Sob consulta"}</b>${s.valor !== "disponivel" ? `<span class="rz-etiqueta${s.etiqueta ? " rz-etiqueta--" + s.etiqueta : ""}">${s.rotulo}</span>` : ""}</span>
+          <span class="et-preco-linha"><b>${i.preco != null ? moeda(i.preco) : "Sob consulta"}</b>${s.valor !== "disponivel" ? `<span class="rz-etiqueta${s.etiqueta ? " rz-etiqueta--" + s.etiqueta : ""}">${s.rotulo}</span>` : ""}${foto ? "" : `<span class="rz-etiqueta rz-etiqueta--alerta">Sem foto${s.noSite ? " · fora do site" : ""}</span>`}</span>
         </span>
         ${edita ? `<button class="rz-botao rz-botao--fantasma et-acoes" type="button" data-acoes aria-label="Ações de ${escapar(titulo)}">${icone("mais", { tamanho: 20 })}</button>` : ""}
       </div>`;
@@ -181,6 +181,10 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
       const o = b.dataset.fazer;
       if (o === "editar") return editar(i);
       if (o === "destaque") return mudar(i, { destaque: !i.destaque }, i.destaque ? `${nome}: saiu do destaque.` : `${nome}: em destaque, aparece primeiro no site.`, { desfazer: false });
+      if (semFotoNoSite(o, i.fotos)) {
+        avisar(`${nome}: ponha pelo menos uma foto antes. Sem foto, o ${ITEM} fica em branco no site.`, { tipo: "erro" });
+        return editar(i, { semFoto: true });
+      }
       const fora = o === "vendido" || o === "oculto" ? { destaque: false } : {};
       const texto = { vendido: `${nome}: vendido. Já saiu do site.`, reservado: `${nome}: reservado. No site, aparece com a etiqueta.`,
         oculto: `${nome}: fora do site.`, disponivel: `${nome}: no site de novo.` }[o];
@@ -196,13 +200,16 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
   const teclas = l => `<kbd>${CTRL}</kbd><span>+</span><kbd>${l}</kbd>`;
   const telinha = (extra = "") => `<div class="et-tela"><div class="et-tela-barra"><i></i><i></i><i></i><span>webmotors.com.br/comprar/…</span></div>
       <div class="et-tela-corpo"><span class="et-tela-foto"></span><span class="et-tela-linha et-tela-linha--titulo"></span><span class="et-tela-linha"></span><span class="et-tela-linha et-tela-linha--curta"></span>${extra}</div></div>`;
-  const blocoTrazer = () => `<section class="et-bloco et-trazer" data-trazer>
+  const blocoTrazer = novo => `<section class="et-bloco et-trazer" data-trazer>
       <div class="et-trazer-topo">
-        <span class="et-trazer-icone" aria-hidden="true">${icone("importar", { tamanho: 20 })}</span>
-        <span class="et-trazer-texto"><b>Já anunciou este ${ITEM} na WebMotors?</b><small>Traga os dados do anúncio com 3 teclas. Você só confere e põe as fotos.</small></span>
-        <button class="rz-botao" type="button" data-trazer-abrir aria-expanded="false" aria-controls="et-trazer-painel">Trazer do anúncio</button>
+        <span class="et-trazer-icone" aria-hidden="true">${icone(novo ? "importar" : "trocar", { tamanho: 20 })}</span>
+        <span class="et-trazer-texto">${novo
+          ? `<b>Já anunciou este ${ITEM} na WebMotors?</b><small>Traga os dados do anúncio com 3 teclas. Você só confere e põe as fotos.</small>`
+          : `<b>Mudou alguma coisa no anúncio da WebMotors?</b><small>Cole a página do anúncio e o que está aqui é trocado pelo que está lá. Você confere antes de salvar.</small>`}</span>
+        <button class="rz-botao" type="button" data-trazer-abrir aria-expanded="false" aria-controls="et-trazer-painel">${novo ? "Trazer do anúncio" : "Atualizar pelo anúncio"}</button>
       </div>
       <div class="et-trazer-painel" id="et-trazer-painel" hidden>
+        ${novo ? "" : `<p class="rz-alerta rz-alerta--aviso">${icone("alerta", { tamanho: 18 })}<span>O que vier do anúncio <b>substitui o que está aqui</b>: a ficha, o preço, os opcionais e a descrição. As fotos, o destaque e a situação no site ficam como estão. Nada muda no site até você tocar em Salvar.</span></p>`}
         <ol class="et-passos">
           <li class="et-passo" style="--i:0"><div class="et-cena" aria-hidden="true">${telinha()}</div>
             <span class="et-passo-n">1</span><b>Abra o anúncio</b><small>Na WebMotors, neste computador.</small></li>
@@ -221,35 +228,71 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
       <div class="et-trazer-feito" data-trazer-feito role="status" hidden></div>
     </section>`;
 
-  /** Põe no formulário o que veio do anúncio; os campos preenchidos piscam. Devolve os rótulos preenchidos. */
-  function preencher(form, r) {
-    const feitos = [];
-    // pisca o próprio campo (a caixa de texto, a lista) ou a linha do sim/não e a etiqueta do opcional
+  /**
+   * Põe no formulário o que veio do anúncio. No carro novo, preenche; na edição (`trocar`), troca o que está aqui pelo
+   * que está lá: um "sim" que não está na ficha do anúncio vira "não" e um opcional que não está nos itens sai (só
+   * quando a ficha ou os itens vieram na colagem); o que o anúncio não trouxe fica como está. Os campos que mudaram
+   * piscam. Devolve { mudou: [{ rotulo, antes, depois }], iguais: [rótulos] }.
+   */
+  function preencher(form, r, { trocar = false } = {}) {
+    const mudou = [], iguais = [];
     const piscar = el => { const alvo = el.matches("input[type=checkbox]") ? el.closest("label") || el : el; alvo.classList.remove("et-trazido"); void alvo.offsetWidth; alvo.classList.add("et-trazido"); setTimeout(() => alvo.classList.remove("et-trazido"), 2600); };
+    const anotar = (rotulo, antes, depois, el) => {
+      if (antes === depois) { iguais.push(rotulo); return; }
+      mudou.push({ rotulo, antes, depois });
+      if (el) piscar(el);
+    };
+    const sn = v => (v ? "Sim" : "Não");
     for (const c of camposDe(esquema)) {
-      if (!(c.id in r.campos)) continue;
-      const v = r.campos[c.id];
+      const veio = c.id in r.campos;
       if (c.tipo === "simnao") {
+        if (!veio && !(trocar && r.achou && r.achou.ficha)) continue;
         const el = form.querySelector(`input[type=checkbox][name="${c.id}"]`);
-        if (el) { el.checked = v === true; piscar(el); feitos.push(c.rotulo); }
+        if (!el) continue;
+        const antes = el.checked;
+        el.checked = veio && r.campos[c.id] === true;
+        anotar(c.rotulo, sn(antes), sn(el.checked), el);
       } else if (c.tipo === "marcar") {
-        let algum = false;
-        form.querySelectorAll(`input[type=checkbox][name="${c.id}"]`).forEach(el => { if (v.includes(el.value)) { el.checked = true; piscar(el); algum = true; } });
-        if (algum) feitos.push(c.rotulo);
+        if (!veio && !(trocar && r.achou && r.achou.itens)) continue;
+        const quer = veio ? r.campos[c.id] : [];
+        const caixas = [...form.querySelectorAll(`input[type=checkbox][name="${c.id}"]`)];
+        const marcadas = () => caixas.filter(x => x.checked).map(x => x.value).sort().join(", ");
+        const antes = marcadas();
+        caixas.forEach(x => {
+          const marcar = quer.includes(x.value) || (!trocar && x.checked);
+          if (x.checked !== marcar) { x.checked = marcar; piscar(x); }
+        });
+        anotar(c.rotulo, antes, marcadas(), null);
       } else {
-        const el = form.querySelector(`[name="${c.id}"]`);
+        if (!veio) continue;
+        const el = form.querySelector(`[name="${c.id}"]`), v = r.campos[c.id];
         if (!el || (c.tipo === "lista" && ![...el.options].some(o => o.value === v))) continue;
-        el.value = c.id === "km" ? Number(v).toLocaleString("pt-BR") : String(v);
-        piscar(el);
-        feitos.push(c.rotulo);
+        const antes = el.value.trim(), depois = c.id === "km" ? Number(v).toLocaleString("pt-BR") : String(v).trim();
+        el.value = depois;
+        const igual = c.tipo === "numero" ? antes.replace(/\D/g, "") === depois.replace(/\D/g, "") : antes === depois;
+        if (igual) iguais.push(c.rotulo);
+        else {
+          const km = v2 => `${Number(String(v2).replace(/\D/g, "")).toLocaleString("pt-BR")} km`;
+          mudou.push({ rotulo: c.rotulo, antes: antes ? (c.id === "km" ? km(antes) : antes) : "vazio", depois: c.id === "km" ? km(depois) : depois });
+          piscar(el);
+        }
       }
     }
-    if (r.preco != null) { const el = form.querySelector('[name="preco"]'); el.value = Number(r.preco).toLocaleString("pt-BR"); piscar(el); feitos.push("Preço"); }
-    if (r.descricao) { const el = form.querySelector('[name="descricao"]'); el.value = r.descricao; piscar(el); feitos.push("Descrição"); }
-    return feitos;
+    if (r.preco != null) {
+      const el = form.querySelector('[name="preco"]'), antes = el.value ? lerValor(el.value) : null;
+      el.value = Number(r.preco).toLocaleString("pt-BR");
+      if (antes === r.preco) iguais.push("Preço");
+      else { mudou.push({ rotulo: "Preço", antes: antes != null ? moeda(antes) : "sob consulta", depois: moeda(r.preco) }); piscar(el); }
+    }
+    if (r.descricao) {
+      const el = form.querySelector('[name="descricao"]'), antes = el.value.trim();
+      el.value = r.descricao;
+      anotar("Descrição", antes, r.descricao.trim(), el);
+    }
+    return { mudou, iguais };
   }
 
-  function ligarTrazer(g, form) {
+  function ligarTrazer(g, form, { novo, temFotos }) {
     const caixa = g.corpo.querySelector("[data-trazer]");
     if (!caixa) return;
     const abrir = caixa.querySelector("[data-trazer-abrir]"), painel = caixa.querySelector(".et-trazer-painel"), area = caixa.querySelector("[data-colar]");
@@ -257,34 +300,52 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
     const mostrar = aberto => {
       painel.hidden = !aberto;
       abrir.setAttribute("aria-expanded", String(aberto));
-      abrir.textContent = aberto ? "Fechar" : feito.hidden ? "Trazer do anúncio" : "Colar de novo";
+      abrir.textContent = aberto ? "Fechar" : feito.hidden ? (novo ? "Trazer do anúncio" : "Atualizar pelo anúncio") : "Colar de novo";
       if (aberto) { erroT.hidden = true; caixa.scrollIntoView({ block: "start" }); area.focus({ preventScroll: true }); }
     };
     abrir.addEventListener("click", () => mostrar(painel.hidden));
     const conhecidos = () => [...new Set(loja.listar().flatMap(i => [i.campos && i.campos.marca, i.campos && i.campos.modelo]).filter(Boolean))];
-    const usar = texto => {
+    const igualA = (a, b) => String(a || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim() === String(b || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
+    const usar = async texto => {
       const r = lerAnuncio(texto, { conhecidos: conhecidos() });
       if (!r.tipo || !Object.keys(r.campos).length) {
         erroT.hidden = false;
         erroT.innerHTML = `Não achamos um anúncio nesse texto. Abra o anúncio na WebMotors, aperte ${teclas("A")} e ${teclas("C")}, e cole aqui de novo.`;
         return;
       }
-      const feitos = preencher(form, r);
-      const c = r.campos, falta = ["marca", "modelo"].filter(k => !c[k]);
+      const c = r.campos;
+      // na edição, um anúncio de outro carro pede confirmação (colou o anúncio errado?)
+      if (!novo) {
+        const aqui = lerFormulario(form);
+        const outro = (c.marca && aqui.marca && !igualA(c.marca, aqui.marca)) || (c.modelo && aqui.modelo && !igualA(c.modelo, aqui.modelo));
+        if (outro && !(await confirmar({ titulo: "Esse anúncio parece ser de outro carro", sim: "Trocar mesmo assim",
+          texto: `O anúncio é de ${escapar([c.marca, c.modelo].filter(Boolean).join(" "))}, e este é ${escapar([aqui.marca, aqui.modelo].filter(Boolean).join(" "))}. Trocar os dados deste carro pelos do anúncio?` }))) return;
+      }
+      const { mudou, iguais } = preencher(form, r, { trocar: !novo });
+      const falta = ["marca", "modelo"].filter(k => !c[k]);
       const titulo = [c.marca, c.modelo, c.ano_fab && c.ano_modelo ? `${c.ano_fab}/${c.ano_modelo}` : ""].filter(Boolean).join(" ");
       const resumo = [c.km != null ? `${Number(c.km).toLocaleString("pt-BR")} km` : "", r.preco != null ? moeda(r.preco) : ""].filter(Boolean).join(" · ");
+      const curto = t => (String(t).length > 42 ? String(t).slice(0, 40) + "…" : String(t));
+      const linhaDe = m => (m.rotulo === "Descrição" ? "<li><b>Descrição</b>: mudou</li>" : m.rotulo === "Opcionais" ? "<li><b>Opcionais</b>: mudaram</li>"
+        : `<li><b>${escapar(m.rotulo)}</b>: ${escapar(curto(m.antes))} → ${escapar(curto(m.depois))}</li>`);
+      const vieram = mudou.length + iguais.length;
+      const cabeca = novo
+        ? `<b>Pronto: ${vieram} ${vieram === 1 ? "campo veio" : "campos vieram"} do anúncio.</b><small>${escapar([titulo, resumo].filter(Boolean).join(" · "))}. Confira os campos destacados e ponha as fotos.</small>`
+        : mudou.length
+          ? `<b>Atualizado pelo anúncio: ${mudou.length} ${mudou.length === 1 ? "campo mudou" : "campos mudaram"}.</b><small>Confira e toque em Salvar para valer no site.${iguais.length ? ` ${iguais.length} ${iguais.length === 1 ? "ficou igual" : "ficaram iguais"}.` : ""}</small>
+            <ul class="et-mudou">${mudou.slice(0, 8).map(linhaDe).join("")}${mudou.length > 8 ? `<li>e mais ${mudou.length - 8}</li>` : ""}</ul>`
+          : `<b>Tudo igual ao anúncio.</b><small>Nada mudou aqui.</small>`;
       feito.hidden = false;
       feito.innerHTML = `<span class="et-trazer-icone et-trazer-icone--ok" aria-hidden="true">${icone("ok", { tamanho: 20 })}</span>
-        <span class="et-trazer-texto"><b>Pronto: ${feitos.length} ${feitos.length === 1 ? "campo veio" : "campos vieram"} do anúncio.</b>
-          <small>${escapar([titulo, resumo].filter(Boolean).join(" · "))}. Confira os campos destacados e ponha as fotos.</small>
+        <span class="et-trazer-texto">${cabeca}
           ${r.tipo === "link" ? `<small>Pelo link vieram só a marca, o modelo, a versão e o ano. Para trazer km, preço, cor, opcionais e descrição, copie a página toda (${CTRL} + A, ${CTRL} + C) e cole de novo.</small>` : ""}
-          ${falta.length ? `<small>Não achamos ${falta.length === 2 ? "a marca e o modelo" : falta[0] === "marca" ? "a marca" : "o modelo"}: preencha.</small>` : ""}
+          ${falta.length && novo ? `<small>Não achamos ${falta.length === 2 ? "a marca e o modelo" : falta[0] === "marca" ? "a marca" : "o modelo"}: preencha.</small>` : ""}
           ${r.semCaixa.length ? `<small>${r.semCaixa.length} ${r.semCaixa.length === 1 ? "item sem caixa aqui foi" : "itens sem caixa aqui foram"} para o fim da descrição.</small>` : ""}</span>`;
       mostrar(false);
       caixa.scrollIntoView({ block: "start", behavior: "smooth" });
-      // o próximo passo é pôr as fotos (as do anúncio não vêm)
+      // o próximo passo é pôr as fotos (as do anúncio não vêm), quando ainda não tem
       const mais = g.corpo.querySelector(".et-foto--mais");
-      if (mais) { mais.classList.add("et-chama"); setTimeout(() => mais.classList.remove("et-chama"), 4000); }
+      if (mais && !temFotos()) { mais.classList.add("et-chama"); setTimeout(() => mais.classList.remove("et-chama"), 4000); }
     };
     area.addEventListener("paste", e => {
       const t = e.clipboardData && e.clipboardData.getData("text/plain");
@@ -316,17 +377,18 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
       + (sugestoes.length ? `<datalist id="et-sug-${c.id}">${sugestoes.map(s => `<option value="${escapar(s)}">`).join("")}</datalist>` : "");
   }
 
-  function editar(original) {
+  function editar(original, { semFoto = false } = {}) {
     const novo = !original;
     const i = original ? JSON.parse(JSON.stringify(original)) : { situacao: "disponivel", destaque: false, campos: {}, selos: [], fotos: [], preco: null, descricao: "" };
     const fotos = [...(i.fotos || [])];
     const enviadas = []; // as que subiram nesta gaveta: apagadas se ela fechar sem salvar
     const tiradas = []; // as que já estavam salvas e saíram: apagadas depois de salvar
     let enviando = 0, salvo = false;
-    const trazer = novo && edita && conta.nicho === "automotivo" && noComputador();
+    const trazer = edita && conta.nicho === "automotivo" && noComputador();
     const corpo = `<form class="rz-pilha et-form" novalidate data-form>
-      ${trazer ? blocoTrazer() : ""}
-      <section class="et-bloco"><h3 class="rz-titulo-3">Fotos</h3><p class="rz-texto-3">A primeira é a capa. Do celular, dá para tirar na hora.</p><div class="et-fotos" data-fotos></div></section>
+      ${trazer ? blocoTrazer(novo) : ""}
+      <section class="et-bloco"><h3 class="rz-titulo-3">Fotos</h3><p class="rz-texto-3">A primeira é a capa. Do celular, dá para tirar na hora. Sem foto, o ${ITEM} não vai ao site.</p><div class="et-fotos" data-fotos></div>
+        <p class="rz-alerta rz-alerta--aviso" data-sem-foto role="alert" hidden>${icone("camera", { tamanho: 18 })}<span>Ponha pelo menos uma foto: sem foto, o ${ITEM} fica em branco no site. Para terminar depois, escolha <b>Oculto</b> em "No site" e salve.</span></p></section>
       ${esquema.grupos.map(g => `<section class="et-bloco"><h3 class="rz-titulo-3">${escapar(g.titulo)}</h3><div class="et-campos">${g.campos.map(c =>
         `<div class="${c.meio ? "et-meio" : "et-inteiro"}">${campo(c, i.campos[c.id], !edita)}</div>`).join("")}</div></section>`).join("")}
       <section class="et-bloco"><h3 class="rz-titulo-3">Preço e selos</h3><div class="et-campos">
@@ -352,7 +414,15 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
     g.el.classList.add("et-gaveta");
     const caixaFotos = g.corpo.querySelector("[data-fotos]"), form = g.corpo.querySelector("[data-form]"), erro = g.corpo.querySelector("[data-erro]");
     if (!edita) form.querySelectorAll("input, select, textarea, button").forEach(x => { x.disabled = true; });
-    if (trazer) ligarTrazer(g, form);
+    if (trazer) ligarTrazer(g, form, { novo, temFotos: () => fotos.length > 0 });
+    const avisoSemFoto = g.corpo.querySelector("[data-sem-foto]");
+    const pedirFoto = () => {
+      avisoSemFoto.hidden = false;
+      avisoSemFoto.scrollIntoView({ block: "center", behavior: "smooth" });
+      const mais = g.corpo.querySelector(".et-foto--mais");
+      if (mais) { mais.classList.add("et-chama"); setTimeout(() => mais.classList.remove("et-chama"), 4000); }
+    };
+    if (semFoto) setTimeout(pedirFoto, 300);
 
     function desenharFotos() {
       caixaFotos.innerHTML = fotos.map((f, k) => `<figure class="et-foto">
@@ -378,7 +448,7 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
       desenharFotos();
       // uma de cada vez, na ordem escolhida (a primeira vira a capa), sem travar o formulário
       for (const a of arquivos) {
-        try { const f = await loja.enviarFoto(a); fotos.push(f); enviadas.push(f); }
+        try { const f = await loja.enviarFoto(a); fotos.push(f); enviadas.push(f); avisoSemFoto.hidden = true; }
         catch (x) { avisar(nomeDoErro(x) || "Uma das fotos não subiu.", { tipo: "erro" }); }
         enviando--;
         desenharFotos();
@@ -390,6 +460,8 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
       if (enviando) { erro.hidden = false; erro.textContent = "Espere as fotos terminarem de subir."; return; }
       const r = lerItem(esquema, lerFormulario(form));
       if (r.erro) { erro.hidden = false; erro.textContent = r.erro; erro.scrollIntoView({ block: "center", behavior: "smooth" }); return; }
+      // sem foto não vai ao site: a pessoa põe a foto ou salva como oculto (26/11/2026)
+      if (semFotoNoSite(r.item.situacao, fotos)) { erro.hidden = true; pedirFoto(); return; }
       erro.hidden = true;
       ocupado(salvar, true, "Salvando…");
       try {

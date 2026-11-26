@@ -51,6 +51,12 @@ test("o link sozinho: marca, modelo, versão (com o ponto de volta) e anos; text
   assert.equal(l.tipo, "link");
   assert.deepEqual(l.campos, { marca: "Land Rover", modelo: "Range Rover Evoque", versao: "2.0 P250 GASOLINA R DYNAMIC SE AUTOMATICO", ano_fab: 2023, ano_modelo: 2024 });
   assert.equal(lerLink("https://www.webmotors.com.br/comprar/bmw/x1/20-turbo/4-portas/2022/1").campos.modelo, "X1");
-  assert.deepEqual(lerAnuncio("Oi, tudo bem? Quero ver o carro."), { tipo: null, campos: {}, preco: null, descricao: "", semCaixa: [] });
+  assert.deepEqual(lerAnuncio("Oi, tudo bem? Quero ver o carro."), { tipo: null, campos: {}, preco: null, descricao: "", semCaixa: [], achou: { ficha: false, itens: false, descricao: false } });
   assert.equal(lerAnuncio("").tipo, null);
+});
+
+test("o que veio da página (para a edição saber o que trocar)", () => {
+  assert.deepEqual(lerAnuncio(PAGINA).achou, { ficha: true, itens: true, descricao: true });
+  const soFicha = PAGINA.split("Sobre os diferenciais do anúncio")[0];
+  assert.deepEqual(lerAnuncio(soFicha).achou, { ficha: true, itens: false, descricao: false }, "copiou só o começo da página: os itens e a descrição ficam como estão");
 });

@@ -113,14 +113,17 @@ test("a ponte do Estoque: o site de entrega e o painel, no STG", { skip: A.motiv
       await g.locator("[data-salvar]").click();
       await painel.waitForSelector("dialog[open]", { state: "detached", timeout: 15000 });
       const id = (await banco.sql(`select gen_random_uuid() as id`))[0].id;
-      await banco.sql(`insert into public.estoque_itens (id, conta_id, esquema, situacao, preco, campos) select ${A.q(id)}, id, 'automotivo', 'disponivel', 98900, '{"marca": "Honda", "modelo": "Civic", "ano_fab": 2020, "ano_modelo": 2020, "km": 47000, "carroceria": "Sedã"}' from public.contas where codigo = ${A.q(A.CODIGO)}`);
+      await banco.sql(`insert into public.estoque_itens (id, conta_id, esquema, situacao, preco, campos, fotos) select ${A.q(id)}, id, 'automotivo', 'disponivel', 98900, '{"marca": "Honda", "modelo": "Civic", "ano_fab": 2020, "ano_modelo": 2020, "km": 47000, "carroceria": "Sedã"}', (select fotos from public.estoque_itens e where e.conta_id = contas.id and jsonb_array_length(e.fotos) > 0 limit 1) from public.contas where codigo = ${A.q(A.CODIGO)}`);
+      // sem foto não vai ao site (26/11/2026): este não pode aparecer
+      await banco.sql(`insert into public.estoque_itens (conta_id, esquema, situacao, preco, campos) select id, 'automotivo', 'disponivel', 1000, '{"marca": "Fiat", "modelo": "Sem Foto"}' from public.contas where codigo = ${A.q(A.CODIGO)}`);
       const r = await abrirSite(ctxSite, x => x.cards.length === 2, "os 2 carros do painel");
       assert.ok(r.precos.includes("R$ 128.900") && r.precos.includes("R$ 98.900"), JSON.stringify(r.precos));
+      assert.ok(!r.cards.some(c => /Sem Foto/.test(c)), "o carro sem foto não aparece no site: " + JSON.stringify(r.cards));
       assert.equal(r.aviso, false, "com o painel, o aviso da reserva some");
-      assert.match(r.capa, /Toyota Corolla · R\$ 128\.900/, "a capa com o carro que tem foto");
+      assert.match(r.capa, /^(Toyota Corolla · R\$ 128\.900|Honda Civic · R\$ 98\.900)$/, "a capa com um carro do painel (os dois têm foto): " + r.capa);
       const src = await r.pagina.locator("#grade .card img").first().getAttribute("src");
       assert.ok(src.startsWith(`${srv.url}/api/publico/imagens/`) && src.endsWith("-m.webp"), "o card usa a foto pequena do painel: " + src);
-      await r.pagina.locator("#grade .card .trilho img").first().click();
+      await r.pagina.locator('#grade .card:has-text("Toyota") .trilho img').first().click();
       await r.pagina.waitForFunction(() => /#carro-[0-9a-f-]{36}/.test(location.hash));
       assert.match(await r.pagina.locator("#dt .caixa .preco").innerText(), /R\$ 128\.900/);
       assert.equal(await r.pagina.locator("#dt .aviso-carro").count(), 0, "com o painel, a página do carro não pede para confirmar");

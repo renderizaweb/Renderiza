@@ -171,14 +171,17 @@ export function lerLink(texto) {
 
 /**
  * O que veio na colagem. `conhecidos`: as marcas e os modelos que a conta já tem (para escrever igual).
- * Devolve { tipo: "anuncio" | "link" | null, campos, preco, descricao, semCaixa, rotulos } (só o que achou).
+ * Devolve { tipo: "anuncio" | "link" | null, campos, preco, descricao, semCaixa, achou } (só o que achou). `achou` diz
+ * que partes da página vieram (ficha, itens, descrição): na edição, só uma parte que veio troca o que está no painel
+ * (um "sim" que sumiu da ficha vira "não"; um opcional que sumiu dos itens sai).
  */
 export function lerAnuncio(texto, { conhecidos = [] } = {}) {
   const linhas = linhasDe(texto);
   const de = inicioDaFicha(linhas);
   if (de < 0) {
     const link = lerLink(texto);
-    return link ? { tipo: "link", campos: link.campos, preco: null, descricao: "", semCaixa: [] } : { tipo: null, campos: {}, preco: null, descricao: "", semCaixa: [] };
+    const nada = { ficha: false, itens: false, descricao: false };
+    return link ? { tipo: "link", campos: link.campos, preco: null, descricao: "", semCaixa: [], achou: nada } : { tipo: null, campos: {}, preco: null, descricao: "", semCaixa: [], achou: nada };
   }
   const f = lerFicha(linhas, de);
   const t = lerTitulo(linhas, de);
@@ -209,5 +212,6 @@ export function lerAnuncio(texto, { conhecidos = [] } = {}) {
   const sobre = lerDepoisDe(linhas, /^(sobre este (carro|veiculo)|observacoes do vendedor)$/, /^(denunciar|itens d[eo] veiculo|sobre o vendedor|ver mais$|ver menos$|simule)/, 30);
   let descricao = sobre.join("\n");
   if (semCaixa.length) descricao = `${descricao}${descricao ? "\n\n" : ""}Itens: ${semCaixa.join(", ")}.`;
-  return { tipo: "anuncio", campos, preco: lerPreco(linhas), descricao: descricao.slice(0, LIMITE_DESCRICAO), semCaixa };
+  const achou = { ficha: Boolean(f.anos || f.km), itens: itens.length > 0, descricao: sobre.length > 0 };
+  return { tipo: "anuncio", campos, preco: lerPreco(linhas), descricao: descricao.slice(0, LIMITE_DESCRICAO), semCaixa, achou };
 }

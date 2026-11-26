@@ -97,6 +97,14 @@ Os filtros do site saem do esquema: cada campo marcado como `filtro` vira um chi
 - **Ordem:** destaque primeiro, depois os mais novos; o dono pode arrastar para mudar.
 - **Quem pode:** o dono dá "edita" a quem vende e "só vê" a quem só consulta (Equipe e acessos).
 
+### Sem foto não vai ao site (26/11/2026)
+
+Um carro salvo sem foto ficou em branco no site e a galeria abria preta. Agora: salvar disponível ou reservado pede
+pelo menos uma foto (o aviso fica nas fotos; salvar como **Oculto** continua valendo, para terminar depois); as ações
+da lista que põem no site ("Pôr no site", "Voltar a vender", "Reservar") pedem a foto e abrem o carro; a lista mostra
+"Sem foto"; e a API (`/api/publico/estoque/<código>`) e a prévia ao lado não mandam ao site carro sem foto, nem os
+antigos (`semFotoNoSite` em `esquemas.js`).
+
 ### Trazer do anúncio da WebMotors (26/11/2026)
 
 Pedido da Renderiza: não digitar de novo o carro que já está anunciado. A WebMotors **recusa leitura automática** da
@@ -114,6 +122,12 @@ a cada mudança deles). O caminho é o navegador da própria pessoa:
   sim/não, o preço do "Valor anunciado" (nunca a FIPE, a média ou os anúncios parecidos da mesma página), a descrição
   ("Sobre este carro") e os itens: os que têm caixa viram opcionais, os outros vão para o fim da descrição
   ("Itens: …"). **As fotos não vêm.** O link sozinho dá marca, modelo, versão e anos (estão no endereço).
+- **Num carro que já existe** ("Atualizar pelo anúncio", 26/11/2026): o aviso de que o que vier do anúncio **substitui
+  o que está aqui** (ficha, preço, opcionais e descrição; as fotos, o destaque e a situação ficam), e depois de colar o
+  que mudou, campo por campo ("Preço: R$ 689.900 → R$ 659.900"), só com os que mudaram piscando. Um "sim" que sumiu da
+  ficha vira "não" e um opcional que sumiu dos itens sai, só quando a ficha ou os itens vieram na colagem; o que o
+  anúncio não trouxe fica como está. Anúncio de outro carro (marca ou modelo diferentes) pede confirmação. Nada vale
+  no site antes de Salvar.
 - **Testes:** `test/webmotors.test.mjs` (um anúncio fictício na ordem da página, `test/fixtures/anuncio-webmotors.txt`)
   e `test/fluxos/webmotors.fluxo.mjs` (no STG: copiar, Ctrl+V, conferir os campos, salvar; o aviso; o celular sem o
   cartão). Conferido também com dois anúncios de verdade da Ricardo Motors salvos pela Renderiza (fora do repositório).

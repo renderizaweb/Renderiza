@@ -71,15 +71,25 @@ test("o onboarding da loja: perguntas de revenda (sem agenda nem pacotes) e o Es
 });
 
 import { paraOSite } from "../src/modulos/estoque/loja.js";
-test("a prévia ao lado manda ao site o mesmo formato da API: só disponível e reservado, na ordem, fotos pelo caminho da API", () => {
+test("a prévia ao lado manda ao site o mesmo formato da API: só disponível e reservado com foto, na ordem, fotos pelo caminho da API", () => {
   const itens = [
     { id: "v", situacao: "vendido", campos: {} },
     { id: "a", situacao: "disponivel", destaque: false, ordem: 1, preco: "189900.00", campos: { marca: "Toyota" }, fotos: [{ arquivo: "c/estoque-a.webp", mini: "c/estoque-a-m.webp", w: 1600, h: 1067 }], codigo_interno: "ABC" },
-    { id: "r", situacao: "reservado", destaque: true, ordem: 2, preco: null, campos: {}, fotos: [] },
+    { id: "r", situacao: "reservado", destaque: true, ordem: 2, preco: null, campos: {}, fotos: [{ arquivo: "c/estoque-r.webp", w: 1600, h: 1067 }] },
+    { id: "sem-foto", situacao: "disponivel", destaque: true, ordem: 0, campos: {}, fotos: [] },
   ];
   const s = paraOSite(itens);
-  assert.deepEqual(s.map(i => i.id), ["r", "a"]);
+  assert.deepEqual(s.map(i => i.id), ["r", "a"], "sem foto não vai ao site (o card ficava em branco)");
   assert.equal(s[1].preco, 189900);
   assert.deepEqual(s[1].fotos, [{ url: "/api/publico/imagens/c/estoque-a.webp", mini: "/api/publico/imagens/c/estoque-a-m.webp", w: 1600, h: 1067 }]);
   assert.equal(JSON.stringify(s).includes("ABC"), false, "o código interno não vai para o site");
+});
+
+import { semFotoNoSite } from "../src/modulos/estoque/esquemas.js";
+test("sem foto não vai ao site: disponível e reservado pedem foto; oculto e vendido não", () => {
+  assert.equal(semFotoNoSite("disponivel", []), true);
+  assert.equal(semFotoNoSite("reservado", undefined), true);
+  assert.equal(semFotoNoSite("oculto", []), false, "dá para salvar oculto e pôr as fotos depois");
+  assert.equal(semFotoNoSite("vendido", []), false);
+  assert.equal(semFotoNoSite("disponivel", [{ arquivo: "c/estoque-a.webp" }]), false);
 });

@@ -1,5 +1,5 @@
 // GET /api/publico/estoque/<código> — o estoque que o site do cliente mostra (docs/painel-clientes/12-modulo-estoque.md,
-// "Contrato v1", item 2): só disponível e reservado, já na ordem. 404 quando o site não responde (desconectado, conta
+// "Contrato v1", item 2): só disponível e reservado, com foto, já na ordem. 404 quando o site não responde (desconectado, conta
 // não liberada, Estoque desligado): o script do site fica com a versão de reserva, sem preço. Cache de 1 s na rede:
 // uma mudança aparece na próxima visita (o banco responde em São Paulo, ao lado da função). As fotos saem como caminho desta API (/api/publico/imagens/…): o script
 // completa com o endereço que chamou, então o local, o STG e a produção funcionam igual.
@@ -30,7 +30,9 @@ export function paraOSite(r) {
         selos: Array.isArray(i.selos) ? i.selos : [], descricao: String(i.descricao || ""),
         campos: i.campos && typeof i.campos === "object" && !Array.isArray(i.campos) ? i.campos : {},
         fotos: (Array.isArray(i.fotos) ? i.fotos : []).map(foto).filter(Boolean),
-      })),
+      }))
+      // sem foto não vai ao site (26/11/2026: o card ficava em branco e a galeria abria preta); o painel também não deixa
+      .filter(i => i.fotos.length),
   };
 }
 

@@ -10,6 +10,8 @@ export const SITUACOES = [
   { valor: "oculto", rotulo: "Oculto", plural: "Ocultos", etiqueta: "", noSite: false },
 ];
 export const situacao = v => SITUACOES.find(s => s.valor === v) || SITUACOES[0];
+/** Sem foto não vai ao site (26/11/2026: um carro sem foto ficou em branco no site e a galeria abria preta). */
+export const semFotoNoSite = (valorDaSituacao, fotos) => situacao(valorDaSituacao).noSite && !(Array.isArray(fotos) && fotos.length);
 
 const SIM_NAO = { tipo: "simnao" };
 const num = v => (v === "" || v == null || isNaN(Number(v)) ? null : Number(v));

@@ -277,6 +277,8 @@ test("estoque: só o disponível e o reservado, com as fotos pelo endereço da A
       fotos: [{ arquivo: conta + "/estoque-aaaaaa11.webp", mini: conta + "/estoque-aaaaaa11-m.webp", w: 1600, h: 1067 }, { arquivo: "../fora.webp", w: 1, h: 1 }] },
     { id: "b", situacao: "reservado", preco: null, campos: { marca: "Aurora" }, fotos: [{ arquivo: conta + "/estoque-bbbbbb22.webp", w: 800, h: 600 }] },
     { id: "c", situacao: "oculto", campos: {} },
+    { id: "d", situacao: "disponivel", campos: { marca: "Sem Foto" }, fotos: [] },
+    { id: "e", situacao: "disponivel", campos: { marca: "Só Foto de Fora" }, fotos: [{ arquivo: "../fora.webp", w: 1, h: 1 }] },
   ] } }));
   const r = await estoque({ metodo: "GET", caminho: "/api/publico/estoque/garagem-aurora", env: ENV }, b.buscar);
   assert.equal(r.status, 200);
@@ -284,7 +286,7 @@ test("estoque: só o disponível e o reservado, com as fotos pelo endereço da A
   assert.match(b.chamadas[0].url, /\/rest\/v1\/rpc\/publico_estoque$/);
   assert.equal(r.cabecalhos["Access-Control-Allow-Origin"], "*");
   assert.equal(r.cabecalhos["Cache-Control"], "public, max-age=0, s-maxage=1", "o estoque aparece na hora: 1 s na rede");
-  assert.deepEqual(r.corpo.itens.map(i => i.id), ["a", "b"], "o oculto não passa nem se o banco mandar");
+  assert.deepEqual(r.corpo.itens.map(i => i.id), ["a", "b"], "o oculto não passa nem se o banco mandar, nem o sem foto (o card ficava em branco)");
   assert.equal(JSON.stringify(r.corpo).includes("ABC1D23"), false, "o código interno nunca sai");
   assert.deepEqual(r.corpo.itens[0].fotos, [{ url: "/api/publico/imagens/" + conta + "/estoque-aaaaaa11.webp", mini: "/api/publico/imagens/" + conta + "/estoque-aaaaaa11-m.webp", w: 1600, h: 1067 }]);
   assert.equal(r.corpo.itens[1].fotos[0].mini, r.corpo.itens[1].fotos[0].url, "sem a pequena, vai a grande");

@@ -103,7 +103,8 @@ export function criarLoja({ banco, conta }) {
  *  fotos como caminho da API. A prévia ao lado manda isto ao site a cada mudança. */
 export function paraOSite(itens) {
   const caminho = a => "/api/publico/imagens/" + a;
-  return ordenar(itens.filter(i => i.situacao === "disponivel" || i.situacao === "reservado")).map(i => ({
+  // como a API: só disponível e reservado, e só com foto (sem foto, o card ficava em branco no site)
+  return ordenar(itens.filter(i => (i.situacao === "disponivel" || i.situacao === "reservado") && (i.fotos || []).length)).map(i => ({
     id: i.id, situacao: i.situacao, destaque: !!i.destaque,
     preco: i.preco == null ? null : Number(i.preco), preco_antes: i.preco_antes == null ? null : Number(i.preco_antes),
     quantidade: i.quantidade == null ? 1 : Number(i.quantidade), selos: i.selos || [], descricao: i.descricao || "", campos: i.campos || {},
