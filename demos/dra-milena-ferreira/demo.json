@@ -1,5 +1,5 @@
 {
- "_sobre": "Versão 2.2 (26/11/2026): a versão 2 (cara de revista, agenda online) com os ajustes do Kaue, gerada por ferramentas/demo/gerar-pagina.py a partir de ferramentas/demo/modelos/dra-milena-ferreira.html. Fotos numa pasta só: capa e capa2 são os posts dela em tamanho cheio (python3 -I ferramentas/ig-post.py Dd1sfqjiG6O <pasta> e Ddy6O28EaUh <pasta>); as outras (a01, a05 a a08, a11 a a14) saem da versão 1: python3 -I ferramentas/demo/gerar-pagina.py --fotos-da-pagina <index.html de git show c932874:demos/dra-milena-ferreira/index.html> <pasta>. A versão 1 (gerar-odonto.py) está no git e em \"versao1\" abaixo.",
+ "_sobre": "Versão 2.3 (26/11/2026): a versão 2 (cara de revista, agenda online) com os ajustes do Kaue, gerada por ferramentas/demo/gerar-pagina.py a partir de ferramentas/demo/modelos/dra-milena-ferreira.html. Fotos numa pasta só: a capa é o post dela em tamanho cheio (python3 -I ferramentas/ig-post.py Dd1sfqjiG6O <pasta>); as outras (a01, a05 a a08, a11 a a14) saem da versão 1: python3 -I ferramentas/demo/gerar-pagina.py --fotos-da-pagina <index.html de git show c932874:demos/dra-milena-ferreira/index.html> <pasta>. A versão 1 (gerar-odonto.py) está no git e em \"versao1\" abaixo.",
  "pasta": "dra-milena-ferreira",
  "marca": "Dra. Milena Ferreira",
  "modelo": "dra-milena-ferreira",
@@ -13,17 +13,6 @@
     0.78
    ],
    "largura": 960,
-   "qualidade": 82
-  },
-  "capa2": {
-   "arquivo": "Ddy6O28EaUh_01.jpg",
-   "corte": [
-    0.18,
-    0,
-    0.82,
-    0.672
-   ],
-   "largura": 520,
    "qualidade": 82
   },
   "sobre": {

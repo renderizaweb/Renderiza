@@ -10,7 +10,7 @@
 | Empresa | não consultei o CNPJ |
 | Site | não tem |
 | Entregável | demo de site (`index.html`), gerada por `ferramentas/demo/gerar-odonto.py` a partir do `demo.json` |
-| Situação | **versão 2.2 em 26/11/2026** (abaixo) · versão 1 pronta em 09/10/2026 · `/demo/dra-milena-ferreira` · vídeo `/gravacao/dra-milena-ferreira.mp4` · flyer `/flyer/dra-milena-ferreira.png`. No painel desde 09/10/2026 (pedido direto do Kaue), em Gravação realizada, com a mensagem pronta de WhatsApp |
+| Situação | **versão 2.3 em 26/11/2026** (abaixo) · versão 1 pronta em 09/10/2026 · `/demo/dra-milena-ferreira` · vídeo `/gravacao/dra-milena-ferreira.mp4` · flyer `/flyer/dra-milena-ferreira.png`. No painel desde 09/10/2026 (pedido direto do Kaue), em Gravação realizada, com a mensagem pronta de WhatsApp |
 
 ## Quem é
 - Cirurgiã-dentista com atuação em harmonização orofacial, CRO-SP 181642 (bio e legendas: "Cirurgiã-Dentista | Harmonização Orofacial").
@@ -92,3 +92,19 @@ O Kaue desfez a 2.1 (a limpa, que ele não chegou a ver no ar) e pediu estes aju
   4 fotos em pé do mesmo tamanho (no mosaico, as fotos em pé eram cortadas deitadas).
 - **Saiu a faixa que rolava** com os tratamentos.
 - **Contato com o mapa do Google** (o mesmo endereço da versão 1) no lugar da foto.
+
+## Versão 2.3 (26/11/2026): capa do ensaio, texto simples e o guia dos tratamentos
+Pedidos do Kaue sobre a 2.2:
+- **Capa só com o ensaio de estúdio** (terno marrom, a mesma roupa da foto de "Sobre"): saiu a foto pequena de vestido
+  branco (era da inauguração, outro dia e outra roupa) e o selo que girava.
+- **Capa sem frase de efeito:** saiu "Sua beleza, com equilíbrio e naturalidade"; ficou "Cirurgiã-dentista · Harmonização
+  facial", o nome com o CRO entre parênteses e "Clínica própria na Granja Viana, em Cotia. Atendimento com hora marcada."
+- **"Sobre" virou "Nosso espaço · Um novo espaço para o seu bem-estar."** (no lugar de "Um sonho que agora tem endereço").
+- **Guia dos tratamentos** (para quem é leigo): uma aba por tratamento com "o que é" e "para que serve", em palavras
+  simples, e uma ilustração de rosto (traço, feita na página) que acende a área de cada um (testa e olhos na toxina,
+  lábios, maçãs do rosto e têmporas nos bioestimuladores, nariz, queixo e mandíbula, papada, pontinhos na pele no
+  Skinbooster, tudo no Full face). As frases do post "Cada rosto pede uma estratégia diferente" ficaram como "Para quem
+  diz" nas abas certas; a seção escura das queixas e os cartões numerados saíram. O "Agendar avaliação" de cada aba
+  marca o tratamento na agenda.
+- Textos dos tratamentos: conteúdo geral (o que é e para que serve), sem promessa de resultado; "A indicação é feita na
+  avaliação" em todos. "Conhecida como botox" na toxina, porque é o nome que o público conhece.

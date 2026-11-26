@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Demo Dra. Milena Ferreira, versão 2.2 (26/11/2026): harmonização facial com cara de revista (Instrument Serif + Inter,
+<!-- Demo Dra. Milena Ferreira, versão 2.3 (26/11/2026): harmonização facial com cara de revista (Instrument Serif + Inter,
      nude, café e dourado), textos tirados do Instagram dela e agenda online no site, num calendário do mês (a pessoa escolhe o
      tratamento, o dia e o horário, e o pedido sai pronto no WhatsApp). Regras do CFO: nome e CRO visíveis, nada de preço,
      promoção ou superlativo, resultados só os publicados por ela com autorização. Gerada por ferramentas/demo/gerar-pagina.py. -->
@@ -80,9 +80,7 @@ svg.i{width:1em;height:1em}
 .nome-grande{font-family:var(--serif);font-weight:400;font-size:clamp(3.2rem,7.4vw,6.1rem);line-height:.98;letter-spacing:-.015em;color:var(--cafe);margin:0}
 .nome-grande em{font-style:italic;color:var(--marrom)}
 .cro-nome{display:block;margin-top:16px;font:600 .8rem/1.4 var(--sans);letter-spacing:.16em;color:var(--marrom)}
-.slogan{font-family:var(--serif);font-size:clamp(1.55rem,2.7vw,2.05rem);line-height:1.2;margin:26px 0 0;max-width:520px}
-.slogan em{font-style:italic;color:var(--marrom)}
-.abertura-lead{color:var(--tinta2);max-width:500px;margin:18px 0 0;font-size:1.04rem}
+.abertura-lead{color:var(--tinta2);max-width:500px;margin:24px 0 0;font-size:1.08rem}
 .abertura-acoes{display:flex;flex-wrap:wrap;align-items:center;gap:16px 26px;margin-top:30px}
 .provas{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 0;padding:0;list-style:none}
 .provas li{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:999px;background:#fffaf5c7;border:1px solid var(--linha);font-size:.8rem;font-weight:500}
@@ -91,14 +89,9 @@ svg.i{width:1em;height:1em}
 .abertura-foto{position:relative;min-width:0;justify-self:center;width:min(100%,470px)}
 .arco{position:relative;border-radius:999px 999px 28px 28px;overflow:hidden;aspect-ratio:4/5.4;background:var(--nude);box-shadow:0 40px 80px -30px #2a1d1666}
 .arco img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
-.arco-2{position:absolute;width:42%;left:-16%;bottom:-6%;border-radius:999px;aspect-ratio:3/4.2;overflow:hidden;border:6px solid var(--creme);box-shadow:0 24px 50px -20px #2a1d1659}
-.arco-2 img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
-.selo{position:absolute;right:-4%;top:8%;width:118px;height:118px;color:var(--cafe)}
-.selo .gira{transform-origin:60px 60px;animation:gira 22s linear infinite}
-@keyframes gira{to{transform:rotate(360deg)}}
 .js .entra{opacity:0;transform:translateY(18px);animation:entra 1.1s var(--expo) forwards;animation-delay:calc(.12s + var(--d,0)*.12s)}
 @keyframes entra{to{opacity:1;transform:none}}
-@media(max-width:860px){.abertura-grade{grid-template-columns:1fr}.abertura-foto{width:min(84%,400px);margin-top:10px}.selo{width:96px;height:96px;right:-8%}}
+@media(max-width:860px){.abertura-grade{grid-template-columns:1fr}.abertura-foto{width:min(84%,400px);margin-top:10px}}
 
 /* sobre */
 .sobre-grade{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(34px,6vw,90px);align-items:center}
@@ -115,40 +108,37 @@ svg.i{width:1em;height:1em}
 .marcas li{padding:8px 14px;border-radius:999px;border:1px solid var(--linha);font-size:.78rem;font-weight:500}
 @media(max-width:860px){.sobre-grade{grid-template-columns:1fr}.sobre-foto{order:2;max-width:400px}}
 
-/* cada rosto (escuro) */
-.rosto{background:var(--cafe);color:var(--creme);overflow:hidden}
-.rosto .eyebrow{color:var(--ouro-claro)}
-.rosto .cabeca h2 em{color:var(--ouro-claro)}
-.rosto .cabeca p{color:#e9dccf}
-.rosto-grade{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:start}
-.queixas{display:grid;gap:10px}
-.queixa{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;text-align:left;padding:20px 22px;border-radius:18px;border:1px solid #ffffff24;background:#ffffff08;font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,2.2vw,1.45rem);line-height:1.25;transition:background .3s,border-color .3s,transform .35s var(--suave)}
-.queixa:hover{transform:translateX(4px)}
-.queixa svg{width:20px;height:20px;flex:none;color:var(--ouro);transition:transform .35s var(--suave)}
-.queixa[aria-pressed="true"]{background:var(--creme);color:var(--cafe);border-color:var(--creme)}
-.queixa[aria-pressed="true"] svg{transform:rotate(90deg);color:var(--marrom)}
-.resposta{border-radius:26px;background:linear-gradient(160deg,#3b2a20,#2f2119);border:1px solid #ffffff1f;padding:clamp(26px,4vw,40px);position:sticky;top:100px;min-height:100%}
-.resposta small{display:block;font-size:.68rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ouro-claro)}
-.resposta h3{font-size:clamp(1.8rem,3.6vw,2.6rem);margin:12px 0 0}
-.resposta p{color:#eadfd3;margin:16px 0 0}
-.resposta .frase{margin-top:28px;padding-top:22px;border-top:1px solid #ffffff1f;font-family:var(--serif);font-style:italic;font-size:1.2rem;line-height:1.4;color:#fff}
-.resposta .botao{margin-top:26px}
-@media(max-width:860px){.rosto-grade{grid-template-columns:1fr}.resposta{position:static}}
-
-/* tratamentos */
-.trat-grade{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-.trat{position:relative;display:flex;flex-direction:column;min-width:0;padding:26px 22px 22px;border-radius:24px;background:var(--papel);border:1px solid var(--linha);transition:transform .45s var(--expo),box-shadow .45s,border-color .3s}
-.trat:hover{transform:translateY(-6px);box-shadow:0 26px 50px -28px #2a1d1659;border-color:var(--areia)}
-.trat-num{font-family:var(--serif);font-style:italic;font-size:.95rem;color:var(--marrom)}
-.trat h3{font-size:1.5rem;margin:30px 0 0;line-height:1.1}
-.trat p{color:var(--tinta2);font-size:.92rem;margin:10px 0 18px;flex:1}
-.trat-agendar{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:9px 14px;border-radius:999px;background:var(--creme);transition:background .3s,color .3s}
-.trat-agendar:hover{background:var(--cafe);color:#fff}
-.trat-agendar svg{width:14px;height:14px}
-.trat--destaque{background:var(--blush);border-color:var(--blush)}
-.trat--destaque .trat-agendar{background:var(--papel)}
-@media(max-width:1000px){.trat-grade{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:520px){.trat-grade{grid-template-columns:1fr}.trat h3{margin-top:18px}}
+/* tratamentos: o guia (o que é, para que serve e a área do rosto) */
+.guia{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);grid-template-areas:"lista lista" "rosto info";gap:30px clamp(28px,5vw,72px);align-items:center}
+.guia-lista{grid-area:lista;display:flex;flex-wrap:wrap;gap:8px}
+.guia-tab{padding:10px 15px;border-radius:999px;border:1px solid var(--linha);background:var(--papel);font-size:.86rem;font-weight:500;white-space:nowrap;transition:background .25s,color .25s,border-color .25s}
+.guia-tab:hover{border-color:var(--marrom)}
+.guia-tab[aria-selected="true"]{background:var(--cafe);border-color:var(--cafe);color:#fff}
+.guia-rosto{grid-area:rosto;margin:0;width:100%;max-width:440px;justify-self:center;aspect-ratio:4/4.7;border-radius:999px 999px 30px 30px;background:linear-gradient(180deg,#efe0d2,var(--nude));display:grid;place-items:end center;overflow:hidden}
+.guia-rosto svg{width:84%;height:auto;margin-bottom:-2px}
+.traco{fill:none;stroke:var(--marrom);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.traco.fino{stroke-width:1.2;opacity:.75}
+.olho{fill:var(--marrom)}
+.zona{fill:#c9a36a;opacity:0;transition:opacity .5s var(--suave)}
+.zona-linha{fill:none;stroke:#c9a36a;stroke-width:8;stroke-linecap:round;opacity:0;transition:opacity .5s var(--suave)}
+.guia-rosto[data-ativo~="toxina"] .z-toxina>*,.guia-rosto[data-ativo~="labios"] .z-labios>*,.guia-rosto[data-ativo~="bio"] .z-bio>*,.guia-rosto[data-ativo~="rino"] .z-rino>*,.guia-rosto[data-ativo~="mento"] .z-mento>*,.guia-rosto[data-ativo~="papada"] .z-papada>*,.guia-rosto[data-ativo~="skin"] .z-skin>*{opacity:.6;animation:pulsa 2.6s ease-in-out infinite}
+@keyframes pulsa{50%{opacity:.3}}
+.guia-infos{grid-area:info;min-width:0}
+.js .guia-info{display:none}
+.js .guia-info.ativo{display:block;animation:aparece .55s var(--suave)}
+@keyframes aparece{from{opacity:0;transform:translateY(10px)}}
+.guia-info+.guia-info{margin-top:40px}.js .guia-info+.guia-info{margin-top:0}
+.guia-apelido{margin:0 0 8px;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--marrom)}
+.guia-info h3{font-size:clamp(2.1rem,3.8vw,3rem)}
+.guia-info dl{margin:22px 0 0;display:grid;gap:18px}
+.guia-info dt{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--marrom)}
+.guia-info dd{margin:5px 0 0;color:var(--tinta2);font-size:1.04rem;max-width:520px}
+.guia-queixa{margin:22px 0 0;padding:14px 18px;border-radius:16px;background:var(--papel);border:1px solid var(--linha);font-family:var(--serif);font-style:italic;font-size:1.22rem;line-height:1.35;max-width:520px}
+.guia-queixa small{display:block;margin-bottom:2px;font:600 .66rem/1.4 var(--sans);font-style:normal;letter-spacing:.16em;text-transform:uppercase;color:var(--marrom)}
+.guia-info .botao{margin-top:26px}
+.guia-nota{margin:12px 0 0;font-size:.8rem;color:var(--tinta2)}
+@media(max-width:860px){.guia{grid-template-columns:minmax(0,1fr);grid-template-areas:"lista" "rosto" "info";gap:22px}.guia-lista{flex-wrap:nowrap;overflow-x:auto;margin:0 -20px;padding:2px 20px 8px;scrollbar-width:none;scroll-snap-type:x proximity}.guia-lista::-webkit-scrollbar{display:none}.guia-tab{flex:none;scroll-snap-align:start}.guia-rosto{max-width:290px}}
+@media(prefers-reduced-motion:reduce){.guia-rosto [class^="z-"]>*{animation:none!important}}
 
 /* resultados */
 .resultados{background:var(--papel)}
@@ -307,15 +297,12 @@ svg.i{width:1em;height:1em}
     <div class="abertura-texto">
       <p class="eyebrow entra">Cirurgiã-dentista · Harmonização facial</p>
       <h1 class="nome-grande entra" style="--d:1">Dra. Milena <em>Ferreira</em><span class="cro-nome">(CRO-SP 181642)</span></h1>
-      <p class="slogan entra" style="--d:2">Sua beleza, com <em>equilíbrio</em> e <em>naturalidade.</em></p>
-      <p class="abertura-lead entra" style="--d:3">Harmonização facial na Granja Viana, com planejamento individual para realçar os seus traços, sem exagero.</p>
-      <div class="abertura-acoes entra" style="--d:4"><a class="botao" href="#agendar"><svg aria-hidden="true"><use href="#cal-i"/></svg>Agendar minha avaliação</a><a class="link" href="#resultados">Ver resultados <svg aria-hidden="true"><use href="#seta-d"/></svg></a></div>
-      <ul class="provas entra" style="--d:5"><li><span class="estrelas" aria-hidden="true">★★★★★</span><b>5,0</b> no Google</li><li>Clínica própria desde set/2026</li><li><b>2,9 mil</b> no Instagram</li></ul>
+      <p class="abertura-lead entra" style="--d:2">Clínica própria na Granja Viana, em Cotia. Atendimento com hora marcada.</p>
+      <div class="abertura-acoes entra" style="--d:3"><a class="botao" href="#agendar"><svg aria-hidden="true"><use href="#cal-i"/></svg>Agendar minha avaliação</a><a class="link" href="#tratamentos">Ver tratamentos <svg aria-hidden="true"><use href="#seta-d"/></svg></a></div>
+      <ul class="provas entra" style="--d:4"><li><span class="estrelas" aria-hidden="true">★★★★★</span><b>5,0</b> no Google</li><li><b>2,9 mil</b> no Instagram</li></ul>
     </div>
     <div class="abertura-foto entra" style="--d:2">
       <div class="arco"><img src="{{img:capa}}" {{dim:capa}} alt="Dra. Milena Ferreira de terno marrom, com a mão no cabelo" fetchpriority="high"></div>
-      <div class="arco-2"><img src="{{img:capa2}}" {{dim:capa2}} alt="Dra. Milena Ferreira de vestido branco diante do logo da clínica"></div>
-      <svg class="selo" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="59" fill="#fffaf5"/><g class="gira"><path id="volta" fill="none" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/><text font-family="Inter,sans-serif" font-size="9.4" font-weight="700" letter-spacing="2.4" fill="currentColor"><textPath href="#volta">EQUILÍBRIO · NATURALIDADE · AUTOESTIMA ·</textPath></text></g><text x="60" y="68" text-anchor="middle" font-family="Instrument Serif,Georgia,serif" font-style="italic" font-size="24" fill="#8a5d42">MF</text></svg>
     </div>
   </div>
 </section>
@@ -326,9 +313,9 @@ svg.i{width:1em;height:1em}
   <div class="container sobre-grade">
     <figure class="sobre-foto rv"><img src="{{img:sobre}}" {{dim:sobre}} alt="Dra. Milena Ferreira sentada, de terno marrom, com a mão no rosto" loading="lazy"></figure>
     <div class="sobre-texto rv">
-      <p class="eyebrow">Quem cuida de você</p>
-      <h2 id="sobre-t">Um sonho que <em>agora tem endereço.</em></h2>
-      <p>A Dra. Milena Ferreira é cirurgiã-dentista com atuação em harmonização orofacial (CRO-SP 181642). Em setembro de 2026, inaugurou a primeira clínica própria, na Granja Viana: meses sonhando, construindo e cuidando de cada detalhe.</p>
+      <p class="eyebrow">Nosso espaço</p>
+      <h2 id="sobre-t">Um novo espaço para o seu <em>bem-estar.</em></h2>
+      <p>Em setembro de 2026, a Dra. Milena Ferreira, cirurgiã-dentista com atuação em harmonização orofacial (CRO-SP 181642), inaugurou a clínica própria na Granja Viana: um espaço pensado em cada detalhe para você se sentir acolhida.</p>
       <p>No consultório, a ideia é simples: ouvir o que incomoda você, explicar cada possibilidade e planejar a combinação certa para o seu rosto, preservando os seus traços.</p>
       <blockquote class="citacao">A gente não nasceu para escolher entre ter uma carreira de sucesso e viver os nossos sonhos.<footer>Dra. Milena, no Instagram</footer></blockquote>
       <ul class="marcas"><li>Avaliação individual</li><li>Cada procedimento explicado</li><li>Naturalidade, sem exagero</li></ul>
@@ -336,39 +323,104 @@ svg.i{width:1em;height:1em}
   </div>
 </section>
 
-<section class="secao rosto" id="estrategia" aria-labelledby="rosto-t">
-  <div class="container">
-    <div class="cabeca rv"><p class="eyebrow">Cada rosto pede uma estratégia diferente</p><h2 id="rosto-t">Queixas diferentes não pedem <em>a mesma resposta.</em></h2><p>O que você sente quando se olha no espelho? Toque numa frase.</p></div>
-    <div class="rosto-grade">
-      <div class="queixas rv" role="group" aria-label="Queixas">
-        <button class="queixa" type="button" aria-pressed="true" data-q="0">“Quero ficar sem rugas.”<svg aria-hidden="true"><use href="#mais-i"/></svg></button>
-        <button class="queixa" type="button" aria-pressed="false" data-q="1">“Estou sem contorno.”<svg aria-hidden="true"><use href="#mais-i"/></svg></button>
-        <button class="queixa" type="button" aria-pressed="false" data-q="2">“Meu rosto parece que derreteu.”<svg aria-hidden="true"><use href="#mais-i"/></svg></button>
-        <button class="queixa" type="button" aria-pressed="false" data-q="3">“Preciso hidratar minha pele.”<svg aria-hidden="true"><use href="#mais-i"/></svg></button>
-      </div>
-      <div class="resposta rv" style="--d:1" aria-live="polite">
-        <small data-r="rotulo">Pode ser</small>
-        <h3 data-r="titulo">Toxina botulínica</h3>
-        <p data-r="texto">A toxina botulínica pode suavizar as linhas de expressão.</p>
-        <p class="frase">Muitas vezes, o resultado mais bonito não vem de um único procedimento, mas da combinação certa para aquele rosto. Não é sobre fazer tudo: é sobre saber o que fazer, onde fazer e quanto fazer.</p>
-        <a class="botao botao--ouro" href="#agendar" data-r="agendar" data-proc="Toxina botulínica"><svg aria-hidden="true"><use href="#cal-i"/></svg>Agendar avaliação</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="secao" id="tratamentos" aria-labelledby="trat-t">
   <div class="container">
-    <div class="cabeca rv"><p class="eyebrow">Tratamentos</p><h2 id="trat-t">Harmonização <em>com bom senso.</em></h2><p>A indicação de cada tratamento é feita na avaliação, para o seu rosto e o seu objetivo.</p></div>
-    <div class="trat-grade">
-      <article class="trat rv"><span class="trat-num">01</span><h3>Toxina botulínica</h3><p>Suaviza as linhas de expressão, com a dose planejada para manter a sua expressão natural.</p><a class="trat-agendar" href="#agendar" data-proc="Toxina botulínica">Agendar <svg aria-hidden="true"><use href="#seta-d"/></svg></a></article>
-      <article class="trat trat--destaque rv" style="--d:1"><span class="trat-num">02</span><h3>Preenchimento labial</h3><p>Contorno, hidratação e volume na medida certa, respeitando o formato dos seus lábios.</p><a class="trat-agendar" href="#agendar" data-proc="Preenchimento labial">Agendar <svg aria-hidden="true"><use href="#seta-d"/></svg></a></article>
-      <article class="trat rv" style="--d:2"><span class="trat-num">03</span><h3>Bioestimuladores</h3><p>Auxiliam na produção de colágeno e na melhora da firmeza da pele.</p><a class="trat-agendar" href="#agendar" data-proc="Bioestimuladores">Agendar <svg aria-hidden="true"><use href="#seta-d"/></svg></a></article>
-      <article class="trat rv" style="--d:3"><span class="trat-num">04</span><h3>Rinomodelação</h3><p>Mais definição e harmonia para o nariz, respeitando a anatomia de cada paciente.</p><a class="trat-agendar" href="#agendar" data-proc="Rinomodelação">Agendar <svg aria-hidden="true"><use href="#seta-d"/></svg></a></article>
-      <article class="trat rv"><span class="trat-num">05</span><h3>Mento e mandíbula</h3><p>Preenchedores podem devolver contorno e proporção ao perfil, quando indicados.</p><a class="trat-agendar" href="#agendar" data-proc="Mento e mandíbula">Agendar <svg aria-hidden="true"><use href="#seta-d"/></svg></a></article>
-      <article class="trat rv" style="--d:1"><span class="trat-num">06</span><h3>Lipo de papada HD</h3><p>Para o contorno da papada e do pescoço, com a indicação feita na avaliação.</p><a class="trat-agendar" href="#agendar" data-proc="Lipo de papada HD">Agendar <svg aria-hidden="true"><use href="#seta-d"/></svg></a></article>
-      <article class="trat rv" style="--d:2"><span class="trat-num">07</span><h3>Skinbooster</h3><p>Atua na hidratação e na qualidade da pele.</p><a class="trat-agendar" href="#agendar" data-proc="Skinbooster">Agendar <svg aria-hidden="true"><use href="#seta-d"/></svg></a></article>
-      <article class="trat trat--destaque rv" style="--d:3"><span class="trat-num">08</span><h3>Full face</h3><p>A combinação certa para o seu rosto, naquela fase e com aquele objetivo, planejada em conjunto.</p><a class="trat-agendar" href="#agendar" data-proc="Full face">Agendar <svg aria-hidden="true"><use href="#seta-d"/></svg></a></article>
+    <div class="cabeca rv"><p class="eyebrow">Tratamentos</p><h2 id="trat-t">Entenda cada <em>tratamento.</em></h2><p>Toque num tratamento para ver o que é, para que serve e em que parte do rosto ele é feito. Cada rosto pede uma estratégia diferente.</p></div>
+    <div class="guia rv" data-guia>
+      <div class="guia-lista" role="tablist" aria-label="Tratamentos">
+        <button class="guia-tab" type="button" role="tab" id="tab-toxina" aria-controls="info-toxina" aria-selected="true" data-z="toxina">Toxina botulínica</button>
+        <button class="guia-tab" type="button" role="tab" id="tab-labial" aria-controls="info-labial" aria-selected="false" data-z="labial">Preenchimento labial</button>
+        <button class="guia-tab" type="button" role="tab" id="tab-bio" aria-controls="info-bio" aria-selected="false" data-z="bio">Bioestimuladores</button>
+        <button class="guia-tab" type="button" role="tab" id="tab-rino" aria-controls="info-rino" aria-selected="false" data-z="rino">Rinomodelação</button>
+        <button class="guia-tab" type="button" role="tab" id="tab-mento" aria-controls="info-mento" aria-selected="false" data-z="mento">Mento e mandíbula</button>
+        <button class="guia-tab" type="button" role="tab" id="tab-papada" aria-controls="info-papada" aria-selected="false" data-z="papada">Lipo de papada HD</button>
+        <button class="guia-tab" type="button" role="tab" id="tab-skin" aria-controls="info-skin" aria-selected="false" data-z="skin">Skinbooster</button>
+        <button class="guia-tab" type="button" role="tab" id="tab-full" aria-controls="info-full" aria-selected="false" data-z="full">Full face</button>
+      </div>
+      <figure class="guia-rosto" data-ativo="toxina" aria-hidden="true">
+        <svg viewBox="0 0 260 300" focusable="false">
+          <g class="z-toxina"><ellipse class="zona" cx="130" cy="86" rx="36" ry="14"/><ellipse class="zona" cx="130" cy="119" rx="7" ry="8"/><ellipse class="zona" cx="84" cy="140" rx="7" ry="10"/><ellipse class="zona" cx="176" cy="140" rx="7" ry="10"/></g>
+          <g class="z-labios"><ellipse class="zona" cx="130" cy="207" rx="26" ry="12"/></g>
+          <g class="z-bio"><ellipse class="zona" cx="98" cy="172" rx="17" ry="21"/><ellipse class="zona" cx="162" cy="172" rx="17" ry="21"/><ellipse class="zona" cx="80" cy="106" rx="7" ry="13"/><ellipse class="zona" cx="180" cy="106" rx="7" ry="13"/></g>
+          <g class="z-rino"><ellipse class="zona" cx="129" cy="152" rx="10" ry="27"/></g>
+          <g class="z-mento"><ellipse class="zona" cx="130" cy="244" rx="17" ry="9"/><path class="zona-linha" d="M73 179C76 198 80 208 88 218C100 238 114 252 130 256C146 252 160 238 172 218C180 208 184 198 187 179"/></g>
+          <g class="z-papada"><ellipse class="zona" cx="130" cy="267" rx="27" ry="10"/></g>
+          <g class="z-skin"><circle class="zona" cx="104" cy="80" r="2.6"/><circle class="zona" cx="118" cy="71" r="2.6"/><circle class="zona" cx="142" cy="71" r="2.6"/><circle class="zona" cx="156" cy="80" r="2.6"/><circle class="zona" cx="112" cy="93" r="2.6"/><circle class="zona" cx="148" cy="93" r="2.6"/><circle class="zona" cx="130" cy="84" r="2.6"/><circle class="zona" cx="88" cy="158" r="2.6"/><circle class="zona" cx="101" cy="150" r="2.6"/><circle class="zona" cx="93" cy="176" r="2.6"/><circle class="zona" cx="107" cy="168" r="2.6"/><circle class="zona" cx="84" cy="190" r="2.6"/><circle class="zona" cx="99" cy="190" r="2.6"/><circle class="zona" cx="172" cy="158" r="2.6"/><circle class="zona" cx="159" cy="150" r="2.6"/><circle class="zona" cx="167" cy="176" r="2.6"/><circle class="zona" cx="153" cy="168" r="2.6"/><circle class="zona" cx="176" cy="190" r="2.6"/><circle class="zona" cx="161" cy="190" r="2.6"/></g>
+          <path class="traco" d="M130 24C78 24 46 62 44 116C42 150 48 176 44 210C40 244 30 270 22 300"/>
+          <path class="traco" d="M130 24C182 24 214 62 216 116C218 150 212 176 216 210C220 244 230 270 238 300"/>
+          <path class="traco fino" d="M130 25C121 35 111 47 103 60"/>
+          <path class="traco" d="M130 52C90 52 68 86 68 136C68 166 74 194 88 218C100 238 114 252 130 256C146 252 160 238 172 218C186 194 192 166 192 136C192 86 170 52 130 52Z"/>
+          <path class="traco" d="M108 241V300M152 241V300"/>
+          <path class="traco" d="M90 118C100 111 114 110 124 115M136 115C146 110 160 111 170 118"/>
+          <path class="traco" d="M93 134C100 128 113 128 120 134C113 139 100 139 93 134ZM140 134C147 128 160 128 167 134C160 139 147 139 140 134Z"/>
+          <circle class="olho" cx="106.5" cy="134" r="2.4"/><circle class="olho" cx="153.5" cy="134" r="2.4"/>
+          <path class="traco" d="M128 128C127 146 124 162 119 172C123 178 137 178 141 172"/>
+          <path class="traco" d="M110 206C116 201 123 200 130 204C137 200 144 201 150 206C144 212 116 212 110 206Z"/>
+          <path class="traco fino" d="M111 206C119 215 141 215 149 206"/>
+        </svg>
+      </figure>
+      <div class="guia-infos">
+        <article class="guia-info ativo" id="info-toxina" role="tabpanel" aria-labelledby="tab-toxina">
+          <p class="guia-apelido">Conhecida como “botox”</p>
+          <h3>Toxina botulínica</h3>
+          <dl><div><dt>O que é</dt><dd>Uma aplicação que relaxa, de leve, os músculos que formam as linhas de expressão.</dd></div><div><dt>Para que serve</dt><dd>Suavizar as rugas da testa, entre as sobrancelhas e ao redor dos olhos (os “pés de galinha”), mantendo a sua expressão natural.</dd></div></dl>
+          <p class="guia-queixa"><small>Para quem diz</small>“Quero ficar sem rugas.”</p>
+          <a class="botao" href="#agendar" data-proc="Toxina botulínica"><svg aria-hidden="true"><use href="#cal-i"/></svg>Agendar avaliação</a>
+          <p class="guia-nota">A indicação é feita na avaliação, para o seu rosto e o seu objetivo.</p>
+        </article>
+        <article class="guia-info" id="info-labial" role="tabpanel" aria-labelledby="tab-labial">
+          <p class="guia-apelido">Ácido hialurônico</p>
+          <h3>Preenchimento labial</h3>
+          <dl><div><dt>O que é</dt><dd>A aplicação de ácido hialurônico, uma substância que o próprio corpo já produz, nos lábios.</dd></div><div><dt>Para que serve</dt><dd>Dar contorno, hidratação e volume na medida certa, respeitando o formato dos seus lábios.</dd></div></dl>
+          <a class="botao" href="#agendar" data-proc="Preenchimento labial"><svg aria-hidden="true"><use href="#cal-i"/></svg>Agendar avaliação</a>
+          <p class="guia-nota">A indicação é feita na avaliação, para o seu rosto e o seu objetivo.</p>
+        </article>
+        <article class="guia-info" id="info-bio" role="tabpanel" aria-labelledby="tab-bio">
+          <p class="guia-apelido">De colágeno</p>
+          <h3>Bioestimuladores</h3>
+          <dl><div><dt>O que é</dt><dd>Substâncias que estimulam a pele a produzir mais colágeno, a proteína que dá sustentação e firmeza.</dd></div><div><dt>Para que serve</dt><dd>Melhorar a firmeza e a flacidez da pele, com um resultado gradual e natural.</dd></div></dl>
+          <p class="guia-queixa"><small>Para quem diz</small>“Meu rosto parece que derreteu.”</p>
+          <a class="botao" href="#agendar" data-proc="Bioestimuladores"><svg aria-hidden="true"><use href="#cal-i"/></svg>Agendar avaliação</a>
+          <p class="guia-nota">A indicação é feita na avaliação, para o seu rosto e o seu objetivo.</p>
+        </article>
+        <article class="guia-info" id="info-rino" role="tabpanel" aria-labelledby="tab-rino">
+          <p class="guia-apelido">Sem cirurgia</p>
+          <h3>Rinomodelação</h3>
+          <dl><div><dt>O que é</dt><dd>O preenchimento com ácido hialurônico em pontos do nariz, sem cirurgia.</dd></div><div><dt>Para que serve</dt><dd>Suavizar desníveis e deixar o nariz mais harmônico com o resto do rosto.</dd></div></dl>
+          <a class="botao" href="#agendar" data-proc="Rinomodelação"><svg aria-hidden="true"><use href="#cal-i"/></svg>Agendar avaliação</a>
+          <p class="guia-nota">A indicação é feita na avaliação, para o seu rosto e o seu objetivo.</p>
+        </article>
+        <article class="guia-info" id="info-mento" role="tabpanel" aria-labelledby="tab-mento">
+          <p class="guia-apelido">Queixo e contorno</p>
+          <h3>Mento e mandíbula</h3>
+          <dl><div><dt>O que é</dt><dd>O preenchimento no queixo (o mento) e na linha da mandíbula.</dd></div><div><dt>Para que serve</dt><dd>Dar contorno e proporção ao rosto e deixar o perfil mais alinhado.</dd></div></dl>
+          <p class="guia-queixa"><small>Para quem diz</small>“Estou sem contorno.”</p>
+          <a class="botao" href="#agendar" data-proc="Mento e mandíbula"><svg aria-hidden="true"><use href="#cal-i"/></svg>Agendar avaliação</a>
+          <p class="guia-nota">A indicação é feita na avaliação, para o seu rosto e o seu objetivo.</p>
+        </article>
+        <article class="guia-info" id="info-papada" role="tabpanel" aria-labelledby="tab-papada">
+          <p class="guia-apelido">Contorno do pescoço</p>
+          <h3>Lipo de papada HD</h3>
+          <dl><div><dt>O que é</dt><dd>Um procedimento para reduzir a gordura localizada embaixo do queixo: a papada.</dd></div><div><dt>Para que serve</dt><dd>Deixar o contorno do pescoço e da mandíbula mais definido.</dd></div></dl>
+          <a class="botao" href="#agendar" data-proc="Lipo de papada HD"><svg aria-hidden="true"><use href="#cal-i"/></svg>Agendar avaliação</a>
+          <p class="guia-nota">A indicação é feita na avaliação, para o seu rosto e o seu objetivo.</p>
+        </article>
+        <article class="guia-info" id="info-skin" role="tabpanel" aria-labelledby="tab-skin">
+          <p class="guia-apelido">Hidratação profunda</p>
+          <h3>Skinbooster</h3>
+          <dl><div><dt>O que é</dt><dd>Microinjeções de ácido hialurônico na pele.</dd></div><div><dt>Para que serve</dt><dd>Hidratar a pele por dentro e melhorar o viço e a textura.</dd></div></dl>
+          <p class="guia-queixa"><small>Para quem diz</small>“Preciso hidratar minha pele.”</p>
+          <a class="botao" href="#agendar" data-proc="Skinbooster"><svg aria-hidden="true"><use href="#cal-i"/></svg>Agendar avaliação</a>
+          <p class="guia-nota">A indicação é feita na avaliação, para o seu rosto e o seu objetivo.</p>
+        </article>
+        <article class="guia-info" id="info-full" role="tabpanel" aria-labelledby="tab-full">
+          <p class="guia-apelido">O rosto inteiro</p>
+          <h3>Full face</h3>
+          <dl><div><dt>O que é</dt><dd>Um plano que combina tratamentos para o rosto todo, feito em conjunto.</dd></div><div><dt>Para que serve</dt><dd>Harmonizar o conjunto, com a combinação certa para o seu rosto, naquela fase e com aquele objetivo.</dd></div></dl>
+          <a class="botao" href="#agendar" data-proc="Full face"><svg aria-hidden="true"><use href="#cal-i"/></svg>Agendar avaliação</a>
+          <p class="guia-nota">A indicação é feita na avaliação, para o seu rosto e o seu objetivo.</p>
+        </article>
+      </div>
     </div>
   </div>
 </section>
@@ -495,20 +547,23 @@ svg.i{width:1em;height:1em}
     $$(".rv").forEach(e => io.observe(e));
   } else $$(".rv").forEach(e => e.classList.add("ok"));
 
-  // cada rosto: a frase escolhida mostra o que pode ajudar (palavras da Dra. Milena no Instagram)
-  const RESPOSTAS = [
-    ["Pode ser", "Toxina botulínica", "A toxina botulínica pode suavizar as linhas de expressão.", "Toxina botulínica"],
-    ["Pode ser", "Preenchedores", "Os preenchedores podem devolver contorno e proporção, quando indicados.", "Mento e mandíbula"],
-    ["Pode ser", "Bioestimuladores", "Os bioestimuladores auxiliam na produção de colágeno e na melhora da firmeza.", "Bioestimuladores"],
-    ["Pode ser", "Skinbooster", "O Skinbooster atua na hidratação e na qualidade da pele.", "Skinbooster"],
-  ];
-  const queixas = $$(".queixa");
-  queixas.forEach(b => b.addEventListener("click", () => {
-    queixas.forEach(x => x.setAttribute("aria-pressed", String(x === b)));
-    const r = RESPOSTAS[+b.dataset.q];
-    $("[data-r=rotulo]").textContent = r[0]; $("[data-r=titulo]").textContent = r[1]; $("[data-r=texto]").textContent = r[2];
-    $("[data-r=agendar]").dataset.proc = r[3];
-  }));
+  // ---------- tratamentos: o toque mostra o que é, para que serve e a área do rosto ----------
+  const guia = $("[data-guia]");
+  if (guia) {
+    const abas = $$(".guia-tab", guia), infos = $$(".guia-info", guia), rosto = $(".guia-rosto", guia);
+    const ZONAS = { toxina: "toxina", labial: "labios", bio: "bio", rino: "rino", mento: "mento", papada: "papada", skin: "skin", full: "toxina labios bio rino mento" };
+    const mostrar = (b, foco) => {
+      abas.forEach(a => { const ok = a === b; a.setAttribute("aria-selected", String(ok)); a.tabIndex = ok ? 0 : -1; });
+      infos.forEach(i => i.classList.toggle("ativo", i.id === b.getAttribute("aria-controls")));
+      rosto.dataset.ativo = ZONAS[b.dataset.z] || "";
+      if (foco) b.focus();
+    };
+    abas.forEach((b, i) => {
+      b.addEventListener("click", () => { mostrar(b); b.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "smooth" }); });
+      b.addEventListener("keydown", e => { const k = { ArrowRight: 1, ArrowLeft: -1 }[e.key]; if (k) { e.preventDefault(); mostrar(abas[(i + k + abas.length) % abas.length], true); } });
+    });
+    mostrar(abas[0]);
+  }
 
   // ---------- agenda online (horários de exemplo; o pedido sai pronto no WhatsApp da clínica) ----------
   const ag = $("[data-agenda]");
