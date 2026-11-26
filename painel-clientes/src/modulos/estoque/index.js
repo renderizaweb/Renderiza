@@ -17,7 +17,7 @@ import { criarLoja, urlDaFoto, paraOSite } from "./loja.js";
 import { enderecoDoSite } from "../meu-site/conteudo.js";
 import { lerAnuncio } from "./webmotors.js";
 
-const MAX_FOTOS = 15;
+const MAX_FOTOS = 20; // 26/11/2026: era 15 (pedido da Ricardo Motors); o banco e o script do site acompanham
 const TELAS = { celular: 390, computador: 1280 };
 const nomeDoErro = e => (e && e.message && !/fetch|network|JWT|PGRST/i.test(e.message) ? e.message : "Não deu certo. Confira a internet e tente de novo.");
 

@@ -34,7 +34,7 @@
       if (!ehObjeto(i) || typeof i.id !== "string" || (i.situacao !== "disponivel" && i.situacao !== "reservado")) return null;
       var fotos = [];
       var lista = Array.isArray(i.fotos) ? i.fotos : [];
-      for (var f = 0; f < lista.length && fotos.length < 15; f++) {
+      for (var f = 0; f < lista.length && fotos.length < 20; f++) { // até 20 por item (o banco aceita 20; 26/11/2026)
         var x = lista[f];
         if (!ehObjeto(x) || !FOTO.test(x.url || "")) continue;
         fotos.push({ url: origem + x.url, mini: origem + (FOTO.test(x.mini || "") ? x.mini : x.url), w: numero(x.w) || 0, h: numero(x.h) || 0 });

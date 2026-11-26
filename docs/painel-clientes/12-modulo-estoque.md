@@ -43,7 +43,7 @@ nicho com os campos (o "esquema do estoque", abaixo), como já é feito com as p
 |---|---|
 | Situação | `disponivel` · `reservado` · `vendido` (ou `esgotado`) · `oculto`. Só disponível e reservado aparecem no site. |
 | Destaque | aparece primeiro na vitrine e pode ir para a capa do site |
-| Fotos | até 15 por item, na ordem; a primeira é a capa. O painel reduz no navegador (lado maior 1600 px, WebP) antes de enviar: a foto chega boa e leve. |
+| Fotos | até 20 por item (era 15 até 26/11/2026), na ordem; a primeira é a capa. O painel reduz no navegador (lado maior 1600 px, WebP) antes de enviar: a foto chega boa e leve. |
 | Preço | ou "sob consulta"; opcional o preço anterior (para mostrar a baixa) |
 | Selos | etiquetas curtas que o nicho sugere ("Blindado", "Abaixo da FIPE", "Lançamento") |
 | Descrição | o texto do vendedor |
@@ -153,7 +153,7 @@ mudar algo aqui muda este documento no mesmo commit e deixa um aviso em `missoes
 | `campos` | `jsonb` objeto, até 20 KB (os campos do nicho: marca, modelo, ano…) |
 | `selos` | `text[]`, até 8, cada um com até 30 letras |
 | `descricao` | `text`, até 4000 letras, padrão vazio |
-| `fotos` | `jsonb` lista de até 15 `{ "arquivo": "<conta>/estoque-<aleatório>.webp", "mini": "<conta>/estoque-<aleatório>-m.webp", "w": 1600, "h": 1067 }`; a primeira é a capa. O painel faz as duas no navegador: a grande (lado maior 1600 px) e a pequena (640 px, para o card) |
+| `fotos` | `jsonb` lista de até 20 `{ "arquivo": "<conta>/estoque-<aleatório>.webp", "mini": "<conta>/estoque-<aleatório>-m.webp", "w": 1600, "h": 1067 }`; a primeira é a capa. O painel faz as duas no navegador: a grande (lado maior 1600 px) e a pequena (640 px, para o card) |
 | `codigo_interno` | `text` opcional, até 40 (placa, referência); **nunca sai na API** |
 | `vendido_em` | o banco põe quando vira `vendido` e tira quando sai |
 | `criado_em`, `atualizado_em` | como nas outras tabelas (`05`); o histórico de quem mexeu fica para depois |
@@ -230,6 +230,6 @@ trocada pela do banco; a mesma interface: `listar`, `salvar`, `mudar`, `remover`
 - **Decidido (24/11, com a proposta aceita pelo Ricardo):** o Estoque é **um dos 2 módulos** do plano de R$ 49 (o
   termo dele: "Meu site e Estoque"); a versão de reserva do site **não mostra preço**; **vendido sai do site** na
   hora; **reservado aparece** com a etiqueta; **a Renderiza cadastra o estoque inicial** (os carros da demo,
-  conferidos com ele); o nome no menu é "Estoque"; até 300 itens e 15 fotos por item.
+  conferidos com ele); o nome no menu é "Estoque"; até 300 itens e 20 fotos por item (15 até 26/11/2026).
 - **Em aberto:** "Vitrine" em vez de "Estoque" na ótica; o vendido ficar uns dias com a etiqueta (prova social),
   se algum cliente pedir.
