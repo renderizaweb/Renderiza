@@ -12,7 +12,7 @@ import { abrirGaveta, abrirFolha, confirmar } from "../../ui/gaveta.js";
 import { chips, ligarChips } from "../../ui/filtros.js";
 import { vazio } from "../../ui/estados.js";
 import { moeda, lerValor } from "../../ui/formatos.js";
-import { ESQUEMAS, SITUACOES, situacao, camposDe, semFotoNoSite } from "./esquemas.js";
+import { ESQUEMAS, SITUACOES, situacao, camposDe, semFotoNoSite, limparOpcionais } from "./esquemas.js";
 import { criarLoja, urlDaFoto, paraOSite } from "./loja.js";
 import { enderecoDoSite } from "../meu-site/conteudo.js";
 import { lerAnuncio } from "./webmotors.js";
@@ -22,11 +22,11 @@ const TELAS = { celular: 390, computador: 1280 };
 const nomeDoErro = e => (e && e.message && !/fetch|network|JWT|PGRST/i.test(e.message) ? e.message : "Não deu certo. Confira a internet e tente de novo.");
 
 /** O que o formulário vira no item (os campos do nicho já no tipo certo), ou o erro para mostrar. */
-export function lerItem(esquema, d) {
+export function lerItem(esquema, d, loja = "") {
   const campos = {};
   for (const c of camposDe(esquema)) {
     if (c.tipo === "simnao") campos[c.id] = !!d[c.id];
-    else if (c.tipo === "marcar") campos[c.id] = [].concat(d[c.id] || []);
+    else if (c.tipo === "marcar") campos[c.id] = limparOpcionais([].concat(d[c.id] || []), loja);
     else if (c.tipo === "numero") campos[c.id] = d[c.id] ? Number(String(d[c.id]).replace(/\D/g, "")) || null : null;
     else campos[c.id] = String(d[c.id] || "").trim();
   }
@@ -307,7 +307,7 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
     const conhecidos = () => [...new Set(loja.listar().flatMap(i => [i.campos && i.campos.marca, i.campos && i.campos.modelo]).filter(Boolean))];
     const igualA = (a, b) => String(a || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim() === String(b || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
     const usar = async texto => {
-      const r = lerAnuncio(texto, { conhecidos: conhecidos() });
+      const r = lerAnuncio(texto, { conhecidos: conhecidos(), loja: conta.nome });
       if (!r.tipo || !Object.keys(r.campos).length) {
         erroT.hidden = false;
         erroT.innerHTML = `Não achamos um anúncio nesse texto. Abra o anúncio na WebMotors, aperte ${teclas("A")} e ${teclas("C")}, e cole aqui de novo.`;
@@ -369,8 +369,11 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
     const id = "et-" + c.id;
     if (c.tipo === "simnao") return interruptor({ nome: c.id, rotulo: c.rotulo, marcado: valor === true });
     if (c.tipo === "lista") return campoSelecao({ id, nome: c.id, rotulo: c.rotulo, valor: valor || "", opcoes: [{ valor: "", rotulo: "Escolher" }, ...c.opcoes.map(o => ({ valor: o, rotulo: o }))], opcional: !c.obrigatorio });
-    if (c.tipo === "marcar") return `<fieldset class="rz-campo"><legend class="rz-rotulo">${escapar(c.rotulo)}</legend><div class="et-marcar">${[...new Set([...c.opcoes, ...(Array.isArray(valor) ? valor : [])])].map(o =>
-      `<label><input type="checkbox" name="${c.id}" value="${escapar(o)}"${Array.isArray(valor) && valor.includes(o) ? " checked" : ""}${travado ? " disabled" : ""}><span>${escapar(o)}</span></label>`).join("")}</div></fieldset>`;
+    if (c.tipo === "marcar") {
+      const marcados = limparOpcionais(valor, conta.nome); // o quadro do vendedor que entrou numa carga antiga não vira caixa (e sai ao salvar)
+      return `<fieldset class="rz-campo"><legend class="rz-rotulo">${escapar(c.rotulo)}</legend><div class="et-marcar">${[...new Set([...c.opcoes, ...marcados])].map(o =>
+        `<label><input type="checkbox" name="${c.id}" value="${escapar(o)}"${marcados.includes(o) ? " checked" : ""}${travado ? " disabled" : ""}><span>${escapar(o)}</span></label>`).join("")}</div></fieldset>`;
+    }
     const sugestoes = c.sugerir ? [...new Set(loja.listar().map(i => i.campos && i.campos[c.id]).filter(Boolean))] : [];
     return campoTexto({ id, nome: c.id, rotulo: c.rotulo + (c.sufixo ? ` (${c.sufixo})` : ""), valor: valor ?? "", teclado: c.tipo === "numero" ? "numeric" : undefined,
       placeholder: c.placeholder, opcional: !c.obrigatorio && c.tipo !== "numero" ? true : undefined, extra: { ...(c.maximo ? { maxlength: c.maximo } : {}), ...(sugestoes.length ? { list: "et-sug-" + c.id } : {}) } })
@@ -458,7 +461,7 @@ export async function montar(el, { banco, conta, nicho, pode, avisar }) {
     const salvar = g.pe.querySelector("[data-salvar]");
     if (salvar) salvar.addEventListener("click", async () => {
       if (enviando) { erro.hidden = false; erro.textContent = "Espere as fotos terminarem de subir."; return; }
-      const r = lerItem(esquema, lerFormulario(form));
+      const r = lerItem(esquema, lerFormulario(form), conta.nome);
       if (r.erro) { erro.hidden = false; erro.textContent = r.erro; erro.scrollIntoView({ block: "center", behavior: "smooth" }); return; }
       // sem foto não vai ao site: a pessoa põe a foto ou salva como oculto (26/11/2026)
       if (semFotoNoSite(r.item.situacao, fotos)) { erro.hidden = true; pedirFoto(); return; }

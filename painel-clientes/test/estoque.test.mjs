@@ -4,7 +4,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { lerItem } from "../src/modulos/estoque/index.js";
 import { ordenar, urlDaFoto } from "../src/modulos/estoque/loja.js";
-import { ESQUEMAS } from "../src/modulos/estoque/esquemas.js";
+import { ESQUEMAS, naoEItem, limparOpcionais } from "../src/modulos/estoque/esquemas.js";
 import { NICHOS, nicho } from "../src/nichos/index.js";
 import { itensDoMenu, itensDaBarra, acoesRapidas } from "../src/telas/casca.js";
 import { abasDoNicho } from "../src/modulos/servicos/index.js";
@@ -23,6 +23,19 @@ test("o formulário vira o item: números como números, preço lido, obrigatór
   assert.match(lerItem(E, { marca: "Porsche" }).erro, /Modelo/);
   assert.match(lerItem(E, { marca: "Porsche", modelo: "911", preco: "muito" }).erro, /preço/);
   assert.equal(lerItem(E, { marca: "Porsche", modelo: "911", preco: "" }).item.preco, null, "sem preço: sob consulta");
+});
+
+test("o quadro do vendedor não é opcional: sai ao salvar, e os itens de verdade ficam (27/11/2026)", () => {
+  const lixo = ["Sobre o vendedor", "Ricardo Motors", "São Paulo, SP", "Loja fechada - Abre quarta às 9h00", "(11)", "9478"];
+  for (const x of lixo) assert.equal(naoEItem(x, "Ricardo Motors"), true, x);
+  for (const x of ["Loja aberta", "Fecha hoje às 18h", "(11) 94785-1234", "Belo Horizonte - MG", "Ver telefone", "Enviar mensagem"]) assert.equal(naoEItem(x), true, x);
+  const reais = ["Direção com Ajuste", "Computador de Bordo", "Chave Inteligente/Presencial", "Botão de Ignição/Start button", "Tração 4x4",
+    "Câmera 360", "Rodas aro 21", "Abertura elétrica do porta-malas", "Fechadura elétrica", "Bancos de couro", "USB", "Teto solar"];
+  for (const x of reais) assert.equal(naoEItem(x, "Ricardo Motors"), false, x);
+  assert.deepEqual(limparOpcionais(["Teto solar", ...lixo, "USB", " USB ", "", null], "Ricardo Motors"), ["Teto solar", "USB"]);
+  assert.deepEqual(limparOpcionais(undefined), []);
+  const r = lerItem(E, { marca: "BMW", modelo: "330e", opcionais: ["Teto solar", ...lixo, "Bluetooth"] }, "Ricardo Motors");
+  assert.deepEqual(r.item.campos.opcionais, ["Teto solar", "Bluetooth"]);
 });
 
 test("a ordem é a do site: destaque, a ordem e o mais novo", () => {

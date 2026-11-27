@@ -132,6 +132,24 @@ a cada mudança deles). O caminho é o navegador da própria pessoa:
   e `test/fluxos/webmotors.fluxo.mjs` (no STG: copiar, Ctrl+V, conferir os campos, salvar; o aviso; o celular sem o
   cartão). Conferido também com dois anúncios de verdade da Ricardo Motors salvos pela Renderiza (fora do repositório).
 
+### O quadro do vendedor nunca é item (27/11/2026)
+
+Na página da WebMotors, logo depois dos itens do carro, vem o quadro do vendedor ("Sobre o vendedor", o nome da loja,
+"São Paulo, SP", "Loja fechada - Abre quarta às 9h00", o telefone). Na carga inicial da Ricardo Motors ele entrou como
+opcional em 7 carros e aparecia no site em "Itens do veículo"; o Ricardo achou ao editar o BMW 330e. Os 7 foram limpos
+na produção (só esses 6 textos) e a demo de origem também. Para não voltar, uma regra só, em `esquemas.js`
+(`naoEItem` e `limparOpcionais`: o nome da própria loja, "Sobre o vendedor", loja aberta ou fechada, "abre quarta",
+telefone ou pedaço dele, "Cidade, UF", "Ver telefone" e afins), usada em todo caminho por onde um item entra:
+
+- **na colagem do anúncio** (`webmotors.js`): essas linhas saem dos itens mesmo se a colagem vier sem o "Sobre o
+  vendedor", e não vão para o "Itens: …" da descrição;
+- **na tela do carro** (`index.js`): o que for do quadro não vira caixa ao abrir e sai ao salvar (`lerItem`);
+- **nas cargas por script** (`demos/*/estoque-inicial.mjs`): toda carga nova passa os opcionais por `limparOpcionais`,
+  com o nome da loja. Uma demo de revenda nova que copie os itens do anúncio faz o mesmo antes de chegar ao banco.
+
+Testes: `test/estoque.test.mjs` (o que sai e o que fica, inclusive "Fechadura elétrica" e "Tração 4x4") e
+`test/webmotors.test.mjs` (a colagem com o quadro sem o título).
+
 ## Contrato v1 (fixado em 24/11/2026)
 
 É o que deixa o banco, o painel e o site serem feitos **ao mesmo tempo, por sessões diferentes**, sem uma esperar a

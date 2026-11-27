@@ -60,3 +60,11 @@ test("o que veio da página (para a edição saber o que trocar)", () => {
   const soFicha = PAGINA.split("Sobre os diferenciais do anúncio")[0];
   assert.deepEqual(lerAnuncio(soFicha).achou, { ficha: true, itens: false, descricao: false }, "copiou só o começo da página: os itens e a descrição ficam como estão");
 });
+
+test("o quadro do vendedor não vira item, mesmo sem o 'Sobre o vendedor' na colagem (27/11/2026)", () => {
+  const semTitulo = PAGINA.replace("Sobre o vendedor\nLoja de Teste\nSão Paulo, SP\n", "Loja de Teste\nSão Paulo, SP\nLoja fechada - Abre quarta às 9h00\n(11)\n9478\n");
+  const r = lerAnuncio(semTitulo, { loja: "Loja de Teste" });
+  assert.deepEqual(r.semCaixa, ["Bluetooth", "Sensor de ponto cego"], JSON.stringify(r.semCaixa));
+  assert.match(r.descricao, /Itens: Bluetooth, Sensor de ponto cego\.$/);
+  assert.deepEqual(r.campos.opcionais, ["Teto solar", "Bancos de couro", "Câmera 360", "Faróis de LED", "Chave presencial"]);
+});

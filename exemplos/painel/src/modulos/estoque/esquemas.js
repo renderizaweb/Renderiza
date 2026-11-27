@@ -13,6 +13,34 @@ export const situacao = v => SITUACOES.find(s => s.valor === v) || SITUACOES[0];
 /** Sem foto não vai ao site (26/11/2026: um carro sem foto ficou em branco no site e a galeria abria preta). */
 export const semFotoNoSite = (valorDaSituacao, fotos) => situacao(valorDaSituacao).noSite && !(Array.isArray(fotos) && fotos.length);
 
+// O que nunca é item de um carro (27/11/2026: na carga inicial da Ricardo Motors, o quadro do vendedor que a página da
+// WebMotors mostra logo depois dos itens entrou como opcional: "Sobre o vendedor", "Ricardo Motors", "São Paulo, SP",
+// "Loja fechada - Abre quarta às 9h00", "(11)", "9478"). Vale para a colagem do anúncio, para o salvar do painel e para
+// as cargas por script (demos/*/estoque-inicial.mjs).
+const UF = "ac|al|ap|am|ba|ce|df|es|go|ma|mt|ms|mg|pa|pb|pr|pe|pi|rj|rn|rs|ro|rr|sc|sp|se|to";
+const NAO_E_ITEM = [
+  /^sobre (o|a) (vendedor|vendedora|loja|anunciante|revenda)\b/,
+  /^(loja |revenda )?(aberta|fechada|aberto|fechado)\b/,
+  /\b(abre|fecha) (hoje|amanha|segunda|terca|quarta|quinta|sexta|sabado|domingo)\b/,
+  /^[\d\s()+./-]+$/, // telefone, ou um pedaço dele
+  new RegExp(`^[a-z][a-z' -]{1,40}(,| -| /) (${UF})$`), // "São Paulo, SP", a cidade da loja
+  /^(ver (telefone|todos|estoque|mais|menos|anuncios|loja)|enviar mensagem|mandar mensagem|ligar|denunciar|compartilhar|favoritar|simul|vendedor verificado|revenda verificada|desde \d{4})/,
+];
+const plano = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/\s+/g, " ").trim();
+
+/** Se o texto é do quadro do vendedor (ou o nome da própria loja), não um item do carro. */
+export function naoEItem(texto, loja = "") {
+  const t = plano(texto);
+  return !t || (plano(loja) !== "" && t === plano(loja)) || NAO_E_ITEM.some(re => re.test(t));
+}
+
+/** A lista de itens só com itens: sem o quadro do vendedor, sem repetidos, sem espaço sobrando. */
+export function limparOpcionais(lista, loja = "") {
+  const vistos = new Set();
+  return (Array.isArray(lista) ? lista : []).map(x => String(x ?? "").replace(/\s+/g, " ").trim())
+    .filter(x => !naoEItem(x, loja) && !vistos.has(plano(x)) && vistos.add(plano(x)));
+}
+
 const SIM_NAO = { tipo: "simnao" };
 const num = v => (v === "" || v == null || isNaN(Number(v)) ? null : Number(v));
 const milhar = v => Number(v).toLocaleString("pt-BR");

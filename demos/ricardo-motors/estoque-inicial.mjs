@@ -13,9 +13,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { limparOpcionais } from "../../painel-clientes/src/modulos/estoque/esquemas.js";
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
 const CAPA = ["81662220", "82333708", "77408515", "81200148"]; // os destaques da capa da demo
+const LOJA = "Ricardo Motors"; // o nome da loja não é item de carro (27/11/2026: o quadro do vendedor entrou como opcional)
 
 /** Os carros da demo no formato do Estoque (12, "Contrato v1": os campos do esquema automotivo). */
 export function carrosDaDemo(html = fs.readFileSync(path.join(AQUI, "index.html"), "utf8")) {
@@ -35,7 +37,7 @@ export function carrosDaDemo(html = fs.readFileSync(path.join(AQUI, "index.html"
           marca: c.marca, modelo: c.modelo, versao: c.versao || "", ano_fab: fab || null, ano_modelo: mod || fab || null, km: c.km ?? null,
           cor: c.cor || "", cambio: c.cambio ? "Automático" : "", combustivel: combustivel(c), carroceria: c.tipo || "", placa: c.placa || "",
           blindado: (c.tags || []).includes("Blindado"), unico_dono: !!c.unico, revisoes: !!c.revisoes, garantia: !!c.garantia, ipva: !!c.ipva,
-          licenciado: !!c.licenciado, troca: !!c.troca, opcionais: c.opcionais || [],
+          licenciado: !!c.licenciado, troca: !!c.troca, opcionais: limparOpcionais(c.opcionais, LOJA),
         },
       },
       fotos: (c.f || []).map(k => img[k]).filter(Boolean),

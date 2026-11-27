@@ -5,6 +5,8 @@
 // a quem está vendo. Os anúncios "parecidos" e a FIPE da mesma página ficam de fora. Só o link do anúncio dá a marca,
 // o modelo, a versão e os anos (estão no endereço). As fotos não vêm: a pessoa põe as dela.
 
+import { naoEItem } from "./esquemas.js";
+
 const semAcento = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/\s+/g, " ").trim();
 const LIMITE_DESCRICAO = 3500;
 
@@ -175,7 +177,7 @@ export function lerLink(texto) {
  * que partes da página vieram (ficha, itens, descrição): na edição, só uma parte que veio troca o que está no painel
  * (um "sim" que sumiu da ficha vira "não"; um opcional que sumiu dos itens sai).
  */
-export function lerAnuncio(texto, { conhecidos = [] } = {}) {
+export function lerAnuncio(texto, { conhecidos = [], loja = "" } = {}) {
   const linhas = linhasDe(texto);
   const de = inicioDaFicha(linhas);
   if (de < 0) {
@@ -201,8 +203,11 @@ export function lerAnuncio(texto, { conhecidos = [] } = {}) {
   for (const k of ["blindado", "troca", "revisoes", "ipva", "licenciado", "unico_dono", "garantia"]) {
     if (f[k] !== undefined && simNao(f[k]) !== null) campos[k] = simNao(f[k]);
   }
-  // os itens: os que têm caixa no painel viram opcionais; os outros vão para o fim da descrição
-  const itens = lerDepoisDe(linhas, /^itens d[eo] veiculo/, /^(sobre o vendedor|denunciar|ver todos|compare|conquistas|simule|sobre este)/, 60).filter(l => l.length <= 60);
+  // os itens: os que têm caixa no painel viram opcionais; os outros vão para o fim da descrição. O quadro do vendedor,
+  // que a página mostra logo depois ("Ricardo Motors", "São Paulo, SP", "Loja fechada…", o telefone), fica de fora mesmo
+  // se a colagem vier sem o "Sobre o vendedor" (esquemas.js, naoEItem)
+  const itens = lerDepoisDe(linhas, /^itens d[eo] veiculo/, /^(sobre o vendedor|denunciar|ver todos|compare|conquistas|simule|sobre este)/, 60)
+    .filter(l => l.length <= 60 && !naoEItem(l, loja));
   const opcionais = [], semCaixa = [];
   for (const item of itens) {
     const achou = OPCIONAIS.find(([, re]) => re.test(semAcento(item)));
