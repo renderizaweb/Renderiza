@@ -175,6 +175,25 @@ Explica a proposta comercial e responde as dúvidas de negócio. O Kaue manda no
 3. Os valores da A e da B.
 4. Se a rede de apoiadores entra em algum momento.
 
+## Mudança de escopo (27/11/2026): site + integração com o portal do gabinete
+
+O vereador fechou, mas o gabinete já tem um portal (provavelmente .NET; o banco ainda vai ser descoberto). A
+Renderiza não cria o portal: faz o site (Next, na Vercel, domínio no nome dele) e o integra ao portal deles.
+- **Preço igual:** R$ 3.300, 60 h, sem entrada.
+- **Duas entregas:**
+  - o site no ar em até 10 dias úteis, com o "Pedido do bairro" pelo WhatsApp; vale 40%;
+  - a integração em até 15 dias úteis depois de liberados os acessos; vale 60%.
+  - Se os acessos não vierem em 30 dias depois da primeira entrega, vencem R$ 990 do saldo.
+- **Integração:** rotas no portal deles para receber o pedido e informar a situação. O formulário do site chama
+  essas rotas pelo servidor do Next, com uma chave secreta. O site não guarda cópia dos dados.
+- **O que é deles:** o portal, o banco e a hospedagem, com segurança, cópias e disponibilidade.
+- **Fora do escopo agora:** IA, indicadores, terça e munícipes dentro do portal deles; podem ser orçados à parte.
+- **Planos:** os mesmos valores (R$ 499, R$ 799 e R$ 1.299), agora cobrindo a hospedagem do site e o monitoramento
+  do site e da integração. Sem plano: ele hospeda o site.
+- **O que vale da seção abaixo:** a parte de 14/11 sobre portal próprio, Supabase, IA e prévia no 15º dia ficou
+  como histórico; vale o contrato no ar.
+- **Os vídeos e o áudio enviados antes** falam do formato antigo; o contrato diz que ele prevalece sobre a proposta.
+
 ## Proposta, contrato e assinatura (14/11/2026)
 
 - **Páginas:** `propostas/vereador-mateuzinho-silva.html` (/proposta/vereador-mateuzinho-silva) e
