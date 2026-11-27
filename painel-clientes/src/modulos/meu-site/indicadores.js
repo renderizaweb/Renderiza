@@ -4,7 +4,8 @@
 
 import { escapar } from "../../ui/formulario.js";
 import { comEstados, vazio } from "../../ui/estados.js";
-import { nomeDaSecao, duracao, nomeDoClique, nomeDaOrigem, escalaDoGrafico } from "./conteudo.js";
+import { nomeDaSecao, duracao, nomeDoClique, nomeDaOrigem, escalaDoGrafico, itensMaisVistos, cliquesDosBotoes } from "./conteudo.js";
+import { ESQUEMAS } from "../estoque/esquemas.js";
 
 const PERIODOS = [[7, "7 dias"], [30, "30 dias"], [90, "90 dias"]];
 const numero = n => Number(n || 0).toLocaleString("pt-BR");
@@ -51,15 +52,38 @@ export function montarIndicadores(lugar, { banco, conta, conteudo }) {
     </div>
     <div data-ind></div>`;
   const corpo = lugar.querySelector("[data-ind]");
+  // com o Estoque: os itens mais vistos (o site conta cada item aberto e o WhatsApp que sai da página dele)
+  const esquema = (conta.modulos || []).includes("estoque") ? ESQUEMAS[conta.nicho] : null;
+  const nomeDoItem = c => {
+    const anos = c.ano_fab && c.ano_modelo ? `${c.ano_fab}/${c.ano_modelo}` : c.ano_modelo || c.ano_fab || "";
+    return `${esquema.titulo(c)}${anos ? " " + anos : ""}`;
+  };
+  const carregarItens = () => !esquema ? Promise.resolve([])
+    : banco.resultado(banco.tabela("estoque_itens").select("id, campos").eq("conta_id", conta.conta_id))
+      .then(l => (l || []).map(i => ({ id: i.id, nome: nomeDoItem(i.campos || {}) }))).catch(() => []);
 
-  const desenhar = r => {
+  const quadroDosItens = (r, itens) => {
+    const { linhas, saiu } = itensMaisVistos(r.cliques, itens);
+    const maior = Math.max(1, ...linhas.map(l => l.vistas));
+    const titulo = esquema.itens.charAt(0).toUpperCase() + esquema.itens.slice(1);
+    return `<section class="rz-cartao rz-ms-quadro rz-ms-quadro--itens"><h2 class="rz-titulo-3">${escapar(titulo)} mais vistos</h2>
+        <p class="rz-texto-3">Quantas vezes cada ${escapar(esquema.item)} foi aberto no site, e quantos cliques no WhatsApp saíram da página dele.</p>
+        ${linhas.length
+          ? barras(linhas.slice(0, 10).map(l => ({ nome: l.nome, nota: l.zap ? plural(l.zap, "clique no WhatsApp", "cliques no WhatsApp") : "", valor: plural(l.vistas, "vez", "vezes"), parte: l.vistas / maior })), "")
+          : `<p class="rz-texto-2">Quando alguém abrir um ${escapar(esquema.item)} no site, ele aparece aqui, com os cliques no WhatsApp.</p>`}
+        ${linhas.length > 10 ? `<p class="rz-texto-3">E mais ${plural(linhas.length - 10, esquema.item, esquema.itens)} com menos aberturas.</p>` : ""}
+        ${saiu.vistas ? `<p class="rz-texto-3">${plural(saiu.vistas, "abertura", "aberturas")} de ${escapar(esquema.itens)} que já saíram do estoque.</p>` : ""}</section>`;
+  };
+
+  const desenhar = ({ r, itens }) => {
     if (!r) { corpo.innerHTML = `<div class="rz-cartao">${vazio({ icone: "cadeado", titulo: "Você não vê os indicadores deste site", texto: "Peça ao dono o acesso ao Meu site." })}</div>`; return; }
     if (!Number(r.visitas)) {
       corpo.innerHTML = `<div class="rz-cartao">${vazio({ icone: "olho", titulo: "Nenhuma visita nos últimos " + dias + " dias", texto: "A contagem começa quando alguém abre o site. Site publicado antes de 16/11/2026 precisa ser atualizado pela Renderiza para contar." })}</div>`;
       return;
     }
     const c = conteudo() || {}, visitas = Number(r.visitas);
-    const cliquesTotal = r.cliques.reduce((t, x) => t + Number(x.cliques), 0), maisClicado = Math.max(...r.cliques.map(x => Number(x.cliques)), 1);
+    const botoes = cliquesDosBotoes(r.cliques); // os dos itens do Estoque vão para o quadro deles
+    const cliquesTotal = botoes.reduce((t, x) => t + Number(x.cliques), 0), maisClicado = Math.max(...botoes.map(x => Number(x.cliques)), 1);
     const origens = Object.entries(r.origens.reduce((t, o) => { const n = nomeDaOrigem(o.origem); t[n] = (t[n] || 0) + Number(o.visitas); return t; }, {})).sort((a, b) => b[1] - a[1]);
     const pct = n => `${Math.round((Number(n) / visitas) * 100)}%`;
     corpo.innerHTML = `
@@ -70,13 +94,14 @@ export function montarIndicadores(lugar, { banco, conta, conteudo }) {
         <div><dt>Cliques em botões</dt><dd>${numero(cliquesTotal)}</dd><small>${cliquesTotal ? "veja quais, abaixo" : "nenhum no período"}</small></div>
       </dl>
       <div class="rz-cartao rz-ms-quadro">${grafico(r.por_dia)}</div>
+      ${esquema ? quadroDosItens(r, itens) : ""}
       <div class="rz-ms-quadros">
         <section class="rz-cartao rz-ms-quadro"><h2 class="rz-titulo-3">As partes mais vistas</h2>
           <p class="rz-texto-3">Em quantas visitas a parte ficou no meio da tela, e por quanto tempo.</p>
           ${barras(r.secoes.map(s => ({ nome: nomeDaSecao(s.secao, (c.secoes || {})[s.secao]), nota: duracao(Number(s.segundos) / Number(s.visitas)) + " em média", valor: pct(s.visitas), parte: Number(s.visitas) / visitas })), "Ainda sem partes vistas.")}</section>
         <section class="rz-cartao rz-ms-quadro"><h2 class="rz-titulo-3">Os botões mais clicados</h2>
           <p class="rz-texto-3">Quantas vezes cada botão foi clicado.</p>
-          ${barras(r.cliques.map(x => ({ nome: nomeDoClique(x.nome, c), valor: numero(x.cliques), parte: Number(x.cliques) / maisClicado })), "Ninguém clicou num botão neste período.")}</section>
+          ${barras(botoes.map(x => ({ nome: nomeDoClique(x.nome, c), valor: numero(x.cliques), parte: Number(x.cliques) / maisClicado })), "Ninguém clicou num botão neste período.")}</section>
         <section class="rz-cartao rz-ms-quadro"><h2 class="rz-titulo-3">De onde vieram</h2>
           <p class="rz-texto-3">O Instagram e o WhatsApp muitas vezes não dizem de onde a pessoa veio: essas visitas entram como "Direto".</p>
           ${barras(origens.map(([nome, n]) => ({ nome, valor: pct(n), parte: n / visitas })), "")}</section>
@@ -87,7 +112,10 @@ export function montarIndicadores(lugar, { banco, conta, conteudo }) {
       <p class="rz-texto-3 rz-ms-regra">Como contamos: sem cookie e sem identificar ninguém. Cada página aberta é uma visita. "Aparelhos" soma os aparelhos diferentes de cada dia: o mesmo celular em dois dias conta duas vezes. Robôs não entram. Os números ficam guardados por 13 meses.</p>`;
   };
 
-  const atualizar = () => comEstados(corpo, { carregar: () => banco.rpc("site_indicadores", { p_conta: conta.conta_id, p_dias: dias }), desenhar });
+  const atualizar = () => comEstados(corpo, {
+    carregar: () => Promise.all([banco.rpc("site_indicadores", { p_conta: conta.conta_id, p_dias: dias }), carregarItens()]).then(([r, itens]) => ({ r, itens })),
+    desenhar,
+  });
   lugar.addEventListener("click", ev => {
     const b = ev.target.closest("button");
     if (!b) return;

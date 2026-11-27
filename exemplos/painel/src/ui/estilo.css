@@ -1257,3 +1257,4 @@ button.rz-horario:focus-visible{outline:none;box-shadow:var(--rz-foco)}
 .et-mudou{margin:6px 0 0;padding-left:18px;display:grid;gap:2px;font-size:var(--rz-t-sm);color:var(--rz-tinta-2)}
 .et-mudou b{font-weight:600;color:var(--rz-tinta)}
 .et-trazer-painel .rz-alerta{margin:0}
+.rz-ms-quadro--itens{margin-top:var(--rz-4)}

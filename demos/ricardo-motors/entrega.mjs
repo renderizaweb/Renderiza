@@ -95,7 +95,7 @@ export function versaoDeEntrega(demo) {
   // ---------- o script da página ----------
   h = trocar(h, "const msg=c=>`Olá, Ricardo! Tenho interesse no ${nome(c)} ${c.ano} (${brl(c.preco)}) que vi no seu site.`;",
     `const SITE=${JSON.stringify("https://" + DOMINIO)};\nconst linkDo=c=>SITE+"/#carro-"+c.id;\n` +
-    "const msg=c=>`Olá, Ricardo! Tenho interesse neste carro do seu site:\\n*${nome(c)} ${c.ano}*${c.preco?` · ${brl(c.preco)}`:\"\"}\\n${linkDo(c)}\\nAinda está disponível?`;\nconst ftm=c=>c.fm&&c.fm.length?c.fm:fts(c);\nlet DO_PAINEL=false;");
+    "const msg=c=>`Olá, Ricardo! Tenho interesse neste carro do seu site:\\n*${nome(c)} ${c.ano}*${c.preco?` · ${brl(c.preco)}`:\"\"}\\n${linkDo(c)}\\nAinda está disponível?`;\nconst ftm=c=>c.fm&&c.fm.length?c.fm:fts(c);\nlet DO_PAINEL=false,ABERTO=null;");
   h = trocar(h, 'data-wa="Olá, Ricardo! Quero agendar uma visita para ver o ${nome(c)} ${c.ano}."', 'data-wa="Olá, Ricardo! Quero agendar uma visita para ver o *${nome(c)} ${c.ano}*:\\n${linkDo(c)}"');
   h = trocar(h, 'data-wa="Olá, Ricardo! Quero simular a troca ou o financiamento do ${nome(c)} ${c.ano}."', 'data-wa="Olá, Ricardo! Quero simular a troca ou o financiamento do *${nome(c)} ${c.ano}*:\\n${linkDo(c)}"');
   h = trocar(h, 'data-wa="Olá, Ricardo! Pode me mandar mais fotos e um vídeo do ${nome(c)} ${c.ano}?"', 'data-wa="Olá, Ricardo! Pode me mandar mais fotos e um vídeo do *${nome(c)} ${c.ano}*?\\n${linkDo(c)}"');
@@ -110,7 +110,11 @@ export function versaoDeEntrega(demo) {
   h = trocar(h, '<img src="${fts(x)[0]}" alt="" loading="lazy"><span>${nome(x)}<small>${brl(x.preco)}</small></span>', '<img src="${ftm(x)[0]}" alt="" loading="lazy"><span>${nome(x)}<small>${brl(x.preco)}</small></span>');
   // as miniaturas da página do carro com a foto pequena (a grande só na galeria)
   h = trocar(h, "const dlg=$(\"#dlg\");let gi=0,gl=[];", "const dlg=$(\"#dlg\");let gi=0,gl=[],glm=[];");
-  h = trocar(h, "if(!c)return;gl=fts(c);gi=0;", "if(!c)return;gl=fts(c);glm=ftm(c);gi=0;");
+  // os indicadores do painel (Meu site · Indicadores, "Carros mais vistos"; 26/11/2026): cada carro do painel aberto
+  // conta uma vez por abertura ("ver.<id>"; a lista que chega de novo e reabre o mesmo carro não conta de novo), e o
+  // WhatsApp que sai do card ou da página de um carro conta para ele ("zap.<id>", no ligarWa)
+  h = trocar(h, "if(!c)return;gl=fts(c);gi=0;", "if(!c)return;if(DO_PAINEL&&ABERTO!==id&&window.rzContar)window.rzContar(\"ver.\"+id);ABERTO=id;gl=fts(c);glm=ftm(c);gi=0;");
+  h = trocar(h, 'dlg.addEventListener("close",()=>{', 'dlg.addEventListener("close",()=>{ABERTO=null;');
   h = trocar(h, '<button data-i="${k}" aria-label="Foto ${k+1}" aria-current="${!k}"><img src="${u}" alt="" loading="lazy"></button>', '<button data-i="${k}" aria-label="Foto ${k+1}" aria-current="${!k}"><img src="${glm[k]||u}" alt="" loading="lazy"></button>');
   h = trocar(h, '<div class="preco">${brl(c.preco)}</div>', '<div class="preco">${brl(c.preco)}</div>${DO_PAINEL?"":`<p class="aviso-carro">O estoque muda todo dia: confirme a disponibilidade pelo WhatsApp.</p>`}');
   h = trocar(h, "const m=location.hash.match(/^#carro-(\\d+)/);", "const m=location.hash.match(/^#carro-([A-Za-z0-9-]+)/);");
@@ -128,7 +132,8 @@ export function versaoDeEntrega(demo) {
     'window.DEMO_CLIENT={whatsapp:WA_NUM?`https://wa.me/${WA_NUM}?text=`:WA_BIO,instagram:"https://www.instagram.com/rm.consultcar/",reviews:[]};');
   h = trocar(h, 'const ligarWa=(el=document)=>$$("[data-wa]",el).forEach(a=>{a.href=wa(a.dataset.wa);a.target="_blank";a.rel="noopener";a.setAttribute("data-whatsapp","")});',
     'const doServico=a=>{if(a.dataset.waDe===undefined)return"";const it=a.closest("[data-site-item]"),t=it&&it.querySelector(\'[data-site-campo="titulo"]\'),n=t?t.textContent.trim():"";return n&&n!==a.dataset.waDe?n:""};\n' +
-    'const ligarWa=(el=document)=>$$("[data-wa]",el).forEach(a=>{if(a.hasAttribute("data-site-botao")&&!a.hasAttribute("data-whatsapp"))return;const s=doServico(a),t=s&&[...a.childNodes].find(x=>x.nodeType===3&&x.nodeValue.trim());if(t)t.nodeValue="Falar com o Ricardo";a.href=wa(s?`Olá, Ricardo! Quero saber mais sobre: ${s}.`:a.dataset.wa,a.hasAttribute("data-wa-geral"));a.target="_blank";a.rel="noopener";a.setAttribute("data-whatsapp","")});\n' +
+    'const doCarro=a=>{if(!DO_PAINEL)return"";const card=a.closest(".card"),b=card&&card.querySelector("[data-abre]");return b?b.dataset.abre:a.closest("#dt")&&ABERTO?ABERTO:""};\n' +
+    'const ligarWa=(el=document)=>$$("[data-wa]",el).forEach(a=>{if(a.hasAttribute("data-site-botao")&&!a.hasAttribute("data-whatsapp"))return;const s=doServico(a),t=s&&[...a.childNodes].find(x=>x.nodeType===3&&x.nodeValue.trim());if(t)t.nodeValue="Falar com o Ricardo";a.href=wa(s?`Olá, Ricardo! Quero saber mais sobre: ${s}.`:a.dataset.wa,a.hasAttribute("data-wa-geral"));a.target="_blank";a.rel="noopener";a.setAttribute("data-whatsapp","");const car=doCarro(a);if(car)a.setAttribute("data-rz-clique","zap."+car);else a.removeAttribute("data-rz-clique")});\n' +
     'const ligarIg=()=>{const n=(String((window.DEMO_CLIENT||{}).instagram||"").match(/instagram\\.com\\/([A-Za-z0-9._]{1,30})/)||[])[1];if(n)$$("a[data-instagram]").forEach(a=>{a.href=`https://www.instagram.com/${n}/`;const t=[...a.childNodes].find(x=>x.nodeType===3&&x.nodeValue.trim().startsWith("@"));if(t)t.nodeValue="@"+n})};\n' +
     "const pontoDoTitulo=()=>{const t=$('[data-site=\"inicio.titulo\"]'),p=$(\".titulo-capa .pt\");if(t&&p)p.hidden=/[.!?…]\\s*$/.test(t.textContent)};\n" +
     "window.DEMO_RUNTIME={links(){ligarWa();ligarIg()},carrosseis(){pontoDoTitulo()},avaliacoes(){}};");

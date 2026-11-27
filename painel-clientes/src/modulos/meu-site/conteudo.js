@@ -8,6 +8,8 @@ const NOMES = {
   atendimento: "Como funciona", depoimentos: "Avaliações", consulta: "Consultar uma data", instagram: "Instagram",
   visite: "Como chegar", rodape: "Rodapé", portfolio: "Portfólio", ensaios: "Ensaios", natal: "Natal",
   agendar: "Agenda", contato: "Contato e endereço",
+  // as partes do Estoque no site (não se editam aqui, mas aparecem nos indicadores; 26/11/2026)
+  estoque: "Estoque (a vitrine)", carro: "Página de um carro",
 };
 // Onde a parte fica no site, em uma linha (aparece embaixo do nome, na lista e na parte aberta).
 const ONDE = {
@@ -218,8 +220,36 @@ export function nomeDoClique(nome, conteudo = {}) {
   return `${nomeDaSecao(secao, s)} · ${semAsteriscos(b && b.rotulo) || rotulo("botoes", campo)}`;
 }
 
-const ORIGENS = [[/(^|\.)instagram\./, "Instagram"], [/(^|\.)google\./, "Google"], [/(^|\.)(facebook\.|fb\.)/, "Facebook"], [/whatsapp\.|(^|\.)wa\.me$/, "WhatsApp"],
+const ORIGENS = [[/^painel\.renderizaweb\.com\.br$/, "Pelo painel (você ou a equipe)"], [/(^|\.)instagram\./, "Instagram"], [/(^|\.)google\./, "Google"], [/(^|\.)(facebook\.|fb\.)/, "Facebook"], [/whatsapp\.|(^|\.)wa\.me$/, "WhatsApp"],
   [/(^|\.)bing\./, "Bing"], [/(^|\.)tiktok\./, "TikTok"], [/youtube\.|youtu\.be$/, "YouTube"]];
+/**
+ * Os itens do Estoque mais vistos no site (26/11/2026): o site conta "ver.<id>" quando um item é aberto e "zap.<id>"
+ * quando o WhatsApp sai da página dele (ferramentas/meu-site/meu-site.js, rzContar e data-rz-clique). `cliques`: os de
+ * site_indicadores; `itens`: [{ id, nome }] do Estoque. Devolve as linhas (as mais vistas primeiro) e, à parte, os que
+ * já saíram do Estoque (somados). Só conta o que o site registrou: sem registro, sem linha.
+ */
+export function itensMaisVistos(cliques = [], itens = []) {
+  const por = new Map();
+  for (const c of cliques) {
+    const m = /^(ver|zap)\.([0-9a-f-]{36})$/.exec(c.nome || "");
+    if (!m) continue;
+    const l = por.get(m[2]) || { id: m[2], vistas: 0, zap: 0 };
+    if (m[1] === "ver") l.vistas += Number(c.cliques) || 0; else l.zap += Number(c.cliques) || 0;
+    por.set(m[2], l);
+  }
+  const nomes = new Map(itens.map(i => [i.id, i.nome]));
+  const linhas = [], saiu = { vistas: 0, zap: 0 };
+  for (const l of por.values()) {
+    if (nomes.has(l.id)) linhas.push({ ...l, nome: nomes.get(l.id) });
+    else { saiu.vistas += l.vistas; saiu.zap += l.zap; }
+  }
+  linhas.sort((a, b) => b.vistas - a.vistas || b.zap - a.zap || a.nome.localeCompare(b.nome));
+  return { linhas, saiu };
+}
+
+/** Os cliques nos botões do site, sem os dos itens do Estoque (que têm quadro próprio). */
+export const cliquesDosBotoes = (cliques = []) => cliques.filter(c => !/^(ver|zap)\./.test(c.nome || ""));
+
 /** De onde a visita veio, pelo site anterior ("" = sem site anterior). */
 export function nomeDaOrigem(host) {
   if (!host) return "Direto (link no WhatsApp, QR code ou o endereço digitado)";

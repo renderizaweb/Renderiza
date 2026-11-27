@@ -551,12 +551,22 @@
       if (s) secoes[s] = (secoes[s] || 0) + 1;
       if (total === 2 || total % 30 === 0) mandar();
     }, 1000);
+    // os nomes que o banco guarda (publico_visita: até 40 por visita); o que vier fora disso é ignorado
+    var somar = function (nome) {
+      if (typeof nome !== "string" || !/^[a-z0-9][a-z0-9.-]{0,60}$/.test(nome)) return;
+      if (!cliques[nome] && Object.keys(cliques).length >= 40) return;
+      cliques[nome] = (cliques[nome] || 0) + 1;
+    };
+    // o site conta o que é dele (26/11/2026: o Estoque conta "ver.<id>" quando um item é aberto); o
+    // data-rz-clique de um botão conta junto com o clique dele ("zap.<id>": o WhatsApp da página de um carro)
+    w.rzContar = somar;
     doc.addEventListener("click", function (ev) {
       var el = ev.target.closest && ev.target.closest("[data-site-botao],[data-whatsapp],[data-instagram],a[href^='https://wa.me'],a[href^='tel:'],.ag-enviar");
       if (!el) return;
       var nome = el.getAttribute("data-site-botao") || (el.hasAttribute("data-instagram") ? "instagram"
         : /^tel:/.test(el.getAttribute("href") || "") ? "telefone" : el.classList.contains("ag-enviar") ? "agenda" : "whatsapp");
-      cliques[nome] = (cliques[nome] || 0) + 1;
+      somar(nome);
+      if (el.hasAttribute("data-rz-clique")) somar(el.getAttribute("data-rz-clique"));
     }, true);
     doc.addEventListener("visibilitychange", function () { if (doc.visibilityState === "hidden") mandar(); });
     w.addEventListener("pagehide", mandar);

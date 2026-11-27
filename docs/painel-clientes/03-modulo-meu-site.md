@@ -326,6 +326,18 @@ indicadores.
 - **O que falta decidir com cada cliente:** uma linha no rodapé do site dizendo que as visitas são contadas de forma
   anônima, sem cookies (boa prática da LGPD, mesmo sem dado pessoal). O gerador ainda não põe.
 
+### Com o Estoque: os itens mais vistos (26/11/2026)
+
+Quem tem o Estoque vê, logo depois do gráfico, **"Carros mais vistos"** (o nome vem do esquema do nicho): quantas vezes
+cada item foi aberto no site e quantos cliques no WhatsApp saíram da página dele (ou do botão do card), do mais visto
+ao menos; os que já saíram do Estoque ficam somados numa linha à parte. **Sem mudar o banco:** o site conta com o
+`rzContar` do `meu-site.js` ("ver.<id>" a cada item aberto, uma vez por abertura) e o `data-rz-clique` dos botões
+("zap.<id>" junto com o clique de WhatsApp de sempre), nos cliques que `publico_visita` já guardava (nomes de até 60
+letras, até 40 por visita). "Cliques em botões" e "Os botões mais clicados" não contam esses. Sem item aberto no
+período: "Quando alguém abrir um carro no site, ele aparece aqui, com os cliques no WhatsApp." (as visitas de antes
+de 26/11 não têm o item; a tela não fala disso). Os nomes também ficaram legíveis: "Estoque (a vitrine)", "Página de um
+carro" e "Pelo painel (você ou a equipe)" para quem abre o site pelo painel. Fluxo: `test/fluxos/indicadores-estoque.fluxo.mjs`.
+
 ## Situações do site
 
 | Situação | Quando | O que o endereço público responde | O que o site mostra |

@@ -137,3 +137,18 @@ test("a validação do painel é a mesma do site (cópia igual a ferramentas/meu
   const original = readFileSync(new URL("../../ferramentas/meu-site/meu-site.js", import.meta.url), "utf8");
   assert.equal(copia, original, "mudou o meu-site.js? copie para painel-clientes/src/modulos/meu-site/");
 });
+
+test("indicadores do Estoque: os carros mais vistos (ver.<id>, zap.<id>), os botões sem eles, e os nomes das partes e do painel", async () => {
+  const { itensMaisVistos, cliquesDosBotoes, nomeDaSecao: secao, nomeDaOrigem: origem } = await import("../src/modulos/meu-site/conteudo.js");
+  const a = "11111111-2222-4333-8444-555555555555", b = "66666666-7777-4888-8999-000000000000", foi = "99999999-9999-4999-8999-999999999999";
+  const cliques = [{ nome: "whatsapp", cliques: 7 }, { nome: "ver." + a, cliques: 3 }, { nome: "zap." + a, cliques: 2 }, { nome: "ver." + b, cliques: 5 },
+    { nome: "ver." + foi, cliques: 4 }, { nome: "zap." + foi, cliques: 1 }, { nome: "ver.qualquer", cliques: 9 }, { nome: "inicio.botao", cliques: 1 }];
+  const r = itensMaisVistos(cliques, [{ id: a, nome: "Porsche Cayenne 2023/2024" }, { id: b, nome: "BMW 530e 2025/2025" }]);
+  assert.deepEqual(r.linhas.map(l => [l.nome, l.vistas, l.zap]), [["BMW 530e 2025/2025", 5, 0], ["Porsche Cayenne 2023/2024", 3, 2]], "o mais visto primeiro");
+  assert.deepEqual(r.saiu, { vistas: 4, zap: 1 }, "o que já saiu do estoque fica somado à parte");
+  assert.deepEqual(itensMaisVistos([], []).linhas, [], "sem registro, sem linha");
+  assert.deepEqual(cliquesDosBotoes(cliques).map(c => c.nome), ["whatsapp", "inicio.botao"], "os botões do site, sem os dos carros");
+  assert.equal(secao("estoque"), "Estoque (a vitrine)");
+  assert.equal(secao("carro"), "Página de um carro");
+  assert.equal(origem("painel.renderizaweb.com.br"), "Pelo painel (você ou a equipe)");
+});
