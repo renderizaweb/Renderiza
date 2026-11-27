@@ -43,6 +43,9 @@ test("conferência: texto provisório só no que aparece (não no CSS, script ou
   assert.deepEqual(conferirHtml(SITE.replace("</body>", html + "</body>"), { dominio: "clinica.com.br", existe }).problemas, []);  // "para definir" é texto normal, não "a definir"
   assert.deepEqual(conferirHtml(SITE.replace("</body>", "<p>Análise cuidadosa para definir as etapas.</p></body>"), { dominio: "clinica.com.br", existe }).problemas, []);
   assert.equal(conferirHtml(SITE.replace("</body>", "<p>Horário a definir</p></body>"), { dominio: "clinica.com.br", existe }).problemas.length, 1);
+  // "todo" em português não é o marcador TODO; o marcador, em maiúsculas, continua contando
+  assert.deepEqual(conferirHtml(SITE.replace("</body>", "<p>Ela deixa todo mundo à vontade.</p></body>"), { dominio: "clinica.com.br", existe }).problemas, []);
+  assert.equal(conferirHtml(SITE.replace("</body>", "<p>TODO trocar a foto</p></body>"), { dominio: "clinica.com.br", existe }).problemas.length, 1);
 });
 
 test("conferência: avisos (sem descrição, sem WhatsApp, foto embutida, prévia em WebP, 'em breve')", () => {

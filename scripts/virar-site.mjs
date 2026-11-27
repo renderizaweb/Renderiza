@@ -17,7 +17,8 @@
 //   o cliente edita pelo Painel Renderiza e, sem o painel, o site mostra o que está no index.html (03 do painel);
 // - com "painel": { "agenda": true }, entra a agenda online em /agenda/ (ferramentas/demo/agenda-online/), com um
 //   link na seção "Consulte a sua data": os dias livres e a pré-reserva vêm do painel; sem ele, vira WhatsApp.
-//   Site que já tem a agenda dele (a fotografia: window.AGENDA, do gerar-fotografia.py) não ganha /agenda/: a agenda
+//   Site que já tem a agenda dele (a fotografia: window.AGENDA, do gerar-fotografia.py; ou uma página que já lê o
+//   window.RZ_AGENDA_PAINEL, como o "Sua data" da Bia, modelos/bia-maida-eventos.html) não ganha /agenda/: a agenda
 //   de cada página passa a perguntar ao painel (window.RZ_AGENDA_PAINEL) e, sem resposta, fica como está.
 //
 // - com "paginas": ["natal"] no site.json, as outras páginas da demo vão junto (natal.html, servida em /natal): os links
@@ -28,8 +29,10 @@
 // site.json: { dominio, nome, corTema, favicon: { texto, cor }, previaCentro: [x, y] (0 a 1; onde centrar o
 //             recorte da prévia, padrão [0.5, 0.1]), dadosEstruturados: [ {...schema.org} ],
 //             paginas: ["natal"] (opcional: as outras páginas da demo),
-//             painel: { codigo, agenda, meuSite } (opcional: o código do site no Painel Renderiza; agenda: true liga a
-//             agenda online; meuSite: false deixa sem o script do Meu site; "api" = a base da API pública, só para teste) }
+//             painel: { codigo, agenda, meuSite, visitas, estoque } (opcional: o código do site no Painel Renderiza; agenda:
+//             true liga a agenda online; estoque: true liga o Estoque (ferramentas/estoque/estoque.js; a vitrine com
+//             data-estoque, sem preço na versão de reserva); meuSite: false deixa sem o script do Meu site; visitas: false desliga a
+//             contagem dos indicadores; "api" = a base da API pública, só para teste) }
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -176,11 +179,20 @@ function comMeuSite(pagina) {
   const { codigo, api } = conf.painel;
   const js = fs.readFileSync(path.join(raiz, 'ferramentas', 'meu-site', 'meu-site.js'), 'utf8');
   if (/<\/script/i.test(js)) throw new Error('meu-site.js não pode ter </script');
-  return pagina.replace('</head>', () => `  <script data-codigo="${codigo}"${api ? ` data-api="${esc(api + 'site/')}"` : ''}>\n${js}  </script>\n</head>`);
+  // "visitas": false no site.json desliga a contagem dos indicadores (03 do painel)
+  return pagina.replace('</head>', () => `  <script data-codigo="${codigo}"${api ? ` data-api="${esc(api + 'site/')}"` : ''}${conf.painel.visitas === false ? ' data-sem-visitas' : ''}>\n${js}  </script>\n</head>`);
+}
+// O Estoque (12 do painel, "Contrato v1"): o script que troca a vitrine de reserva (sem preço) pela lista do painel.
+function comEstoque(pagina) {
+  const { codigo, api } = conf.painel;
+  const js = fs.readFileSync(path.join(raiz, 'ferramentas', 'estoque', 'estoque.js'), 'utf8');
+  if (/<\/script/i.test(js)) throw new Error('estoque.js não pode ter </script');
+  if (!pagina.includes('data-estoque')) console.warn('Atenção: "estoque": true, mas a página não tem a vitrine marcada com data-estoque.');
+  return pagina.replace('</head>', () => `  <script data-estoque="${codigo}"${api ? ` data-api="${esc(api)}"` : ''}>\n${js}  </script>\n</head>`);
 }
 // A agenda que o próprio site já tem (fotografia): só o endereço do painel, antes do fim do <head>.
 const API_PADRAO = 'https://painel.renderizaweb.com.br/api/publico/';
-const temAgendaPropria = pagina => pagina.includes('window.AGENDA = ');
+const temAgendaPropria = pagina => pagina.includes('window.AGENDA = ') || pagina.includes('window.RZ_AGENDA_PAINEL');
 function comAgendaPropria(pagina) {
   const { codigo, api = API_PADRAO } = conf.painel;
   const dados = JSON.stringify({ api, codigo }).replace(/</g, '\\u003c');
@@ -202,6 +214,7 @@ if (conf.painel) {
     if (!r.ligou) console.warn('Atenção: o site não tem a seção "Consulte a sua data"; a agenda está em /agenda/, sem link na página.');
   }
   if (meuSite) html = comMeuSite(html);
+  if (conf.painel.estoque) html = comEstoque(html);
 }
 fs.writeFileSync(path.join(saida, 'index.html'), html);
 
@@ -220,11 +233,15 @@ for (const p of extras) {
 // 5. Google, cabeçalhos e instruções.
 fs.writeFileSync(path.join(saida, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${url}sitemap.xml\n`);
 fs.writeFileSync(path.join(saida, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[url, ...extras.map(p => url + p)].map(u => `  <url><loc>${u}</loc><lastmod>${hoje}</lastmod></url>\n`).join('')}</urlset>\n`);
-fs.writeFileSync(path.join(saida, '_headers'), `/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: SAMEORIGIN\n/img/*\n  Cache-Control: public, max-age=31536000, immutable\n`);
+// Quem pode pôr o site num quadro: só ele; com o painel, também o painel (o editor ao vivo do Meu site, 03).
+const quadro = conf.painel
+  ? { key: 'Content-Security-Policy', value: `frame-ancestors 'self' ${new URL(conf.painel.api || API_PADRAO).origin}` }
+  : { key: 'X-Frame-Options', value: 'SAMEORIGIN' };
+fs.writeFileSync(path.join(saida, '_headers'), `/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  ${quadro.key}: ${quadro.value}\n/img/*\n  Cache-Control: public, max-age=31536000, immutable\n`);
 fs.writeFileSync(path.join(saida, 'vercel.json'), JSON.stringify({
   cleanUrls: true,
   headers: [
-    { source: '/(.*)', headers: [{ key: 'X-Content-Type-Options', value: 'nosniff' }, { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' }, { key: 'X-Frame-Options', value: 'SAMEORIGIN' }] },
+    { source: '/(.*)', headers: [{ key: 'X-Content-Type-Options', value: 'nosniff' }, { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' }, quadro] },
     { source: '/img/(.*)', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
   ],
 }, null, 2) + '\n');

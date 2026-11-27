@@ -7,9 +7,9 @@
 // - Montagem: a conta nasce no fim (cadastrar_conta), com cada parte marcando o seu check enquanto acontece.
 // As respostas ficam no aparelho a cada passo, então dá para fechar e voltar. A conta real nunca recebe dado de exemplo.
 
-import { telaDeAcesso, focarTitulo, painelDaMarca, temaDoNicho } from "./acesso.js";
+import { telaDeAcesso, focarTitulo, painelDaMarca, temaDoNicho, TEMAS_DE_NICHO } from "./acesso.js";
 import { TELAS } from "../rotas.js";
-import { nicho as acharNicho } from "../nichos/index.js";
+import { nicho as acharNicho, NICHOS } from "../nichos/index.js";
 import { icone } from "../ui/icones.js";
 import { escapar, erroNoCampo, avisoDoFormulario, ocupado } from "../ui/formulario.js";
 import { mascaraTelefone, normalizarWhatsapp, whatsappValido } from "../ui/formatos.js";
@@ -24,6 +24,9 @@ export const ORDEM_DOS_MODULOS = ["agenda", "atendimento", "contratos", "finance
 export const MODULOS_INCLUIDOS = ["meu-site"];
 /** Já vêm marcados (os dois primeiros do 09): quem pula o passo 4 começa com eles. */
 export const MODULOS_SUGERIDOS = ["agenda", "atendimento"];
+/** A loja de carros começa pelo Estoque (o coração dela; 12-modulo-estoque.md). */
+export const ordemDosModulos = idNicho => (idNicho === "automotivo" ? ["estoque", "atendimento", "clientes", "contratos", "financeiro"] : ORDEM_DOS_MODULOS);
+export const sugeridosDoNicho = idNicho => (idNicho === "automotivo" ? ["estoque"] : MODULOS_SUGERIDOS);
 /** Os módulos que dependem de um site (o cliente pede a data pelo site; o site é editado pelo painel). */
 export const MODULOS_DO_SITE = ["agenda-online", "meu-site"];
 export const DURACOES = [30, 45, 60, 90, 120, 180, 240];
@@ -33,18 +36,19 @@ export const OPCOES_DE_SITE = [
   { id: "instagram", titulo: "Só Instagram ou WhatsApp", texto: "Os pedidos chegam por mensagem.", icone: "conversa" },
   { id: "nao", titulo: "Ainda não tenho", texto: "Dá para começar só com o painel.", icone: "estrela" },
 ];
-const ICONE_DO_MODULO = { agenda: "agenda", atendimento: "conversa", contratos: "contrato", financeiro: "carteira", "meu-site": "site", "agenda-online": "link", clientes: "clientes" };
-const ICONE_DO_NICHO = { eventos: "festa", fotografia: "camera" };
+const ICONE_DO_MODULO = { estoque: "estoque", agenda: "agenda", atendimento: "conversa", contratos: "contrato", financeiro: "carteira", "meu-site": "site", "agenda-online": "link", clientes: "clientes" };
+const ICONE_DO_NICHO = { eventos: "festa", fotografia: "camera", automotivo: "carro" };
 const PAUSA_DO_CHECK = 520; // o check aparece, a pessoa vê, e a tela segue
 const MINIMO_POR_ETAPA = 450; // na montagem, cada check fica à vista pelo menos isso
 
 /** Os 5 passos do trilho, com o nome do último no jeito do nicho. */
 export function passosDoTrilho(idNicho) {
-  const ultimo = idNicho === "fotografia" ? ["Seus ensaios", "O que você fotografa, com a duração"]
+  const ultimo = idNicho === "automotivo" ? ["Seus serviços", "O que a loja faz além de vender"]
+    : idNicho === "fotografia" ? ["Seus ensaios", "O que você fotografa, com a duração"]
     : idNicho === "eventos" ? ["Suas festas", "Os tipos de festa, com a cor na agenda"]
     : ["Festas ou ensaios", "O que você faz, já pronto na agenda"];
   return [
-    { titulo: "Seu negócio", texto: "Espaço de eventos ou fotografia" },
+    { titulo: "Seu negócio", texto: "Eventos, fotografia ou automotivo" },
     { titulo: "Seu site", texto: "Se você já tem um" },
     { titulo: "Nome e WhatsApp", texto: "Como o cliente te encontra" },
     { titulo: "O que organizar", texto: "Os módulos do teste de 7 dias" },
@@ -91,7 +95,7 @@ export function validarNegocio({ nome, whatsapp, meuNome }, { pedirMeuNome = fal
 export function planoDoCadastro(estado) {
   const n = acharNicho(estado.nicho);
   const marcadas = (estado.escolhas || []).filter(e => e.marcada);
-  const modulos = estado.modulos.length ? estado.modulos : [...MODULOS_SUGERIDOS];
+  const modulos = estado.modulos.length ? estado.modulos : [...sugeridosDoNicho(estado.nicho)];
   return {
     conta: {
       nome: estado.nome.trim(),
@@ -151,7 +155,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
   const pedirMeuNome = !nomeDoUsuario;
   const estado = ler(usuario.id);
   const salvar = () => guardar(usuario.id, estado);
-  const nichoValido = () => (["eventos", "fotografia"].includes(estado.nicho) ? estado.nicho : "");
+  const nichoValido = () => (NICHOS[estado.nicho] ? estado.nicho : "");
 
   el.innerHTML = telaDeAcesso({
     ambiente,
@@ -167,7 +171,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
   /** A cor e o painel da marca acompanham o nicho escolhido. */
   function aplicarNicho() {
     const n = nichoValido();
-    for (const t of ["rz-tema-eventos", "rz-tema-fotografia"]) raiz.classList.toggle(t, t === temaDoNicho(n));
+    for (const t of TEMAS_DE_NICHO.map(x => "rz-tema-" + x)) raiz.classList.toggle(t, t === temaDoNicho(n));
     if (painel.dataset.nicho !== n) {
       painel.dataset.nicho = n;
       painel.innerHTML = painelDaMarca(n);
@@ -219,14 +223,14 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
       ${topo()}
       ${cabeca("Qual é o seu negócio?", "Toque numa opção: o painel muda de cara e passa a falar a sua língua.")}
       <div class="rz-opcoes" role="group" aria-label="Seu negócio">
-        ${["eventos", "fotografia"].map(id => {
+        ${Object.keys(NICHOS).map(id => {
           const n = acharNicho(id);
           return opcaoUnica({ valor: id, titulo: n.nome, texto: n.descricao, icone: ICONE_DO_NICHO[id], escolhida: estado.nicho === id });
         }).join("")}
         ${opcaoUnica({ valor: "outro", titulo: "Outro", texto: "Outro tipo de negócio", icone: "mais", escolhida: estado.nicho === "outro" })}
       </div>
       <div class="rz-alerta rz-alerta--aviso" data-outro role="status"${estado.nicho === "outro" ? "" : " hidden"}>${icone("alerta", { tamanho: 20 })}
-        <p>Por enquanto, o Painel Renderiza é feito para espaços de eventos e fotografia. Quer conversar sobre o seu negócio?
+        <p>Por enquanto, o Painel Renderiza é feito para espaços de eventos, fotografia e lojas de carros. Quer conversar sobre o seu negócio?
         <a href="${linkDaRenderiza("Oi! Quero saber se o Painel Renderiza serve para o meu negócio.")}" target="_blank" rel="noopener">Fale com a gente no WhatsApp</a>.</p></div>`,
 
     2: () => `
@@ -256,7 +260,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
       ${cabeca("O que você quer organizar primeiro?", "Marque quantos quiser: no teste de 7 dias você usa todos os que marcar. A ordem em que marcar vira a ordem do menu.")}
       <form class="rz-pilha" novalidate>
         <div class="rz-opcoes">
-          ${ORDEM_DOS_MODULOS.map(id => `<label class="rz-opcao"><input type="checkbox" name="modulo" value="${id}"${estado.modulos.includes(id) ? " checked" : ""}>
+          ${ordemDosModulos(n.id).map(id => `<label class="rz-opcao"><input type="checkbox" name="modulo" value="${id}"${estado.modulos.includes(id) ? " checked" : ""}>
             <span class="rz-opcao-icone">${icone(ICONE_DO_MODULO[id])}</span>
             <span class="rz-opcao-texto"><b>${escapar(n.modulos[id].nome)}${estado.site === "tenho" && MODULOS_DO_SITE.includes(id) ? ` <span class="rz-etiqueta rz-etiqueta--destaque">combina com o seu site</span>` : ""}</b><small>${escapar(n.modulos[id].curto)}</small></span>
             <span class="rz-opcao-marca">${icone("ok", { tamanho: 14 })}</span></label>`).join("")}
@@ -420,7 +424,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
     1() {
       const outro = palco.querySelector("[data-outro]");
       ligarEscolhaUnica(valor => {
-        if (valor !== estado.nicho) estado.escolhas = null; // as sugestões do passo 5 são do nicho
+        if (valor !== estado.nicho) { estado.escolhas = null; estado.modulos = [...sugeridosDoNicho(valor)]; } // as sugestões e os módulos são do nicho
         estado.nicho = valor;
         outro.hidden = valor !== "outro";
         aplicarNicho();
@@ -482,7 +486,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
         trocar(5);
       });
       form.querySelector("[data-pular]").addEventListener("click", () => {
-        if (!estado.modulos.length) estado.modulos = [...MODULOS_SUGERIDOS];
+        if (!estado.modulos.length) estado.modulos = [...sugeridosDoNicho(estado.nicho)];
         trocar(5);
       });
     },

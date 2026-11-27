@@ -9,11 +9,12 @@
 import { criarAdaptadorClaude } from "./adaptadores/claude.js";
 import { comEtapaAtual } from "./modelo.js";
 
-export const TABELAS = ["leads", "conteudos", "interacoes", "ciclos", "tarefas", "demos", "visitas"];
+// termos_online e termos_aceites: os termos de aceite dos leads (supabase/termos-online.sql; seção "Termo de aceite").
+export const TABELAS = ["leads", "conteudos", "interacoes", "ciclos", "tarefas", "demos", "visitas", "termos_online", "termos_aceites"];
 // Lead com etapa de antes de 09/10/2026 (banco ainda não migrado) já aparece na etapa nova.
 const ler = (tabela, linha) => (tabela === "leads" && linha ? comEtapaAtual(linha) : linha);
 // Tabela que pode ainda não existir no banco (veio depois): se a leitura falhar, o painel segue sem ela.
-const OPCIONAIS = new Set(["demos", "visitas"]);
+const OPCIONAIS = new Set(["demos", "visitas", "termos_online", "termos_aceites"]);
 const faltando = new Set();
 export const tabelaFaltando = tabela => faltando.has(tabela);
 

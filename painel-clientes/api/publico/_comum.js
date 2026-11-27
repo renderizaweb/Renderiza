@@ -66,7 +66,7 @@ async function lerCorpo(req) {
 }
 
 /**
- * Adapta tratar({ metodo, caminho, busca, corpo, origem, ip, env }) ao (req, res) da Vercel e do servidor local. O
+ * Adapta tratar({ metodo, caminho, busca, corpo, origem, ip, agente, env }) ao (req, res) da Vercel e do servidor local. O
  * servidor local passa o env do banco escolhido (no ambiente das sessões, o SUPABASE_URL de process.env é o do Painel
  * de prospecção, que o ambiente() recusa).
  */
@@ -86,6 +86,7 @@ export function adaptar(tratar) {
         corpo,
         origem: req.headers.origin || "",
         ip: String(req.headers["x-forwarded-for"] || req.socket?.remoteAddress || "").split(",")[0].trim(),
+        agente: String(req.headers["user-agent"] || "").slice(0, 400),
         env,
       });
     } catch (e) {

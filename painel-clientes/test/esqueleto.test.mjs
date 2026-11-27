@@ -12,8 +12,8 @@ const pasta = new URL("../", import.meta.url);
 
 test("todos os módulos do 04 estão registrados", () => {
   const ids = MODULOS.map(m => m.id).sort();
-  assert.deepEqual(ids, ["agenda", "atendimento", "clientes", "configuracoes", "contratos", "equipe", "financeiro", "inicio", "meu-site", "servicos"]);
-  assert.deepEqual(MODULOS.filter(m => m.base).map(m => m.id).sort(), ["configuracoes", "equipe", "inicio", "servicos"]);
+  assert.deepEqual(ids, ["agenda", "assinatura", "atendimento", "clientes", "configuracoes", "contratos", "equipe", "estoque", "financeiro", "inicio", "meu-site", "servicos"]);
+  assert.deepEqual(MODULOS.filter(m => m.base).map(m => m.id).sort(), ["assinatura", "configuracoes", "equipe", "inicio", "servicos"]);
 });
 
 test("todas as partes do Admin estão registradas", () => {
@@ -47,7 +47,7 @@ test("vercel.json: sem build, fora do Google, sem iframe e com CSP", () => {
   assert.match(valor("Content-Security-Policy"), /frame-ancestors 'none'/);
   // scripts: o supabase-js (jsDelivr) e a verificação contra robô do cadastro (Cloudflare Turnstile, que abre num frame)
   assert.match(valor("Content-Security-Policy"), /script-src 'self' https:\/\/cdn\.jsdelivr\.net https:\/\/challenges\.cloudflare\.com;/);
-  assert.match(valor("Content-Security-Policy"), /frame-src https:\/\/challenges\.cloudflare\.com;/);
+  assert.match(valor("Content-Security-Policy"), /frame-src https: http:\/\/localhost:\*;/);
   assert.match(valor("Content-Security-Policy"), /connect-src 'self' https:\/\/\*\.supabase\.co wss:\/\/\*\.supabase\.co;/);
   assert.ok(v.rewrites.some(r => r.destination === "/index.html"));
   // Com cleanUrls ligado, a Vercel ignora o rewrite para /index.html e as rotas do app (/entrar, /agenda) dão 404.

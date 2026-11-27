@@ -1,0 +1,542 @@
+{
+ "pasta": "breve-instante-fotografia",
+ "marca": "Breve Instante Fotografia",
+ "marca_completa": "Breve Instante Fotografia",
+ "dona": "Amanda",
+ "titulo_nome": "Breve Instante",
+ "titulo_script": "fotografia",
+ "quem_a": "a Amanda",
+ "quem_da": "da Breve Instante",
+ "google": {
+  "coords": "-23.6029361,-46.7664242",
+  "fid": "0x94ce5524ec0ceaeb:0x6d1fba48ed74231",
+  "gid": "/g/11vybmn2z3"
+ },
+ "google_nome": "Breve Instante Fotografia",
+ "endereco_maps": "Av. José André de Moraes - Jardim Monte Alegre, Taboão da Serra - SP, 06755-260",
+ "google_nota": "5,0",
+ "google_total": "25",
+ "verificado": "2026-11-23",
+ "whatsapp": "5511954219141",
+ "fone_link": "+5511954219141",
+ "instagram": "breveinstantefotografia",
+ "seguidores": "1,5 mil",
+ "mensagem": "Olá, Amanda! Vi o portfólio e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#faf6f1",
+  "papel": "#ffffff",
+  "areia": "#f2e8de",
+  "linha": "#e6d8ca",
+  "tinta": "#2e2520",
+  "tinta2": "#6a5a50",
+  "rosa": "#ecd3c1",
+  "acento": "#9c5a3c",
+  "acento_escuro": "#7f4630",
+  "cafe": "#2a1f1a"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Lora",
+    "ital,wght@0,400..600;1,400..600"
+   ],
+   "sans": [
+    "Mulish",
+    "wght@300..600"
+   ],
+   "script": [
+    "Sacramento",
+    ""
+   ]
+  }
+ },
+ "renderiza": {
+  "ola": "Amanda",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "parcelado no crédito",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-30",
+  "msg_garantir": "Olá! Sou a Amanda, da Breve Instante Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou parcelado no crédito).",
+  "msg_negociar": "Olá! Sou a Amanda, da Breve Instante Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "msg_duvida": "Olá! Sou a Amanda, da Breve Instante Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida.",
+  "codigo": "tcxk"
+ },
+ "portfolio": {
+  "versao": 4,
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py), lote 4 de fotógrafos (23/11/2026). Fotos dos ORIGINAIS: posts/<código>/ = carrosséis pelo embed público (os de novembro de 2026 e alguns de 2020); drive/ = a grade salva no Drive \"lote 22 do 11\" (posts de 2019 e 2020). As duas fotos da Amanda no \"quem fotografa\" são recortes (box) das artes do post de apresentação dela, sem o texto. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "olho": "Família e eventos · Taboão da Serra, SP",
+  "titulo": "As melhores lembranças estão nos pequenos instantes.",
+  "linha": "Famílias, irmãos, mães e filhos no estúdio, e os eventos de quem você ama, em Taboão da Serra e São Paulo.",
+  "local": "Taboão da Serra",
+  "onde": "No estúdio da Amanda, no Jardim Monte Alegre, em Taboão da Serra. Datas pelo WhatsApp.",
+  "tira": [
+   "irmaos:0",
+   "familia:0",
+   "mae-e-filhos:0",
+   "eventos:0",
+   "familia:1",
+   "irmaos:1",
+   "mae-e-filhos:1"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Gislene Mota",
+    "tag": "Família",
+    "texto": "Amanda além de ser uma excelente profissional, ela tem um olhar sensível e conseguiu registrar nossa família de um jeito leve e nos deixou bem à vontade para criarmos."
+   },
+   {
+    "nome": "silvana santos",
+    "tag": "Bodas de 50 anos",
+    "texto": "Uma pessoa gentil, muito atenciosa, teve um carinho muito grande com todos. Foi um dia muito abençoado, não é todos os dias que registramos 50 anos de casados."
+   },
+   {
+    "nome": "Patriciah Braga",
+    "tag": "Festa de 5 anos",
+    "texto": "Amanda fotografou a festa de 5 anos da minha filha. É uma profissional excelente, atenta às necessidades, pontual e com autonomia de quem sabe fazer o melhor trabalho."
+   },
+   {
+    "nome": "Talita Vieira",
+    "tag": "Casamento",
+    "texto": "Super paciente e ótima profissional… adorei os trabalhos dela. Fez meu casamento e registrou todos os momentos maravilhosamente. Obrigada, Amanda!"
+   },
+   {
+    "nome": "Thais Sales",
+    "tag": "Ensaio",
+    "texto": "Minha experiência foi maravilhosa, a Amanda nos deixou bem à vontade e as fotos ficaram ótimas. Ótima profissional, recomendarei sempre que for preciso!"
+   }
+  ],
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "Amanda, a fotógrafa por trás da Breve Instante.",
+   "p": [
+    "Fotografa desde 2019, em Taboão da Serra e São Paulo: famílias, irmãos, mães e filhos, gerações e os eventos de cada um, de aniversários a casamentos e bodas.",
+    "Apaixonada por histórias, viagens e pessoas, fotografou casais, famílias e eventos também no intercâmbio na Irlanda. Acredita em registros leves, espontâneos e cheios de significado."
+   ],
+   "citacao": "Amo registrar conexões, abraços sinceros e momentos que não precisam de poses perfeitas.",
+   "citacao_quem": "Amanda, no Instagram",
+   "fotos": [
+    {
+     "arq": "posts/Dfh5xMjFMhY/Dfh5xMjFMhY_04.jpg",
+     "alt": "Amanda, a fotógrafa da Breve Instante, com a câmera",
+     "box": [
+      0.5,
+      0.14,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "arq": "posts/Dfh5xMjFMhY/Dfh5xMjFMhY_03.jpg",
+     "alt": "Amanda sorrindo",
+     "box": [
+      0.0,
+      0.06,
+      0.42,
+      0.92
+     ]
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 25 avaliações no Google"
+    ],
+    [
+     "Desde 2019",
+     "eternizando instantes"
+    ]
+   ]
+  },
+  "contato": {
+   "titulo": "Vamos guardar esse instante?",
+   "p": "Datas e valores pelo WhatsApp. O estúdio fica no Jardim Monte Alegre, em Taboão da Serra; os eventos, onde a festa acontecer.",
+   "endereco": [
+    "Av. José André de Moraes",
+    "Jardim Monte Alegre · Taboão da Serra, SP"
+   ],
+   "telefone": "(11) 95421-9141"
+  },
+  "ensaios": [
+   {
+    "id": "familia",
+    "nome": "Família",
+    "chamada": "Ensaio de família",
+    "pedido": "o ensaio de família",
+    "frase": "A beleza de uma família está em ser exatamente quem ela é.",
+    "texto": "No estúdio, pais, filhos e até três gerações juntas, com brincadeira e abraço, sem pose perfeita.",
+    "citacao": "As melhores fotografias nem sempre são as mais perfeitas. São aquelas em que o amor aparece sem pedir licença.",
+    "citacao_quem": "Amanda, no Instagram",
+    "depo": {
+     "nome": "Gislene Mota",
+     "texto": "Que experiência incrível! Amanda além de ser uma excelente profissional, ela tem um olhar sensível e conseguiu registrar nossa família de um jeito leve e nos deixou bem à vontade para criarmos. As fotos ficaram simplesmente perfeitas! Foi tudo feito com muito carinho, e o resultado superou nossas expectativas."
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     5,
+     7,
+     8,
+     10
+    ],
+    "fotos": [
+     {
+      "arq": "posts/Df7_uy9DsGn/Df7_uy9DsGn_00.jpg",
+      "alt": "Pais e filha abraçados no estúdio"
+     },
+     {
+      "arq": "posts/Df7_uy9DsGn/Df7_uy9DsGn_09.jpg",
+      "alt": "Pais e filha sorrindo juntos"
+     },
+     {
+      "arq": "posts/DfYJObPlMYG/DfYJObPlMYG_06.jpg",
+      "alt": "Pais com as duas filhas"
+     },
+     {
+      "arq": "posts/Df7_uy9DsGn/Df7_uy9DsGn_05.jpg",
+      "alt": "Pai brincando com a filha no colo"
+     },
+     {
+      "arq": "posts/Df7_uy9DsGn/Df7_uy9DsGn_07.jpg",
+      "alt": "Pais abraçando a filha"
+     },
+     {
+      "arq": "posts/Df7_uy9DsGn/Df7_uy9DsGn_01.jpg",
+      "alt": "Mãe e filha de rosto colado"
+     },
+     {
+      "arq": "posts/Df7_uy9DsGn/Df7_uy9DsGn_02.jpg",
+      "alt": "Filha beijando o pai"
+     },
+     {
+      "arq": "posts/DfYJObPlMYG/DfYJObPlMYG_00.jpg",
+      "alt": "Família de quatro, bem juntinha"
+     },
+     {
+      "arq": "posts/DfYJObPlMYG/DfYJObPlMYG_09.jpg",
+      "alt": "Mãe com as duas filhas"
+     },
+     {
+      "arq": "posts/DfYJObPlMYG/DfYJObPlMYG_07.jpg",
+      "alt": "Mãe e filha abraçadas, com o pai"
+     },
+     {
+      "arq": "posts/DfxuU36DoX4/DfxuU36DoX4_00.jpg",
+      "alt": "Três gerações: avó, mãe e neta"
+     },
+     {
+      "arq": "posts/DfxuU36DoX4/DfxuU36DoX4_04.jpg",
+      "alt": "Avó, mãe e neta, em preto e branco"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 320",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 470",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Até 6 pessoas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 670",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "irmaos",
+    "nome": "Irmãos",
+    "chamada": "Ensaio de irmãos",
+    "pedido": "o ensaio de irmãos",
+    "frase": "Um amor que acompanha a vida inteira.",
+    "texto": "No estúdio, entre risadas, brincadeiras e pequenas implicâncias.",
+    "citacao": "E como é bonito poder guardar essa cumplicidade em fotografias!",
+    "citacao_quem": "Amanda, no Instagram",
+    "depo": {
+     "nome": "Thais Sales",
+     "texto": "Minha experiência foi maravilhosa, a Amanda nos deixou bem à vontade e as fotos ficaram ótimas. Ótima profissional, recomendarei sempre que for preciso!"
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "posts/DfqGPYcjtsg/DfqGPYcjtsg_00.jpg",
+      "alt": "Irmãos abraçados, rindo"
+     },
+     {
+      "arq": "posts/DfqGPYcjtsg/DfqGPYcjtsg_01.jpg",
+      "alt": "Irmãos rosto com rosto, em preto e branco"
+     },
+     {
+      "arq": "posts/DfqGPYcjtsg/DfqGPYcjtsg_02.jpg",
+      "alt": "Irmãos sentados juntos"
+     },
+     {
+      "arq": "posts/DfqGPYcjtsg/DfqGPYcjtsg_04.jpg",
+      "alt": "Irmãos sentados no chão do estúdio"
+     },
+     {
+      "arq": "posts/DfqGPYcjtsg/DfqGPYcjtsg_03.jpg",
+      "alt": "Irmãos abraçados, em preto e branco"
+     },
+     {
+      "arq": "posts/DfqGPYcjtsg/DfqGPYcjtsg_07.jpg",
+      "alt": "Irmãos deitados, de mãos no rosto, em preto e branco"
+     },
+     {
+      "arq": "posts/DfqGPYcjtsg/DfqGPYcjtsg_09.jpg",
+      "alt": "Irmão abraçando a irmã, em preto e branco"
+     },
+     {
+      "arq": "posts/DfqGPYcjtsg/DfqGPYcjtsg_05.jpg",
+      "alt": "Irmãos de olhos fechados, sorrindo"
+     },
+     {
+      "arq": "posts/DfqGPYcjtsg/DfqGPYcjtsg_08.jpg",
+      "alt": "Irmãos deitados, de mãos no rosto"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 280",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 420",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Até 4 irmãos"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 600",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "Fotos com os pais"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "mae-e-filhos",
+    "nome": "Mãe e filhos",
+    "chamada": "Ensaio de mãe e filhos",
+    "pedido": "o ensaio de mãe e filhos",
+    "frase": "Tem colo que é abrigo.",
+    "texto": "A mãe com os filhos no estúdio: o colo, o abraço apertado e o sorriso espontâneo.",
+    "citacao": "Nem sempre é preciso olhar para a câmera para criar uma fotografia especial.",
+    "citacao_quem": "Amanda, no Instagram",
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     7,
+     8
+    ],
+    "fotos": [
+     {
+      "arq": "posts/DffrC7ijh81/DffrC7ijh81_05.jpg",
+      "alt": "Mãe e filho de nariz com nariz"
+     },
+     {
+      "arq": "posts/DffrC7ijh81/DffrC7ijh81_01.jpg",
+      "alt": "Mãe e filho rindo, em preto e branco"
+     },
+     {
+      "arq": "posts/DffrC7ijh81/DffrC7ijh81_02.jpg",
+      "alt": "Mãe com o filho no colo"
+     },
+     {
+      "arq": "posts/DffrC7ijh81/DffrC7ijh81_04.jpg",
+      "alt": "Mãe abraçando o filho"
+     },
+     {
+      "arq": "posts/DffrC7ijh81/DffrC7ijh81_06.jpg",
+      "alt": "Mãe e filho batendo as mãos"
+     },
+     {
+      "arq": "posts/DffrC7ijh81/DffrC7ijh81_00.jpg",
+      "alt": "Filho no colo da mãe, rindo"
+     },
+     {
+      "arq": "posts/DffrC7ijh81/DffrC7ijh81_03.jpg",
+      "alt": "Mãe e filho, em preto e branco"
+     },
+     {
+      "arq": "posts/DfxuU36DoX4/DfxuU36DoX4_02.jpg",
+      "alt": "Mãe e filha sorrindo"
+     },
+     {
+      "arq": "posts/DfxuU36DoX4/DfxuU36DoX4_01.jpg",
+      "alt": "Mãe e filha abraçadas"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 280",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 420",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Mãe e até 3 filhos"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 600",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "eventos",
+    "nome": "Eventos",
+    "chamada": "Aniversários, batizados e festas",
+    "pedido": "a cobertura do evento",
+    "frase": "Tudo aquilo que merece virar lembrança.",
+    "texto": "Aniversários, 15 anos, batizados, casamentos e bodas: a família, os convidados e os momentos da festa.",
+    "onde": "No salão, na igreja ou onde a festa acontecer, em Taboão da Serra, São Paulo e região. Datas pelo WhatsApp.",
+    "depo": {
+     "nome": "Patriciah Braga",
+     "texto": "Amanda fotografou a festa de 5 anos da minha filha. É uma profissional excelente, atenta às necessidades, pontual e com autonomia de quem sabe fazer o melhor trabalho. Só tenho a agradecer por registrar e cuidar com tanto carinho e atenção desse momento tão importante para mim e para minha pequena."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "drive/621722412_18126295072537805_8845216950157807345_n.jpg",
+      "alt": "Aniversariante surpresa, de coroa"
+     },
+     {
+      "arq": "drive/619109124_18109404019644139_538828422654503202_n.jpg",
+      "alt": "Família na festa de 15 anos"
+     },
+     {
+      "arq": "posts/CAA2lD6DFek/CAA2lD6DFek_06.jpg",
+      "alt": "Amigas de mãos dadas na festa"
+     },
+     {
+      "arq": "posts/CAA2lD6DFek/CAA2lD6DFek_08.jpg",
+      "alt": "Mãe e filha na festa de 2 anos"
+     },
+     {
+      "arq": "posts/CAA2lD6DFek/CAA2lD6DFek_05.jpg",
+      "alt": "Mãe e filho na festa"
+     },
+     {
+      "arq": "posts/CAA2lD6DFek/CAA2lD6DFek_02.jpg",
+      "alt": "Família diante da mesa do bolo"
+     },
+     {
+      "arq": "drive/659126051_18575514007016408_2066057713405802548_n.jpg",
+      "alt": "Madrinhas com o bebê no batizado"
+     },
+     {
+      "arq": "drive/651000191_18127659352484452_5034819957574180888_n.jpg",
+      "alt": "Batizado na igreja"
+     },
+     {
+      "arq": "drive/649748389_18110180266701510_7374681952694953638_n.jpg",
+      "alt": "Pais com a filha na festa"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Aniversário",
+      "preco": "R$ 700",
+      "itens": [
+       "2 horas de cobertura",
+       "150 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Festa completa",
+      "preco": "R$ 1.100",
+      "itens": [
+       "4 horas de cobertura",
+       "300 fotos editadas",
+       "Fotos em todas as mesas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Casamento",
+      "preco": "R$ 2.200",
+      "itens": [
+       "Cerimônia e festa",
+       "Até 8 horas de cobertura",
+       "Todas as fotos editadas"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

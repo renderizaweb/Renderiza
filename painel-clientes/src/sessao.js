@@ -52,7 +52,7 @@ export function validarSenhaNova(senha) {
 }
 
 /** Os módulos da base: vêm em toda conta e não contam no plano (02; src/modulos/index.js). */
-export const MODULOS_BASE = ["inicio", "servicos", "equipe", "configuracoes"];
+export const MODULOS_BASE = ["inicio", "servicos", "equipe", "configuracoes", "assinatura"];
 
 /**
  * O que a pessoa pode num módulo, pela linha de minhas_contas() (a mesma regra de public.pode no banco).
@@ -62,6 +62,8 @@ export function podeNaConta(conta, modulo, nivel = "ver") {
   if (!conta || !conta.liberada || !["ver", "editar"].includes(nivel)) return false;
   const acesso = (conta.acessos || {})[modulo];
   if (MODULOS_BASE.includes(modulo)) {
+    // a Assinatura só se lê: o dono e a Renderiza no suporte, até no "só ver" (13; a equipe, não)
+    if (modulo === "assinatura") return nivel === "ver" && !!(conta.dono || conta.suporte_ate);
     if (conta.dono) return true;
     if (modulo === "equipe" || modulo === "configuracoes") return false;
     return nivel === "ver" || acesso === "editar";
@@ -75,6 +77,15 @@ export function estadoDoModulo(conta, modulo) {
   if (podeNaConta(conta, modulo, "ver")) return "livre";
   if (MODULOS_BASE.includes(modulo) || (conta && (conta.modulos || []).includes(modulo))) return "trancado";
   return "fora";
+}
+
+/**
+ * Os Serviços de um nicho com serviço simples (automotivo: só nome e descrição) só servem ao Atendimento (o pedido diz
+ * o serviço). Sem ele no plano, a lista não aparece em lugar nenhum: o menu não mostra e o onboarding não pergunta
+ * (26/11/2026: a loja só com Meu site e Estoque via "Serviços" e não sabia para que era). `simples`: o do nicho.
+ */
+export function servicosSemUso(conta, simples) {
+  return !!simples && estadoDoModulo(conta, "atendimento") === "fora";
 }
 
 /** Dias que faltam do teste (arredondado para cima), ou null se a conta não está em teste. */

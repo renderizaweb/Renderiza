@@ -1,0 +1,130 @@
+{
+ "_sobre": "Vídeo de divulgação do site da Bia Maida Fotografia, que já está no ar (cliente com site e painel): para ela postar nos Stories, no Status e no Reels (\"conheçam o meu site\"). Sem marca da Renderiza, assinatura dela. Pedido do Kaue em 20/11/2026, no mesmo jeito do da Rafaela (gravacoes/rafaela-damaceno-site.json). Sai em gravacoes/bia-maida-site.mp4 e fica para baixar no kit (/kit/bia-maida-fotografia).",
+ "url": "https://biamaidafotografia.com.br/",
+ "marca": "Bia Maida Fotografia",
+ "local": "São Paulo",
+ "cores": {
+  "fundo": "#1b2a33",
+  "fundo2": "#0f1a20",
+  "acento": "#e0b39b",
+  "claro": "#f6eee6"
+ },
+ "fontes": {
+  "titulo": "Literata",
+  "texto": "Outfit"
+ },
+ "hora": "2026-11-20T10:30:00-03:00",
+ "musica": "auto",
+ "clima": "leve",
+ "resolucao": 1080,
+ "crf": 16,
+ "maxrate": 0,
+ "audio": "192k",
+ "assinatura": "@biamaidafotografia",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Site novo no ar",
+  "chamada": "Conheça o meu site",
+  "nome": [
+   "Bia Maida",
+   "Fotografia"
+  ],
+  "frase": "Te ajudo a eternizar memórias através da fotografia.",
+  "fotos": [
+   ".hero-photo img.ativa",
+   ".capsula[style*='--c:1'] img.ativa",
+   "#painel-eventos .g-item:nth-child(2) img",
+   ".capsula[style*='--c:2'] img.ativa"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Visite o meu site",
+  "destaque": "Link na bio",
+  "convite": "biamaidafotografia.com.br"
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 1.6
+  },
+  {
+   "rolar": "#portfolio .abas",
+   "alinhar": "topo",
+   "segura": 4.6,
+   "legenda": "Portfólio por evento",
+   "legenda_no_topo": true,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "tocar",
+     "alvo": "#aba-eventos",
+     "clicar": true
+    },
+    {
+     "em": 1.5,
+     "tipo": "tocar",
+     "alvo": "#painel-eventos .g-item:nth-child(1)",
+     "clicar": true
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": ".lb-trilho",
+     "cartoes": 1
+    },
+    {
+     "em": 3.9,
+     "tipo": "tocar",
+     "alvo": ".lb-fechar",
+     "clicar": true
+    }
+   ],
+   "ajuste": -70
+  },
+  {
+   "rolar": ".sobre-foto",
+   "segura": 1.9,
+   "legenda": "Quem fotografa",
+   "legenda_no_topo": true
+  },
+  {
+   "rolar": "#servicos .cob-lista",
+   "alinhar": "topo",
+   "segura": 2.2,
+   "legenda": "Aniversários, chás, casamentos e empresas",
+   "legenda_no_topo": true
+  },
+  {
+   "rolar": "#depoimentos .carousel",
+   "alinhar": "topo",
+   "segura": 2.4,
+   "legenda": "Nota 5,0 no Google",
+   "acoes": [
+    {
+     "em": 0.6,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ]
+  },
+  {
+   "rolar": "#data",
+   "alinhar": "topo",
+   "segura": 2.2,
+   "legenda": "Consulte a data do seu evento",
+   "acoes": [
+    {
+     "em": 0.8,
+     "tipo": "tocar",
+     "alvo": "[data-consulta] .chip:nth-child(2)",
+     "clicar": true
+    }
+   ],
+   "legenda_no_topo": true,
+   "ajuste": -100
+  }
+ ],
+ "legenda_baixo": 170
+}

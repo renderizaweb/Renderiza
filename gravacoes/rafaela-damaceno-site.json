@@ -1,0 +1,125 @@
+{
+ "_sobre": "Vídeo de divulgação do site da Rafaela Damaceno Estúdio Fotográfico, que já está no ar (cliente com site e painel): para ela postar nos Stories, no Status e no Reels (\"conheçam o nosso site\"). Sem marca da Renderiza, assinatura dela. Pedido do Kaue em 20/11/2026: curto (~30 s), o site rolando com o que ele tem. Como o domínio .com.br ainda não está no ar, o fechamento diz \"Link na bio\" (ela põe o link ou a figurinha de link). Sai em gravacoes/rafaela-damaceno-site.mp4 e fica para baixar em /gravacao/rafaela-damaceno-site.mp4.",
+ "url": "https://estudiorafaeladamaceno.pages.dev/",
+ "marca": "Rafaela Damaceno Estúdio Fotográfico",
+ "local": "Franco da Rocha",
+ "cores": {
+  "fundo": "#4b3d36",
+  "fundo2": "#2a201b",
+  "acento": "#e3c3ab",
+  "claro": "#fffaf6"
+ },
+ "fontes": {
+  "titulo": "Cormorant Garamond",
+  "texto": "Jost"
+ },
+ "hora": "2026-11-20T10:30:00-03:00",
+ "musica": "auto",
+ "clima": "leve",
+ "resolucao": 1080,
+ "crf": 16,
+ "maxrate": 0,
+ "audio": "192k",
+ "assinatura": "@rafaeladamacenofotografia",
+ "abertura": {
+  "estilo": "montagem",
+  "selo": "Site novo no ar",
+  "chamada": "Conheça o nosso site",
+  "nome": [
+   "Rafaela Damaceno",
+   "Estúdio Fotográfico"
+  ],
+  "frase": "Onde as memórias florescem.",
+  "fotos": [
+   ".hero-photo img",
+   "#painel-gestante .g-item:nth-child(1) img",
+   "#painel-familia .g-item:nth-child(1) img",
+   ".natal-foto img"
+  ]
+ },
+ "fechamento": {
+  "estilo": "rolagem",
+  "titulo": "Visite o nosso site",
+  "destaque": "Link na bio",
+  "convite": "Escolha o seu ensaio e chame no WhatsApp."
+ },
+ "cenas": [
+  {
+   "rolar": 0,
+   "segura": 1.6
+  },
+  {
+   "rolar": "#portfolio .abas",
+   "alinhar": "topo",
+   "segura": 4.6,
+   "legenda": "Portfólio por ensaio",
+   "legenda_no_topo": true,
+   "acoes": [
+    {
+     "em": 0.5,
+     "tipo": "tocar",
+     "alvo": "#aba-gestante",
+     "clicar": true
+    },
+    {
+     "em": 1.5,
+     "tipo": "tocar",
+     "alvo": "#painel-gestante .g-item:nth-child(1)",
+     "clicar": true
+    },
+    {
+     "em": 2.7,
+     "tipo": "deslizar",
+     "alvo": ".lb-trilho",
+     "cartoes": 1
+    },
+    {
+     "em": 3.9,
+     "tipo": "tocar",
+     "alvo": ".lb-fechar",
+     "clicar": true
+    }
+   ],
+   "ajuste": -70
+  },
+  {
+   "rolar": ".sobre-foto",
+   "segura": 1.9,
+   "legenda": "Quem fotografa",
+   "legenda_no_topo": true
+  },
+  {
+   "rolar": "#ensaios .jornada",
+   "alinhar": "topo",
+   "segura": 2.1,
+   "legenda": "Gestante, newborn, smash e família"
+  },
+  {
+   "rolar": "#depoimentos .carousel",
+   "alinhar": "topo",
+   "segura": 2.4,
+   "legenda": "O que as famílias contam",
+   "acoes": [
+    {
+     "em": 0.6,
+     "tipo": "deslizar",
+     "alvo": "#reviews-track",
+     "cartoes": 1
+    }
+   ]
+  },
+  {
+   "rolar": ".natal-foto",
+   "segura": 1.9,
+   "legenda": "Ensaio de Natal no estúdio",
+   "legenda_no_topo": true
+  },
+  {
+   "rolar": "#agendar",
+   "alinhar": "topo",
+   "segura": 2.0,
+   "legenda": "Peça o seu horário pelo site"
+  }
+ ],
+ "legenda_baixo": 170
+}

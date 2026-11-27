@@ -54,23 +54,64 @@ export function emailDoCodigo(codigo) {
     + `<p style="color:#5b6670">Renderiza · renderizaweb.com.br</p></div>`;
   return { assunto: `${codigo} é o seu código para assinar o contrato`, texto, html };
 }
-/** O e-mail do comprovante, com os dados devolvidos por comprovante_termo. */
+/**
+ * O texto do termo (a marcação de painel/src/termos-texto.js: # título, ## subtítulo, - item, 1. item, **negrito**) em
+ * HTML simples para o e-mail, com tudo escapado: é o registro do que foi assinado, dentro do próprio comprovante.
+ */
+export function htmlDoTermo(texto) {
+  const linha = t => esc(t).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
+  let html = "", lista = "", paragrafo = [];
+  const fecharParagrafo = () => { if (paragrafo.length) { html += `<p style="margin:8px 0">${linha(paragrafo.join(" "))}</p>`; paragrafo = []; } };
+  const fecharLista = () => { if (lista) { html += `</${lista}>`; lista = ""; } };
+  for (const bruta of String(texto || "").split(/\r?\n/)) {
+    const l = bruta.trim();
+    let m;
+    if (!l) { fecharParagrafo(); fecharLista(); continue; }
+    if ((m = /^##\s+(.+)$/.exec(l))) { fecharParagrafo(); fecharLista(); html += `<p style="margin:12px 0 4px;font-weight:700">${linha(m[1])}</p>`; continue; }
+    if ((m = /^#\s+(.+)$/.exec(l))) { fecharParagrafo(); fecharLista(); html += `<p style="margin:18px 0 6px;font-size:16px;font-weight:700">${linha(m[1])}</p>`; continue; }
+    const item = /^-\s+(.+)$/.exec(l), numerado = /^(\d{1,3})\.\s+(.+)$/.exec(l);
+    if (item || numerado) {
+      fecharParagrafo();
+      const tipo = item ? "ul" : "ol";
+      if (lista !== tipo) { fecharLista(); html += `<${tipo} style="margin:6px 0;padding-left:22px"${numerado && numerado[1] !== "1" ? ` start="${numerado[1]}"` : ""}>`; lista = tipo; }
+      html += `<li style="margin:3px 0">${linha(item ? item[1] : numerado[2])}</li>`;
+      continue;
+    }
+    fecharLista();
+    paragrafo.push(l);
+  }
+  fecharParagrafo(); fecharLista();
+  return html;
+}
+const cnpjBonito = c => String(c || "").replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5");
+/**
+ * O e-mail do comprovante, com os dados devolvidos por comprovante_termo. Termo de lead (página /termo/<id>): diz
+ * "Termo", mostra a opção escolhida pelo nome e, se assinou por uma empresa, a razão social e o CNPJ.
+ */
 export function emailDoComprovante(d) {
   const quando = new Date(d.em).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" });
+  const tipo = /\/termo\//.test(d.pagina || "") ? "Termo" : "Contrato";
+  const escolha = d.plano_nome ? ["Opção escolhida", d.plano_nome] : d.plano ? ["Plano escolhido", PLANOS[d.plano] || d.plano] : null;
   const linhas = [
-    ["Contrato", d.titulo], ["Protocolo", d.protocolo], ["Data e hora (Brasília)", quando], ["Nome", d.nome], ["CPF", d.cpf],
-    ["E-mail", d.email + (d.email_confirmado ? " (confirmado pelo código)" : "")], ["Plano escolhido", PLANOS[d.plano] || d.plano],
+    [tipo, d.titulo], ["Protocolo", d.protocolo], ["Data e hora (Brasília)", quando], ["Nome", d.nome], ["CPF", d.cpf],
+    ...(d.cnpj ? [["Empresa", `${d.empresa} · CNPJ ${cnpjBonito(d.cnpj)}`]] : []),
+    ["E-mail", d.email + (d.email_confirmado ? " (confirmado pelo código)" : "")], ...(escolha ? [escolha] : []),
     ["IP registrado", d.ip || "não informado"], ["Impressão digital do texto (SHA-256)", d.impressao],
-    ["Contratada", d.contratada], ["Texto do contrato", d.pagina],
+    ["Contratada", d.contratada], [`Texto do ${tipo.toLowerCase()}`, d.pagina],
   ];
-  const texto = `Contrato assinado. Este é o comprovante da assinatura eletrônica.\n\n${linhas.map(([k, v]) => `${k}: ${v}`).join("\n")}\n\n`
-    + `A impressão digital confere com o texto publicado no endereço acima. Guarde este e-mail.\nDúvidas: responda a este e-mail ou chame no WhatsApp (11) 98869-7165.\n\nRenderiza · renderizaweb.com.br`;
+  const comTexto = Boolean(String(d.texto || "").trim());
+  const texto = `${tipo} assinado. Este é o comprovante da assinatura eletrônica.\n\n${linhas.map(([k, v]) => `${k}: ${v}`).join("\n")}\n\n`
+    + `A impressão digital confere com o texto publicado no endereço acima${comTexto ? " e com o texto inteiro, logo abaixo" : ""}. Guarde este e-mail.\nDúvidas: responda a este e-mail ou chame no WhatsApp (11) 98869-7165.\n\nRenderiza · renderizaweb.com.br`
+    + (comTexto ? `\n\n———— O ${tipo.toLowerCase()} assinado ————\n\n${String(d.texto).trim()}\n` : "");
   const html = `<div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1e2528;max-width:560px">`
-    + `<p style="font-size:18px;font-weight:700">Contrato assinado</p><p>Este é o comprovante da assinatura eletrônica.</p>`
+    + `<p style="font-size:18px;font-weight:700">${tipo} assinado</p><p>Este é o comprovante da assinatura eletrônica.</p>`
     + `<table style="border-collapse:collapse;width:100%;font-size:14px">${linhas.map(([k, v]) => `<tr><td style="padding:6px 8px;border-top:1px solid #e8e2ee;color:#5b6670;vertical-align:top;white-space:nowrap">${esc(k)}</td><td style="padding:6px 8px;border-top:1px solid #e8e2ee;overflow-wrap:anywhere">${esc(v)}</td></tr>`).join("")}</table>`
-    + `<p>A impressão digital confere com o texto publicado no endereço acima. Guarde este e-mail.</p>`
-    + `<p style="color:#5b6670">Dúvidas: responda a este e-mail ou chame no WhatsApp (11) 98869-7165.<br>Renderiza · renderizaweb.com.br</p></div>`;
-  return { assunto: `Contrato assinado · protocolo ${d.protocolo}`, texto, html };
+    + `<p>A impressão digital confere com o texto publicado no endereço acima${comTexto ? " e com o texto inteiro, logo abaixo" : ""}. Guarde este e-mail.</p>`
+    + `<p style="color:#5b6670">Dúvidas: responda a este e-mail ou chame no WhatsApp (11) 98869-7165.<br>Renderiza · renderizaweb.com.br</p>`
+    + (comTexto ? `<p style="font-size:17px;font-weight:700;margin:28px 0 8px">O ${tipo.toLowerCase()} assinado</p>`
+      + `<div style="border:1px solid #e8e2ee;border-radius:10px;padding:8px 18px;font-size:14px;color:#33403b">${htmlDoTermo(d.texto)}</div>` : "")
+    + `</div>`;
+  return { assunto: `${tipo} assinado · protocolo ${d.protocolo}`, texto, html };
 }
 
 /**

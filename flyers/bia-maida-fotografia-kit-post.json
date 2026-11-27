@@ -1,0 +1,32 @@
+{
+ "_sobre": "Arte do kit de divulgação (post), gerada por ferramentas/kit/gerar.mjs a partir de demos/bia-maida-fotografia/kit.json.",
+ "marca": "Bia Maida",
+ "local": "Fotografia · São Paulo",
+ "fontes": {
+  "titulo": "Literata",
+  "texto": "Outfit"
+ },
+ "cores": {
+  "fundo": "#1b2a33",
+  "fundo2": "#0f1a20",
+  "acento": "#e0b39b",
+  "tinta_acento": "#1b2a33",
+  "claro": "#f6eee6"
+ },
+ "selo": {
+  "nota": "5,0",
+  "total": "116"
+ },
+ "cta": "Conheça o meu site",
+ "cta_icone": "link",
+ "site": "biamaidafotografia.com.br",
+ "instagram": "@biamaidafotografia",
+ "tamanho_titulo": 80,
+ "foto": {
+  "arquivo": "/home/user/Renderiza/rascunhos/kit/bia-maida-fotografia/alt-noivos-se-olhando-sorrindo-na-festa-de-casamento.webp",
+  "pos": "50% 35%"
+ },
+ "titulo": "Meu site novo<br><em>está no ar.</em>",
+ "texto": "Portfólio, serviços e a sua data num lugar só.",
+ "formato": "post"
+}

@@ -12,6 +12,9 @@
 //   titulo (aceita <em> para a parte em destaque), texto, whatsapp, cta ("Chame no WhatsApp"), endereco, instagram,
 //   tamanho_titulo (84), italico: false (fonte sem itálico, como a Bricolage Grotesque: o destaque fica só na cor).
 // Margens de Stories: nada importante nos 200 px de cima nem nos 170 de baixo (o Instagram cobre).
+// Para o kit de divulgação do cliente (ferramentas/kit/gerar.mjs; o mesmo desenho, sem mudar os flyers dos leads):
+//   formato: "post" (1080 × 1350, a arte do feed); sem whatsapp, o botão fica só com o cta (cta_icone: "link" troca o
+//   ícone do WhatsApp pelo de link); site: o endereço do site no rodapé; endereco: opcional.
 import { readFileSync, writeFileSync } from "node:fs";
 import { basename, dirname, extname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -31,6 +34,7 @@ const MIME = { ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png",
 const dataUri = arq => { const f = resolve(base, arq); return `data:${MIME[extname(f).toLowerCase()] || "image/jpeg"};base64,${readFileSync(f).toString("base64")}`; };
 const fam = n => n.replace(/ /g, "+");
 
+const POST = cfg.formato === "post", ALTURA = POST ? 1350 : 1920;
 const c = { fundo: "#1b1b1f", fundo2: "#0f0f12", acento: "#f4c542", tinta_acento: "#1b1b1f", claro: "#f6f2ea", ...cfg.cores };
 const fT = cfg.fontes?.titulo || "Poppins", fX = cfg.fontes?.texto || "DM Sans";
 // moldura da foto: 860 px de largura, ou menos quando a foto é pequena (para não ampliar demais)
@@ -41,6 +45,7 @@ const selo = cfg.selo?.texto
   : cfg.selo ? `<div class="selo">${String(cfg.selo.nota).trim() === "5,0" ? `<strong>5,0</strong>` : ""}<span><span class="estrelas">${ESTRELAS}</span><small>${cfg.selo.total ? esc(cfg.selo.total) + " avaliações no Google" : "nota no Google"}</small></span></div>` : "";
 const ICONES = {
   whats: '<path d="M16.04 4C9.4 4 4 9.38 4 16c0 2.11.55 4.18 1.6 6L4 28l6.18-1.6A12.02 12.02 0 0 0 28.06 16C28.06 9.38 22.67 4 16.04 4Zm0 21.9c-1.8 0-3.56-.48-5.1-1.4l-.37-.22-3.67.95.98-3.57-.24-.37A9.86 9.86 0 0 1 6.1 16c0-5.46 4.46-9.9 9.94-9.9 5.47 0 9.92 4.44 9.92 9.9 0 5.46-4.45 9.9-9.92 9.9Zm5.44-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.57-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z" fill="currentColor"/>',
+  link: '<path d="M13.5 18.5a5 5 0 0 0 7.1 0l4.2-4.2a5 5 0 0 0-7.1-7.1l-1.4 1.4M18.5 13.5a5 5 0 0 0-7.1 0l-4.2 4.2a5 5 0 0 0 7.1 7.1l1.4-1.4" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>',
   pin: '<path d="M16 3a10 10 0 0 0-10 10c0 7.5 10 16 10 16s10-8.5 10-16A10 10 0 0 0 16 3Zm0 13.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z" fill="currentColor"/>',
   insta: '<rect x="5" y="5" width="22" height="22" rx="6.5" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="16" cy="16" r="5.2" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="22.4" cy="9.7" r="1.5" fill="currentColor"/>',
 };
@@ -51,7 +56,7 @@ const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=${fam(fT)}:${cfg.italico === false ? "wght@500;600;700;800" : "ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700"}&family=${fam(fX)}:wght@400;500;600;700&display=block" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{width:1080px;height:1920px;overflow:hidden}
+html,body{width:1080px;height:${ALTURA}px;overflow:hidden}
 body{font-family:"${fX}",system-ui,sans-serif;font-variant-numeric:lining-nums;color:${c.claro};background:radial-gradient(130% 80% at 85% 8%, ${c.fundo} 0%, ${c.fundo2} 70%);position:relative}
 .bola{position:absolute;border-radius:50%;background:${c.acento}}
 .b1{width:300px;height:300px;right:-90px;top:-80px;opacity:.95}
@@ -77,21 +82,23 @@ h1 em{font-style:${cfg.italico === false ? "normal" : "italic"};color:${c.acento
 .cta svg{width:50px;height:50px}
 .rodape{position:absolute;left:96px;right:96px;top:1758px;display:flex;justify-content:center;gap:34px;font-size:25px;color:${c.claro};opacity:.88;font-weight:500;white-space:nowrap}
 .rodape span{display:flex;align-items:center;gap:9px}
-.rodape svg{width:30px;height:30px;color:${c.acento}}
+.rodape svg{width:30px;height:30px;color:${c.acento}}${POST ? `
+.b1{top:-170px}.b2{top:236px}.b3{bottom:20px}.topo{top:84px}.foto{top:236px;height:560px}.selo{top:720px}.texto{top:846px}
+h1{font-size:${cfg.tamanho_titulo || 70}px}.apoio{font-size:28px;margin-top:14px}.cta{top:1100px;height:96px;font-size:34px}.rodape{top:1226px}` : ""}
 </style></head><body>
 <div class="bola b1"></div><div class="bola b2"></div><div class="bola b3"></div>
 <header class="topo"><p class="local">${esc(cfg.local)}</p><p class="marca">${esc(cfg.marca)}</p></header>
 <div class="foto"><img src="${dataUri(cfg.foto.arquivo)}" style="object-position:${cfg.foto.pos || "50% 50%"}"></div>
 ${selo}
 <section class="texto"><h1>${titulo(cfg.titulo)}</h1>${cfg.texto ? `<p class="apoio">${esc(cfg.texto)}</p>` : ""}</section>
-<div class="cta">${svg("whats")}<span>${esc(cfg.cta || "Chame no WhatsApp")} · ${esc(cfg.whatsapp)}</span></div>
-<footer class="rodape"><span>${svg("pin")}${esc(cfg.endereco)}</span>${cfg.instagram ? `<span>${svg("insta")}${esc(cfg.instagram)}</span>` : ""}</footer>
+<div class="cta">${svg(cfg.cta_icone === "link" ? "link" : "whats")}<span>${esc(cfg.cta || "Chame no WhatsApp")}${cfg.whatsapp ? ` · ${esc(cfg.whatsapp)}` : ""}</span></div>
+<footer class="rodape">${cfg.endereco ? `<span>${svg("pin")}${esc(cfg.endereco)}</span>` : ""}${cfg.site ? `<span>${svg("link")}${esc(cfg.site)}</span>` : ""}${cfg.instagram ? `<span>${svg("insta")}${esc(cfg.instagram)}</span>` : ""}</footer>
 </body></html>`;
 
 const PROXY = (process.env.HTTPS_PROXY || "").replace(/^https?:\/\//, "");
 const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium",
   args: ["--no-sandbox", ...(PROXY ? ["--ignore-certificate-errors-spki-list=" + spkiProxy(), "--proxy-server=https=" + PROXY] : [])] });
-const page = await browser.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 });
+const page = await browser.newPage({ viewport: { width: 1080, height: ALTURA }, deviceScaleFactor: 1 });
 await page.setContent(html, { waitUntil: "networkidle" });
 // carrega todas as letras usadas em cada peso antes da foto (sem isso, sai letra faltando)
 await page.evaluate(async ([t, x]) => {

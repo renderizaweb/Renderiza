@@ -182,7 +182,7 @@ test("adaptar: lê o corpo do (req, res), devolve JSON e esconde o erro interno"
 // ---------- Meu site (Missão 4C) ----------
 import { tratar as site } from "../api/publico/site/[codigo]/index.js";
 import { tratar as previa } from "../api/publico/site/[codigo]/previa.js";
-import { tratar as imagem } from "../api/publico/imagens/[...caminho].js";
+import { tratar as imagem } from "../api/publico/imagens/[conta]/[arquivo].js";
 
 test("site: a versão publicada com CORS e 60 s de cache; 404 quando não responde, com o mesmo cache", async () => {
   const b = bancoFalso(() => ({ json: { esquema: 1, site: "villa-alecrim", versao: 3, secoes: {} } }));
@@ -190,7 +190,7 @@ test("site: a versão publicada com CORS e 60 s de cache; 404 quando não respon
   assert.equal(r.status, 200);
   assert.equal(r.corpo.versao, 3);
   assert.equal(r.cabecalhos["Access-Control-Allow-Origin"], "*");
-  assert.match(r.cabecalhos["Cache-Control"], /s-maxage=60/);
+  assert.match(r.cabecalhos["Cache-Control"], /^public, max-age=0, s-maxage=1$/);
   assert.deepEqual(b.chamadas[0].corpo, { p_codigo: "villa-alecrim" });
   const nulo = await site({ metodo: "GET", caminho: "/api/publico/site/villa-alecrim", env: ENV }, bancoFalso(() => ({ json: null })).buscar);
   assert.equal(nulo.status, 404);
@@ -222,4 +222,79 @@ test("imagens: só .webp da pasta de uma conta, do Storage do projeto, com cache
   assert.equal(chamadas.length, 1, "caminho estranho nem chega ao Storage");
   const fora = await imagem({ metodo: "GET", caminho: `/api/publico/imagens/${conta}/nao.webp`, env: ENV }, async () => ({ ok: false, status: 400 }));
   assert.equal(fora.status, 404);
+});
+
+// ---------- os indicadores do site (a contagem de visitas) ----------
+import { tratar as visita, aparelho } from "../api/publico/site/[codigo]/visita.js";
+
+test("visita: conta pelo banco com o aparelho embaralhado, responde sempre 204 e robô não chega ao banco", async () => {
+  const CELULAR = "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1";
+  const agora = new Date("2026-11-16T15:00:00Z");
+  const b = bancoFalso(() => ({ json: true }));
+  const pedir = extra => visita({ metodo: "POST", caminho: "/api/publico/site/villa-alecrim/visita", origem: "https://villa-alecrim.teste", ip: "203.0.113.7", agente: CELULAR, env: ENV,
+    corpo: { v: "abcdefgh12345678", p: "/", t: "celular", s: 12, se: { inicio: 12 }, c: { whatsapp: 1 }, nome: "não entra", ip: "nem isto" }, ...extra }, b.buscar, agora);
+  const r = await pedir();
+  assert.equal(r.status, 204);
+  assert.equal(r.corpo, null);
+  assert.equal(r.cabecalhos["Access-Control-Allow-Origin"], "*");
+  assert.equal(r.cabecalhos["Cache-Control"], "no-store");
+  assert.equal(b.chamadas.length, 1);
+  assert.match(b.chamadas[0].url, /\/rest\/v1\/rpc\/publico_visita$/);
+  assert.deepEqual(b.chamadas[0].corpo, {
+    p_codigo: "villa-alecrim", p_dominio: "villa-alecrim.teste", p_aparelho: aparelho("203.0.113.7", CELULAR, "villa-alecrim", agora),
+    p_dados: { v: "abcdefgh12345678", p: "/", t: "celular", s: 12, se: { inicio: 12 }, c: { whatsapp: 1 } },
+  }, "só os campos da contagem vão ao banco; o endereço e o navegador, só embaralhados");
+  assert.doesNotMatch(JSON.stringify(b.chamadas[0].corpo), /203\.0\.113\.7|iPhone/);
+
+  // o que não conta: robô, sem navegador, corpo que não é objeto, código fora do formato; e nada disso vira erro
+  for (const extra of [{ agente: "Mozilla/5.0 (compatible; Googlebot/2.1)" }, { agente: "HeadlessChrome/126" }, { agente: "" }, { corpo: Symbol.for("invalido") }, { corpo: [1] }, { caminho: "/api/publico/site/X!/visita" }]) {
+    assert.equal((await pedir(extra)).status, 204);
+  }
+  assert.equal(b.chamadas.length, 1, "nenhum deles chegou ao banco");
+  const fora = bancoFalso(() => new Error("fora do ar"));
+  assert.equal((await visita({ metodo: "POST", caminho: "/api/publico/site/villa-alecrim/visita", origem: "", ip: "", agente: CELULAR, corpo: {}, env: ENV }, fora.buscar)).status, 204, "banco fora: o site nem percebe");
+  assert.equal((await visita({ metodo: "GET", caminho: "/api/publico/site/villa-alecrim/visita", env: ENV }, b.buscar)).status, 405);
+  assert.equal((await visita({ metodo: "OPTIONS", caminho: "/api/publico/site/villa-alecrim/visita", env: ENV }, b.buscar)).status, 204);
+});
+
+test("visita: o aparelho é o mesmo no dia (o de São Paulo) e outro no dia seguinte, em outro site ou em outro navegador", () => {
+  const a = (ip, ua, site, quando) => aparelho(ip, ua, site, new Date(quando));
+  const base = a("203.0.113.7", "Safari", "villa-alecrim", "2026-11-16T15:00:00Z");
+  assert.match(base, /^[0-9a-f]{32}$/);
+  assert.equal(a("203.0.113.7", "Safari", "villa-alecrim", "2026-11-17T02:30:00Z"), base, "23h30 em São Paulo ainda é o mesmo dia");
+  assert.notEqual(a("203.0.113.7", "Safari", "villa-alecrim", "2026-11-17T03:30:00Z"), base, "no dia seguinte, outro valor: ninguém é seguido");
+  assert.notEqual(a("203.0.113.7", "Safari", "outro-site", "2026-11-16T15:00:00Z"), base);
+  assert.notEqual(a("203.0.113.7", "Chrome", "villa-alecrim", "2026-11-16T15:00:00Z"), base);
+  assert.notEqual(a("203.0.113.8", "Safari", "villa-alecrim", "2026-11-16T15:00:00Z"), base);
+});
+
+import { tratar as estoque } from "../api/publico/estoque/[codigo]/index.js";
+
+test("estoque: só o disponível e o reservado, com as fotos pelo endereço da API e o mesmo cache do site; 404 quando não responde", async () => {
+  const conta = "0b6c3f2e-1111-4222-8333-944455556666";
+  const b = bancoFalso(() => ({ json: { versao: 1, esquema: "automotivo", atualizado_em: "2026-11-24T18:00:00Z", itens: [
+    { id: "a", situacao: "disponivel", destaque: true, preco: 189900, preco_antes: null, quantidade: 1, selos: ["Blindado"], descricao: "", campos: { marca: "Aurora" }, codigo_interno: "ABC1D23",
+      fotos: [{ arquivo: conta + "/estoque-aaaaaa11.webp", mini: conta + "/estoque-aaaaaa11-m.webp", w: 1600, h: 1067 }, { arquivo: "../fora.webp", w: 1, h: 1 }] },
+    { id: "b", situacao: "reservado", preco: null, campos: { marca: "Aurora" }, fotos: [{ arquivo: conta + "/estoque-bbbbbb22.webp", w: 800, h: 600 }] },
+    { id: "c", situacao: "oculto", campos: {} },
+    { id: "d", situacao: "disponivel", campos: { marca: "Sem Foto" }, fotos: [] },
+    { id: "e", situacao: "disponivel", campos: { marca: "Só Foto de Fora" }, fotos: [{ arquivo: "../fora.webp", w: 1, h: 1 }] },
+  ] } }));
+  const r = await estoque({ metodo: "GET", caminho: "/api/publico/estoque/garagem-aurora", env: ENV }, b.buscar);
+  assert.equal(r.status, 200);
+  assert.deepEqual(b.chamadas[0].corpo, { p_codigo: "garagem-aurora" });
+  assert.match(b.chamadas[0].url, /\/rest\/v1\/rpc\/publico_estoque$/);
+  assert.equal(r.cabecalhos["Access-Control-Allow-Origin"], "*");
+  assert.equal(r.cabecalhos["Cache-Control"], "public, max-age=0, s-maxage=1", "o estoque aparece na hora: 1 s na rede");
+  assert.deepEqual(r.corpo.itens.map(i => i.id), ["a", "b"], "o oculto não passa nem se o banco mandar, nem o sem foto (o card ficava em branco)");
+  assert.equal(JSON.stringify(r.corpo).includes("ABC1D23"), false, "o código interno nunca sai");
+  assert.deepEqual(r.corpo.itens[0].fotos, [{ url: "/api/publico/imagens/" + conta + "/estoque-aaaaaa11.webp", mini: "/api/publico/imagens/" + conta + "/estoque-aaaaaa11-m.webp", w: 1600, h: 1067 }]);
+  assert.equal(r.corpo.itens[1].fotos[0].mini, r.corpo.itens[1].fotos[0].url, "sem a pequena, vai a grande");
+  assert.equal(r.corpo.itens[1].preco, null);
+  const nulo = await estoque({ metodo: "GET", caminho: "/api/publico/estoque/garagem-aurora", env: ENV }, bancoFalso(() => ({ json: null })).buscar);
+  assert.equal(nulo.status, 404);
+  assert.match(nulo.cabecalhos["Cache-Control"], /s-maxage=1$/);
+  assert.equal((await estoque({ metodo: "GET", caminho: "/api/publico/estoque/Garagem!", env: ENV })).status, 400);
+  assert.equal((await estoque({ metodo: "POST", caminho: "/api/publico/estoque/garagem-aurora", env: ENV })).status, 405);
+  assert.equal((await estoque({ metodo: "OPTIONS", caminho: "/api/publico/estoque/garagem-aurora", env: ENV })).status, 204);
 });

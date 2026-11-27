@@ -131,3 +131,32 @@ export function prazoAte(opcao, hoje) {
 }
 
 export { moeda };
+
+/** Minutos de uso em "3 h 20 min", "45 min" ou "nada" (o uso do painel, admin_uso). */
+export function duracao(minutos) {
+  const m = Math.max(0, Math.round(Number(minutos) || 0));
+  if (!m) return "nada";
+  const h = Math.floor(m / 60), r = m % 60;
+  return h ? (r ? `${h} h ${r} min` : `${h} h`) : `${m} min`;
+}
+
+/**
+ * O uso de uma pessoa no período, numa linha: "5 entradas · 1 h 20 min em 3 dias · mais em Agenda e Clientes".
+ * `u`: a linha de admin_uso; `nomeDoModulo(id)`: o nome para mostrar.
+ */
+export function resumoDoUso(u, nomeDoModulo = id => id) {
+  const n = Number(u.entradas) || 0, dias = Number(u.dias_com_uso) || 0;
+  const partes = [n === 1 ? "1 entrada" : `${n} entradas`];
+  if (Number(u.minutos) > 0) partes.push(`${duracao(u.minutos)} de uso${dias ? ` em ${dias === 1 ? "1 dia" : `${dias} dias`}` : ""}`);
+  else if (n > 0) partes.push("sem tempo de uso contado");
+  const mods = (u.modulos || []).filter(m => m.modulo !== "outro").slice(0, 3).map(m => nomeDoModulo(m.modulo));
+  if (mods.length) partes.push(`mais em ${mods.length > 1 ? mods.slice(0, -1).join(", ") + " e " + mods.at(-1) : mods[0]}`);
+  return partes.join(" · ");
+}
+
+/** Em que pé está a pessoa: usando agora, o último acesso, ou "criou a senha, mas nunca entrou". */
+export function situacaoDoUso(u, agora = Date.now()) {
+  if (usandoAgora(u.visto_em, agora)) return "usando agora";
+  if (!u.primeira_entrada && !u.visto_em) return "criou o acesso, mas ainda não entrou";
+  return `último acesso ${ultimoAcesso([u.visto_em], agora)}`;
+}

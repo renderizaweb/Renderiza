@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meu site · Estúdio Ciranda (exemplo)</title>
+<meta name="description" content="O Meu site do Painel Renderiza, de verdade, com um estúdio fictício: mude um texto, um preço ou uma foto e veja o site mudar na hora. Vem em todo plano do painel.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1e2528">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Meu site: o seu site, atualizado por você">
+<meta property="og:description" content="Teste o Meu site do Painel Renderiza com um estúdio fictício. Vem em todo plano, sem custo a mais.">
+<meta property="og:image" content="https://www.renderizaweb.com.br/exemplos/img/f-meu-site.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fontes/geist.woff2" as="font" type="font/woff2" crossorigin>
+<!-- O estilo do painel de verdade (cópia de painel-clientes/src/ui/estilo.css, conferida por teste). -->
+<link rel="stylesheet" href="/exemplos/painel/src/ui/estilo.css">
+<style>
+.ex-faixa{position:relative;z-index:50;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px 14px;padding:9px 16px;background:#1e2528;color:#fff;font:500 13px/1.35 "Geist",system-ui,sans-serif;text-align:center}
+.ex-faixa b{font-weight:650}.ex-faixa a{color:#fff;font-weight:600;text-underline-offset:3px}
+.ex-abrindo{display:grid;place-items:center;min-height:60vh;color:#5b6467;font:15px/1.4 "Geist",system-ui,sans-serif}
+</style>
+</head>
+<body>
+<p class="ex-faixa"><span><b>Exemplo:</b> o Meu site de verdade, com um estúdio fictício. O que você mudar fica só no seu navegador.</span> <a href="/exemplos/fotografia">Voltar</a></p>
+<div id="app"><div class="ex-abrindo" role="status">Abrindo o Meu site…</div></div>
+<script src="visitas.js" data-pagina="painel-eventos"></script>
+<script type="module">
+// O painel de verdade (exemplos/painel/src, cópia de painel-clientes/src): a sessão, a casca e o módulo Meu site, sobre o
+// banco de mentira (exemplos/painel/banco-de-exemplo.js). O site do quadro é o site de exemplo do Estúdio Ciranda
+// (/exemplos/site-fotografia), que ouve o editor como o site de um cliente ouve o painel.
+import { criarAdaptadorSupabase } from "/exemplos/painel/src/adaptadores/supabase.js";
+import { criarSessao } from "/exemplos/painel/src/sessao.js";
+import { montarCasca } from "/exemplos/painel/src/telas/casca.js";
+import { avisar } from "/exemplos/painel/src/ui/aviso.js";
+import { nicho } from "/exemplos/painel/src/nichos/index.js";
+import { montar as montarMeuSite } from "/exemplos/painel/src/modulos/meu-site/index.js";
+import { criarCliente, versaoNoContrato, publicada } from "/exemplos/painel/banco-de-exemplo.js";
+import { dadosDoCiranda, CODIGO, SITE } from "/exemplos/painel/dados-ciranda.js";
+import conteudoInicial from "/exemplos/site-fotografia/conteudo-inicial.js";
+
+const VERSOES = "rz-exemplo-meu-site:versoes", PUBLICADA = "rz-exemplo-meu-site:" + CODIGO, FOTOS = "rz-exemplo-meu-site";
+const ler = chave => { try { return JSON.parse(localStorage.getItem(chave)); } catch (e) { return null; } };
+const gravar = (chave, valor) => { try { if (valor == null) localStorage.removeItem(chave); else localStorage.setItem(chave, JSON.stringify(valor)); } catch (e) { /* sem espaço ou bloqueado */ } };
+
+async function abrir() {
+  // a foto enviada fica no navegador e sai pelo service worker (exemplos/sw-meu-site.js) no endereço que o painel daria
+  if ("serviceWorker" in navigator) {
+    try {
+      await navigator.serviceWorker.register("/exemplos/sw-meu-site.js", { scope: "/exemplos/" });
+      await Promise.race([navigator.serviceWorker.ready, new Promise(r => setTimeout(r, 2500))]);
+    } catch (e) { /* sem service worker: trocar foto não mostra a foto nova, o resto funciona */ }
+  }
+  const dados = dadosDoCiranda({ dominio: location.host + "/exemplos/site-fotografia", conteudoInicial });
+  dados.tabelas.sites_versoes = Array.isArray(ler(VERSOES)) ? ler(VERSOES) : [];
+  const createClient = criarCliente({
+    ...dados,
+    aoMudar: (tabela, tabelas) => {
+      if (tabela !== "sites_versoes") return;
+      gravar(VERSOES, tabelas.sites_versoes);
+      const p = publicada(tabelas, SITE);
+      gravar(PUBLICADA, p ? versaoNoContrato(CODIGO, p) : null);
+    },
+    aoEnviarArquivo: async (_bucket, caminho, arquivo) => {
+      const cache = await caches.open(FOTOS);
+      await cache.put("/api/publico/imagens/" + caminho, new Response(arquivo, { headers: { "Content-Type": arquivo.type || "image/webp" } }));
+    },
+  });
+  const banco = await criarAdaptadorSupabase({ url: "https://exemplo.invalid", chave: "exemplo", createClient });
+  const sessao = criarSessao(banco);
+  await sessao.iniciar();
+  await sessao.carregarContas();
+  await sessao.carregarPessoa();
+  const raiz = document.getElementById("app");
+  const fora = () => avisar("No exemplo, só o Meu site abre aqui. Os outros módulos estão no painel de exemplo.", { tipo: "info" });
+  // a casca de verdade (menu, topo, barra do celular); "production" só tira a etiqueta STG da casca
+  const { conteudo } = montarCasca(raiz, { rota: { tipo: "modulo", id: "meu-site" }, sessao, banco, navegar: fora, ambiente: "production" });
+  // o resto do painel não está no exemplo: o menu, o "+" e o menu da conta avisam em vez de sair da página
+  document.addEventListener("click", ev => {
+    const alvo = ev.target.closest("[data-novo], [data-mais], [data-acao], [data-sair], [data-trocar-conta], .rz-lateral a[href], .rz-barra a[href], .rz-topo a[href]");
+    if (!alvo || (alvo.matches("a[href]") && new URL(alvo.href).pathname === "/meu-site")) return;
+    ev.preventDefault();
+    ev.stopImmediatePropagation();
+    fora();
+  }, true);
+  // o módulo de verdade; ambiente "exemplo": a foto enviada ganha o endereço desta origem (o do site de exemplo)
+  await montarMeuSite(conteudo, {
+    banco, sessao, conta: sessao.conta(), nicho: nicho("fotografia"), pessoa: sessao.pessoa(), navegar: fora,
+    pode: (modulo, nivel) => sessao.pode(modulo, nivel), avisar, ambiente: "exemplo",
+  });
+}
+abrir().catch(e => {
+  document.getElementById("app").innerHTML = '<div class="ex-abrindo" role="alert">Não consegui abrir o exemplo. Recarregue a página.</div>';
+  console.error(e);
+});
+</script>
+</body>
+</html>

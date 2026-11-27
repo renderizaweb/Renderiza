@@ -6,10 +6,13 @@
 //                                visitas e, se tiver oferta com prazo (site/ofertas.mjs), a faixa e o card de valor
 //   /demo/<ótica>/capa.jpg     → a foto do topo da demo: é a imagem da prévia no WhatsApp
 //   /demo/<ótica>/f/<hash>.jpg → as fotos da demo, tiradas de dentro do HTML com os mesmos bytes (scripts/fotos-da-demo.mjs)
-//   /demo/<ótica>/<arquivo>    → outros .html da pasta da ótica (ex.: artes-instagram)
+//   /demo/<ótica>/<arquivo>    → outros .html da pasta da ótica (ex.: artes-instagram) e os .xlsx/.bin para baixar
+//                                (a planilha financeira, ferramentas/planilha/)
 //   /flyer/<lead>.png          → flyers/<lead>.png (flyer de Stories que o painel baixa; só o PNG vai ao ar)
 //   /gravacao/<lead>.mp4       → gravacoes/<lead>.mp4 (vídeo de apresentação da demo; só o MP4 vai ao ar)
 //   /como-funciona/<nicho>     → página de venda do nicho (site/como-funciona.mjs + site/nichos/<nicho>.mjs)
+//   /kit/<pasta>               → demos/<pasta>/kit.html (o kit de divulgação de quem fechou; fora da trava das demos)
+//   /termo/<id>                → termos/pagina.html (termo de aceite de um lead, lido do banco; rewrite no vercel.json)
 //   /exemplos, /exemplos/<x>   → exemplos/ (sistemas de exemplo com dados fictícios: painel, agenda online e imagens);
 //                                só HTML, JS, CSS e imagens vão ao ar
 //   /fontes, /favicon.svg…     → site/estatico/ (arquivos do site público)
@@ -131,9 +134,15 @@ export function arquivosPublicados() {
     if (!otica.isDirectory()) continue;
     const fotosDaPasta = new Map(); // a mesma foto em duas páginas da demo (site e Natal) vira um arquivo só
     for (const f of readdirSync(join(RAIZ, "demos", otica.name))) {
+      // Arquivo para baixar da demo (a planilha financeira: a versão de teste e a do cliente, cifrada com o código):
+      // vai como está para /demo/<pasta>/<arquivo>. A trava (middleware.js) não segura arquivo, só a página.
+      if (/\.(xlsx|bin)$/.test(f)) { lista.push([join("demo", otica.name, f), join(RAIZ, "demos", otica.name, f)]); continue; }
       if (!f.endsWith(".html")) continue;
       const { html, fotos, capa } = paginaDaDemo(join(RAIZ, "demos", otica.name, f), otica.name);
       for (const [nome, foto] of fotos) fotosDaPasta.set(nome, foto);
+      // O kit de divulgação de quem fechou (ferramentas/kit/gerar.mjs): fora de /demo, para não sair do ar quando a demo
+      // for desligada; conta para o mesmo lead (o contador com a pasta da demo, data-sub="kit").
+      if (f === "kit.html") { lista.push([join("kit", otica.name + ".html"), Object.assign(async () => comContador(html, otica.name, "kit"), { tipo: ".html" })]); continue; }
       if (f !== "index.html") { lista.push([join("demo", otica.name, f), Object.assign(async () => comContador(html, otica.name, f.replace(/\.html$/, "")), { tipo: ".html" })]); continue; }
       // A página principal sai com as meta og:, o contador de visitas, e a foto do topo vira capa.jpg (a imagem da prévia do link).
       // Demo com oferta de prazo (site/ofertas.mjs) sai também com a faixa e o card de valor.
@@ -157,6 +166,10 @@ export function arquivosPublicados() {
   // aceitar_termo_online (supabase/termos-online.sql), com a impressão digital do texto, o IP e o aparelho.
   const contratos = join(RAIZ, "contratos");
   if (existsSync(contratos)) for (const f of readdirSync(contratos)) if (f.endsWith(".html")) lista.push([join("contrato", f), join(contratos, f)]);
+  // Termos de lead (termos/pagina.html → /termo/<id>, pelo rewrite do vercel.json): uma página só, que lê o termo do
+  // banco (publico_termo). Os campos de cada cliente (termos/clientes/*.json) não vão ao ar.
+  const termo = join(RAIZ, "termos", "pagina.html");
+  if (existsSync(termo)) lista.push([join("termo", "index.html"), termo]);
   const vistos = new Set();
   for (const [destino] of lista) {
     if (vistos.has(destino)) throw new Error(`Dois arquivos querem ser publicados em ${destino}.`);

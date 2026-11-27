@@ -65,7 +65,7 @@ export function abrirNovaConta(ctx) {
   let demos = [];
   banco.resultado(banco.tabela("demos").select("pasta, nicho, nome, dados").order("nome")).then(lista => {
     demos = lista;
-    form.demo.innerHTML = `<option value="">Não veio de demo</option>${["eventos", "fotografia"].map(ni => `<optgroup label="${escapar(NICHOS[ni].nome)}">${lista.filter(x => x.nicho === ni).map(x => `<option value="${escapar(x.pasta)}">${escapar(x.nome)}</option>`).join("")}</optgroup>`).join("")}`;
+    form.demo.innerHTML = `<option value="">Não veio de demo</option>${Object.keys(NICHOS).map(ni => `<optgroup label="${escapar(NICHOS[ni].nome)}">${lista.filter(x => x.nicho === ni).map(x => `<option value="${escapar(x.pasta)}">${escapar(x.nome)}</option>`).join("")}</optgroup>`).join("")}`;
   }).catch(() => { form.demo.innerHTML = `<option value="">Não deu para carregar as demos</option>`; });
   form.demo.addEventListener("change", () => {
     const x = demos.find(v => v.pasta === form.demo.value);
@@ -113,7 +113,8 @@ export function abrirNovaConta(ctx) {
         nome: d.nome.trim(), nicho: d.nicho, codigo: d.codigo, whatsapp: normalizarWhatsapp(d.whatsapp) || null,
         situacao: "ativa", origem: "renderiza", ativa_ate: prazoAte(d.prazo, dia(new Date())),
         // o dono começa pela conversa de boas-vindas (/montar; Missão 7, bloco E)
-        ajustes: { onboarding: { pendente: true } },
+        // a agenda do site nasce desligada (20/11/2026): a dona liga em Configurações quando conferir os horários
+        ajustes: { onboarding: { pendente: true }, agenda: { site: false } },
       }).select("id, nome").single());
       await banco.resultado(banco.tabela("contas_modulos").insert(modulos.map(m => ({ conta_id: conta.id, modulo_id: m }))));
       const daDemo = demos.find(v => v.pasta === d.demo);

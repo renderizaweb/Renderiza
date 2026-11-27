@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { atender, cabecalhosCors, cifrar, emailDoCodigo, ipDe, novoCodigo } from "../supabase/functions/termo-codigo/logica.js";
+import { atender, cabecalhosCors, cifrar, emailDoCodigo, htmlDoTermo, ipDe, novoCodigo } from "../supabase/functions/termo-codigo/logica.js";
 
 const TERMO = "vereador-mateuzinho-silva-v1";
 function deps(resposta = { ok: true }) {
@@ -97,4 +97,41 @@ test("comprovante: protocolo fora do formato ou já enviado não manda nada", as
   assert.equal((await atender({ metodo: "POST", corpo: { acao: "comprovante", termo: TERMO, protocolo: "XYZ" } }, d)).corpo.erro, "formato");
   const r = await atender({ metodo: "POST", corpo: { acao: "comprovante", termo: TERMO, protocolo: "ABC123DEF456" } }, d);
   assert.equal(r.status, 409); assert.equal(d.enviados.length, 0);
+});
+
+test("comprovante de termo de lead: a opção pelo nome, a empresa com o CNPJ e o nome Termo", async () => {
+  const d = deps();
+  d.comprovante = async () => ({ ok: true, protocolo: "ABC123DEF456", titulo: "Termo de contratação · Site da Ricardo Motors", pagina: "https://www.renderizaweb.com.br/termo/ricardo-motors-v1",
+    contratada: "Kaue", nome: "Ricardo Neves", email: "r@exemplo.com", email_confirmado: true, cpf: "***.982.247-**", plano: "com-painel",
+    plano_nome: "Site com o Painel Renderiza · R$ 49,00 por mês", cnpj: "11222333000181", empresa: "RM Consult Car Ltda", em: "2026-11-23T13:00:00Z", ip: "200.1.2.3", impressao: "b".repeat(64) });
+  await atender({ metodo: "POST", corpo: { acao: "comprovante", termo: "ricardo-motors-v1", protocolo: "ABC123DEF456" } }, d);
+  const e = d.enviados[0];
+  assert.equal(e.assunto, "Termo assinado · protocolo ABC123DEF456");
+  assert.ok(e.texto.startsWith("Termo assinado."));
+  assert.ok(e.texto.includes("Opção escolhida: Site com o Painel Renderiza · R$ 49,00 por mês"));
+  assert.ok(e.texto.includes("Empresa: RM Consult Car Ltda · CNPJ 11.222.333/0001-81"));
+  assert.ok(e.texto.includes("Texto do termo: https://www.renderizaweb.com.br/termo/ricardo-motors-v1"));
+  // sem opções e pessoa física: nem a linha da escolha nem a da empresa
+  d.comprovante = async () => ({ ok: true, protocolo: "ABC123DEF456", titulo: "T", pagina: "https://www.renderizaweb.com.br/termo/x-v1", contratada: "K", nome: "Ana Souza",
+    email: "a@b.com", email_confirmado: true, cpf: "***", plano: "", plano_nome: "", cnpj: "", empresa: "", em: "2026-11-23T13:00:00Z", ip: "", impressao: "c".repeat(64) });
+  await atender({ metodo: "POST", corpo: { acao: "comprovante", termo: "x-v1", protocolo: "ABC123DEF456" } }, d);
+  assert.ok(!/Plano escolhido|Opção escolhida|Empresa:/.test(d.enviados[1].texto));
+});
+
+test("comprovante leva o texto inteiro do termo assinado, escapado", async () => {
+  const d = deps();
+  const texto = "# 1. As partes\n\n**Contratada:** Renderiza <script>\n\n## Sub\n- a\n- b\n\n3. três\n4. quatro";
+  d.comprovante = async () => ({ ok: true, protocolo: "ABC123DEF456", titulo: "T", pagina: "https://www.renderizaweb.com.br/termo/x-v1", contratada: "K", nome: "Ana Souza",
+    email: "a@b.com", email_confirmado: true, cpf: "***", plano: "", plano_nome: "", cnpj: "", empresa: "", em: "2026-11-24T13:00:00Z", ip: "1.2.3.4", impressao: "c".repeat(64), texto });
+  await atender({ metodo: "POST", corpo: { acao: "comprovante", termo: "x-v1", protocolo: "ABC123DEF456" } }, d);
+  const e = d.enviados[0];
+  assert.ok(e.texto.includes("———— O termo assinado ————\n\n# 1. As partes"));
+  assert.ok(e.html.includes("O termo assinado</p>") && e.html.includes("<b>Contratada:</b> Renderiza &lt;script&gt;") && !e.html.includes("<script>"));
+  assert.ok(e.html.includes("e com o texto inteiro, logo abaixo"));
+  assert.equal(htmlDoTermo("- a\n- b\n\n3. c\n4. d"), '<ul style="margin:6px 0;padding-left:22px"><li style="margin:3px 0">a</li><li style="margin:3px 0">b</li></ul><ol style="margin:6px 0;padding-left:22px" start="3"><li style="margin:3px 0">c</li><li style="margin:3px 0">d</li></ol>');
+  // sem texto (comprovante antigo), o e-mail fica como era
+  d.comprovante = async () => ({ ok: true, protocolo: "ABC123DEF456", titulo: "T", pagina: "https://x/contrato/y", contratada: "K", nome: "Ana Souza", email: "a@b.com",
+    email_confirmado: true, cpf: "***", plano: "sem-plano", em: "2026-11-24T13:00:00Z", ip: "", impressao: "c".repeat(64) });
+  await atender({ metodo: "POST", corpo: { acao: "comprovante", termo: "x-v1", protocolo: "ABC123DEF456" } }, d);
+  assert.ok(!d.enviados[1].texto.includes("assinado ————") && !d.enviados[1].html.includes("logo abaixo"));
 });

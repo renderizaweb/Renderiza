@@ -66,7 +66,18 @@ export async function montar(el, contexto) {
     const hojeNaAgenda = fazer.filter(i => i.tipo === "agenda" && i.sub.startsWith("Hoje")).length;
     el.querySelector("[data-dia]").textContent = `${dataLonga(agora, fuso).replace(/^./, l => l.toUpperCase())}. ${hojeNaAgenda ? `Hoje tem ${hojeNaAgenda} ${hojeNaAgenda === 1 ? "compromisso" : "compromissos"} na agenda.` : "Nada marcado para hoje."}`;
     const mostrar = todos ? fazer : fazer.slice(0, MAXIMO);
+    const est = dados.estoque;
     corpo.innerHTML = `
+      ${est ? `<section class="rz-secao" aria-labelledby="estoque-titulo">
+        <div class="rz-secao-cabeca"><h2 class="rz-titulo-3" id="estoque-titulo">Estoque</h2><a class="rz-link" href="/estoque">Ver o estoque</a></div>
+        <dl class="rz-funil rz-numeros">
+          <div><dt><a class="rz-numero-link" href="/estoque">No site</a></dt><dd>${est.noSite}</dd></div>
+          <div><dt><a class="rz-numero-link" href="/estoque">Reservados</a></dt><dd>${est.reservados}</dd></div>
+          <div><dt><a class="rz-numero-link" href="/estoque">Vendidos no mês</a></dt><dd>${est.vendidosNoMes}</dd></div>
+          <div${est.semFoto ? ' class="rz-numero--atencao"' : ""}><dt><a class="rz-numero-link" href="/estoque">Sem foto no site</a></dt><dd>${est.semFoto}</dd></div>
+        </dl>
+        ${pode("estoque", "editar") ? `<a class="rz-botao rz-botao--primario rz-inicio-estoque" href="/estoque?novo=item">${icone("adicionar", { tamanho: 18 })}${escapar(nicho.palavras.novoItem || "Novo item")}</a>` : ""}
+      </section>` : ""}
       <section class="rz-secao" aria-labelledby="fazer-titulo">
         <div class="rz-secao-cabeca"><h2 class="rz-titulo-3" id="fazer-titulo">Para fazer agora</h2>${fazer.length ? `<span class="rz-texto-3">${fazer.length} ${fazer.length === 1 ? "item" : "itens"}</span>` : ""}</div>
         ${fazer.length ? `<ul class="rz-linhas rz-linhas--pedidos rz-linhas--com-botao rz-cartao">${mostrar.map(linhaDeFazer).join("")}</ul>
@@ -75,13 +86,13 @@ export async function montar(el, contexto) {
       </section>
       ${nums.length ? `<section class="rz-secao" aria-label="Os números"><dl class="rz-funil rz-numeros">${nums.map(n => `<div${n.tom ? ` class="rz-numero--${n.tom}"` : ""}><dt><a class="rz-numero-link" href="${escapar(n.href)}">${escapar(n.rotulo)}</a></dt><dd>${escapar(n.valor)}</dd><small>${escapar(n.sub)}</small></div>`).join("")}</dl></section>` : ""}
       <div class="rz-inicio-colunas">
-        <section class="rz-secao" aria-labelledby="proximas-titulo">
+        ${est && !ve("agenda") ? "" : `<section class="rz-secao" aria-labelledby="proximas-titulo">
           <div class="rz-secao-cabeca"><h2 class="rz-titulo-3" id="proximas-titulo">Próxim${nicho.id === "eventos" ? "as" : "os"} ${escapar(nicho.palavras.reservas)}</h2><a class="rz-link" href="/agenda">Ver a agenda</a></div>
           ${proximas.length ? `<ul class="rz-linhas rz-cartao">${proximas.map(r => `<li><a class="rz-linha" href="/agenda?reserva=${escapar(r.id)}">
               <span class="rz-data-bloco" aria-hidden="true"><b>${escapar(String(partes(new Date(r.inicio), fuso).dia))}</b><small>${escapar(dataCurta(new Date(r.inicio), fuso).slice(0, 3))}</small></span>
               <span class="rz-linha-texto"><b>${escapar((r.clientes && r.clientes.nome) || r.titulo || "Cliente")}</b><small>${escapar([(r.tipos_reserva && r.tipos_reserva.nome) || (r.servicos && r.servicos.nome), `${dataCurta(new Date(r.inicio), fuso)}, ${hora(new Date(r.inicio), fuso)}`].filter(Boolean).join(" · "))}</small></span>${fimDaProxima(r)}</a></li>`).join("")}</ul>`
             : `<p class="rz-texto-2">Nada marcado pela frente.</p>`}
-        </section>
+        </section>`}
         <section class="rz-secao" aria-labelledby="equipe-titulo">
           <div class="rz-secao-cabeca"><h2 class="rz-titulo-3" id="equipe-titulo">O que a equipe fez</h2></div>
           ${atividades.length ? `<ol class="rz-tempo rz-cartao rz-cartao-corpo">${atividades.map(a => {
@@ -112,7 +123,7 @@ export async function montar(el, contexto) {
     const semana = new Date(agora.getTime() - 7 * 864e5).toISOString();
     const nada = Promise.resolve([]);
     const vazio = p => p.catch(() => []);
-    const [pedidos, parcelas, contratos, reservasDoMes, reservasPerto, proximas, compromissos, atividades] = await Promise.all([
+    const [pedidos, parcelas, contratos, reservasDoMes, reservasPerto, proximas, compromissos, estoque, atividades] = await Promise.all([
       ve("atendimento") ? vazio(banco.resultado(banco.tabela("pedidos").select("id, etapa, origem, criado_em, data_desejada, clientes(id, nome, whatsapp)").eq("conta_id", conta.conta_id).or(`etapa.eq.novo,criado_em.gte.${semana}`).limit(1000))) : nada,
       ve("financeiro") ? vazio(banco.resultado(banco.tabela("parcelas").select(COLUNAS_PARCELA).eq("conta_id", conta.conta_id).or(`pago_em.is.null,pago_em.gte.${hoje.slice(0, 8)}01`).limit(5000))) : nada,
       ve("contratos") ? vazio(banco.resultado(banco.tabela("contratos").select(COLUNAS_CONTRATO).eq("conta_id", conta.conta_id).or(`situacao.eq.enviado,aceito_em.gte.${mesIni}`).limit(1000))) : nada,
@@ -120,11 +131,15 @@ export async function montar(el, contexto) {
       vazio(banco.resultado(banco.tabela("reservas").select("id, inicio, fim, titulo, situacao, clientes(id, nome), tipos_reserva(nome), servicos(nome)").eq("conta_id", conta.conta_id).gte("inicio", hojeIni).lt("inicio", amanhaFim).neq("situacao", "cancelada").order("inicio"))),
       vazio(banco.resultado(banco.tabela("reservas").select(`id, inicio, fim, titulo, situacao, clientes(id, nome), tipos_reserva(nome), servicos(nome)${ve("contratos") ? ", contratos(situacao)" : ""}${ve("financeiro") ? ", parcelas(valor, pago_em), reservas_valores(valor_total, desconto)" : ""}`).eq("conta_id", conta.conta_id).gte("fim", agora.toISOString()).neq("situacao", "cancelada").order("inicio").limit(5))),
       vazio(banco.resultado(banco.tabela("compromissos").select("id, tipo, titulo, inicio, clientes(id, nome)").eq("conta_id", conta.conta_id).gte("inicio", hojeIni).lt("inicio", amanhaFim).order("inicio"))),
+      ve("estoque") ? vazio(banco.resultado(banco.tabela("estoque_itens").select("situacao, vendido_em, fotos").eq("conta_id", conta.conta_id).limit(2000))) : nada,
       vazio(banco.resultado(banco.tabela("atividades").select("id, acao, tabela, cliente_id, reserva_id, modulo, mudou, detalhe, quando, pelo_suporte, pessoas(nome)").eq("conta_id", conta.conta_id).order("quando", { ascending: false }).limit(80))).then(agruparAtividades),
     ]);
     const ids = [...new Set(atividades.map(x => x.cliente_id).filter(Boolean))];
     const nomes = ids.length ? await vazio(banco.resultado(banco.tabela("clientes").select("id, nome").in("id", ids))) : [];
-    return calcular({ pedidos, parcelas, contratos, reservasDoMes, reservasPerto, proximas, compromissos, atividades, semana, clientes: Object.fromEntries(nomes.map(c => [c.id, c.nome])) });
+    const noSite = estoque.filter(i => i.situacao === "disponivel" || i.situacao === "reservado");
+    const resumoDoEstoque = ve("estoque") ? { noSite: noSite.length, reservados: estoque.filter(i => i.situacao === "reservado").length,
+      vendidosNoMes: estoque.filter(i => i.situacao === "vendido" && i.vendido_em && i.vendido_em >= mesIni).length, semFoto: noSite.filter(i => !(i.fotos || []).length).length } : null;
+    return calcular({ pedidos, parcelas, contratos, reservasDoMes, reservasPerto, proximas, compromissos, atividades, semana, estoque: resumoDoEstoque, clientes: Object.fromEntries(nomes.map(c => [c.id, c.nome])) });
   };
   // "Para fazer agora" e os números saem do que veio; refeitos quando um "Recebi" muda uma parcela (e no desfazer)
   function calcular(d) {

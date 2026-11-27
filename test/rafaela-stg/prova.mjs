@@ -28,8 +28,10 @@ const zap = () => "119" + String(randomBytes(4).readUInt32BE() % 1e8).padStart(8
 
 let banco, painel, siteServidor, siteUrl, gerado, navegador, senhaDona, senhaEquipe, contaId;
 
-/** O site gerado, servido como no Cloudflare Pages (/natal → natal.html). */
+/** O site gerado, servido como no Cloudflare Pages (/natal → natal.html, com os cabeçalhos do _headers). */
 function servirSite(pasta) {
+  const cabecalhos = Object.fromEntries(fs.readFileSync(path.join(pasta, "_headers"), "utf8").split("\n/img/")[0].split("\n").slice(1)
+    .map(l => l.trim().match(/^([^:]+): (.*)$/)).filter(Boolean).map(m => [m[1], m[2]]));
   return new Promise(ok => {
     const s = http.createServer((req, res) => {
       let caminho = decodeURIComponent(new URL(req.url, "http://x").pathname);
@@ -37,7 +39,7 @@ function servirSite(pasta) {
       let arquivo = path.join(pasta, caminho);
       if (!fs.existsSync(arquivo) && fs.existsSync(arquivo + ".html")) arquivo += ".html";
       if (!arquivo.startsWith(pasta) || !fs.existsSync(arquivo) || fs.statSync(arquivo).isDirectory()) { res.writeHead(404); return res.end(); }
-      res.writeHead(200, { "Content-Type": TIPO[path.extname(arquivo)] || "application/octet-stream" });
+      res.writeHead(200, { ...cabecalhos, "Content-Type": TIPO[path.extname(arquivo)] || "application/octet-stream" });
       fs.createReadStream(arquivo).pipe(res);
     });
     s.listen(0, "127.0.0.1", () => ok(s));
@@ -117,6 +119,8 @@ before(async () => {
     insert into public.equipe_renderiza (usuario_id, nome) select id, 'Renderiza da prova' from u;`);
   siteServidor = await servirSite(gerado.site);
   siteUrl = `http://localhost:${siteServidor.address().port}`;
+  // o editor ao vivo abre o primeiro domínio do site: nesta prova, o site servido aqui (com a porta)
+  await banco.sql(`update public.sites set dominios = array[${q("localhost:" + siteServidor.address().port)}] || dominios where codigo = ${q(CODIGO)}`);
   navegador = await pw().chromium.launch();
 });
 
@@ -224,17 +228,35 @@ test("a página de Natal: o pedido na campanha gasta uma vaga", so, async () => 
   } finally { await de_novo.ctx.close(); }
 });
 
-test("Meu site: o que a dona publica no painel aparece no site em até 1 minuto", so, async () => {
+test("Meu site: clicar no site abre o campo, o rascunho aparece ao vivo e o que a dona publica vai para o site", so, async () => {
   const { pagina: p, ctx: c } = await abrirPainel(DONA, senhaDona);
   try {
+    const erros = [];
+    p.on("pageerror", e => erros.push(e.message));
     await p.goto(`${painel.url}/meu-site`, { waitUntil: "networkidle" });
-    await p.locator('[data-secao="inicio"]').click();
+    const site = p.frameLocator("[data-quadro]");
+    await site.locator('[data-site="inicio.frase"]', { hasText: FRASE }).waitFor({ timeout: 20000 });
+    // um clique na frase da capa, no site, abre a Capa com o cursor na frase
+    await site.locator('[data-site="inicio.frase"]').click();
+    await p.locator('[name="t:frase"]').waitFor();
+    assert.equal(await p.evaluate(() => document.activeElement.name), "t:frase");
+    assert.equal(await p.locator(".rz-ms-parte h2").textContent(), "Capa");
     await p.locator('[name="t:frase"]').fill(FRASE_NOVA);
-    await p.locator('button[type=submit][form="form-secao"]').click();
-    await p.locator("#form-secao").waitFor({ state: "detached", timeout: 15000 });
+    await site.locator('[data-site="inicio.frase"]', { hasText: FRASE_NOVA }).waitFor({ timeout: 5000 }); // ao vivo, antes de gravar
+    // o botão do topo (o que a Renderiza tentou em 16/11 e não mudava): muda nos dois lugares em que ele aparece
+    await p.locator("[data-voltar]").click();
+    await p.locator('[data-secao="cabecalho"]').click();
+    await p.locator('[name="b:botao:rotulo"]').fill("Agendar 2");
+    await assert.doesNotReject(site.locator('[data-site-botao="cabecalho.botao"]', { hasText: "Agendar 2" }).nth(1).waitFor({ state: "attached", timeout: 5000 }));
+    await p.getByText("Rascunho salvo. Falta publicar.").waitFor({ timeout: 10000 });
+    const [r] = await banco.sql(`select conteudo->'secoes'->'cabecalho'->'botoes'->'botao'->>'rotulo' as rotulo, conteudo->'secoes'->'inicio'->'textos'->>'frase' as frase
+      from public.sites_versoes where conta_id = ${q(contaId)} and estado = 'rascunho'`);
+    assert.deepEqual(r, { rotulo: "Agendar 2", frase: FRASE_NOVA }, "o rascunho gravou sozinho");
+    await foto(p, "7-painel-editor-ao-vivo");
     await p.locator("[data-publicar]:not([disabled])").click();
     await p.getByText("Publicado. Aparece no site em até 1 minuto.").waitFor({ timeout: 15000 });
-    await foto(p, "7-painel-publicado");
+    await p.getByText(/^No ar: versão 1/).waitFor({ timeout: 10000 });
+    assert.deepEqual(erros, []);
   } finally { await c.close(); }
 
   const inicio = Date.now();
@@ -249,6 +271,41 @@ test("Meu site: o que a dona publica no painel aparece no site em até 1 minuto"
     if (!visto) await new Promise(r => setTimeout(r, 3000));
   }
   assert.ok(visto, "a frase nova apareceu no site");
+});
+
+test("indicadores: a visita de uma pessoa conta (tempo, parte vista, botão clicado) e aparece no painel; robô não conta", so, async () => {
+  // até aqui o site foi aberto várias vezes pelo navegador do teste, que se apresenta como robô: nada contado
+  assert.deepEqual(await banco.sql(`select count(*)::int as n from public.sites_visitas where conta_id = ${q(contaId)}`), [{ n: 0 }]);
+  // como uma pessoa: o navegador de um celular de verdade (o do teste diz "HeadlessChrome", que a API trata como robô)
+  const ctx = await navegador.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, reducedMotion: "reduce",
+    userAgent: "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1" });
+  await ctx.addInitScript(() => Object.defineProperty(Navigator.prototype, "webdriver", { get: () => false }));
+  try {
+    const p = await ctx.newPage();
+    await p.goto(siteUrl + "/");
+    await p.locator('[data-site-botao="inicio.link"]').tap(); // "Ver o portfólio": fica na página
+    await p.waitForTimeout(4200);
+    await p.evaluate(() => window.dispatchEvent(new Event("pagehide"))); // como fechar a aba
+    await p.waitForTimeout(800);
+  } finally { await ctx.close(); }
+  const [v] = await banco.sql(`select pagina, tela, origem, segundos, cliques, secoes, length(aparelho) as aparelho, length(visita) as visita from public.sites_visitas where conta_id = ${q(contaId)}`);
+  assert.ok(v, "a visita foi contada");
+  assert.deepEqual({ pagina: v.pagina, tela: v.tela, origem: v.origem, cliques: v.cliques, aparelho: v.aparelho, visita: v.visita },
+    { pagina: "/", tela: "celular", origem: null, cliques: { "inicio.link": 1 }, aparelho: 32, visita: 16 });
+  assert.ok(v.segundos >= 3 && v.segundos <= 8, `uns 4 segundos (${v.segundos})`);
+  assert.ok(Object.keys(v.secoes).length >= 1 && Object.values(v.secoes).reduce((a, b) => a + b, 0) <= v.segundos, JSON.stringify(v.secoes));
+
+  const { pagina: p, ctx: c } = await abrirPainel(DONA, senhaDona);
+  try {
+    await p.goto(`${painel.url}/meu-site`, { waitUntil: "networkidle" });
+    await p.locator('[data-aba="indicadores"]').click();
+    await p.getByText("Os botões mais clicados").waitFor({ timeout: 15000 });
+    const quadros = (await p.locator('[data-painel="indicadores"]').innerText()).replace(/\s+/g, " ");
+    assert.match(quadros, /Visitas 1 páginas abertas Aparelhos 1 somando dia a dia Tempo médio \d s com a página à vista Cliques em botões 1/);
+    assert.match(quadros, /Capa · Ver o portfólio 1/);
+    assert.match(quadros, /Celular 100%/);
+    await foto(p, "9-painel-indicadores");
+  } finally { await c.close(); }
 });
 
 test("desligar a conta no Admin: o site volta à versão inicial e a agenda ao WhatsApp; religar, volta tudo", so, async () => {

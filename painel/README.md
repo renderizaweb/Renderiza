@@ -232,6 +232,11 @@ passo com a hora.
   continuam em `leads.mensagem_whatsapp` e o modelo em `src/mensagem.js`. Desde 28/10/2026, quando o campo tem um
   texto só (sem as etapas separadas por `---`), o topo do card mostra **Copiar mensagem** ao lado do WhatsApp: foi
   assim que entrou a mensagem de encerramento dos 16 leads de eventos (demo e valor até 31/10, com o link do painel).
+- **Termo de aceite** (tabelas `termos_online` e `termos_aceites`, desde 23/11/2026): quando o lead fecha, **Gerar termo**
+  monta o termo de contratação a partir da base geral do site (`src/termos.js`) com o que é daquele cliente; o texto
+  pode ser ajustado, `[[pendência]]` segura a assinatura, e o link `/termo/<id>` vai com **Copiar mensagem**. A
+  assinatura (nome, empresa, opção, protocolo) aparece no card e na Atividade. Tudo em
+  [docs/termos/README.md](../docs/termos/README.md).
 - **Vídeo de apresentação** (`leads.link_gravacao` terminando em `.mp4`): a seção **Demo** mostra
   **Assistir** e **Baixar MP4** (baixa como `Apresentacao - <ótica>.mp4`) e o cabeçalho ganha **Baixar
   vídeo**. O MP4 fica em `gravacoes/<id>.mp4` e vai ao ar em `/gravacao/<id>.mp4`. Outro link (Loom,
@@ -308,6 +313,10 @@ scripts/relato.mjs                  atualização pela IA (buscar, simular, apli
 docs/atualizacao-por-ia.md          fluxo da IA: regras de interpretação, formato do plano, o que falta
 test/ritmo.test.mjs                 testes das regras do placar (npm test)
 test/funil.test.mjs                 testes do funil (fases, etapas antigas, mesma lista no painel e no banco)
+painel/src/termos.js                termo de aceite do lead: o modelo base do site e os campos de cada cliente (com testes)
+painel/src/termos-texto.js          o texto do termo (marcação leve, pendências, impressão): o mesmo no painel e em /termo/<id>
+painel/src/termos-ui.js             seção Termo de aceite do card e a janela que gera e edita o termo
+termos/pagina.html                  a página /termo/<id>, onde o cliente lê e assina (lê o termo do banco)
 vercel.json                         build, pasta publicada, links sem .html e aviso ao Google para não indexar
 ```
 

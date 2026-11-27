@@ -1,0 +1,676 @@
+{
+ "pasta": "daph-prado-fotografia",
+ "marca": "Daph Prado Foto e Filme",
+ "marca_completa": "Daph Prado Foto e Filme",
+ "dona": "Daph",
+ "titulo_nome": "Daph Prado",
+ "titulo_script": "foto e filme",
+ "quem_a": "a Daph",
+ "quem_da": "da Daph",
+ "google": {
+  "coords": "-23.5669732,-46.0391873",
+  "fid": "0x94cdc376e353e2b9:0xa24f186ff6a75d8d",
+  "gid": "/g/11wxb678_b"
+ },
+ "google_nome": "Daph Prado Foto e Filme",
+ "endereco_maps": "R. Trinta e Um de Dezembro, 69A - Jardim Yoneda, Biritiba Mirim - SP, 08940-000",
+ "google_nota": "5,0",
+ "google_total": "69",
+ "verificado": "2026-11-23",
+ "whatsapp": "5511971315092",
+ "fone_link": "+5511971315092",
+ "instagram": "prado.daph",
+ "seguidores": "2,6 mil",
+ "mensagem": "Olá, Daph! Vi o portfólio e queria saber mais sobre o seu trabalho.",
+ "cores": {
+  "fundo": "#f8f5f1",
+  "papel": "#ffffff",
+  "areia": "#efe7df",
+  "linha": "#e3d8cd",
+  "tinta": "#23201d",
+  "tinta2": "#625a53",
+  "rosa": "#e9cfc0",
+  "acento": "#a8562f",
+  "acento_escuro": "#8c4526",
+  "cafe": "#221c18"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Instrument Serif",
+    "ital@0;1"
+   ],
+   "sans": [
+    "Jost",
+    "wght@300..600"
+   ],
+   "script": [
+    "Monsieur La Doulaise",
+    ""
+   ]
+  }
+ },
+ "renderiza": {
+  "ola": "Daph",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "parcelado no crédito",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-30",
+  "msg_garantir": "Olá! Sou a Daph, da Daph Prado Foto e Filme. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou parcelado no crédito).",
+  "msg_negociar": "Olá! Sou a Daph, da Daph Prado Foto e Filme. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "msg_duvida": "Olá! Sou a Daph, da Daph Prado Foto e Filme. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida.",
+  "codigo": "4559"
+ },
+ "portfolio": {
+  "versao": 4,
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py), lote 4 de fotógrafos (23/11/2026). Fotos dos ORIGINAIS: posts/<código>/ = carrosséis pelo embed público (os de novembro de 2026); alboom/<álbum>/ = as galerias da página dela na Alboom (daphprado.alboompro.com, com o telefone e o @ dela); google/ = as fotos do Perfil da Empresa; drive/ = a grade salva no Drive. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "olho": "Fotografia e filme · Biritiba Mirim, SP",
+  "titulo": "Quero contar a sua história.",
+  "linha": "Casamentos, pré-weddings, 15 anos, famílias e ensaios individuais, de Biritiba Mirim até onde a sua história acontecer.",
+  "local": "Biritiba Mirim",
+  "onde": "Em Biritiba Mirim e região, ao ar livre ou no lugar que você escolher. Datas pelo WhatsApp.",
+  "tira": [
+   "casamento:0",
+   "pre-wedding:0",
+   "debutante:0",
+   "familia:0",
+   "individual:0",
+   "pre-wedding:1",
+   "casamento:1"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Isabele Araujo",
+    "tag": "Casamento",
+    "texto": "A Daph foi uma das melhores escolhas para o nosso casamento! Super atenciosa, carinhosa e profissional. Amamos cada foto e todo o cuidado em registrar esse momento tão especial."
+   },
+   {
+    "nome": "Izabeli Elisa Dos Santos Zanetti",
+    "tag": "Ensaio de casal",
+    "texto": "Foi uma experiência incrível!! A Daph torna tudo muito leve e divertido, foi nosso primeiro ensaio de casal e já queremos vários."
+   },
+   {
+    "nome": "Lívia de Paula dos Santos",
+    "tag": "Ensaio",
+    "texto": "O atendimento da Daph é simplesmente perfeito! Ela é uma mulher muito gentil e atenciosa, tirou todas as minhas dúvidas sobre os pacotes e me ajudou com as poses para as fotos."
+   },
+   {
+    "nome": "Delminda Oliveira",
+    "tag": "Evento",
+    "texto": "Maravilhosa, super discreta no evento, não fica pedindo pros convidados posarem para fotos o tempo todo, resultado em fotos espontâneas e lindas."
+   },
+   {
+    "nome": "Regina Célia",
+    "tag": "Ensaio",
+    "texto": "Pensa em uma profissional dedicada, criativa, atenciosa… e que ama o que faz! Ela mesma! O ensaio é leve e muito divertido, super indico!"
+   }
+  ],
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "Daph Prado, fotógrafa de histórias reais.",
+   "p": [
+    "Fotografa desde 2020, em Biritiba Mirim, no Alto Tietê: casamentos, pré-weddings, 15 anos, famílias e ensaios individuais, do interior de São Paulo até onde a história acontecer.",
+    "Também filma (Daph Prado Foto e Filme). As fotos saem no tempo de cada um, com conversa: a essência vai além das poses, está em registrar o momento como ele realmente é."
+   ],
+   "citacao": "Fotógrafa de histórias reais, acreditando que a conversa e a leveza conectam.",
+   "citacao_quem": "Daph Prado, no Instagram",
+   "fotos": [
+    {
+     "arq": "google/g01.jpg",
+     "alt": "Casal ao pôr do sol na praia, num ensaio da Daph"
+    },
+    {
+     "arq": "alboom/1705740/ensaio_pre_wedding_no_chale_em_biritiba_mirim__3_.jpg",
+     "alt": "Casal diante da capela branca, em preto e branco"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 69 avaliações no Google"
+    ],
+    [
+     "5 anos",
+     "contando histórias reais"
+    ]
+   ]
+  },
+  "contato": {
+   "titulo": "Vamos contar a sua história?",
+   "p": "Datas e valores pelo WhatsApp. A Daph atende em Biritiba Mirim, Mogi das Cruzes, Guararema e região, e vai até onde a sua história acontecer.",
+   "endereco": [
+    "R. Trinta e Um de Dezembro, 69A",
+    "Jardim Yoneda · Biritiba Mirim, SP"
+   ],
+   "telefone": "(11) 97131-5092"
+  },
+  "ensaios": [
+   {
+    "id": "casamento",
+    "nome": "Casamento",
+    "chamada": "Fotografia de casamento",
+    "pedido": "a fotografia do casamento",
+    "frase": "Todo casamento tem uma história acontecendo.",
+    "texto": "Do making of à festa: a cerimônia na igreja ou no civil, a família, os detalhes e o casal no fim do dia.",
+    "onde": "Na igreja, no cartório e no espaço da festa, em Biritiba Mirim, Mogi das Cruzes e região. Datas pelo WhatsApp.",
+    "depo": {
+     "nome": "Isabele Araujo",
+     "texto": "A Daph foi uma das melhores escolhas para o nosso casamento! Super atenciosa, carinhosa e profissional. Amamos cada foto e todo o cuidado em registrar esse momento tão especial. Recomendamos de olhos fechados!"
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     6,
+     7,
+     10
+    ],
+    "fotos": [
+     {
+      "arq": "alboom/1699932/casamento_biritiba_mirim__24_.jpg",
+      "alt": "Noivos no gramado, ao entardecer"
+     },
+     {
+      "arq": "alboom/1699932/casamento_biritiba_mirim__25_.jpg",
+      "alt": "Beijo dos noivos ao entardecer"
+     },
+     {
+      "arq": "alboom/1699932/casamento_biritiba_mirim__26_.jpg",
+      "alt": "Noivos debaixo do véu"
+     },
+     {
+      "arq": "alboom/1699932/casamento_biritiba_mirim__13_.jpg",
+      "alt": "Noivos no altar, sorrindo"
+     },
+     {
+      "arq": "alboom/1699932/casamento_biritiba_mirim__21_.jpg",
+      "alt": "Noivos na entrada da igreja"
+     },
+     {
+      "arq": "alboom/1699932/casamento_biritiba_mirim__17_.jpg",
+      "alt": "Troca das alianças diante do padre"
+     },
+     {
+      "arq": "alboom/1699932/casamento_biritiba_mirim__10_.jpg",
+      "alt": "Noivo emocionado no altar"
+     },
+     {
+      "arq": "alboom/1699932/casamento_biritiba_mirim__4_.jpg",
+      "alt": "Noiva colocando os brincos no making of"
+     },
+     {
+      "arq": "alboom/1699932/casamento_biritiba_mirim__7_.jpg",
+      "alt": "Noiva abraçando a mãe antes da cerimônia"
+     },
+     {
+      "arq": "posts/DgAqm7HmsZY/DgAqm7HmsZY_01.jpg",
+      "alt": "Casal mostrando as alianças no casamento civil"
+     },
+     {
+      "arq": "posts/DgAqm7HmsZY/DgAqm7HmsZY_05.jpg",
+      "alt": "Noivos com a família no casamento civil"
+     },
+     {
+      "arq": "alboom/1700748/casamento__20_.jpg",
+      "alt": "Noivos abraçados na festa"
+     },
+     {
+      "arq": "alboom/1700748/casamento__19_.jpg",
+      "alt": "Noivos sorrindo diante das flores"
+     },
+     {
+      "arq": "alboom/1700748/casamento__6_.jpg",
+      "alt": "Noiva com o buquê, de corpo inteiro"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Civil",
+      "preco": "R$ 1.200",
+      "itens": [
+       "Cerimônia no cartório",
+       "2 horas de cobertura",
+       "150 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 2.900",
+      "itens": [
+       "Making of, cerimônia e festa",
+       "Até 8 horas de cobertura",
+       "500 fotos editadas",
+       "Ensaio do casal no fim do dia"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Foto e filme",
+      "preco": "R$ 4.500",
+      "itens": [
+       "Tudo do Completo",
+       "Filme do casamento",
+       "Álbum impresso 30x30"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "pre-wedding",
+    "nome": "Casal e pré-wedding",
+    "curto": "Pré-wedding",
+    "chamada": "Ensaio de casal e pré-wedding",
+    "pedido": "o ensaio de casal",
+    "frase": "Nem todo dia perfeito tem sol.",
+    "texto": "Na praia, no campo, na cidade ou num chalé, no tempo de vocês: ela vai conversando e explicando, e o ensaio flui.",
+    "citacao": "A neblina virou cenário, a chuva trouxe ainda mais romance.",
+    "citacao_quem": "Daph Prado, no Instagram",
+    "onde": "Ao ar livre: Guararema, a praia de Itagaré, o chalé em Biritiba Mirim ou o lugar que vocês escolherem.",
+    "depo": {
+     "nome": "Izabeli Elisa Dos Santos Zanetti",
+     "texto": "Foi uma experiência incrível!! A Daph torna tudo muito leve e divertido, foi nosso primeiro ensaio de casal e já queremos vários."
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     5,
+     6,
+     8,
+     9
+    ],
+    "fotos": [
+     {
+      "arq": "posts/DgDJn3SEShl/DgDJn3SEShl_00.jpg",
+      "alt": "Casal descendo a escadaria, em Guararema"
+     },
+     {
+      "arq": "posts/Df74ofomPKd/Df74ofomPKd_06.jpg",
+      "alt": "Casal com o guarda-chuva no mirante, na neblina"
+     },
+     {
+      "arq": "alboom/1705740/ensaio_pre_wedding_no_chale_em_biritiba_mirim__2_.jpg",
+      "alt": "Casal diante da capela amarela"
+     },
+     {
+      "arq": "posts/DgDJn3SEShl/DgDJn3SEShl_03.jpg",
+      "alt": "Casal abraçado no mirante entre as árvores"
+     },
+     {
+      "arq": "posts/DgDJn3SEShl/DgDJn3SEShl_02.jpg",
+      "alt": "Casal no deck, no meio do verde"
+     },
+     {
+      "arq": "posts/DgAqm7HmsZY/DgAqm7HmsZY_00.jpg",
+      "alt": "Casal no mar, no pré-wedding na praia"
+     },
+     {
+      "arq": "posts/DgAqm7HmsZY/DgAqm7HmsZY_10.jpg",
+      "alt": "Beijo do casal na praia, em preto e branco"
+     },
+     {
+      "arq": "posts/Df74ofomPKd/Df74ofomPKd_00.jpg",
+      "alt": "Casal sorrindo, em preto e branco"
+     },
+     {
+      "arq": "posts/Df74ofomPKd/Df74ofomPKd_01.jpg",
+      "alt": "Casal com o guarda-chuva no campo, na neblina"
+     },
+     {
+      "arq": "alboom/1687701/ensaio_pre_wedding_praia_itagare_14_.jpg",
+      "alt": "Casal de mãos dadas no mar, contra o sol"
+     },
+     {
+      "arq": "alboom/1687701/ensaio_pre_wedding_praia_itagare_7_.jpg",
+      "alt": "Beijo do casal na praia, ao pôr do sol"
+     },
+     {
+      "arq": "alboom/1687701/ensaio_pre_wedding_praia_itagare_1_.jpg",
+      "alt": "Casal caminhando na areia de Itagaré"
+     },
+     {
+      "arq": "alboom/1705740/ensaio_pre_wedding_no_chale_em_biritiba_mirim__5_.jpg",
+      "alt": "Casal no bosque"
+     },
+     {
+      "arq": "google/g00.jpg",
+      "alt": "Casal dançando na rua de casarões"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 450",
+      "itens": [
+       "1 hora de ensaio",
+       "20 fotos editadas",
+       "1 locação"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 650",
+      "itens": [
+       "2 horas de ensaio",
+       "40 fotos editadas",
+       "2 locações",
+       "Troca de roupa"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 950",
+      "itens": [
+       "3 horas de ensaio",
+       "Todas as fotos editadas",
+       "Vídeo curto do ensaio"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "debutante",
+    "nome": "15 anos",
+    "chamada": "Ensaio e festa de 15 anos",
+    "pedido": "o ensaio de 15 anos",
+    "frase": "Quinze primaveras.",
+    "texto": "O ensaio da debutante, como o do Museu do Ipiranga, e a festa: a entrada, as valsas, o brinde e o parabéns.",
+    "onde": "Ao ar livre, como no Museu do Ipiranga, e no salão da festa. Datas pelo WhatsApp.",
+    "depo": {
+     "nome": "Delminda Oliveira",
+     "texto": "Maravilhosa, super discreta no evento, não fica pedindo pros convidados posarem para fotos o tempo todo, resultado em fotos espontâneas e lindas. Super recomendo!"
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     7,
+     9
+    ],
+    "fotos": [
+     {
+      "arq": "alboom/1694367/ensaio_debutante_museu_do_ipiranga_sp___2_.jpg",
+      "alt": "Debutante de vestido azul diante do museu"
+     },
+     {
+      "arq": "alboom/1694367/ensaio_debutante_museu_do_ipiranga_sp___11_.jpg",
+      "alt": "Debutante na escadaria do Museu do Ipiranga"
+     },
+     {
+      "arq": "alboom/1694367/ensaio_debutante_museu_do_ipiranga_sp___6_.jpg",
+      "alt": "Debutante girando o vestido no jardim"
+     },
+     {
+      "arq": "alboom/1694367/ensaio_debutante_museu_do_ipiranga_sp___4_.jpg",
+      "alt": "Debutante sentada na borda do chafariz"
+     },
+     {
+      "arq": "alboom/1694367/ensaio_debutante_museu_do_ipiranga_sp___9_.jpg",
+      "alt": "Debutante de costas, olhando o chafariz"
+     },
+     {
+      "arq": "alboom/1694367/ensaio_debutante_museu_do_ipiranga_sp___8_.jpg",
+      "alt": "Debutante entre os arbustos do jardim"
+     },
+     {
+      "arq": "alboom/1694367/ensaio_debutante_museu_do_ipiranga_sp___5_.jpg",
+      "alt": "Debutante sentada na escadaria"
+     },
+     {
+      "arq": "alboom/1694367/ensaio_debutante_museu_do_ipiranga_sp___10_.jpg",
+      "alt": "Debutante no chafariz, em preto e branco"
+     },
+     {
+      "arq": "alboom/1694367/ensaio_debutante_museu_do_ipiranga_sp___15_.jpg",
+      "alt": "Debutante diante do museu"
+     },
+     {
+      "arq": "alboom/1694367/ensaio_debutante_museu_do_ipiranga_sp___16_.jpg",
+      "alt": "Debutante no jardim do museu"
+     },
+     {
+      "arq": "posts/C1W7rfRMTRF/C1W7rfRMTRF_03.jpg",
+      "alt": "Entrada da debutante na festa"
+     },
+     {
+      "arq": "posts/CwnZVg4un1J/CwnZVg4un1J_03.jpg",
+      "alt": "Debutante dançando a valsa na festa"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Ensaio",
+      "preco": "R$ 500",
+      "itens": [
+       "2 horas de ensaio",
+       "30 fotos editadas",
+       "1 locação"
+      ]
+     },
+     {
+      "nome": "Ensaio e festa",
+      "preco": "R$ 1.800",
+      "itens": [
+       "Ensaio externo",
+       "Até 4 horas de festa",
+       "300 fotos editadas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 2.600",
+      "itens": [
+       "Making of, ensaio e festa",
+       "Todas as fotos editadas",
+       "Filme da festa"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "chamada": "Ensaio de família",
+    "pedido": "o ensaio de família",
+    "frase": "O mesmo amor, em forma de família.",
+    "texto": "Pais e filhos no tempo deles, com conversa e brincadeira, até no Natal em família.",
+    "depo": {
+     "nome": "Regina Célia",
+     "texto": "Pensa em uma profissional dedicada, criativa, atenciosa… e que ama o que faz! Ela mesma! O ensaio é leve e muito divertido, super indico!"
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     8
+    ],
+    "fotos": [
+     {
+      "arq": "posts/Df-kKAUmKyA/Df-kKAUmKyA_01.jpg",
+      "alt": "Pais com o filho na poltrona"
+     },
+     {
+      "arq": "posts/Df-kKAUmKyA/Df-kKAUmKyA_06.jpg",
+      "alt": "Família rindo no sofá"
+     },
+     {
+      "arq": "posts/Df-kKAUmKyA/Df-kKAUmKyA_02.jpg",
+      "alt": "Família brincando no tapete"
+     },
+     {
+      "arq": "posts/Df-kKAUmKyA/Df-kKAUmKyA_05.jpg",
+      "alt": "Pais com o filho no colo, no tapete"
+     },
+     {
+      "arq": "posts/Df-kKAUmKyA/Df-kKAUmKyA_04.jpg",
+      "alt": "Pai brincando com o filho"
+     },
+     {
+      "arq": "posts/Df-kKAUmKyA/Df-kKAUmKyA_03.jpg",
+      "alt": "Mãe e filho de mãos dadas"
+     },
+     {
+      "arq": "posts/Df-kKAUmKyA/Df-kKAUmKyA_07.jpg",
+      "alt": "Mãe e filho, rosto com rosto"
+     },
+     {
+      "arq": "posts/Df-kKAUmKyA/Df-kKAUmKyA_00.jpg",
+      "alt": "Menino sentado no tapete, em preto e branco"
+     },
+     {
+      "arq": "posts/C1cYieesRVU/C1cYieesRVU_04.jpg",
+      "alt": "Pais com os filhos ao ar livre"
+     },
+     {
+      "arq": "drive/656024490_18064857710352551_1878657412869130066_n.webp",
+      "alt": "Mãe e filha abraçadas, em preto e branco"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 350",
+      "itens": [
+       "40 minutos de ensaio",
+       "15 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 500",
+      "itens": [
+       "1 hora de ensaio",
+       "30 fotos editadas",
+       "Até 6 pessoas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 700",
+      "itens": [
+       "1h30 de ensaio",
+       "50 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "individual",
+    "nome": "Ensaio individual",
+    "curto": "Individual",
+    "chamada": "Ensaio individual",
+    "pedido": "o ensaio individual",
+    "frase": "A conversa e a leveza conectam.",
+    "texto": "Retratos no fundo terracota ou ao ar livre: para o trabalho, para celebrar uma fase ou para ter fotos suas.",
+    "depo": {
+     "nome": "Lívia de Paula dos Santos",
+     "texto": "O atendimento da Daph é simplesmente perfeito! Ela é uma mulher muito gentil e atenciosa, tirou todas as minhas dúvidas sobre os pacotes e me ajudou com as poses para as fotos. Além de todo o carinho durante o atendimento, o resultado ficou impecável, uma foto mais incrível que a outra."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "google/g03.jpg",
+      "alt": "Retrato no fundo terracota"
+     },
+     {
+      "arq": "alboom/1702778/ensaio_corporativo_em_studio_biritiba_mirim__5_.jpg",
+      "alt": "Retrato de perfil, de camisa branca"
+     },
+     {
+      "arq": "google/g04.jpg",
+      "alt": "Retrato sentada no banquinho"
+     },
+     {
+      "arq": "alboom/1702778/ensaio_corporativo_em_studio_biritiba_mirim__2_.jpg",
+      "alt": "Retrato sentada no tapete, sorrindo"
+     },
+     {
+      "arq": "alboom/1702778/ensaio_corporativo_em_studio_biritiba_mirim__4_.jpg",
+      "alt": "Retrato com pincéis de maquiagem jogados para o alto"
+     },
+     {
+      "arq": "alboom/1702778/ensaio_corporativo_em_studio_biritiba_mirim__7_.jpg",
+      "alt": "Retrato de braços cruzados"
+     },
+     {
+      "arq": "alboom/1702778/ensaio_corporativo_em_studio_biritiba_mirim__8_.jpg",
+      "alt": "Retrato sorrindo, de camisa branca"
+     },
+     {
+      "arq": "drive/619603552_17985200498780002_9168684294170412106_n.jpg",
+      "alt": "Retrato debaixo da árvore, em preto e branco"
+     },
+     {
+      "arq": "drive/624649491_18040478654722334_4328678687143299154_n.webp",
+      "alt": "Retrato no muro grafitado, em preto e branco"
+     },
+     {
+      "arq": "drive/655041280_18112125826686038_5900138843470440446_n.jpg",
+      "alt": "Retrato à noite, com os rastros de luz dos carros"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 300",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "1 look"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 450",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "2 looks"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 650",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "3 looks e locação externa"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

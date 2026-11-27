@@ -49,6 +49,8 @@ prospecção é sempre chamado de **Painel de prospecção**, e a área da Rende
 | [`prompt-de-sessao.md`](prompt-de-sessao.md) | O texto para colar ao abrir uma sessão nova do Claude (lê a documentação, confere o que está em andamento, segue as regras) | ao abrir qualquer sessão |
 | [`10-design-system.md`](10-design-system.md) | As cores, o tipo, os espaços e as peças (`src/ui/`), com as regras de uso | antes de escrever qualquer tela |
 | [`11-onboarding-ia-levantamento.md`](11-onboarding-ia-levantamento.md) | Parada 7 (onboarding com IA, do convite até a confiança): o caminho da pessoa, o roteiro do que extrair, os marcos e a IA (decidido em 30/10, D40 a D50) | antes de trabalhar na Missão 7 |
+| [`12-modulo-estoque.md`](12-modulo-estoque.md) | O módulo Estoque (planejado em 20/11/2026): os produtos do site atualizados pelo painel, os campos por nicho (automotivo, ótica), o desenho com o site, as fases e o que está em aberto | antes de mexer em estoque, catálogo ou vitrine de produtos |
+| [`13-assinatura.md`](13-assinatura.md) | A assinatura do lado do cliente (26/11/2026): a tela "Assinatura" do dono (como está, o plano, o extrato, como funciona), o "Combinar o dia" no Admin e as regras do vencimento |
 | [`termos-referencias.md`](termos-referencias.md) | Os termos de uso e a política de privacidade: o que falta preencher, as decisões que estão neles e as leis e normas de cada ponto | antes de mexer nos termos ou na política |
 | [`roteiro-do-piloto.md`](roteiro-do-piloto.md) | O passo a passo para a Renderiza simular o piloto na produção, com as 5 tarefas | parada 6 |
 

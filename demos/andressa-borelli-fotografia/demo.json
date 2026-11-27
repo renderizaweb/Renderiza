@@ -1,0 +1,443 @@
+{
+ "pasta": "andressa-borelli-fotografia",
+ "marca": "Andressa Borelli Fotografia",
+ "marca_completa": "Andressa Borelli Fotografia",
+ "dona": "Andressa",
+ "titulo_nome": "Andressa Borelli",
+ "titulo_script": "fotografia",
+ "quem_a": "a Andressa",
+ "quem_da": "da Andressa",
+ "google": {
+  "coords": "-23.6186782,-46.7725217",
+  "fid": "0x94ce53dc495ff317:0x4c79e4339baa6158",
+  "gid": "/g/11j8z_kf1d"
+ },
+ "google_nome": "Andressa Borelli - Fotografia",
+ "endereco_maps": "Estr. São Francisco, 1820 - Vila Sonia do Taboao, Taboão da Serra - SP, 06765-000",
+ "google_nota": "5,0",
+ "google_total": "57",
+ "verificado": "2026-11-21",
+ "whatsapp": "5511961375428",
+ "fone_link": "+5511961375428",
+ "instagram": "andressaborellifotografia",
+ "seguidores": "1,1 mil",
+ "mensagem": "Olá! Vi o portfólio da Andressa e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbf9f6",
+  "papel": "#ffffff",
+  "areia": "#f3eee8",
+  "linha": "#e4dcd2",
+  "tinta": "#26292a",
+  "tinta2": "#5f6466",
+  "rosa": "#f2d6c4",
+  "acento": "#3f7a78",
+  "acento_escuro": "#31615f",
+  "cafe": "#1f2627"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Sorts Mill Goudy",
+    "ital@0;1"
+   ],
+   "sans": [
+    "Albert Sans",
+    "wght@300..600"
+   ],
+   "script": [
+    "Petit Formal Script",
+    ""
+   ]
+  }
+ },
+ "renderiza": {
+  "ola": "Andressa",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "parcelado no crédito",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-12-01",
+  "msg_garantir": "Olá! Sou a Andressa, da Andressa Borelli Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou parcelado no crédito).",
+  "msg_negociar": "Olá! Sou a Andressa, da Andressa Borelli Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "msg_duvida": "Olá! Sou a Andressa, da Andressa Borelli Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida.",
+  "codigo": "rgk2"
+ },
+ "portfolio": {
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py), feito com a skill demo-portfolio-fotografa. Originais: drive/ = a grade dela salva no Drive (posts de dez/2021, com o cenário de Natal daquele ano, 1440 px); posts/ = os carrosséis de set a nov/2026 lidos pelo embed público (até 2048 px); google/ = Perfil da Empresa. Sem página de Natal: o de 2026 só saiu em reel. Pacotes e valores são EXEMPLOS (a demo mostra o selo).",
+  "versao": 4,
+  "local": "Taboão da Serra",
+  "olho": "Fotógrafa · Taboão da Serra, SP",
+  "titulo": "Newborn, gestante e família em Taboão da Serra.",
+  "linha": "Recém-nascidos, gestantes, famílias e crianças, no estúdio da Estrada São Francisco.",
+  "tira": [
+   "newborn:0",
+   "familia:0",
+   "infantil:0",
+   "newborn:1",
+   "familia:4",
+   "infantil:2",
+   "newborn:2",
+   "familia:1"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "helenzinhamarielly Jesus",
+    "tag": "Newborn",
+    "texto": "A higienização do estúdio está de parabéns, ela usa máscara, jaleco, o ambiente climatizado, o bebê não sente frio."
+   },
+   {
+    "nome": "Nataly Lima",
+    "tag": "Bebê",
+    "texto": "Durante o ensaio demonstrou muita paciência, e muito amor pelo o que faz!"
+   },
+   {
+    "nome": "Stefanie Motta",
+    "tag": "Ensaio infantil",
+    "texto": "Desde o início, fomos recebidos com tanto carinho, cuidado e uma paciência incrível, algo que faz toda a diferença quando se trata de criança!"
+   },
+   {
+    "nome": "Luciana Pina",
+    "tag": "Ensaio de 50 anos",
+    "texto": "Confesso que estava um pouco apreensiva, mas seu jeito leve, seu bom humor e a conversa agradável fizeram com que tudo acontecesse de forma natural e divertida."
+   }
+  ],
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "Andressa Borelli.",
+   "p": [
+    "A Andressa fotografa recém-nascidos, gestantes, famílias e crianças no estúdio dela, na Estrada São Francisco, em Taboão da Serra. Também faz ensaios de pets e corporativos.",
+    "As clientes contam nas avaliações que ela usa jaleco e máscara com os bebês e que o estúdio é climatizado."
+   ],
+   "citacao": "Cada bebê que passa pelo meu estúdio me lembra o quanto é precioso poder registrar o começo de uma história.",
+   "citacao_quem": "Andressa Borelli, no Instagram",
+   "fotos": [
+    {
+     "arq": "drive/Instagram_files/656185521_18329609623247932_6195496280643526685_n.jpg",
+     "alt": "Andressa Borelli com a câmera, a foto do perfil dela"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 57 avaliações no Google"
+    ],
+    [
+     "1,1 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "contato": {
+   "titulo": "Agende o seu ensaio.",
+   "p": "Datas e valores pelo WhatsApp. O estúdio fica na Estrada São Francisco, em Taboão da Serra.",
+   "endereco": [
+    "Estr. São Francisco, 1820",
+    "Vila Sônia do Taboão · Taboão da Serra, SP"
+   ],
+   "telefone": "(11) 96137-5428"
+  },
+  "ensaios": [
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "chamada": "Ensaio newborn",
+    "pedido": "o ensaio newborn",
+    "frase": "Os primeiros dias do bebê, no estúdio.",
+    "texto": "Com mantas, cestos, toucas e acessórios do estúdio. Os pais também podem entrar nas fotos.",
+    "quando": "Costuma ser feito nos primeiros 15 dias de vida. Por isso a reserva é feita ainda na gestação.",
+    "depo": {
+     "nome": "helenzinhamarielly Jesus",
+     "texto": "A higienização do estúdio está de parabéns, ela usa máscara, jaleco, o ambiente climatizado, o bebê não sente frio."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "drive/Instagram_files/640426389_18571901950046097_5846159304504205831_n.webp",
+      "alt": "Recém-nascida enrolada na manta florida, com tiara de flor"
+     },
+     {
+      "arq": "posts/DdaA58vGP5y/DdaA58vGP5y_00.jpg",
+      "alt": "Recém-nascido dormindo na pelúcia bege"
+     },
+     {
+      "arq": "drive/Instagram_files/621175119_18091465307051561_5893404725546286269_n.webp",
+      "alt": "Recém-nascido de touca na cadeira de vime, com a manta verde"
+     },
+     {
+      "arq": "posts/DdaA58vGP5y/DdaA58vGP5y_01.jpg",
+      "alt": "Recém-nascido apoiado no balde de madeira"
+     },
+     {
+      "arq": "drive/Instagram_files/619900998_18050327831477954_6503987766517335105_n.webp",
+      "alt": "Recém-nascido de touca de ursinho, dormindo"
+     },
+     {
+      "arq": "drive/Instagram_files/620414043_18069017897400324_7251565530063729164_n.jpg",
+      "alt": "Recém-nascida no cesto branco, entre galhos floridos"
+     },
+     {
+      "arq": "drive/Instagram_files/625586309_18312499738270649_597547966916381085_n.webp",
+      "alt": "Recém-nascida sorrindo dormindo, na manta lilás"
+     },
+     {
+      "arq": "drive/Instagram_files/621130704_18122926051495258_1015232488153719473_n.webp",
+      "alt": "Recém-nascido de calça listrada, dormindo de bruços"
+     },
+     {
+      "arq": "drive/Instagram_files/634296436_18421510711190023_8552389563726792820_n.webp",
+      "alt": "Recém-nascido de macacão azul na caminha, entre cachorrinhos de pelúcia"
+     },
+     {
+      "arq": "drive/Instagram_files/626392163_18191733658349456_8032499602123042722_n.webp",
+      "alt": "Recém-nascido de touca, na manta verde-água"
+     },
+     {
+      "arq": "drive/Instagram_files/619597778_18061105769323392_8386031291985857690_n.webp",
+      "alt": "Recém-nascido dormindo na rede de tecido"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 490",
+      "itens": [
+       "Até 3 horas, no tempo do bebê",
+       "15 fotos editadas",
+       "Cenários e acessórios",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 690",
+      "itens": [
+       "25 fotos editadas",
+       "2 cenários",
+       "Fotos com os pais",
+       "Galeria online"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 990",
+      "itens": [
+       "40 fotos editadas",
+       "Todos os cenários",
+       "Fotos com a família",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "chamada": "Ensaio de família",
+    "pedido": "o ensaio de família",
+    "frase": "Com o bebê, com os pais, entre irmãs.",
+    "texto": "No estúdio: os pais com o recém-nascido, a família no cenário de Natal e irmãs gestantes no mesmo ensaio.",
+    "citacao": "A maternidade fica ainda mais bonita quando é compartilhada.",
+    "citacao_quem": "Andressa Borelli, no Instagram",
+    "depo": {
+     "nome": "Nataly Lima",
+     "texto": "Durante o ensaio demonstrou muita paciência, e muito amor pelo o que faz!"
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "posts/DeiSWOdjZ93/DeiSWOdjZ93_02.jpg",
+      "alt": "Pai e mãe olhando a recém-nascida no colo"
+     },
+     {
+      "arq": "posts/DeiSWOdjZ93/DeiSWOdjZ93_04.jpg",
+      "alt": "Mãe abraçando a recém-nascida"
+     },
+     {
+      "arq": "drive/Instagram_files/618951343_18006848333680895_5611756827078689902_n.jpg",
+      "alt": "Pai, mãe e bebê sentados no cenário de Natal"
+     },
+     {
+      "arq": "posts/DeiSWOdjZ93/DeiSWOdjZ93_03.jpg",
+      "alt": "Pai sorrindo com a recém-nascida no ombro"
+     },
+     {
+      "arq": "posts/DfVy_stG0nR/DfVy_stG0nR_00.jpg",
+      "alt": "Duas irmãs gestantes, de vestido claro"
+     },
+     {
+      "arq": "drive/Instagram_files/621791602_18065586521240736_6839274467424347824_n.jpg",
+      "alt": "Casal com o recém-nascido no cenário de Natal"
+     },
+     {
+      "arq": "drive/Instagram_files/622443872_18092013146053901_5657482240896754432_n.jpg",
+      "alt": "Mãe sorrindo com o bebê no colo"
+     },
+     {
+      "arq": "drive/Instagram_files/620492295_18095830751505670_6106903694992785169_n.jpg",
+      "alt": "Mãe encostando o rosto na recém-nascida"
+     },
+     {
+      "arq": "drive/Instagram_files/624998211_18311659801264365_4802491921654830195_n.jpg",
+      "alt": "Casal de preto com a recém-nascida"
+     },
+     {
+      "arq": "posts/DfVy_stG0nR/DfVy_stG0nR_03.jpg",
+      "alt": "As irmãs gestantes sorrindo, lado a lado"
+     },
+     {
+      "arq": "drive/Instagram_files/619747167_18051606803456086_5420800709054051892_n.jpg",
+      "alt": "Mãe erguendo o bebê, com o pai ao lado, no cenário de Natal"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 350",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "Até 4 pessoas"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 500",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Até 6 pessoas",
+       "2 cenários"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 700",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "Família toda",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "infantil",
+    "nome": "Infantil",
+    "chamada": "Ensaio infantil",
+    "pedido": "o ensaio infantil",
+    "frase": "Bebês e crianças, com cenário montado.",
+    "texto": "No estúdio, com cenário e brinquedos. As fotos desta página são do cenário de Natal de um ano anterior; o de 2026 já está montado e os agendamentos estão abertos.",
+    "depo": {
+     "nome": "Stefanie Motta",
+     "texto": "Desde o início, fomos recebidos com tanto carinho, cuidado e uma paciência incrível, algo que faz toda a diferença quando se trata de criança!"
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "drive/Instagram_files/622062621_18183692563363068_435128490610836397_n.jpg",
+      "alt": "Menina sentada na frente da cabaninha, com bolas de Natal nas mãos"
+     },
+     {
+      "arq": "drive/Instagram_files/619235393_18079157216203428_672117538104961772_n.jpg",
+      "alt": "Bebê rindo no carrinho branco"
+     },
+     {
+      "arq": "drive/Instagram_files/622261869_18103709530815385_3271147651954549711_n.jpg",
+      "alt": "Bebê no cavalinho de balanço, dando risada"
+     },
+     {
+      "arq": "drive/Instagram_files/632014305_18452316898099119_274335043900895537_n.jpg",
+      "alt": "Menina com as mãos no rosto, dentro da cabaninha"
+     },
+     {
+      "arq": "drive/Instagram_files/624653196_18095644735935104_1552604948684174503_n.jpg",
+      "alt": "Bebê segurando uma bola de Natal azul"
+     },
+     {
+      "arq": "google/fotos/g01.jpg",
+      "alt": "Menina de vestido azul no cavalinho de balanço"
+     },
+     {
+      "arq": "drive/Instagram_files/621585988_18090895307099334_5459316152822682849_n.jpg",
+      "alt": "Menino de jardineira sorrindo"
+     },
+     {
+      "arq": "drive/Instagram_files/624963162_18218924149312667_3091032252215256399_n.jpg",
+      "alt": "Bebê de bruços na manta azul, olhando para cima"
+     },
+     {
+      "arq": "drive/Instagram_files/621796529_18078091028203451_2372955513236471651_n.jpg",
+      "alt": "Menina na poltrona com uma câmera de brinquedo"
+     },
+     {
+      "arq": "drive/Instagram_files/619203344_18006916394682156_3381070573572657162_n.jpg",
+      "alt": "Bebê engatinhando no tapete, sorrindo"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Ensaio infantil",
+      "preco": "R$ 290",
+      "itens": [
+       "1 cenário",
+       "15 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Natal 2026",
+      "preco": "R$ 350",
+      "itens": [
+       "Cenário de Natal deste ano",
+       "20 fotos editadas",
+       "Criança e família juntas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Smash the cake",
+      "preco": "R$ 450",
+      "itens": [
+       "Cenário do tema escolhido",
+       "25 fotos editadas",
+       "Galeria online"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

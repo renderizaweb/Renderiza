@@ -1,8 +1,8 @@
-// GET /api/publico/imagens/<conta>/<arquivo>.webp — as imagens do Meu site, servidas pelo endereço do painel (o script
+// GET /api/publico/imagens/<conta>/<arquivo>.webp — as imagens do Meu site e do Estoque, servidas pelo endereço do painel (o script
 // no site do cliente só aceita imagem do mesmo endereço da API). Vem do Storage público "site-imagens" do projeto
 // (produção na Vercel, STG nas prévias e no local). O nome do arquivo muda a cada envio, então o cache é de 1 ano.
 
-import { ambiente } from "../_comum.js";
+import { ambiente } from "../../_comum.js";
 
 const CAMINHO = /^\/api\/publico\/imagens\/([0-9a-f-]{36}\/[A-Za-z0-9._-]{1,120}\.webp)$/;
 

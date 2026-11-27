@@ -4,7 +4,11 @@
 // menu pelo objetivo e o plano para começar no Início.
 
 /** A conta precisa da conversa? Só o dono, e só quando o Admin marcou (contas.ajustes.onboarding.pendente). */
-export const precisaMontar = conta => !!(conta && conta.dono && conta.ajustes && conta.ajustes.onboarding && conta.ajustes.onboarding.pendente);
+// a Renderiza no suporte (suporte_ate) não cai na conversa: ela é do dono (26/11/2026: um teste pelo suporte marcou a
+// conversa como feita, e o dono não passaria mais por ela); pelo Início, o suporte abre a conversa só para ver
+export const precisaMontar = conta => !!(conta && conta.dono && !conta.suporte_ate && conta.ajustes && conta.ajustes.onboarding && conta.ajustes.onboarding.pendente);
+/** A Renderiza no suporte, numa conta cujo dono ainda não fez a conversa: o Início oferece ver a conversa (sem gravar). */
+export const conversaDoDonoPendente = conta => !!(conta && conta.suporte_ate && conta.ajustes && conta.ajustes.onboarding && conta.ajustes.onboarding.pendente);
 
 /** A conversa ficou para depois (e ainda não foi feita): o Início mostra o passo "Terminar de montar o painel". */
 export const montarAdiado = conta => !!(conta && conta.ajustes && conta.ajustes.onboarding && conta.ajustes.onboarding.adiado && !conta.ajustes.onboarding.feito_em);
@@ -13,10 +17,24 @@ export const montarAdiado = conta => !!(conta && conta.ajustes && conta.ajustes.
  * Os assuntos, na ordem do roteiro fixo. As opções são as únicas que a IA pode oferecer; a terceira parte de cada uma
  * é o que o painel faz com ela (a base da reação que aparece no toque, e a própria reação quando a IA não responde). `depois`: fica fora da
  * conversa de boas-vindas (a Renderiza testou em 31/10: 11 perguntas cansam; ficam as 5 que mudam o painel na hora, e as
- * outras entram depois, quando fizerem sentido). `so`: só para um nicho.
+ * outras entram depois, quando fizerem sentido). `so`: só para um nicho; `nao`: para todos, menos esse.
  */
 export const ASSUNTOS = [
-  { assunto: "objetivo", pergunta: "O que mais te ajudaria agora?", opcoes: [
+  // a loja de carros (automotivo, 24/11/2026): o Estoque é o coração; sem agenda, sem pacotes com preço
+  { assunto: "objetivo", so: "automotivo", pergunta: "O que mais te ajudaria agora?", opcoes: [
+    ["estoque_certo", "Site sempre com o estoque certo", "O menu começa pelo Estoque: mudou aqui, muda no site."],
+    ["mais_contatos", "Mais gente chamando pelos carros", "O menu começa pelo Estoque: cada carro do site leva ao seu WhatsApp, já com o nome dele."],
+    ["pedidos", "Não perder quem chamou", "O menu começa pelo Atendimento: todo contato num lugar só."]] },
+  { assunto: "estoque_hoje", so: "automotivo", pergunta: "Quantos carros você tem hoje?", opcoes: [
+    ["ate_10", "Até 10", "Cadastrar é rápido: as fotos, os dados e o preço, do celular."],
+    ["10_30", "De 10 a 30", "Comece pelos que estão no site hoje; o resto entra aos poucos."],
+    ["mais_30", "Mais de 30", "A Renderiza pode cadastrar a primeira leva com você."]] },
+  { assunto: "anuncia", so: "automotivo", pergunta: "Onde você anuncia os carros hoje?", opcoes: [
+    ["portal", "Webmotors, OLX ou outro portal", "Use as mesmas fotos e o mesmo texto: o site fica igual ao anúncio."],
+    ["instagram", "No Instagram", "Cada carro novo no site vira um link para pôr nos Stories."],
+    ["nenhum", "Ainda em nenhum lugar", "O site passa a ser a sua vitrine, com cada carro numa página."]] },
+  { assunto: "blindados", so: "automotivo", depois: true, pergunta: "Você trabalha com blindados?", opcoes: [["sim", "Sim"], ["as_vezes", "Às vezes"], ["nao", "Não"]] },
+  { assunto: "objetivo", nao: "automotivo", pergunta: "O que mais te ajudaria agora?", opcoes: [
     ["pedidos", "Não perder nenhum pedido", "O menu começa pelo Atendimento: todo pedido num lugar só."],
     ["agenda", "Organizar a agenda", "O menu começa pela Agenda, com tudo o que está marcado."],
     ["dinheiro", "Controlar o dinheiro", "O menu começa pelo Financeiro: o que entrou e o que falta."],
@@ -25,17 +43,21 @@ export const ASSUNTOS = [
     ["so_eu", "Só eu", "O painel fica do seu jeito, sem passo de equipe."],
     ["2_3", "De 2 a 3", "Depois você convida a equipe, e cada um vê só o que você deixar."],
     ["4_mais", "4 ou mais", "Depois você convida a equipe, e cada um vê só o que você deixar."]] },
-  { assunto: "organiza", pergunta: "Onde ficam as datas que você já tem marcadas?", opcoes: [
+  { assunto: "organiza", nao: "automotivo", pergunta: "Onde ficam as datas que você já tem marcadas?", opcoes: [
     ["caderno", "Caderno ou agenda de papel", "Uma foto das páginas já basta: a IA lê as datas para você conferir."],
     ["planilha", "Planilha", "Dá para trazer a planilha de uma vez, daqui a pouco."],
     ["google", "Google Agenda", "Dá para trazer a agenda inteira do Google, num arquivo só."],
     ["sistema", "Outro sistema", "Exporte uma planilha de lá e traga de uma vez, daqui a pouco."],
     ["cabeca", "Na cabeça", "Comece pelas próximas: uma data e um nome por linha, rapidinho."]] },
-  { assunto: "pacotes", pergunta: "Você já tem pacotes com preço?", opcoes: [
-    ["com_preco", "Sim, com preço", "Eles entram nos orçamentos, nos contratos e no Financeiro."],
+  // os dias e horários (16/11/2026, com o primeiro site ligado: a agenda online e o site usam os da Agenda)
+  { assunto: "horarios", nao: "automotivo", pergunta: "Os dias e horários de atendimento estão certos?", opcoes: [
+    ["certo", "Estão certos", "A agenda online e o site oferecem esses horários."],
+    ["ajustar", "Quero ajustar", "No fim, a gente te leva direto para os horários."]] },
+  { assunto: "pacotes", nao: "automotivo", pergunta: { eventos: "Você já tem pacotes com preço?", fotografia: "Os seus ensaios já têm preço?" }, opcoes: [
+    ["com_preco", "Sim, com preço", "O primeiro passo no Início leva você a pôr os valores dos seus ensaios ou pacotes."],
     ["arquivo", "Tenho num PDF ou arte", "Daqui a pouco você manda o arquivo, e a IA cadastra os pacotes para você conferir."],
     ["nao", "Ainda não", "Você cadastra os primeiros em Serviços, quando quiser."]] },
-  { assunto: "contrato", pergunta: "E contrato, você usa?", opcoes: [
+  { assunto: "contrato", depois: true, pergunta: "E contrato, você usa?", opcoes: [
     ["modelo", "Tenho um modelo", "Você cola o seu texto no painel e marca os campos que se preenchem sozinhos."],
     ["quero", "Quero um modelo pronto", "Você monta o modelo no painel, com os campos que se preenchem sozinhos."],
     ["nao", "Não uso", "Tudo bem: quando quiser, o contrato vai por link e o cliente aceita no celular."]] },
@@ -43,13 +65,13 @@ export const ASSUNTOS = [
   { assunto: "volume", depois: true, pergunta: { eventos: "Quantas festas vocês fazem por mês?", fotografia: "Quantos ensaios você faz por mês?" }, opcoes: [["ate_4", "Até 4"], ["5_15", "De 5 a 15"], ["mais_15", "Mais de 15"]] },
   { assunto: "porte", depois: true, so: "eventos", pergunta: "Quantos convidados tem uma festa típica?", opcoes: [["ate_50", "Até 50"], ["50_150", "De 50 a 150"], ["150_300", "De 150 a 300"], ["mais_300", "Mais de 300"]] },
   { assunto: "origem", depois: true, pergunta: "Por onde chega a maioria dos pedidos?", opcoes: [["whatsapp", "WhatsApp"], ["instagram", "Instagram"], ["indicacao", "Indicação"], ["site", "Site ou Google"]] },
-  { assunto: "sinal", depois: true, pergunta: "Você cobra sinal para reservar a data?", opcoes: [["30", "Sim, uns 30%"], ["50", "Sim, uns 50%"], ["outro", "Sim, outro valor"], ["nao", "Não cobro"]] },
+  { assunto: "sinal", depois: true, nao: "automotivo", pergunta: "Você cobra sinal para reservar a data?", opcoes: [["30", "Sim, uns 30%"], ["50", "Sim, uns 50%"], ["outro", "Sim, outro valor"], ["nao", "Não cobro"]] },
   { assunto: "clientes", depois: true, pergunta: "E a lista de clientes?", opcoes: [["lista", "Tenho numa lista"], ["celular", "Só no celular"], ["zero", "Começo do zero"]] },
 ].map(a => ({ ...a, opcoes: a.opcoes.map(([valor, rotulo, efeito]) => (efeito ? { valor, rotulo, efeito } : { valor, rotulo })) }));
 
 /** Os assuntos do nicho, com a pergunta no jeito dele. Sem `todos`, só os da conversa de boas-vindas. */
 export function assuntosDoNicho(idNicho, { todos = false } = {}) {
-  return ASSUNTOS.filter(a => (!a.so || a.so === idNicho) && (todos || !a.depois))
+  return ASSUNTOS.filter(a => (!a.so || a.so === idNicho) && a.nao !== idNicho && (todos || !a.depois))
     .map(a => ({ assunto: a.assunto, pergunta: typeof a.pergunta === "string" ? a.pergunta : a.pergunta[idNicho] || a.pergunta.eventos, opcoes: a.opcoes }));
 }
 
@@ -78,7 +100,7 @@ export function perfilDasRespostas(respostas) {
   return perfil;
 }
 
-const PRIMEIRO_PELO_OBJETIVO = { pedidos: ["atendimento", "agenda"], agenda: ["agenda", "atendimento"], dinheiro: ["financeiro", "agenda"], vender: ["atendimento", "meu-site", "agenda-online"] };
+const PRIMEIRO_PELO_OBJETIVO = { estoque_certo: ["estoque", "meu-site"], mais_contatos: ["estoque", "atendimento", "meu-site"], pedidos: ["atendimento", "agenda"], agenda: ["agenda", "atendimento"], dinheiro: ["financeiro", "agenda"], vender: ["atendimento", "meu-site", "agenda-online"] };
 
 /** A ordem do menu pelo objetivo: o que mais ajuda vem primeiro; o resto, como estava. Só os módulos ligados. */
 export function ordemDoMenu(objetivo, ligados, atual = []) {
@@ -101,6 +123,31 @@ export function confirmacoes({ conta, dados }) {
     instagram: d.instagram || "",
     tipos: Array.isArray(d.tipos) ? d.tipos.filter(Boolean).slice(0, 12) : [],
   };
+}
+
+const DIAS = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+const horaCurta = h => String(h || "").slice(0, 5).replace(/^0/, "").replace(/:00$/, "h").replace(":", "h");
+/**
+ * Os horários da Agenda numa frase ("Terça a sexta, das 8h às 17h · Sábado, das 8h às 15h"): os gerais (sem ensaio),
+ * os dias seguidos com o mesmo começo e fim juntos. Vazio quando não há horário.
+ */
+export function resumoDosHorarios(horarios = []) {
+  const porDia = {};
+  for (const h of horarios) {
+    if (h.servico_id) continue;
+    const d = (porDia[h.dia_semana] ||= { de: h.inicio, ate: h.fim || h.inicio });
+    if (h.inicio < d.de) d.de = h.inicio;
+    if ((h.fim || h.inicio) > d.ate) d.ate = h.fim || h.inicio;
+  }
+  const grupos = [];
+  for (const dia of [1, 2, 3, 4, 5, 6, 0]) {
+    const d = porDia[dia];
+    if (!d) continue;
+    const g = grupos[grupos.length - 1], chave = d.de + d.ate;
+    if (g && g.chave === chave && g.fim === (dia + 6) % 7) g.fim = dia;
+    else grupos.push({ chave, ini: dia, fim: dia, d });
+  }
+  return grupos.map(g => `${g.ini === g.fim ? DIAS[g.ini] : `${DIAS[g.ini]} a ${DIAS[g.fim].toLowerCase()}`}, ${g.d.de === g.d.ate ? `às ${horaCurta(g.d.de)}` : `das ${horaCurta(g.d.de)} às ${horaCurta(g.d.ate)}`}`).join(" · ");
 }
 
 /** Os tipos (ou ensaios) para marcar: os da demo já marcados, depois as sugestões do nicho; sem repetir. */

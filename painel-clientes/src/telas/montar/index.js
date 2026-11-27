@@ -17,7 +17,8 @@ import { escapar, erroNoCampo, avisoDoFormulario, ocupado } from "../../ui/formu
 import { mascaraTelefone, normalizarWhatsapp, whatsappValido, telefone } from "../../ui/formatos.js";
 import { campoTexto, CORES } from "../../ui/campos.js";
 import { linkDaRenderiza } from "../renderiza.js";
-import { perguntasDaConversa, perfilDasRespostas, ordemDoMenu, confirmacoes, tiposParaEscolher, assuntosDoNicho } from "./roteiro.js";
+import { servicosSemUso } from "../../sessao.js";
+import { perguntasDaConversa, perfilDasRespostas, ordemDoMenu, confirmacoes, tiposParaEscolher, assuntosDoNicho, resumoDosHorarios } from "./roteiro.js";
 
 export const VERSAO = 2; // 2: as 5 perguntas preparadas de uma vez (o progresso guardado da versão 1 é descartado)
 /** O check e a reação à vista antes da próxima pergunta entrar. */
@@ -69,15 +70,21 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
   if (aceite && !aceite.aceitou) return navegar("/", { substituir: true });
 
   const n = acharNicho(conta.nicho);
-  const [linha, dados, existentes] = await Promise.all([
+  const [linha, dados, existentes, horarios] = await Promise.all([
     banco.resultado(banco.tabela("contas").select("nome, whatsapp").eq("id", conta.conta_id).single()).catch(() => ({ nome: conta.nome, whatsapp: null })),
     banco.rpc("contexto_da_minha_conta", { p_conta: conta.conta_id }).catch(() => null),
     banco.resultado(banco.tabela(n.temTiposDeFesta ? "tipos_reserva" : "servicos").select("nome").eq("conta_id", conta.conta_id)).catch(() => []),
+    banco.resultado(banco.tabela("horarios").select("dia_semana, inicio, fim, servico_id").eq("conta_id", conta.conta_id)).catch(() => []),
   ]);
+  const resumoHorarios = resumoDosHorarios(horarios);
   const sabe = confirmacoes({ conta: { nome: linha.nome, whatsapp: linha.whatsapp }, dados });
   const estado = ler(conta.conta_id);
   const salvar = () => guardar(conta.conta_id, estado);
-  if (!estado.tipos) estado.tipos = tiposParaEscolher(sabe.tipos, n.sugestoes);
+  // a conta que já tem ensaios (ou tipos) não ganha sugestões: elas repetiam com outro nome ("Ensaio gestante" e "Gestante")
+  // a loja sem Atendimento não escolhe serviços (não aparecem em lugar nenhum): a conversa vai da confirmação às perguntas
+  const semTipos = servicosSemUso(conta, n.servicoSimples);
+  if (semTipos) estado.tipos = [];
+  if (!estado.tipos) estado.tipos = tiposParaEscolher(sabe.tipos, existentes.length ? [] : n.sugestoes);
   const usuario = sessao.usuario() || {};
   const pessoa = sessao.pessoa ? sessao.pessoa() : null;
   const primeiroNome = String((pessoa && pessoa.nome) || (usuario.user_metadata && usuario.user_metadata.nome) || "").trim().split(/\s+/)[0];
@@ -101,7 +108,10 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
     return estado.perguntas;
   }
   // cada passo fica registrado para o acompanhamento no Admin (bloco G): sem esperar, e sem atrapalhar se falhar
-  const registrar = (evento, detalhe = null) => { banco.resultado(banco.tabela("onboarding_eventos").insert({ conta_id: conta.conta_id, evento, detalhe })).catch(() => {}); };
+  // a Renderiza no suporte vê a conversa como o dono vai ver, mas nada é gravado (nem os eventos, nem as respostas):
+  // a conversa continua esperando o dono (26/11/2026)
+  const emSuporte = !!conta.suporte_ate;
+  const registrar = (evento, detalhe = null) => { if (!emSuporte) banco.resultado(banco.tabela("onboarding_eventos").insert({ conta_id: conta.conta_id, evento, detalhe })).catch(() => {}); };
 
   el.innerHTML = telaDeAcesso({
     ambiente,
@@ -126,10 +136,11 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
       ${cabeca(`${primeiroNome ? `Oi, ${escapar(primeiroNome)}! ` : ""}Vamos deixar o painel ${escapar(n.palavras.daConta)} pronto`,
         `${escapar(sabe.nome)} já tem um painel. A gente trouxe o que sabe, você confere e responde umas perguntas de um toque. Uns 2 minutos.`)}
       <ol class="rz-roteiro">
-        ${[["Conferir o que a gente já sabe", "Nome, WhatsApp e o que vocês fazem"], [n.temTiposDeFesta ? "Seus tipos de festa" : "Seus ensaios", "Já marcados, é só conferir"],
-          ["Umas perguntas rápidas", "Para o painel falar a sua língua"], ["Pronto", "O seu plano para começar"]]
+        ${[["Conferir o que a gente já sabe", "Nome, WhatsApp e o que vocês fazem"], !semTipos && [`Seus ${escapar(n.palavras.tipos)}`, "Já marcados, é só conferir"],
+          ["Umas perguntas rápidas", "Para o painel falar a sua língua"], ["Pronto", "O seu plano para começar"]].filter(Boolean)
           .map(([t, s], i) => `<li style="--i:${i}"><span class="rz-roteiro-marca">${i + 1}</span><span class="rz-roteiro-texto"><b>${t}</b><small>${s}</small></span></li>`).join("")}
       </ol>
+      ${emSuporte ? `<p class="rz-alerta rz-alerta--aviso" role="note">${icone("alerta", { tamanho: 18 })}<span>Você está no suporte: esta é a conversa que o dono vai ver. <b>Nada do que você tocar aqui é gravado</b>, e ela continua esperando por ele.</span></p>` : ""}
       <div class="rz-acesso-acoes"><button class="rz-botao rz-botao--primario rz-botao--grande rz-botao--bloco" type="button" data-seguir>Vamos lá ${icone("seta", { tamanho: 18 })}</button></div>`,
 
     confirma: () => {
@@ -138,7 +149,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
         sabe.instagram && ["Instagram", `@${sabe.instagram}`], sabe.google && ["Avaliações", sabe.google]].filter(Boolean);
       return `
       ${cabeca("É isso mesmo?", "É o que a gente já sabe do seu negócio. Se algo mudou, é só corrigir.")}
-      <dl class="rz-fatos rz-cartao rz-cartao-corpo">${fatos.map(([k, v]) => `<div><dt>${k}</dt><dd>${escapar(v)}</dd></div>`).join("")}</dl>
+      <dl class="rz-fatos rz-fatos--lista rz-cartao rz-cartao-corpo">${fatos.map(([k, v]) => `<div><dt>${k}</dt><dd>${escapar(v)}</dd></div>`).join("")}</dl>
       <div class="rz-acesso-acoes">
         <button class="rz-botao rz-botao--primario rz-botao--grande rz-botao--bloco" type="button" data-certo>${icone("ok", { tamanho: 18 })}Sim, está certo</button>
         <button class="rz-botao rz-botao--fantasma rz-botao--bloco" type="button" data-corrigir>Corrigir</button>
@@ -157,7 +168,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
     },
 
     tipos: () => `
-      ${cabeca(escapar(n.perguntaDoNicho), sabe.tipos.length ? "Os que estão na sua página já vêm marcados. Toque para tirar ou pôr." : "Toque nos que vocês fazem. Cada um ganha uma cor na agenda.")}
+      ${cabeca(escapar(n.perguntaDoNicho), sabe.tipos.length ? "Os que estão na sua página já vêm marcados. Toque para tirar ou pôr." : n.servicoSimples ? "Toque nos que a loja faz. Eles ficam em Serviços, para o site e o painel." : "Toque nos que vocês fazem. Cada um ganha uma cor na agenda.")}
       <form class="rz-pilha" novalidate>
         <div class="rz-chips rz-chips--quebra" role="group" aria-label="${escapar(n.palavras.tipos)}">
           ${estado.tipos.map((t, i) => `<button class="rz-chip" type="button" data-tipo="${i}" aria-pressed="${t.marcada}">${escapar(t.nome)}</button>`).join("")}
@@ -176,7 +187,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
       const q = estado.perguntas[estado.respostas.length];
       return `
       ${trilho(estado.respostas.length)}
-      ${cabeca(escapar(q.pergunta))}
+      ${cabeca(escapar(q.pergunta), q.assunto === "horarios" ? escapar(resumoHorarios || "Ainda não há horário na Agenda.") : "")}
       <div class="rz-opcoes" role="group" aria-label="${escapar(q.pergunta)}">
         ${q.opcoes.map(o => `<button class="rz-opcao" type="button" data-resposta="${escapar(o.valor)}" aria-pressed="false">
           <span class="rz-opcao-texto"><b>${escapar(o.rotulo)}</b></span><span class="rz-opcao-marca">${icone("ok", { tamanho: 14 })}</span></button>`).join("")}
@@ -188,6 +199,12 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
     arquivos: () => {
       // o que voltou do /trazer (Missão 7, bloco F): "Pronto: trouxe…"
       const trazido = lerTrazido(conta.conta_id);
+      // a loja: os carros entram pelo Estoque (foto, dados e preço), não por arquivo
+      if (n.estoque && !trazido) return `
+      ${cabeca(`E os ${escapar(n.estoque.itens)}?`, `Eles entram pelo Estoque, com foto e preço, e aparecem no site na hora. No fim, o Início te leva até lá.`)}
+      <div class="rz-acesso-acoes">
+        <button class="rz-botao rz-botao--grande rz-botao--bloco rz-botao--primario" type="button" data-seguir>Montar o meu painel ${icone("seta", { tamanho: 18 })}</button>
+      </div>`;
       return `
       ${cabeca(trazido ? "Pronto, já está no seu painel" : "Tem orçamento, contrato ou lista de clientes?", trazido
         ? (trazido.pedido ? "Os arquivos foram para a Renderiza: a gente monta e te avisa no WhatsApp." : `Entrou: ${escapar(trazido.texto)}. Quer trazer mais alguma coisa?`)
@@ -202,7 +219,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
       const marcadas = estado.tipos.filter(t => t.marcada && !existentes.some(x => x.nome.toLowerCase() === t.nome.toLowerCase()));
       const etapas = [
         ["dados", `Confirmando os dados ${escapar(n.palavras.daConta)}`],
-        marcadas.length && ["tipos", n.temTiposDeFesta ? `Separando as cores das festas (${marcadas.length})` : `Guardando os ensaios (${marcadas.length})`],
+        marcadas.length && ["tipos", n.temTiposDeFesta ? `Separando as cores das festas (${marcadas.length})` : `Guardando os ${escapar(n.palavras.servicos)} (${marcadas.length})`],
         ["menu", "Arrumando o menu do seu jeito"],
         ["pronto", "Preparando o seu plano para começar"],
       ].filter(Boolean);
@@ -227,7 +244,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
     andando = false;
   }
   function desenhar() {
-    if (estado.passo === "pergunta" && (!estado.perguntas || estado.respostas.length >= estado.perguntas.length)) estado.passo = estado.perguntas ? "arquivos" : "tipos";
+    if (estado.passo === "pergunta" && (!estado.perguntas || estado.respostas.length >= estado.perguntas.length)) estado.passo = estado.perguntas || semTipos ? "arquivos" : "tipos";
     palco.innerHTML = telas[estado.passo]();
     focarTitulo(palco);
     (ligar[estado.passo] || (() => {}))();
@@ -266,11 +283,13 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
     const perfil = perfilDasRespostas(estado.respostas);
     try {
       await etapa("dados", async () => {
+        if (emSuporte) return;
         const c = estado.corrigido;
         if (c) await banco.resultado(banco.tabela("contas").update({ nome: c.nome, whatsapp: normalizarWhatsapp(c.whatsapp) || null }).eq("id", conta.conta_id));
         else if (!linha.whatsapp && sabe.whatsapp) await banco.resultado(banco.tabela("contas").update({ whatsapp: normalizarWhatsapp(sabe.whatsapp) }).eq("id", conta.conta_id));
       });
       await etapa("tipos", async () => {
+        if (emSuporte) return;
         const novos = estado.tipos.filter(t => t.marcada && !existentes.some(x => x.nome.toLowerCase() === t.nome.toLowerCase()));
         if (!novos.length) return;
         const usadas = [];
@@ -284,6 +303,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
         existentes.push(...novos.map(t => ({ nome: t.nome })));
       });
       await etapa("menu", async () => {
+        if (emSuporte) return;
         const antes = conta.ajustes || {};
         const ajustes = {
           ...antes,
@@ -297,17 +317,29 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
       registrar("conversa_terminou");
       esquecer(conta.conta_id);
       await esperar(250);
-      navegar("/", { substituir: true });
+      // quem quer ajustar os dias e horários vai direto para eles (Serviços, aba Horários)
+      navegar(perfil.horarios === "ajustar" ? "/servicos?aba=horarios" : "/", { substituir: true });
     } catch (e) {
       avisoDoFormulario(aviso, e.message);
       falhou.hidden = false;
     }
   }
 
+  // depois dos tipos (ou no lugar deles, na loja sem Atendimento): as perguntas
+  async function irAsPerguntas() {
+    if (estado.perguntas) return trocar("pergunta");
+    // as perguntas quase sempre já vieram (foram pedidas na abertura); se não, o esqueleto enquanto chegam
+    const prontas = await comPrazo(preparar(), 150);
+    if (!prontas) await trocar("preparando");
+    await perguntasProntas(ESPERA_DA_IA);
+    trocar("pergunta");
+  }
+  const aosTipos = () => (semTipos ? irAsPerguntas() : trocar("tipos"));
+
   const ligar = {
     abertura() { palco.querySelector("[data-seguir]").addEventListener("click", () => { registrar("conversa_comecou"); preparar(); trocar("confirma"); }); },
     confirma() {
-      palco.querySelector("[data-certo]").addEventListener("click", () => trocar("tipos"));
+      palco.querySelector("[data-certo]").addEventListener("click", () => aosTipos());
       palco.querySelector("[data-corrigir]").addEventListener("click", () => trocar("corrige"));
     },
     corrige() {
@@ -321,7 +353,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
         erroNoCampo(form.whatsapp, !zap || whatsappValido(zap) ? "" : "Confira o número: DDD e o número.");
         if (!nome || (zap && !whatsappValido(zap))) return;
         estado.corrigido = { nome, whatsapp: normalizarWhatsapp(zap) || "" };
-        trocar("tipos");
+        aosTipos();
       });
     },
     tipos() {
@@ -341,15 +373,7 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
         if (e.target.closest("[data-adicionar]")) adicionar();
       });
       form.outro.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); adicionar(); } });
-      form.addEventListener("submit", async e => {
-        e.preventDefault();
-        if (estado.perguntas) return trocar("pergunta");
-        // as perguntas quase sempre já vieram (foram pedidas na abertura); se não, o esqueleto enquanto chegam
-        const prontas = await comPrazo(preparar(), 150);
-        if (!prontas) await trocar("preparando");
-        await perguntasProntas(ESPERA_DA_IA);
-        trocar("pergunta");
-      });
+      form.addEventListener("submit", e => { e.preventDefault(); irAsPerguntas(); });
     },
     pergunta() {
       let escolhendo = false;
@@ -376,17 +400,19 @@ export async function montar(el, { sessao, banco, ambiente, navegar }) {
   // "Fazer depois": o painel abre, e o Início guarda o passo "Terminar de montar o painel"
   el.querySelector("[data-depois]").addEventListener("click", async e => {
     ocupado(e.currentTarget, true, "Abrindo…");
-    const antes = conta.ajustes || {};
-    const ajustes = { ...antes, onboarding: { ...(antes.onboarding || {}), pendente: false, adiado: true } };
-    registrar("conversa_adiada");
-    await banco.resultado(banco.tabela("contas").update({ ajustes }).eq("id", conta.conta_id)).catch(() => null);
-    conta.ajustes = ajustes;
+    if (!emSuporte) {
+      const antes = conta.ajustes || {};
+      const ajustes = { ...antes, onboarding: { ...(antes.onboarding || {}), pendente: false, adiado: true } };
+      registrar("conversa_adiada");
+      await banco.resultado(banco.tabela("contas").update({ ajustes }).eq("id", conta.conta_id)).catch(() => null);
+      conta.ajustes = ajustes;
+    }
     await sessao.carregarContas().catch(() => null);
     navegar("/", { substituir: true });
   });
 
   if (estado.passo === "montagem") estado.passo = "arquivos"; // a montagem recomeça pelo último cartão
-  if (estado.passo === "preparando") estado.passo = "tipos";
+  if (estado.passo === "preparando") estado.passo = semTipos ? "confirma" : "tipos";
   // as perguntas começam a ser preparadas já agora (a pessoa ainda vai conferir os dados e os tipos)
   if (!estado.perguntas && estado.passo !== "arquivos") preparar();
   desenhar();

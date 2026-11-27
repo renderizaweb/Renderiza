@@ -10,7 +10,7 @@
 | Empresa | não consultei o CNPJ |
 | Site | não tem |
 | Entregável | demo de site (`index.html`), gerada por `ferramentas/demo/gerar-odonto.py` a partir do `demo.json` |
-| Situação | pronta · 09/10/2026 · `/demo/dra-milena-ferreira` · vídeo `/gravacao/dra-milena-ferreira.mp4` · flyer `/flyer/dra-milena-ferreira.png`. No painel desde 09/10/2026 (pedido direto do Kaue), em Gravação realizada, com a mensagem pronta de WhatsApp |
+| Situação | **versão 2.3 em 26/11/2026** (abaixo) · versão 1 pronta em 09/10/2026 · `/demo/dra-milena-ferreira` · vídeo `/gravacao/dra-milena-ferreira.mp4` · flyer `/flyer/dra-milena-ferreira.png`. No painel desde 09/10/2026 (pedido direto do Kaue), em Gravação realizada, com a mensagem pronta de WhatsApp |
 
 ## Quem é
 - Cirurgiã-dentista com atuação em harmonização orofacial, CRO-SP 181642 (bio e legendas: "Cirurgiã-Dentista | Harmonização Orofacial").
@@ -39,3 +39,72 @@
 - Resultados: são casos publicados por ela com "divulgação autorizada pela paciente" na legenda. A demo mostra só o "depois", sem antes e depois.
 - "Lipo de papada HD" aparece só na lista de "também na clínica", porque ela posta. Não confirmei como o CRO-SP vê esse procedimento para dentista.
 - Número da sala (110) não confirmado: a demo usa o endereço do Google, sem a sala.
+
+## Versão 2 (26/11/2026, pedido do Kaue)
+Ela abriu a demo vencida em 26/11 (iPhone em Cotia). O Kaue pediu uma demo nova, jovem e bonita, com a personalidade
+dela, agenda integrada (para fechar junto com o painel) e valores.
+- **Visual:** cara de revista (Bodoni Moda + Manrope), nude, café e dourado (as cores da marca) e um toque de preto,
+  como a campanha "Black November" dela. Referências: sites de clínicas de estética com uma chamada só (agendar),
+  credenciais à vista, fotos grandes e resultados reais.
+- **Personalidade:** jovem, empreendedora e bem-humorada no Instagram ("as bb querem tudo", 10/11/2026). Entrou a frase
+  dela "A gente não nasceu para escolher entre ter uma carreira de sucesso e viver os nossos sonhos" e "Meu sonho
+  agora tem endereço". O resto dos textos é da Renderiza, com as ideias e as palavras dos posts dela.
+- **"Cada rosto pede uma estratégia diferente"** (post de 11/09/2026): as 4 queixas do post viram botões; cada uma
+  mostra o que ela mesma escreveu (toxina, preenchedores, bioestimuladores, Skinbooster) e leva à agenda.
+- **Agenda online:** tratamento (ou "Ainda não sei"), um dos próximos 12 dias (sem domingo), horário (seg a sex das 9h
+  às 20h, sáb das 9h às 15h, como no Google; alguns aparecem ocupados, sempre os mesmos) e nome (opcional). O pedido
+  sai pronto no WhatsApp da clínica. "Horários de exemplo: a Dra. Milena define os dela." O "Agendar" de cada
+  tratamento já marca o tratamento na agenda. A ligação com o Painel Renderiza (horários vindos do painel e pedido
+  caindo nele) existe para fotografia (agenda da Rafaela); para clínica, adaptar na montagem.
+- **Faixa da Renderiza (condição Black, até 30/11/2026):** site com agenda online R$ 250 (pagamento único, domínio do
+  1º ano) + Painel Renderiza R$ 49/mês (sem fidelidade, montagem grátis); entrada R$ 299. Os valores estão escritos no
+  modelo (faixa e pílula); o prazo e as mensagens, no `renderiza` do `demo.json`.
+- **CFO:** nome e CRO na abertura e no rodapé; sem preço de procedimento, promoção ou superlativo; depoimentos só com o
+  primeiro nome; resultados só o "depois", dos casos que ela publicou com autorização.
+- **Fotos:** as 14 da versão 1 (nenhuma foto nova serviu: as de novembro têm texto por cima). Ficaram de fora a02
+  (inauguração) e a09 (recepção decorada).
+- **Conferir:** a nota 5,0 do Google é de 09/10/2026 (17 avaliações; não conferi de novo); "Lipo de papada HD" está no
+  nome do perfil dela, mas não confirmei como o CRO-SP vê o procedimento para dentista.
+
+## Versão 2.1 (26/11/2026, mesmo dia): mais limpa, a pedido do Kaue
+O Kaue não gostou da fonte e pediu um site mais limpo, menos poluído, e fotos melhores.
+- **Fonte:** Instrument Serif (títulos, com itálico no acento) + Inter (texto), no lugar da Bodoni Moda (os traços finos
+  quebravam na tela) + Manrope.
+- **Mais limpo:** fundo creme, um só acento marrom, uma foto por bloco. Saíram a faixa que rola, o selo que gira, a
+  segunda foto sobreposta na abertura, as pílulas, o mosaico, a seção escura de "cada rosto" (a frase virou o título dos
+  tratamentos), os cartões numerados e as legendas sobre as fotos. Tratamentos viraram uma lista em duas colunas
+  (cada um leva à agenda com o tratamento marcado); avaliações, 3 citações; contato, 4 colunas sem foto.
+- **Fotos em tamanho cheio:** abertura com o post da inauguração (`Ddy6O28EaUh_01`, 3072 px, vestido branco diante do
+  logo) e "Sobre" com o post do diário de obra (`Dd1sfqjiG6O_00`, 1217×2160, terno marrom); no celular, a foto da
+  abertura vem antes do título. As da clínica e dos resultados continuam as da versão 1. A página caiu de 964 KB
+  para 680 KB.
+- Avaliações com o texto como está no Google (sem juntar trechos).
+
+## Versão 2.2 (26/11/2026, à noite): a versão 2 com os ajustes do Kaue
+O Kaue desfez a 2.1 (a limpa, que ele não chegou a ver no ar) e pediu estes ajustes sobre a versão 2:
+- **Agenda em calendário do mês** (como uma agenda de papel), no lugar da fileira de dias: abre no mês do dia seguinte,
+  setas para o mês seguinte (até 45 dias), domingos e dias passados apagados, um pontinho no dia de hoje.
+- **Fonte:** Instrument Serif + Inter (a Bodoni Moda ficava "falhada", com os traços finos sumindo).
+- **Capa:** "Cirurgiã-dentista · Harmonização facial", o nome grande com o CRO entre parênteses embaixo
+  ("Dra. Milena Ferreira (CRO-SP 181642)") e o lema; saiu o cartão do CRO em cima da foto.
+- **Fotos:** a capa e a foto pequena vêm dos posts em tamanho cheio (`Dd1sfqjiG6O_00`, `Ddy6O28EaUh_01`), com o
+  enquadramento refeito; em "Sobre" ficou só a foto sentada, com a mão no rosto (`a01`, mais fechada); a clínica virou
+  4 fotos em pé do mesmo tamanho (no mosaico, as fotos em pé eram cortadas deitadas).
+- **Saiu a faixa que rolava** com os tratamentos.
+- **Contato com o mapa do Google** (o mesmo endereço da versão 1) no lugar da foto.
+
+## Versão 2.3 (26/11/2026): capa do ensaio, texto simples e o guia dos tratamentos
+Pedidos do Kaue sobre a 2.2:
+- **Capa só com o ensaio de estúdio** (terno marrom, a mesma roupa da foto de "Sobre"): saiu a foto pequena de vestido
+  branco (era da inauguração, outro dia e outra roupa) e o selo que girava.
+- **Capa sem frase de efeito:** saiu "Sua beleza, com equilíbrio e naturalidade"; ficou "Cirurgiã-dentista · Harmonização
+  facial", o nome com o CRO entre parênteses e "Clínica própria na Granja Viana, em Cotia. Atendimento com hora marcada."
+- **"Sobre" virou "Nosso espaço · Um novo espaço para o seu bem-estar."** (no lugar de "Um sonho que agora tem endereço").
+- **Guia dos tratamentos** (para quem é leigo): uma aba por tratamento com "o que é" e "para que serve", em palavras
+  simples, e uma ilustração de rosto (traço, feita na página) que acende a área de cada um (testa e olhos na toxina,
+  lábios, maçãs do rosto e têmporas nos bioestimuladores, nariz, queixo e mandíbula, papada, pontinhos na pele no
+  Skinbooster, tudo no Full face). As frases do post "Cada rosto pede uma estratégia diferente" ficaram como "Para quem
+  diz" nas abas certas; a seção escura das queixas e os cartões numerados saíram. O "Agendar avaliação" de cada aba
+  marca o tratamento na agenda.
+- Textos dos tratamentos: conteúdo geral (o que é e para que serve), sem promessa de resultado; "A indicação é feita na
+  avaliação" em todos. "Conhecida como botox" na toxina, porque é o nome que o público conhece.

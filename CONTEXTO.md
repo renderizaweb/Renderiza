@@ -197,6 +197,25 @@ cliente, ajustes, repositório, hospedagem, domínio, entrega). Abaixo, o que é
 - **Vereadores** (10/11/2026, pedido do Kaue): nicho novo, indicação do Dr. Marcos (vereador Mateuzinho Silva, de
   Itapevi). Pesquisa, regras da lei eleitoral e da LGPD, base da landing e propostas além do site em
   `docs/nichos/vereadores.md`. Site de mandato nunca pede voto nem mostra número de urna fora da campanha.
+- **Meu site nos exemplos** (18/11/2026, pedido do Kaue: "as pessoas perguntam muito como atualizar o site depois"):
+  `/exemplos/meu-site-fotografia` é o Meu site **de verdade** (o código do painel, com um banco de mentira no navegador)
+  editando o site de exemplo do Estúdio Ciranda (`/exemplos/site-fotografia`, fictício, fotos livres do Unsplash). Em
+  `/exemplos/fotografia`, o card "Meu site" (vem em todo plano, não conta entre os 2 módulos), a linha no plano e a
+  pergunta "como eu atualizo?". Como refazer e o aviso para quem mexe no painel: README, "Exemplos de sistema".
+  O vídeo narrado do mesmo pedido (65 s, voz Antonio, telas capturadas do Meu site de verdade): `instagram/reels-meu-site.html`,
+  no ar em `/gravacao/exemplo-meu-site.mp4` (720p, para o WhatsApp); a legenda para postar está em `instagram/legendas.md`.
+- **Planilha financeira sob medida: Vivian Piacenti** (18/11/2026, pedido do Kaue): ela recusou o Painel Renderiza e pediu uma
+  planilha do Excel que soma sozinha por mês (fixos pessoais, estúdio por tipo, foto extra, Uber/Shopee/Mercado Livre,
+  aniversários e ensaios). Feita e conferida no LibreOffice (`ferramentas/planilha/gerar-planilha.py`, a partir do
+  `demos/vivian-piacenti-planilha/planilha.json`). A proposta é uma demo como as outras, `/demo/vivian-piacenti-planilha`
+  (`ferramentas/planilha/gerar-pagina.mjs`), com a versão de teste e a dela liberada por código depois do Pix, e um **lead
+  próprio**, `vivian-piacenti-planilha`, separado do lead do site (gravado em 18/11/2026, a pedido da sócia: "quero saber
+  que ela acessou"; o card do site ganhou uma linha apontando para ele). Valor sugerido R$ 120, valor único (conferir com o Kaue antes de mandar). A pesquisa, as decisões, o passo a passo e a mensagem para ela:
+  `docs/produtos/planilha-financeira.md`. O código da planilha dela nunca vai para o git.
+- **Kit de divulgação de quem fecha** (20/11/2026, pedido do Kaue): quando o cliente fecha e o site vai ao ar, a
+  Renderiza prepara o material para ele divulgar o site (o vídeo do site rolando, o flyer de Stories, a arte do feed e os
+  textos prontos), numa página só dele em `/kit/<pasta>`, com o contador no card do lead (abriu, viu, deu play, baixou,
+  copiou). Passo 9b do `docs/fechamento.md`; gerador `ferramentas/kit/gerar.mjs`; o primeiro é o da Rafaela.
 - **Vídeo "Site e painel" para fotógrafas** (09/11/2026, pedido do Kaue): 36 s para mandar no WhatsApp, em
   `/gravacao/exemplo-site-painel-fotografia.mp4` (`instagram/reels-site-painel.html`). Mostra só o que o painel tem de verdade:
   o Meu site (mudar, salvar no rascunho, publicar), a agenda do estúdio, a campanha de Natal, clientes e entregas, contratos,
@@ -214,6 +233,9 @@ cliente, ajustes, repositório, hospedagem, domínio, entrega). Abaixo, o que é
   `demos/rafaela-damaceno-fotografia/ficha.md`. **O trilho da entrega (site no repositório dela + painel), com o prompt da
   próxima sessão: `docs/entregas/rafaela-damaceno.md`** (o modelo para os próximos clientes: `docs/entregas/README.md`). Lição de ambiente: a sessão precisa abrir no ambiente com rede livre e as
   variáveis `PAINEL_*`; no Default, o Drive, o Instagram, o Google e o próprio site ficam bloqueados.
+- **Bia Maida fechou (17/11/2026): site + painel completo.** A demo virou o site dela (sem nada da Renderiza, com as 86
+  fotos em alta que ela mandou por categoria) para a validação; o trilho da entrega, no modelo da Rafaela, está em
+  `docs/entregas/bia-maida.md`.
 - **Bia Maida: versão 2 da demo, com foco em eventos** (12/11/2026, pedido do Kaue): a Bia gostou da demo e pediu o foco em
   eventos no lugar do estúdio, fotos novas (32, pelo WhatsApp) e a demo refeita. O site virou uma página feita à mão, com a
   mesma identidade e mais movimento: `ferramentas/demo/gerar-fotografia-eventos.py` + `ferramentas/demo/modelos/bia-maida-eventos.html`
@@ -223,6 +245,11 @@ cliente, ajustes, repositório, hospedagem, domínio, entrega). Abaixo, o que é
   (2) animação de entrada que corta a própria moldura (`clip-path`) faz a foto nunca aparecer, porque moldura toda cortada
   não conta como "na tela": a cortina vai na imagem de dentro; (3) testar com rolagem e cliques de verdade, não só com a
   página inteira capturada (foi assim que o defeito apareceu).
+- **Fotógrafas: mensagem de primeiro contato no card** (17/11/2026, pedido do Kaue): a mensagem da Milena que fechou 2
+  vendas (texto do Kaue, sem mexer) fica em `leads.mensagem_whatsapp` e aparece no botão **Copiar mensagem** do card,
+  com o nome (`renderiza.ola` do `demo.json`) e o link da demo; o parágrafo do Natal só vai se a demo tem `natal.html`.
+  Demo nova de fotógrafa: `python3 -I ferramentas/demo/mensagem-fotografia.py <pasta>` dá o SQL (só preenche quem
+  está vazio; `--texto` mostra a mensagem). Preenchidas em 17/11: as 19 de Demo pronta e a Mariana Lima.
 - **Fotógrafas: portfólio online** (09/11/2026, pedido do Kaue): a proposta deixa de ser "site" e vira portfólio online (galerias por ensaio, ensaios e valores, promoção, WhatsApp). O porquê e o formato estão em `docs/nichos/fotografos.md` (seção 10); a demo sai de `ferramentas/demo/gerar-portfolio.py`. Primeira: `/demo/olivares-fotografia`.
 - `/exemplos/fotografia` (28/10/2026, pedido do Kaue): o Painel Renderiza para fotógrafas, com o **Estúdio Ciranda**
   inventado: agenda por horário e campanha de Natal com vagas (o que a pesquisa do nicho pediu). O card dos leads

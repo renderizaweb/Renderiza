@@ -1,0 +1,87 @@
+{
+ "_sobre": "Kit de divulgação da Rafaela (cliente que fechou): o que a Renderiza prepara para ela divulgar o site novo. Gera demos/rafaela-damaceno-fotografia/kit.html (no ar em /kit/rafaela-damaceno-fotografia, com o contador) e as artes em flyers/ (/flyer/...). Como fazer para outro cliente: docs/fechamento.md, \"Kit de divulgação\". Quando o domínio .com.br estiver no ar, trocar o site aqui e gerar de novo.",
+ "pasta": "rafaela-damaceno-fotografia",
+ "para": "Rafaela",
+ "arquivos": "Rafaela-Damaceno",
+ "site": "https://estudiorafaeladamaceno.pages.dev",
+ "fontes": {
+  "titulo": "Cormorant Garamond",
+  "texto": "Jost"
+ },
+ "cores": {
+  "fundo": "#f9f6f2",
+  "papel": "#ffffff",
+  "linha": "#e5e0dd",
+  "tinta": "#4b3d36",
+  "tinta2": "#766a62",
+  "acento": "#a7674b",
+  "acento2": "#8a5139",
+  "areia": "#f1ece6"
+ },
+ "video": "rafaela-damaceno-site.mp4",
+ "arte": {
+  "marca": "Rafaela Damaceno",
+  "local": "Estúdio fotográfico · Franco da Rocha",
+  "fontes": {
+   "titulo": "Cormorant Garamond",
+   "texto": "Jost"
+  },
+  "cores": {
+   "fundo": "#4b3d36",
+   "fundo2": "#2a201b",
+   "acento": "#e3c3ab",
+   "tinta_acento": "#2a201b",
+   "claro": "#fffaf6"
+  },
+  "selo": {
+   "nota": "5,0",
+   "total": "26"
+  },
+  "cta": "Conheça o nosso site",
+  "cta_icone": "link",
+  "site": "estudiorafaeladamaceno.pages.dev",
+  "instagram": "@rafaeladamacenofotografia",
+  "tamanho_titulo": 92
+ },
+ "stories": {
+  "foto": {
+   "da_demo": "54925f019932",
+   "pos": "50% 45%"
+  },
+  "titulo": "Nosso site novo<br><em>está no ar.</em>",
+  "texto": "O portfólio por ensaio, os ensaios do estúdio e a agenda para pedir o seu horário."
+ },
+ "post": {
+  "foto": {
+   "da_demo": "e597145aaa49",
+   "pos": "50% 38%"
+  },
+  "titulo": "Nosso site novo<br><em>está no ar.</em>",
+  "texto": "Portfólio, ensaios e agenda num lugar só.",
+  "tamanho_titulo": 82
+ },
+ "textos": [
+  {
+   "id": "legenda",
+   "titulo": "Legenda para o post e o Reels",
+   "texto": "Nosso site novo está no ar! ✨\nO portfólio por ensaio, os ensaios do estúdio e a agenda para pedir o seu horário, tudo num lugar só.\nO link está na bio. 🤍"
+  },
+  {
+   "id": "bio",
+   "titulo": "Bio do Instagram",
+   "onde": "No Instagram: Editar perfil → Bio. O endereço do site vai em Links.",
+   "texto": "Gestante, newborn, smash e família 📸\nEstúdio em Franco da Rocha\nAgende o seu ensaio pelo site 👇"
+  },
+  {
+   "id": "status",
+   "titulo": "Status e mensagem no WhatsApp",
+   "texto": "Nosso site novo está no ar! ✨ Veja o portfólio por ensaio e peça o seu horário: https://estudiorafaeladamaceno.pages.dev"
+  },
+  {
+   "id": "avaliacao",
+   "titulo": "Pedir avaliação no Google",
+   "onde": "Para mandar no WhatsApp a quem já fez ensaio com você.",
+   "texto": "Oi! Foi muito especial fotografar vocês 🤍 Se puder, deixa uma avaliação do ensaio no Google? Ajuda outras famílias a conhecerem o estúdio: https://www.google.com/maps/place/Est%C3%BAdio+Rafaela+Damaceno+Fotografia/@-23.3319793,-46.7254874,17z/data=!4m8!3m7!1s0x94cee5a2e38b83ef:0xfcfbf0dd6da72ce1!8m2!3d-23.3319793!4d-46.7254874!9m1!1b1!16s%2Fg%2F11x0n_lt4w?hl=pt-BR"
+  }
+ ]
+}

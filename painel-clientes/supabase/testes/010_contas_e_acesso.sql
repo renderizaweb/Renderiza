@@ -59,7 +59,7 @@ reset role;
 select testes.entrar_como((select marina from _u));
 select testes.afirmar((select count(*) from public.contas) = 1, 'Marina vê só a conta dela');
 select testes.afirmar((select count(*) from public.pessoas) = 3, 'Marina vê as 3 pessoas da Villa');
-select testes.afirmar((select count(*) from public.modulos) = 7, 'o catálogo tem os 7 módulos');
+select testes.afirmar((select count(*) from public.modulos) = 8, 'o catálogo tem os 8 módulos (o Estoque desde 24/11/2026)');
 select testes.afirmar(
   (select modulos from public.minhas_contas()) = array['agenda', 'clientes', 'contratos', 'financeiro', 'atendimento']
   and (select liberada and dono from public.minhas_contas()),

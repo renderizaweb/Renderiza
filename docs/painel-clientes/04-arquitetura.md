@@ -205,6 +205,9 @@ painel-clientes/
 ## Vercel
 
 - **Projeto novo** apontando para `painel-clientes/`, sem framework, sem passo de build (ou um mínimo, se precisar).
+- **As funções rodam em São Paulo** (`"regions": ["gru1"]` no `vercel.json`, 24/11/2026), ao lado do Supabase
+  (`sa-east-1`): sem isso a Vercel usa os EUA e cada pedido não cacheado da API pública (o site do cliente pedindo o
+  Meu site, a agenda ou o Estoque) atravessava o continente duas vezes.
 - "Pular build quando a pasta não mudou" ligado: a `main` recebe muitos commits de demos e o Hobby tem 100 deploys
   por dia. Já vem no `painel-clientes/vercel.json` (`ignoreCommand`), junto com os cabeçalhos abaixo; o
   `.vercelignore` deixa `supabase/`, `scripts/` e `test/` fora do que é publicado. O `cleanUrls` fica **desligado**: ligado, a Vercel
@@ -241,7 +244,9 @@ painel-clientes/
   no local com a chave de teste da Cloudflare (`1x00000000000000000000AA`, que sempre passa).
 - **Cabeçalhos:** o painel fora do Google (`noindex`), sem abrir dentro de outro site (`X-Frame-Options: DENY`),
   política de conteúdo (CSP) restringindo de onde vêm scripts. Conferidos na produção na revisão de segurança
-  (30/10/2026, `06`).
+  (30/10/2026, `06`). Desde 16/11/2026, `frame-src https: http://localhost:*`: o Meu site mostra o site do
+  cliente num quadro (o editor ao vivo, `03`); o painel continua sem abrir dentro de ninguém (`frame-ancestors
+  'none'`).
 - **Rewrites, nesta ordem** (`vercel.json`; o `scripts/servidor.mjs` imita): `/c/:codigo` (o contrato),
   `/termos` e `/privacidade` (os documentos, Missão 5B), e por último o app (`index.html`). Quem acrescentar um
   rewrite põe antes do app.
@@ -313,12 +318,14 @@ painel. (Conferido no Registro.br em 28/10/2026: `renderiza.com.br` é de outra 
 
 | Método | Caminho | Quem chama | O que faz |
 |---|---|---|---|
-| GET | `/api/publico/agenda/<código>?de=…&ate=…` (feito, 29/10/2026) | agenda online | os dias com turno e se cada um está livre (até 62 dias por pedido, uns 15 meses à frente), mais tipos de festa, pacotes e adicionais, sem preço e sem nome; `404` se o site não responde |
+| GET | `/api/publico/agenda/<código>?de=…&ate=…` (feito, 29/10/2026) | agenda online | os dias com turno e se cada um está livre (até 62 dias por pedido, uns 15 meses à frente), mais tipos de festa, pacotes e adicionais, sem preço e sem nome, e `modo: "turno"`; `404` se o site não responde ou a conta está no jeito por horário (desde 18/11/2026, o jeito da agenda é escolha da conta: `05`, "Funções públicas") |
 | POST | `/api/publico/agenda/<código>/pedido` (feito) | agenda online | o pedido no Atendimento e a pré-reserva na Agenda (a data fica separada por 48 horas); `201`, ou `409` (data pega), `422` (dado, com o campo), `429` (limite), `403` (outro domínio), `404` |
-| GET | `/api/publico/agenda/<código>?horarios=1` ou `&servico=<id>` ou `&campanha=<id>` (feito, 16/11/2026, fotografia) | agenda online | os horários de início de cada dia e se cada um está livre (a duração é a do ensaio, ou a do ensaio da campanha), os ensaios da agenda online e as campanhas ativas com as vagas que restam; `404` também se a conta não é de fotografia |
+| GET | `/api/publico/agenda/<código>?horarios=1` ou `&servico=<id>` ou `&campanha=<id>` (feito, 16/11/2026, fotografia) | agenda online | os horários de início de cada dia e se cada um está livre (a duração é a do ensaio, ou a do ensaio da campanha), os ensaios da agenda online e as campanhas ativas com as vagas que restam, e `modo: "horario"`; `404` também se a conta está no jeito por turno |
 | POST | `/api/publico/agenda/<código>/pedido` com `hora` (feito, 16/11/2026, fotografia) | agenda online | o pedido por horário (ensaio ou campanha): `{ nome, whatsapp, email?, servico?, campanha?, data, hora, mensagem? }`; mesmos códigos, mesmo campo-isca e tempo mínimo |
 | GET | `/api/publico/site/<código>` (feito, 29/10/2026) | script do Meu site | a versão publicada (cache de ~60 s); "não encontrado" se desconectado, versão final, conta não liberada ou módulo desligado |
 | GET | `/api/publico/site/<código>/previa?t=…` (feito) | prévia do Meu site | o rascunho, sem cache, com código que expira |
+| POST | `/api/publico/site/<código>/visita` (feito, 16/11/2026) | os indicadores do Meu site | sempre 204; conta a página aberta (`publico_visita`), com o aparelho embaralhado por dia; robô não conta (`03`, "Indicadores") |
+| GET | `/api/publico/estoque/<código>` (feito no STG, 24/11/2026) | o script do Estoque no site | só disponível e reservado, na ordem, fotos como caminho desta API (`12`, "Contrato v1"); cache de 20 s + 10 s; "não encontrado" se o site não responde ou o Estoque está desligado (o site fica sem preço) |
 | GET | `/api/publico/imagens/<id da conta>/<arquivo>.webp` (feito) | site do cliente | a foto enviada pelo Meu site, do Storage público `site-imagens` (cache de 1 ano: cada envio ganha nome novo) |
 | GET e POST | `/c/<código-do-contrato>` (feito, 29/10/2026) | cliente final | ler e aceitar o contrato: a página `publico/contrato/` (o primeiro rewrite do `vercel.json`; no servidor local também) fala direto com o banco pela chave pública (`publico_contrato` e `publico_aceitar_contrato`, `05`); sem API da Vercel no meio |
 | GET | `/api/publico/saude` (feito) | aviso automático | responde se o painel e o banco estão de pé (`200` ou `503`) |

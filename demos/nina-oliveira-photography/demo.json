@@ -1,0 +1,641 @@
+{
+ "pasta": "nina-oliveira-photography",
+ "marca": "Nina Oliveira Photography",
+ "marca_completa": "Estúdio Nina Oliveira Photography",
+ "dona": "Nina",
+ "titulo_nome": "Nina Oliveira",
+ "titulo_script": "photography",
+ "quem_a": "a Nina",
+ "quem_da": "da Nina",
+ "google": {
+  "coords": "-23.6513316,-46.7107416",
+  "fid": "0x94ce512f9d4781c7:0x76e4fe7d2acf6409",
+  "gid": "/g/11t81hb1z0"
+ },
+ "google_nome": "Nina Oliveira Photography",
+ "endereco_maps": "Av. Mário Lopes Leão, 516 - Sl 04 - Santo Amaro, São Paulo - SP, 04754-010",
+ "google_nota": "5,0",
+ "google_total": "38",
+ "verificado": "2026-11-23",
+ "whatsapp": "5511966904867",
+ "fone_link": "+5511966904867",
+ "instagram": "ninaoliveiraphoto",
+ "seguidores": "2,3 mil",
+ "mensagem": "Olá, Nina! Vi o portfólio e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbf8f5",
+  "papel": "#ffffff",
+  "areia": "#f3ebe3",
+  "linha": "#e8dccf",
+  "tinta": "#2b2622",
+  "tinta2": "#675d55",
+  "rosa": "#ead7c7",
+  "acento": "#a7744f",
+  "acento_escuro": "#8a5d3d",
+  "cafe": "#26201b"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Marcellus",
+    ""
+   ],
+   "sans": [
+    "Nunito Sans",
+    "wght@300..600"
+   ],
+   "script": [
+    "Allura",
+    ""
+   ]
+  }
+ },
+ "renderiza": {
+  "ola": "Nina",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "parcelado no crédito",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-11-30",
+  "msg_garantir": "Olá! Sou a Nina, da Nina Oliveira Photography. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou parcelado no crédito).",
+  "msg_negociar": "Olá! Sou a Nina, da Nina Oliveira Photography. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "msg_duvida": "Olá! Sou a Nina, da Nina Oliveira Photography. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida.",
+  "codigo": "s5vj"
+ },
+ "portfolio": {
+  "versao": 4,
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py), lote 4 de fotógrafos (23/11/2026). Fotos dos ORIGINAIS: drive/ = a grade dela salva no Drive \"lote 22 do 11\"; posts/<código>/ = carrosséis pelo embed público (os de outubro e novembro de 2026); alboom/<álbum>/ = as galerias da página dela na Alboom (ninaphoto.alboompro.com, com o @ e o WhatsApp); google/ = o Perfil da Empresa. \"capa\": quantas fotos abrem a página do ensaio; \"vitrine\": as que aparecem no filtro da vitrine. Pacotes e valores são EXEMPLOS (a página mostra o selo).",
+  "olho": "Gestante, newborn e família · Santo Amaro, São Paulo",
+  "titulo": "Fotografia é história, é documentação de vida, é amor!",
+  "linha": "Ensaios de gestante, newborn, bebês e famílias, no estúdio da Nina em Santo Amaro, na zona sul de São Paulo.",
+  "local": "Santo Amaro",
+  "onde": "No estúdio da Nina, na Av. Mário Lopes Leão, em Santo Amaro. Datas pelo WhatsApp.",
+  "tira": [
+   "newborn:0",
+   "gestante:0",
+   "bebes:0",
+   "familia:0",
+   "newborn:1",
+   "gestante:1",
+   "bebes:1"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Gabriela Fernandes",
+    "tag": "Newborn",
+    "texto": "Experiência incrível no ensaio newborn da minha bebê. Durante o ensaio a Nina foi incrível, muito cuidadosa e paciente. Entregando as fotos no prazo, e me surpreendendo com o resultado."
+   },
+   {
+    "nome": "Juliana Santos",
+    "tag": "Família",
+    "texto": "A Nina foi um grande achado, uma excelente profissional, simpática, carinhosa, educada e demonstra em todos os detalhes que é mestre no que faz, sempre respeitando o tempo das crianças."
+   },
+   {
+    "nome": "Thaís Gonçalves",
+    "tag": "Ensaio infantil",
+    "texto": "Excelente trabalho!! Muito atenciosa e carinhosa, minha filha ficou muito calminha e ficamos à vontade. O espaço é incrível e ideal para as fotos… Amamos muito!"
+   },
+   {
+    "nome": "Ingrid Gross",
+    "tag": "Ensaio",
+    "texto": "Excelente trabalho da Nina! As fotos ficam maravilhosas e o difícil é escolher qual ir pro álbum!!!! Super recomendo"
+   },
+   {
+    "nome": "Darla Farias",
+    "tag": "Ensaio",
+    "texto": "Amei, a Nina é incrível, o Studio super aconchegante, trabalho lindo!!!"
+   }
+  ],
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "Aline Oliveira, a Nina.",
+   "p": [
+    "Fotógrafa formada e especializada nas fases de uma família: a gestante com sua doce espera, os recém-nascidos e o primeiro ano do bebê, no estúdio dela em Santo Amaro, na zona sul de São Paulo.",
+    "Faz os ensaios no tempo do bebê, com calma e paciência, e também os álbuns fine art."
+   ],
+   "citacao": "Lidar com o amor que acaba de nascer me encanta e me leva além. Aqui tem amor!",
+   "citacao_quem": "Nina Oliveira",
+   "fotos": [
+    {
+     "arq": "alboom/1646539/img_0831.jpg",
+     "alt": "Recém-nascido na caminha do estúdio"
+    },
+    {
+     "arq": "alboom/1646539/img_1002.jpg",
+     "alt": "Recém-nascido no bercinho, no estúdio da Nina"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 38 avaliações no Google"
+    ],
+    [
+     "2,3 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "contato": {
+   "titulo": "Vamos marcar o seu ensaio?",
+   "p": "Datas e orçamentos pelo WhatsApp. O estúdio fica na Av. Mário Lopes Leão, em Santo Amaro.",
+   "endereco": [
+    "Av. Mário Lopes Leão, 516 · Sala 04",
+    "Santo Amaro · São Paulo, SP"
+   ],
+   "telefone": "(11) 96690-4867"
+  },
+  "ensaios": [
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "chamada": "Ensaio newborn",
+    "pedido": "o ensaio newborn",
+    "frase": "O amor que acaba de nascer.",
+    "texto": "No estúdio, no tempo do bebê: as mantas, as touquinhas, os cestos e a foto com os pais e os irmãos.",
+    "depo": {
+     "nome": "Gabriela Fernandes",
+     "texto": "Experiência incrível no ensaio newborn da minha bebê. Eu e minha família fomos muito bem recebidos, o ambiente é lindo e super aconchegante. Durante o ensaio a Nina foi incrível, muito cuidadosa e paciente. Confesso que minha RN estava dando um pouco de trabalho e ela com todo profissionalismo conseguiu fazer as fotos."
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     8
+    ],
+    "fotos": [
+     {
+      "arq": "drive/356631160_18372657082051791_3542717057135890386_n.jpg",
+      "alt": "Mãe beijando a recém-nascida de touquinha"
+     },
+     {
+      "arq": "alboom/1646539/img_0755.jpg",
+      "alt": "Recém-nascido de touquinha de estrelas"
+     },
+     {
+      "arq": "alboom/1646539/img_0784.jpg",
+      "alt": "Recém-nascido no tecido mostarda"
+     },
+     {
+      "arq": "drive/625157303_18095715259939778_390939340289609671_n.jpg",
+      "alt": "Recém-nascido no balde, com a planta"
+     },
+     {
+      "arq": "alboom/1646539/img_0910.jpg",
+      "alt": "Pais com o recém-nascido, testa com testa"
+     },
+     {
+      "arq": "alboom/1646539/img_0852.jpg",
+      "alt": "Recém-nascido no cestinho"
+     },
+     {
+      "arq": "alboom/1646539/img_0829.jpg",
+      "alt": "Recém-nascido na caminha, com a manta azul"
+     },
+     {
+      "arq": "alboom/1646539/img_0896.jpg",
+      "alt": "Mãe com o recém-nascido no colo"
+     },
+     {
+      "arq": "drive/655236430_18125965102600090_9202156456489323027_n.jpg",
+      "alt": "Gêmeas recém-nascidas de touquinha de ursinho"
+     },
+     {
+      "arq": "drive/621145693_18069217610176132_3803581003738872810_n.jpg",
+      "alt": "Recém-nascido de roupa de ursinho, no fundo azul"
+     },
+     {
+      "arq": "drive/618804662_18010217639824290_2740331705654828155_n.jpg",
+      "alt": "Recém-nascido no cavalinho de pelúcia"
+     },
+     {
+      "arq": "drive/622968895_18093689062779225_6562560591793529362_n.jpg",
+      "alt": "Gêmeos de touquinha, dormindo juntos"
+     },
+     {
+      "arq": "alboom/1646539/img_0907.jpg",
+      "alt": "Pais com o recém-nascido contra a luz"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 490",
+      "itens": [
+       "Até 3 horas, no tempo do bebê",
+       "15 fotos editadas",
+       "Cenários e acessórios",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 690",
+      "itens": [
+       "25 fotos editadas",
+       "2 cenários",
+       "Fotos com os pais e os irmãos",
+       "Galeria online"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 990",
+      "itens": [
+       "40 fotos editadas",
+       "Todos os cenários",
+       "Fotos com a família",
+       "Álbum fine art 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "gestante",
+    "nome": "Gestante",
+    "chamada": "Ensaio gestante",
+    "pedido": "o ensaio gestante",
+    "frase": "A doce espera.",
+    "texto": "No estúdio, de vestido longo, sozinha ou com o parceiro e os filhos.",
+    "citacao": "O ensaio de uma gestante é uma pausa no tempo.",
+    "citacao_quem": "Nina Oliveira, no Instagram",
+    "depo": {
+     "nome": "Darla Farias",
+     "texto": "Amei, a Nina é incrível, o Studio super aconchegante, trabalho lindo!!!"
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "drive/622320825_18110916889727608_6993884226754570400_n.jpg",
+      "alt": "Gestante de vestido verde, de perfil"
+     },
+     {
+      "arq": "drive/623508458_18083232311223574_5341262657229546218_n.jpg",
+      "alt": "Gestante de vestido terracota"
+     },
+     {
+      "arq": "alboom/1479077/img_6381.jpg",
+      "alt": "Casal no ensaio gestante, testa com testa"
+     },
+     {
+      "arq": "drive/620916762_17999020163712482_5897658061016288864_n.jpg",
+      "alt": "Gestante de vestido verde, sentada"
+     },
+     {
+      "arq": "drive/650132881_18041499272766690_3759159570770306838_n.jpg",
+      "alt": "Gestante de vestido verde, diante do macramê"
+     },
+     {
+      "arq": "alboom/1479077/img_6336-2.jpg",
+      "alt": "Gestante de vestido verde, com a mão na barriga"
+     },
+     {
+      "arq": "alboom/1479077/img_6410.jpg",
+      "alt": "Gestante de vestido verde, de corpo inteiro"
+     },
+     {
+      "arq": "alboom/1330768/img_1495.jpg",
+      "alt": "Gestante de preto, sentada no banquinho"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 390",
+      "itens": [
+       "1 hora de ensaio",
+       "15 fotos editadas",
+       "1 look",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 590",
+      "itens": [
+       "1h30 de ensaio",
+       "30 fotos editadas",
+       "2 looks",
+       "Parceiro e filhos juntos"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 890",
+      "itens": [
+       "2 horas de ensaio",
+       "Todas as fotos editadas",
+       "3 looks",
+       "Álbum fine art 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "bebes",
+    "nome": "Bebês e crianças",
+    "curto": "Bebês",
+    "chamada": "Acompanhamento do bebê e ensaio infantil",
+    "pedido": "o ensaio do bebê",
+    "frase": "Feliz primeira volta ao sol.",
+    "texto": "A sessão de acompanhamento do bebê, o primeiro aninho com os ursos e a cabaninha, e os aniversários das crianças.",
+    "depo": {
+     "nome": "Thaís Gonçalves",
+     "texto": "Excelente trabalho!! Muito atenciosa e carinhosa, minha filha ficou muito calminha e ficamos à vontade. O espaço é incrível e ideal para as fotos… Amamos muito! Obrigada por toda recepção e trabalho impecável!!!"
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     6,
+     7,
+     8
+    ],
+    "fotos": [
+     {
+      "arq": "posts/DfzdcUnEW3E/DfzdcUnEW3E_02.jpg",
+      "alt": "Bebê de 1 ano sentado entre os ursos de pelúcia"
+     },
+     {
+      "arq": "posts/DfzdcUnEW3E/DfzdcUnEW3E_05.jpg",
+      "alt": "Bebê de chapeuzinho de aniversário"
+     },
+     {
+      "arq": "posts/DfzdcUnEW3E/DfzdcUnEW3E_00.jpg",
+      "alt": "Bebê no aviãozinho de madeira"
+     },
+     {
+      "arq": "posts/DfzdcUnEW3E/DfzdcUnEW3E_06.jpg",
+      "alt": "Bebê dando os primeiros passos, de mãos dadas"
+     },
+     {
+      "arq": "posts/DfzdcUnEW3E/DfzdcUnEW3E_07.jpg",
+      "alt": "Bebê em pé na cabaninha"
+     },
+     {
+      "arq": "drive/618667018_18027262160795613_6398310992473242318_n.jpg",
+      "alt": "Bebê sentado no chão de madeira"
+     },
+     {
+      "arq": "posts/CmMnlO-LIYk/CmMnlO-LIYk_02.jpg",
+      "alt": "Menina de 3 anos com o balão do número 3"
+     },
+     {
+      "arq": "posts/CmMnlO-LIYk/CmMnlO-LIYk_05.jpg",
+      "alt": "Menina rindo, com glitter no rosto"
+     },
+     {
+      "arq": "posts/CmMnlO-LIYk/CmMnlO-LIYk_04.jpg",
+      "alt": "Menina deitada no glitter vermelho"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Sessão avulsa",
+      "preco": "R$ 220",
+      "itens": [
+       "1 cenário",
+       "10 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Trimestral",
+      "preco": "R$ 750",
+      "itens": [
+       "4 sessões no primeiro ano",
+       "Cenário em cada uma",
+       "10 fotos por sessão"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Primeiro ano",
+      "preco": "R$ 1.900",
+      "itens": [
+       "Uma sessão por mês",
+       "Cenário novo a cada mês",
+       "Ensaio de 1 ano incluso"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "familia",
+    "nome": "Família",
+    "chamada": "Ensaio de família",
+    "pedido": "o ensaio de família",
+    "frase": "Aqui tem amor!",
+    "texto": "Pais, filhos e irmãos no estúdio, com o bebê no colo ou com a criança que já corre.",
+    "citacao": "Estar com seu bebê nos braços é reconhecer toda a sua força de mãe.",
+    "citacao_quem": "Nina Oliveira, no Instagram",
+    "depo": {
+     "nome": "Juliana Santos",
+     "texto": "A Nina foi um grande achado, uma excelente profissional, simpática, carinhosa, educada e demonstra em todos os detalhes que é mestre no que faz, sempre respeitando o tempo das crianças, acalentando e entendendo a necessidade delas! Agradeço pela paciência e pelas lindas fotografias da minha família!!!"
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "posts/DfzdcUnEW3E/DfzdcUnEW3E_08.jpg",
+      "alt": "Pais com o filho nos ombros"
+     },
+     {
+      "arq": "posts/DfzdcUnEW3E/DfzdcUnEW3E_09.jpg",
+      "alt": "Pais brincando com o filho no chão"
+     },
+     {
+      "arq": "posts/Cq20YOugUej/Cq20YOugUej_01.jpg",
+      "alt": "Mãe com o bebê no colo e o filho ao lado"
+     },
+     {
+      "arq": "drive/651512005_17989017200782954_4228008315351798954_n.jpg",
+      "alt": "Mãe com o bebê no colo"
+     },
+     {
+      "arq": "drive/623202633_18087623522029881_631370559794637592_n.jpg",
+      "alt": "Família com o bebê e o irmão"
+     },
+     {
+      "arq": "drive/623683824_18070908653151449_243289325421607011_n.jpg",
+      "alt": "Pai com o bebê e o filho"
+     },
+     {
+      "arq": "drive/620515464_17995705028885860_4137465610295764563_n.jpg",
+      "alt": "Família no sofá com o cachorro"
+     },
+     {
+      "arq": "alboom/1646539/img_1041.jpg",
+      "alt": "Pais e a avó com o recém-nascido"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 350",
+      "itens": [
+       "40 minutos de ensaio",
+       "12 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 500",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Até 6 pessoas"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 700",
+      "itens": [
+       "1h30 de ensaio",
+       "40 fotos editadas",
+       "Álbum fine art 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "natal",
+    "nome": "Natal 2026",
+    "curto": "Natal",
+    "chamada": "Especial de Natal 2026",
+    "pedido": "o ensaio de Natal",
+    "frase": "A magia do Natal.",
+    "texto": "O cenário de Natal 2026 no estúdio: a árvore, a lareira, os ursos e o telefone vermelho, para a família toda ou só as crianças.",
+    "citacao": "A infância passa depressa, mas o que a gente guarda com amor, permanece!",
+    "citacao_quem": "Nina Oliveira, no Instagram",
+    "quando": "Os últimos horários do Especial de Natal 2026 estão abertos. Datas pelo WhatsApp.",
+    "depo": {
+     "nome": "Ingrid Gross",
+     "texto": "Excelente trabalho da Nina! As fotos ficam maravilhosas e o difícil é escolher qual ir pro álbum!!!! Super recomendo"
+    },
+    "capa": 3,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     8
+    ],
+    "fotos": [
+     {
+      "arq": "posts/DfDGPA8Ceum/DfDGPA8Ceum_05.jpg",
+      "alt": "Mãe e filha abraçadas no cenário de Natal"
+     },
+     {
+      "arq": "posts/DfSOu4bDksJ/DfSOu4bDksJ_01.jpg",
+      "alt": "Família no cenário de Natal, junto à árvore"
+     },
+     {
+      "arq": "posts/DfDGPA8Ceum/DfDGPA8Ceum_12.jpg",
+      "alt": "Menina no telefone vermelho, no cenário de Natal"
+     },
+     {
+      "arq": "posts/DfSOu4bDksJ/DfSOu4bDksJ_02.jpg",
+      "alt": "Pai e filha com o urso de pelúcia"
+     },
+     {
+      "arq": "posts/DfSOu4bDksJ/DfSOu4bDksJ_03.jpg",
+      "alt": "Mãe e filha sentadas perto da árvore"
+     },
+     {
+      "arq": "posts/DfSOu4bDksJ/DfSOu4bDksJ_00.jpg",
+      "alt": "Menina de vestido vermelho no cenário de Natal"
+     },
+     {
+      "arq": "posts/DfDGPA8Ceum/DfDGPA8Ceum_00.jpg",
+      "alt": "Menina com o urso, no banquinho"
+     },
+     {
+      "arq": "posts/DfDGPA8Ceum/DfDGPA8Ceum_03.jpg",
+      "alt": "Menina olhando a árvore de Natal"
+     },
+     {
+      "arq": "posts/DfDGPA8Ceum/DfDGPA8Ceum_08.jpg",
+      "alt": "Mãe e filha sentadas no cenário de Natal"
+     },
+     {
+      "arq": "posts/DfDGPA8Ceum/DfDGPA8Ceum_11.jpg",
+      "alt": "Menina ao lado da caixinha de cartas do Papai Noel"
+     },
+     {
+      "arq": "posts/De5Xyi0AFHU/De5Xyi0AFHU_00.jpg",
+      "alt": "Menina deitada, de rosto no tecido vermelho"
+     },
+     {
+      "arq": "posts/De5Xyi0AFHU/De5Xyi0AFHU_01.jpg",
+      "alt": "Menina deitada com o urso de pelúcia"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 250",
+      "itens": [
+       "20 minutos de ensaio",
+       "8 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 390",
+      "itens": [
+       "40 minutos de ensaio",
+       "15 fotos editadas",
+       "Família toda"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 590",
+      "itens": [
+       "1 hora de ensaio",
+       "25 fotos editadas",
+       "Quadro 30x40"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

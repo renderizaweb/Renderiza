@@ -24,9 +24,9 @@ if (existsSync(envLocal)) {
   }
 }
 
-const TIPOS = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".ico": "image/x-icon", ".woff2": "font/woff2", ".txt": "text/plain; charset=utf-8", ".mp4": "video/mp4" };
+const TIPOS = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".ico": "image/x-icon", ".woff2": "font/woff2", ".txt": "text/plain; charset=utf-8", ".mp4": "video/mp4", ".xlsx": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", ".bin": "application/octet-stream" };
 // Mesmas regras do vercel.json: só o site público pode aparecer no Google.
-const PRIVADO = /^\/(demo|painel|login|api|flyer|gravacao|como-funciona)(\/|$)/;
+const PRIVADO = /^\/(demo|painel|login|api|flyer|gravacao|como-funciona|termo)(\/|$)/;
 const { default: config } = await import("../api/config.js");
 const { default: visita } = await import("../api/visita.js");
 const { default: reabrirDemo } = await import("../api/reabrir-demo.js");
@@ -47,6 +47,8 @@ createServer(async (req, res) => {
   const rel = caminho.replace(/^\/+|\/+$/g, "");
   const candidatos = rel === "" ? ["index.html"] : [rel, rel + ".html", rel + "/index.html"];
   const publicados = new Map(arquivosPublicados().map(([destino, origem]) => [destino.split("\\").join("/"), origem]));
+  // /termo/<id> abre a página única dos termos (o rewrite do vercel.json; arquivo publicado vem antes).
+  if (/^termo\/[a-z0-9-]{3,80}$/.test(rel)) candidatos.push("termo/index.html");
   const origem = candidatos.map(c => publicados.get(c)).find(Boolean);
   if (!origem) { res.statusCode = 404; return res.end("Não encontrado"); }
   const gerado = typeof origem === "function";

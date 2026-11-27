@@ -52,14 +52,17 @@ export function custo(uso, modelo) {
 
 const curto = (v, max) => (typeof v === "string" ? v.replace(/\s+/g, " ").trim().slice(0, max) : "");
 
+const NEGOCIO = { eventos: "espaço de eventos", fotografia: "estúdio de fotografia", automotivo: "loja de carros: revenda ou consultoria" };
+const TIPOS = { eventos: "Tipos de festa", fotografia: "Ensaios", automotivo: "Serviços além da venda" };
+
 /** O contexto da conta para a IA, em texto: o que a demo sabia e a conversa colada (dado, nunca instrução). */
 export function textoDoContexto({ conta, contexto }) {
   const d = (contexto && contexto.dados) || {};
   const linhas = [
-    `Negócio: ${curto(conta.nome, 120)} (${conta.nicho === "fotografia" ? "estúdio de fotografia" : "espaço de eventos"})`,
+    `Negócio: ${curto(conta.nome, 120)} (${NEGOCIO[conta.nicho] || NEGOCIO.eventos})`,
     d.regiao && `Região: ${curto(d.regiao, 80)}`,
     d.descricao && `Descrição: ${curto(d.descricao, 400)}`,
-    d.tipos && d.tipos.length && `${conta.nicho === "fotografia" ? "Ensaios" : "Tipos de festa"}: ${d.tipos.map(t => curto(t, 60)).join(", ")}`,
+    d.tipos && d.tipos.length && `${TIPOS[conta.nicho] || TIPOS.eventos}: ${d.tipos.map(t => curto(t, 60)).join(", ")}`,
     d.oferece && d.oferece.length && `O que oferece: ${d.oferece.map(t => curto(t, 80)).join(", ")}`,
     d.sobre && d.sobre.length && `Sobre: ${d.sobre.map(t => curto(t, 500)).join(" ")}`,
     d.google && `Google: nota ${curto(d.google.nota, 5)}, ${curto(d.google.total, 10)} avaliações`,
@@ -71,7 +74,7 @@ export function textoDoContexto({ conta, contexto }) {
 
 // ---------- as tarefas ----------
 
-const ROTEIRO = `Você ajuda a montar o Painel Renderiza de um pequeno negócio (espaço de eventos ou estúdio de fotografia) numa conversa de boas-vindas, um cartão por vez, com opções para tocar.
+const ROTEIRO = `Você ajuda a montar o Painel Renderiza de um pequeno negócio (espaço de eventos, estúdio de fotografia ou loja de carros) numa conversa de boas-vindas, um cartão por vez, com opções para tocar.
 Regras:
 - Fale em português do Brasil, do jeito da Renderiza: frases curtas, calorosas, sem exagero, sem emoji, sem jargão. Trate a pessoa por "você" e o negócio pelo nome.
 - Nunca invente dado (nome, preço, data, quantidade). Use só o que está no contexto ou nas respostas.

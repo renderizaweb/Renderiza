@@ -23,11 +23,47 @@ test("nomes: as seções conhecidas, as galerias pela chamada e os campos por ex
   assert.equal(nomeDaSecao("inicio"), "Capa");
   assert.equal(nomeDaSecao("espaco", INICIAL.secoes.espaco), "Galeria · O espaço");
   assert.equal(nomeDaSecao("festas", { textos: { titulo: "Festas *aqui.*" } }), "Festas aqui.");
-  assert.equal(rotulo("textos", "eyebrow"), "Chamada acima do título");
+  assert.equal(rotulo("textos", "eyebrow"), "Chamada pequena, acima do título");
   assert.equal(rotulo("listas", "avaliacoes"), "Avaliações");
   assert.equal(rotulo("textos", "outro-campo"), "Outro campo");
   assert.equal(resumoDaSecao(INICIAL.secoes.inicio), "Festas no verde.");
   assert.equal(resumoDaSecao(INICIAL.secoes.estrutura), "1 item");
+});
+
+test("o editor ao vivo: onde a parte fica, o nome do item, o endereço do site e a orientação da foto", async () => {
+  const { ondeFica, nomeDoItem, resumoDoItem, enderecoDoSite, dicaDaFoto, imagemParaVer, linkDaPrevia } = await import("../src/modulos/meu-site/conteudo.js");
+  assert.match(ondeFica("cabecalho"), /barra presa no alto/);
+  assert.equal(ondeFica("parte-que-o-painel-nao-conhece"), "");
+  assert.equal(nomeDoItem("avaliacoes"), "avaliação");
+  assert.equal(nomeDoItem("infantil", [{ imagens: { foto: {} } }]), "foto", "lista só de fotos");
+  assert.equal(nomeDoItem("itens", [{ textos: { nome: "x" }, imagens: { foto: {} } }]), "item");
+  assert.equal(resumoDoItem({ textos: { nome: "Ana *Souza*", texto: "x" } }, 0, "avaliação"), "Ana Souza");
+  assert.equal(resumoDoItem({ imagens: { foto: {} } }, 2, "foto"), "Foto 3");
+  assert.equal(enderecoDoSite("estudio.com.br"), "https://estudio.com.br");
+  assert.equal(enderecoDoSite("localhost:4010"), "http://localhost:4010", "o site dos testes");
+  assert.equal(enderecoDoSite(""), "");
+  assert.equal(imagemParaVer("/img/a.jpg", ["localhost:4010"]), "http://localhost:4010/img/a.jpg");
+  assert.equal(linkDaPrevia(["estudio.com.br"], "abc"), "https://estudio.com.br/?rz-previa=abc");
+  assert.match(dicaDaFoto([300, 400]), /^Aqui a foto aparece em pé \(perto de 3:4\)\. Use uma com 800 px/);
+  assert.match(dicaDaFoto([900, 500]), /deitada \(perto de 16:9\)\. Use uma com 1\.600 px/, "no máximo 1600: é o que o painel guarda");
+  assert.match(dicaDaFoto([400, 400]), /aparece quadrada\. Use/);
+  assert.match(dicaDaFoto(undefined), /^O site corta as sobras sozinho/, "sem a medida do site: só o que vale sempre");
+});
+
+test("indicadores: o tempo por extenso, o nome do botão clicado, de onde veio e a escala do gráfico", async () => {
+  const { duracao, nomeDoClique, nomeDaOrigem, escalaDoGrafico } = await import("../src/modulos/meu-site/conteudo.js");
+  assert.deepEqual([0, 45, 60, 80, 3600, 7500].map(duracao), ["0 s", "45 s", "1 min", "1 min 20 s", "1 h 00 min", "2 h 05 min"]);
+  const conteudo = { secoes: { inicio: { botoes: { botao: { rotulo: "Agendar *agora*" }, link: {} } } } };
+  assert.equal(nomeDoClique("inicio.botao", conteudo), "Capa · Agendar agora", "a parte e o que está escrito no botão hoje");
+  assert.equal(nomeDoClique("inicio.link", conteudo), "Capa · Link ao lado do botão", "sem rótulo: o nome do campo");
+  assert.equal(nomeDoClique("whatsapp", conteudo), "WhatsApp (o botão flutuante e os links)");
+  assert.equal(nomeDoClique("parte-que-saiu.botao", conteudo), "parte-que-saiu.botao", "botão de uma parte que o site não tem mais: como veio");
+  assert.equal(nomeDaOrigem(""), "Direto (link no WhatsApp, QR code ou o endereço digitado)");
+  assert.deepEqual(["l.instagram.com", "instagram.com", "google.com.br", "m.facebook.com", "wa.me", "guia.exemplo.com.br"].map(nomeDaOrigem),
+    ["Instagram", "Instagram", "Google", "Facebook", "WhatsApp", "guia.exemplo.com.br"]);
+  assert.deepEqual(escalaDoGrafico(1), { topo: 1, linhas: [0, 1] });
+  assert.deepEqual(escalaDoGrafico(7), { topo: 8, linhas: [0, 2, 4, 6, 8] });
+  assert.deepEqual(escalaDoGrafico(130), { topo: 150, linhas: [0, 50, 100, 150] });
 });
 
 test("mesclar: o rascunho por cima da inicial, campo a campo; listas inteiras; o resto fica", () => {
@@ -100,4 +136,19 @@ test("a validação do painel é a mesma do site (cópia igual a ferramentas/meu
   const copia = readFileSync(new URL("../src/modulos/meu-site/meu-site.js", import.meta.url), "utf8");
   const original = readFileSync(new URL("../../ferramentas/meu-site/meu-site.js", import.meta.url), "utf8");
   assert.equal(copia, original, "mudou o meu-site.js? copie para painel-clientes/src/modulos/meu-site/");
+});
+
+test("indicadores do Estoque: os carros mais vistos (ver.<id>, zap.<id>), os botões sem eles, e os nomes das partes e do painel", async () => {
+  const { itensMaisVistos, cliquesDosBotoes, nomeDaSecao: secao, nomeDaOrigem: origem } = await import("../src/modulos/meu-site/conteudo.js");
+  const a = "11111111-2222-4333-8444-555555555555", b = "66666666-7777-4888-8999-000000000000", foi = "99999999-9999-4999-8999-999999999999";
+  const cliques = [{ nome: "whatsapp", cliques: 7 }, { nome: "ver." + a, cliques: 3 }, { nome: "zap." + a, cliques: 2 }, { nome: "ver." + b, cliques: 5 },
+    { nome: "ver." + foi, cliques: 4 }, { nome: "zap." + foi, cliques: 1 }, { nome: "ver.qualquer", cliques: 9 }, { nome: "inicio.botao", cliques: 1 }];
+  const r = itensMaisVistos(cliques, [{ id: a, nome: "Porsche Cayenne 2023/2024" }, { id: b, nome: "BMW 530e 2025/2025" }]);
+  assert.deepEqual(r.linhas.map(l => [l.nome, l.vistas, l.zap]), [["BMW 530e 2025/2025", 5, 0], ["Porsche Cayenne 2023/2024", 3, 2]], "o mais visto primeiro");
+  assert.deepEqual(r.saiu, { vistas: 4, zap: 1 }, "o que já saiu do estoque fica somado à parte");
+  assert.deepEqual(itensMaisVistos([], []).linhas, [], "sem registro, sem linha");
+  assert.deepEqual(cliquesDosBotoes(cliques).map(c => c.nome), ["whatsapp", "inicio.botao"], "os botões do site, sem os dos carros");
+  assert.equal(secao("estoque"), "Estoque (a vitrine)");
+  assert.equal(secao("carro"), "Página de um carro");
+  assert.equal(origem("painel.renderizaweb.com.br"), "Pelo painel (você ou a equipe)");
 });

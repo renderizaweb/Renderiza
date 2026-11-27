@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Reels narrado: Meu site</title>
+<!-- Reels do Instagram (1080 × 1920, 30 quadros/s) com voz, também para mandar no WhatsApp (18/11/2026, pedido do Kaue:
+     as pessoas perguntam muito como atualizar o site depois da entrega). Mensagem: assinando o Painel Renderiza, pelo
+     Meu site (vem em todo plano, sem pagar a mais), a pessoa muda o próprio site quando precisar: escolhe a parte, muda,
+     vê o site mudando ao lado, publica, e em até um minuto está no ar; se cancelar, o site continua no ar como foi
+     entregue (03 do painel, regras 1 e 4). Nada aqui é desenhado: o editor e o site são capturas do Meu site de verdade
+     (instagram/telas-meu-site.mjs, do /exemplos/meu-site-fotografia), com o Estúdio Ciranda, fictício, e o selo
+     "exemplo". O tempo de tudo sai da narração: narracao/reels-meu-site.json → python3 instagram/narrar.py
+     reels-meu-site. Sem animação de CSS: window.quadro(t) desenha o instante t (s). -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&display=block" rel="stylesheet">
+<link rel="stylesheet" href="marca.css">
+<link rel="stylesheet" href="historia.css">
+<style>
+:root{--vinho:#8a4a5f}
+/* o celular com o site (a captura da página inteira rola dentro dele; o topo do site fica parado) */
+#cel{z-index:24}
+#cel .pg{position:absolute;left:0;right:0;top:60px;bottom:0;overflow:hidden;background:#fbf8f6}
+#cel .pg img{position:absolute;left:0;top:0;width:412px;opacity:0}
+#cel-topo{position:absolute;left:0;top:60px;width:412px;z-index:5}
+#cel .status{background:#fbf8f6}
+/* o painel: as telas capturadas (1280 × 800), vistas por uma câmera que aproxima o que importa */
+#vista{position:absolute;left:40px;top:560px;width:1000px;height:625px;overflow:hidden;border-radius:26px;z-index:24;opacity:0;box-shadow:0 60px 120px -40px rgba(0,0,0,.75),0 0 0 2px rgba(255,255,255,.08)}
+#ed{position:absolute;left:0;top:0;width:1280px;height:800px;transform-origin:0 0}
+#ed img{position:absolute;left:0;top:0;width:1280px;height:800px;opacity:0}
+#vista>.exemplo{left:28px;top:20px;z-index:8}
+.anel{position:absolute;border-radius:14px;box-shadow:0 0 0 4px #e8855e,0 0 0 12px rgba(232,133,94,.22);opacity:0;z-index:4}
+#ed .dedo{width:60px;height:60px;margin:-30px 0 0 -30px;border-width:4px}
+/* fichas: as dúvidas, o que dá para mudar, e o plano */
+.ficha{position:absolute;left:0;top:0;z-index:30;display:flex;align-items:center;gap:18px;padding:22px 32px 22px 24px;border-radius:30px;background:#f6f3ee;color:#1e2528;font-size:44px;font-weight:750;letter-spacing:-.03em;white-space:nowrap;box-shadow:0 30px 70px -20px rgba(0,0,0,.5);opacity:0}
+.ficha i{width:68px;height:68px;border-radius:20px;background:var(--vinho);color:#fff;display:grid;place-items:center;flex:none}
+.ficha i svg{width:38px;height:38px;stroke-width:2.1}
+.cartao{position:absolute;left:90px;width:900px;z-index:30;padding:44px 50px;border-radius:42px;background:#f6f3ee;color:#1e2528;box-shadow:0 50px 110px -30px rgba(0,0,0,.7);opacity:0}
+.cartao small{display:block;font-size:26px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#7a8386}
+.cartao b{display:block;margin-top:14px;font-size:64px;font-weight:800;letter-spacing:-.045em;line-height:1.02}
+.cartao b em{font-style:normal;color:var(--vinho)}
+.cartao p{margin-top:18px;font-size:36px;font-weight:550;letter-spacing:-.02em;line-height:1.25;color:#46504f}
+.cartao .selo{display:inline-flex;align-items:center;gap:12px;margin-top:26px;padding:12px 22px;border-radius:999px;background:#e1f1e7;color:#1f7a4d;font-size:30px;font-weight:750}
+.cartao .selo svg{width:30px;height:30px;stroke-width:2.6}
+#baloes{position:absolute;inset:0;z-index:32;pointer-events:none}
+#no-ar{position:absolute;left:0;top:0;z-index:31;display:flex;align-items:center;gap:14px;padding:18px 28px;border-radius:999px;background:#1f7a4d;color:#fff;font-size:38px;font-weight:750;letter-spacing:-.02em;white-space:nowrap;box-shadow:0 24px 50px -16px rgba(0,0,0,.5);opacity:0}
+#no-ar svg{width:38px;height:38px;stroke-width:2.6}
+</style></head><body>
+<div class="reels" id="palco">
+  <div class="poeira" id="poeira"></div>
+  <div class="fone" id="cel"><span class="exemplo claro">exemplo</span><div class="visor">
+    <div id="cel-status"></div>
+    <div class="pg"><img id="pg-antes" src="telas-meu-site/site-antes.jpg" alt=""><img id="pg-depois" src="telas-meu-site/site-depois.jpg" alt=""><img id="cel-topo" src="telas-meu-site/site-topo.jpg" alt="" style="top:0"></div>
+  </div></div>
+  <div id="vista"><span class="exemplo">exemplo</span><div id="ed"></div></div>
+  <div id="fichas"></div>
+  <div id="baloes"></div>
+  <section class="cena" id="c-fim"></section>
+  <div class="vinheta" id="vinheta"></div>
+  <div class="sombra-topo"></div>
+  <div class="falas" id="falas"></div>
+  <div class="flash" id="flash"></div>
+</div>
+<script type="module">
+import { $, $$, clamp, fase, ease, sai, volta, lerp, pulso, pos, em, vis, IC, ic, barra, balao, historia } from "./historia.mjs";
+
+const P = await (await fetch("telas-meu-site/posicoes.json")).json();
+const R = await historia({
+  nome: "reels-meu-site",
+  ordem: ["entrega", "duvida", "lista", "painel", "parte", "preco", "rascunho", "foto", "publicar", "noar", "tudo", "plano", "marca", "cta"],
+  // a trilha: o site pronto abre com impacto, a dúvida é o pulso, as três mudanças sobem até o drop, que cai em
+  // "No Painel Renderiza, quem muda é você"; o plano e a marca ficam no fim
+  trilha: { entrega: "abre", duvida: "google", lista: "ese", painel: "site", parte: "site", preco: "site", rascunho: "site", foto: "site", publicar: "site", noar: "site", tudo: "site", plano: "fim", marca: "fim", cta: "cta" },
+  cta: "SITE", nota: "O Estúdio Ciranda é fictício. As telas são do Meu site de verdade.", bpm: 120, tom: 1,
+});
+const { F, S, W, palco } = R;
+
+// ---------- peças ----------
+$("#cel-status").innerHTML = barra("9:41");
+const K = 412 / 390; // o site (390 px) no visor do celular
+const PG = { antes: $("#pg-antes"), depois: $("#pg-depois") };
+const TELAS = ["ed-1", "ed-2", "ed-3", "ed-4", "ed-5", "ed-6", "ed-7", "ed-8", "ed-9", "ed-10"];
+$("#ed").innerHTML = TELAS.map(t => `<img id="${t}" src="telas-meu-site/${t}.jpg" alt="">`).join("")
+  + `<span class="anel" id="a1"></span><span class="anel" id="a2"></span><span class="dedo" id="dedo"></span>`;
+const IMG = { foto: '<rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-8 8"/>',
+  mais: '<path d="M12 5v14M5 12h14"/>', texto: '<path d="M5 6h14M12 6v13"/>', grade: '<rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/>' };
+const svg = d => `<svg class="i" viewBox="0 0 24 24">${d}</svg>`;
+const ficha = (id, icone, txt) => { const el = document.createElement("div"); el.className = "ficha"; el.id = id; el.innerHTML = `<i>${svg(icone)}</i><span>${txt}</span>`; $("#fichas").appendChild(el); return el; };
+const FL = [ficha("fl1", IC.etiqueta, "O preço do newborn"), ficha("fl2", IMG.foto, "A foto da capa"), ficha("fl3", IMG.mais, "Um ensaio novo")];
+const FT = [ficha("ft1", IMG.texto, "Texto"), ficha("ft2", IC.etiqueta, "Preço"), ficha("ft3", IMG.foto, "Foto"), ficha("ft4", IMG.grade, "Galeria"), ficha("ft5", IC.estrela, "Depoimento")];
+const B1 = balao("Como eu mudo o preço no site?", "msg esq"), B2 = balao("E para trocar uma foto?", "msg dir");
+$("#fichas").insertAdjacentHTML("beforeend", `
+  <div class="cartao" id="k1" style="top:660px"><small>Painel Renderiza</small><b>Meu site <em>vem em todo plano.</em></b><p>Não conta entre os módulos do plano e não muda a mensalidade.</p><span class="selo">${svg(IC.check)}Sem pagar a mais</span></div>
+  <div class="cartao" id="k2" style="top:1180px"><small>E se cancelar?</small><b>O site continua <em>no ar.</em></b><p>Do jeito que foi entregue: ele é seu.</p></div>
+  <div id="no-ar">${svg(IC.check)}No ar em até 1 minuto</div>`);
+
+// ---------- tempos ----------
+const T = {
+  pronto: W("abre", "pronto"),
+  b1: F.pergunta.ini + 0.2, b2: W("pergunta", "mudar"),
+  fl1: W("exemplos", "preço"), fl2: W("exemplos", "foto"), fl3: W("exemplos", "ensaio"),
+  painel: S.painel, partes: W("lado", "partes"), verdade: W("lado", "site"),
+  tapEnsaios: S.parte + 0.25, ensaios: W("parte", "ensaios"),
+  e3: W("preco", "escreve"), e4: W("preco", "preço"), e5: W("preco", "newborn"), muda: W("preco", "site"),
+  rascunho: S.rascunho, so: W("rascunho", "só"),
+  foto: S.foto, tapTrocar: W("foto", "escolhe"), pronto2: W("foto", "pronto"),
+  tapPublicar: W("publicar", "publicar") - 0.15, publicado: W("publicar", "publicar") + 0.35,
+  noar: S.noar, preconovo: W("minuto", "preço"),
+  tudo: [W("tudo", "texto"), W("tudo", "preço"), W("tudo", "foto"), W("tudo", "galeria"), W("tudo", "depoimento")],
+  plano: S.plano, cancelar: F.cancelar.ini,
+};
+
+// ---------- o celular ----------
+// onde ele fica: grande no começo, menor e de lado na dúvida, fora no painel, de volta no "no ar"
+function qCel(t) {
+  const fora = em(t, T.painel + 0.5, T.noar - 0.2) || t >= T.plano + 0.4 || t >= S.marca;
+  const el = $("#cel");
+  if (fora) { el.style.opacity = 0; return; }
+  const ent = sai(fase(t, 0, 0.6)), sa = ease(fase(t, T.painel - 0.1, T.painel + 0.5)), volta_ = sai(fase(t, T.noar - 0.05, T.noar + 0.5)), some = ease(fase(t, T.plano - 0.1, T.plano + 0.4));
+  const lado = ease(fase(t, S.duvida - 0.1, S.duvida + 0.6)) * (1 - ease(fase(t, S.lista + 2.4, S.lista + 3.2)));
+  let x = 320, y = 560, s = 1.3;
+  x += lado * -110; y += lado * 120; s -= lado * 0.18;
+  if (t >= T.noar - 0.2) { x = 320; y = 590 + (1 - volta_) * 900; s = 1.28 - 0.1 * ease(fase(t, S.tudo - 0.2, S.tudo + 0.5)); }
+  else { y += (1 - ent) * 900 + sa * 1100; }
+  pos(el, { x, y, s: s * (t >= T.noar - 0.2 ? 1 : 1 - 0.1 * sa), o: (t >= T.noar - 0.2 ? volta_ : ent) * (1 - some) });
+  // a página rolando: o topo; os ensaios quando fala do preço; de novo o topo na foto; depois, o preço novo
+  const depois = t >= T.noar - 0.2;
+  PG.antes.style.opacity = depois ? 0 : 1; PG.depois.style.opacity = depois ? 1 : 0;
+  const Pn = P[depois ? "site-depois" : "site-antes"], alvo = Math.max(0, Pn.newborn - 230);
+  let rola = 0;
+  if (!depois) rola = alvo * ease(fase(t, T.fl1 - 0.2, T.fl1 + 0.5)) * (1 - ease(fase(t, T.fl2 - 0.25, T.fl2 + 0.35)));
+  else rola = alvo * ease(fase(t, T.preconovo - 0.5, T.preconovo + 0.4));
+  rola += 40 * fase(t, 0.3, 2.2) * (1 - fase(t, S.duvida, S.duvida + 0.4)); // o site entregue, rolando de leve
+  (depois ? PG.depois : PG.antes).style.transform = `translateY(${(-rola * K).toFixed(1)}px)`;
+  // o selo do "no ar"
+  const na = fase(t, T.noar + 0.25, T.noar + 0.6), naSai = fase(t, S.tudo - 0.1, S.tudo + 0.3);
+  pos($("#no-ar"), { x: 540 - 210, y: 1720 - (1 - sai(na)) * 30, s: na > 0 ? lerp(0.6, 1, volta(na)) : 0.6, o: Math.min(1, na * 3) * (1 - naSai) });
+}
+
+// ---------- a câmera do painel ----------
+const BASE = 1000 / 1280;
+const cx = b => b.x + b.w / 2, cy = b => b.y + b.h / 2;
+const C = { // [cx, cy, zoom] em px da captura
+  tudo: [640, 400, 1], partes: [505, 560, 1.25], quadro: [998, 560, 1.25], ensaios: [505, 769, 1.9],
+  campo: [cx(P["ed-2"].preco), cy(P["ed-2"].preco) - 30, 2.5], precoSite: [cx(P.precoNoSite), cy(P.precoNoSite) - 20, 2.3],
+  rascunho: [700, 200, 1.75], foto: [cx(P["ed-8"].foto), cy(P["ed-8"].foto), 1.9], fotoSite: [1000, 600, 1.75],
+  publicar: [cx(P["ed-9"].publicar) - 120, cy(P["ed-9"].publicar) + 20, 2.2], aviso: [700, 470, 1.15],
+};
+const mixCam = (a, b, x) => [lerp(a[0], b[0], x), lerp(a[1], b[1], x), lerp(a[2], b[2], x)];
+function camera(t) {
+  const passos = [ // [quando, posição, duração]
+    [T.painel, C.tudo, 0], [T.partes - 0.2, C.partes, 0.5], [T.verdade - 0.2, C.quadro, 0.6], [S.parte - 0.15, C.ensaios, 0.4],
+    [T.e3 - 0.35, C.campo, 0.45], [T.muda - 0.25, C.precoSite, 0.55], [T.rascunho - 0.1, C.rascunho, 0.5],
+    [T.foto - 0.1, C.foto, 0.55], [T.pronto2 - 0.3, C.fotoSite, 0.55], [S.publicar - 0.1, C.publicar, 0.5], [T.publicado - 0.05, C.aviso, 0.6],
+  ];
+  let cam = passos[0][1];
+  for (const [q, alvo, d] of passos) { if (t < q) break; cam = d ? mixCam(cam, alvo, ease(fase(t, q, q + d))) : alvo; }
+  return cam;
+}
+function marcar(el, b, t0, t1, t) {
+  const x = fase(t, t0, t0 + 0.3), y = fase(t, t1 - 0.25, t1);
+  el.style.left = b.x - 10 + "px"; el.style.top = b.y - 8 + "px"; el.style.width = b.w + 20 + "px"; el.style.height = b.h + 16 + "px";
+  el.style.opacity = (Math.min(1, x * 2) * (1 - y)).toFixed(3);
+  el.style.transform = `scale(${(x > 0 ? lerp(1.12, 1, sai(x)) : 1.12).toFixed(3)})`;
+}
+function tocar(t, t0, x, y) {
+  const d = $("#dedo"), p = fase(t, t0 - 0.35, t0 + 0.45);
+  if (p <= 0 || p >= 1) return false;
+  d.style.left = x + "px"; d.style.top = y + "px";
+  const aperta = pulso(t, t0, 0.3);
+  d.style.opacity = (Math.min(1, p * 5) * Math.min(1, (1 - p) * 4)).toFixed(3);
+  d.style.transform = `scale(${(1 - 0.22 * aperta).toFixed(3)})`;
+  return true;
+}
+function qPainel(t) {
+  const v = $("#vista"), dentro = em(t, T.painel - 0.2, T.noar + 0.1);
+  vis(v, dentro);
+  if (!dentro) return;
+  const ent = sai(fase(t, T.painel - 0.2, T.painel + 0.45)), sa = ease(fase(t, T.noar - 0.3, T.noar + 0.05));
+  v.style.opacity = (Math.min(1, ent * 2) * (1 - sa)).toFixed(3);
+  v.style.transform = `translateY(${((1 - ent) * 500 - sa * 300).toFixed(1)}px)`;
+  // qual tela: o editor, os ensaios, o preço digitado, o rascunho, a capa, a foto nova, publicado
+  let tela = "ed-1";
+  if (t >= T.ensaios - 0.05) tela = "ed-2";
+  if (t >= T.e3) tela = "ed-3"; if (t >= T.e4) tela = "ed-4"; if (t >= T.e5) tela = "ed-5"; if (t >= T.e5 + 0.35) tela = "ed-6";
+  if (t >= T.rascunho - 0.1) tela = "ed-7";
+  if (t >= T.foto - 0.1) tela = "ed-8"; if (t >= T.tapTrocar + 0.55) tela = "ed-9";
+  if (t >= T.publicado) tela = "ed-10";
+  for (const id of TELAS) $("#" + id).style.opacity = id === tela ? 1 : 0;
+  const [x, y, z] = camera(t), s = BASE * z, iw = 1280 * s, ih = 800 * s, w = Math.min(1000, iw), h = Math.min(1200, ih);
+  v.style.left = (540 - w / 2).toFixed(1) + "px"; v.style.top = (1110 - h / 2).toFixed(1) + "px";
+  v.style.width = w.toFixed(1) + "px"; v.style.height = h.toFixed(1) + "px";
+  const tx = clamp(w / 2 - x * s, w - iw, 0), ty = clamp(h / 2 - y * s, h - ih, 0);
+  $("#ed").style.transform = `translate(${tx.toFixed(2)}px,${ty.toFixed(2)}px) scale(${s.toFixed(4)})`;
+  // os anéis: as partes e o site; o preço no site; o rascunho; a foto nova; o aviso de publicado
+  const p1 = P["ed-1"], a1 = $("#a1"), a2 = $("#a2");
+  a1.style.opacity = a2.style.opacity = 0;
+  if (em(t, T.partes, T.verdade)) marcar(a1, { x: p1.partes.x, y: p1.partes.y, w: p1.partes.w, h: 800 - p1.partes.y - 12 }, T.partes, T.verdade, t);
+  else if (em(t, T.verdade, S.parte)) marcar(a1, { x: 750, y: 372, w: 496, h: 416 }, T.verdade, S.parte, t);
+  else if (em(t, T.muda, T.rascunho - 0.1)) marcar(a1, P.precoNoSite, T.muda, T.rascunho - 0.1, t);
+  else if (em(t, T.so - 0.3, T.foto - 0.1)) marcar(a1, P["ed-7"].situacao, T.so - 0.3, T.foto - 0.1, t);
+  else if (em(t, T.pronto2, S.publicar - 0.1)) marcar(a1, { x: 812, y: 595, w: 230, h: 205 }, T.pronto2, S.publicar - 0.1, t);
+  else if (em(t, T.publicado + 0.1, T.noar)) { marcar(a1, P["ed-10"].aviso, T.publicado + 0.1, T.noar, t); marcar(a2, P["ed-10"].situacao, T.publicado + 0.25, T.noar, t); }
+  // os toques
+  $("#dedo").style.opacity = 0;
+  tocar(t, T.tapEnsaios, cx(p1.ensaios), cy(p1.ensaios)) || tocar(t, T.tapTrocar, cx(P["ed-8"].trocar), cy(P["ed-8"].trocar))
+    || tocar(t, T.tapPublicar, cx(P["ed-9"].publicar), cy(P["ed-9"].publicar));
+}
+
+// ---------- fichas, balões e cartões ----------
+function aparece(el, t, t0, t1, x, y) {
+  const a = fase(t, t0 - 0.05, t0 + 0.3), b = fase(t, t1 - 0.25, t1);
+  pos(el, { x, y: y + (1 - sai(a)) * 26 - b * 20, s: a > 0 ? lerp(0.7, 1, volta(a)) : 0.7, o: Math.min(1, a * 3) * (1 - b) });
+}
+function qFichas(t) {
+  aparece(B1, t, T.b1, S.lista + 0.2, 60, 1150);
+  aparece(B2, t, T.b2, S.lista + 0.2, 1080 - 60 - B2.offsetWidth, 1330);
+  const fimLista = T.painel - 0.1;
+  aparece(FL[0], t, T.fl1, fimLista, 1080 - 70 - FL[0].offsetWidth, 1150);
+  aparece(FL[1], t, T.fl2, fimLista, 1080 - 70 - FL[1].offsetWidth, 1310);
+  aparece(FL[2], t, T.fl3, fimLista, 1080 - 70 - FL[2].offsetWidth, 1470);
+  const posTudo = [[70, 640], [620, 760], [80, 1460], [600, 1600], [250, 1740]];
+  FT.forEach((el, i) => aparece(el, t, T.tudo[i], T.plano - 0.05, posTudo[i][0], posTudo[i][1]));
+  aparece($("#k1"), t, T.plano + 0.1, S.marca - 0.1, 0, 0);
+  aparece($("#k2"), t, T.cancelar + 0.05, S.marca - 0.1, 0, 0);
+}
+
+window.quadro = t => {
+  palco.style.transform = "none";
+  palco.style.background = em(t, T.painel - 0.2, T.noar) ? "radial-gradient(75% 45% at 50% 58%,#2c3a40 0%,#161c1f 72%)"
+    : t >= T.plano ? "radial-gradient(64% 40% at 50% 56%,#6b3446 0%,#2a1a20 55%,#141c1e 100%)"
+    : "radial-gradient(70% 45% at 50% 56%,#4a2a36 0%,#1d1619 64%,#121618 100%)";
+  qCel(t); qPainel(t); qFichas(t);
+  R.comum(t);
+};
+const SONS = [
+  { t: T.pronto, tipo: "ding", ganho: 0.5 }, { t: T.b1, tipo: "ding", ganho: 0.45 }, { t: T.b2, tipo: "ding", ganho: 0.4 },
+  { t: T.tapEnsaios, tipo: "toque", ganho: 0.8 }, { t: T.tapTrocar, tipo: "toque", ganho: 0.8 }, { t: T.tapPublicar, tipo: "toque", ganho: 0.85 },
+  { t: T.publicado, tipo: "ding", ganho: 0.55 },
+];
+window.preparar = () => R.preparar([0.5, T.pronto + 0.4, T.b2 + 0.4, T.fl2 + 0.4, T.fl3 + 0.6, T.painel + 0.8, T.partes + 0.4, T.verdade + 0.6,
+  T.tapEnsaios + 0.1, T.ensaios + 0.4, T.e4 + 0.1, T.e5 + 0.5, T.muda + 0.6, T.so + 0.3, T.tapTrocar, T.pronto2 + 0.6, T.tapPublicar, T.publicado + 0.6,
+  T.noar + 0.7, T.preconovo + 0.7, T.tudo[4] + 0.3, T.plano + 0.8, T.cancelar + 1, F.moral.ini + 1.2, F.marca.ini + 1.3, F.cta.ini + 1.6], SONS);
+await R.pronto();
+</script>
+</body></html>

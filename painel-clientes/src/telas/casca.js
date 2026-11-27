@@ -7,7 +7,7 @@
 
 import { MODULOS } from "../modulos/index.js";
 import { caminhoDe } from "../rotas.js";
-import { estadoDoModulo, diasDeTeste, usuarioDoEmail } from "../sessao.js";
+import { estadoDoModulo, diasDeTeste, usuarioDoEmail, servicosSemUso } from "../sessao.js";
 import { nicho } from "../nichos/index.js";
 import { temaDoNicho } from "./acesso.js";
 import { icone } from "../ui/icones.js";
@@ -19,11 +19,11 @@ import { linkDaRenderiza } from "./renderiza.js";
 
 const ICONE = {
   inicio: "inicio", agenda: "agenda", atendimento: "conversa", clientes: "clientes", contratos: "contrato",
-  financeiro: "carteira", "meu-site": "site", servicos: "servicos", equipe: "equipe", configuracoes: "configuracoes",
+  financeiro: "carteira", "meu-site": "site", estoque: "estoque", servicos: "servicos", equipe: "equipe", assinatura: "carteira", configuracoes: "configuracoes",
 };
-const DA_CONTA = ["servicos", "equipe", "configuracoes"];
+const DA_CONTA = ["servicos", "equipe", "assinatura", "configuracoes"];
 // Na barra de baixo cabem o Início, mais três e o "Mais"; Atendimento primeiro (09, "Barra de baixo").
-const PRIORIDADE_DA_BARRA = ["atendimento", "agenda", "clientes", "financeiro", "contratos", "meu-site"];
+const PRIORIDADE_DA_BARRA = ["estoque", "atendimento", "agenda", "clientes", "financeiro", "contratos", "meu-site"];
 
 /** Os itens do menu da conta, na ordem: Início, os módulos (na ordem escolhida no onboarding), e os da conta. */
 export function itensDoMenu(conta) {
@@ -40,7 +40,9 @@ export function itensDoMenu(conta) {
   });
   const inicio = MODULOS.filter(m => m.id === "inicio").map(item);
   const modulos = MODULOS.filter(m => !m.base).sort((a, b) => posicao(a.id) - posicao(b.id)).map(item);
-  const daConta = DA_CONTA.map(id => MODULOS.find(m => m.id === id)).filter(Boolean).map(item);
+  // Serviços some quando nada usa (servicosSemUso); a Assinatura é do dono e do suporte: a equipe nem a vê trancada (13)
+  const daConta = DA_CONTA.filter(id => (id !== "servicos" || !servicosSemUso(conta, n.servicoSimples)) && (id !== "assinatura" || (conta && (conta.dono || conta.suporte_ate))))
+    .map(id => MODULOS.find(m => m.id === id)).filter(Boolean).map(item);
   return [...inicio, ...modulos, ...daConta].filter(i => i.estado !== "fora");
 }
 
@@ -55,6 +57,7 @@ export function itensDaBarra(itens) {
 export function acoesRapidas(conta, pode) {
   const p = nicho(conta && conta.nicho).palavras;
   const lista = [
+    pode("estoque", "editar") && { id: "novo-item", rotulo: p.novoItem || "Novo item", icone: "estoque", caminho: "/estoque?novo=item" },
     pode("atendimento", "editar") && { id: "novo-pedido", rotulo: "Novo pedido", icone: "conversa", caminho: "/atendimento?novo=pedido" },
     pode("agenda", "editar") && { id: "nova-reserva", rotulo: p.novaReserva, icone: "agenda", caminho: "/agenda?novo=reserva" },
     conta && conta.nicho === "eventos" && (pode("agenda", "editar") || pode("atendimento", "editar")) &&
@@ -133,7 +136,7 @@ export function montarCasca(raiz, { rota, sessao, banco, navegar, ambiente }) {
       <aside class="rz-lateral" aria-label="Menu">
         <a class="rz-lateral-conta" href="/">
           ${sinalDaConta(conta)}
-          <span><b>${escapar(conta.nome)}</b><small>Painel do ${escapar(n.palavras.conta)}</small></span>
+          <span><b>${escapar(conta.nome)}</b><small>Painel ${escapar(n.palavras.daConta)}</small></span>
         </a>
         ${bloqueada ? "" : `<nav class="rz-menu" aria-label="Módulos">
           ${principais.map(i => linkDoMenu(i, rota)).join("")}
@@ -152,7 +155,7 @@ export function montarCasca(raiz, { rota, sessao, banco, navegar, ambiente }) {
       </aside>
       <div class="rz-area">
         <header class="rz-topo">
-          <a class="rz-topo-conta" href="/">${sinalDaConta(conta)}<span class="rz-topo-nome"><b>${escapar(conta.nome)}</b><small>Painel do ${escapar(n.palavras.conta)}</small></span></a>
+          <a class="rz-topo-conta" href="/">${sinalDaConta(conta)}<span class="rz-topo-nome"><b>${escapar(conta.nome)}</b><small>Painel ${escapar(n.palavras.daConta)}</small></span></a>
           ${etiqueta}
           ${bloqueada || !fazAlgo ? "" : `<button class="rz-busca" type="button" data-novo aria-label="O que você quer fazer agora? (Ctrl+K)">${icone("adicionar", { tamanho: 18 })}<span>O que você quer fazer agora?</span><kbd>Ctrl K</kbd></button>
           <button class="rz-topo-mais" type="button" data-novo aria-label="O que você quer fazer agora?">${icone("adicionar", { tamanho: 22 })}</button>`}

@@ -1,9 +1,14 @@
 // Meu site (Painel Renderiza): o script que vai dentro do site do cliente e mostra, por cima da versão inicial, a
 // versão publicada no painel. Regras em docs/painel-clientes/03-modulo-meu-site.md:
-// - a versão inicial está no HTML e nunca depende do painel: erro, demora (1,5 s) ou "não encontrado" = fica ela;
+// - a versão inicial está no HTML e nunca depende do painel: erro ou "não encontrado" = fica ela; a do painel entra
+//   quando chegar (17/11/2026: com o corte de 1,5 s, quem publicava quase nunca via a mudança na hora);
 // - texto entra como texto (só *destaque* vira <em>, e só nos títulos), links só dos tipos permitidos, imagens só do
 //   endereço do painel;
 // - a última versão fica no navegador por até 24 horas, para aparecer logo nas visitas seguintes.
+// - dentro do editor do painel (o site num quadro, com ?rz-editor=1), mostra o rascunho que o painel manda a cada
+//   mudança e avisa em que parte a pessoa clicou; só aceita mensagem do endereço do painel e não grava nada;
+// - conta as visitas para os indicadores do painel, sem cookie e sem guardar nada no navegador (data-sem-visitas no
+//   <script> desliga): o tempo, as partes vistas e os botões clicados, por página aberta;
 // Entra no site pelo scripts/virar-site.mjs, num <script data-codigo="<código do site>"> no fim do <head>.
 // O mesmo arquivo é a biblioteca (validar, aplicar, extrair) do painel, dos testes e do scripts/versao-final.mjs.
 //
@@ -19,7 +24,6 @@
   "use strict";
   var ESQUEMA = 1;
   var API = "https://painel.renderizaweb.com.br/api/publico/site/";
-  var ESPERA = 1500; // ms: depois disso a página fica como está (a resposta ainda vai para o cache)
   var VALIDADE = 24 * 3600 * 1000; // ms: quanto a última versão vale no navegador
   var LIMITE = { texto: 600, rotulo: 60, alt: 200, mensagem: 500, destino: 300, itens: 60, endereco: 1000 };
   var ACOES = ["whatsapp", "telefone", "link", "secao", "rota", "instagram", "email"];
@@ -368,7 +372,7 @@
   // ---------- extrair: o conteúdo inicial de um site, no mesmo formato (para a montagem no painel) ----------
   function deTexto(el) {
     return Array.prototype.map.call(el.childNodes, function (n) {
-      return n.nodeName === "EM" ? "*" + n.textContent + "*" : n.textContent;
+      return n.nodeName === "EM" ? "*" + n.textContent + "*" : n.nodeName === "BR" ? " " : n.textContent; // <br> é espaço: "premium<br>e" não vira "premiume"
     }).join("").replace(/\s+/g, " ").trim();
   }
 
@@ -426,6 +430,148 @@
     return c;
   }
 
+  // ---------- o editor ao vivo (o site num quadro do painel, em /meu-site) ----------
+  // O painel manda { rz: "meu-site", tipo: "conteudo", conteudo } (o rascunho inteiro; sem conteúdo = a versão inicial)
+  // e { tipo: "foco", secao, grupo?, campo?, indice? } (rola até a parte e destaca). O site manda { tipo: "pronto" } e
+  // { tipo: "medidas" } (o tamanho de cada foto na página e as partes que têm âncora) e { tipo: "clique", secao,
+  // grupo?, campo?, indice?, subcampo? } quando a pessoa clica numa parte marcada.
+  var GRUPOS = [["data-site-botao", "botoes"], ["data-site-img", "imagens"], ["data-site", "textos"]];
+
+  function marcaDe(el) {
+    if (!el || !el.closest) return null;
+    var lista = el.closest("[data-site-lista]"), p, i;
+    if (lista) {
+      p = lista.getAttribute("data-site-lista").split(".");
+      var item = el.closest("[data-site-item]"), campo = el.closest("[data-site-campo]");
+      var m = { secao: p[0], grupo: "listas", campo: p[1] };
+      if (item && lista.contains(item)) { m.indice = itensDe(lista).indexOf(item); if (campo && item.contains(campo)) m.subcampo = campo.getAttribute("data-site-campo"); }
+      return m;
+    }
+    for (i = 0; i < GRUPOS.length; i++) {
+      var e = el.closest("[" + GRUPOS[i][0] + "]");
+      if (e) { p = e.getAttribute(GRUPOS[i][0]).split("."); return { secao: p[0], grupo: GRUPOS[i][1], campo: p[1] }; }
+    }
+    return null;
+  }
+
+  function alvoDe(doc, d) {
+    var chave = d.secao + "." + d.campo, visivel = function (e) { return e && e.getClientRects().length; }, achados = [];
+    if (d.grupo === "listas") {
+      var lista = doc.querySelector('[data-site-lista="' + chave + '"]');
+      if (lista) achados = [typeof d.indice === "number" ? itensDe(lista)[d.indice] : null, lista];
+    } else {
+      GRUPOS.forEach(function (g) { if (g[1] === d.grupo) achados = todos(doc, "[" + g[0] + '="' + chave + '"]'); });
+    }
+    return achados.filter(visivel)[0] || doc.querySelector('[data-site-secao="' + d.secao + '"]');
+  }
+
+  function medidas(doc) {
+    var imagens = {}, medir = function (chave, el) {
+      var r = el.getBoundingClientRect();
+      if (r.width > 8 && r.height > 8 && !imagens[chave]) imagens[chave] = [Math.round(r.width), Math.round(r.height)];
+    };
+    todos(doc, "img[data-site-img]").forEach(function (el) { medir(el.getAttribute("data-site-img"), el); });
+    todos(doc, "[data-site-lista]").forEach(function (lista) {
+      todos(lista, "img[data-site-campo]").forEach(function (el) { medir(lista.getAttribute("data-site-lista") + "." + el.getAttribute("data-site-campo"), el); });
+    });
+    var ancoras = todos(doc, "[data-site-secao][id]").map(function (el) { return { id: el.id, secao: el.getAttribute("data-site-secao") }; });
+    return { imagens: imagens, ancoras: ancoras };
+  }
+
+  function ligarEditor(doc, origem, opcoes) {
+    var w = doc.defaultView, focado = null, relogio = null;
+    var dizer = function (tipo, m) { m = m || {}; m.rz = "meu-site"; m.tipo = tipo; w.parent.postMessage(m, origem); };
+    var estilo = doc.createElement("style");
+    estilo.textContent = "[data-site],[data-site-botao],[data-site-img],[data-site-item],[data-site-lista][data-site-runtime]{cursor:pointer}" +
+      "[data-site]:hover,[data-site-botao]:hover,[data-site-img]:hover,[data-site-item]:hover{outline:2px dashed #2563eb;outline-offset:3px}" +
+      ".rz-ed-foco{outline:3px solid #2563eb!important;outline-offset:4px}";
+    doc.head.appendChild(estilo);
+    doc.addEventListener("click", function (ev) {
+      var m = marcaDe(ev.target);
+      if (m) { ev.preventDefault(); ev.stopPropagation(); dizer("clique", m); return; }
+      var a = ev.target.closest && ev.target.closest("a[href]");
+      if (a && a.getAttribute("href").charAt(0) !== "#") ev.preventDefault(); // no editor, ninguém sai da página
+    }, true);
+    w.addEventListener("message", function (ev) {
+      var d = ev.data;
+      if (ev.origin !== origem || !ehObjeto(d) || d.rz !== "meu-site") return;
+      try {
+        if (d.tipo === "conteudo") { if (d.conteudo) aplicar(doc, d.conteudo, opcoes); else voltar(doc); }
+        else if (d.tipo === "foco" && typeof d.secao === "string") {
+          var alvo = alvoDe(doc, d);
+          if (focado) focado.classList.remove("rz-ed-foco");
+          clearTimeout(relogio);
+          if (!alvo) return;
+          focado = alvo;
+          alvo.classList.add("rz-ed-foco");
+          // parte alta: o começo dela, logo abaixo do topo do site; parte pequena: no meio da tela
+          var r = alvo.getBoundingClientRect(), alto = w.innerHeight;
+          w.scrollTo({ top: Math.max(0, w.pageYOffset + (r.height > alto * 0.7 ? r.top - 96 : r.top - (alto - r.height) / 2)), behavior: "smooth" });
+          relogio = setTimeout(function () { alvo.classList.remove("rz-ed-foco"); }, 1800);
+        }
+      } catch (e) { /* o site fica como está */ }
+    });
+    dizer("pronto", medidas(doc));
+    w.addEventListener("load", function () { dizer("medidas", medidas(doc)); });
+  }
+
+  // ---------- os indicadores: visitas, tempo, partes vistas e botões clicados ----------
+  // Nada de cookie nem de guardar algo no navegador: um sorteio que só vale nesta página aberta, o caminho, celular ou
+  // computador, o site de onde a pessoa veio, os segundos em cada parte (a que está no meio da tela) e os cliques nos
+  // botões. Vai para o painel 2 segundos depois de abrir, a cada 30 segundos se mudou e quando a página some.
+  // Robô (navigator.webdriver) não conta. Quem é a pessoa, o painel não sabe (03, "Indicadores").
+  function contarVisitas(doc, url) {
+    var w = doc.defaultView, nav = w.navigator;
+    if (!nav || nav.webdriver || typeof nav.sendBeacon !== "function" || !w.crypto || !w.crypto.getRandomValues) return;
+    var LETRAS = "abcdefghijklmnopqrstuvwxyz0123456789", v = "", origem = "";
+    Array.prototype.forEach.call(w.crypto.getRandomValues(new Uint8Array(16)), function (b) { v += LETRAS[b % 36]; });
+    var semWww = function (h) { return String(h).toLowerCase().replace(/^www\./, ""); };
+    try { var de = semWww(new URL(doc.referrer).hostname); if (de && de !== semWww(w.location.hostname)) origem = de; } catch (e) { /* veio direto */ }
+    var total = 0, secoes = {}, cliques = {}, mandado = "", vezes = 0;
+    var mandar = function () {
+      var dados = { v: v, p: w.location.pathname, t: w.innerWidth < 760 ? "celular" : "computador", s: total, se: secoes, c: cliques };
+      if (origem) dados.o = origem;
+      var texto = JSON.stringify(dados);
+      if (texto === mandado || vezes >= 60) return;
+      mandado = texto; vezes += 1;
+      try { nav.sendBeacon(url, texto); } catch (e) { /* sem contagem desta vez */ }
+    };
+    var noMeio = function () {
+      var y = w.innerHeight / 2, achada = null;
+      todos(doc, "[data-site-secao],section[id]").forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.height && r.top <= y && r.bottom >= y) achada = el.getAttribute("data-site-secao") || el.id;
+      });
+      return achada;
+    };
+    w.setInterval(function () {
+      if (doc.visibilityState !== "visible" || total >= 14400) return;
+      total += 1;
+      var s = noMeio();
+      if (s) secoes[s] = (secoes[s] || 0) + 1;
+      if (total === 2 || total % 30 === 0) mandar();
+    }, 1000);
+    // os nomes que o banco guarda (publico_visita: até 40 por visita); o que vier fora disso é ignorado
+    var somar = function (nome) {
+      if (typeof nome !== "string" || !/^[a-z0-9][a-z0-9.-]{0,60}$/.test(nome)) return;
+      if (!cliques[nome] && Object.keys(cliques).length >= 40) return;
+      cliques[nome] = (cliques[nome] || 0) + 1;
+    };
+    // o site conta o que é dele (26/11/2026: o Estoque conta "ver.<id>" quando um item é aberto); o
+    // data-rz-clique de um botão conta junto com o clique dele ("zap.<id>": o WhatsApp da página de um carro)
+    w.rzContar = somar;
+    doc.addEventListener("click", function (ev) {
+      var el = ev.target.closest && ev.target.closest("[data-site-botao],[data-whatsapp],[data-instagram],a[href^='https://wa.me'],a[href^='tel:'],.ag-enviar");
+      if (!el) return;
+      var nome = el.getAttribute("data-site-botao") || (el.hasAttribute("data-instagram") ? "instagram"
+        : /^tel:/.test(el.getAttribute("href") || "") ? "telefone" : el.classList.contains("ag-enviar") ? "agenda" : "whatsapp");
+      somar(nome);
+      if (el.hasAttribute("data-rz-clique")) somar(el.getAttribute("data-rz-clique"));
+    }, true);
+    doc.addEventListener("visibilitychange", function () { if (doc.visibilityState === "hidden") mandar(); });
+    w.addEventListener("pagehide", mandar);
+  }
+
   // ---------- no site ----------
   function lerCache(chave) {
     try {
@@ -453,13 +599,22 @@
     var api = script.getAttribute("data-api") || API, origem;
     try { origem = new URL(api).origin; } catch (e) { return; }
     var previa = (global.location.search.match(/[?&]rz-previa=([A-Za-z0-9_-]{8,200})(?:&|$)/) || [])[1];
-    var chave = "rz-meu-site:" + codigo, aplicada = null, noPrazo = true;
+    var chave = "rz-meu-site:" + codigo, aplicada = null;
     var opcoes = { imagem: function (src) { try { return new URL(src).origin === origem ? src : null; } catch (e) { return null; } } };
+    if (global.parent !== global && /[?&]rz-editor=1(?:&|$)/.test(global.location.search)) {
+      var comecar = function () { ligarEditor(doc, origem, opcoes); };
+      if (doc.readyState === "loading") doc.addEventListener("DOMContentLoaded", comecar); else comecar();
+      return;
+    }
     var assinatura = function (c) { return c.versao + "|" + c.publicado_em; };
     var pronto = new Promise(function (ok) {
       if (doc.readyState === "loading") doc.addEventListener("DOMContentLoaded", function () { ok(); });
       else ok();
     });
+    // a prévia do Estoque (o site num quadro do painel, ?rz-estoque=previa) é o dono olhando: não conta como visita
+    if (!previa && !script.hasAttribute("data-sem-visitas") && !/[?&]rz-estoque=previa(?:&|$)/.test(global.location.search)) {
+      pronto.then(function () { try { contarVisitas(doc, api + encodeURIComponent(codigo) + "/visita"); } catch (e) { /* o site segue sem contar */ } });
+    }
     var mostrar = function (c) {
       pronto.then(function () {
         try {
@@ -471,25 +626,38 @@
       });
     };
     if (!previa) { var guardada = lerCache(chave); if (guardada) mostrar(guardada); }
-    setTimeout(function () { noPrazo = false; }, ESPERA);
-    var ctrl = typeof global.AbortController === "function" ? new global.AbortController() : null;
-    if (ctrl) setTimeout(function () { ctrl.abort(); }, 10000);
     var url = api + encodeURIComponent(codigo) + (previa ? "/previa?t=" + previa : "");
-    global.fetch(url, { credentials: "omit", cache: previa ? "no-store" : "default", signal: ctrl ? ctrl.signal : undefined })
+    // Como o Estoque: pede sempre que a página abre e de novo quando a pessoa volta à aba (no máximo a cada 3 s); a
+    // rede guarda a resposta por 1 s, então o que foi publicado aparece na próxima vez que o site é aberto ou olhado.
+    var buscando = false, ultimaBusca = 0;
+    var buscar = function () {
+      if (buscando || Date.now() - ultimaBusca < 3000) return;
+      buscando = true; ultimaBusca = Date.now();
+      var ctrl = typeof global.AbortController === "function" ? new global.AbortController() : null;
+      var limite = ctrl ? setTimeout(function () { ctrl.abort(); }, 10000) : null;
+      var fim = function () { buscando = false; if (limite) clearTimeout(limite); };
+      global.fetch(url, { credentials: "omit", cache: previa ? "no-store" : "default", signal: ctrl ? ctrl.signal : undefined })
       .then(function (r) {
-        if (r.status === 404) { if (!previa) apagarCache(chave); if (noPrazo) mostrar(null); return; }
+        if (r.status === 404) { if (!previa) apagarCache(chave); mostrar(null); return; }
         if (!r.ok) return;
-        var naHora = noPrazo;
         return r.json().then(function (c) {
           if (!ehObjeto(c) || c.site !== codigo || validar(c).length) return;
           if (!previa) gravarCache(chave, c);
-          if (naHora || previa) mostrar(c);
+          mostrar(c); // mesmo atrasada: a mesma versão não reaplica (assinatura)
         });
       })
-      .catch(function () { /* fora do ar, demorou ou bloqueado: fica a versão que está na tela */ });
+      .catch(function () { /* fora do ar, demorou ou bloqueado: fica a versão que está na tela */ })
+      .then(fim, fim);
+    };
+    buscar();
+    if (!previa && typeof doc.addEventListener === "function") {
+      var deNovo = function () { if (doc.visibilityState !== "hidden") buscar(); };
+      doc.addEventListener("visibilitychange", deNovo);
+      if (typeof global.addEventListener === "function") global.addEventListener("focus", deNovo);
+    }
   }
 
-  var api = { ESQUEMA: ESQUEMA, API: API, validar: validar, partes: partes, destino: destino, iniciais: iniciais, aplicar: aplicar, voltar: voltar, extrair: extrair, lerCliente: lerCliente };
+  var api = { ESQUEMA: ESQUEMA, API: API, validar: validar, partes: partes, destino: destino, iniciais: iniciais, aplicar: aplicar, voltar: voltar, extrair: extrair, lerCliente: lerCliente, marcaDe: marcaDe };
   if (typeof module === "object" && module && module.exports) module.exports = api;
   else {
     global.RZ_MEU_SITE = api;

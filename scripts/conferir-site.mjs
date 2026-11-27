@@ -11,7 +11,9 @@ import { fileURLToPath } from 'node:url';
 
 const ARQUIVOS = ['index.html', 'README.md', 'robots.txt', 'sitemap.xml', 'vercel.json', '_headers', 'favicon.svg'];
 // Texto que só existe enquanto falta alguma coisa do cliente. Procurado no texto visível e nos alt das fotos.
-const PROVISORIO = /espa[çc]o reservado|lorem ipsum|\bplaceholder\b|\bTODO\b|\bFIXME\b|\ba definir\b|XXXX|\[(?:nome|foto|telefone|texto)[^\]]*\]/i;
+const PROVISORIO = /espa[çc]o reservado|lorem ipsum|\bplaceholder\b|\ba definir\b|XXXX|\[(?:nome|foto|telefone|texto)[^\]]*\]/i;
+// TODO e FIXME só em maiúsculas: em português, "todo" é palavra comum ("todo mundo", "todo o suporte").
+const MARCADOR = /\bTODO\b|\bFIXME\b/;
 // Pode ser de verdade ("em breve, nova unidade"), mas vale olhar.
 const TALVEZ_PROVISORIO = /\bem breve\b|\bem constru[çc][ãa]o\b/i;
 
@@ -25,15 +27,32 @@ export function textoVisivel(html) {
   return (corpo + ' ' + alts.join(' ')).replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
+/** O HTML do primeiro elemento (fora os <script>) com o atributo dado, até a tag que o fecha (conta as do mesmo nome por dentro). */
+export function trechoDoElemento(html, atributo) {
+  const abre = new RegExp(`<(?!script\\b)([a-z][a-z0-9]*)\\b[^>]*\\s${atributo}(?:=|[\\s>])`, 'i').exec(html); // o <script data-estoque> do <head> não é a vitrine
+  if (!abre) return '';
+  const tag = abre[1].toLowerCase(), re = new RegExp(`<(/?)${tag}\\b[^>]*>`, 'gi');
+  re.lastIndex = abre.index;
+  let nivel = 0, m;
+  while ((m = re.exec(html))) {
+    nivel += m[1] ? -1 : 1;
+    if (nivel === 0) return html.slice(abre.index, m.index + m[0].length);
+  }
+  return html.slice(abre.index);
+}
+
 /** Confere o HTML de um site já gerado. Devolve { problemas: [], avisos: [] } (frases curtas, em português). */
 export function conferirHtml(html, { dominio, existe = () => true } = {}) {
   const problemas = [], avisos = [];
+  // o Estoque vem pela API do Estoque: o Meu site não mexe na vitrine (12 do painel, "Contrato v1", item 3)
+  const dentroDoEstoque = trechoDoElemento(html, 'data-estoque');
+  if (dentroDoEstoque && /\sdata-site(?:-[a-z]+)?=/.test(dentroDoEstoque)) problemas.push('A vitrine do Estoque (data-estoque) tem marcação do Meu site (data-site-*): o Meu site não pode mexer no estoque.');
   if (/\/exemplos\/visitas\.js|data-pagina="demo"|\sdata-demo="/.test(html)) problemas.push('Ficou o rastreio de visitas da Renderiza (visitas.js / data-demo).');
   if (/data-rz-oferta|class="rz-(?:oferta|faixa)|id="valor-do-site"/.test(html)) problemas.push('Ficou o card de valor ou a faixa da oferta da demo.');
   if (/renderizaweb\.com\.br\/demo|href="\/demo\//.test(html)) problemas.push('Ficou link para a demo (/demo/…).');
   if (/<meta[^>]+name="robots"[^>]+noindex/i.test(html)) problemas.push('A página pede para o Google não indexar (noindex).');
   const texto = textoVisivel(html);
-  const provisorio = texto.match(PROVISORIO);
+  const provisorio = texto.match(PROVISORIO) || texto.match(MARCADOR);
   if (provisorio) problemas.push(`Texto provisório na página: "${provisorio[0]}" (falta algo do cliente?).`);
   const faltando = [...new Set([...html.matchAll(/\ssrc="\/?(img\/[^"?#]+)"/g)].map(m => m[1]))].filter(f => !existe(f));
   if (faltando.length) problemas.push(`Foto que não existe em img/: ${faltando.join(', ')}.`);

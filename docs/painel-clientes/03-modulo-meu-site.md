@@ -56,7 +56,7 @@ código, os dados para o Google (endereço oficial, dados estruturados) e o dom�
  │ HTML completo com a VERSÃO INICIAL       │  1. pede a versão publicada             │
  │ (textos, fotos e cores dentro do site)   │ ─────────────────▶ painel.renderizaweb… │
  │                                          │        │  /api/publico/site/<código>     │
- │ + script do Meu site (pequeno, embutido) │ ◀───────────────── (cache de ~60 s)     │
+ │ + script do Meu site (pequeno, embutido) │ ◀───────────────── (cache de 1 s)         │
  │                                          │  2. JSON com o que mudou                │
  │ 3. aplica por cima do que mudou          │        │                                 │
  │    deu erro, demorou ou 404?             │        │  Supabase: versões (banco)      │
@@ -76,15 +76,14 @@ código, os dados para o Google (endereço oficial, dados estruturados) e o dom�
 2. **O script vai no fim do `<head>`** do site do cliente, embutido pelo `virar-site.mjs` quando o `site.json` tem
    `"painel": { "codigo": "<código do site>" }`. Ele pede a versão publicada num endereço **da Renderiza** (nunca
    direto o do Supabase), `https://painel.renderizaweb.com.br/api/publico/site/<código>`.
-3. **Veio a resposta em até 1,5 s:** aplica só o que está nela, por cima da versão inicial. Texto entra como texto
+3. **Veio a resposta (a qualquer momento; até 17/11/2026 era só em até 1,5 s, e quem publicava não via a mudança):** aplica só o que está nela, por cima da versão inicial. Texto entra como texto
    (nunca como HTML), links só dos tipos permitidos, imagens só do endereço do painel. Um campo inválido descarta a
    versão inteira. **Erro, demora ou resposta inválida: não faz nada. "Não encontrado": volta à inicial** e esquece
    a guardada.
-4. **Guardada no navegador por 24 horas:** a última versão aparece logo nas visitas seguintes. A resposta que chega
-   depois de 1,5 s não muda a página aberta, mas fica guardada para a próxima visita. Se a do painel for diferente
+4. **Guardada no navegador por 24 horas:** a última versão aparece logo nas visitas seguintes. Se a do painel for diferente
    da guardada, a página volta à inicial e aplica a nova, sem sobrar nada da guardada.
-5. **Cache na rede de uns 60 segundos** (no endereço do painel): a maioria das visitas nem chega ao banco, e uma
-   publicação aparece em até 1 minuto.
+5. **Cache na rede de 1 segundo, como o Estoque** (26/11/2026; antes 20 + 10 s e, até 17/11, 60 + 300) (no endereço do painel): o script pede a versão sempre que o site abre e de novo quando a pessoa volta à aba (no máximo a cada 3 s), então
+   uma publicação aparece na próxima vez que o site é aberto ou olhado; a rede ainda junta as visitas do mesmo segundo.
 6. **Piscar na primeira visita:** o site abre com a versão inicial e troca pela publicada assim que a página termina
    de carregar. Nas visitas seguintes, a versão guardada entra no mesmo momento. **Validar no piloto**, no celular
    com internet lenta.
@@ -194,6 +193,29 @@ idêntica), desde 16/11/2026, na página inicial (a de Natal fica para depois). 
 
 Na tela cheia das galerias, o toque é lido na galeria (não em cada foto), para valer também nas fotos que o painel troca.
 
+No site de **fotógrafa de eventos** feito à mão (`gerar-fotografia-eventos.py` + `modelos/bia-maida-eventos.html`;
+o da Bia Maida, `docs/entregas/bia-maida.md`, desde 18/11/2026), as marcações vêm sempre no modelo:
+
+| Seção | Textos | Botões | Imagens | Listas |
+|---|---|---|---|---|
+| `cabecalho` | | `botao` | | |
+| `inicio` | `eyebrow`, `frase`, `texto`, `prova`, `rotulo`, `rotulo2`, `rotulo3` | `botao`, `link` | `foto`, `foto2`, `foto3` | |
+| `faixa` (a faixa que rola) | | | | `itens` (`texto`) |
+| `portfolio` | `eyebrow`, `titulo`, `texto`, `nota` | | | uma por aba (`eventos`, `externos`, `corporativo`): `foto`, `legenda` |
+| `respiro` (a foto larga) | `eyebrow`, `titulo` | | `foto` | |
+| `sobre` | `eyebrow`, `titulo`, `texto`, `texto2`, `citacao`, `autor` | | `foto` | `numeros` (`valor`, `texto`) |
+| `servicos` | `eyebrow`, `titulo`, `texto`, `dica` | | | `itens` (`nome`, `sub`, `texto`, `foto`) |
+| `depoimentos` | `eyebrow`, `titulo`, `total` | | | `avaliacoes` (`nome`, `texto`, `tag`) |
+| `data` ("Sua data") | `eyebrow`, `titulo`, `texto` | | | `passos` (`titulo`, `texto`) |
+| `contato` | `eyebrow`, `titulo`, `texto`, `telefone`, `instagram`, `google`, `onde` | `botao` | `foto` | |
+| `rodape` | `slogan` | | | |
+
+O portfólio é uma lista simples de fotos (cada uma um `button.g-item` filho direto da `.galeria`) e as linhas de
+altura parecida são montadas no navegador, na ordem da lista: é o que deixa incluir, tirar e ordenar fotos (o
+`porLista` troca os filhos diretos da lista, então uma lista agrupada em linhas quebraria). A página refaz as linhas,
+a conta do "Ver mais fotos", a faixa duplicada e a foto do serviço ativo quando o painel muda a lista
+(`MutationObserver`). Provado com uma edição pesada e a volta ao original, no computador e no celular.
+
 Ficam para depois:
 - **cores e ordem das seções:** a base das demos deriva as cores de duas, então trocar pede mexer no gerador;
 - **posição dos botões;**
@@ -217,16 +239,27 @@ Feito em 29/10/2026 (Missão 4C), em `painel-clientes/src/modulos/meu-site/` (as
 testadas em `test/meu-site.test.mjs`); na `main` desde 29/10/2026. No STG, a Villa Alecrim da semente tem o Meu
 site ligado e o site de teste `villa-alecrim` cadastrado.
 
-- **Meu site** no menu: o que está no ar (versão, quando e quem publicou), a lista das partes do site na ordem da
-  página (nome e resumo; "Não publicado" no que mudou; "Escondida") e "Contato e WhatsApp".
-- Cada parte abre uma gaveta com os campos dela: textos (o destaque entre asteriscos), botões (rótulo, ação e
-  destino), fotos ("Trocar a foto": reduzida para até 1600 px e convertida para WebP no próprio aparelho, até 2 MB, e
-  a descrição), listas (subir, descer, tirar, adicionar; o item novo nasce do primeiro) e "esta parte aparece no
-  site" (a capa não some). **"Salvar no rascunho"** grava (com "Desfazer"), sem salvar a cada tecla; salvar espera a
-  foto que ainda está subindo. Antes de gravar, a mesma `validar()` do site.
-- **Ver no meu site:** cria um código de prévia e abre o site de verdade com `?rz-previa=` (a faixa "Prévia do
-  rascunho" aparece no alto); quem não tem o código continua vendo o publicado.
-- **Publicar:** o rascunho vira a versão no ar (o site vê em até 1 minuto). Cada publicação fica em "Versões
+- **Meu site** no menu é um **editor ao vivo** (refeito em 16/11/2026, com o primeiro site real, o da Rafaela; a
+  tela de antes, com gaveta e "Salvar no rascunho", confundia quem editava e a prévia não acompanhava): à esquerda, as
+  partes do site na ordem da página (o nome, **onde fica no site** em uma linha, "Alterada" no que mudou, "Escondida")
+  e "WhatsApp e redes"; à direita, **o site de verdade num quadro** (`https://<1º domínio>/?rz-editor=1`), no tamanho
+  de um celular ou de um computador. No celular, a lista ocupa a tela e "Ver o site" abre o quadro por cima.
+- **O que se muda aparece na hora no quadro** (o painel manda o rascunho inteiro ao site a cada tecla; ver "O editor
+  ao vivo, por dentro") e **grava sozinho no rascunho** pouco depois (a situação diz "Salvando…", "Rascunho salvo.
+  Falta publicar." ou "Confira: …" com o que a `validar()` do site recusou). Não existe mais "Salvar no rascunho".
+- **Clicar numa parte do site abre o campo dela** no painel (o texto, o botão, a foto, o item da lista), com o cursor
+  nele; parar o mouse numa parte da lista, ou entrar num campo, rola o site até ela e destaca.
+- Cada parte mostra os campos em grupos: **Textos** (o destaque entre asteriscos), **Fotos** ("Trocar a foto":
+  reduzida para até 1600 px e convertida para WebP no próprio aparelho, até 2 MB; a orientação diz o formato em que a
+  foto aparece na página e a largura boa, pela medida que o site manda; "Voltar à foto original"; a descrição),
+  **Botões** (o que está escrito, o que acontece ao clicar e só o campo que a ação pede: o link, a parte da página
+  numa lista, a mensagem do WhatsApp) e as **listas** (cada item recolhido com o nome dele; abrir, mudar, subir,
+  descer, tirar e "Adicionar <item>", que nasce do primeiro) e "Esta parte aparece no site" (a capa não some).
+- **Descartar mudanças** (com confirmação) deixa o rascunho igual ao que está no ar.
+- **Site sem a ponte** (gerado antes de 16/11/2026, ou que não deixa o painel pôr ele num quadro): depois de 7
+  segundos sem resposta, o painel oferece "Ver o rascunho no site", que cria um código de prévia e abre o site com
+  `?rz-previa=` em outra aba (a faixa "Prévia do rascunho"); editar e publicar funcionam igual.
+- **Publicar:** o rascunho vira a versão no ar (o site vê na próxima vez que é aberto). Cada publicação fica em "Versões
   publicadas", com quem publicou.
 - **Usar esta** (numa versão antiga) e **Voltar ao site como foi entregue** levam aquilo para o rascunho; publicar
   é que vale.
@@ -256,6 +289,55 @@ Em 30/10/2026 a produção tem uma conta só, "Espaço de teste" (código `espac
 `contato@renderizaweb.com.br`), com o Meu site ligado e sem site: a Renderiza deixou o teste do Meu site na produção
 para depois das próximas missões.
 
+## Nos exemplos: o Meu site de verdade com um estúdio fictício (18/11/2026)
+
+`/exemplos/meu-site-fotografia` (link em `/exemplos/fotografia`) abre **este módulo de verdade**, com a casca, para quem
+ainda não é cliente testar: o código é uma cópia de `painel-clientes/src` em `exemplos/painel/src` (só o que a casca e o
+Meu site importam), o banco é de mentira, no navegador (`exemplos/painel/banco-de-exemplo.js`, com as regras de
+`sites_versoes`), e o site é o site de exemplo do Estúdio Ciranda (`/exemplos/site-fotografia`, com as marcações do
+gerador de fotografia). O que a pessoa muda e publica fica no navegador dela (o site do exemplo lê de lá; a foto enviada
+sai por um service worker). **Quem mudar um arquivo copiado roda `node ferramentas/exemplos/painel-de-verdade.mjs`**
+(aviso de 18/11 em `missoes.md`); o `test/meu-site-exemplo.test.mjs` confere a cópia e o caminho inteiro.
+
+## Indicadores: as visitas do site (16/11/2026)
+
+A aba **Indicadores** do Meu site mostra, dos últimos 7, 30 ou 90 dias: as **visitas** (cada página aberta), os
+**aparelhos**, o **tempo médio** com a página à vista, o gráfico dia a dia, **as partes mais vistas** (em quantas
+visitas a parte ficou no meio da tela e por quanto tempo), **os botões mais clicados** (com a parte e o que está
+escrito no botão hoje; o WhatsApp flutuante e os links de WhatsApp contam juntos), **de onde vieram** (o site
+anterior: Instagram, Google…; sem site anterior é "Direto") e celular ou computador. Quem vê o Meu site vê os
+indicadores.
+
+**Sem cookie e sem identificar ninguém** (decisão da Renderiza: um contador simples, não quem é quem):
+
+- O script do site (`contarVisitas`, no `meu-site.js`) manda por página aberta: um sorteio que só vale naquela página
+  (não fica guardado em lugar nenhum do navegador), o caminho, celular ou computador, o site de onde veio, os segundos
+  em cada parte e os cliques nos botões. Manda 2 segundos depois de abrir, a cada 30 segundos se mudou e quando a
+  página some (`navigator.sendBeacon`). Não conta: robô (`navigator.webdriver`, ou o navegador que a API reconhece
+  como robô), a prévia (`?rz-previa=`), o editor do painel e o site com `"painel": { "visitas": false }` no
+  `site.json` (o script sai com `data-sem-visitas`).
+- A API (`POST /api/publico/site/<código>/visita`, sempre 204) junta o **aparelho**: o endereço e o navegador
+  embaralhados com o site e o dia de São Paulo. O endereço e o navegador não ficam guardados, e no dia seguinte o
+  mesmo aparelho tem outro valor: dá para contar aparelhos por dia, não dá para seguir ninguém. Por isso "Aparelhos"
+  soma os de cada dia (o mesmo celular em dois dias conta duas vezes).
+- O banco (`publico_visita`) só aceita do domínio do site, nomes de parte e de botão no formato do contrato e
+  números; limites de 200 páginas por aparelho e 20.000 por site no dia; guarda por 13 meses (`sites_visitas`).
+  O painel lê só o resumo (`site_indicadores`); ninguém lê a tabela direto.
+- **O que falta decidir com cada cliente:** uma linha no rodapé do site dizendo que as visitas são contadas de forma
+  anônima, sem cookies (boa prática da LGPD, mesmo sem dado pessoal). O gerador ainda não põe.
+
+### Com o Estoque: os itens mais vistos (26/11/2026)
+
+Quem tem o Estoque vê, logo depois do gráfico, **"Carros mais vistos"** (o nome vem do esquema do nicho): quantas vezes
+cada item foi aberto no site e quantos cliques no WhatsApp saíram da página dele (ou do botão do card), do mais visto
+ao menos; os que já saíram do Estoque ficam somados numa linha à parte. **Sem mudar o banco:** o site conta com o
+`rzContar` do `meu-site.js` ("ver.<id>" a cada item aberto, uma vez por abertura) e o `data-rz-clique` dos botões
+("zap.<id>" junto com o clique de WhatsApp de sempre), nos cliques que `publico_visita` já guardava (nomes de até 60
+letras, até 40 por visita). "Cliques em botões" e "Os botões mais clicados" não contam esses. Sem item aberto no
+período: "Quando alguém abrir um carro no site, ele aparece aqui, com os cliques no WhatsApp." (as visitas de antes
+de 26/11 não têm o item; a tela não fala disso). Os nomes também ficaram legíveis: "Estoque (a vitrine)", "Página de um
+carro" e "Pelo painel (você ou a equipe)" para quem abre o site pelo painel. Fluxo: `test/fluxos/indicadores-estoque.fluxo.mjs`.
+
 ## Situações do site
 
 | Situação | Quando | O que o endereço público responde | O que o site mostra |
@@ -263,6 +345,26 @@ para depois das próximas missões.
 | `conectado` | mensalidade em dia | a última versão publicada | a versão publicada (ou a inicial, se nunca publicou) |
 | `desconectado` | a Renderiza desligou a conta ou o módulo (não pagou, cancelou) | "não encontrado" | a versão inicial |
 | `versao_final` | o cliente comprou a versão final | "não encontrado" (o site novo já tem o conteúdo e não tem mais o script) | a versão final, embutida |
+
+### O editor ao vivo, por dentro (16/11/2026)
+
+O script do site (`ferramentas/meu-site/meu-site.js`) entra no **modo editor** só quando a página está dentro de um
+quadro **e** tem `?rz-editor=1`. Nele não pede a versão publicada nem usa a guardada no navegador; conversa com o
+painel por `postMessage`, aceitando mensagem **só da origem da API** (`data-api`, a do painel) e mandando só para ela:
+
+| De | Mensagem (`rz: "meu-site"`) | O que faz |
+|---|---|---|
+| painel | `{ tipo: "conteudo", conteudo }` | aplica o rascunho por cima da versão inicial (a mesma `validar()`; inválido = fica como está; sem conteúdo = a inicial) |
+| painel | `{ tipo: "foco", secao, grupo?, campo?, indice? }` | rola até a parte (ou o campo, ou o item da lista) e destaca por 2 segundos |
+| site | `{ tipo: "pronto" \| "medidas", imagens, ancoras }` | o tamanho de cada foto na página (`"<seção>.<campo>"` e `"<seção>.<lista>.<campo>"` → `[largura, altura]`) e as partes com âncora (`{ id, secao }`) |
+| site | `{ tipo: "clique", secao, grupo, campo, indice?, subcampo? }` | a pessoa clicou numa parte marcada (o clique não segue o link; no editor ninguém sai da página) |
+
+`grupo` é `textos`, `botoes`, `imagens` ou `listas`. Nada é gravado pelo site: o rascunho só existe no quadro de quem
+edita. Para o painel poder pôr o site num quadro, o `virar-site.mjs` troca, **nos sites com `"painel"`**, o
+`X-Frame-Options: SAMEORIGIN` por `Content-Security-Policy: frame-ancestors 'self' <origem do painel>` (`_headers` e
+`vercel.json`); os sites sem painel continuam como eram. No painel, a CSP ganhou `frame-src https:` (e
+`http://localhost:*` para os testes), e o quadro vai com `sandbox` sem `allow-top-navigation` (o site não tira o
+painel do lugar). **Site já entregue precisa ser gerado e subido de novo** para ganhar a ponte e o cabeçalho.
 
 ## Segurança
 
@@ -272,6 +374,8 @@ para depois das próximas missões.
 - Links permitidos: `https://`, WhatsApp (`wa.me`), telefone, e-mail, mapas e âncoras da própria página.
 - Imagens: só tipos de imagem, tamanho máximo no envio, convertidas para WebP e redimensionadas; limite de espaço por
   conta (o gratuito do Supabase tem 1 GB de arquivos no total).
+- O editor ao vivo não abre nada novo para fora: o rascunho só chega ao quadro de quem está logado no painel, o site
+  só aceita mensagem da origem do painel e só o painel pode pôr o site num quadro.
 - O cliente garante nos termos que tem autorização para as fotos e os depoimentos que publicar (`06`).
 
 ## O que mudou no que já existe (29/10/2026)

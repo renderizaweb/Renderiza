@@ -1,0 +1,41 @@
+{
+  "dominio": "biamaidafotografia.com.br",
+  "nome": "Bia Maida Fotografia",
+  "corTema": "#1f5470",
+  "previaCentro": [
+    0.5,
+    0.38
+  ],
+  "dadosEstruturados": [
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Bia Maida Fotografia",
+      "description": "Fotógrafa há 15 anos em São Paulo: eventos (aniversários, chás de bebê, casamentos, batizados e eventos de empresas), ensaios externos e fotografia corporativa.",
+      "telephone": "+55 11 98719-1135",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "São Paulo"
+      },
+      "hasMap": "https://www.google.com/maps?cid=10621636349514758109",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "116"
+      },
+      "sameAs": [
+        "https://www.instagram.com/biamaidafotografia/"
+      ]
+    }
+  ],
+  "painel": {
+    "codigo": "bia-maida",
+    "agenda": true
+  }
+}

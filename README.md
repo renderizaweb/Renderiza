@@ -113,6 +113,15 @@ inventado, a **Villa Alecrim**:
   campanha). No banco, contam como as páginas de eventos (`exemplos`, `painel-eventos`, `agenda-online`), porque a
   tabela `visitas` só aceita essas. Nos leads com segmento Fotografia, o link do card é
   `renderizaweb.com.br/exemplos/fotografia?c=<código>`. As imagens `exemplos/img/f-*.jpg` são capturas das páginas.
+- **Meu site de exemplo (18/11/2026):** `/exemplos/meu-site-fotografia` é o **Meu site de verdade** (a casca e o módulo do
+  Painel Renderiza, cópia de `painel-clientes/src` em `exemplos/painel/src`, conferida por teste) sobre um banco de mentira
+  no navegador (`exemplos/painel/banco-de-exemplo.js`, dados em `exemplos/painel/dados-ciranda.js`), editando o **site de
+  exemplo do Estúdio Ciranda** (`/exemplos/site-fotografia`, feito pelo `gerar-fotografia.py` com as marcações do Meu site,
+  fotos livres do Unsplash, selo de exemplo). Mudar, publicar e trocar foto funcionam e ficam só no navegador de quem
+  testa (a foto, pelo `exemplos/sw-meu-site.js`). Em `/exemplos/fotografia`: o card "Meu site" (vem em todo plano), a
+  linha no plano, os Detalhes e a pergunta "como eu atualizo?". Refazer: `node ferramentas/exemplos/site-fotografia.mjs`
+  (o site), `node ferramentas/exemplos/painel-de-verdade.mjs` (a cópia do painel, sempre que ele mudar) e
+  `node ferramentas/exemplos/capturas-meu-site.mjs` (as imagens). Teste: `test/meu-site-exemplo.test.mjs`.
 - **Link por lead e quem abriu (22/10/2026):** cada lead tem um código curto (`leads.codigo`, 4 letras, nasce
   sozinho). Nos leads de eventos, o painel mostra o link `renderizaweb.com.br/exemplos?c=<código>` (botão
   **Copiar link do painel** no topo do lead e a seção **Painel Renderiza**). Quem abre esse link é contado:
@@ -319,7 +328,7 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Estúdio Mariana Lima (fotógrafa)](demos/mariana-lima-fotografia) | Jardim Álamo, Guarulhos | site + página de Natal (`/natal`, “O Natal merece ser lembrado para sempre”) | pronta · 05/11/2026 (fotógrafos lote 2 · 11ª) |
 | [Janaina Bertunes Fotografia (fotógrafa)](demos/janaina-bertunes-fotografia) | Parque Rodrigo Barreto, Arujá | site + página de Natal (`/natal`, “Meu Natal Favorito”) | pronta · 05/11/2026 (fotógrafos lote 2 · 12ª) |
 | [Marilia Zanoni Fotografia (fotógrafa)](demos/marilia-zanoni-fotografia) | Jardim Urupês, Suzano | site + página de Natal (`/natal`, “Frost Sugar”) | pronta · 05/11/2026 (fotógrafos lote 2 · 13ª) |
-| [Bia Maida Fotografia (fotógrafa)](demos/bia-maida-fotografia) | São Paulo (eventos; estúdio na Vila Paulo Silas) | site na versão 2, com foco em eventos (feito à mão, `gerar-fotografia-eventos.py`) + página de Natal (`/natal`, “Hoje, ela ainda cabe naquele abraço”) | pronta · 05/11/2026 (fotógrafos lote 2 · 14ª) · versão 2 em 12/11/2026, a pedido dela |
+| [Bia Maida Fotografia (fotógrafa)](demos/bia-maida-fotografia) | São Paulo (eventos; estúdio na Vila Paulo Silas) | site na versão 2, com foco em eventos (feito à mão, `gerar-fotografia-eventos.py`) + página de Natal (`/natal`, “Hoje, ela ainda cabe naquele abraço”) | pronta · 05/11/2026 (fotógrafos lote 2 · 14ª) · versão 2 em 12/11/2026, a pedido dela · **fechou em 17/11/2026**: versão final para validar, trilho em `docs/entregas/bia-maida.md` |
 | [Talita Voros Fotógrafa (fotógrafa)](demos/talita-voros-fotografia) | Jardim São Bento Novo, São Paulo | site + página de Natal (`/natal`, “O ateliê do Papai Noel”) | pronta · 05/11/2026 (fotógrafos lote 2 · 15ª) |
 | [Estúdio Thamirys Costa (fotógrafa)](demos/thamirys-costa-fotografia) | Vila Carrão, São Paulo | site + página de Natal (`/natal`, “Expresso Natalino”) | pronta · 05/11/2026 (fotógrafos lote 2 · 16ª) |
 | [Sabrina Matos Fotografias (fotógrafa)](demos/sabrina-matos-fotografia) | Jardim Prudência, São Paulo | site + página de Natal (`/natal`, “Não deixe o seu Natal para a última hora”) | pronta · 05/11/2026 (fotógrafos lote 2 · 17ª) |
@@ -332,6 +341,7 @@ Stories** do lead mostra a prévia e baixa o PNG. Regras e passo a passo: [`CONT
 | [Leila Bomfim Fotografia (fotógrafa)](demos/leila-bomfim-fotografia) | Jardim Ouro Preto, Taboão da Serra | site + página de Natal (`/natal`, “Memórias de Natal”) | pronta · 05/11/2026 (fotógrafos lote 2 · reserva 4) |
 | [Estúdio Faro Fotografia (fotógrafa)](demos/faro-fotografia) | Parque Residencial Oratório, São Paulo | site + página de Natal (`/natal`, “Natal Encantado”) | pronta · 05/11/2026 (fotógrafos lote 2 · reserva 5) |
 | [Rafaela Damaceno Estúdio Fotográfico (fotógrafa, cliente)](demos/rafaela-damaceno-fotografia) | Centro, Franco da Rocha | site + página de Natal (`/natal`), com a marca dela, a agenda de verdade e sem a oferta da Renderiza | proposta final · 14/11/2026 (fechou site e painel; esperando ela validar para o site ir ao ar ligado ao Painel Renderiza) |
+| [Estúdio Vivian Piacenti · planilha financeira](demos/vivian-piacenti-planilha) | Limão, São Paulo | proposta da planilha financeira sob medida: versão de teste para baixar e a dela liberada por código (`docs/produtos/planilha-financeira.md`) | pronta · 18/11/2026 (lead próprio, separado do site) |
 | [Lislley Peace Fotografia (fotógrafa)](demos/lislley-peace-fotografia) | Ribeirão Pires, ABC | site + página de Natal (`/natal`, “O Natal mais encantador do ano”) | pronta · 06/11/2026 (fotógrafos lote 3 · nº 2) |
 | [Aimee Longman Fotografia (fotógrafa)](demos/aimee-longman-fotografia) | Alphaville Conde II, Barueri | site + página de Natal (`/natal`, “A sensação gostosa dos Natais da infância”) | pronta · 06/11/2026 (fotógrafos lote 3 · nº 3) |
 | [Estúdio Mandaluz Fotografia (fotógrafa)](demos/mandaluz-fotografia) | Portal das Alamedas, Franco da Rocha | site + página de Natal (`/natal`, “Confeitaria, diversão e tempo juntos”) | pronta · 06/11/2026 (fotógrafos lote 3 · nº 4) |

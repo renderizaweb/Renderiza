@@ -6,6 +6,7 @@
 // Cada módulo recebe em montar(el, contexto):
 //   banco, sessao, navegar(caminho), conta (a linha de minhas_contas), nicho (src/nichos/), pessoa (a própria),
 //   pode(módulo, nível) (espelho da regra do banco), avisar(texto, opções) (src/ui/aviso.js), ambiente.
+// O tempo de uso (src/uso.js): dentro de uma conta, um sinal por minuto com o módulo aberto, para o Admin.
 
 import { criarAdaptadorSupabase } from "./adaptadores/supabase.js";
 import { criarSessao } from "./sessao.js";
@@ -13,9 +14,11 @@ import { decidir, TELAS } from "./rotas.js";
 import { acharModulo } from "./modulos/index.js";
 import { acharAreaAdmin } from "./admin/index.js";
 import { montarCasca, conteudoSemAcesso, avisarTrancado } from "./telas/casca.js";
+import { TEMAS_DE_NICHO } from "./telas/acesso.js";
 import { nicho } from "./nichos/index.js";
 import { avisar } from "./ui/aviso.js";
 import { escapar } from "./ui/formulario.js";
+import { ligarContadorDeUso } from "./uso.js";
 
 const raiz = document.getElementById("app");
 let vez = 0; // cada desenho ganha um número; um desenho antigo que termina depois não sobrescreve o novo
@@ -61,6 +64,7 @@ async function iniciar() {
     desenhar();
   };
   const entradas = new Set(); // contas em que a entrada já foi registrada nesta visita
+  const uso = ligarContadorDeUso(banco); // o tempo de uso, para o Admin (src/uso.js)
   let desmontar = null; // o que o módulo aberto devolveu para fechar ao sair (ex.: o tempo real do Atendimento)
   let termosDe = null; // quem já aceitou a versão de agora dos termos nesta visita (Missão 5B)
 
@@ -69,7 +73,8 @@ async function iniciar() {
     if (desmontar) { try { desmontar(); } catch (e) { /* sair nunca trava a próxima tela */ } desmontar = null; }
     // trocar de tela fecha as gavetas e folhas abertas (um link de dentro da gaveta leva a outra tela)
     for (const janela of document.querySelectorAll("dialog.rz-janela")) { try { janela.close(); } catch (e) { /* já fechada */ } janela.remove(); }
-    document.body.classList.remove("rz-tema-eventos", "rz-tema-fotografia"); // a casca põe de novo (o tema da conta)
+    document.body.classList.remove(...TEMAS_DE_NICHO.map(n => "rz-tema-" + n)); // a casca põe de novo (o tema da conta)
+    uso.onde(null); // fora de uma conta (entrar, contas, Admin) não conta
     const decisao = decidir({ caminho: location.pathname, busca: location.search, logado: sessao.logado() });
     if (decisao.redirecionar) return navegar(decisao.redirecionar, { substituir: true });
     const { rota } = decisao;
@@ -121,6 +126,7 @@ async function iniciar() {
         return navegar(TELAS.contas.caminho + (volta !== "/" ? "?volta=" + encodeURIComponent(volta) : ""), { substituir: true });
       }
       if (!entradas.has(conta.conta_id)) { entradas.add(conta.conta_id); sessao.registrarEntrada(); }
+      if (rota.tipo === "modulo") uso.onde(conta.conta_id, rota.id);
       await sessao.carregarPessoa();
       if (minhaVez !== vez) return;
 

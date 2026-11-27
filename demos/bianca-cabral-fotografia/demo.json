@@ -1,0 +1,532 @@
+{
+ "pasta": "bianca-cabral-fotografia",
+ "marca": "Bianca Cabral Fotografia",
+ "marca_completa": "Bianca Cabral Fotografia",
+ "dona": "Bia",
+ "titulo_nome": "Bianca Cabral",
+ "titulo_script": "fotografia",
+ "quem_a": "a Bia",
+ "quem_da": "da Bia",
+ "google": {
+  "coords": "-23.6511971,-46.756854",
+  "fid": "0x94ce532badf9c561:0x4c8993da4625bea0",
+  "gid": "/g/11jqj0pktl"
+ },
+ "google_nome": "Bianca Cabral Fotografia",
+ "endereco_maps": "R. Juan Gil, 37 - Jardim Germania, São Paulo - SP, 05849-400",
+ "google_nota": "5,0",
+ "google_total": "98",
+ "verificado": "2026-11-21",
+ "whatsapp": "5511981787502",
+ "fone_link": "+5511981787502",
+ "instagram": "bianca.cabralfotografia",
+ "seguidores": "5,1 mil",
+ "mensagem": "Olá! Vi o portfólio da Bia e queria saber mais sobre os ensaios.",
+ "cores": {
+  "fundo": "#fbfafc",
+  "papel": "#ffffff",
+  "areia": "#f2eff6",
+  "linha": "#e3dfea",
+  "tinta": "#26232c",
+  "tinta2": "#615d6b",
+  "rosa": "#d9c9ea",
+  "acento": "#6d5a8a",
+  "acento_escuro": "#574771",
+  "cafe": "#211e29"
+ },
+ "estilo": {
+  "fontes": {
+   "serif": [
+    "Libre Caslon Text",
+    "ital,wght@0,400;0,700;1,400"
+   ],
+   "sans": [
+    "Be Vietnam Pro",
+    "wght@300;400;500;600"
+   ],
+   "script": [
+    "Allison",
+    ""
+   ]
+  }
+ },
+ "renderiza": {
+  "ola": "Bia",
+  "whatsapp": "5511988697165",
+  "preco_pix": "R$ 399",
+  "parcelado": "parcelado no crédito",
+  "nota_preco": "pagamento único, sem mensalidade",
+  "valido_ate": "2026-12-01",
+  "msg_garantir": "Olá! Sou a Bia, da Bianca Cabral Fotografia. Vi o portfólio que a Renderiza montou para mim e quero garantir o meu (R$ 399 no Pix ou parcelado no crédito).",
+  "msg_negociar": "Olá! Sou a Bia, da Bianca Cabral Fotografia. Vi o portfólio que a Renderiza montou para mim e queria conversar sobre o valor.",
+  "msg_duvida": "Olá! Sou a Bia, da Bianca Cabral Fotografia. Vi o portfólio que a Renderiza montou para mim e queria tirar uma dúvida.",
+  "codigo": "9n8p"
+ },
+ "portfolio": {
+  "_sobre": "Portfólio online, versão 4 (ferramentas/demo/gerar-portfolio.py), feito com a skill demo-portfolio-fotografa. Originais: alboom/ = as galerias da página dela na Alboom (biancafotografia.alboompro.com, 1200x1800, publicadas de jul/2025 a set/2026); posts/ = o carrossel do aniversário dela (DeiHKIFFKmB, 15/10/2026, 1440 px); google/ = Perfil da Empresa (a foto dela com a câmera); drive/ = a grade salva (só posts de 2019). Pacotes e valores são EXEMPLOS (a demo mostra o selo).",
+  "versao": 4,
+  "local": "zona sul de São Paulo",
+  "olho": "Estúdio de fotografia · Jardim Germânia, SP",
+  "titulo": "Fotógrafa de família na zona sul de São Paulo.",
+  "linha": "Newborn, acompanhamento do bebê, smash the cake e aniversários. No estúdio do Jardim Germânia e nas festas.",
+  "tira": [
+   "newborn:0",
+   "smash:0",
+   "aniversario:0",
+   "mes-a-mes:0",
+   "newborn:1",
+   "smash:1",
+   "aniversario:2",
+   "mes-a-mes:1"
+  ],
+  "avaliacoes": [
+   {
+    "nome": "Sabrina Santana",
+    "tag": "Ensaios",
+    "texto": "Desde o atendimento do wpp até o momento dos ensaios a Bianca é atenciosa. O local super acolhedor e ela muito simpática, te deixa bem a vontade para as fotos."
+   },
+   {
+    "nome": "Pam Ss",
+    "tag": "Bebês",
+    "texto": "Confesso que superou minhas expectativas, amei cada foto, foi muito atenciosa e paciente com os bebês."
+   },
+   {
+    "nome": "Jaqueline Alves",
+    "tag": "Ensaio",
+    "texto": "…a Bia… te deixa totalmente a vontade! as fotos ficaram lindas…"
+   }
+  ],
+  "sobre": {
+   "olho": "Quem fotografa",
+   "titulo": "Bianca Cabral, a Bia.",
+   "p": [
+    "Formada em Produção Audiovisual, a Bia começou na fotografia com casamentos. Hoje tem um estúdio no Jardim Germânia, na zona sul de São Paulo, onde faz newborn, acompanhamento do bebê, smash the cake, gestante, família e corporativo.",
+    "Continua fotografando festas infantis, 15 anos e casamentos. Neste fim de ano, o estúdio recebe o especial de Natal 2026, “Um lar de histórias”."
+   ],
+   "citacao": "Esse é o meu dom. Visualizar o cenário no espaço vazio, criar, inventar…",
+   "citacao_quem": "Bianca Cabral, no Instagram",
+   "fotos": [
+    {
+     "arq": "google/fotos/g00.jpg",
+     "alt": "A Bia com a câmera, no estúdio"
+    },
+    {
+     "arq": "posts/DeiHKIFFKmB/DeiHKIFFKmB_01.jpg",
+     "alt": "A Bia no ensaio do aniversário de 33 anos dela"
+    }
+   ],
+   "numeros": [
+    [
+     "5,0",
+     "em 98 avaliações no Google"
+    ],
+    [
+     "5,1 mil",
+     "seguidores no Instagram"
+    ]
+   ]
+  },
+  "contato": {
+   "titulo": "Agende o seu ensaio.",
+   "p": "Datas e valores pelo WhatsApp. O estúdio fica no Jardim Germânia, na zona sul de São Paulo.",
+   "endereco": [
+    "R. Juan Gil, 37",
+    "Jardim Germânia · São Paulo, SP"
+   ],
+   "telefone": "(11) 98178-7502"
+  },
+  "ensaios": [
+   {
+    "id": "newborn",
+    "nome": "Newborn",
+    "chamada": "Ensaio newborn",
+    "pedido": "o ensaio newborn",
+    "frase": "Os primeiros dias, no estúdio.",
+    "texto": "Com mantas, cestinhos, tiaras e o sofazinho do estúdio. A mãe e o pai também podem entrar nas fotos.",
+    "quando": "Costuma ser feito nos primeiros 15 dias de vida. Por isso a reserva é feita ainda na gestação.",
+    "depo": {
+     "nome": "Pam Ss",
+     "texto": "Confesso que superou minhas expectativas, amei cada foto, foi muito atenciosa e paciente com os bebês."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "newborn_1636107-beatriz/img_4311.jpg",
+      "alt": "Mãe encostando o rosto na recém-nascida enrolada na manta lilás"
+     },
+     {
+      "arq": "newborn_1636107-beatriz/img_4247.jpg",
+      "alt": "Recém-nascida na tigela de madeira, com corações de feltro"
+     },
+     {
+      "arq": "newborn_1636107-beatriz/img_4355.jpg",
+      "alt": "Recém-nascida de tiara de flores, dormindo"
+     },
+     {
+      "arq": "newborn_1636107-beatriz/img_4238.jpg",
+      "alt": "Recém-nascida na caminha de madeira, vista de cima"
+     },
+     {
+      "arq": "newborn_1636107-beatriz/img_4348.jpg",
+      "alt": "Recém-nascida de óculos redondos, dormindo"
+     },
+     {
+      "arq": "newborn_1636107-beatriz/img_4358.jpg",
+      "alt": "Recém-nascida de vestido branco no sofazinho"
+     },
+     {
+      "arq": "newborn_1636107-beatriz/img_4267.jpg",
+      "alt": "Recém-nascida na tigela, com um ursinho"
+     },
+     {
+      "arq": "newborn_1636107-beatriz/img_9896.jpg",
+      "alt": "Recém-nascida na banheirinha de madeira, de manta rosa"
+     },
+     {
+      "arq": "newborn_1636107-beatriz/img_4334.jpg",
+      "alt": "Recém-nascida apoiada no balde, de manta lilás"
+     },
+     {
+      "arq": "newborn_1636107-beatriz/img_1526.JPG",
+      "alt": "Recém-nascido de touca e óculos no cesto, com a manta verde"
+     },
+     {
+      "arq": "newborn_1636107-beatriz/img_4283.jpg",
+      "alt": "Recém-nascida no cestinho, sobre a manta de crochê"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 490",
+      "itens": [
+       "Até 3 horas, no tempo do bebê",
+       "15 fotos editadas",
+       "Mantas e acessórios",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 690",
+      "itens": [
+       "25 fotos editadas",
+       "2 cenários",
+       "Fotos com os pais",
+       "Galeria online"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 990",
+      "itens": [
+       "40 fotos editadas",
+       "Todos os cenários",
+       "Fotos com a família",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "mes-a-mes",
+    "nome": "Mês a mês",
+    "chamada": "Acompanhamento do bebê",
+    "pedido": "o acompanhamento do bebê",
+    "frase": "Um ensaio a cada fase do primeiro ano.",
+    "texto": "Fotos do bebê ao longo do primeiro ano, no estúdio: sentado, engatinhando, no carrinho e na poltrona.",
+    "depo": {
+     "nome": "Jaqueline Alves",
+     "texto": "…a Bia… te deixa totalmente a vontade! as fotos ficaram lindas…"
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "acompanhamento_1693743-sem-titulo/img_0780.jpg",
+      "alt": "Bebê de rosa rindo na poltrona"
+     },
+     {
+      "arq": "acompanhamento_1531872-samuel-7-meses/img_2950.jpg",
+      "alt": "Bebê de suspensório verde sentado no chão de madeira"
+     },
+     {
+      "arq": "acompanhamento_1693743-sem-titulo/img_0796.jpg",
+      "alt": "Bebê de tiara deitada na pelúcia, sorrindo"
+     },
+     {
+      "arq": "acompanhamento_1531872-samuel-7-meses/img_2976.jpg",
+      "alt": "Bebê no carrinho branco"
+     },
+     {
+      "arq": "acompanhamento_1693743-sem-titulo/img_0798.jpg",
+      "alt": "Bebê de rosa deitada, olhando para o lado"
+     },
+     {
+      "arq": "acompanhamento_1531872-samuel-7-meses/img_2981.jpg",
+      "alt": "Bebê sorrindo ao volante do carrinho"
+     },
+     {
+      "arq": "acompanhamento_1531872-samuel-7-meses/img_2958.jpg",
+      "alt": "Bebê engatinhando no chão de madeira"
+     },
+     {
+      "arq": "acompanhamento_1531872-samuel-7-meses/img_4137.jpg",
+      "alt": "Bebê deitado na pelúcia, no caixote de madeira"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Ensaio avulso",
+      "preco": "R$ 250",
+      "itens": [
+       "1 cenário",
+       "10 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Trimestral",
+      "preco": "R$ 790",
+      "itens": [
+       "4 ensaios no primeiro ano",
+       "10 fotos por ensaio",
+       "Galeria online"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Mês a mês",
+      "preco": "R$ 1.290",
+      "itens": [
+       "1 ensaio por mês no primeiro ano",
+       "10 fotos por ensaio",
+       "Galeria online"
+      ]
+     }
+    ],
+    "curto": "Mês a mês"
+   },
+   {
+    "id": "smash",
+    "nome": "Smash the cake",
+    "curto": "Smash",
+    "chamada": "Smash the cake",
+    "pedido": "o smash the cake",
+    "frase": "O primeiro aniversário, com bolo e cenário.",
+    "texto": "No estúdio, com o tema escolhido: balões, o 1 em neon, carrinho, cavalinho e o bolo para o bebê.",
+    "quando": "Costuma ser feito perto do primeiro aniversário. O tema e as cores são combinados antes, pelo WhatsApp.",
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "smash-the-cake_1693741-sem-titulo/img_0637.jpg",
+      "alt": "Bebê de roupa vermelha no carrinho, diante do 1 iluminado"
+     },
+     {
+      "arq": "smash-the-cake_1636108-lucca/img_0345.jpg",
+      "alt": "Bebê de chapéu de festa com o bolo azul"
+     },
+     {
+      "arq": "smash-the-cake_1636108-lucca/img_0313.jpg",
+      "alt": "Bebê no cavalinho de balanço, entre balões azuis"
+     },
+     {
+      "arq": "smash-the-cake_1636108-lucca/img_5451.jpg",
+      "alt": "Menino de astronauta no cavalinho, no cenário espacial"
+     },
+     {
+      "arq": "smash-the-cake_1693741-sem-titulo/img_0708.jpg",
+      "alt": "Bebê de suspensório vermelho com o bolo"
+     },
+     {
+      "arq": "smash-the-cake_1693741-sem-titulo/img_0148.JPG",
+      "alt": "Menina de vestido lilás no cavalinho, entre balões rosa"
+     },
+     {
+      "arq": "smash-the-cake_1636108-lucca/img_0327.jpg",
+      "alt": "Mãe sentada com o bebê diante dos balões azuis"
+     },
+     {
+      "arq": "smash-the-cake_1636108-lucca/img_0358.jpg",
+      "alt": "Bebê com o rosto sujo de bolo"
+     },
+     {
+      "arq": "smash-the-cake_1693741-sem-titulo/img_0619.jpg",
+      "alt": "Bebê de vermelho no cavalinho"
+     },
+     {
+      "arq": "smash-the-cake_1636108-lucca/img_0918.jpg",
+      "alt": "Menina de lilás entre os bichinhos de pelúcia"
+     },
+     {
+      "arq": "smash-the-cake_1693741-sem-titulo/img_0716.jpg",
+      "alt": "Bebê de chapéu de festa comendo o bolo"
+     },
+     {
+      "arq": "smash-the-cake_1636108-lucca/img_0302.jpg",
+      "alt": "Bebê no carrinho branco, entre balões azuis"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Essencial",
+      "preco": "R$ 450",
+      "itens": [
+       "Cenário do tema escolhido",
+       "20 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Completo",
+      "preco": "R$ 590",
+      "itens": [
+       "Cenário do tema escolhido",
+       "30 fotos editadas",
+       "Fotos com a família"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Premium",
+      "preco": "R$ 790",
+      "itens": [
+       "Cenário do tema escolhido",
+       "Todas as fotos editadas",
+       "Álbum impresso 20x20"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "aniversario",
+    "nome": "Aniversário",
+    "chamada": "Aniversário infantil",
+    "pedido": "o ensaio ou a festa de aniversário",
+    "frase": "No estúdio ou na festa.",
+    "texto": "Ensaio no estúdio com balões e o tema da criança, e a cobertura da festa: a mesa do bolo, a família e as brincadeiras.",
+    "depo": {
+     "nome": "Sabrina Santana",
+     "texto": "Desde o atendimento do wpp até o momento dos ensaios a Bianca é atenciosa. O local super acolhedor e ela muito simpática, te deixa bem a vontade para as fotos."
+    },
+    "capa": 2,
+    "vitrine": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "fotos": [
+     {
+      "arq": "estudio_1531845-maria-6-anos/img_3238.jpg",
+      "alt": "Menina de 6 anos sorrindo, diante dos balões"
+     },
+     {
+      "arq": "estudio_1531845-maria-6-anos/img_3253.jpg",
+      "alt": "Menina deitada com as mãos cruzadas, sorrindo"
+     },
+     {
+      "arq": "aniversarios_1636109-arthur-2-anos/img_6748.jpg",
+      "alt": "Menino chutando a bola no cenário de futebol"
+     },
+     {
+      "arq": "estudio_1531845-maria-6-anos/img_3246.jpg",
+      "alt": "Menina sentada com o Stitch de pelúcia"
+     },
+     {
+      "arq": "aniversarios_1636109-arthur-2-anos/img_7103.jpg",
+      "alt": "Família na hora de soprar a vela do bolo de 2 anos"
+     },
+     {
+      "arq": "estudio_1531845-maria-6-anos/img_3273.jpg",
+      "alt": "Menina segurando o balão de número 6"
+     },
+     {
+      "arq": "aniversarios_1636109-arthur-2-anos/img_6806.jpg",
+      "alt": "Pais erguendo o filho diante da mesa do bolo"
+     },
+     {
+      "arq": "estudio_1531845-maria-6-anos/img_3263.jpg",
+      "alt": "Menina com as mãos no queixo, sentada no cubo"
+     },
+     {
+      "arq": "aniversarios_1636109-arthur-2-anos/img_6845.jpg",
+      "alt": "Menino no brinquedão da festa"
+     },
+     {
+      "arq": "aniversarios_1636109-arthur-2-anos/img_3392.jpg",
+      "alt": "Aniversariante de 15 anos de vestido azul"
+     },
+     {
+      "arq": "aniversarios_1636109-arthur-2-anos/img_6882.jpg",
+      "alt": "Pai e filho descendo o escorregador"
+     }
+    ],
+    "pacotes": [
+     {
+      "nome": "Ensaio no estúdio",
+      "preco": "R$ 350",
+      "itens": [
+       "Cenário com o tema da criança",
+       "20 fotos editadas",
+       "Galeria online"
+      ]
+     },
+     {
+      "nome": "Festa",
+      "preco": "R$ 890",
+      "itens": [
+       "Até 4 horas de festa",
+       "Todas as fotos editadas",
+       "Galeria online"
+      ],
+      "destaque": true
+     },
+     {
+      "nome": "Ensaio e festa",
+      "preco": "R$ 1.190",
+      "itens": [
+       "Ensaio no estúdio antes",
+       "Cobertura da festa",
+       "Álbum 20x30"
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

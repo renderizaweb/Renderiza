@@ -238,11 +238,11 @@ test("texto entra como texto e imagem de fora não entra", comNavegador, async (
   await b.contexto.close();
 });
 
-test("resposta demorada (mais de 1,5 s): a página fica com a inicial; a próxima visita já abre com a publicada", comNavegador, async () => {
+test("resposta demorada (mais de 1,5 s): entra quando chegar; a próxima visita já abre com ela", comNavegador, async () => {
   const conteudo = publicado({ inicio: { textos: { titulo: "Versão *guardada.*" } } });
   const a = await abrir({ painel: { conteudo, atraso: 2200 } });
   await espera(2600);
-  assert.equal((await inicial(a.pagina)).titulo, ORIGINAL.titulo);
+  assert.equal(await textoDe(a.pagina, "#hero-heading"), "Versão <em>guardada.</em>", "quem publicou vê na hora, mesmo com o painel lento");
   const guardada = await a.pagina.evaluate(() => localStorage.getItem("rz-meu-site:villa-alecrim"));
   assert.ok(guardada && JSON.parse(guardada).conteudo.versao === 7, "a resposta foi para o navegador");
   // segunda visita com o painel fora do ar: abre com a guardada
@@ -292,6 +292,126 @@ test("prévia: ?rz-previa=<código> pede o rascunho, mostra o aviso e não guard
   assert.match(await pagina.textContent("#rz-previa"), /Prévia/);
   assert.equal(await pagina.evaluate(() => localStorage.getItem("rz-meu-site:villa-alecrim")), null);
   await contexto.close();
+});
+
+test("editor ao vivo: dentro de um quadro do painel, o site mostra o rascunho que chega e avisa onde foi o clique", comNavegador, async () => {
+  const PAINEL = "https://painel.renderizaweb.com.br";
+  const ctx = await navegador.newContext({ viewport: { width: 1200, height: 900 }, reducedMotion: "reduce" });
+  const erros = [], pedidos = [];
+  await ctx.route("**/*", rota => {
+    const u = new URL(rota.request().url());
+    if (u.origin === PAINEL && u.pathname === "/meu-site") {
+      return rota.fulfill({ status: 200, contentType: "text/html", body: `<!doctype html><meta charset="utf-8"><iframe id="q" src="${SITE}?rz-editor=1" style="width:1000px;height:800px"></iframe>
+        <script>window.recebidas = []; addEventListener("message", e => { if (e.origin === "https://villa-alecrim.teste") recebidas.push(e.data); });</script>` });
+    }
+    if (u.origin === PAINEL) { pedidos.push(u.pathname); return rota.fulfill({ status: 404, headers: { "access-control-allow-origin": "*" }, body: "{}" }); }
+    if (u.origin === "https://villa-alecrim.teste") {
+      const arquivo = path.join(site, u.pathname === "/" ? "index.html" : decodeURIComponent(u.pathname));
+      if (!arquivo.startsWith(site) || !fs.existsSync(arquivo)) return rota.fulfill({ status: 404, body: "" });
+      return rota.fulfill({ status: 200, contentType: TIPO[path.extname(arquivo)] || "application/octet-stream", body: fs.readFileSync(arquivo) });
+    }
+    return rota.abort();
+  });
+  try {
+    const p = await ctx.newPage();
+    p.on("pageerror", e => erros.push(e.message));
+    await p.goto(PAINEL + "/meu-site");
+    await p.waitForFunction(() => recebidas.some(m => m.tipo === "pronto"));
+    const pronto = await p.evaluate(() => recebidas.find(m => m.tipo === "pronto"));
+    assert.equal(pronto.rz, "meu-site");
+    assert.ok(Array.isArray(pronto.imagens["inicio.foto"]) && pronto.imagens["inicio.foto"][0] > 8, "o tamanho de cada foto na página, para a orientação de quem troca");
+    assert.ok(pronto.ancoras.length > 0 && pronto.ancoras.every(a => a.id && a.secao), "as partes com âncora, para o botão que leva a uma parte");
+    assert.deepEqual(pedidos, [], "no editor, o site não pede a versão publicada: quem manda o conteúdo é o painel");
+
+    const quadro = p.frameLocator("#q");
+    const mandar = m => p.evaluate(m => document.getElementById("q").contentWindow.postMessage({ rz: "meu-site", ...m }, "https://villa-alecrim.teste"), m);
+    const tituloInicial = await quadro.locator('[data-site="inicio.titulo"]').textContent();
+    await mandar({ tipo: "conteudo", conteudo: { esquema: 1, secoes: { inicio: { textos: { titulo: "Rascunho *ao vivo.*" } } } } });
+    await quadro.locator('[data-site="inicio.titulo"]', { hasText: "Rascunho ao vivo." }).waitFor();
+    await mandar({ tipo: "conteudo", conteudo: { esquema: 2 } }); // inválido: fica como estava
+    await mandar({ tipo: "foco", secao: "inicio", grupo: "textos", campo: "titulo" });
+    await quadro.locator('[data-site="inicio.titulo"].rz-ed-foco').waitFor();
+    await mandar({ tipo: "conteudo", conteudo: null }); // sem conteúdo: a versão inicial
+    await assert.doesNotReject(quadro.locator('[data-site="inicio.titulo"]').filter({ hasText: tituloInicial.trim() }).waitFor());
+
+    await quadro.locator('[data-site="inicio.titulo"]').click();
+    await quadro.locator('[data-site-botao="inicio.botao"]').first().click();
+    await p.waitForFunction(() => recebidas.filter(m => m.tipo === "clique").length === 2);
+    const cliques = await p.evaluate(() => recebidas.filter(m => m.tipo === "clique").map(({ secao, grupo, campo }) => ({ secao, grupo, campo })));
+    assert.deepEqual(cliques, [{ secao: "inicio", grupo: "textos", campo: "titulo" }, { secao: "inicio", grupo: "botoes", campo: "botao" }]);
+    assert.equal(new URL(p.frames()[1].url()).pathname, "/", "o clique no botão não tira o site do lugar");
+    assert.deepEqual(erros, []);
+
+    // fora de um quadro, ?rz-editor=1 não faz nada: o site é o de sempre e pede a versão publicada
+    const solto = await ctx.newPage();
+    await solto.goto(SITE + "?rz-editor=1");
+    await solto.waitForLoadState("networkidle");
+    assert.ok(pedidos.some(c => c.startsWith("/api/publico/site/")), "pede a versão publicada");
+  } finally { await ctx.close(); }
+});
+
+test("indicadores: a página aberta por uma pessoa manda a contagem (sem guardar nada no navegador); robô, prévia e site com a contagem desligada, não", comNavegador, async () => {
+  const VISITA = "https://painel.renderizaweb.com.br/api/publico/site/villa-alecrim/visita";
+  const abrirContando = async ({ pessoa = true, caminho = "", pastaSite = site } = {}) => {
+    const ctx = await navegador.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce" });
+    if (pessoa) await ctx.addInitScript(() => Object.defineProperty(Navigator.prototype, "webdriver", { get: () => false }));
+    const mandadas = [];
+    await ctx.route("**/*", rota => {
+      const u = new URL(rota.request().url());
+      if (u.href === VISITA) { mandadas.push({ tipo: rota.request().headers()["content-type"], dados: JSON.parse(rota.request().postData()) }); return rota.fulfill({ status: 204, headers: { "access-control-allow-origin": "*" } }); }
+      if (u.origin === "https://villa-alecrim.teste") {
+        const arquivo = path.join(pastaSite, u.pathname === "/" ? "index.html" : decodeURIComponent(u.pathname));
+        if (!arquivo.startsWith(pastaSite) || !fs.existsSync(arquivo)) return rota.fulfill({ status: 404, body: "" });
+        return rota.fulfill({ status: 200, contentType: TIPO[path.extname(arquivo)] || "application/octet-stream", body: fs.readFileSync(arquivo) });
+      }
+      if (u.origin === "https://painel.renderizaweb.com.br") return rota.fulfill({ status: 404, headers: { "access-control-allow-origin": "*" }, body: "{}" });
+      return rota.abort();
+    });
+    const pagina = await ctx.newPage();
+    await pagina.goto(SITE + caminho);
+    return { ctx, pagina, mandadas };
+  };
+
+  const { ctx, pagina, mandadas } = await abrirContando();
+  try {
+    await pagina.locator('[data-site-botao="inicio.botao"]').first().click();
+    await pagina.waitForTimeout(2600);
+    assert.equal(mandadas.length, 1, "2 segundos depois de abrir");
+    const { v, ...primeira } = mandadas[0].dados;
+    assert.match(mandadas[0].tipo, /^text\/plain/, "pedido simples: o navegador não pergunta antes (sem preflight)");
+    assert.match(v, /^[a-z0-9]{16}$/, "um sorteio que só vale nesta página aberta");
+    assert.equal(primeira.p, "/");
+    assert.equal(primeira.t, "celular");
+    assert.equal(primeira.s, 2);
+    assert.deepEqual(primeira.c, { "inicio.botao": 1 });
+    assert.equal(primeira.o, undefined, "veio direto: sem origem");
+    assert.ok(Object.values(primeira.se).reduce((a, b) => a + b, 0) <= 2 && Object.keys(primeira.se).every(k => /^[a-z0-9-]+$/.test(k)), JSON.stringify(primeira.se));
+    await pagina.evaluate(() => window.dispatchEvent(new Event("pagehide")));
+    await pagina.evaluate(() => window.dispatchEvent(new Event("pagehide")));
+    await pagina.waitForTimeout(200);
+    assert.ok(mandadas.length <= 2 && mandadas.every(m => m.dados.v === v), "ao sair manda de novo só se mudou, sempre com o mesmo sorteio");
+    assert.deepEqual(await pagina.evaluate(() => [document.cookie, Object.keys(localStorage).filter(k => !k.startsWith("rz-meu-site:"))]), ["", []], "nenhum cookie e nada da contagem guardado no navegador");
+  } finally { await ctx.close(); }
+
+  for (const [nome, opcoes] of [["robô (navigator.webdriver)", { pessoa: false }], ["prévia do rascunho", { caminho: "?rz-previa=codigodaprevia123" }]]) {
+    const r = await abrirContando(opcoes);
+    try { await r.pagina.waitForTimeout(2600); assert.deepEqual(r.mandadas, [], nome + " não conta"); } finally { await r.ctx.close(); }
+  }
+  // "visitas": false no site.json: o script sai com data-sem-visitas e não conta
+  const semContar = path.join(pasta, "sem-contar");
+  fs.cpSync(site, semContar, { recursive: true });
+  const html = fs.readFileSync(path.join(semContar, "index.html"), "utf8");
+  fs.writeFileSync(path.join(semContar, "index.html"), html.replace('<script data-codigo="villa-alecrim"', '<script data-codigo="villa-alecrim" data-sem-visitas'));
+  assert.notEqual(fs.readFileSync(path.join(semContar, "index.html"), "utf8"), html);
+  const r = await abrirContando({ pastaSite: semContar });
+  try { await r.pagina.waitForTimeout(2600); assert.deepEqual(r.mandadas, [], "contagem desligada"); } finally { await r.ctx.close(); }
+});
+
+test("com o painel, o site deixa só o painel pôr ele num quadro (o editor ao vivo); sem o painel, ninguém de fora", () => {
+  assert.match(fs.readFileSync(path.join(site, "_headers"), "utf8"), /\n  Content-Security-Policy: frame-ancestors 'self' https:\/\/painel\.renderizaweb\.com\.br\n/);
+  assert.doesNotMatch(fs.readFileSync(path.join(site, "_headers"), "utf8"), /X-Frame-Options/);
+  const cabecalhos = JSON.parse(fs.readFileSync(path.join(site, "vercel.json"), "utf8")).headers[0].headers;
+  assert.deepEqual(cabecalhos.filter(h => /frame/i.test(h.key + h.value)), [{ key: "Content-Security-Policy", value: "frame-ancestors 'self' https://painel.renderizaweb.com.br" }]);
 });
 
 test("extrair: o conteúdo inicial sai no formato do contrato, válido, e aplicá-lo não muda nada", comNavegador, async () => {

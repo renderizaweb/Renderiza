@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Termo de contratação · Renderiza</title>
+<meta name="description" content="O termo de contratação da Renderiza, para ler e assinar online.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1e2528">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Termo de contratação · Renderiza">
+<meta property="og:description" content="O resumo e o termo completo, para ler e assinar online.">
+<meta property="og:image" content="https://www.renderizaweb.com.br/compartilhar.jpg">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<!-- Termos de lead (23/11/2026; docs/termos/README.md): uma página só para todos, em /termo/<id> (vercel.json manda
+     /termo/<id> para cá; o servidor local faz o mesmo). Lê o termo do banco pela chave pública (publico_termo, em
+     supabase/termos-online.sql): o texto exato que o banco guarda, desenhado por painel/src/termos-texto.js, e a
+     impressão dele (SHA-256), que a página confere antes de assinar. A assinatura é a mesma do contrato do vereador:
+     código de 6 números no e-mail (função de borda termo-codigo), aceitar_termo_online e o comprovante por e-mail.
+     O contador de visitas entra com a pasta da demo do lead (data-sub="contrato"), e os botões usam os mesmos
+     data-rz-alvo do contrato do vereador: a Atividade do lead mostra tudo sem mudar nada. -->
+<style>
+@font-face{font-family:"Geist";font-style:normal;font-weight:100 900;font-display:swap;src:url(/fontes/geist.woff2) format("woff2")}
+:root{--grafite:#1e2528;--grafite-2:#2b3438;--terracota:#b25134;--terracota-2:#9a4429;--terracota-c:#e8855e;--papel:#fff;--fundo:#f6f5f2;--gelo:#f1eee9;
+  --tinta:#1e2528;--tinta-2:#4a5356;--suave:#6b7376;--linha:#e6e4df;--erro:#b42318;--erro-c:#fdecea;--ok:#1f7a4d;--ok-c:#e2f3e9;--aviso:#8a5a00;--aviso-c:#fdf3d8;
+  --sans:"Geist",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--fundo);color:var(--tinta);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--terracota-c);outline-offset:3px;border-radius:6px}
+.cx{width:min(860px,100% - 32px);margin-inline:auto}
+h1,h2,h3{letter-spacing:-.03em;line-height:1.1}
+h2{font-size:clamp(26px,6.4vw,36px);font-weight:750;margin-top:10px}
+h2 em,h1 em{font-style:normal;color:var(--terracota)}
+.kicker{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--terracota)}
+.kicker::before{content:"";width:22px;height:3px;border-radius:3px;background:var(--terracota-c)}
+.sub{color:var(--tinta-2);font-size:16.5px;margin-top:12px}
+section{padding:44px 0}
+.bt{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 22px;border-radius:14px;font-weight:650;font-size:15.5px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.bt-cor{background:var(--terracota);color:#fff}
+.bt-cor:hover{background:var(--terracota-2)}
+.bt-vidro{background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.24)}
+.bt-linha{background:var(--papel);color:var(--tinta);border:1.5px solid var(--linha)}
+.bt:disabled{opacity:.55;cursor:not-allowed}
+.topo{position:sticky;top:0;z-index:30;background:rgba(30,37,40,.96);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:#fff}
+.topo .cx{display:flex;align-items:center;gap:12px;height:58px}
+.topo img{width:28px;height:28px;flex:none;filter:brightness(0) invert(1)}
+.topo b{font-size:17px;font-weight:700;letter-spacing:-.02em}
+.topo small{display:block;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+.topo .bt{margin-left:auto;min-height:38px;padding:0 16px;font-size:14px;border-radius:11px}
+.capa{background:radial-gradient(70% 60% at 100% 0,#3a2a24 0,rgba(58,42,36,0) 70%),var(--grafite);color:#fff;padding:38px 0 42px}
+.capa .kicker{color:#f0c7b5}
+.capa h1{font-size:clamp(30px,8vw,50px);font-weight:750;margin-top:14px;overflow-wrap:anywhere}
+.capa .sub{color:#d9dcdd}
+.acoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.acoes .bt{flex:1 1 220px}
+.aviso-capa{margin-top:18px;padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);font-size:14.5px;color:#d9dcdd}
+.aviso-capa b{color:#fff}
+.faixa{margin-top:18px;padding:14px 16px;border-radius:14px;background:var(--aviso-c);color:var(--aviso);font-weight:600;font-size:14.5px}
+.indice{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.indice a{font-size:13px;font-weight:600;color:var(--tinta);text-decoration:none;padding:6px 12px;border-radius:999px;background:var(--gelo)}
+.termo{background:var(--papel);border:1px solid var(--linha);border-radius:22px;padding:24px 20px;margin-top:22px;font-size:15px;color:var(--tinta-2)}
+.termo h3{font-size:19px;font-weight:700;color:var(--tinta);margin:26px 0 8px}
+.termo h3:first-child{margin-top:0}
+.termo h4{font-size:15px;font-weight:750;color:var(--tinta);margin:16px 0 4px;letter-spacing:0}
+.termo p{margin-top:8px}
+.termo ol,.termo ul{margin:8px 0 0 22px;display:grid;gap:6px}
+.termo b{color:var(--tinta)}
+.termo mark.pendente{background:var(--aviso-c);color:var(--aviso);font-weight:700;padding:0 4px;border-radius:4px}
+.assinatura{background:var(--gelo)}
+.form{background:var(--papel);border-radius:24px;padding:22px 18px;margin-top:22px;box-shadow:0 18px 40px -24px rgba(30,37,40,.3)}
+.campo{margin-top:14px}
+.campo label,.campo>span{display:block;font-weight:650;font-size:13.5px;margin-bottom:6px;color:var(--tinta-2)}
+.campo input{width:100%;font:inherit;font-size:16px;padding:13px 14px;border-radius:12px;border:1.5px solid var(--linha);background:#fff;color:var(--tinta);outline:0}
+.campo input:focus{border-color:var(--terracota);box-shadow:0 0 0 4px #b2513418}
+.campo input[aria-invalid=true]{border-color:var(--erro)}
+.duas{display:grid;grid-template-columns:minmax(0,1fr);gap:0 12px}
+.escolhas{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+.escolha{position:relative;display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:16px;border:1.5px solid var(--linha);cursor:pointer;background:#fff}
+.escolha input{position:absolute;opacity:0;width:1px;height:1px}
+.escolha .bola{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid #c9b3a8;margin-top:1px}
+.escolha input:checked~.bola{border-color:var(--terracota);background:var(--terracota);box-shadow:inset 0 0 0 4px #fff}
+.escolha input:focus-visible~.bola{outline:3px solid var(--terracota-c);outline-offset:2px}
+.escolha:has(input:checked){border-color:var(--terracota);background:#fdf8f6}
+.campo label.escolha{display:flex;margin-bottom:0;font-size:inherit;font-weight:inherit;color:var(--tinta)}
+.escolha b{display:block;font-size:15.5px;font-weight:650}
+.escolha span{display:block;font-size:13.5px;color:var(--suave)}
+.marcar{display:flex;gap:12px;align-items:flex-start;margin-top:14px;font-size:14px;color:var(--tinta-2);cursor:pointer}
+.marcar input{flex:none;margin-top:3px;width:20px;height:20px;accent-color:var(--terracota)}
+.erro{display:none;margin-top:14px;padding:12px 14px;border-radius:12px;background:var(--erro-c);color:var(--erro);font-size:14px;font-weight:600}
+.erro.ver{display:block}
+.form .bt{width:100%;margin-top:18px}
+.registro{margin-top:12px;font-size:12.5px;color:var(--suave);word-break:break-word}
+.passo{margin-top:10px;font-size:13.5px;color:var(--suave);text-align:center}
+.codigo{margin-top:18px;padding:16px;border-radius:16px;background:var(--gelo);border:1.5px solid #d9c3b8}
+.codigo p{font-size:14.5px;color:var(--tinta)}
+.codigo #codigo{font-size:24px;letter-spacing:.3em;font-weight:700;max-width:220px}
+.codigo-acoes{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin-top:10px}
+.codigo-acoes span{font-size:13px;color:var(--suave)}
+.link{background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:650;color:var(--terracota);text-decoration:underline;cursor:pointer}
+.link:disabled{opacity:.5;cursor:not-allowed;text-decoration:none}
+.feito{display:none}
+.feito.ver{display:block}
+.comprovante{border-radius:20px;background:var(--ok-c);padding:20px;color:var(--tinta)}
+.comprovante h3{display:flex;align-items:center;gap:10px;color:var(--ok);font-size:22px}
+.comprovante h3 svg{width:28px;height:28px}
+.comprovante dl{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;margin-top:14px;font-size:14.5px}
+.comprovante dt{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--suave)}
+.comprovante dd{word-break:break-word}
+.comprovante .mail{margin-top:8px;font-size:14px;font-weight:650;color:var(--ok)}
+.fora{padding:80px 0;text-align:center}
+.fora p{color:var(--tinta-2);margin-top:12px}
+.carregando{padding:80px 0;text-align:center;color:var(--suave)}
+footer{padding:26px 0 34px;font-size:13px;color:var(--suave)}
+footer .cx{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+[hidden]{display:none!important}
+@media (min-width:760px){
+  section{padding:64px 0}
+  .termo{padding:36px 42px}
+  .duas{grid-template-columns:1fr 1fr}
+  .escolhas.lado{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .form{padding:32px}
+  .comprovante dl{grid-template-columns:1fr 1fr}
+}
+@media print{.topo,.capa .acoes,#assinar form,.so-tela,footer{display:none!important}body{background:#fff}.termo{border:0;padding:0}.capa{background:#fff;color:var(--tinta);padding:0 0 16px}.capa .sub,.capa .kicker{color:var(--tinta-2)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="topo"><div class="cx"><img src="/simbolo.svg" alt=""><div><b>Renderiza</b><small>Termo de contratação</small></div><a class="bt bt-cor" href="#assinar" id="irTopo" data-rz-alvo="contrato-ir-topo" hidden>Assinar</a></div></header>
+
+<main id="principal">
+  <p class="carregando cx" id="carregando">Abrindo o termo…</p>
+
+  <section class="fora" id="fora" hidden aria-label="Termo não encontrado">
+    <div class="cx">
+      <h1 style="font-size:clamp(26px,6vw,36px)">Este link não está valendo</h1>
+      <p id="foraTexto">Pode ter sido trocado por uma versão nova. Fale com a Renderiza para receber o link certo.</p>
+      <div class="acoes" style="justify-content:center"><a class="bt bt-cor" style="flex:0 1 280px" href="https://wa.me/5511988697165?text=Ol%C3%A1%2C%20Kaue!%20Tentei%20abrir%20o%20termo%20que%20voc%C3%AAs%20me%20mandaram%20e%20o%20link%20n%C3%A3o%20abriu.">Falar com a Renderiza</a></div>
+    </div>
+  </section>
+
+  <div id="conteudo" hidden>
+    <section class="capa" id="inicio" aria-label="Início">
+      <div class="cx">
+        <span class="kicker">Termo de contratação</span>
+        <h1 id="titulo"></h1>
+        <p class="sub">Aqui estão o resumo e o termo completo. A assinatura é online: você informa os seus dados<span id="capaEscolha"></span> e confirma com um código enviado ao seu e-mail.</p>
+        <div class="aviso-capa"><b>A assinatura é o que dá início ao trabalho.</b> Ficou alguma dúvida? Fale com o Kaue no WhatsApp antes de assinar.</div>
+        <div class="acoes">
+          <a class="bt bt-cor" href="#assinar" data-rz-alvo="contrato-ir-capa">Ir para a assinatura</a>
+          <a class="bt bt-vidro" id="duvida" href="https://wa.me/5511988697165" data-rz-alvo="contrato-duvida">Tirar uma dúvida</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="termo-completo" aria-label="Termo completo">
+      <div class="cx">
+        <span class="kicker">O termo</span>
+        <h2>Leia com calma</h2>
+        <p class="faixa" id="faixa" hidden></p>
+        <nav class="indice so-tela" id="indice" aria-label="Cláusulas"></nav>
+        <article class="termo" id="termo"></article>
+      </div>
+    </section>
+
+    <section class="assinatura" id="assinar" aria-label="Assinatura">
+      <div class="cx">
+        <span class="kicker">Assinatura</span>
+        <h2>Assinar <em>o termo.</em></h2>
+        <p class="sub">Preencha com os seus dados e confirme. É rápido, e você recebe o comprovante na hora.</p>
+        <div class="form">
+          <form id="formAssinar" novalidate>
+            <div class="campo" id="campoComo" hidden><span>Você contrata como</span>
+              <div class="escolhas lado" role="radiogroup" aria-label="Você contrata como">
+                <label class="escolha"><input type="radio" name="como" value="pf" checked><i class="bola"></i><div><b>Pessoa física</b><span>No seu nome, com o seu CPF</span></div></label>
+                <label class="escolha"><input type="radio" name="como" value="pj"><i class="bola"></i><div><b>Empresa</b><span>Com o CNPJ; você assina por ela</span></div></label>
+              </div>
+            </div>
+            <div class="campo"><label for="nome">Seu nome completo</label><input id="nome" autocomplete="name" placeholder="Como no documento"></div>
+            <div class="duas">
+              <div class="campo"><label for="cpf">Seu CPF</label><input id="cpf" inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" maxlength="14"></div>
+              <div class="campo"><label for="zap">WhatsApp</label><input id="zap" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000"></div>
+            </div>
+            <div id="campoEmpresa" hidden>
+              <div class="campo"><label for="empresa">Razão social da empresa</label><input id="empresa" autocomplete="organization" placeholder="Como no cartão do CNPJ"></div>
+              <div class="campo"><label for="cnpj">CNPJ</label><input id="cnpj" inputmode="numeric" autocomplete="off" placeholder="00.000.000/0000-00" maxlength="18"></div>
+            </div>
+            <div class="campo"><label for="email">E-mail</label><input id="email" type="email" autocomplete="email" placeholder="voce@exemplo.com.br"></div>
+            <div class="campo"><label for="endereco" id="rotuloEndereco">Endereço completo</label><input id="endereco" autocomplete="street-address" placeholder="Rua, número, bairro, cidade, CEP"></div>
+            <div class="campo" id="campoOpcoes" hidden><span id="rotuloOpcoes">Escolha</span>
+              <div class="escolhas" id="opcoes" role="radiogroup" aria-labelledby="rotuloOpcoes"></div>
+            </div>
+            <label class="marcar"><input type="checkbox" id="li"><span>Li o termo completo e concordo com ele.</span></label>
+            <label class="marcar"><input type="checkbox" id="responsavel"><span id="textoResponsavel">Declaro que contrato em nome próprio, como pessoa física, e que sou o responsável pelos pagamentos deste termo.</span></label>
+            <label class="marcar"><input type="checkbox" id="privacidade"><span>Sei que os meus dados acima, o e-mail confirmado pelo código, a data, a hora, o IP e o aparelho ficam registrados como prova da assinatura e são usados só para este termo.</span></label>
+            <div class="codigo" id="caixaCodigo" hidden>
+              <p id="avisoCodigo">Mandamos um código de 6 números para o seu e-mail. Ele vale por 15 minutos.</p>
+              <div class="campo"><label for="codigo">Código do e-mail</label><input id="codigo" inputmode="numeric" autocomplete="one-time-code" placeholder="000000"></div>
+              <p class="codigo-acoes"><button type="button" class="link" id="reenviar" data-rz-alvo="contrato-reenviar">Reenviar o código</button><span id="esperar"></span></p>
+            </div>
+            <div class="erro" id="erro" role="alert"></div>
+            <button class="bt bt-cor" type="submit" id="botao" data-rz-alvo="contrato-assinar">Continuar</button>
+            <p class="passo" id="passo">No próximo passo, mandamos um código ao seu e-mail para confirmar a assinatura.</p>
+            <p class="registro" id="registro">Impressão digital deste texto (SHA-256): calculando…</p>
+          </form>
+          <div class="feito" id="feito" aria-live="polite">
+            <div class="comprovante">
+              <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg>Termo assinado</h3>
+              <p style="margin-top:8px">Obrigado! O próximo passo vem pelo WhatsApp: o Kaue confirma o recebimento e o que falta para começar.</p>
+              <p class="mail" id="cMail">Enviando o comprovante para o seu e-mail…</p>
+              <dl>
+                <div><dt>Protocolo</dt><dd id="cProt"></dd></div>
+                <div><dt>Data e hora</dt><dd id="cData"></dd></div>
+                <div><dt>Nome</dt><dd id="cNome"></dd></div>
+                <div><dt>E-mail</dt><dd id="cEmail"></dd></div>
+                <div id="cEmpresaLinha" hidden><dt>Empresa</dt><dd id="cEmpresa"></dd></div>
+                <div id="cOpcaoLinha" hidden><dt>Escolha</dt><dd id="cOpcao"></dd></div>
+                <div><dt>IP registrado</dt><dd id="cIp"></dd></div>
+                <div><dt>Impressão do texto</dt><dd id="cHash"></dd></div>
+              </dl>
+            </div>
+            <div class="acoes so-tela">
+              <a class="bt bt-cor" id="avisar" href="#" data-rz-alvo="contrato-avisar">Avisar o Kaue no WhatsApp</a>
+              <button class="bt bt-linha" type="button" id="imprimir" data-rz-alvo="contrato-imprimir">Salvar em PDF</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer><div class="cx"><span id="rodape">Termo de contratação · Renderiza</span><a href="https://www.renderizaweb.com.br">renderizaweb.com.br</a></div></footer>
+
+<script type="module">
+import { desenharTexto, impressaoDoTexto, pendencias, blocosDoTexto, ancoraDoTitulo } from "/painel/src/termos-texto.js";
+
+const $ = s => document.querySelector(s);
+const ZAP = "5511988697165";
+const doCaminho = /^\/termo\/([a-z0-9-]{3,80})\/?$/.exec(location.pathname);
+const TERMO = doCaminho ? doCaminho[1] : (new URLSearchParams(location.search).get("t") || "").toLowerCase();
+const form = $("#formAssinar"), botao = $("#botao"), erro = $("#erro");
+let config = null, termo = null, impressao = "", codigoPara = "", espera = 0, relogio = null, ocupado = false;
+
+const so = n => String(n || "").replace(/\D/g, "");
+function cpfValido(c) {
+  c = so(c); if (!/^\d{11}$/.test(c) || /^(\d)\1{10}$/.test(c)) return false;
+  for (let t = 9; t < 11; t++) { let s = 0; for (let i = 0; i < t; i++) s += Number(c[i]) * (t + 1 - i); if ((s * 10) % 11 % 10 !== Number(c[t])) return false; }
+  return true;
+}
+function cnpjValido(c) {
+  c = so(c); if (!/^\d{14}$/.test(c) || /^(\d)\1{13}$/.test(c)) return false;
+  const dv = n => { const p = n === 12 ? [5,4,3,2,9,8,7,6,5,4,3,2] : [6,5,4,3,2,9,8,7,6,5,4,3,2]; let s = 0; for (let i = 0; i < n; i++) s += Number(c[i]) * p[i]; const r = s % 11; return r < 2 ? 0 : 11 - r; };
+  return dv(12) === Number(c[12]) && dv(13) === Number(c[13]);
+}
+function mostraErro(t, campo) { erro.textContent = t; erro.classList.add("ver"); if (campo) { campo.setAttribute("aria-invalid", "true"); campo.focus(); } }
+function limpa() { erro.classList.remove("ver"); form.querySelectorAll("[aria-invalid]").forEach(e => e.removeAttribute("aria-invalid")); }
+function fechado(msg) { botao.disabled = true; $("#passo").hidden = false; $("#passo").textContent = msg; }
+function rotulo() { if (!ocupado) botao.textContent = pedeCodigo() ? (codigoPara ? "Confirmar e assinar" : "Continuar") : "Assinar o termo"; }
+const pedeCodigo = () => !termo || termo.exige_codigo !== false;
+const comoEmpresa = () => termo && (termo.tipo_contratante === "pj" || (termo.tipo_contratante === "pf_ou_pj" && (form.querySelector("input[name=como]:checked") || {}).value === "pj"));
+
+function rpc(nome, corpo) {
+  return fetch(config.supabaseUrl.replace(/\/$/, "") + "/rest/v1/rpc/" + nome, {
+    method: "POST", headers: { "Content-Type": "application/json", apikey: config.supabaseAnonKey, Authorization: "Bearer " + config.supabaseAnonKey }, body: JSON.stringify(corpo),
+  }).then(r => { if (!r.ok) throw new Error(String(r.status)); return r.json(); });
+}
+const funcao = corpo => fetch(config.supabaseUrl.replace(/\/$/, "") + "/functions/v1/termo-codigo", {
+  method: "POST", headers: { "Content-Type": "application/json", apikey: config.supabaseAnonKey, Authorization: "Bearer " + config.supabaseAnonKey }, body: JSON.stringify(corpo),
+}).then(r => r.json().catch(() => ({})));
+
+function fora(texto) { $("#carregando").hidden = true; $("#fora").hidden = false; if (texto) $("#foraTexto").textContent = texto; }
+
+/** O contador de visitas da demo do lead: abrir, rolar, tempo e os cliques (data-rz-alvo) vão para a Atividade. */
+function contador(demo) {
+  if (!/^[a-z0-9][a-z0-9-]{0,79}$/.test(demo || "")) return;
+  const s = document.createElement("script");
+  s.src = "/exemplos/visitas.js"; s.dataset.pagina = "demo"; s.dataset.demo = demo; s.dataset.sub = "contrato";
+  document.head.appendChild(s);
+}
+
+function ajustarComo() {
+  const pj = comoEmpresa();
+  $("#campoEmpresa").hidden = !pj;
+  $("#textoResponsavel").textContent = pj
+    ? "Declaro que tenho poderes para contratar em nome da empresa informada, que é a responsável pelos pagamentos deste termo."
+    : "Declaro que contrato em nome próprio, como pessoa física, e que sou o responsável pelos pagamentos deste termo.";
+  $("#rotuloEndereco").textContent = pj ? "Endereço completo da empresa" : "Endereço completo";
+}
+
+function montar(t) {
+  termo = t;
+  const titulo = t.titulo.replace(/^Termo de contratação\s*·\s*/i, "") || t.titulo;
+  document.title = t.titulo + " · Renderiza";
+  $("#titulo").textContent = titulo;
+  $("#rodape").textContent = `${t.titulo} · versão de ${new Date(t.atualizado_em).toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo" })}`;
+  $("#duvida").href = `https://wa.me/${ZAP}?text=` + encodeURIComponent(`Olá, Kaue! Tenho uma dúvida sobre o termo (${titulo}).`);
+  desenharTexto(document, $("#termo"), t.texto);
+  // o índice: as cláusulas numeradas, pelo nome curto
+  const indice = $("#indice");
+  for (const b of blocosDoTexto(t.texto).filter(b => b.tipo === "titulo" && ancoraDoTitulo(b.texto))) {
+    const a = document.createElement("a"); a.href = "#" + ancoraDoTitulo(b.texto); a.textContent = b.texto.replace(/^\d+\.\s*/, "").replace(/:.*$/, "");
+    indice.appendChild(a);
+  }
+  // as escolhas (ex.: com ou sem o Painel Renderiza)
+  const opcoes = Array.isArray(t.opcoes) ? t.opcoes : [];
+  if (opcoes.length) {
+    $("#campoOpcoes").hidden = false;
+    $("#rotuloOpcoes").textContent = opcoes.length === 2 ? "Como você quer seguir" : "Escolha uma opção";
+    $("#capaEscolha").textContent = ", escolhe como quer seguir";
+    for (const o of opcoes) {
+      const l = document.createElement("label"); l.className = "escolha";
+      const i = document.createElement("input"); i.type = "radio"; i.name = "opcao"; i.value = o.id;
+      const bola = document.createElement("i"); bola.className = "bola";
+      const d = document.createElement("div"); const b = document.createElement("b"); b.textContent = o.nome; d.appendChild(b);
+      if (o.detalhe) { const s = document.createElement("span"); s.textContent = o.detalhe; d.appendChild(s); }
+      l.append(i, bola, d); $("#opcoes").appendChild(l);
+    }
+  }
+  if (t.tipo_contratante === "pf_ou_pj") $("#campoComo").hidden = false;
+  form.querySelectorAll("input[name=como]").forEach(i => i.addEventListener("change", ajustarComo));
+  ajustarComo();
+  if (!pedeCodigo()) $("#passo").hidden = true;
+  rotulo();
+  const falta = pendencias(t.texto);
+  if (falta.length) { $("#faixa").hidden = false; $("#faixa").textContent = "Termo em preparação: o que está marcado ainda vai ser preenchido. A assinatura abre quando o texto estiver completo."; fechado("A assinatura abre quando o termo estiver completo."); }
+  else if (!t.aberto) fechado("Este termo não está aberto para assinatura agora. Fale com o Kaue no WhatsApp.");
+  $("#carregando").hidden = true; $("#conteudo").hidden = false; $("#irTopo").hidden = false;
+  impressaoDoTexto(t.texto).then(h => {
+    impressao = h;
+    $("#registro").textContent = "Impressão digital deste texto (SHA-256): " + h;
+    if (h !== t.impressao) fechado("O texto não conferiu com o registrado. Recarregue a página; se continuar, fale com o Kaue.");
+  });
+  contador(t.demo);
+  if (location.hash && document.querySelector(location.hash)) document.querySelector(location.hash).scrollIntoView();
+}
+
+if (!/^[a-z0-9-]{3,80}$/.test(TERMO)) fora();
+else fetch("/api/config").then(r => (r.ok ? r.json() : null)).then(c => {
+  config = c;
+  if (!c || !c.supabaseUrl || !c.supabaseAnonKey) return fora("Não deu para abrir o termo agora. Tente de novo em instantes.");
+  return rpc("publico_termo", { p_termo: TERMO }).then(t => (t && t.ok ? montar(t) : fora()));
+}).catch(() => fora("Não deu para abrir o termo agora. Confira a internet e tente de novo."));
+
+$("#cpf").addEventListener("input", function () { const d = so(this.value).slice(0, 11); this.value = d.replace(/^(\d{3})(\d)/, "$1.$2").replace(/^(\d{3})\.(\d{3})(\d)/, "$1.$2.$3").replace(/\.(\d{3})(\d)/, ".$1-$2"); });
+$("#cnpj").addEventListener("input", function () { const d = so(this.value).slice(0, 14); this.value = d.replace(/^(\d{2})(\d)/, "$1.$2").replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3").replace(/\.(\d{3})(\d)/, ".$1/$2").replace(/(\d{4})(\d)/, "$1-$2"); });
+$("#codigo").addEventListener("input", function () { this.value = so(this.value).slice(0, 6); });
+// trocou o e-mail depois de pedir o código: o código vale só para o e-mail antigo
+$("#email").addEventListener("input", function () { if (codigoPara && this.value.trim().toLowerCase() !== codigoPara) { codigoPara = ""; $("#caixaCodigo").hidden = true; $("#codigo").value = ""; $("#passo").hidden = false; rotulo(); } });
+
+const MSG = { nome: "Confira o seu nome completo.", cpf: "Confira o CPF.", email: "Confira o e-mail.", whatsapp: "Confira o WhatsApp, com DDD.", endereco: "Confira o endereço completo.",
+  plano: "Escolha como quer seguir.", cnpj: "Confira o CNPJ.", empresa: "Confira a razão social da empresa.", declaracoes: "Marque as três confirmações para assinar.", codigo: "Digite os 6 números do código que chegou no seu e-mail." };
+const CAMPOS = { nome: "#nome", cpf: "#cpf", email: "#email", whatsapp: "#zap", endereco: "#endereco", codigo: "#codigo", cnpj: "#cnpj", empresa: "#empresa" };
+const ERROS_DO_CODIGO = {
+  espera: "Espere um minuto para pedir outro código.", limite: "Muitos códigos pedidos seguidos. Tente de novo mais tarde ou fale com o Kaue no WhatsApp.", email: MSG.email,
+  desligado: "O envio do código está sendo ligado. Tente de novo em alguns minutos ou fale com o Kaue no WhatsApp.", envio: "O e-mail não saiu agora. Tente de novo em instantes.",
+  fora: "Este termo não está aberto para assinatura agora. Fale com o Kaue no WhatsApp.",
+};
+function contagem() {
+  clearInterval(relogio); espera = 60; $("#reenviar").disabled = true; $("#esperar").textContent = "(pode pedir outro em 60 s)";
+  relogio = setInterval(() => { espera--; $("#esperar").textContent = espera > 0 ? `(pode pedir outro em ${espera} s)` : ""; if (espera <= 0) { clearInterval(relogio); $("#reenviar").disabled = false; } }, 1000);
+}
+function enviarCodigo(email) {
+  ocupado = true; botao.disabled = true; botao.textContent = "Enviando o código…";
+  return funcao({ termo: TERMO, email }).then(res => {
+    ocupado = false; botao.disabled = false;
+    if (!res || !res.ok) { rotulo(); const c = res && res.erro; return mostraErro(ERROS_DO_CODIGO[c] || "Não deu para mandar o código agora. Tente de novo em instantes.", c === "email" ? $("#email") : null); }
+    codigoPara = email; rotulo();
+    $("#avisoCodigo").textContent = `Mandamos um código de 6 números para ${email}. Ele vale por 15 minutos. Não chegou? Veja também o spam.`;
+    $("#caixaCodigo").hidden = false; $("#passo").hidden = true; contagem();
+    $("#codigo").value = ""; $("#codigo").focus();
+  }).catch(() => { ocupado = false; botao.disabled = false; rotulo(); mostraErro("Não deu para mandar o código agora. Confira a internet e tente de novo."); });
+}
+$("#reenviar").addEventListener("click", () => { limpa(); if (codigoPara && config) enviarCodigo(codigoPara); });
+
+function coletar() {
+  const pj = comoEmpresa();
+  return {
+    nome: $("#nome").value.trim().replace(/\s+/g, " "), cpf: so($("#cpf").value), email: $("#email").value.trim().toLowerCase(), whatsapp: so($("#zap").value),
+    endereco: $("#endereco").value.trim(), plano: (form.querySelector("input[name=opcao]:checked") || {}).value || "",
+    cnpj: pj ? so($("#cnpj").value) : "", empresa: pj ? $("#empresa").value.trim().replace(/\s+/g, " ") : "",
+    declaracoes: { li: $("#li").checked, responsavel: $("#responsavel").checked, privacidade: $("#privacidade").checked },
+  };
+}
+form.addEventListener("submit", e => {
+  e.preventDefault(); limpa();
+  if (botao.disabled || ocupado || !termo) return;
+  const dados = coletar();
+  const opcoes = Array.isArray(termo.opcoes) ? termo.opcoes : [];
+  const pj = comoEmpresa();
+  if (dados.nome.length < 5 || !/\S+\s+\S+/.test(dados.nome)) return mostraErro(MSG.nome, $("#nome"));
+  if (!cpfValido(dados.cpf)) return mostraErro(MSG.cpf, $("#cpf"));
+  if (dados.whatsapp.length < 10 || dados.whatsapp.length > 13) return mostraErro(MSG.whatsapp, $("#zap"));
+  if (pj && dados.empresa.length < 2) return mostraErro(MSG.empresa, $("#empresa"));
+  if (pj && !cnpjValido(dados.cnpj)) return mostraErro(MSG.cnpj, $("#cnpj"));
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(dados.email)) return mostraErro(MSG.email, $("#email"));
+  if (dados.endereco.length < 10) return mostraErro(MSG.endereco, $("#endereco"));
+  if (opcoes.length && !dados.plano) return mostraErro(MSG.plano);
+  if (!dados.declaracoes.li || !dados.declaracoes.responsavel || !dados.declaracoes.privacidade) return mostraErro(MSG.declaracoes);
+  if (!impressao || !config) return mostraErro("Não deu para conectar agora. Tente de novo em instantes ou fale com o Kaue no WhatsApp.");
+  if (pedeCodigo()) {
+    if (codigoPara !== dados.email) return enviarCodigo(dados.email);
+    dados.codigo = so($("#codigo").value);
+    if (dados.codigo.length !== 6) return mostraErro(MSG.codigo, $("#codigo"));
+  }
+  ocupado = true; botao.disabled = true; botao.textContent = "Assinando…";
+  rpc("aceitar_termo_online", { p_termo: TERMO, p_impressao: impressao, p_dados: dados }).then(res => {
+    ocupado = false; botao.disabled = false; rotulo();
+    if (!res || !res.ok) {
+      const c = res && res.erro;
+      if (c === "dados") return mostraErro(MSG[res.campo] || "Confira os dados.", CAMPOS[res.campo] ? $(CAMPOS[res.campo]) : null);
+      if (c === "codigo") return mostraErro("Esse código não confere. Confira o último e-mail que chegou e digite de novo.", $("#codigo"));
+      if (c === "codigo_vencido") return mostraErro("O código venceu ou foi trocado por um novo. Toque em “Reenviar o código”.", $("#codigo"));
+      if (c === "codigo_bloqueado") return mostraErro("Muitas tentativas com esse código. Toque em “Reenviar o código” para receber outro.", $("#codigo"));
+      if (c === "mudou") return mostraErro("O termo foi atualizado enquanto a página estava aberta. Recarregue a página e leia de novo antes de assinar.");
+      if (c === "limite") return mostraErro("Muitas tentativas seguidas. Espere um pouco ou fale com o Kaue no WhatsApp.");
+      return mostraErro("Este termo não está aberto para assinatura agora. Fale com o Kaue no WhatsApp.");
+    }
+    clearInterval(relogio);
+    const opcao = opcoes.find(o => o.id === dados.plano);
+    $("#cProt").textContent = res.protocolo;
+    $("#cData").textContent = new Date(res.em).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" });
+    $("#cNome").textContent = dados.nome;
+    $("#cEmail").textContent = dados.email + (res.email_confirmado ? " (confirmado pelo código)" : "");
+    if (pj) { $("#cEmpresaLinha").hidden = false; $("#cEmpresa").textContent = `${dados.empresa} · CNPJ ${$("#cnpj").value}`; }
+    if (opcao) { $("#cOpcaoLinha").hidden = false; $("#cOpcao").textContent = opcao.nome; }
+    $("#cIp").textContent = res.ip || "não informado"; $("#cHash").textContent = impressao;
+    const titulo = $("#titulo").textContent;
+    $("#avisar").href = `https://wa.me/${ZAP}?text=` + encodeURIComponent(`Olá, Kaue! Assinei o termo (${titulo}). Protocolo ${res.protocolo}${opcao ? `, ${opcao.nome}` : ""}.`);
+    form.style.display = "none"; $("#irTopo").hidden = true; $("#feito").classList.add("ver"); $("#feito").scrollIntoView({ block: "center" });
+    // o comprovante por e-mail (para quem assinou, com cópia para a Renderiza): é a confirmação da Renderiza
+    funcao({ acao: "comprovante", termo: TERMO, protocolo: res.protocolo }).then(c => {
+      $("#cMail").textContent = c && c.ok ? `Comprovante enviado para ${dados.email}.` : "O comprovante por e-mail não saiu agora. Salve em PDF e avise o Kaue: ele manda a cópia.";
+    }).catch(() => { $("#cMail").textContent = "O comprovante por e-mail não saiu agora. Salve em PDF e avise o Kaue: ele manda a cópia."; });
+  }).catch(() => { ocupado = false; botao.disabled = false; rotulo(); mostraErro("Não deu para enviar agora. Confira a internet e tente de novo."); });
+});
+$("#imprimir").addEventListener("click", () => window.print());
+</script>
+</body>
+</html>
