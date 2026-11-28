@@ -31,7 +31,8 @@ function carregarValidacao() {
   return validacao;
 }
 
-/** Reduz a foto (no máximo `lado` px) e converte para WebP no próprio aparelho. Devolve um Blob. */
+/** Reduz a foto (no máximo `lado` px) e converte para WebP no próprio aparelho; o iPhone, que não gera WebP, manda JPEG
+ * (28/11/2026). Devolve um Blob (o tipo diz qual). */
 async function paraWebp(arquivo, lado = 1600) {
   const imagem = await createImageBitmap(arquivo);
   const escala = Math.min(1, lado / Math.max(imagem.width, imagem.height));
@@ -39,8 +40,9 @@ async function paraWebp(arquivo, lado = 1600) {
   tela.width = Math.round(imagem.width * escala);
   tela.height = Math.round(imagem.height * escala);
   tela.getContext("2d").drawImage(imagem, 0, 0, tela.width, tela.height);
-  const blob = await new Promise(r => tela.toBlob(r, "image/webp", 0.82));
-  if (!blob || blob.type !== "image/webp") throw new Error("Este aparelho não conseguiu converter a foto. Tente outra, ou outro navegador.");
+  let blob = await new Promise(r => tela.toBlob(r, "image/webp", 0.82));
+  if (!blob || blob.type !== "image/webp") blob = await new Promise(r => tela.toBlob(r, "image/jpeg", 0.86));
+  if (!blob || !/^image\/(webp|jpeg)$/.test(blob.type)) throw new Error("Este aparelho não conseguiu converter a foto. Tente outra foto.");
   if (blob.size > 2 * 1024 * 1024) throw new Error("A foto ficou grande demais. Tente uma menor.");
   return blob;
 }
@@ -382,8 +384,8 @@ export async function montar(el, { banco, conta, pode, avisar, ambiente }) {
     botao.classList.add("rz-ms-enviando");
     try {
       const blob = await paraWebp(entrada.files[0]);
-      const caminho = caminhoDaImagem(conta.conta_id, aberta, bloco.dataset.imagem);
-      await banco.enviarArquivo("site-imagens", caminho, blob, "image/webp", { trocar: false });
+      const caminho = caminhoDaImagem(conta.conta_id, aberta, bloco.dataset.imagem, undefined, blob.type === "image/jpeg" ? "jpg" : "webp");
+      await banco.enviarArquivo("site-imagens", caminho, blob, blob.type, { trocar: false });
       bloco.querySelector('input[type="hidden"]').value = enderecoDaImagem(caminho, { ambiente, origem: location.origin });
       // data: e não blob: (a CSP do painel só aceita imagem de data: e https:)
       const src = await new Promise(r => { const f = new FileReader(); f.onload = () => r(f.result); f.readAsDataURL(blob); });

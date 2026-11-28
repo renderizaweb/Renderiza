@@ -178,9 +178,9 @@ export function imagemParaVer(src, dominios = []) {
 }
 
 /** Onde a imagem enviada fica: na pasta da conta (a regra do Storage), com um nome novo a cada envio. */
-export function caminhoDaImagem(contaId, secao, campo, sorteio = Math.random().toString(36).slice(2, 10)) {
+export function caminhoDaImagem(contaId, secao, campo, sorteio = Math.random().toString(36).slice(2, 10), ext = "webp") {
   const limpo = t => String(t).toLowerCase().replace(/[^a-z0-9-]+/g, "-").slice(0, 30);
-  return `${contaId}/${limpo(secao)}-${limpo(campo)}-${sorteio}.webp`;
+  return `${contaId}/${limpo(secao)}-${limpo(campo)}-${sorteio}.${ext === "jpg" ? "jpg" : "webp"}`; // .jpg: do iPhone (28/11/2026)
 }
 
 /** O endereço público da imagem: o do painel (o site do cliente só aceita imagem do endereço da API). */

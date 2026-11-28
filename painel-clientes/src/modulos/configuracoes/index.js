@@ -37,7 +37,8 @@ export async function paraWebp(arquivo, lado = 512) {
   tela.height = Math.round(imagem.height * escala);
   tela.getContext("2d").drawImage(imagem, 0, 0, tela.width, tela.height);
   const blob = await new Promise(r => tela.toBlob(r, "image/webp", 0.86));
-  if (!blob || blob.type !== "image/webp") throw new Error("Este aparelho não conseguiu converter a imagem. Tente outra, ou outro navegador.");
+  // o iPhone não gera WebP e devolve PNG: serve (o PNG guarda o fundo transparente do logo; 28/11/2026)
+  if (!blob || !/^image\/(webp|png)$/.test(blob.type)) throw new Error("Este aparelho não conseguiu converter a imagem. Tente outra.");
   return blob;
 }
 
@@ -195,7 +196,8 @@ export async function montar(el, { banco, conta, avisar, sessao, navegar }) {
       if (arquivo.size > 8 * 1024 * 1024) return avisar("A imagem passa de 8 MB. Use uma menor.", { tipo: "erro" });
       try {
         const webp = await paraWebp(arquivo);
-        const url = await banco.enviarArquivo("logos", `${c.id}/logo.webp`, webp, "image/webp");
+        const png = webp.type === "image/png";
+        const url = await banco.enviarArquivo("logos", `${c.id}/logo.${png ? "png" : "webp"}`, webp, webp.type);
         await banco.resultado(banco.tabela("contas").update({ logo: `${url}?v=${Date.now()}` }).eq("id", c.id));
         avisar("Logo atualizado.");
         await sessao.carregarContas();
