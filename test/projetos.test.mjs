@@ -5,6 +5,7 @@ import {
   STATUS, ESTIMATIVAS, SEM, codigoDaIssue, proximoNumero, patchDeStatus, progresso, compararIssues, posicaoEntre,
   posicaoNoFim, filtrarIssues, separarDone, ciclosDaTela, resumoDoCiclo, ciclosParaEscolher, diasParaAcabar,
   ordenarProjetos, projetoAtrasado, issuesPorStatus, novaIssue, nomeDoStatus,
+  issueParaPacote, pacoteDoProjeto, lerPacote, planoDeImportacao,
 } from "../painel/src/projetos.js";
 
 const AGORA = new Date("2026-12-02T15:00:00Z");
@@ -132,4 +133,101 @@ test("issue nova: número e posição do fim da coluna; criada já em Done ganha
   const feita = novaIssue({ titulo: "x", status: "done" }, [], "2026-12-02", AGORA);
   assert.equal(feita.feita_em, AGORA.toISOString());
   assert.equal(feita.ciclo, 10);
+});
+
+const PACOTE = [
+  "Apresentação do projeto: a importação ignora tudo isto, até a primeira issue.",
+  "# Ideia de antes (isto não é issue: está num bloco de código)",
+  "",
+  "# Layout da página inicial",
+  "status: To-do",
+  "estimativa: 3",
+  "ciclo: C10",
+  "responsavel: Kaue",
+  "",
+  "## Contexto",
+  "A home do mandato.",
+  "",
+  "```bash",
+  "# isto é um comentário de shell, não uma issue",
+  "npm run site -- vereador-mateuzinho-silva",
+  "```",
+  "",
+  "## O que fazer",
+  "- [ ] Seções",
+  "",
+  "# #16 · Proposta",
+  "status: done",
+  "",
+  "# Domínio no Registro.br",
+  "estimativa: 4",
+  "ciclo: próximo",
+  "status: esperando",
+].join("\n");
+
+test("pacote: lê título, dados e documentação; o código com # não corta a issue; avisos do que não deu", () => {
+  const { issues, avisos } = lerPacote(PACOTE, "2026-11-28");
+  assert.deepEqual(issues.map(i => i.titulo), ["Ideia de antes (isto não é issue: está num bloco de código)", "Layout da página inicial", "Proposta", "Domínio no Registro.br"]);
+  const layout = issues[1];
+  assert.equal(layout.status, "todo");
+  assert.equal(layout.estimativa, 3);
+  assert.equal(layout.ciclo, 10);
+  assert.equal(layout.responsavel, "Kaue");
+  assert.match(layout.doc, /^## Contexto\nA home do mandato\./);
+  assert.match(layout.doc, /# isto é um comentário de shell/);
+  assert.match(layout.doc, /- \[ \] Seções$/);
+  assert.equal(issues[2].numero, 16, "o número no título (#16 · Proposta)");
+  assert.equal(issues[2].status, "done");
+  assert.equal(issues[3].ciclo, 10, "ciclo: próximo (em 28/11, o atual é o 9)");
+  assert.equal(issues[3].estimativa, null);
+  assert.equal(issues[3].status, "backlog");
+  assert.equal(avisos.length, 2, avisos.join(" | "));
+  assert.match(avisos.join(" "), /estimativa "4" fora da escala/);
+  assert.match(avisos.join(" "), /status "esperando" não existe/);
+});
+
+test("pacote: o que sai do painel volta igual (ida e volta), com o número e a documentação", () => {
+  const issue = { numero: 18, titulo: "Layout da página inicial", status: "in_progress", estimativa: 3, ciclo: 10, responsavel: "Kaue",
+    descricao: "# Título solto\n\n## O que fazer\n- [x] Seções\n\n```\n# comentário\n```" };
+  const md = issueParaPacote(issue);
+  assert.match(md, /^# Layout da página inicial\nnumero: 18\nstatus: in_progress\nestimativa: 3\nciclo: 10\nresponsavel: Kaue\n\n## Título solto/, "o # da documentação vira ##");
+  const volta = lerPacote(md).issues[0];
+  assert.deepEqual([volta.numero, volta.titulo, volta.status, volta.estimativa, volta.ciclo, volta.responsavel], [18, issue.titulo, "in_progress", 3, 10, "Kaue"]);
+  assert.match(volta.doc, /```\n# comentário\n```$/, "dentro do código, o # fica");
+  const projeto = { nome: "Vereador Mateuzinho Silva · Site + portal do gabinete", situacao: "em_andamento", inicio: "2026-11-27", descricao: "# Escopo\nDuas entregas." };
+  const tudo = pacoteDoProjeto(projeto, [issue, { numero: 16, titulo: "Proposta", status: "done", feita_em: "2026-11-27T15:00:00Z" }], { cliente: "Vereador Mateuzinho Silva", hoje: "2026-11-28" });
+  assert.match(tudo, /^Projeto: Vereador Mateuzinho Silva · Site \+ portal do gabinete\nCliente: Vereador Mateuzinho Silva\nSituação: Em andamento · início 27\/11\/2026\nCiclo de hoje: 9/);
+  assert.match(tudo, /## Escopo\nDuas entregas\./);
+  const lidas = lerPacote(tudo).issues;
+  assert.deepEqual(lidas.map(i => i.numero), [18, 16], "a apresentação não vira issue; a ordem é a dos status");
+});
+
+test("importar: cria as novas, atualiza pelo número ou pelo título (sem duplicar) e só muda o que veio", () => {
+  const existentes = [
+    { id: "a", numero: 16, titulo: "Proposta", projeto_id: "p1", status: "done", feita_em: "2026-11-27T15:00:00Z", ciclo: 9, descricao: "Feita." },
+    { id: "b", numero: 17, titulo: "Assinatura do termo", projeto_id: "p1", status: "done", ciclo: 9, descricao: "" },
+    { id: "c", numero: 30, titulo: "Outra coisa", projeto_id: "p2", status: "todo" },
+  ];
+  const { issues } = lerPacote([
+    "# Layout da página inicial", "status: todo", "estimativa: 3", "", "## O que fazer", "- [ ] Seções", "",
+    "# assinatura do TERMO", "", "## Registro", "- 28/11 · assinado online",
+    "# Proposta", "numero: 16", "status: validation",
+    "# Algo", "numero: 30",
+    "# Layout da página inicial", "estimativa: 5",
+  ].join("\n"), "2026-11-28");
+  const plano = planoDeImportacao(issues, existentes, "p1", "2026-11-28");
+  assert.equal(plano.criar.length, 1);
+  assert.deepEqual(plano.criar[0], { titulo: "Layout da página inicial", descricao: "## O que fazer\n- [ ] Seções", projeto_id: "p1", status: "todo", estimativa: 3, ciclo: null, responsavel: null });
+  assert.equal(plano.atualizar.length, 2);
+  const termo = plano.atualizar.find(u => u.issue.id === "b");
+  assert.deepEqual(termo.patch, { titulo: "assinatura do TERMO", descricao: "## Registro\n- 28/11 · assinado online" }, "pelo título; o status não veio, fica");
+  const proposta = plano.atualizar.find(u => u.issue.id === "a");
+  assert.deepEqual(proposta.patch, { status: "validation", feita_em: null }, "a documentação vazia não apaga a que existe");
+  assert.match(plano.avisos.join(" "), /#30 é de outro projeto/);
+  assert.match(plano.avisos.join(" "), /aparece duas vezes/);
+  // o mesmo arquivo de novo, depois de criado: nada novo
+  const depois = [...existentes, { id: "d", numero: 31, ...plano.criar[0] }];
+  const denovo = planoDeImportacao(lerPacote("# Layout da página inicial\nstatus: todo\nestimativa: 3\n\n## O que fazer\n- [ ] Seções").issues, depois, "p1", "2026-11-28");
+  assert.equal(denovo.criar.length, 0);
+  assert.equal(denovo.atualizar.length, 0, "nada mudou");
 });

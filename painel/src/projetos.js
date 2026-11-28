@@ -176,3 +176,159 @@ export function novaIssue(dados, existentes, hoje, agora = new Date()) {
   if (status === "done") Object.assign(linha, patchDeStatus({ status: "backlog", ciclo: linha.ciclo }, "done", hoje, agora));
   return linha;
 }
+
+/* ---------- o pacote de issues: o .md que vai e volta entre o painel e as sessões ---------- */
+// Cada issue começa com "# Título" (o título é a linha toda); logo abaixo, as linhas de dados que quiser (status,
+// estimativa, ciclo, responsavel, numero) e, depois de uma linha em branco, a documentação (Markdown, títulos a partir
+// de ##). O que vem antes da primeira "# " é só apresentação: a importação ignora. Ver docs/projetos-e-issues.md.
+
+const CHAVES_DO_PACOTE = { status: "status", estimativa: "estimativa", ciclo: "ciclo", responsavel: "responsavel", "responsável": "responsavel", numero: "numero", "número": "numero" };
+const NOMES_DE_STATUS = {
+  backlog: "backlog", todo: "todo", "to-do": "todo", "to do": "todo", "a fazer": "todo",
+  in_progress: "in_progress", "in progress": "in_progress", "in-progress": "in_progress", doing: "in_progress", fazendo: "in_progress",
+  validation: "validation", validacao: "validation", "validação": "validation", review: "validation", "em validação": "validation",
+  done: "done", feito: "done", feita: "done", pronto: "done", "concluído": "done", concluido: "done",
+};
+const RE_CERCA_PACOTE = /^\s*(```|~~~)/;
+/** A documentação dentro do pacote: um "# " (fora do código) viraria outra issue; vira "## ". */
+function docParaPacote(doc) {
+  let codigo = false;
+  return String(doc || "").replace(/\r\n?/g, "\n").split("\n").map(l => {
+    if (RE_CERCA_PACOTE.test(l)) { codigo = !codigo; return l; }
+    return !codigo && /^#\s/.test(l) ? "#" + l : l;
+  }).join("\n").trim();
+}
+
+/** Uma issue no formato do pacote (com o número: assim a importação atualiza a mesma issue). */
+export function issueParaPacote(i) {
+  const dados = [
+    Number(i.numero) > 0 ? `numero: ${i.numero}` : null,
+    `status: ${i.status || "backlog"}`,
+    i.estimativa ? `estimativa: ${i.estimativa}` : null,
+    i.ciclo ? `ciclo: ${i.ciclo}` : null,
+    i.responsavel ? `responsavel: ${i.responsavel}` : null,
+  ].filter(Boolean);
+  const doc = docParaPacote(i.descricao);
+  return `# ${String(i.titulo || "").replace(/\s+/g, " ").trim()}\n${dados.join("\n")}\n${doc ? "\n" + doc + "\n" : ""}`;
+}
+
+/** O projeto inteiro para levar a uma sessão: a apresentação (o projeto e a documentação dele) e as issues, na ordem. */
+export function pacoteDoProjeto(projeto, issues, { cliente = "", hoje } = {}) {
+  const dm = d => (d ? d.slice(8, 10) + "/" + d.slice(5, 7) + "/" + d.slice(0, 4) : "");
+  const ordem = [...issues].sort((a, b) => ordemDoStatus(a.status) - ordemDoStatus(b.status) || compararIssues(a, b));
+  const cabeca = [
+    `Projeto: ${projeto.nome}`,
+    cliente ? `Cliente: ${cliente}` : null,
+    `Situação: ${nomeDaSituacao(projeto.situacao)}` + (projeto.inicio ? ` · início ${dm(projeto.inicio)}` : "") + (projeto.meta ? ` · meta ${dm(projeto.meta)}` : "") + (projeto.concluido_em ? ` · concluído em ${dm(projeto.concluido_em)}` : ""),
+    hoje ? `Ciclo de hoje: ${cicloDoDia(hoje)} (de segunda a domingo)` : null,
+    `Issues: ${issues.length} (${progresso(issues).feitas} em Done)`,
+    "Formato: docs/projetos-e-issues.md (o painel importa este mesmo arquivo: com \"numero\", atualiza a issue).",
+  ].filter(Boolean).join("\n");
+  const doc = docParaPacote(projeto.descricao);
+  return [cabeca, doc ? "Documentação do projeto:\n\n" + doc : null, "---", ...ordem.map(issueParaPacote)].filter(Boolean).join("\n\n").replace(/\n{3,}/g, "\n\n") + "\n";
+}
+
+/**
+ * Lê um pacote. Devolve { issues: [{ titulo, doc, numero, status, estimativa, ciclo, responsavel, campos }], avisos }.
+ * `campos` diz o que veio (para a atualização mexer só nisso). `hoje` resolve "ciclo: atual" e "ciclo: próximo".
+ */
+export function lerPacote(texto, hoje) {
+  const linhas = String(texto || "").replace(/\r\n?/g, "\n").split("\n");
+  const lidas = [], avisos = [];
+  let atual = null, codigo = false, lendoDados = false;
+  for (const l of linhas) {
+    const cerca = RE_CERCA_PACOTE.test(l);
+    if (!codigo && !cerca && /^#\s+\S/.test(l)) {
+      atual = { titulo: l.replace(/^#\s+/, "").trim(), dados: {}, doc: [] };
+      lidas.push(atual);
+      lendoDados = true;
+      continue;
+    }
+    if (cerca) codigo = !codigo;
+    if (!atual) continue; // a apresentação
+    if (lendoDados && !cerca) {
+      const m = l.match(/^\s*([A-Za-zÀ-ú]+)\s*:\s*(.*?)\s*$/);
+      const chave = m && CHAVES_DO_PACOTE[m[1].toLowerCase()];
+      if (chave) { atual.dados[chave] = m[2]; continue; }
+      lendoDados = false;
+      if (!l.trim()) continue;
+    }
+    lendoDados = false;
+    atual.doc.push(l);
+  }
+  const issues = [];
+  for (const a of lidas) {
+    let titulo = a.titulo;
+    const comNumero = titulo.match(/^#(\d+)\s*[·:-]?\s+(.+)$/);
+    const nome = (comNumero ? comNumero[2] : titulo).trim();
+    const onde = nome ? `"${nome}"` : "(sem título)";
+    if (!nome) { avisos.push("Uma issue sem título ficou de fora."); continue; }
+    const campos = new Set(Object.keys(a.dados));
+    const i = { titulo: nome, doc: a.doc.join("\n").replace(/^\s*\n/, "").replace(/\s+$/, ""), numero: null, status: null, estimativa: null, ciclo: null, responsavel: null, campos };
+    const numero = a.dados.numero !== undefined ? a.dados.numero.replace(/^#/, "") : comNumero ? comNumero[1] : "";
+    if (numero) { if (/^\d+$/.test(numero) && Number(numero) > 0) { i.numero = Number(numero); campos.add("numero"); } else avisos.push(`${onde}: número "${numero}" não entendido; vai como issue nova.`); }
+    if (campos.has("status")) {
+      const s = NOMES_DE_STATUS[String(a.dados.status).toLowerCase().trim()];
+      if (s) i.status = s; else { avisos.push(`${onde}: status "${a.dados.status}" não existe; vai para Backlog.`); i.status = "backlog"; }
+    }
+    if (campos.has("estimativa")) {
+      const e = String(a.dados.estimativa).replace(/\s*(pts?|pontos?)$/i, "").trim();
+      if (!e || e === "-") i.estimativa = null;
+      else if (ESTIMATIVAS.includes(Number(e))) i.estimativa = Number(e);
+      else avisos.push(`${onde}: estimativa "${a.dados.estimativa}" fora da escala (${ESTIMATIVAS.join(", ")}); fica sem.`);
+    }
+    if (campos.has("ciclo")) {
+      const c = semAcento(a.dados.ciclo).replace(/^ciclo\s*/, "").replace(/^c/, "").trim();
+      const atualDoDia = hoje ? cicloDoDia(hoje) : null;
+      if (!c || c === "-") i.ciclo = null;
+      else if (/^\d+$/.test(c) && Number(c) > 0) i.ciclo = Number(c);
+      else if (c === "atual" && atualDoDia) i.ciclo = atualDoDia;
+      else if (c === "proximo" && atualDoDia) i.ciclo = atualDoDia + 1;
+      else avisos.push(`${onde}: ciclo "${a.dados.ciclo}" não entendido; fica sem.`);
+    }
+    if (campos.has("responsavel")) i.responsavel = String(a.dados.responsavel).trim() || null;
+    issues.push(i);
+  }
+  return { issues, avisos };
+}
+
+const tituloComparavel = t => semAcento(t).replace(/\s+/g, " ").trim();
+
+/**
+ * O que a importação faz num projeto: com número, atualiza aquela issue (se for deste projeto); sem número, atualiza a
+ * issue de mesmo título do projeto (assim, importar o mesmo arquivo de novo não duplica) ou cria uma nova.
+ * Na atualização, só muda o que veio; documentação vazia não apaga a que existe.
+ * Devolve { criar: [dados para novaIssue], atualizar: [{ issue, patch }], avisos }.
+ */
+export function planoDeImportacao(lidas, existentes, projetoId, hoje, agora = new Date()) {
+  const doProjeto = existentes.filter(i => i.projeto_id === projetoId);
+  const criar = [], atualizar = [], avisos = [];
+  const vistos = new Set();
+  for (const l of lidas) {
+    let alvo = null;
+    if (l.numero) {
+      const achada = existentes.find(i => Number(i.numero) === l.numero);
+      if (!achada) { avisos.push(`#${l.numero} não existe; "${l.titulo}" ficou de fora.`); continue; }
+      if (achada.projeto_id !== projetoId) { avisos.push(`#${l.numero} é de outro projeto; "${l.titulo}" ficou de fora.`); continue; }
+      alvo = achada;
+    } else {
+      const iguais = doProjeto.filter(i => tituloComparavel(i.titulo) === tituloComparavel(l.titulo));
+      if (iguais.length === 1) alvo = iguais[0];
+      else if (iguais.length > 1) { avisos.push(`"${l.titulo}": há ${iguais.length} issues com esse título no projeto; ficou de fora (ponha o número).`); continue; }
+    }
+    const chave = alvo ? "#" + alvo.id : tituloComparavel(l.titulo);
+    if (vistos.has(chave)) { avisos.push(`"${l.titulo}" aparece duas vezes no arquivo; valeu a primeira.`); continue; }
+    vistos.add(chave);
+    if (!alvo) {
+      criar.push({ titulo: l.titulo, descricao: l.doc, projeto_id: projetoId, status: l.status || "backlog", estimativa: l.estimativa, ciclo: l.ciclo, responsavel: l.responsavel });
+      continue;
+    }
+    const patch = {};
+    if (l.titulo !== alvo.titulo) patch.titulo = l.titulo;
+    if (l.doc && l.doc !== (alvo.descricao || "")) patch.descricao = l.doc;
+    for (const c of ["estimativa", "ciclo", "responsavel"]) if (l.campos.has(c) && (l[c] ?? null) !== (alvo[c] ?? null)) patch[c] = l[c];
+    if (l.campos.has("status") && l.status !== alvo.status) Object.assign(patch, patchDeStatus({ ...alvo, ciclo: patch.ciclo !== undefined ? patch.ciclo : alvo.ciclo }, l.status, hoje, agora));
+    if (Object.keys(patch).length) atualizar.push({ issue: alvo, patch });
+  }
+  return { criar, atualizar, avisos };
+}

@@ -4,7 +4,11 @@
 //             responsável; arrastar muda o status (e a ordem); o ícone do status também muda, sem arrastar.
 //   Projetos  a lista (em andamento e concluídos), com o cliente e o progresso; abrir um mostra as issues dele.
 //   Ciclos    o atual, o próximo e os que passaram, com o que foi feito e o que ficou (as issues e os pontos).
-// Projeto tem cliente (um lead) ou não. Tudo passa por dados.js; as contas estão em projetos.js, os ciclos em tags.js.
+// Projeto tem cliente (um lead) ou não. Issue e projeto têm documentação em Markdown (markdown.js): a issue com o
+// modelo (Contexto, O que fazer, Pronto quando, Registro), a checklist que se marca e o registro que se anota na hora.
+// Entre o painel e as sessões, o pacote .md (projetos.js): "Importar issues" e "Copiar para uma sessão" no projeto;
+// "Copiar" na issue. Guia: docs/projetos-e-issues.md.
+// Tudo passa por dados.js; as contas estão em projetos.js, os ciclos em tags.js.
 
 import * as dados from "./dados.js";
 import { h, opcoesDoSelect } from "./dom.js";
@@ -18,7 +22,9 @@ import {
   STATUS, ESTIMATIVAS, SITUACOES_DO_PROJETO, SEM, nomeDoStatus, codigoDaIssue, patchDeStatus, progresso, compararIssues,
   posicaoEntre, posicaoNoFim, filtrarIssues, separarDone, ciclosDaTela, resumoDoCiclo, ciclosParaEscolher, diasParaAcabar,
   ordenarProjetos, projetoAtrasado, issuesPorStatus, novaIssue, nomeDaSituacao, DIAS_DO_DONE,
+  issueParaPacote, pacoteDoProjeto, lerPacote, planoDeImportacao,
 } from "./projetos.js";
+import { markdownParaHtml, alternarTarefa, tarefasDoMarkdown, anotarNoRegistro, MODELO_DA_ISSUE } from "./markdown.js";
 
 const dm = iso => (iso ? String(iso).slice(8, 10) + "/" + String(iso).slice(5, 7) : "");
 const diaDoMomento = v => { const d = new Date(v); return Number.isNaN(d.getTime()) ? "" : d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" }); };
@@ -71,9 +77,115 @@ function botaoDeStatus(issue) {
 const chipDoCiclo = n => (n ? h("span", { class: "chip-tag " + classeDaTag(tagDoCiclo(n)), title: nomeDoCiclo(n), text: "C" + n }) : null);
 const chipDePontos = i => (i.estimativa ? h("span", { class: "issue-pontos", title: plural(i.estimativa, "ponto", "pontos") + " (estimativa)", text: String(i.estimativa) }) : null);
 const chipDoResponsavel = i => (i.responsavel ? h("span", { class: "chip-resp", "data-pessoa": i.responsavel, text: i.responsavel }) : null);
+/** A checklist da documentação: "2/5" (verde quando completa). */
+function chipDaChecklist(i) {
+  const t = tarefasDoMarkdown(i.descricao);
+  return t.total ? h("span", { class: "chip-checklist" + (t.feitas === t.total ? " completa" : ""), title: `Checklist: ${t.feitas} de ${t.total} feitas` }, icone("tarefas", 12), `${t.feitas}/${t.total}`) : null;
+}
 function chipDoProjeto(id) {
   const p = id && dados.buscar("projetos", id);
   return p ? h("span", { class: "chip-projeto", title: "Projeto: " + p.nome, text: p.nome }) : null;
+}
+
+/** Um elemento com o Markdown já formatado (o HTML sai seguro de markdown.js); a checklist aqui só se lê. */
+function markdownNoElemento(md, classe = "md") {
+  const el = h("div", { class: classe });
+  el.innerHTML = markdownParaHtml(md);
+  el.querySelectorAll("input[type=checkbox]").forEach(c => { c.disabled = true; });
+  return el;
+}
+
+/* ---------- copiar (para levar a uma sessão) ---------- */
+async function copiar(texto, mensagem) {
+  try {
+    await navigator.clipboard.writeText(texto);
+    aviso(mensagem);
+  } catch (e) {
+    // o navegador não deixou: a janela mostra o texto, já selecionado
+    const area = h("textarea", { class: "doc-editor", rows: "16", readonly: true, "aria-label": "Texto para copiar" });
+    area.value = texto;
+    abrirJanela({ titulo: "Copie o texto", descricao: "O navegador não deixou copiar sozinho: está tudo selecionado, é só Ctrl+C (ou Cmd+C).", conteudo: area, larga: true });
+    setTimeout(() => { area.focus(); area.select(); }, 30);
+  }
+}
+
+/* ---------- a documentação (Markdown): ler, editar, marcar a checklist e anotar no registro ---------- */
+
+/**
+ * O bloco da documentação de uma issue. Lê (o Markdown formatado, a checklist clicável e o "Anotar no registro") e
+ * edita (o texto, o modelo, abrir um .md). `aoMudarJa(md)` grava na hora o que se marca e o que se anota (na issue
+ * que já existe); na nova, fica tudo para o Criar.
+ */
+function blocoDaDocumentacao({ md = "", aoMudarJa = null, aoEnviar }) {
+  let texto = String(md || "");
+  let modo = texto.trim() ? "ler" : "editar";
+  const editor = h("textarea", { class: "doc-editor", rows: "14", spellcheck: "true", "aria-label": "Documentação (Markdown)",
+    placeholder: "Markdown: ## títulos, - [ ] checklist, `código`, [link](https://…). Ou comece pelo modelo." });
+  editor.addEventListener("input", () => { texto = editor.value; contar(); });
+  editor.addEventListener("keydown", e => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) { e.preventDefault(); aoEnviar(); } });
+  const leitura = h("div", { class: "md doc-leitura" });
+  const contador = h("span", { class: "doc-contador" });
+  const arquivo = h("input", { type: "file", accept: ".md,.markdown,.txt,text/markdown,text/plain", hidden: true });
+  arquivo.addEventListener("change", async () => {
+    const f = arquivo.files && arquivo.files[0];
+    arquivo.value = "";
+    if (!f) return;
+    const lido = await f.text();
+    if (texto.trim() && !(await confirmar({ titulo: "Trocar a documentação?", descricao: `O que está escrito sai e entra o ${f.name}.`, confirmarTexto: "Trocar" }))) return;
+    texto = lido.replace(/\r\n?/g, "\n");
+    modo = "editar";
+    desenhar();
+  });
+  const registro = h("input", { type: "text", class: "doc-registro-campo", maxlength: "500", "aria-label": "Anotar no registro",
+    placeholder: "Anotar no registro: o que foi feito, decisão, onde parou… (Enter)" });
+  registro.addEventListener("keydown", e => {
+    if (e.key !== "Enter") return;
+    e.preventDefault();
+    if (!registro.value.trim()) return;
+    texto = anotarNoRegistro(texto, registro.value, hojeLocal());
+    registro.value = "";
+    desenhar();
+    if (aoMudarJa) aoMudarJa(texto);
+  });
+  leitura.addEventListener("change", e => {
+    const caixa = e.target.closest("input[type=checkbox][data-linha]");
+    if (!caixa) return;
+    texto = alternarTarefa(texto, Number(caixa.dataset.linha));
+    desenhar();
+    if (aoMudarJa) aoMudarJa(texto);
+  });
+  const botaoModo = (id, nome) => h("button", { type: "button", role: "tab", class: "tabs-trigger", "aria-selected": String(modo === id), "data-state": modo === id ? "active" : "inactive",
+    onclick: () => { if (modo === "editar") texto = editor.value; modo = id; desenhar(); if (id === "editar") editor.focus(); } }, nome);
+  const barra = h("div", { class: "doc-barra" });
+  const corpo = h("div", { class: "doc-corpo" });
+  function contar() {
+    const t = tarefasDoMarkdown(texto);
+    contador.replaceChildren(...(t.total ? [icone("tarefas", 13), `${t.feitas}/${t.total}`] : []));
+    contador.title = t.total ? `Checklist: ${t.feitas} de ${t.total} feitas` : "";
+  }
+  function desenhar() {
+    const podeMexer = dados.podeEditar();
+    barra.replaceChildren(
+      h("span", { class: "doc-titulo" }, "Documentação", contador),
+      h("div", { class: "doc-acoes" },
+        modo === "editar" && !texto.trim() ? h("button", { type: "button", class: "btn btn-ghost btn-sm", onclick: () => { texto = MODELO_DA_ISSUE; desenhar(); editor.focus(); } }, icone("lista", 14), "Usar o modelo") : null,
+        modo === "editar" ? h("button", { type: "button", class: "btn btn-ghost btn-sm", onclick: () => arquivo.click() }, icone("documento", 14), "Abrir .md") : null,
+        h("div", { class: "tabs-list doc-modos", role: "tablist", "aria-label": "Ler ou editar" }, botaoModo("ler", "Ler"), botaoModo("editar", "Editar"))));
+    if (modo === "editar") {
+      editor.value = texto;
+      corpo.replaceChildren(editor, h("p", { class: "dica-campo", text: "Markdown: ## título, - [ ] item da checklist, **negrito**, `código`, [texto](https://…). Ctrl+Enter salva." }));
+      requestAnimationFrame(() => { editor.style.height = "auto"; editor.style.height = Math.max(editor.scrollHeight + 2, 260) + "px"; });
+    } else {
+      leitura.innerHTML = texto.trim() ? markdownParaHtml(texto) : "";
+      leitura.querySelectorAll("input[type=checkbox]").forEach(c => { c.disabled = !podeMexer; c.setAttribute("aria-label", "Marcar como feito"); });
+      corpo.replaceChildren(texto.trim() ? leitura : h("p", { class: "doc-vazia", text: "Sem documentação ainda. Em Editar, escreva ou use o modelo (Contexto, O que fazer, Pronto quando, Registro)." }),
+        h("div", { class: "doc-registro" }, icone("nota", 15), registro));
+      registro.disabled = !podeMexer;
+    }
+    contar();
+  }
+  desenhar();
+  return { el: h("section", { class: "doc-bloco", "aria-label": "Documentação" }, barra, corpo, arquivo), valor: () => (modo === "editar" ? editor.value : texto) };
 }
 
 /* ---------- janela da issue: nova ou editar ---------- */
@@ -82,16 +194,11 @@ function chipDoProjeto(id) {
 export function abrirIssue({ issue = null, projetoId = null, status = "backlog", ciclo = null } = {}) {
   const editando = !!issue;
   const hoje = hojeLocal(), atual = cicloDoDia(hoje);
-  const titulo = h("textarea", { rows: "2", maxlength: "500", placeholder: "Ex.: Layout da página inicial", required: true });
+  const titulo = h("textarea", { class: "issue-titulo-campo", rows: "1", maxlength: "500", placeholder: "Título da issue (ex.: Layout da página inicial)", required: true, "aria-label": "Título" });
   titulo.value = editando ? issue.titulo : "";
-  const descricao = h("textarea", { rows: "4", maxlength: "8000", placeholder: "O que é, o que entra, como saber que acabou (opcional)" });
-  descricao.value = editando ? issue.descricao || "" : "";
-  const crescer = el => { el.style.height = "auto"; el.style.height = el.scrollHeight + 2 + "px"; };
-  [titulo, descricao].forEach(el => {
-    el.addEventListener("input", () => crescer(el));
-    el.addEventListener("keydown", e => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) { e.preventDefault(); form.requestSubmit(); } });
-  });
-  titulo.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey && !e.ctrlKey && !e.metaKey) { e.preventDefault(); form.requestSubmit(); } });
+  const crescer = () => { titulo.style.height = "auto"; titulo.style.height = titulo.scrollHeight + 2 + "px"; };
+  titulo.addEventListener("input", crescer);
+  titulo.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); form.requestSubmit(); } });
 
   const selStatus = h("select", { class: "select-trigger" }, opcoesDoSelect(STATUS.map(s => [s.id, s.nome])));
   selStatus.value = editando ? issue.status : status;
@@ -109,34 +216,45 @@ export function abrirIssue({ issue = null, projetoId = null, status = "backlog",
 
   const cicloAtual = editando ? issue.ciclo : ciclo;
   const selCiclo = h("select", { class: "select-trigger" }, opcoesDoSelect([["", "Sem ciclo"],
-    ...ciclosParaEscolher(hoje, cicloAtual).map(n => [String(n), nomeDoCiclo(n) + (n === atual ? " (atual)" : n === atual + 1 ? " (próximo)" : "")])]));
+    ...ciclosParaEscolher(hoje, cicloAtual).map(n => [String(n), `C${n} · ` + nomeDoCiclo(n).replace(/^Ciclo \d+ · /, "") + (n === atual ? " (atual)" : n === atual + 1 ? " (próximo)" : "")])]));
   selCiclo.value = cicloAtual ? String(cicloAtual) : "";
 
-  const feita = editando && issue.status === "done" && issue.feita_em ? h("p", { class: "dica-campo", text: "Feita em " + diaDoMomento(issue.feita_em) + "." }) : null;
+  // A checklist e o registro gravam na hora (na issue que já existe): ninguém perde o que marcou ao fechar a janela.
+  const gravarDoc = editando ? async md => { try { await salvar("issues", issue.id, { descricao: md }); } catch (e) { /* aviso já mostrado */ } } : null;
+  const doc = blocoDaDocumentacao({ md: editando ? issue.descricao || "" : "", aoMudarJa: gravarDoc, aoEnviar: () => form.requestSubmit() });
+
   const erro = h("p", { class: "erro-form", hidden: true });
   const botao = h("button", { type: "submit", class: "btn btn-primary btn-lg" }, editando ? "Salvar" : [icone("mais", 16), "Criar issue"]);
   const acoes = [botao];
   if (editando) {
-    acoes.unshift(h("button", { type: "button", class: "btn btn-ghost-destructive", onclick: async () => {
-      if (!(await confirmar({ titulo: `Excluir a issue ${codigoDaIssue(issue)}?`, descricao: issue.titulo, confirmarTexto: "Excluir", destrutivo: true }))) return;
-      try { await dados.excluir("issues", issue.id); aviso("Issue excluída."); fechar(); } catch (e) { falhou(e); }
-    } }, icone("lixo", 15), "Excluir"));
+    acoes.unshift(h("div", { class: "acoes-esquerda" },
+      h("button", { type: "button", class: "btn btn-ghost-destructive", onclick: async () => {
+        if (!(await confirmar({ titulo: `Excluir a issue ${codigoDaIssue(issue)}?`, descricao: issue.titulo, confirmarTexto: "Excluir", destrutivo: true }))) return;
+        try { await dados.excluir("issues", issue.id); aviso("Issue excluída."); fechar(); } catch (e) { falhou(e); }
+      } }, icone("lixo", 15), "Excluir"),
+      h("button", { type: "button", class: "btn btn-ghost", title: "Copia a issue no formato do pacote (.md), para colar numa sessão", onclick: () => {
+        const atualizada = { ...issue, titulo: titulo.value.trim() || issue.titulo, descricao: doc.valor(), status: selStatus.value, estimativa: selEstimativa.value ? Number(selEstimativa.value) : null,
+          ciclo: selCiclo.value ? Number(selCiclo.value) : null, responsavel: selResponsavel.value || null };
+        copiar(issueParaPacote(atualizada), `${codigoDaIssue(issue)} copiada: é só colar na sessão.`);
+      } }, icone("copiar", 15), "Copiar")));
   }
+  const lado = h("div", { class: "issue-lado" },
+    h("label", {}, "Status", selStatus), h("label", {}, "Estimativa", selEstimativa), h("label", {}, "Responsável", selResponsavel),
+    h("label", {}, "Projeto", selProjeto), h("label", {}, "Ciclo", selCiclo),
+    editando && issue.status === "done" && issue.feita_em ? h("p", { class: "dica-campo", text: "Feita em " + diaDoMomento(issue.feita_em) + "." }) : null);
   const form = h("form", { class: "dialog-form form-issue" },
-    h("label", {}, "Título", titulo, h("span", { class: "dica-campo", text: "Enter salva. Na descrição, Ctrl+Enter." })),
-    h("label", {}, "Descrição", descricao),
-    h("div", { class: "linha-form" }, h("label", {}, "Status", selStatus), h("label", {}, "Estimativa", selEstimativa), h("label", {}, "Responsável", selResponsavel)),
-    h("div", { class: "linha-form dois" }, h("label", {}, "Projeto", selProjeto), h("label", {}, "Ciclo", selCiclo)),
-    feita, erro,
+    h("div", { class: "issue-layout" }, h("div", { class: "issue-principal" }, titulo, doc.el), lado),
+    erro,
     h("div", { class: "janela-acoes" + (editando ? " separadas" : "") }, acoes));
 
-  const { fechar } = abrirJanela({ titulo: editando ? `Issue ${codigoDaIssue(issue)}` : "Nova issue", conteudo: form, larga: true });
-  requestAnimationFrame(() => { crescer(titulo); crescer(descricao); });
+  const { fechar, caixa } = abrirJanela({ titulo: editando ? `Issue ${codigoDaIssue(issue)}` : "Nova issue", conteudo: form, larga: true });
+  caixa.classList.add("doc-dialog");
+  requestAnimationFrame(crescer);
   form.addEventListener("submit", async e => {
     e.preventDefault();
-    const texto = titulo.value.trim();
-    if (!texto) { erro.textContent = "Escreva o título da issue."; erro.hidden = false; return; }
-    const escolhido = { titulo: texto, descricao: descricao.value.trim(), projeto_id: selProjeto.value || null, estimativa: selEstimativa.value ? Number(selEstimativa.value) : null,
+    const texto = titulo.value.replace(/\s+/g, " ").trim();
+    if (!texto) { erro.textContent = "Escreva o título da issue."; erro.hidden = false; titulo.focus(); return; }
+    const escolhido = { titulo: texto, descricao: doc.valor().replace(/\s+$/, ""), projeto_id: selProjeto.value || null, estimativa: selEstimativa.value ? Number(selEstimativa.value) : null,
       ciclo: selCiclo.value ? Number(selCiclo.value) : null, responsavel: selResponsavel.value || null };
     botao.disabled = true;
     try {
@@ -154,6 +272,89 @@ export function abrirIssue({ issue = null, projetoId = null, status = "backlog",
   });
 }
 
+/* ---------- importar issues (o pacote .md) num projeto ---------- */
+
+const NOMES_DOS_CAMPOS = { titulo: "título", descricao: "documentação", status: "status", estimativa: "estimativa", ciclo: "ciclo", responsavel: "responsável" };
+
+/** Cola (ou abre) o .md das issues, mostra o que vai acontecer e importa: cria as novas e atualiza as que já existem. */
+export function abrirImportacao(projeto) {
+  const hoje = hojeLocal();
+  const area = h("textarea", { class: "doc-editor importar-area", rows: "12", spellcheck: "false", "aria-label": "O .md das issues",
+    placeholder: "Cole aqui o .md das issues. Cada uma começa com \"# Título\":\n\n# Layout da página inicial\nstatus: todo\nestimativa: 3\nciclo: 10\nresponsavel: Kaue\n\n## Contexto\n…\n\n## O que fazer\n- [ ] …" });
+  const arquivo = h("input", { type: "file", accept: ".md,.markdown,.txt,text/markdown,text/plain", hidden: true });
+  const previa = h("div", { class: "importar-previa", "aria-live": "polite" });
+  const botao = h("button", { type: "submit", class: "btn btn-primary btn-lg", disabled: true }, "Importar");
+  let plano = { criar: [], atualizar: [], avisos: [] };
+  const linhaDaPrevia = (rotulo, i, mudou) => h("li", { class: "issue-linha" },
+    iconeDoStatus(i.status || "backlog", 14),
+    h("span", { class: "importar-rotulo" + (rotulo === "Nova" ? " nova" : ""), text: rotulo }),
+    h("span", { class: "issue-linha-titulo", text: i.titulo }),
+    h("span", { class: "issue-linha-meta" },
+      mudou ? h("span", { class: "issue-feita", text: "muda: " + mudou.map(c => NOMES_DOS_CAMPOS[c]).filter(Boolean).join(", ") }) : null,
+      chipDaChecklist(i), chipDePontos(i), chipDoCiclo(i.ciclo), chipDoResponsavel(i)));
+  function atualizar() {
+    const { issues, avisos } = lerPacote(area.value, hoje);
+    plano = planoDeImportacao(issues, dados.listar("issues"), projeto.id, hoje);
+    const todos = [...avisos, ...plano.avisos];
+    const n = plano.criar.length + plano.atualizar.length;
+    botao.disabled = !n || !dados.podeEditar();
+    botao.textContent = n ? "Importar " + plural(n, "issue", "issues") : "Importar";
+    previa.replaceChildren(...[
+      area.value.trim() && !issues.length ? h("p", { class: "muted", text: "Nenhuma issue achada: cada uma começa com uma linha \"# Título\"." }) : null,
+      n ? h("p", { class: "importar-resumo", text: [plano.criar.length ? plural(plano.criar.length, "nova", "novas") : null, plano.atualizar.length ? plural(plano.atualizar.length, "atualizada", "atualizadas") : null].filter(Boolean).join(" · ") }) : null,
+      n ? h("ul", { class: "lista-issues compacta importar-lista" },
+        plano.criar.map(c => linhaDaPrevia("Nova", c)),
+        plano.atualizar.map(u => linhaDaPrevia(codigoDaIssue(u.issue), { ...u.issue, ...u.patch }, Object.keys(u.patch)))) : null,
+      issues.length && !n && !todos.length ? h("p", { class: "muted", text: "Nada muda: o projeto já está igual a este arquivo." }) : null,
+      todos.length ? h("div", { class: "importar-avisos" }, h("strong", { text: "Atenção" }), h("ul", {}, todos.map(a => h("li", { text: a })))) : null,
+    ].filter(Boolean));
+  }
+  let espera = null;
+  area.addEventListener("input", () => { clearTimeout(espera); espera = setTimeout(atualizar, 200); });
+  arquivo.addEventListener("change", async () => {
+    const f = arquivo.files && arquivo.files[0];
+    arquivo.value = "";
+    if (!f) return;
+    area.value = (await f.text()).replace(/\r\n?/g, "\n");
+    atualizar();
+  });
+  const form = h("form", { class: "dialog-form" },
+    h("div", { class: "importar-topo" },
+      h("p", { class: "muted", text: "O formato está em docs/projetos-e-issues.md. Com \"numero\" (ou o mesmo título), a issue que já existe é atualizada: importar de novo não duplica." }),
+      h("button", { type: "button", class: "btn btn-outline btn-sm", onclick: () => arquivo.click() }, icone("documento", 14), "Abrir arquivo .md")),
+    area, arquivo, previa,
+    h("div", { class: "janela-acoes" }, botao));
+  const { fechar, caixa } = abrirJanela({ titulo: "Importar issues", descricao: "No projeto " + projeto.nome + ".", conteudo: form, larga: true });
+  caixa.classList.add("doc-dialog");
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    atualizar();
+    const total = plano.criar.length + plano.atualizar.length;
+    if (!total) return;
+    area.disabled = botao.disabled = true;
+    let feitas = 0;
+    try {
+      for (const c of plano.criar) {
+        botao.textContent = `Importando ${feitas + 1} de ${total}…`;
+        await criar("issues", novaIssue(c, dados.listar("issues"), hoje));
+        feitas++;
+      }
+      for (const u of plano.atualizar) {
+        botao.textContent = `Importando ${feitas + 1} de ${total}…`;
+        await salvar("issues", u.issue.id, u.patch);
+        feitas++;
+      }
+      aviso(`${plural(total, "issue importada", "issues importadas")} em ${projeto.nome}.`);
+      fechar();
+    } catch (err) {
+      previa.prepend(h("p", { class: "erro-form", text: `Parou em ${feitas} de ${total}: o resto não entrou. Importe de novo: o que já entrou não duplica.` }));
+      area.disabled = false;
+      atualizar();
+    }
+  });
+  setTimeout(() => area.focus(), 30);
+}
+
 /* ---------- janela do projeto: novo ou editar ---------- */
 
 /** Sem `projeto`: cria (com o cliente já escolhido, se vier). Com `projeto`: edita ou exclui. Devolve o criado. */
@@ -166,7 +367,7 @@ export function abrirProjeto({ projeto = null, leadId = null, aoCriar } = {}) {
   const leads = dados.listar("leads").sort(porNome);
   const cliente = h("select", { class: "select-trigger" }, opcoesDoSelect([["", "Sem cliente"], ...leads.map(l => [l.id, l.empresa || "Sem nome"])]));
   cliente.value = editando ? projeto.lead_id || "" : leadId || "";
-  const descricao = h("textarea", { rows: "3", maxlength: "4000", placeholder: "O que foi combinado, o que entra, onde está o trilho (opcional)" });
+  const descricao = h("textarea", { class: "doc-editor", rows: "8", maxlength: "50000", placeholder: "Markdown (opcional): o que foi combinado, o escopo, as entregas, links e onde está o trilho. ## títulos, - listas, [link](https://…)" });
   descricao.value = editando ? projeto.descricao || "" : "";
   const crescer = () => { descricao.style.height = "auto"; descricao.style.height = descricao.scrollHeight + 2 + "px"; };
   descricao.addEventListener("input", crescer);
@@ -188,7 +389,7 @@ export function abrirProjeto({ projeto = null, leadId = null, aoCriar } = {}) {
   const form = h("form", { class: "dialog-form" },
     h("label", {}, "Nome do projeto", nome),
     h("label", {}, "Cliente (opcional)", cliente),
-    h("label", {}, "Descrição", descricao),
+    h("label", {}, "Documentação do projeto", descricao),
     h("div", { class: "linha-form" }, h("label", {}, "Início", inicio), h("label", {}, "Meta (opcional)", meta), h("label", {}, "Situação", situacao)),
     erro,
     h("div", { class: "janela-acoes" + (editando ? " separadas" : "") }, acoes));
@@ -233,7 +434,7 @@ function linhaDaIssue(i, { comProjeto = false } = {}) {
       h("span", { class: "issue-linha-meta" },
         comProjeto ? chipDoProjeto(i.projeto_id) : null,
         feita && i.feita_em ? h("span", { class: "issue-feita", text: diaDoMomento(i.feita_em) }) : null,
-        chipDePontos(i), chipDoCiclo(i.ciclo), chipDoResponsavel(i))));
+        chipDaChecklist(i), chipDePontos(i), chipDoCiclo(i.ciclo), chipDoResponsavel(i))));
 }
 
 function listaPorStatus(issues, opcoes) {
@@ -348,7 +549,7 @@ export function criarTelaProjetos(ctx) {
       onclick: abrir, onkeydown: e => { if ((e.key === "Enter" || e.key === " ") && e.target === e.currentTarget) { e.preventDefault(); abrir(); } } },
       h("div", { class: "issue-topo" }, botaoDeStatus(i), h("span", { class: "issue-codigo", text: codigoDaIssue(i) }), chipDePontos(i)),
       h("strong", { class: "issue-titulo", text: i.titulo }),
-      h("div", { class: "issue-chips" }, estado.projeto && estado.projeto !== SEM ? null : chipDoProjeto(i.projeto_id), chipDoCiclo(i.ciclo), chipDoResponsavel(i),
+      h("div", { class: "issue-chips" }, estado.projeto && estado.projeto !== SEM ? null : chipDoProjeto(i.projeto_id), chipDaChecklist(i), chipDoCiclo(i.ciclo), chipDoResponsavel(i),
         i.status === "done" && i.feita_em ? h("span", { class: "issue-feita", text: diaDoMomento(i.feita_em) }) : null));
     cartao.addEventListener("dragstart", e => { arrastando = i.id; e.dataTransfer.setData("text/plain", i.id); e.dataTransfer.effectAllowed = "move"; requestAnimationFrame(() => cartao.classList.add("arrastando")); });
     cartao.addEventListener("dragend", () => { arrastando = null; cartao.classList.remove("arrastando"); });
@@ -467,11 +668,15 @@ export function criarTelaProjetos(ctx) {
             cliente ? h("button", { type: "button", class: "tarefa-cliente", title: "Abrir o cliente", onclick: () => ctx.abrirLead(p.lead_id) }, icone("pessoa", 13), cliente) : h("span", { class: "muted", text: "Sem cliente" })),
           seloDaSituacao(p)),
         datas.length ? h("div", { class: "projeto-meta" }, datas.map(t => h("span", { class: /vencida/.test(t) ? "atrasada" : "", text: t }))) : null,
-        p.descricao ? h("p", { class: "projeto-descricao", text: p.descricao }) : null,
+        p.descricao ? markdownNoElemento(p.descricao, "md projeto-descricao") : null,
         barraDeProgresso(progresso(daProjeto)),
         h("div", { class: "projeto-acoes" },
           h("button", { type: "button", class: "btn btn-outline btn-sm", disabled: !editavel || null, onclick: () => abrirProjeto({ projeto: p }) }, icone("editar", 14), "Editar projeto"),
-          h("button", { type: "button", class: "btn btn-outline btn-sm", disabled: !editavel || null, onclick: alternar }, icone(concluido ? "recuperar" : "certo", 14), concluido ? "Reabrir" : "Concluir projeto"))),
+          h("button", { type: "button", class: "btn btn-outline btn-sm", disabled: !editavel || null, onclick: alternar }, icone(concluido ? "recuperar" : "certo", 14), concluido ? "Reabrir" : "Concluir projeto"),
+          h("button", { type: "button", class: "btn btn-outline btn-sm", disabled: !editavel || null, title: "Cola (ou abre) o .md das issues: cria as novas e atualiza as que já existem",
+            onclick: () => abrirImportacao(p) }, icone("baixar", 14), "Importar issues"),
+          h("button", { type: "button", class: "btn btn-outline btn-sm", title: "Copia o projeto e todas as issues (com a documentação) em .md, para colar numa sessão",
+            onclick: () => copiar(pacoteDoProjeto(p, daProjeto, { cliente, hoje }), "Projeto copiado: é só colar na sessão.") }, icone("copiar", 14), "Copiar para uma sessão"))),
       daProjeto.length ? listaPorStatus(daProjeto) : h("div", { class: "vazio-lista" }, h("strong", { text: "Nenhuma issue neste projeto." }),
         h("p", { text: "Quebre o trabalho em etapas, cada uma com as ações dela. Crie pela Nova issue." })),
     ];

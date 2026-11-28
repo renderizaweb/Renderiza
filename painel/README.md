@@ -137,8 +137,29 @@ qualquer IA saber montar): poucas issues, cada uma com as ações dela na descri
 5. **Conferência no ar e entrega**: a página no domínio conferida com o painel, testes no computador e no celular, o
    acesso do painel entregue ao cliente.
 
+**Documentação em Markdown** (pedido do Kaue em 28/11: "virar uma documentação mesmo, para a próxima sessão se
+basear"):
+
+- **Na issue:** a janela tem o título e a documentação à esquerda e as propriedades à direita.
+  - **Ler:** o Markdown formatado (títulos, listas, código, links, tabelas), com a checklist (`- [ ]`) que se marca com
+    um clique e o campo "Anotar no registro", que acrescenta `- dd/mm · texto` na seção Registro. Os dois gravam na
+    hora.
+  - **Editar:** o texto, com "Usar o modelo" (Contexto, O que fazer, Pronto quando, Registro) e "Abrir .md".
+  - No cartão e na linha, a checklist aparece como "2/5".
+- **No projeto:** a documentação do projeto aparece formatada.
+- **Pacote .md** (`src/projetos.js`), entre o painel e as sessões, que não alcançam o banco:
+  - "Importar issues", no projeto: colar ou abrir o .md. Mostra antes o que cria e o que atualiza (pelo `numero:` ou
+    pelo mesmo título; importar de novo não duplica).
+  - "Copiar para uma sessão", no projeto, e "Copiar", na issue.
+  - Formato e regras: **[`docs/projetos-e-issues.md`](../docs/projetos-e-issues.md)**, o guia de qualquer sessão que
+    for trabalhar num projeto.
+
 Antes de existir o banco (`supabase/projetos.sql` ainda não rodado), a tela avisa e o resto do painel segue normal.
-Contas e testes: `src/projetos.js` (`test/projetos.test.mjs`); banco: `supabase/testes/projetos.sql`.
+Contas e testes:
+
+- `src/projetos.js` (`test/projetos.test.mjs`);
+- `src/markdown.js` (`test/markdown.test.mjs`: inclusive HTML colado e link `javascript:`, que não viram nada);
+- banco: `supabase/testes/projetos.sql`.
 
 ## Tarefas: o que fazer
 
@@ -341,7 +362,8 @@ painel/src/app.js                   telas: Pipeline, Kanban, Conteúdo, painel l
 painel/src/tela-tarefas.js          tela Tarefas, janela de tarefa e tarefas nos detalhes do cliente
 painel/src/tela-clientes.js         tela Clientes e cadastro rápido de cliente
 painel/src/tela-projetos.js         tela Projetos (Issues, Projetos, Ciclos), janelas de issue e de projeto, projetos do cliente
-painel/src/projetos.js              contas de projetos e issues: status, progresso, ordem, filtros, ciclos (sem tela; com testes)
+painel/src/projetos.js              contas de projetos e issues: status, progresso, ordem, filtros, ciclos, o pacote .md (sem tela; com testes)
+painel/src/markdown.js              a documentação em Markdown: HTML seguro, checklist, registro, modelo (sem tela; com testes)
 painel/src/tarefas.js               contas de tarefas e clientes (sem tela; com testes)
 painel/src/tela-ritmo.js            tela Ritmo (semana, mês, ciclo, turma do mês, fila de retornos, ciclo)
 painel/src/tela-atividade.js        tela Atividade (linha do tempo das visitas ao link do painel e às demos)
