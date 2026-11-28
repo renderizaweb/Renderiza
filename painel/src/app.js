@@ -19,6 +19,7 @@ import { criarTelaRitmo } from "./tela-ritmo.js";
 import { criarTelaIndicadores } from "./tela-indicadores.js";
 import { criarTelaTarefas, abrirTarefa, tarefasDoCliente } from "./tela-tarefas.js";
 import { criarTelaClientes } from "./tela-clientes.js";
+import { criarTelaProjetos, projetosDoCliente, abrirProjeto } from "./tela-projetos.js";
 import { abertasPorCliente, paraHoje } from "./tarefas.js";
 import { pastaDaDemo, situacaoDaDemo, reabilitar, hojeEmBrasilia, DIAS_DE_PRAZO } from "./demos.js";
 import { mensagemPronta } from "./mensagem.js";
@@ -40,12 +41,12 @@ const $ = s => document.querySelector(s);
 
 /* ---------- preferências da tela (só neste navegador) ---------- */
 const ui = {
-  aba: "pipeline", visao: "tabela", busca: { leads: "", conteudos: "", clientes: "" }, statusConteudo: "",
+  aba: "pipeline", visao: "tabela", busca: { leads: "", conteudos: "", clientes: "", projetos: "" }, statusConteudo: "",
   filtros: [], // filtros do Pipeline (filtros.js), na tabela e no kanban
   // "Atualizado", "Interesse" e "Checklist" começam ocultas (voltam pelo menu Colunas); ficam nos detalhes da ótica.
   ordem: { leads: "manual", conteudos: "manual" }, ocultas: { leads: new Set(["atualizado_em", "interesse", "checklist"]), conteudos: new Set() },
 };
-const ABAS = ["tarefas", "clientes", "pipeline", "ritmo", "indicadores", "atividade", "conteudo"];
+const ABAS = ["tarefas", "clientes", "pipeline", "projetos", "ritmo", "indicadores", "atividade", "conteudo"];
 const VERSAO_COLUNAS = 3; // 2: entraram "Última interação" (visível) e "Interesse" (oculta); 3: "Checklist" oculta, "Ciclo" visível
 try {
   const p = JSON.parse(localStorage.getItem("renderiza:planilhao") || "{}");
@@ -465,7 +466,8 @@ function renderBarraConteudo() {
 /** Um campo de busca só, que mora na barra da tela aberta (ao lado das abas). Mover tira o foco: só move se mudou de tela. */
 const campoBusca = $(".search-control");
 function lugarDaBusca() {
-  const slot = ui.aba === "pipeline" ? $("#busca-pipeline") : ui.aba === "conteudo" ? $("#busca-conteudo") : ui.aba === "clientes" ? telaClientes.buscaSlot : $("#guarda-busca");
+  const slot = ui.aba === "pipeline" ? $("#busca-pipeline") : ui.aba === "conteudo" ? $("#busca-conteudo") : ui.aba === "clientes" ? telaClientes.buscaSlot
+    : ui.aba === "projetos" && telaProjetos.mostraBusca() ? telaProjetos.buscaSlot : $("#guarda-busca");
   if (campoBusca.parentElement !== slot) slot.append(campoBusca);
 }
 
@@ -673,7 +675,7 @@ const ESTILO_SECAO = {
   Andamento: ["alvo", "verde"], Fechamento: ["trofeu", "verde"], Observações: ["nota", "ambar"],
   Interações: ["conversa", "azul"], Demo: ["monitor", "roxo"], "Flyer para Stories": ["imagem", "rosa"], Contato: ["pessoa", "agua"], "Termo de aceite": ["documento", "azul"],
   Planejamento: ["calendario", "verde"], Texto: ["caneta", "azul"], Arquivos: ["clipe", "roxo"], Tarefas: ["certo", "verde"],
-  Checklist: ["tarefas", "agua"],
+  Checklist: ["tarefas", "agua"], Projetos: ["camadas", "roxo"],
 };
 function cartao(titulo, { acao, classe = "" } = {}, ...filhos) {
   const [nomeIcone, cor] = ESTILO_SECAO[titulo] || ["info", "verde"];
@@ -1305,6 +1307,11 @@ function corpoDoLead(id) {
 
   const tarefas = tarefasDoCliente(id);
   vincular(() => tarefas.atualizar());
+  // Os projetos do cliente (tela Projetos): o da entrega, depois de fechar, e os seguintes.
+  const projetosDele = projetosDoCliente(id, { abrirNaTela: pid => { fecharPainel(); telaProjetos.abrirProjeto(pid); irPara("projetos"); } });
+  vincular(() => projetosDele.atualizar());
+  const novoProjeto = h("button", { type: "button", class: "btn btn-outline btn-sm", onclick: () => abrirProjeto({ leadId: id }) }, icone("mais", 15), "Novo projeto");
+  vincular(() => { novoProjeto.disabled = !dados.podeEditar() || dados.tabelaFaltando("projetos"); });
   const novaTarefa = h("button", { type: "button", class: "btn btn-outline btn-sm", onclick: () => abrirTarefa({ leadId: id }) }, icone("mais", 15), "Nova tarefa");
   vincular(() => { novaTarefa.disabled = !dados.podeEditar(); });
 
@@ -1331,6 +1338,7 @@ function corpoDoLead(id) {
     caixaRevisar("leads", id),
     secaoChecklist(id),
     cartao("Tarefas", { acao: novaTarefa }, tarefas.el),
+    cartao("Projetos", { acao: novoProjeto }, projetosDele.el),
     secao("Andamento",
       grade(
         campoEtapa,
@@ -1436,7 +1444,7 @@ async function exportar() {
     abrirJanela({ titulo: "Levar os dados para o Supabase", descricao: "No Supabase, rode supabase/schema.sql, crie seu usuário em Authentication > Users e cole este SQL no SQL Editor. Pode rodar de novo sem duplicar nada.", larga: true, conteudo: [area, h("div", { class: "janela-acoes" }, copiar)] });
     return;
   }
-  const conteudo = JSON.stringify({ exportadoEm: new Date().toISOString(), leads: dados.listar("leads"), interacoes: dados.listar("interacoes"), tarefas: dados.listar("tarefas"), ciclos: dados.listar("ciclos"), conteudos: dados.listar("conteudos"), demos: dados.listar("demos") }, null, 2);
+  const conteudo = JSON.stringify({ exportadoEm: new Date().toISOString(), leads: dados.listar("leads"), interacoes: dados.listar("interacoes"), tarefas: dados.listar("tarefas"), ciclos: dados.listar("ciclos"), conteudos: dados.listar("conteudos"), demos: dados.listar("demos"), projetos: dados.listar("projetos"), issues: dados.listar("issues") }, null, 2);
   const a = document.createElement("a"), url = URL.createObjectURL(new Blob([conteudo], { type: "application/json" }));
   a.href = url; a.download = "renderiza-" + hojeIso() + ".json"; a.click(); URL.revokeObjectURL(url);
 }
@@ -1501,6 +1509,7 @@ const TITULOS = {
   indicadores: ["Indicadores", "Onde focar: o nicho e o perfil de negócio que mais viram interesse, e o funil do contato à venda."],
   atividade: ["Atividade", "Quem abriu o link do painel e as demos, e o que fez. Ao vivo, o mais recente primeiro."],
   pipeline: ["Pipeline", "Seus leads, da primeira conversa ao fechamento. É só clicar e editar."],
+  projetos: ["Projetos", "O trabalho depois da venda: projetos (com cliente ou sem), issues e ciclos de segunda a domingo."],
   conteudo: ["Conteúdo", "Ideias e publicações da Renderiza. É só clicar e editar."],
 };
 
@@ -1524,7 +1533,7 @@ function render() {
   $("#subtitulo").textContent = TITULOS[ui.aba][1];
   const busca = $("#busca");
   if (document.activeElement !== busca) busca.value = ui.busca[chaveDaBusca()] || "";
-  busca.placeholder = ui.aba === "conteudo" ? "Buscar ideia ou texto…" : "Buscar empresa, contato…";
+  busca.placeholder = ui.aba === "conteudo" ? "Buscar ideia ou texto…" : ui.aba === "projetos" ? "Buscar issue ou projeto…" : "Buscar empresa, contato…";
 
   $("#tela-tarefas").hidden = ui.aba !== "tarefas";
   $("#tela-clientes").hidden = ui.aba !== "clientes";
@@ -1533,6 +1542,7 @@ function render() {
   $("#tela-atividade").hidden = ui.aba !== "atividade";
   telaAtividade.ativar(ui.aba === "atividade" && c.estado === "online");
   $("#tela-pipeline").hidden = ui.aba !== "pipeline";
+  $("#tela-projetos").hidden = ui.aba !== "projetos";
   $("#tela-conteudo").hidden = ui.aba !== "conteudo";
   if (ui.aba === "tarefas") {
     telaTarefas.render();
@@ -1544,6 +1554,9 @@ function render() {
     telaIndicadores.render();
   } else if (ui.aba === "atividade") {
     telaAtividade.render();
+  } else if (ui.aba === "projetos") {
+    filtros.fechar();
+    telaProjetos.render();
   } else if (ui.aba === "pipeline") {
     renderBarraPipeline();
     $("#grade-leads").hidden = ui.visao !== "tabela";
@@ -1560,7 +1573,7 @@ function render() {
   atualizarPainel();
 }
 
-const chaveDaBusca = () => (ui.aba === "pipeline" ? "leads" : ui.aba === "clientes" ? "clientes" : "conteudos");
+const chaveDaBusca = () => (ui.aba === "pipeline" ? "leads" : ui.aba === "clientes" ? "clientes" : ui.aba === "projetos" ? "projetos" : "conteudos");
 const telaTarefas = criarTelaTarefas({ host: $("#tela-tarefas"), abrirLead: id => abrirPainel("leads", id) });
 const telaClientes = criarTelaClientes({ host: $("#tela-clientes"), abrirLead: id => abrirPainel("leads", id), busca: () => ui.busca.clientes });
 
@@ -1572,6 +1585,7 @@ const telaRitmo = criarTelaRitmo({
 });
 
 const telaIndicadores = criarTelaIndicadores({ host: $("#tela-indicadores"), abrirLead: id => abrirPainel("leads", id) });
+const telaProjetos = criarTelaProjetos({ host: $("#tela-projetos"), abrirLead: id => abrirPainel("leads", id), busca: () => ui.busca.projetos });
 const telaAtividade = criarTelaAtividade({ host: $("#tela-atividade"), abrirLead: id => abrirPainel("leads", id) });
 
 /* ---------- eventos ---------- */

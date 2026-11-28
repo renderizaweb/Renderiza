@@ -22,8 +22,11 @@ da vez.
 
 ## Ciclos de prospecção (como sprints)
 
-Ciclos **semanais, de sexta a quinta**: sexta começa, quinta fecha com o diagnóstico e o encerramento dos
-contatos parados e sem resposta (conversa ativa não se encerra sozinha). As atas ficam em `docs/ciclos/`.
+Ciclos **semanais, de segunda a domingo desde 30/11/2026** (pedido do Kaue em 28/11/2026: toda segunda começa um
+ciclo, como já é no dia a dia). Até o ciclo 8 eram de sexta a quinta; o ciclo 9 foi a passagem (27 a 29/11) e o 10 vai
+de 30/11 a 06/12. O domingo fecha com o diagnóstico e o encerramento dos contatos parados e sem resposta (conversa
+ativa não se encerra sozinha). As atas ficam em `docs/ciclos/`. Os mesmos ciclos valem para as issues da tela
+**Projetos** do painel de prospecção (o trabalho depois da venda, no jeito do Linear; `painel/README.md`, "Projetos").
 
 - **Ciclo 1 (02 a 08/10/2026)**: foco em óticas, operação organizada pela primeira vez e **nenhuma venda**.
   Ata: [`docs/ciclos/ciclo-01-ata.md`](docs/ciclos/ciclo-01-ata.md). Gargalo: muitos não respondem à 1ª
@@ -40,7 +43,8 @@ contatos parados e sem resposta (conversa ativa não se encerra sozinha). As ata
   pedido.
 - **Ciclo de cada conversa no painel (pedido do Kaue em 13/10/2026):** tag `ciclo N` no lead, que aparece no
   cartão como **C1, C2…** (uma cor por ciclo). Entra sozinha quando o lead sai de Prontas para trabalhar (ou de
-  Leads a trabalhar), pelo dia da semana do ciclo (sexta a quinta; 16/10 já é ciclo 3). Carga de 14/10: C1 para
+  Leads a trabalhar), pelo dia da semana do ciclo (sexta a quinta até o ciclo 8; 16/10 já é ciclo 3; de segunda a
+  domingo desde 30/11/2026). Carga de 14/10: C1 para
   quem começou a conversa até 08/10 (57, contando os 15 fora do funil), C2 para os 8 que saíram de Prontas de
   09/10 em diante (Dra. Milena e os 7 do lote 6). A Ponto Xys ficou C1: o primeiro contato foi em 08/10 (ela voltou
   de etapa e saiu de novo em 09/10).

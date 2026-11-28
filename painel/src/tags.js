@@ -1,22 +1,33 @@
 // Tags dos leads (coluna leads.tags). A de ciclo ("ciclo 2") diz em que ciclo de prospecção a conversa começou:
-// ciclos semanais, de sexta a quinta, contados a partir do ciclo 1 (02 a 08/10/2026); o que veio antes (a lista de
-// agosto) também é ciclo 1. Ela entra sozinha quando o lead sai de Leads a trabalhar ou de Prontas para trabalhar
+// ciclos semanais contados a partir do ciclo 1 (02 a 08/10/2026); o que veio antes (a lista de agosto) também é
+// ciclo 1. Até o ciclo 8, de sexta a quinta; desde 30/11/2026 (pedido do Kaue em 28/11), de segunda a domingo, os
+// mesmos dos projetos e das issues (tela Projetos): o ciclo 9 foi a passagem (27 a 29/11) e o 10 começa em 30/11. Ela entra sozinha quando o lead sai de Leads a trabalhar ou de Prontas para trabalhar
 // (aqui e no gatilho leads_marcar_ciclo do supabase/schema.sql) e aparece no cartão como C1, C2…, uma cor por ciclo.
 // As outras tags são livres, escritas nos detalhes da ótica.
 
 import { faseDaEtapa } from "./modelo.js";
 
 export const INICIO_DOS_CICLOS = "2026-10-02"; // sexta em que começou o ciclo 1
+export const SEGUNDA_DOS_CICLOS = "2026-11-30"; // segunda em que começou o ciclo 10: daí em diante, de segunda a domingo
+const PRIMEIRO_DE_SEGUNDA = 10;
 const DIA = 86400000;
 const emDias = iso => Date.UTC(Number(iso.slice(0, 4)), Number(iso.slice(5, 7)) - 1, Number(iso.slice(8, 10))) / DIA;
 const dataDe = dias => new Date(dias * DIA).toISOString().slice(0, 10);
 
 /** Número do ciclo de um dia "AAAA-MM-DD" (antes do ciclo 1 também é 1). */
-export const cicloDoDia = dia => Math.max(1, Math.floor((emDias(dia) - emDias(INICIO_DOS_CICLOS)) / 7) + 1);
-/** Primeiro e último dia do ciclo n (sexta a quinta). */
+export function cicloDoDia(dia) {
+  const d = emDias(dia), segunda = emDias(SEGUNDA_DOS_CICLOS);
+  if (d >= segunda) return PRIMEIRO_DE_SEGUNDA + Math.floor((d - segunda) / 7);
+  return Math.max(1, Math.floor((d - emDias(INICIO_DOS_CICLOS)) / 7) + 1);
+}
+/** Primeiro e último dia do ciclo n: de sexta a quinta até o 8, o 9 de 27 a 29/11, de segunda a domingo do 10 em diante. */
 export function periodoDoCiclo(n) {
+  if (n >= PRIMEIRO_DE_SEGUNDA) {
+    const inicio = emDias(SEGUNDA_DOS_CICLOS) + (n - PRIMEIRO_DE_SEGUNDA) * 7;
+    return { inicio: dataDe(inicio), fim: dataDe(inicio + 6) };
+  }
   const inicio = emDias(INICIO_DOS_CICLOS) + (n - 1) * 7;
-  return { inicio: dataDe(inicio), fim: dataDe(inicio + 6) };
+  return { inicio: dataDe(inicio), fim: dataDe(Math.min(inicio + 6, emDias(SEGUNDA_DOS_CICLOS) - 1)) };
 }
 
 export const tagDoCiclo = n => "ciclo " + n;

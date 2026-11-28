@@ -10,11 +10,12 @@ import { criarAdaptadorClaude } from "./adaptadores/claude.js";
 import { comEtapaAtual } from "./modelo.js";
 
 // termos_online e termos_aceites: os termos de aceite dos leads (supabase/termos-online.sql; seção "Termo de aceite").
-export const TABELAS = ["leads", "conteudos", "interacoes", "ciclos", "tarefas", "demos", "visitas", "termos_online", "termos_aceites"];
+// projetos e issues: a tela Projetos (supabase/projetos.sql).
+export const TABELAS = ["leads", "conteudos", "interacoes", "ciclos", "tarefas", "demos", "visitas", "termos_online", "termos_aceites", "projetos", "issues"];
 // Lead com etapa de antes de 09/10/2026 (banco ainda não migrado) já aparece na etapa nova.
 const ler = (tabela, linha) => (tabela === "leads" && linha ? comEtapaAtual(linha) : linha);
 // Tabela que pode ainda não existir no banco (veio depois): se a leitura falhar, o painel segue sem ela.
-const OPCIONAIS = new Set(["demos", "visitas", "termos_online", "termos_aceites"]);
+const OPCIONAIS = new Set(["demos", "visitas", "termos_online", "termos_aceites", "projetos", "issues"]);
 const faltando = new Set();
 export const tabelaFaltando = tabela => faltando.has(tabela);
 
@@ -192,15 +193,21 @@ export function excluir(tabela, id) {
   return naFila(tabela + "/" + id, () => gravar(async () => {
     const daOtica = tabela === "leads" ? listar("interacoes").filter(i => i.lead_id === id) : [];
     const tarefas = tabela === "leads" ? listar("tarefas").filter(t => t.lead_id === id) : [];
-    // No Supabase as interações e as tarefas do cliente saem junto (on delete cascade). No banco do Claude, saem antes.
+    const issues = tabela === "projetos" ? listar("issues").filter(i => i.projeto_id === id) : [];
+    // No Supabase as interações e as tarefas do cliente (e as issues do projeto) saem junto (on delete cascade). No
+    // banco do Claude, saem antes.
     if (!adaptador.excluiEmCascata) {
       for (const i of daOtica) { await adaptador.excluir("interacoes", i.id); linhas.interacoes.delete(i.id); }
       for (const t of tarefas) { await adaptador.excluir("tarefas", t.id); linhas.tarefas.delete(t.id); }
+      for (const i of issues) { await adaptador.excluir("issues", i.id); linhas.issues.delete(i.id); }
     }
     await adaptador.excluir(tabela, id);
     linhas[tabela].delete(id);
     daOtica.forEach(i => linhas.interacoes.delete(i.id));
     tarefas.forEach(t => linhas.tarefas.delete(t.id));
+    issues.forEach(i => linhas.issues.delete(i.id));
+    // O cliente excluído deixa os projetos dele sem cliente (no Supabase, on delete set null).
+    if (tabela === "leads") listar("projetos").filter(p => p.lead_id === id).forEach(p => linhas.projetos.set(p.id, { ...p, lead_id: null }));
     avisar("dados");
   }));
 }

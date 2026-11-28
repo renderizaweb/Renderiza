@@ -3,7 +3,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import {
-  INICIO_DOS_CICLOS, cicloDoDia, periodoDoCiclo, numeroDoCiclo, cicloDoLead, limparTag, comTag, semTag, emOrdem, rotuloDaTag,
+  INICIO_DOS_CICLOS, SEGUNDA_DOS_CICLOS, cicloDoDia, periodoDoCiclo, numeroDoCiclo, cicloDoLead, limparTag, comTag, semTag, emOrdem, rotuloDaTag,
   descricaoDaTag, classeDaTag, patchDeCiclo, comCiclo, ciclosParaEscolher, nomeDoCiclo,
 } from "../painel/src/tags.js";
 import {
@@ -21,6 +21,22 @@ test("ciclos semanais de sexta a quinta, a partir de 02/10/2026; antes disso é 
   assert.equal(cicloDoDia("2027-01-01"), 14);
   assert.deepEqual(periodoDoCiclo(2), { inicio: "2026-10-09", fim: "2026-10-15" });
   assert.deepEqual(periodoDoCiclo(3), { inicio: "2026-10-16", fim: "2026-10-22" });
+});
+
+test("desde 30/11/2026, de segunda a domingo: o 8 fica como era, o 9 é a passagem (27 a 29/11), o 10 começa na segunda", () => {
+  assert.deepEqual(periodoDoCiclo(8), { inicio: "2026-11-20", fim: "2026-11-26" });
+  assert.deepEqual(periodoDoCiclo(9), { inicio: "2026-11-27", fim: "2026-11-29" });
+  assert.deepEqual(periodoDoCiclo(10), { inicio: "2026-11-30", fim: "2026-12-06" }); // segunda a domingo
+  assert.deepEqual(periodoDoCiclo(11), { inicio: "2026-12-07", fim: "2026-12-13" });
+  assert.equal(cicloDoDia("2026-11-26"), 8); // quinta
+  assert.equal(cicloDoDia("2026-11-27"), 9);
+  assert.equal(cicloDoDia("2026-11-29"), 9); // domingo
+  assert.equal(cicloDoDia("2026-11-30"), 10); // segunda
+  assert.equal(cicloDoDia("2026-12-06"), 10); // domingo
+  assert.equal(cicloDoDia("2026-12-07"), 11);
+  for (let n = 1; n <= 20; n++) { const p = periodoDoCiclo(n); assert.equal(cicloDoDia(p.inicio), n); assert.equal(cicloDoDia(p.fim), n); }
+  assert.equal(nomeDoCiclo(9), "Ciclo 9 · 27 a 29/11");
+  assert.equal(nomeDoCiclo(10), "Ciclo 10 · 30/11 a 06/12");
 });
 
 test("tag de ciclo: reconhece, limpa e mostra como C1, C2", () => {
@@ -125,6 +141,7 @@ test("o banco usa os mesmos itens padrão e o mesmo início dos ciclos (supabase
   const doBanco = JSON.parse(funcao.slice(funcao.indexOf("'[") + 1, funcao.indexOf("]'") + 1));
   assert.deepEqual(doBanco, listaPadrao());
   assert.match(sql, new RegExp(`\\(d - date '${INICIO_DOS_CICLOS}'\\) / 7`));
+  assert.match(sql, new RegExp(`when d >= date '${SEGUNDA_DOS_CICLOS}' then 10 \\+ \\(\\(d - date '${SEGUNDA_DOS_CICLOS}'\\) / 7\\)`));
   for (const i of ITENS_PADRAO) assert.ok(sql.includes(`'${i.id}'`), i.id + " no gatilho leads_ajustar_checklist");
 });
 

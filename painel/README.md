@@ -5,8 +5,9 @@ da Renderiza e as demos das óticas ficam em `/demo/<ótica>` (veja o [README da
 A mesma página responde em `/painel` e `/login`: sem sessão, a barra de endereço vai para `/login`;
 depois de entrar, volta para `/painel#<aba>`. Os caminhos abaixo são a partir da raiz do repositório.
 
-Planilha de operação da Renderiza: **Pipeline** (tabela ou kanban; é onde o painel abre), **Tarefas** (o
-que fazer), **Clientes** (todos, no funil ou fora dele), **Ritmo** (placar do processo) e **Conteúdo**, no
+Planilha de operação da Renderiza: **Pipeline** (tabela ou kanban; é onde o painel abre), **Projetos** (o trabalho
+depois da venda: projetos, issues e ciclos), **Tarefas** (o que fazer), **Clientes** (todos, no funil ou fora dele),
+**Ritmo** (placar do processo) e **Conteúdo**, no
 mesmo padrão visual e de uso do planilhão do Compasso (menu lateral verde, cabeçalho verde-escuro, primeira
 coluna fixa, linhas zebradas e linha de totais). Sem barra de caminho no topo: a busca fica na barra de cada
 tela, ao lado das abas (Tabela/Kanban, filtros); no celular, o topo só tem o botão do menu.
@@ -60,8 +61,11 @@ em `src/filtros-ui.js`.
 ### Ciclo (C1, C2…) e outras tags
 
 - Cada lead tem **tags** (coluna `tags`). A de ciclo, `ciclo N`, diz em que ciclo de prospecção a conversa
-  começou: ciclos semanais, de sexta a quinta, com o ciclo 1 de 02 a 08/10/2026 (o que veio antes, como a lista
-  de agosto, também é ciclo 1). Ela aparece no cartão do kanban e ao lado do nome na tabela como **C1, C2…**,
+  começou: ciclos semanais, com o ciclo 1 de 02 a 08/10/2026 (o que veio antes, como a lista de agosto, também é
+  ciclo 1). **Até o ciclo 8, de sexta a quinta; desde 30/11/2026, de segunda a domingo** (pedido do Kaue em 28/11:
+  toda segunda começa um ciclo, como já é no dia a dia): o ciclo 9 foi a passagem (27 a 29/11) e o 10 vai de 30/11
+  a 06/12. São os mesmos ciclos das issues (tela Projetos). A conta está em `src/tags.js` e, no banco, em
+  `renderiza_ciclo_do_dia` (`supabase/schema.sql` e `supabase/projetos.sql`). Ela aparece no cartão do kanban e ao lado do nome na tabela como **C1, C2…**,
   uma cor por ciclo, e como "Ciclo 2" no topo dos detalhes. Na tabela, a coluna **Ciclo** mostra o C1, C2.
 - **Dá para trocar o ciclo**: na coluna Ciclo da tabela ou no campo Ciclo dos detalhes (seção Andamento), que
   tem do ciclo 1 ao próximo e "Sem ciclo".
@@ -88,6 +92,74 @@ em `src/filtros-ui.js`.
 - A coluna `proxima_acao` continua no banco e passa a ser o texto do primeiro item pendente, gravado junto: o
   Ritmo, as sugestões das Tarefas e a IA continuam lendo a próxima ação. Se a IA escrever outra próxima ação, ela
   aparece na seção Checklist com o botão "Pôr na checklist".
+
+## Projetos: o trabalho depois da venda (28/11/2026)
+
+Pedido do Kaue: o Pipeline mostra a venda e termina no Ganho, mas depois do fechamento começa o trabalho (a entrega, e
+depois as fases seguintes). A tela **Projetos** é esse lugar, no jeito do Linear, separada da prospecção. Fica logo
+abaixo do Pipeline no menu.
+
+- **Projeto**: nome, cliente (um lead; opcional), descrição, início, meta (opcional) e situação (Em andamento ou
+  Concluído; concluído guarda o dia). Um cliente pode ter vários: a fase 1, a fase 2… Nos detalhes do cliente, o
+  cartão **Projetos** lista os dele e cria um novo já ligado a ele. Excluir o projeto apaga as issues dele; excluir o
+  cliente deixa o projeto sem cliente.
+- **Issue**: o trabalho. Título, descrição, projeto (opcional), status, estimativa (opcional: 1, 2, 3, 5 ou 8 pontos),
+  ciclo e responsável (Kaue ou Milena, só um rótulo). Cada uma tem um número curto (**#12**), por ordem de criação.
+- **Status**, nesta ordem, em inglês: **Backlog** (ainda vamos fazer, e ainda não paramos para pensar) → **To-do**
+  (pronto para fazer) → **In progress** → **Validation** (feito, falta conferir ou o cliente validar) → **Done**.
+  Ir para Done guarda o dia; sem ciclo, a issue entra no ciclo do dia (o esforço sempre conta em algum ciclo).
+- **Ciclos**: os mesmos da prospecção (ver "Ciclo (C1, C2…)"), de segunda a domingo desde 30/11/2026.
+
+Três vistas, nas abas da tela:
+
+| Vista | O que mostra |
+|---|---|
+| **Issues** | o quadro Backlog → Done, com filtros de projeto, ciclo (atual, próximo, sem ciclo, outros) e responsável, e a busca (título, descrição, #número, projeto). Arrastar muda o status e a ordem; o ícone do status muda sem arrastar (no celular). O **+** de cada coluna cria a issue já naquele status. O Done mostra as feitas nos últimos 7 dias (as outras em "Ver as mais antigas"), a não ser com filtro de projeto ou de ciclo |
+| **Projetos** | em andamento e concluídos, com o cliente, o progresso (issues e pontos) e as datas (meta vencida em vermelho). Abrir um mostra as issues dele por status, Editar, Concluir/Reabrir |
+| **Ciclos** | o atual (feitas, pontos, em aberto, quantos dias faltam), o próximo e os de depois (o planejado) e os que passaram (o que foi feito e o que ficou), para medir o esforço de cada semana |
+
+**Carga inicial** (`supabase/projetos-carga.sql`): Rafaela, Bia e Ricardo concluídos, cada um com as cinco etapas da
+entrega feitas, no ciclo que o Kaue pediu (Rafaela no 7, Bia no 8, Ricardo no 9); o vereador Mateuzinho em
+andamento (o site e a integração com o portal do gabinete), com a Proposta (a de 27/11) e a Assinatura do termo
+feitas (a data da assinatura é a mais recente dos termos aceitos dele no banco). O
+cliente de cada projeto é o lead da demo (`/demo/<pasta>`) ou do nome, só quando há um só.
+
+**As etapas da entrega de um site com painel** (o ponto de partida; o Kaue vai escrever o conceito das issues, para
+qualquer IA saber montar): poucas issues, cada uma com as ações dela na descrição. A demo já existe (não entra).
+
+1. **Contas e repositório do cliente**: Gmail de desenvolvimento, GitHub dele com o repositório privado do site, a
+   integração com a conta da Renderiza no GitHub (a que o Claude acessa) e o app do Claude no repositório.
+2. **A demo vira o site, no repositório dele**: o Claude gera o site (`npm run site -- <pasta>`) e sobe.
+3. **Painel Renderiza: conta, módulos e acessos**: a conta, os módulos combinados (Meu site, Estoque, agenda…), o
+   site ligado ao painel, os acessos preparados.
+4. **Publicação: Cloudflare Pages e domínio**: o Pages ligado ao repositório, o domínio comprado no Registro.br no
+   nome dele e apontado para o Pages.
+5. **Conferência no ar e entrega**: a página no domínio conferida com o painel, testes no computador e no celular, o
+   acesso do painel entregue ao cliente.
+
+**Documentação em Markdown** (pedido do Kaue em 28/11: "virar uma documentação mesmo, para a próxima sessão se
+basear"):
+
+- **Na issue:** a janela tem o título e a documentação à esquerda e as propriedades à direita.
+  - **Ler:** o Markdown formatado (títulos, listas, código, links, tabelas), com a checklist (`- [ ]`) que se marca com
+    um clique e o campo "Anotar no registro", que acrescenta `- dd/mm · texto` na seção Registro. Os dois gravam na
+    hora.
+  - **Editar:** o texto, com "Usar o modelo" (Contexto, O que fazer, Pronto quando, Registro) e "Abrir .md".
+  - No cartão e na linha, a checklist aparece como "2/5".
+- **No projeto:** a documentação do projeto aparece formatada.
+- **Pacote .md** (`src/projetos.js`), entre o painel e as sessões, que não alcançam o banco:
+  - "Importar issues", no projeto: colar ou abrir o .md. Mostra antes o que cria e o que atualiza (pelo `numero:` ou
+    pelo mesmo título; importar de novo não duplica).
+  - "Copiar para uma sessão", no projeto, e "Copiar", na issue.
+  - Formato e regras: **[`docs/projetos-e-issues.md`](../docs/projetos-e-issues.md)**, o guia de qualquer sessão que
+    for trabalhar num projeto.
+
+Antes de existir o banco (`supabase/projetos.sql` ainda não rodado), a tela avisa e o resto do painel segue normal.
+Contas e testes:
+
+- `src/projetos.js` (`test/projetos.test.mjs`);
+- `src/markdown.js` (`test/markdown.test.mjs`: inclusive HTML colado e link `javascript:`, que não viram nada);
+- banco: `supabase/testes/projetos.sql`.
 
 ## Tarefas: o que fazer
 
@@ -289,6 +361,9 @@ painel/index.html                   página e estilos
 painel/src/app.js                   telas: Pipeline, Kanban, Conteúdo, painel lateral, finalizar
 painel/src/tela-tarefas.js          tela Tarefas, janela de tarefa e tarefas nos detalhes do cliente
 painel/src/tela-clientes.js         tela Clientes e cadastro rápido de cliente
+painel/src/tela-projetos.js         tela Projetos (Issues, Projetos, Ciclos), janelas de issue e de projeto, projetos do cliente
+painel/src/projetos.js              contas de projetos e issues: status, progresso, ordem, filtros, ciclos, o pacote .md (sem tela; com testes)
+painel/src/markdown.js              a documentação em Markdown: HTML seguro, checklist, registro, modelo (sem tela; com testes)
 painel/src/tarefas.js               contas de tarefas e clientes (sem tela; com testes)
 painel/src/tela-ritmo.js            tela Ritmo (semana, mês, ciclo, turma do mês, fila de retornos, ciclo)
 painel/src/tela-atividade.js        tela Atividade (linha do tempo das visitas ao link do painel e às demos)
@@ -327,7 +402,9 @@ variáveis de ambiente em tempo de execução. O único passo de build na Vercel
 ## 1. Supabase
 
 1. Crie um projeto no Supabase.
-2. **SQL Editor**: cole e rode `supabase/schema.sql`. Pode rodar de novo sem perder dados.
+2. **SQL Editor**: cole e rode `supabase/schema.sql`. Pode rodar de novo sem perder dados. Depois, os arquivos à
+   parte: `supabase/termos-online.sql` (termos de aceite) e `supabase/projetos.sql` (tela Projetos; a carga dos
+   primeiros projetos é o `supabase/projetos-carga.sql`, uma vez). Todos podem rodar de novo.
 3. **Authentication > Users > Add user**: crie seu usuário com e-mail e senha (marque *Auto Confirm User*).
 4. **Authentication > Sign In / Providers**: desligue *Allow new users to sign up*.
    As políticas já isolam os dados por dono; isso só evita contas que você não criou.
@@ -407,6 +484,16 @@ painel funciona e a seção Demo avisa que o prazo está indisponível; as demos
 **Placar começa do zero, de propósito.** Nenhum primeiro contato é deduzido de etapa, de demo criada,
 de data de atualização ou das datas do painel antigo. Óticas que parecem já contatadas aparecem na tela
 Ritmo para você registrar (com a data certa, mês aproximado ou sem data).
+
+**`projetos`** (`supabase/projetos.sql`): `id`, `dono`, `nome`, `lead_id` (cliente, opcional; excluir o cliente
+deixa o projeto sem cliente), `descricao`, `situacao` (`em_andamento`, `concluido`), `inicio`, `meta`,
+`concluido_em` (posto pelo banco ao concluir), `criado_em`, `atualizado_em`.
+
+**`issues`** (`supabase/projetos.sql`): `id`, `dono`, `numero` (o #12, por dono, posto pelo banco), `titulo`,
+`descricao`, `projeto_id` (opcional; excluir o projeto apaga as issues), `status` (`backlog`, `todo`, `in_progress`,
+`validation`, `done`), `estimativa` (1, 2, 3, 5 ou 8), `ciclo` (o número), `responsavel`, `posicao` (a ordem na
+coluna), `feita_em` (só em Done; o banco põe e tira), `criado_em`, `atualizado_em`. Mesma regra de acesso das
+outras tabelas.
 
 **`interacoes`**: o que aconteceu com cada ótica. `lead_id` (da mesma pessoa, por chave composta),
 `tipo` (`primeiro_contato`, `retorno`, `resposta`, `anotacao`), `ocorreu_em` (date), `precisao`

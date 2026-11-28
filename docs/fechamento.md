@@ -28,6 +28,9 @@ Para o Claude, basta: *"fechou &lt;cliente&gt;, R$ &lt;valor&gt;, pago em &lt;da
 - [ ] Lead em **Finalizado · Ganho**, com o valor fechado e a data (no painel do lead: Finalizar → Ganho).
 - [ ] **Registrar interação**: "Fechou: R$ &lt;valor&gt;, pago por &lt;forma&gt; em &lt;data&gt;. Combinado: &lt;o que entra&gt;."
 - [ ] **Próxima ação**: "Entrega do site: &lt;o que falta&gt;".
+- [ ] **Projeto da entrega** na tela **Projetos** (nos detalhes do cliente: Projetos → Novo projeto), com as issues
+  das etapas (`painel/README.md`, "Projetos": contas e repositório, a demo vira o site, painel, publicação,
+  conferência e entrega). O andamento de cada etapa fica nas issues.
 - [ ] **Demo no ar enquanto durar a entrega** (seção Demo do lead: "Sem prazo" ou "Reabilitar por 7 dias"): o
   cliente confere os ajustes no mesmo link de sempre.
 
