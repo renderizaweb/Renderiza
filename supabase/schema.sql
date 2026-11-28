@@ -10,6 +10,7 @@
 --   conteudos       ideias e publicações (tela Conteúdo)
 --   demos           prazo de cada demo (/demo/<pasta>): no ar, fora do ar, vale até. O site consulta antes de abrir
 --   arquivo_legado  portfólio, lançamentos, semanas e config do painel antigo, guardados como JSON
+--   projetos, issues  a tela Projetos (o trabalho depois da venda): em supabase/projetos.sql, à parte
 --
 -- Segurança: cada linha tem um dono (o usuário logado). As políticas de RLS só deixam
 -- cada usuário ver e editar as próprias linhas. A chave pública (anon) sozinha não lê nada.
@@ -94,7 +95,7 @@ alter table public.leads     add column if not exists fora_do_funil boolean not 
 alter table public.leads     add column if not exists link_flyer text not null default '';
 -- Mensagem pronta do primeiro contato (texto + link da demo): o painel abre o WhatsApp com ela, sem enviar.
 alter table public.leads     add column if not exists mensagem_whatsapp text not null default '';
--- Tags (14/10/2026): etiquetas do lead. "ciclo N" diz em que ciclo de prospecção (semanal, sexta a quinta, o
+-- Tags (14/10/2026): etiquetas do lead. "ciclo N" diz em que ciclo de prospecção (semanal; até o 8 de sexta a quinta, desde 30/11/2026 de segunda a domingo; o
 -- ciclo 1 de 02 a 08/10/2026) a conversa começou; entra sozinha pelo gatilho leads_marcar_ciclo, mais abaixo.
 alter table public.leads     add column if not exists tags text[] not null default '{}';
 -- Checklist do card (14/10/2026), no lugar da próxima ação: [{id, texto, feito, feito_em}]. O painel grava junto
@@ -498,15 +499,18 @@ create trigger leads_registrar_demo after insert or update of link_demo on publi
   for each row execute function public.leads_registrar_demo();
 
 -- ---------- ciclo de cada conversa (tag "ciclo N") ----------
--- Ciclos de prospecção semanais, de sexta a quinta: ciclo 1 de 02 a 08/10/2026, ciclo 2 de 09 a 15/10, e assim
--- por diante; o que veio antes (a lista de agosto) também é ciclo 1. É o mesmo cálculo do painel (painel/src/tags.js).
+-- Ciclos semanais: ciclo 1 de 02 a 08/10/2026, ciclo 2 de 09 a 15/10, e assim por diante, de sexta a quinta até o
+-- ciclo 8; o que veio antes (a lista de agosto) também é ciclo 1. Desde 30/11/2026 (pedido do Kaue em 28/11), de
+-- segunda a domingo, os mesmos dos projetos e das issues: o ciclo 9 foi a passagem (27 a 29/11) e o 10 começa em
+-- 30/11. É o mesmo cálculo do painel (painel/src/tags.js); supabase/projetos.sql troca a função no banco que já existe.
 create or replace function public.renderiza_ciclo_do_dia(d date)
 returns int
 language sql
 immutable
 set search_path = ''
 as $$
-  select greatest(1, ((d - date '2026-10-02') / 7) + 1)
+  select case when d >= date '2026-11-30' then 10 + ((d - date '2026-11-30') / 7)
+              else greatest(1, ((d - date '2026-10-02') / 7) + 1) end
 $$;
 
 -- Lead que sai de Leads a trabalhar ou de Prontas para trabalhar (ou já nasce depois delas) e ainda não tem tag de
@@ -1039,6 +1043,9 @@ begin
   end if;
 end;
 $$;
+
+-- Projetos e issues (28/11/2026): a tela Projetos. As tabelas, as regras e a troca dos ciclos para segunda a domingo
+-- estão em supabase/projetos.sql (rode depois deste); a carga dos primeiros projetos, em supabase/projetos-carga.sql.
 
 -- Termos online (14/11/2026): contrato aceito pela internet por um lead (/contrato/<pasta>). As tabelas
 -- termos_online e termos_aceites e a função aceitar_termo_online estão em supabase/termos-online.sql.

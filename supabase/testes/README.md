@@ -17,3 +17,18 @@ Para testar a atualização de um banco antigo (como a produção estava): rodar
 `termos-online.sql` (`git show <commit>:supabase/termos-online.sql`), criar o termo do vereador com o texto vazio e a
 contratada preenchida, rodar o arquivo novo (duas vezes, para ver que é idempotente) e os testes. O teste 8 confere que
 o termo do vereador continua assinando com os planos dele.
+
+## Projetos e issues (28/11/2026)
+
+`supabase/projetos.sql` (rodado duas vezes, para ver que é idempotente), a carga `supabase/projetos-carga.sql` (dentro
+do teste, duas vezes) e os testes: os ciclos de segunda a domingo, os quatro projetos ligados aos leads certos, a
+data da assinatura do vereador vinda dos termos, o número curto, o Done (dia e ciclo), as recusas, o isolamento entre
+donos e o que acontece ao excluir o cliente ou o projeto.
+
+```
+$P -c "create database proj"
+$P -d proj -f supabase/testes/supabase-minimo.sql
+$P -d proj -f supabase/termos-online.sql
+$P -d proj -f supabase/projetos.sql && $P -d proj -f supabase/projetos.sql
+$P -d proj -f supabase/testes/projetos.sql           # termina com "projetos: tudo certo"
+```

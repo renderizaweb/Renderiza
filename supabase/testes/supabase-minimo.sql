@@ -1,4 +1,4 @@
--- O mínimo do Supabase para rodar os testes dos termos num Postgres local (sem o Supabase): os papéis, o auth.uid()
+-- O mínimo do Supabase para rodar os testes dos termos (e dos projetos) num Postgres local (sem o Supabase): os papéis, o auth.uid()
 -- lido do "request.jwt.claim.sub", o pgcrypto no esquema extensions e as tabelas do schema.sql que os termos usam
 -- (leads, visitas e a função da pasta da demo, como em produção). Ver supabase/testes/README.md.
 do $$ begin
@@ -23,6 +23,14 @@ create table if not exists public.leads (
   empresa    text not null default '',
   link_demo  text not null default ''
 );
+-- Como em produção (schema.sql): (id, dono) único, para as chaves compostas (tarefas, projetos); e o atualizado_em.
+do $$ begin
+  if not exists (select 1 from pg_constraint where conname = 'leads_id_dono_key') then
+    alter table public.leads add constraint leads_id_dono_key unique (id, dono);
+  end if;
+end $$;
+create or replace function public.tocar_atualizado_em() returns trigger language plpgsql set search_path = '' as $$
+begin new.atualizado_em := now(); return new; end $$;
 create or replace function public.renderiza_pasta_da_demo(link text) returns text language sql immutable set search_path = '' as $$
   select lower(substring(coalesce(link, '') from '/demo/([A-Za-z0-9-]+)'))
 $$;
