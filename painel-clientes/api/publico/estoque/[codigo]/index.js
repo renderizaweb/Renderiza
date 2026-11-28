@@ -7,7 +7,7 @@
 import { CODIGO, adaptar, cors, resposta, rpc } from "../../_comum.js";
 
 const IMAGENS = "/api/publico/imagens/";
-const ARQUIVO = /^[0-9a-f-]{36}\/estoque-[A-Za-z0-9_-]{6,80}\.webp$/;
+const ARQUIVO = /^[0-9a-f-]{36}\/estoque-[A-Za-z0-9_-]{6,80}\.(webp|jpg)$/; // .jpg: do iPhone, que não gera WebP (28/11/2026)
 
 function foto(f) {
   if (!f || !ARQUIVO.test(f.arquivo || "")) return null;

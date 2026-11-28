@@ -222,6 +222,10 @@ test("imagens: só .webp da pasta de uma conta, do Storage do projeto, com cache
   assert.equal(chamadas.length, 1, "caminho estranho nem chega ao Storage");
   const fora = await imagem({ metodo: "GET", caminho: `/api/publico/imagens/${conta}/nao.webp`, env: ENV }, async () => ({ ok: false, status: 400 }));
   assert.equal(fora.status, 404);
+  // a foto do Estoque vinda do iPhone (que não gera WebP) é .jpg, servida como JPEG (28/11/2026)
+  const jpg = await imagem({ metodo: "GET", caminho: `/api/publico/imagens/${conta}/estoque-abc123.jpg`, env: ENV }, buscar);
+  assert.equal(jpg.status, 200);
+  assert.equal(jpg.cabecalhos["Content-Type"], "image/jpeg");
 });
 
 // ---------- os indicadores do site (a contagem de visitas) ----------
@@ -275,7 +279,7 @@ test("estoque: só o disponível e o reservado, com as fotos pelo endereço da A
   const b = bancoFalso(() => ({ json: { versao: 1, esquema: "automotivo", atualizado_em: "2026-11-24T18:00:00Z", itens: [
     { id: "a", situacao: "disponivel", destaque: true, preco: 189900, preco_antes: null, quantidade: 1, selos: ["Blindado"], descricao: "", campos: { marca: "Aurora" }, codigo_interno: "ABC1D23",
       fotos: [{ arquivo: conta + "/estoque-aaaaaa11.webp", mini: conta + "/estoque-aaaaaa11-m.webp", w: 1600, h: 1067 }, { arquivo: "../fora.webp", w: 1, h: 1 }] },
-    { id: "b", situacao: "reservado", preco: null, campos: { marca: "Aurora" }, fotos: [{ arquivo: conta + "/estoque-bbbbbb22.webp", w: 800, h: 600 }] },
+    { id: "b", situacao: "reservado", preco: null, campos: { marca: "Aurora" }, fotos: [{ arquivo: conta + "/estoque-bbbbbb22.jpg", w: 800, h: 600 }] },
     { id: "c", situacao: "oculto", campos: {} },
     { id: "d", situacao: "disponivel", campos: { marca: "Sem Foto" }, fotos: [] },
     { id: "e", situacao: "disponivel", campos: { marca: "Só Foto de Fora" }, fotos: [{ arquivo: "../fora.webp", w: 1, h: 1 }] },

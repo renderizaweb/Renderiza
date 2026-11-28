@@ -15,7 +15,10 @@ export function ordenar(itens) {
   return [...itens].sort((a, b) => (b.destaque - a.destaque) || ((a.ordem || 0) - (b.ordem || 0)) || String(b.criado_em || "").localeCompare(String(a.criado_em || "")));
 }
 
-/** Reduz no aparelho e converte para WebP (lado maior `lado`). Devolve { blob, w, h }. */
+/**
+ * Reduz no aparelho (lado maior `lado`) e converte para WebP; o aparelho que não gera WebP (o iPhone: o Safari devolve
+ * PNG no lugar) manda JPEG (28/11/2026). Devolve { blob, w, h, tipo, ext }.
+ */
 export async function paraWebp(arquivo, lado, qualidade = 0.82) {
   const imagem = await createImageBitmap(arquivo);
   const escala = Math.min(1, lado / Math.max(imagem.width, imagem.height));
@@ -23,10 +26,12 @@ export async function paraWebp(arquivo, lado, qualidade = 0.82) {
   tela.width = Math.round(imagem.width * escala);
   tela.height = Math.round(imagem.height * escala);
   tela.getContext("2d").drawImage(imagem, 0, 0, tela.width, tela.height);
-  const blob = await new Promise(r => tela.toBlob(r, "image/webp", qualidade));
-  if (!blob || blob.type !== "image/webp") throw new Error("Este aparelho não conseguiu converter a foto. Tente outra, ou outro navegador.");
+  let blob = await new Promise(r => tela.toBlob(r, "image/webp", qualidade));
+  if (!blob || blob.type !== "image/webp") blob = await new Promise(r => tela.toBlob(r, "image/jpeg", Math.min(0.9, qualidade + 0.04)));
+  if (!blob || !/^image\/(webp|jpeg)$/.test(blob.type)) throw new Error("Este aparelho não conseguiu converter a foto. Tente outra foto.");
   if (blob.size > 2 * 1024 * 1024) throw new Error("A foto ficou grande demais. Tente uma menor.");
-  return { blob, w: tela.width, h: tela.height };
+  const tipo = blob.type;
+  return { blob, w: tela.width, h: tela.height, tipo, ext: tipo === "image/webp" ? "webp" : "jpg" };
 }
 
 export function criarLoja({ banco, conta }) {
@@ -83,10 +88,10 @@ export function criarLoja({ banco, conta }) {
     async enviarFoto(arquivo) {
       const [grande, pequena] = await Promise.all([paraWebp(arquivo, 1600, 0.84), paraWebp(arquivo, 640, 0.78)]);
       const sorteio = Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
-      const f = { arquivo: `${conta.conta_id}/estoque-${sorteio}.webp`, mini: `${conta.conta_id}/estoque-${sorteio}-m.webp`, w: grande.w, h: grande.h };
+      const f = { arquivo: `${conta.conta_id}/estoque-${sorteio}.${grande.ext}`, mini: `${conta.conta_id}/estoque-${sorteio}-m.${pequena.ext}`, w: grande.w, h: grande.h };
       await Promise.all([
-        banco.enviarArquivo(BUCKET, f.arquivo, grande.blob, "image/webp", { trocar: false }),
-        banco.enviarArquivo(BUCKET, f.mini, pequena.blob, "image/webp", { trocar: false }),
+        banco.enviarArquivo(BUCKET, f.arquivo, grande.blob, grande.tipo, { trocar: false }),
+        banco.enviarArquivo(BUCKET, f.mini, pequena.blob, pequena.tipo, { trocar: false }),
       ]);
       return f;
     },

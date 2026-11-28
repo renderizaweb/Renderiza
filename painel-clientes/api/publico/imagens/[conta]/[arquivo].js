@@ -4,7 +4,8 @@
 
 import { ambiente } from "../../_comum.js";
 
-const CAMINHO = /^\/api\/publico\/imagens\/([0-9a-f-]{36}\/[A-Za-z0-9._-]{1,120}\.webp)$/;
+// .jpg: as fotos do Estoque vindas do iPhone, que não gera WebP (28/11/2026)
+const CAMINHO = /^\/api\/publico\/imagens\/([0-9a-f-]{36}\/[A-Za-z0-9._-]{1,120}\.(webp|jpg))$/;
 
 export async function tratar({ metodo, caminho, env }, buscar = fetch) {
   if (metodo !== "GET" && metodo !== "HEAD") return { status: 405, corpo: null, cabecalhos: { Allow: "GET, HEAD" } };
@@ -17,7 +18,7 @@ export async function tratar({ metodo, caminho, env }, buscar = fetch) {
     status: 200,
     corpo: Buffer.from(await r.arrayBuffer()),
     cabecalhos: {
-      "Content-Type": "image/webp",
+      "Content-Type": m[2] === "jpg" ? "image/jpeg" : "image/webp",
       "Cache-Control": "public, max-age=31536000, immutable",
       "Access-Control-Allow-Origin": "*",
       "X-Content-Type-Options": "nosniff",

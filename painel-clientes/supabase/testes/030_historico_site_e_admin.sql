@@ -179,9 +179,9 @@ with trocado as (update storage.objects set metadata = '{}' where bucket_id = 'l
 select testes.afirmar(count(*) = 0, 'quem não é dono não troca o logo') from trocado;
 reset role;
 select testes.afirmar(
-  (select public and file_size_limit = 2097152 and allowed_mime_types = array['image/webp'] from storage.buckets where id = 'site-imagens')
+  (select public and file_size_limit = 2097152 and allowed_mime_types = array['image/webp', 'image/jpeg'] from storage.buckets where id = 'site-imagens')
   and (select not public from storage.buckets where id = 'privado'),
-  'buckets: imagens do site públicas, só WebP, até 2 MB; privado fechado');
+  'buckets: imagens do site públicas, WebP (e JPEG do iPhone, 28/11/2026), até 2 MB; privado fechado');
 
 -- ---------- tempo real ----------
 select testes.afirmar(
