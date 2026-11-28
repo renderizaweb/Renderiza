@@ -17,7 +17,7 @@
 
   var API = "https://painel.renderizaweb.com.br/api/publico/";
   var CODIGO = /^[a-z0-9][a-z0-9-]{1,38}[a-z0-9]$/;
-  var FOTO = /^\/api\/publico\/imagens\/[0-9a-f-]{36}\/estoque-[A-Za-z0-9_-]{6,80}\.webp$/;
+  var FOTO = /^\/api\/publico\/imagens\/[0-9a-f-]{36}\/estoque-[A-Za-z0-9_-]{6,80}\.(webp|jpg)$/; // .jpg: as do iPhone (28/11/2026)
   // GUARDA: até quando a lista da sessão serve para a primeira pintura (a nova vem logo atrás); INTERVALO: o mínimo
   // entre dois pedidos (voltar à aba várias vezes seguidas não vira uma enxurrada)
   var GUARDA = 600000, ESPERA = 6000, MAXIMO = 300, INTERVALO = 3000;
